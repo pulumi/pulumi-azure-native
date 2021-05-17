@@ -62,6 +62,10 @@ export interface GetComponentResult {
      */
     readonly disableIpMasking?: boolean;
     /**
+     * Disable Non-AAD based Auth.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
      * Resource etag
      */
     readonly etag?: string;
@@ -69,6 +73,10 @@ export interface GetComponentResult {
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     readonly flowType?: string;
+    /**
+     * Force users to create their own storage account for profiler and debugger.
+     */
+    readonly forceCustomerStorageForProfiler?: boolean;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */

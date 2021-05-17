@@ -155,7 +155,7 @@ class SyncAgent(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20150501preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20201101preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:SyncAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20150501preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20201101preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20210201preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20210201preview:SyncAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncAgent, __self__).__init__(
             'azure-native:sql/v20200202preview:SyncAgent',

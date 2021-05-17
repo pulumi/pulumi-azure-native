@@ -12,6 +12,7 @@ import * as v20201110preview from "./v20201110preview";
 import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210309preview from "./v20210309preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20190123preview,
@@ -24,6 +25,7 @@ export {
     v20210114preview,
     v20210201preview,
     v20210309preview,
+    v20210401preview,
 };
 
 export const ApplicationGroupType = {
@@ -126,6 +128,17 @@ export const PreferredAppGroupType = {
  * The type of preferred application group type, default to Desktop Application Group
  */
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const RegistrationTokenOperation = {
     Delete: "Delete",

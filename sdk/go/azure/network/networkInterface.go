@@ -36,14 +36,20 @@ type NetworkInterface struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
+	// Migration phase of Network Interface resource.
+	MigrationPhase pulumi.StringPtrOutput `pulumi:"migrationPhase"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
+	// Type of Network Interface resource.
+	NicType pulumi.StringPtrOutput `pulumi:"nicType"`
 	// Whether this is a primary network interface on a virtual machine.
 	Primary pulumi.BoolOutput `pulumi:"primary"`
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService PrivateLinkServiceResponsePtrOutput `pulumi:"privateLinkService"`
 	// The provisioning state of the network interface resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.
@@ -288,6 +294,12 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkInterface"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:NetworkInterface"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:NetworkInterface"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkInterface
@@ -332,14 +344,20 @@ type networkInterfaceState struct {
 	Location *string `pulumi:"location"`
 	// The MAC address of the network interface.
 	MacAddress *string `pulumi:"macAddress"`
+	// Migration phase of Network Interface resource.
+	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// Type of Network Interface resource.
+	NicType *string `pulumi:"nicType"`
 	// Whether this is a primary network interface on a virtual machine.
 	Primary *bool `pulumi:"primary"`
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService *PrivateLinkServiceResponse `pulumi:"privateLinkService"`
 	// The provisioning state of the network interface resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.
@@ -375,14 +393,20 @@ type NetworkInterfaceState struct {
 	Location pulumi.StringPtrInput
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringPtrInput
+	// Migration phase of Network Interface resource.
+	MigrationPhase pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupResponsePtrInput
+	// Type of Network Interface resource.
+	NicType pulumi.StringPtrInput
 	// Whether this is a primary network interface on a virtual machine.
 	Primary pulumi.BoolPtrInput
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService PrivateLinkServiceResponsePtrInput
 	// The provisioning state of the network interface resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The resource GUID property of the network interface resource.
@@ -416,10 +440,16 @@ type networkInterfaceArgs struct {
 	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Migration phase of Network Interface resource.
+	MigrationPhase *string `pulumi:"migrationPhase"`
 	// The name of the network interface.
 	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	// Type of Network Interface resource.
+	NicType *string `pulumi:"nicType"`
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService *PrivateLinkServiceType `pulumi:"privateLinkService"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -442,10 +472,16 @@ type NetworkInterfaceArgs struct {
 	IpConfigurations NetworkInterfaceIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Migration phase of Network Interface resource.
+	MigrationPhase pulumi.StringPtrInput
 	// The name of the network interface.
 	NetworkInterfaceName pulumi.StringPtrInput
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
+	// Type of Network Interface resource.
+	NicType pulumi.StringPtrInput
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService PrivateLinkServiceTypePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

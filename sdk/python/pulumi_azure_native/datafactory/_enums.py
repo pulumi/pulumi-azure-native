@@ -10,18 +10,13 @@ __all__ = [
     'AzureSearchIndexWriteBehaviorType',
     'BlobEventTypes',
     'CassandraSourceReadConsistencyLevels',
-    'CompressionCodec',
     'CosmosDbConnectionMode',
     'CosmosDbServicePrincipalCredentialType',
     'DataFlowComputeType',
-    'DatasetCompressionLevel',
     'DayOfWeek',
     'DaysOfWeek',
     'Db2AuthenticationType',
     'DependencyCondition',
-    'DynamicsAuthenticationType',
-    'DynamicsDeploymentType',
-    'DynamicsServicePrincipalCredentialType',
     'DynamicsSinkWriteBehavior',
     'FactoryIdentityType',
     'FtpAuthenticationType',
@@ -30,7 +25,6 @@ __all__ = [
     'GoogleBigQueryAuthenticationType',
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
-    'HdiNodeTypes',
     'HiveAuthenticationType',
     'HiveServerType',
     'HiveThriftTransportProtocol',
@@ -41,8 +35,6 @@ __all__ = [
     'IntegrationRuntimeLicenseType',
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
-    'JsonFormatFilePattern',
-    'JsonWriteFilePattern',
     'MongoDbAuthenticationType',
     'ODataAadServicePrincipalCredentialType',
     'ODataAuthenticationType',
@@ -127,13 +119,6 @@ class CassandraSourceReadConsistencyLevels(str, Enum):
     LOCA_L_SERIAL = "LOCAL_SERIAL"
 
 
-class CompressionCodec(str, Enum):
-    NONE = "none"
-    GZIP = "gzip"
-    SNAPPY = "snappy"
-    LZO = "lzo"
-
-
 class CosmosDbConnectionMode(str, Enum):
     """
     The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
@@ -157,14 +142,6 @@ class DataFlowComputeType(str, Enum):
     GENERAL = "General"
     MEMORY_OPTIMIZED = "MemoryOptimized"
     COMPUTE_OPTIMIZED = "ComputeOptimized"
-
-
-class DatasetCompressionLevel(str, Enum):
-    """
-    The data compression method used for DelimitedText.
-    """
-    OPTIMAL = "Optimal"
-    FASTEST = "Fastest"
 
 
 class DayOfWeek(str, Enum):
@@ -202,31 +179,6 @@ class DependencyCondition(str, Enum):
     FAILED = "Failed"
     SKIPPED = "Skipped"
     COMPLETED = "Completed"
-
-
-class DynamicsAuthenticationType(str, Enum):
-    """
-    The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-    """
-    OFFICE365 = "Office365"
-    IFD = "Ifd"
-    AAD_SERVICE_PRINCIPAL = "AADServicePrincipal"
-
-
-class DynamicsDeploymentType(str, Enum):
-    """
-    The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-    """
-    ONLINE = "Online"
-    ON_PREMISES_WITH_IFD = "OnPremisesWithIfd"
-
-
-class DynamicsServicePrincipalCredentialType(str, Enum):
-    """
-    The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-    """
-    SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
-    SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
 
 
 class DynamicsSinkWriteBehavior(str, Enum):
@@ -296,15 +248,6 @@ class HDInsightActivityDebugInfoOption(str, Enum):
     NONE = "None"
     ALWAYS = "Always"
     FAILURE = "Failure"
-
-
-class HdiNodeTypes(str, Enum):
-    """
-    The node types on which the script action should be executed.
-    """
-    HEADNODE = "Headnode"
-    WORKERNODE = "Workernode"
-    ZOOKEEPER = "Zookeeper"
 
 
 class HiveAuthenticationType(str, Enum):
@@ -396,22 +339,6 @@ class IntegrationRuntimeType(str, Enum):
     """
     MANAGED = "Managed"
     SELF_HOSTED = "SelfHosted"
-
-
-class JsonFormatFilePattern(str, Enum):
-    """
-    File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-    """
-    SET_OF_OBJECTS = "setOfObjects"
-    ARRAY_OF_OBJECTS = "arrayOfObjects"
-
-
-class JsonWriteFilePattern(str, Enum):
-    """
-    File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
-    """
-    SET_OF_OBJECTS = "setOfObjects"
-    ARRAY_OF_OBJECTS = "arrayOfObjects"
 
 
 class MongoDbAuthenticationType(str, Enum):

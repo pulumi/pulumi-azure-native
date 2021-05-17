@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The GZip compression level.
         /// </summary>
-        public readonly string? Level;
+        public readonly object? Level;
         /// <summary>
         /// Type of dataset compression.
         /// Expected value is 'GZip'.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DatasetGZipCompressionResponse(
-            string? level,
+            object? level,
 
             string type)
         {

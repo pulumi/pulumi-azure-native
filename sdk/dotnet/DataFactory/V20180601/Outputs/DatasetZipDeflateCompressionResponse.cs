@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The ZipDeflate compression level.
         /// </summary>
-        public readonly string? Level;
+        public readonly object? Level;
         /// <summary>
         /// Type of dataset compression.
         /// Expected value is 'ZipDeflate'.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private DatasetZipDeflateCompressionResponse(
-            string? level,
+            object? level,
 
             string type)
         {

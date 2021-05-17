@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetNetworkConfigurationResponse
     {
         /// <summary>
+        /// Specify what happens to the network interface when the VM is deleted
+        /// </summary>
+        public readonly string? DeleteOption;
+        /// <summary>
         /// The dns settings to be applied on the network interfaces.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? DnsSettings;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private VirtualMachineScaleSetNetworkConfigurationResponse(
+            string? deleteOption,
+
             Outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse? dnsSettings,
 
             bool? enableAcceleratedNetworking,
@@ -70,6 +76,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             bool? primary)
         {
+            DeleteOption = deleteOption;
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableFpga = enableFpga;

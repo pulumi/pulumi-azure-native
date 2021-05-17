@@ -32,7 +32,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SourceArgs'] source: Data Source against which rule will Query Data
-        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -103,7 +103,7 @@ class ScheduledQueryRuleArgs:
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         """
         return pulumi.get(self, "auto_mitigate")
 
@@ -220,7 +220,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]] action: Action needs to be taken on rule execution.
-        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -361,7 +361,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> pulumi.Output[Optional[bool]]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         """
         return pulumi.get(self, "auto_mitigate")
 

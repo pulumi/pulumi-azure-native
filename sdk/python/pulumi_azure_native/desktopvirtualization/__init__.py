@@ -12,10 +12,14 @@ from .get_application import *
 from .get_application_group import *
 from .get_host_pool import *
 from .get_msix_package import *
+from .get_private_endpoint_connection_by_host_pool import *
+from .get_private_endpoint_connection_by_workspace import *
 from .get_scaling_plan import *
 from .get_workspace import *
 from .host_pool import *
 from .msix_package import *
+from .private_endpoint_connection_by_host_pool import *
+from .private_endpoint_connection_by_workspace import *
 from .scaling_plan import *
 from .workspace import *
 from ._inputs import *
@@ -33,6 +37,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.desktopvirtualization.v20210114preview as v20210114preview
     import pulumi_azure_native.desktopvirtualization.v20210201preview as v20210201preview
     import pulumi_azure_native.desktopvirtualization.v20210309preview as v20210309preview
+    import pulumi_azure_native.desktopvirtualization.v20210401preview as v20210401preview
 else:
     v20190123preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20190123preview')
     v20190924preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20190924preview')
@@ -44,4 +49,5 @@ else:
     v20210114preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210114preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210201preview')
     v20210309preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210309preview')
+    v20210401preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210401preview')
 

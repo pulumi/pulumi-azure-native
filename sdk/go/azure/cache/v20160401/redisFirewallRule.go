@@ -84,6 +84,12 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:RedisFirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:cache/v20201201:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20201201:RedisFirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RedisFirewallRule

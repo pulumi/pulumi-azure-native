@@ -20,7 +20,7 @@ class GetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, diagnostics_profile=None, hardware_profile=None, id=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resources=None, security_profile=None, sku=None, storage_profile=None, tags=None, type=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, diagnostics_profile=None, hardware_profile=None, id=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resources=None, security_profile=None, sku=None, storage_profile=None, tags=None, type=None, user_data=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -93,6 +93,9 @@ class GetVirtualMachineScaleSetVMResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if user_data and not isinstance(user_data, str):
+            raise TypeError("Expected argument 'user_data' to be a str")
+        pulumi.set(__self__, "user_data", user_data)
         if vm_id and not isinstance(vm_id, str):
             raise TypeError("Expected argument 'vm_id' to be a str")
         pulumi.set(__self__, "vm_id", vm_id)
@@ -112,7 +115,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         """
         return pulumi.get(self, "availability_set")
 
@@ -293,6 +296,14 @@ class GetVirtualMachineScaleSetVMResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        """
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        """
+        return pulumi.get(self, "user_data")
+
+    @property
     @pulumi.getter(name="vmId")
     def vm_id(self) -> str:
         """
@@ -339,6 +350,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
             storage_profile=self.storage_profile,
             tags=self.tags,
             type=self.type,
+            user_data=self.user_data,
             vm_id=self.vm_id,
             zones=self.zones)
 
@@ -350,10 +362,10 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
-    :param str expand: The expand expression to apply on the operation.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
     :param str instance_id: The instance ID of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
@@ -394,5 +406,6 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type,
+        user_data=__ret__.user_data,
         vm_id=__ret__.vm_id,
         zones=__ret__.zones)

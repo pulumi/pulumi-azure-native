@@ -317,6 +317,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         public LabArgs()
         {
+            LabStorageType = "Premium";
         }
     }
 }

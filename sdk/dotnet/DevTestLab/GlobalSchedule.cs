@@ -239,6 +239,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         public GlobalScheduleArgs()
         {
+            Status = "Disabled";
         }
     }
 }

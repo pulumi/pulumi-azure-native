@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a Virtual Machine Scale Set.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithVersion());
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute
 
     public sealed class GetVirtualMachineScaleSetArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
         /// <summary>
         /// The name of the resource group.
         /// </summary>

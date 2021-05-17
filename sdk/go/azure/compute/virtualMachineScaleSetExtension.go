@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set Extension.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +116,12 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineScaleSetExtension"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineScaleSetExtension"),
 		},
 	})
 	opts = append(opts, aliases)

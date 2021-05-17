@@ -17,7 +17,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
-        public readonly string? CompressionCodec;
+        /// <summary>
+        /// The data compressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? CompressionCodec;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -56,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private ParquetDatasetResponse(
             ImmutableArray<object> annotations,
 
-            string? compressionCodec,
+            object? compressionCodec,
 
             string? description,
 

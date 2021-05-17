@@ -85,13 +85,25 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponse? LinkedPublicIPAddress;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        public readonly string? MigrationPhase;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        public readonly Outputs.NatGatewayResponse? NatGateway;
         /// <summary>
         /// The provisioning state of the public IP address resource.
         /// </summary>
@@ -112,6 +124,10 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// The resource GUID property of the public IP address resource.
         /// </summary>
         public readonly string ResourceGuid;
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponse? ServicePublicIPAddress;
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
@@ -149,9 +165,15 @@ namespace Pulumi.AzureNative.Network.V20201101
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
 
+            Outputs.PublicIPAddressResponse? linkedPublicIPAddress,
+
             string? location,
 
+            string? migrationPhase,
+
             string name,
+
+            Outputs.NatGatewayResponse? natGateway,
 
             string provisioningState,
 
@@ -162,6 +184,8 @@ namespace Pulumi.AzureNative.Network.V20201101
             Outputs.SubResourceResponse? publicIPPrefix,
 
             string resourceGuid,
+
+            Outputs.PublicIPAddressResponse? servicePublicIPAddress,
 
             Outputs.PublicIPAddressSkuResponse? sku,
 
@@ -180,13 +204,17 @@ namespace Pulumi.AzureNative.Network.V20201101
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;
             IpTags = ipTags;
+            LinkedPublicIPAddress = linkedPublicIPAddress;
             Location = location;
+            MigrationPhase = migrationPhase;
             Name = name;
+            NatGateway = natGateway;
             ProvisioningState = provisioningState;
             PublicIPAddressVersion = publicIPAddressVersion;
             PublicIPAllocationMethod = publicIPAllocationMethod;
             PublicIPPrefix = publicIPPrefix;
             ResourceGuid = resourceGuid;
+            ServicePublicIPAddress = servicePublicIPAddress;
             Sku = sku;
             Tags = tags;
             Type = type;

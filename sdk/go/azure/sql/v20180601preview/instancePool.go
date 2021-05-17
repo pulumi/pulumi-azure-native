@@ -80,6 +80,12 @@ func NewInstancePool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:InstancePool"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210201preview:InstancePool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210201preview:InstancePool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource InstancePool

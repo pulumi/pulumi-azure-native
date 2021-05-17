@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
@@ -129,6 +129,10 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
      * Azure VM unique ID.
      */
     public /*out*/ readonly vmId!: pulumi.Output<string>;
@@ -170,6 +174,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["securityProfile"] = args ? args.securityProfile : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             inputs["instanceView"] = undefined /*out*/;
             inputs["latestModelApplied"] = undefined /*out*/;
@@ -205,13 +210,14 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userData"] = undefined /*out*/;
             inputs["vmId"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20210301:VirtualMachineScaleSetVM" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
     }
@@ -226,7 +232,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     readonly additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
     readonly availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
@@ -285,6 +291,10 @@ export interface VirtualMachineScaleSetVMArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     */
+    readonly userData?: pulumi.Input<string>;
     /**
      * The name of the VM scale set where the extension should be create or updated.
      */

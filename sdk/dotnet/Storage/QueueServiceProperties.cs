@@ -68,6 +68,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:QueueServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

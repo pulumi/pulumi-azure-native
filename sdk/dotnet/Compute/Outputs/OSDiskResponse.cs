@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
+        /// Specifies whether OS Disk should be deleted or detached upon VM deletion. &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the os disk is retained after VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+        /// </summary>
+        public readonly string? DeleteOption;
+        /// <summary>
         /// Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
         /// </summary>
         public readonly Outputs.DiffDiskSettingsResponse? DiffDiskSettings;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string createOption,
 
+            string? deleteOption,
+
             Outputs.DiffDiskSettingsResponse? diffDiskSettings,
 
             int? diskSizeGB,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         {
             Caching = caching;
             CreateOption = createOption;
+            DeleteOption = deleteOption;
             DiffDiskSettings = diffDiskSettings;
             DiskSizeGB = diskSizeGB;
             EncryptionSettings = encryptionSettings;

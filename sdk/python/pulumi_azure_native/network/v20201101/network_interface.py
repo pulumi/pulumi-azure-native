@@ -24,8 +24,11 @@ class NetworkInterfaceArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
+                 nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: Optional[pulumi.Input['PrivateLinkServiceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
@@ -37,8 +40,11 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']] migration_phase: Migration phase of Network Interface resource.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
+        :param pulumi.Input['PrivateLinkServiceArgs'] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -56,10 +62,16 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if migration_phase is not None:
+            pulumi.set(__self__, "migration_phase", migration_phase)
         if network_interface_name is not None:
             pulumi.set(__self__, "network_interface_name", network_interface_name)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
+        if nic_type is not None:
+            pulumi.set(__self__, "nic_type", nic_type)
+        if private_link_service is not None:
+            pulumi.set(__self__, "private_link_service", private_link_service)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -160,6 +172,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]]:
+        """
+        Migration phase of Network Interface resource.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @migration_phase.setter
+    def migration_phase(self, value: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]]):
+        pulumi.set(self, "migration_phase", value)
+
+    @property
     @pulumi.getter(name="networkInterfaceName")
     def network_interface_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -182,6 +206,30 @@ class NetworkInterfaceArgs:
     @network_security_group.setter
     def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArgs']]):
         pulumi.set(self, "network_security_group", value)
+
+    @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @nic_type.setter
+    def nic_type(self, value: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]]):
+        pulumi.set(self, "nic_type", value)
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> Optional[pulumi.Input['PrivateLinkServiceArgs']]:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
+
+    @private_link_service.setter
+    def private_link_service(self, value: Optional[pulumi.Input['PrivateLinkServiceArgs']]):
+        pulumi.set(self, "private_link_service", value)
 
     @property
     @pulumi.getter
@@ -208,8 +256,11 @@ class NetworkInterface(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -225,8 +276,11 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']] migration_phase: Migration phase of Network Interface resource.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -261,8 +315,11 @@ class NetworkInterface(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -284,8 +341,11 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            __props__.__dict__["migration_phase"] = migration_phase
             __props__.__dict__["network_interface_name"] = network_interface_name
             __props__.__dict__["network_security_group"] = network_security_group
+            __props__.__dict__["nic_type"] = nic_type
+            __props__.__dict__["private_link_service"] = private_link_service
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -302,7 +362,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["tap_configurations"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:NetworkInterface"), pulumi.Alias(type_="azure-native:network:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:NetworkInterface"), pulumi.Alias(type_="azure-native:network:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20210201:NetworkInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterface, __self__).__init__(
             'azure-native:network/v20201101:NetworkInterface',
@@ -336,10 +396,13 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mac_address"] = None
+        __props__.__dict__["migration_phase"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_security_group"] = None
+        __props__.__dict__["nic_type"] = None
         __props__.__dict__["primary"] = None
         __props__.__dict__["private_endpoint"] = None
+        __props__.__dict__["private_link_service"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
@@ -429,6 +492,14 @@ class NetworkInterface(pulumi.CustomResource):
         return pulumi.get(self, "mac_address")
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> pulumi.Output[Optional[str]]:
+        """
+        Migration phase of Network Interface resource.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -445,6 +516,14 @@ class NetworkInterface(pulumi.CustomResource):
         return pulumi.get(self, "network_security_group")
 
     @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @property
     @pulumi.getter
     def primary(self) -> pulumi.Output[bool]:
         """
@@ -459,6 +538,14 @@ class NetworkInterface(pulumi.CustomResource):
         A reference to the private endpoint to which the network interface is linked.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceResponse']]:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -3291,6 +3291,71 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Migration phase of Network Interface resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfaceMigrationPhase : IEquatable<NetworkInterfaceMigrationPhase>
+    {
+        private readonly string _value;
+
+        private NetworkInterfaceMigrationPhase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfaceMigrationPhase None { get; } = new NetworkInterfaceMigrationPhase("None");
+        public static NetworkInterfaceMigrationPhase Prepare { get; } = new NetworkInterfaceMigrationPhase("Prepare");
+        public static NetworkInterfaceMigrationPhase Commit { get; } = new NetworkInterfaceMigrationPhase("Commit");
+        public static NetworkInterfaceMigrationPhase Abort { get; } = new NetworkInterfaceMigrationPhase("Abort");
+        public static NetworkInterfaceMigrationPhase Committed { get; } = new NetworkInterfaceMigrationPhase("Committed");
+
+        public static bool operator ==(NetworkInterfaceMigrationPhase left, NetworkInterfaceMigrationPhase right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfaceMigrationPhase left, NetworkInterfaceMigrationPhase right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfaceMigrationPhase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfaceMigrationPhase other && Equals(other);
+        public bool Equals(NetworkInterfaceMigrationPhase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of Network Interface resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfaceNicType : IEquatable<NetworkInterfaceNicType>
+    {
+        private readonly string _value;
+
+        private NetworkInterfaceNicType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfaceNicType Standard { get; } = new NetworkInterfaceNicType("Standard");
+        public static NetworkInterfaceNicType Elastic { get; } = new NetworkInterfaceNicType("Elastic");
+
+        public static bool operator ==(NetworkInterfaceNicType left, NetworkInterfaceNicType right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfaceNicType left, NetworkInterfaceNicType right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfaceNicType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfaceNicType other && Equals(other);
+        public bool Equals(NetworkInterfaceNicType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Comparison type to use for matching with the variable value.
     /// </summary>
     [EnumType]
@@ -3749,6 +3814,40 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProtocolType other && Equals(other);
         public bool Equals(ProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Migration phase of Public IP Address.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressMigrationPhase : IEquatable<PublicIPAddressMigrationPhase>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressMigrationPhase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressMigrationPhase None { get; } = new PublicIPAddressMigrationPhase("None");
+        public static PublicIPAddressMigrationPhase Prepare { get; } = new PublicIPAddressMigrationPhase("Prepare");
+        public static PublicIPAddressMigrationPhase Commit { get; } = new PublicIPAddressMigrationPhase("Commit");
+        public static PublicIPAddressMigrationPhase Abort { get; } = new PublicIPAddressMigrationPhase("Abort");
+        public static PublicIPAddressMigrationPhase Committed { get; } = new PublicIPAddressMigrationPhase("Committed");
+
+        public static bool operator ==(PublicIPAddressMigrationPhase left, PublicIPAddressMigrationPhase right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressMigrationPhase left, PublicIPAddressMigrationPhase right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressMigrationPhase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressMigrationPhase other && Equals(other);
+        public bool Equals(PublicIPAddressMigrationPhase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

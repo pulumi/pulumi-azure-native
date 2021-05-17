@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         {
             Cpu = 1;
             MemoryInGB = 1;
+            RuntimeVersion = "Java_8";
         }
     }
 }

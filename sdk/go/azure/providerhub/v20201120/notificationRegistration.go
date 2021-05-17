@@ -42,6 +42,12 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:NotificationRegistration"),
 		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20210501preview:NotificationRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:NotificationRegistration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NotificationRegistration

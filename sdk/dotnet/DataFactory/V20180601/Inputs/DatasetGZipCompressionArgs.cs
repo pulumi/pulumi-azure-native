@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The GZip compression level.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DatasetCompressionLevel>? Level { get; set; }
+        public Input<object>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

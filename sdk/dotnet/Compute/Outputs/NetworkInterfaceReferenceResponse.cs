@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class NetworkInterfaceReferenceResponse
     {
         /// <summary>
+        /// Specify what happens to the network interface when the VM is deleted
+        /// </summary>
+        public readonly string? DeleteOption;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private NetworkInterfaceReferenceResponse(
+            string? deleteOption,
+
             string? id,
 
             bool? primary)
         {
+            DeleteOption = deleteOption;
             Id = id;
             Primary = primary;
         }

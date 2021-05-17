@@ -20,6 +20,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("azure-native:authorization:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,
+        "tenantId": args.tenantId,
     }, opts);
 }
 
@@ -32,6 +33,10 @@ export interface GetRoleAssignmentArgs {
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: string;
+    /**
+     * Tenant ID for cross-tenant request
+     */
+    readonly tenantId?: string;
 }
 
 /**

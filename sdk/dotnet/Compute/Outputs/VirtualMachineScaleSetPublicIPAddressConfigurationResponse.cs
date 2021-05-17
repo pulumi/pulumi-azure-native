@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationResponse
     {
         /// <summary>
+        /// Specify what happens to the public IP when the VM is deleted
+        /// </summary>
+        public readonly string? DeleteOption;
+        /// <summary>
         /// The dns settings to be applied on the publicIP addresses .
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse? DnsSettings;
@@ -37,9 +41,15 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// The PublicIPPrefix from which to allocate publicIP addresses.
         /// </summary>
         public readonly Outputs.SubResourceResponse? PublicIPPrefix;
+        /// <summary>
+        /// Describes the public IP Sku
+        /// </summary>
+        public readonly Outputs.PublicIPAddressSkuResponse? Sku;
 
         [OutputConstructor]
         private VirtualMachineScaleSetPublicIPAddressConfigurationResponse(
+            string? deleteOption,
+
             Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse? dnsSettings,
 
             int? idleTimeoutInMinutes,
@@ -50,14 +60,18 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? publicIPAddressVersion,
 
-            Outputs.SubResourceResponse? publicIPPrefix)
+            Outputs.SubResourceResponse? publicIPPrefix,
+
+            Outputs.PublicIPAddressSkuResponse? sku)
         {
+            DeleteOption = deleteOption;
             DnsSettings = dnsSettings;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpTags = ipTags;
             Name = name;
             PublicIPAddressVersion = publicIPAddressVersion;
             PublicIPPrefix = publicIPPrefix;
+            Sku = sku;
         }
     }
 }

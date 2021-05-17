@@ -47,6 +47,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
 import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
+import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 
 export {
@@ -95,6 +96,7 @@ export {
     v20200701,
     v20200801,
     v20201101,
+    v20210201,
     v20210201preview,
 };
 
@@ -1239,6 +1241,29 @@ export const NatGatewaySkuName = {
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
 
+export const NetworkInterfaceMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Network Interface resource.
+ */
+export type NetworkInterfaceMigrationPhase = (typeof NetworkInterfaceMigrationPhase)[keyof typeof NetworkInterfaceMigrationPhase];
+
+export const NetworkInterfaceNicType = {
+    Standard: "Standard",
+    Elastic: "Elastic",
+} as const;
+
+/**
+ * Type of Network Interface resource.
+ */
+export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
+
 export const Operator = {
     Any: "Any",
     IPMatch: "IPMatch",
@@ -1410,6 +1435,19 @@ export const ProtocolType = {
  * RNM supported protocol types.
  */
 export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
+
+export const PublicIPAddressMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Public IP Address.
+ */
+export type PublicIPAddressMigrationPhase = (typeof PublicIPAddressMigrationPhase)[keyof typeof PublicIPAddressMigrationPhase];
 
 export const PublicIPAddressSkuName = {
     Basic: "Basic",

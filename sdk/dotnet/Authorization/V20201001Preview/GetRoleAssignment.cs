@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
 
+        /// <summary>
+        /// Tenant ID for cross-tenant request
+        /// </summary>
+        [Input("tenantId")]
+        public string? TenantId { get; set; }
+
         public GetRoleAssignmentArgs()
         {
         }

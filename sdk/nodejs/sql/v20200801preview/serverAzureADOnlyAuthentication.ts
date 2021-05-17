@@ -81,7 +81,7 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20201101preview:ServerAzureADOnlyAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20201101preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210201preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20210201preview:ServerAzureADOnlyAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }

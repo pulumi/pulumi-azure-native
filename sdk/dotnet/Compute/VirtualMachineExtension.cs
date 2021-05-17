@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource
@@ -146,6 +146,8 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210301:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

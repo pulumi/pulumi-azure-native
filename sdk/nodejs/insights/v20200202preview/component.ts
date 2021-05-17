@@ -60,6 +60,10 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
+     * Disable Non-AAD based Auth.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource etag
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -67,6 +71,10 @@ export class Component extends pulumi.CustomResource {
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     public readonly flowType!: pulumi.Output<string | undefined>;
+    /**
+     * Force users to create their own storage account for profiler and debugger.
+     */
+    public readonly forceCustomerStorageForProfiler!: pulumi.Output<boolean | undefined>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -170,8 +178,10 @@ export class Component extends pulumi.CustomResource {
             }
             inputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            inputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
+            inputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
             inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
             inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
             inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "LogAnalytics";
@@ -205,8 +215,10 @@ export class Component extends pulumi.CustomResource {
             inputs["connectionString"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["disableIpMasking"] = undefined /*out*/;
+            inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["flowType"] = undefined /*out*/;
+            inputs["forceCustomerStorageForProfiler"] = undefined /*out*/;
             inputs["hockeyAppId"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
             inputs["immediatePurgeDataOn30Days"] = undefined /*out*/;
@@ -250,6 +262,10 @@ export interface ComponentArgs {
      */
     readonly disableIpMasking?: pulumi.Input<boolean>;
     /**
+     * Disable Non-AAD based Auth.
+     */
+    readonly disableLocalAuth?: pulumi.Input<boolean>;
+    /**
      * Resource etag
      */
     readonly etag?: pulumi.Input<string>;
@@ -257,6 +273,10 @@ export interface ComponentArgs {
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     readonly flowType?: pulumi.Input<string | enums.insights.v20200202preview.FlowType>;
+    /**
+     * Force users to create their own storage account for profiler and debugger.
+     */
+    readonly forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */

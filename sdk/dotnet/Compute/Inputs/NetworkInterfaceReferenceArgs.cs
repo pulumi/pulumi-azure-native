@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class NetworkInterfaceReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify what happens to the network interface when the VM is deleted
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DeleteOptions>? DeleteOption { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]

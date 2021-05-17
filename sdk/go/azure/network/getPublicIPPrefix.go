@@ -47,6 +47,8 @@ type LookupPublicIPPrefixResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// NatGateway of Public IP Prefix.
+	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The provisioning state of the public IP prefix resource.

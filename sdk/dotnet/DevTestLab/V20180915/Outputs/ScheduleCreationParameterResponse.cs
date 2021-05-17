@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
         /// <summary>
         /// The location of the new virtual machine or environment
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The name of the virtual machine or environment
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 
             Outputs.HourDetailsResponse? hourlyRecurrence,
 
-            string? location,
+            string location,
 
             string? name,
 

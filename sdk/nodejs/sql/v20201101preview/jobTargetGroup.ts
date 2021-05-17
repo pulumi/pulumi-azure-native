@@ -86,7 +86,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql:JobTargetGroup" }, { type: "azure-nextgen:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200202preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql:JobTargetGroup" }, { type: "azure-nextgen:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200202preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }, { type: "azure-native:sql/v20210201preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20210201preview:JobTargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobTargetGroup.__pulumiType, name, inputs, opts);
     }

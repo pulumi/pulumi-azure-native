@@ -20,6 +20,7 @@ class SubnetArgs:
                  virtual_network_name: pulumi.Input[str],
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
@@ -31,13 +32,15 @@ class SubnetArgs:
                  route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
-                 subnet_name: Optional[pulumi.Input[str]] = None):
+                 subnet_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Subnet resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
         :param pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]] delegations: An array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this subnet.
@@ -50,6 +53,7 @@ class SubnetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
+        :param pulumi.Input[str] type: Resource type.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
@@ -57,6 +61,8 @@ class SubnetArgs:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if application_gateway_ip_configurations is not None:
+            pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
         if id is not None:
@@ -85,6 +91,8 @@ class SubnetArgs:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
         if subnet_name is not None:
             pulumi.set(__self__, "subnet_name", subnet_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -133,6 +141,18 @@ class SubnetArgs:
     @address_prefixes.setter
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
+
+    @property
+    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    def application_gateway_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]]:
+        """
+        Application gateway IP configurations of virtual network resource.
+        """
+        return pulumi.get(self, "application_gateway_ip_configurations")
+
+    @application_gateway_ip_configurations.setter
+    def application_gateway_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]]):
+        pulumi.set(self, "application_gateway_ip_configurations", value)
 
     @property
     @pulumi.getter
@@ -278,6 +298,18 @@ class SubnetArgs:
     def subnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_name", value)
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 class Subnet(pulumi.CustomResource):
     @overload
@@ -286,6 +318,7 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
@@ -299,6 +332,7 @@ class Subnet(pulumi.CustomResource):
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -308,6 +342,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: An array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this subnet.
@@ -321,6 +356,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
+        :param pulumi.Input[str] type: Resource type.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
         ...
@@ -349,6 +385,7 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
@@ -362,6 +399,7 @@ class Subnet(pulumi.CustomResource):
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -377,6 +415,7 @@ class Subnet(pulumi.CustomResource):
 
             __props__.__dict__["address_prefix"] = address_prefix
             __props__.__dict__["address_prefixes"] = address_prefixes
+            __props__.__dict__["application_gateway_ip_configurations"] = application_gateway_ip_configurations
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_allocations"] = ip_allocations
@@ -396,6 +435,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_policies"] = service_endpoint_policies
             __props__.__dict__["service_endpoints"] = service_endpoints
             __props__.__dict__["subnet_name"] = subnet_name
+            __props__.__dict__["type"] = type
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
@@ -407,7 +447,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["purpose"] = None
             __props__.__dict__["resource_navigation_links"] = None
             __props__.__dict__["service_association_links"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:Subnet"), pulumi.Alias(type_="azure-native:network:Subnet"), pulumi.Alias(type_="azure-nextgen:network:Subnet"), pulumi.Alias(type_="azure-native:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-native:network/v20150615:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Subnet"), pulumi.Alias(type_="azure-native:network/v20160330:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Subnet"), pulumi.Alias(type_="azure-native:network/v20160601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Subnet"), pulumi.Alias(type_="azure-native:network/v20160901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Subnet"), pulumi.Alias(type_="azure-native:network/v20161201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Subnet"), pulumi.Alias(type_="azure-native:network/v20170301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Subnet"), pulumi.Alias(type_="azure-native:network/v20170601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Subnet"), pulumi.Alias(type_="azure-native:network/v20170801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Subnet"), pulumi.Alias(type_="azure-native:network/v20170901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Subnet"), pulumi.Alias(type_="azure-native:network/v20171001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Subnet"), pulumi.Alias(type_="azure-native:network/v20171101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Subnet"), pulumi.Alias(type_="azure-native:network/v20180401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Subnet"), pulumi.Alias(type_="azure-native:network/v20180601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Subnet"), pulumi.Alias(type_="azure-native:network/v20180701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Subnet"), pulumi.Alias(type_="azure-native:network/v20180801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Subnet"), pulumi.Alias(type_="azure-native:network/v20181001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Subnet"), pulumi.Alias(type_="azure-native:network/v20181101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Subnet"), pulumi.Alias(type_="azure-native:network/v20181201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Subnet"), pulumi.Alias(type_="azure-native:network/v20190601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Subnet"), pulumi.Alias(type_="azure-native:network/v20190701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Subnet"), pulumi.Alias(type_="azure-native:network/v20190801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Subnet"), pulumi.Alias(type_="azure-native:network/v20190901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Subnet"), pulumi.Alias(type_="azure-native:network/v20191101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Subnet"), pulumi.Alias(type_="azure-native:network/v20191201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Subnet"), pulumi.Alias(type_="azure-native:network/v20200301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Subnet"), pulumi.Alias(type_="azure-native:network/v20200401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Subnet"), pulumi.Alias(type_="azure-native:network/v20200501:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Subnet"), pulumi.Alias(type_="azure-native:network/v20200601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Subnet"), pulumi.Alias(type_="azure-native:network/v20200701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Subnet"), pulumi.Alias(type_="azure-native:network/v20200801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Subnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:Subnet"), pulumi.Alias(type_="azure-native:network:Subnet"), pulumi.Alias(type_="azure-nextgen:network:Subnet"), pulumi.Alias(type_="azure-native:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-native:network/v20150615:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Subnet"), pulumi.Alias(type_="azure-native:network/v20160330:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Subnet"), pulumi.Alias(type_="azure-native:network/v20160601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Subnet"), pulumi.Alias(type_="azure-native:network/v20160901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Subnet"), pulumi.Alias(type_="azure-native:network/v20161201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Subnet"), pulumi.Alias(type_="azure-native:network/v20170301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Subnet"), pulumi.Alias(type_="azure-native:network/v20170601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Subnet"), pulumi.Alias(type_="azure-native:network/v20170801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Subnet"), pulumi.Alias(type_="azure-native:network/v20170901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Subnet"), pulumi.Alias(type_="azure-native:network/v20171001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Subnet"), pulumi.Alias(type_="azure-native:network/v20171101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Subnet"), pulumi.Alias(type_="azure-native:network/v20180201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Subnet"), pulumi.Alias(type_="azure-native:network/v20180401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Subnet"), pulumi.Alias(type_="azure-native:network/v20180601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Subnet"), pulumi.Alias(type_="azure-native:network/v20180701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Subnet"), pulumi.Alias(type_="azure-native:network/v20180801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Subnet"), pulumi.Alias(type_="azure-native:network/v20181001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Subnet"), pulumi.Alias(type_="azure-native:network/v20181101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Subnet"), pulumi.Alias(type_="azure-native:network/v20181201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Subnet"), pulumi.Alias(type_="azure-native:network/v20190401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Subnet"), pulumi.Alias(type_="azure-native:network/v20190601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Subnet"), pulumi.Alias(type_="azure-native:network/v20190701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Subnet"), pulumi.Alias(type_="azure-native:network/v20190801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Subnet"), pulumi.Alias(type_="azure-native:network/v20190901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Subnet"), pulumi.Alias(type_="azure-native:network/v20191101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Subnet"), pulumi.Alias(type_="azure-native:network/v20191201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Subnet"), pulumi.Alias(type_="azure-native:network/v20200301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Subnet"), pulumi.Alias(type_="azure-native:network/v20200401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Subnet"), pulumi.Alias(type_="azure-native:network/v20200501:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Subnet"), pulumi.Alias(type_="azure-native:network/v20200601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Subnet"), pulumi.Alias(type_="azure-native:network/v20200701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Subnet"), pulumi.Alias(type_="azure-native:network/v20200801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Subnet"), pulumi.Alias(type_="azure-native:network/v20210201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20210201:Subnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subnet, __self__).__init__(
             'azure-native:network/v20201101:Subnet',
@@ -433,6 +473,7 @@ class Subnet(pulumi.CustomResource):
 
         __props__.__dict__["address_prefix"] = None
         __props__.__dict__["address_prefixes"] = None
+        __props__.__dict__["application_gateway_ip_configurations"] = None
         __props__.__dict__["delegations"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ip_allocations"] = None
@@ -451,6 +492,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["service_association_links"] = None
         __props__.__dict__["service_endpoint_policies"] = None
         __props__.__dict__["service_endpoints"] = None
+        __props__.__dict__["type"] = None
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -468,6 +510,14 @@ class Subnet(pulumi.CustomResource):
         List of address prefixes for the subnet.
         """
         return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    def application_gateway_ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]]:
+        """
+        Application gateway IP configurations of virtual network resource.
+        """
+        return pulumi.get(self, "application_gateway_ip_configurations")
 
     @property
     @pulumi.getter
@@ -612,4 +662,12 @@ class Subnet(pulumi.CustomResource):
         An array of service endpoints.
         """
         return pulumi.get(self, "service_endpoints")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
 

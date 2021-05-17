@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The Deflate compression level.
         /// </summary>
-        public readonly string? Level;
+        public readonly object? Level;
         /// <summary>
         /// Type of dataset compression.
         /// Expected value is 'Deflate'.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DatasetDeflateCompressionResponse(
-            string? level,
+            object? level,
 
             string type)
         {

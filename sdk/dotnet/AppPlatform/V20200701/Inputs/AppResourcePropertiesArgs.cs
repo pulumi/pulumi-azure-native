@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701.Inputs
 
         public AppResourcePropertiesArgs()
         {
+            HttpsOnly = false;
         }
     }
 }

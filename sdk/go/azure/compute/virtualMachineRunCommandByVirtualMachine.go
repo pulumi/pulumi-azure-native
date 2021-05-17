@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine run command.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type VirtualMachineRunCommandByVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +79,12 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"),
 		},
 	})
 	opts = append(opts, aliases)

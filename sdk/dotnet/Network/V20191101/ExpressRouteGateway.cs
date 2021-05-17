@@ -133,6 +133,8 @@ namespace Pulumi.AzureNative.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:ExpressRouteGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

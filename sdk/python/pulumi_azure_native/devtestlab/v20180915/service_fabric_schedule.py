@@ -63,6 +63,8 @@ class ServiceFabricScheduleArgs:
             pulumi.set(__self__, "name", name)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -364,6 +366,8 @@ class ServiceFabricSchedule(pulumi.CustomResource):
             if service_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_fabric_name'")
             __props__.__dict__["service_fabric_name"] = service_fabric_name
+            if status is None:
+                status = 'Disabled'
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_resource_id"] = target_resource_id

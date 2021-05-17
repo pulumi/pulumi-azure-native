@@ -293,6 +293,12 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualNetworkGatewayConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:VirtualNetworkGatewayConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualNetworkGatewayConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkGatewayConnection

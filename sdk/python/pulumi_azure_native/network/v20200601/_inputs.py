@@ -2498,7 +2498,7 @@ class ApplicationGatewayRewriteRuleConditionArgs:
                  variable: Optional[pulumi.Input[str]] = None):
         """
         Set of conditions in the Rewrite Rule in Application Gateway.
-        :param pulumi.Input[bool] ignore_case: Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+        :param pulumi.Input[bool] ignore_case: Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         :param pulumi.Input[bool] negate: Setting this value as truth will force to check the negation of the condition given by the user.
         :param pulumi.Input[str] pattern: The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
         :param pulumi.Input[str] variable: The condition parameter of the RewriteRuleCondition.
@@ -2516,7 +2516,7 @@ class ApplicationGatewayRewriteRuleConditionArgs:
     @pulumi.getter(name="ignoreCase")
     def ignore_case(self) -> Optional[pulumi.Input[bool]]:
         """
-        Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+        Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         """
         return pulumi.get(self, "ignore_case")
 

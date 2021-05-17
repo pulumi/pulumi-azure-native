@@ -51,7 +51,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Workspace features.
      */
-    public readonly features!: pulumi.Output<any | undefined>;
+    public readonly features!: pulumi.Output<outputs.operationalinsights.WorkspaceFeaturesResponse | undefined>;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
@@ -177,7 +177,7 @@ export interface WorkspaceArgs {
     /**
      * Workspace features.
      */
-    readonly features?: any;
+    readonly features?: pulumi.Input<inputs.operationalinsights.WorkspaceFeaturesArgs>;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */

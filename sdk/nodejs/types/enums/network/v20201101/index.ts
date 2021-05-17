@@ -827,6 +827,29 @@ export const NatGatewaySkuName = {
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
 
+export const NetworkInterfaceMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Network Interface resource.
+ */
+export type NetworkInterfaceMigrationPhase = (typeof NetworkInterfaceMigrationPhase)[keyof typeof NetworkInterfaceMigrationPhase];
+
+export const NetworkInterfaceNicType = {
+    Standard: "Standard",
+    Elastic: "Elastic",
+} as const;
+
+/**
+ * Type of Network Interface resource.
+ */
+export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
+
 export const Operator = {
     Any: "Any",
     IPMatch: "IPMatch",
@@ -975,6 +998,19 @@ export const ProtocolType = {
  * RNM supported protocol types.
  */
 export type ProtocolType = (typeof ProtocolType)[keyof typeof ProtocolType];
+
+export const PublicIPAddressMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Public IP Address.
+ */
+export type PublicIPAddressMigrationPhase = (typeof PublicIPAddressMigrationPhase)[keyof typeof PublicIPAddressMigrationPhase];
 
 export const PublicIPAddressSkuName = {
     Basic: "Basic",

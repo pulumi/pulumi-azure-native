@@ -52,6 +52,8 @@ class LabArgs:
             pulumi.set(__self__, "environment_permission", environment_permission)
         if extended_properties is not None:
             pulumi.set(__self__, "extended_properties", extended_properties)
+        if lab_storage_type is None:
+            lab_storage_type = 'Premium'
         if lab_storage_type is not None:
             pulumi.set(__self__, "lab_storage_type", lab_storage_type)
         if location is not None:
@@ -305,6 +307,8 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["announcement"] = announcement
             __props__.__dict__["environment_permission"] = environment_permission
             __props__.__dict__["extended_properties"] = extended_properties
+            if lab_storage_type is None:
+                lab_storage_type = 'Premium'
             __props__.__dict__["lab_storage_type"] = lab_storage_type
             __props__.__dict__["location"] = location
             __props__.__dict__["mandatory_artifacts_resource_ids_linux"] = mandatory_artifacts_resource_ids_linux

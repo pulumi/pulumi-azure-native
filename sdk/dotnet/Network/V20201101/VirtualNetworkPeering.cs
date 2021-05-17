@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
 
         /// <summary>
+        /// If we need to verify the provisioning state of the remote gateway.
+        /// </summary>
+        [Output("doNotVerifyRemoteGateways")]
+        public Output<bool?> DoNotVerifyRemoteGateways { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -74,6 +80,18 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         [Output("remoteVirtualNetwork")]
         public Output<Outputs.SubResourceResponse?> RemoteVirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// The resourceGuid property of the Virtual Network peering resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -173,6 +191,8 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:VirtualNetworkPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -215,6 +235,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
 
         /// <summary>
+        /// If we need to verify the provisioning state of the remote gateway.
+        /// </summary>
+        [Input("doNotVerifyRemoteGateways")]
+        public Input<bool>? DoNotVerifyRemoteGateways { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -255,6 +281,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

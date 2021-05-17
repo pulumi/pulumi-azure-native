@@ -118,6 +118,9 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.OwnerObjectId == nil {
 		args.OwnerObjectId = pulumi.StringPtr("dynamicValue")
 	}
+	if args.StorageType == nil {
+		args.StorageType = pulumi.StringPtr("labStorageType")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachine"),

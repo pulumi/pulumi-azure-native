@@ -224,6 +224,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
 
 def get_role_assignment(role_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
+                        tenant_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Role Assignments
@@ -231,10 +232,12 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
 
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
+    :param str tenant_id: Tenant ID for cross-tenant request
     """
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
+    __args__['tenantId'] = tenant_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

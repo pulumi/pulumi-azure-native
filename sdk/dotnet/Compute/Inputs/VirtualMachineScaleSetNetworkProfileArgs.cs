@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("healthProbe")]
         public Input<Inputs.ApiEntityReferenceArgs>? HealthProbe { get; set; }
 
+        /// <summary>
+        /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+        /// </summary>
+        [Input("networkApiVersion")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.NetworkApiVersion>? NetworkApiVersion { get; set; }
+
         [Input("networkInterfaceConfigurations")]
         private InputList<Inputs.VirtualMachineScaleSetNetworkConfigurationArgs>? _networkInterfaceConfigurations;
 

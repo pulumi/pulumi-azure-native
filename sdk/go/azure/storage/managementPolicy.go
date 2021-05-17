@@ -88,6 +88,12 @@ func NewManagementPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210201:ManagementPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210401:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210401:ManagementPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementPolicy

@@ -8958,7 +8958,7 @@ func (o ApplicationGatewayRewriteRuleActionSetResponsePtrOutput) UrlConfiguratio
 
 // Set of conditions in the Rewrite Rule in Application Gateway.
 type ApplicationGatewayRewriteRuleCondition struct {
-	// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+	// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
 	// Setting this value as truth will force to check the negation of the condition given by the user.
 	Negate *bool `pulumi:"negate"`
@@ -8981,7 +8981,7 @@ type ApplicationGatewayRewriteRuleConditionInput interface {
 
 // Set of conditions in the Rewrite Rule in Application Gateway.
 type ApplicationGatewayRewriteRuleConditionArgs struct {
-	// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+	// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
 	// Setting this value as truth will force to check the negation of the condition given by the user.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
@@ -9043,7 +9043,7 @@ func (o ApplicationGatewayRewriteRuleConditionOutput) ToApplicationGatewayRewrit
 	return o
 }
 
-// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 func (o ApplicationGatewayRewriteRuleConditionOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleCondition) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
 }
@@ -9085,7 +9085,7 @@ func (o ApplicationGatewayRewriteRuleConditionArrayOutput) Index(i pulumi.IntInp
 
 // Set of conditions in the Rewrite Rule in Application Gateway.
 type ApplicationGatewayRewriteRuleConditionResponse struct {
-	// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+	// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
 	// Setting this value as truth will force to check the negation of the condition given by the user.
 	Negate *bool `pulumi:"negate"`
@@ -9108,7 +9108,7 @@ type ApplicationGatewayRewriteRuleConditionResponseInput interface {
 
 // Set of conditions in the Rewrite Rule in Application Gateway.
 type ApplicationGatewayRewriteRuleConditionResponseArgs struct {
-	// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+	// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
 	// Setting this value as truth will force to check the negation of the condition given by the user.
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
@@ -9170,7 +9170,7 @@ func (o ApplicationGatewayRewriteRuleConditionResponseOutput) ToApplicationGatew
 	return o
 }
 
-// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
 func (o ApplicationGatewayRewriteRuleConditionResponseOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleConditionResponse) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
 }

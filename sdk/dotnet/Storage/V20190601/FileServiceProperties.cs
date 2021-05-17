@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.Storage.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

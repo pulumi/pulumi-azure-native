@@ -83,7 +83,7 @@ export class Binding extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform:Binding" }, { type: "azure-nextgen:appplatform:Binding" }, { type: "azure-native:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }, { type: "azure-native:appplatform/v20210303preview:Binding" }, { type: "azure-nextgen:appplatform/v20210303preview:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform:Binding" }, { type: "azure-nextgen:appplatform:Binding" }, { type: "azure-native:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }, { type: "azure-native:appplatform/v20210601preview:Binding" }, { type: "azure-nextgen:appplatform/v20210601preview:Binding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Binding.__pulumiType, name, inputs, opts);
     }

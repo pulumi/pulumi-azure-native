@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Insights.V20180416
         /// </summary>
         public readonly Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> Action;
         /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         /// </summary>
         public readonly bool? AutoMitigate;
         /// <summary>

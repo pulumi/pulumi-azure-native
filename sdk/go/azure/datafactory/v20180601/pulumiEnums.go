@@ -164,35 +164,6 @@ func (e CassandraSourceReadConsistencyLevels) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CompressionCodec pulumi.String
-
-const (
-	CompressionCodecNone   = CompressionCodec("none")
-	CompressionCodecGzip   = CompressionCodec("gzip")
-	CompressionCodecSnappy = CompressionCodec("snappy")
-	CompressionCodecLzo    = CompressionCodec("lzo")
-)
-
-func (CompressionCodec) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e CompressionCodec) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CompressionCodec) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CompressionCodec) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e CompressionCodec) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
 type CosmosDbConnectionMode pulumi.String
 
@@ -275,34 +246,6 @@ func (e DataFlowComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DataFlowComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The data compression method used for DelimitedText.
-type DatasetCompressionLevel pulumi.String
-
-const (
-	DatasetCompressionLevelOptimal = DatasetCompressionLevel("Optimal")
-	DatasetCompressionLevelFastest = DatasetCompressionLevel("Fastest")
-)
-
-func (DatasetCompressionLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DatasetCompressionLevel) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DatasetCompressionLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DatasetCompressionLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DatasetCompressionLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -469,91 +412,6 @@ func (e DependencyCondition) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DependencyCondition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-type DynamicsAuthenticationType pulumi.String
-
-const (
-	DynamicsAuthenticationTypeOffice365           = DynamicsAuthenticationType("Office365")
-	DynamicsAuthenticationTypeIfd                 = DynamicsAuthenticationType("Ifd")
-	DynamicsAuthenticationTypeAADServicePrincipal = DynamicsAuthenticationType("AADServicePrincipal")
-)
-
-func (DynamicsAuthenticationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DynamicsAuthenticationType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DynamicsAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-type DynamicsDeploymentType pulumi.String
-
-const (
-	DynamicsDeploymentTypeOnline            = DynamicsDeploymentType("Online")
-	DynamicsDeploymentTypeOnPremisesWithIfd = DynamicsDeploymentType("OnPremisesWithIfd")
-)
-
-func (DynamicsDeploymentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DynamicsDeploymentType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsDeploymentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsDeploymentType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DynamicsDeploymentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-type DynamicsServicePrincipalCredentialType pulumi.String
-
-const (
-	DynamicsServicePrincipalCredentialTypeServicePrincipalKey  = DynamicsServicePrincipalCredentialType("ServicePrincipalKey")
-	DynamicsServicePrincipalCredentialTypeServicePrincipalCert = DynamicsServicePrincipalCredentialType("ServicePrincipalCert")
-)
-
-func (DynamicsServicePrincipalCredentialType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DynamicsServicePrincipalCredentialType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsServicePrincipalCredentialType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicsServicePrincipalCredentialType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DynamicsServicePrincipalCredentialType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -783,35 +641,6 @@ func (e HDInsightActivityDebugInfoOption) ToStringPtrOutput() pulumi.StringPtrOu
 }
 
 func (e HDInsightActivityDebugInfoOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The node types on which the script action should be executed.
-type HdiNodeTypes pulumi.String
-
-const (
-	HdiNodeTypesHeadnode   = HdiNodeTypes("Headnode")
-	HdiNodeTypesWorkernode = HdiNodeTypes("Workernode")
-	HdiNodeTypesZookeeper  = HdiNodeTypes("Zookeeper")
-)
-
-func (HdiNodeTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e HdiNodeTypes) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e HdiNodeTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e HdiNodeTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e HdiNodeTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1103,62 +932,6 @@ func (e IntegrationRuntimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e IntegrationRuntimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-type JsonFormatFilePattern pulumi.String
-
-const (
-	JsonFormatFilePatternSetOfObjects   = JsonFormatFilePattern("setOfObjects")
-	JsonFormatFilePatternArrayOfObjects = JsonFormatFilePattern("arrayOfObjects")
-)
-
-func (JsonFormatFilePattern) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e JsonFormatFilePattern) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JsonFormatFilePattern) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JsonFormatFilePattern) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e JsonFormatFilePattern) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
-type JsonWriteFilePattern pulumi.String
-
-const (
-	JsonWriteFilePatternSetOfObjects   = JsonWriteFilePattern("setOfObjects")
-	JsonWriteFilePatternArrayOfObjects = JsonWriteFilePattern("arrayOfObjects")
-)
-
-func (JsonWriteFilePattern) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e JsonWriteFilePattern) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JsonWriteFilePattern) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e JsonWriteFilePattern) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e JsonWriteFilePattern) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

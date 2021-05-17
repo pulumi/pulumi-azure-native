@@ -48,6 +48,12 @@ func NewSkus(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:Skus"),
 		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20210501preview:Skus"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:Skus"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Skus

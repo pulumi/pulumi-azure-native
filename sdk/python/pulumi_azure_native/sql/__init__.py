@@ -122,6 +122,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.sql.v20200202preview as v20200202preview
     import pulumi_azure_native.sql.v20200801preview as v20200801preview
     import pulumi_azure_native.sql.v20201101preview as v20201101preview
+    import pulumi_azure_native.sql.v20210201preview as v20210201preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
@@ -132,4 +133,5 @@ else:
     v20200202preview = _utilities.lazy_import('pulumi_azure_native.sql.v20200202preview')
     v20200801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20200801preview')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20201101preview')
+    v20210201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210201preview')
 

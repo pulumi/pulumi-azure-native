@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         /// </summary>
         public readonly bool? DisableIpMasking;
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// Resource etag
         /// </summary>
         public readonly string? Etag;
@@ -74,6 +78,10 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
         public readonly string? FlowType;
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        public readonly bool? ForceCustomerStorageForProfiler;
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         /// </summary>
@@ -173,9 +181,13 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
 
             bool? disableIpMasking,
 
+            bool? disableLocalAuth,
+
             string? etag,
 
             string? flowType,
+
+            bool? forceCustomerStorageForProfiler,
 
             string? hockeyAppId,
 
@@ -225,8 +237,10 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
             ConnectionString = connectionString;
             CreationDate = creationDate;
             DisableIpMasking = disableIpMasking;
+            DisableLocalAuth = disableLocalAuth;
             Etag = etag;
             FlowType = flowType;
+            ForceCustomerStorageForProfiler = forceCustomerStorageForProfiler;
             HockeyAppId = hockeyAppId;
             HockeyAppToken = hockeyAppToken;
             Id = id;

@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, security_profile=None, storage_profile=None, tags=None, type=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, extended_location=None, extensions_time_budget=None, hardware_profile=None, host=None, host_group=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, platform_fault_domain=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, scheduled_events_profile=None, security_profile=None, storage_profile=None, tags=None, type=None, user_data=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -93,6 +93,9 @@ class GetVirtualMachineResult:
         if resources and not isinstance(resources, list):
             raise TypeError("Expected argument 'resources' to be a list")
         pulumi.set(__self__, "resources", resources)
+        if scheduled_events_profile and not isinstance(scheduled_events_profile, dict):
+            raise TypeError("Expected argument 'scheduled_events_profile' to be a dict")
+        pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
         if security_profile and not isinstance(security_profile, dict):
             raise TypeError("Expected argument 'security_profile' to be a dict")
         pulumi.set(__self__, "security_profile", security_profile)
@@ -105,6 +108,9 @@ class GetVirtualMachineResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if user_data and not isinstance(user_data, str):
+            raise TypeError("Expected argument 'user_data' to be a str")
+        pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set and not isinstance(virtual_machine_scale_set, dict):
             raise TypeError("Expected argument 'virtual_machine_scale_set' to be a dict")
         pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
@@ -127,7 +133,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional['outputs.SubResourceResponse']:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         """
         return pulumi.get(self, "availability_set")
 
@@ -308,6 +314,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "resources")
 
     @property
+    @pulumi.getter(name="scheduledEventsProfile")
+    def scheduled_events_profile(self) -> Optional['outputs.ScheduledEventsProfileResponse']:
+        """
+        Specifies Scheduled Event related configurations.
+        """
+        return pulumi.get(self, "scheduled_events_profile")
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional['outputs.SecurityProfileResponse']:
         """
@@ -338,6 +352,14 @@ class GetVirtualMachineResult:
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        """
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        """
+        return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="virtualMachineScaleSet")
@@ -394,10 +416,12 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             provisioning_state=self.provisioning_state,
             proximity_placement_group=self.proximity_placement_group,
             resources=self.resources,
+            scheduled_events_profile=self.scheduled_events_profile,
             security_profile=self.security_profile,
             storage_profile=self.storage_profile,
             tags=self.tags,
             type=self.type,
+            user_data=self.user_data,
             virtual_machine_scale_set=self.virtual_machine_scale_set,
             vm_id=self.vm_id,
             zones=self.zones)
@@ -409,10 +433,10 @@ def get_virtual_machine(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Describes a Virtual Machine.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
-    :param str expand: The expand expression to apply on the operation.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. 'UserData' retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation.
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
@@ -451,10 +475,12 @@ def get_virtual_machine(expand: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         proximity_placement_group=__ret__.proximity_placement_group,
         resources=__ret__.resources,
+        scheduled_events_profile=__ret__.scheduled_events_profile,
         security_profile=__ret__.security_profile,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type,
+        user_data=__ret__.user_data,
         virtual_machine_scale_set=__ret__.virtual_machine_scale_set,
         vm_id=__ret__.vm_id,
         zones=__ret__.zones)

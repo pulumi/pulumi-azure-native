@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
     public sealed class ApplicationGatewayRewriteRuleConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+        /// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }

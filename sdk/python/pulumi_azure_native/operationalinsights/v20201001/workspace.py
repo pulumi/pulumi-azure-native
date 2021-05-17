@@ -18,7 +18,7 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 features: Optional[Any] = None,
+                 features: Optional[pulumi.Input['WorkspaceFeaturesArgs']] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -33,7 +33,7 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
-        :param Any features: Workspace features.
+        :param pulumi.Input['WorkspaceFeaturesArgs'] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
@@ -97,14 +97,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Any]:
+    def features(self) -> Optional[pulumi.Input['WorkspaceFeaturesArgs']]:
         """
         Workspace features.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[Any]):
+    def features(self, value: Optional[pulumi.Input['WorkspaceFeaturesArgs']]):
         pulumi.set(self, "features", value)
 
     @property
@@ -234,7 +234,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 features: Optional[Any] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -253,7 +253,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
-        :param Any features: Workspace features.
+        :param pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
@@ -291,7 +291,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 features: Optional[Any] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -405,7 +405,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[Any]]:
+    def features(self) -> pulumi.Output[Optional['outputs.WorkspaceFeaturesResponse']]:
         """
         Workspace features.
         """

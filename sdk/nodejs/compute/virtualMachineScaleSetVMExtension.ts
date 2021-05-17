@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a VMSS VM Extension.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20210301:VirtualMachineScaleSetVMExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVMExtension.__pulumiType, name, inputs, opts);
     }

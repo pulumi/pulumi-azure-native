@@ -27,10 +27,14 @@ type Component struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
 	// Resource etag
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrOutput `pulumi:"flowType"`
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrOutput `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrOutput `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -159,10 +163,14 @@ type componentState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -218,10 +226,14 @@ type ComponentState struct {
 	CreationDate pulumi.StringPtrInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrInput
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -273,10 +285,14 @@ type componentArgs struct {
 	ApplicationType string `pulumi:"applicationType"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Purge data immediately after 30 days.
@@ -311,10 +327,14 @@ type ComponentArgs struct {
 	ApplicationType pulumi.StringInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType pulumi.StringPtrInput
+	// Force users to create their own storage account for profiler and debugger.
+	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrInput
 	// Purge data immediately after 30 days.

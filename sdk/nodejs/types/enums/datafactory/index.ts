@@ -70,15 +70,6 @@ export const CassandraSourceReadConsistencyLevels = {
  */
 export type CassandraSourceReadConsistencyLevels = (typeof CassandraSourceReadConsistencyLevels)[keyof typeof CassandraSourceReadConsistencyLevels];
 
-export const CompressionCodec = {
-    None: "none",
-    Gzip: "gzip",
-    Snappy: "snappy",
-    Lzo: "lzo",
-} as const;
-
-export type CompressionCodec = (typeof CompressionCodec)[keyof typeof CompressionCodec];
-
 export const CosmosDbConnectionMode = {
     Gateway: "Gateway",
     Direct: "Direct",
@@ -109,16 +100,6 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
-
-export const DatasetCompressionLevel = {
-    Optimal: "Optimal",
-    Fastest: "Fastest",
-} as const;
-
-/**
- * The data compression method used for DelimitedText.
- */
-export type DatasetCompressionLevel = (typeof DatasetCompressionLevel)[keyof typeof DatasetCompressionLevel];
 
 export const DayOfWeek = {
     Sunday: "Sunday",
@@ -164,37 +145,6 @@ export const DependencyCondition = {
 } as const;
 
 export type DependencyCondition = (typeof DependencyCondition)[keyof typeof DependencyCondition];
-
-export const DynamicsAuthenticationType = {
-    Office365: "Office365",
-    Ifd: "Ifd",
-    AADServicePrincipal: "AADServicePrincipal",
-} as const;
-
-/**
- * The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
- */
-export type DynamicsAuthenticationType = (typeof DynamicsAuthenticationType)[keyof typeof DynamicsAuthenticationType];
-
-export const DynamicsDeploymentType = {
-    Online: "Online",
-    OnPremisesWithIfd: "OnPremisesWithIfd",
-} as const;
-
-/**
- * The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
- */
-export type DynamicsDeploymentType = (typeof DynamicsDeploymentType)[keyof typeof DynamicsDeploymentType];
-
-export const DynamicsServicePrincipalCredentialType = {
-    ServicePrincipalKey: "ServicePrincipalKey",
-    ServicePrincipalCert: "ServicePrincipalCert",
-} as const;
-
-/**
- * The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
- */
-export type DynamicsServicePrincipalCredentialType = (typeof DynamicsServicePrincipalCredentialType)[keyof typeof DynamicsServicePrincipalCredentialType];
 
 export const DynamicsSinkWriteBehavior = {
     Upsert: "Upsert",
@@ -280,17 +230,6 @@ export const HDInsightActivityDebugInfoOption = {
  * Debug info option.
  */
 export type HDInsightActivityDebugInfoOption = (typeof HDInsightActivityDebugInfoOption)[keyof typeof HDInsightActivityDebugInfoOption];
-
-export const HdiNodeTypes = {
-    Headnode: "Headnode",
-    Workernode: "Workernode",
-    Zookeeper: "Zookeeper",
-} as const;
-
-/**
- * The node types on which the script action should be executed.
- */
-export type HdiNodeTypes = (typeof HdiNodeTypes)[keyof typeof HdiNodeTypes];
 
 export const HiveAuthenticationType = {
     Anonymous: "Anonymous",
@@ -402,26 +341,6 @@ export const IntegrationRuntimeType = {
  * Type of integration runtime.
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
-
-export const JsonFormatFilePattern = {
-    SetOfObjects: "setOfObjects",
-    ArrayOfObjects: "arrayOfObjects",
-} as const;
-
-/**
- * File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
- */
-export type JsonFormatFilePattern = (typeof JsonFormatFilePattern)[keyof typeof JsonFormatFilePattern];
-
-export const JsonWriteFilePattern = {
-    SetOfObjects: "setOfObjects",
-    ArrayOfObjects: "arrayOfObjects",
-} as const;
-
-/**
- * File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
- */
-export type JsonWriteFilePattern = (typeof JsonWriteFilePattern)[keyof typeof JsonWriteFilePattern];
 
 export const MongoDbAuthenticationType = {
     Basic: "Basic",

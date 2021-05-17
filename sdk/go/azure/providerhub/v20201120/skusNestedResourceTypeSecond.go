@@ -53,6 +53,12 @@ func NewSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeSecond"),
 		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:SkusNestedResourceTypeSecond"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SkusNestedResourceTypeSecond

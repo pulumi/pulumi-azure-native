@@ -97,6 +97,12 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:ProximityPlacementGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:ProximityPlacementGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProximityPlacementGroup

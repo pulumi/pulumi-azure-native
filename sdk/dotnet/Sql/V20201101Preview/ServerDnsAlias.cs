@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerDnsAlias"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerDnsAlias"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerDnsAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

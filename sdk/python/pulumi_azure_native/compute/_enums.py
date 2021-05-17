@@ -9,10 +9,12 @@ __all__ = [
     'CloudServiceUpgradeMode',
     'ComponentNames',
     'DedicatedHostLicenseTypes',
+    'DeleteOptions',
     'DiffDiskOptions',
     'DiffDiskPlacement',
     'DiskCreateOption',
     'DiskCreateOptionTypes',
+    'DiskDeleteOptionTypes',
     'DiskDetachOptionTypes',
     'DiskEncryptionSetIdentityType',
     'DiskEncryptionSetType',
@@ -25,9 +27,12 @@ __all__ = [
     'HyperVGeneration',
     'HyperVGenerationTypes',
     'IPVersion',
+    'IPVersions',
     'IntervalInMins',
+    'LinuxPatchAssessmentMode',
     'LinuxVMGuestPatchMode',
     'NetworkAccessPolicy',
+    'NetworkApiVersion',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
@@ -35,6 +40,9 @@ __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
+    'PublicIPAddressSkuName',
+    'PublicIPAddressSkuTier',
+    'PublicIPAllocationMethod',
     'ResourceIdentityType',
     'SecurityTypes',
     'SettingNames',
@@ -47,6 +55,7 @@ __all__ = [
     'VirtualMachinePriorityTypes',
     'VirtualMachineScaleSetScaleInRules',
     'VirtualMachineSizeTypes',
+    'WindowsPatchAssessmentMode',
     'WindowsVMGuestPatchMode',
 ]
 
@@ -87,6 +96,14 @@ class DedicatedHostLicenseTypes(str, Enum):
     WINDOWS_SERVER_PERPETUAL = "Windows_Server_Perpetual"
 
 
+class DeleteOptions(str, Enum):
+    """
+    Specify what happens to the public IP when the VM is deleted
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
+
+
 class DiffDiskOptions(str, Enum):
     """
     Specifies the ephemeral disk settings for operating system disk.
@@ -96,7 +113,7 @@ class DiffDiskOptions(str, Enum):
 
 class DiffDiskPlacement(str, Enum):
     """
-    Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
     """
     CACHE_DISK = "CacheDisk"
     RESOURCE_DISK = "ResourceDisk"
@@ -122,6 +139,14 @@ class DiskCreateOptionTypes(str, Enum):
     FROM_IMAGE = "FromImage"
     EMPTY = "Empty"
     ATTACH = "Attach"
+
+
+class DiskDeleteOptionTypes(str, Enum):
+    """
+    Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
 
 
 class DiskDetachOptionTypes(str, Enum):
@@ -223,6 +248,14 @@ class IPVersion(str, Enum):
     I_PV6 = "IPv6"
 
 
+class IPVersions(str, Enum):
+    """
+    Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
 class IntervalInMins(str, Enum):
     """
     Interval value in minutes used to create LogAnalytics call rate logs.
@@ -233,9 +266,17 @@ class IntervalInMins(str, Enum):
     SIXTY_MINS = "SixtyMins"
 
 
+class LinuxPatchAssessmentMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
 class LinuxVMGuestPatchMode(str, Enum):
     """
-    Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
     """
     IMAGE_DEFAULT = "ImageDefault"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
@@ -248,6 +289,13 @@ class NetworkAccessPolicy(str, Enum):
     ALLOW_ALL = "AllowAll"
     ALLOW_PRIVATE = "AllowPrivate"
     DENY_ALL = "DenyAll"
+
+
+class NetworkApiVersion(str, Enum):
+    """
+    specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+    """
+    NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
 
 
 class OperatingSystemStateTypes(str, Enum):
@@ -304,6 +352,30 @@ class ProximityPlacementGroupType(str, Enum):
     """
     STANDARD = "Standard"
     ULTRA = "Ultra"
+
+
+class PublicIPAddressSkuName(str, Enum):
+    """
+    Specify public IP sku name
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
+class PublicIPAddressSkuTier(str, Enum):
+    """
+    Specify public IP sku tier
+    """
+    REGIONAL = "Regional"
+    GLOBAL_ = "Global"
+
+
+class PublicIPAllocationMethod(str, Enum):
+    """
+    Specify the public IP allocation type
+    """
+    DYNAMIC = "Dynamic"
+    STATIC = "Static"
 
 
 class ResourceIdentityType(str, Enum):
@@ -404,7 +476,7 @@ class VirtualMachineScaleSetScaleInRules(str, Enum):
 
 class VirtualMachineSizeTypes(str, Enum):
     """
-    Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+    Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
     """
     BASIC_A0 = "Basic_A0"
     BASIC_A1 = "Basic_A1"
@@ -574,9 +646,17 @@ class VirtualMachineSizeTypes(str, Enum):
     STANDARD_NV24 = "Standard_NV24"
 
 
+class WindowsPatchAssessmentMode(str, Enum):
+    """
+    Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
 class WindowsVMGuestPatchMode(str, Enum):
     """
-    Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
     """
     MANUAL = "Manual"
     AUTOMATIC_BY_OS = "AutomaticByOS"

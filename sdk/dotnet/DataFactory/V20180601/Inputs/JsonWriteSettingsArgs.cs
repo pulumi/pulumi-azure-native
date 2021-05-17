@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
         [Input("filePattern")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.JsonWriteFilePattern>? FilePattern { get; set; }
+        public Input<object>? FilePattern { get; set; }
 
         /// <summary>
         /// The write setting type.

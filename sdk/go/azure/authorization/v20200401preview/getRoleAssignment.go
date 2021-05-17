@@ -22,6 +22,8 @@ type LookupRoleAssignmentArgs struct {
 	RoleAssignmentName string `pulumi:"roleAssignmentName"`
 	// The scope of the role assignment.
 	Scope string `pulumi:"scope"`
+	// Tenant ID for cross-tenant request
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // Role Assignments

@@ -231,7 +231,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMRunCommandResult:
     """
     Describes a Virtual Machine run command.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

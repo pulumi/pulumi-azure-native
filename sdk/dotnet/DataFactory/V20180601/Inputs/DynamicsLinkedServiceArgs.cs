@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("authenticationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DynamicsAuthenticationType> AuthenticationType { get; set; } = null!;
+        public Input<object> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("deploymentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DynamicsDeploymentType> DeploymentType { get; set; } = null!;
+        public Input<object> DeploymentType { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalCredentialType")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DynamicsServicePrincipalCredentialType>? ServicePrincipalCredentialType { get; set; }
+        public Input<object>? ServicePrincipalCredentialType { get; set; }
 
         /// <summary>
         /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).

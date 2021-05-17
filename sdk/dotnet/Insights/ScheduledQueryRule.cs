@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse>> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         /// </summary>
         [Output("autoMitigate")]
         public Output<bool?> AutoMitigate { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Insights
         public InputUnion<Inputs.AlertingActionArgs, Inputs.LogToMetricActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }

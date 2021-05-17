@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
 
         /// <summary>
-        /// The location of the new virtual machine or environment
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
         /// The name of the virtual machine or environment
         /// </summary>
         [Input("name")]
@@ -89,6 +83,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 
         public ScheduleCreationParameterArgs()
         {
+            Status = "Disabled";
         }
     }
 }

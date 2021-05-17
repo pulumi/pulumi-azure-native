@@ -59,6 +59,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
 
         public AppResourcePropertiesArgs()
         {
+            EnableEndToEndTLS = false;
+            HttpsOnly = false;
         }
     }
 }

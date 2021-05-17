@@ -23,7 +23,7 @@ type Workspace struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// Workspace features.
-	Features pulumi.AnyOutput `pulumi:"features"`
+	Features WorkspaceFeaturesResponsePtrOutput `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery pulumi.BoolPtrOutput `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
@@ -121,7 +121,7 @@ type workspaceState struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// Workspace features.
-	Features interface{} `pulumi:"features"`
+	Features *WorkspaceFeaturesResponse `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
@@ -158,7 +158,7 @@ type WorkspaceState struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
 	// Workspace features.
-	Features pulumi.Input
+	Features WorkspaceFeaturesResponsePtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
@@ -195,7 +195,7 @@ type workspaceArgs struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// Workspace features.
-	Features interface{} `pulumi:"features"`
+	Features *WorkspaceFeatures `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
@@ -225,7 +225,7 @@ type WorkspaceArgs struct {
 	// The ETag of the workspace.
 	ETag pulumi.StringPtrInput
 	// Workspace features.
-	Features pulumi.Input
+	Features WorkspaceFeaturesPtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives

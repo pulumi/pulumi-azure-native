@@ -14,9 +14,13 @@ namespace Pulumi.AzureNative.BotService.Outputs
     public sealed class DirectLineSpeechChannelPropertiesResponse
     {
         /// <summary>
-        /// The cognitive service subscription ID to use with this channel registration.
+        /// The cognitive service region with this channel registration.
         /// </summary>
-        public readonly string CognitiveServicesSubscriptionId;
+        public readonly string CognitiveServiceRegion;
+        /// <summary>
+        /// The cognitive service subscription key to use with this channel registration.
+        /// </summary>
+        public readonly string CognitiveServiceSubscriptionKey;
         /// <summary>
         /// Custom voice deployment id (optional).
         /// </summary>
@@ -36,7 +40,9 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
         [OutputConstructor]
         private DirectLineSpeechChannelPropertiesResponse(
-            string cognitiveServicesSubscriptionId,
+            string cognitiveServiceRegion,
+
+            string cognitiveServiceSubscriptionKey,
 
             string? customSpeechModelId,
 
@@ -46,7 +52,8 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             bool? isEnabled)
         {
-            CognitiveServicesSubscriptionId = cognitiveServicesSubscriptionId;
+            CognitiveServiceRegion = cognitiveServiceRegion;
+            CognitiveServiceSubscriptionKey = cognitiveServiceSubscriptionKey;
             CustomSpeechModelId = customSpeechModelId;
             CustomVoiceDeploymentId = customVoiceDeploymentId;
             IsDefaultBotForCogSvcAccount = isDefaultBotForCogSvcAccount;

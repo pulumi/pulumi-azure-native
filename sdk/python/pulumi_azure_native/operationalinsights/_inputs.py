@@ -18,6 +18,7 @@ __all__ = [
     'StorageAccountArgs',
     'TagArgs',
     'WorkspaceCappingArgs',
+    'WorkspaceFeaturesArgs',
     'WorkspaceSkuArgs',
 ]
 
@@ -366,6 +367,78 @@ class WorkspaceCappingArgs:
     @daily_quota_gb.setter
     def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "daily_quota_gb", value)
+
+
+@pulumi.input_type
+class WorkspaceFeaturesArgs:
+    def __init__(__self__, *,
+                 cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 enable_data_export: Optional[pulumi.Input[bool]] = None,
+                 enable_log_access_using_only_resource_permissions: Optional[pulumi.Input[bool]] = None,
+                 immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None):
+        """
+        Workspace features.
+        :param pulumi.Input[str] cluster_resource_id: Dedicated LA cluster resourceId that is linked to the workspaces.
+        :param pulumi.Input[bool] enable_data_export: Flag that indicate if data should be exported.
+        :param pulumi.Input[bool] enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
+        :param pulumi.Input[bool] immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
+        """
+        if cluster_resource_id is not None:
+            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if enable_data_export is not None:
+            pulumi.set(__self__, "enable_data_export", enable_data_export)
+        if enable_log_access_using_only_resource_permissions is not None:
+            pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
+        if immediate_purge_data_on30_days is not None:
+            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dedicated LA cluster resourceId that is linked to the workspaces.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @cluster_resource_id.setter
+    def cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="enableDataExport")
+    def enable_data_export(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag that indicate if data should be exported.
+        """
+        return pulumi.get(self, "enable_data_export")
+
+    @enable_data_export.setter
+    def enable_data_export(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_data_export", value)
+
+    @property
+    @pulumi.getter(name="enableLogAccessUsingOnlyResourcePermissions")
+    def enable_log_access_using_only_resource_permissions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag that indicate which permission to use - resource or workspace or both.
+        """
+        return pulumi.get(self, "enable_log_access_using_only_resource_permissions")
+
+    @enable_log_access_using_only_resource_permissions.setter
+    def enable_log_access_using_only_resource_permissions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_log_access_using_only_resource_permissions", value)
+
+    @property
+    @pulumi.getter(name="immediatePurgeDataOn30Days")
+    def immediate_purge_data_on30_days(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag that describes if we want to remove the data after 30 days.
+        """
+        return pulumi.get(self, "immediate_purge_data_on30_days")
+
+    @immediate_purge_data_on30_days.setter
+    def immediate_purge_data_on30_days(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immediate_purge_data_on30_days", value)
 
 
 @pulumi.input_type

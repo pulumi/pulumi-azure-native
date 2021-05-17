@@ -20,7 +20,7 @@ class GetComponentResult:
     """
     An Application Insights component definition.
     """
-    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, etag=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, la_migration_date=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None, workspace_resource_id=None):
+    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, disable_local_auth=None, etag=None, flow_type=None, force_customer_storage_for_profiler=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, la_migration_date=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None, workspace_resource_id=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -39,12 +39,18 @@ class GetComponentResult:
         if disable_ip_masking and not isinstance(disable_ip_masking, bool):
             raise TypeError("Expected argument 'disable_ip_masking' to be a bool")
         pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if flow_type and not isinstance(flow_type, str):
             raise TypeError("Expected argument 'flow_type' to be a str")
         pulumi.set(__self__, "flow_type", flow_type)
+        if force_customer_storage_for_profiler and not isinstance(force_customer_storage_for_profiler, bool):
+            raise TypeError("Expected argument 'force_customer_storage_for_profiler' to be a bool")
+        pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if hockey_app_id and not isinstance(hockey_app_id, str):
             raise TypeError("Expected argument 'hockey_app_id' to be a str")
         pulumi.set(__self__, "hockey_app_id", hockey_app_id)
@@ -158,6 +164,14 @@ class GetComponentResult:
         return pulumi.get(self, "disable_ip_masking")
 
     @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Disable Non-AAD based Auth.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
@@ -172,6 +186,14 @@ class GetComponentResult:
         Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         """
         return pulumi.get(self, "flow_type")
+
+    @property
+    @pulumi.getter(name="forceCustomerStorageForProfiler")
+    def force_customer_storage_for_profiler(self) -> Optional[bool]:
+        """
+        Force users to create their own storage account for profiler and debugger.
+        """
+        return pulumi.get(self, "force_customer_storage_for_profiler")
 
     @property
     @pulumi.getter(name="hockeyAppId")
@@ -354,8 +376,10 @@ class AwaitableGetComponentResult(GetComponentResult):
             connection_string=self.connection_string,
             creation_date=self.creation_date,
             disable_ip_masking=self.disable_ip_masking,
+            disable_local_auth=self.disable_local_auth,
             etag=self.etag,
             flow_type=self.flow_type,
+            force_customer_storage_for_profiler=self.force_customer_storage_for_profiler,
             hockey_app_id=self.hockey_app_id,
             hockey_app_token=self.hockey_app_token,
             id=self.id,
@@ -405,8 +429,10 @@ def get_component(resource_group_name: Optional[str] = None,
         connection_string=__ret__.connection_string,
         creation_date=__ret__.creation_date,
         disable_ip_masking=__ret__.disable_ip_masking,
+        disable_local_auth=__ret__.disable_local_auth,
         etag=__ret__.etag,
         flow_type=__ret__.flow_type,
+        force_customer_storage_for_profiler=__ret__.force_customer_storage_for_profiler,
         hockey_app_id=__ret__.hockey_app_id,
         hockey_app_token=__ret__.hockey_app_token,
         id=__ret__.id,

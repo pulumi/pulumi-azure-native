@@ -189,6 +189,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualNetworkGateway{}
 	case "azure-native:network:VirtualNetworkGatewayConnection":
 		r = &VirtualNetworkGatewayConnection{}
+	case "azure-native:network:VirtualNetworkGatewayNatRule":
+		r = &VirtualNetworkGatewayNatRule{}
 	case "azure-native:network:VirtualNetworkLink":
 		r = &VirtualNetworkLink{}
 	case "azure-native:network:VirtualNetworkPeering":

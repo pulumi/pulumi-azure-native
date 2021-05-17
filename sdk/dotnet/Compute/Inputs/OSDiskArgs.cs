@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Specifies information about the operating system disk used by the virtual machine. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    /// Specifies information about the operating system disk used by the virtual machine. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
     /// </summary>
     public sealed class OSDiskArgs : Pulumi.ResourceArgs
     {
@@ -26,6 +26,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("createOption", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether OS Disk should be deleted or detached upon VM deletion. &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the os disk is retained after VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskDeleteOptionTypes>? DeleteOption { get; set; }
 
         /// <summary>
         /// Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.

@@ -151,7 +151,7 @@ export class Lab extends pulumi.CustomResource {
             inputs["announcement"] = args ? args.announcement : undefined;
             inputs["environmentPermission"] = args ? args.environmentPermission : undefined;
             inputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            inputs["labStorageType"] = args ? args.labStorageType : undefined;
+            inputs["labStorageType"] = (args ? args.labStorageType : undefined) ?? "Premium";
             inputs["location"] = args ? args.location : undefined;
             inputs["mandatoryArtifactsResourceIdsLinux"] = args ? args.mandatoryArtifactsResourceIdsLinux : undefined;
             inputs["mandatoryArtifactsResourceIdsWindows"] = args ? args.mandatoryArtifactsResourceIdsWindows : undefined;

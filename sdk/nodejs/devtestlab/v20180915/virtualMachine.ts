@@ -234,7 +234,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["scheduleParameters"] = args ? args.scheduleParameters : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["sshKey"] = args ? args.sshKey : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
+            inputs["storageType"] = (args ? args.storageType : undefined) ?? "labStorageType";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["applicableSchedule"] = undefined /*out*/;

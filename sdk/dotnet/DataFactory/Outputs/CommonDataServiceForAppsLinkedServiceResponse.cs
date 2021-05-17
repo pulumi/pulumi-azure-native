@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string AuthenticationType;
+        public readonly object AuthenticationType;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string DeploymentType;
+        public readonly object DeploymentType;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? ServicePrincipalCredentialType;
+        public readonly object? ServicePrincipalCredentialType;
         /// <summary>
         /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         /// </summary>
@@ -87,11 +87,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private CommonDataServiceForAppsLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
-            string authenticationType,
+            object authenticationType,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            string deploymentType,
+            object deploymentType,
 
             string? description,
 
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
 
-            string? servicePrincipalCredentialType,
+            object? servicePrincipalCredentialType,
 
             object? servicePrincipalId,
 

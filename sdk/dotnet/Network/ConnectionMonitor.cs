@@ -202,6 +202,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The node types on which the script action should be executed.
         /// </summary>
-        public readonly string Roles;
+        public readonly object Roles;
         /// <summary>
         /// The URI for the script action.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? parameters,
 
-            string roles,
+            object roles,
 
             string uri)
         {

@@ -65,6 +65,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// NatGateway of Public IP Prefix.
+        /// </summary>
+        [Output("natGateway")]
+        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
+
+        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         [Output("prefixLength")]
@@ -184,6 +190,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:PublicIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -242,6 +250,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// NatGateway of Public IP Prefix.
+        /// </summary>
+        [Input("natGateway")]
+        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The Length of the Public IP Prefix.

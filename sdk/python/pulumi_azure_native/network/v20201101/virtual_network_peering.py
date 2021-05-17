@@ -21,12 +21,14 @@ class VirtualNetworkPeeringArgs:
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 do_not_verify_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
                  remote_address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  remote_bgp_communities: Optional[pulumi.Input['VirtualNetworkBgpCommunitiesArgs']] = None,
                  remote_virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None):
         """
@@ -36,12 +38,14 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
         :param pulumi.Input[bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        :param pulumi.Input[bool] do_not_verify_remote_gateways: If we need to verify the provisioning state of the remote gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union[str, 'VirtualNetworkPeeringState']] peering_state: The status of the virtual network peering.
         :param pulumi.Input['AddressSpaceArgs'] remote_address_space: The reference to the remote virtual network address space.
         :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
         :param pulumi.Input['SubResourceArgs'] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param pulumi.Input[str] type: Resource type.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
         """
@@ -53,6 +57,8 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
             pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if do_not_verify_remote_gateways is not None:
+            pulumi.set(__self__, "do_not_verify_remote_gateways", do_not_verify_remote_gateways)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -65,6 +71,8 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
         if remote_virtual_network is not None:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if use_remote_gateways is not None:
             pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
         if virtual_network_peering_name is not None:
@@ -129,6 +137,18 @@ class VirtualNetworkPeeringArgs:
     @allow_virtual_network_access.setter
     def allow_virtual_network_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_virtual_network_access", value)
+
+    @property
+    @pulumi.getter(name="doNotVerifyRemoteGateways")
+    def do_not_verify_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If we need to verify the provisioning state of the remote gateway.
+        """
+        return pulumi.get(self, "do_not_verify_remote_gateways")
+
+    @do_not_verify_remote_gateways.setter
+    def do_not_verify_remote_gateways(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "do_not_verify_remote_gateways", value)
 
     @property
     @pulumi.getter
@@ -203,6 +223,18 @@ class VirtualNetworkPeeringArgs:
         pulumi.set(self, "remote_virtual_network", value)
 
     @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
     @pulumi.getter(name="useRemoteGateways")
     def use_remote_gateways(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -235,6 +267,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 do_not_verify_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
@@ -242,6 +275,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  remote_bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
                  remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
@@ -254,6 +288,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
         :param pulumi.Input[bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        :param pulumi.Input[bool] do_not_verify_remote_gateways: If we need to verify the provisioning state of the remote gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union[str, 'VirtualNetworkPeeringState']] peering_state: The status of the virtual network peering.
@@ -261,6 +296,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']] remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] type: Resource type.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
@@ -292,6 +328,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 do_not_verify_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_state: Optional[pulumi.Input[Union[str, 'VirtualNetworkPeeringState']]] = None,
@@ -299,6 +336,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  remote_bgp_communities: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkBgpCommunitiesArgs']]] = None,
                  remote_virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
@@ -317,6 +355,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
             __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit
             __props__.__dict__["allow_virtual_network_access"] = allow_virtual_network_access
+            __props__.__dict__["do_not_verify_remote_gateways"] = do_not_verify_remote_gateways
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["peering_state"] = peering_state
@@ -326,6 +365,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["type"] = type
             __props__.__dict__["use_remote_gateways"] = use_remote_gateways
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
@@ -333,7 +373,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__.__dict__["virtual_network_peering_name"] = virtual_network_peering_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualNetworkPeering")])
+            __props__.__dict__["resource_guid"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualNetworkPeering"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkPeering"), pulumi.Alias(type_="azure-nextgen:network/v20210201:VirtualNetworkPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkPeering, __self__).__init__(
             'azure-native:network/v20201101:VirtualNetworkPeering',
@@ -360,6 +401,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["allow_forwarded_traffic"] = None
         __props__.__dict__["allow_gateway_transit"] = None
         __props__.__dict__["allow_virtual_network_access"] = None
+        __props__.__dict__["do_not_verify_remote_gateways"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["peering_state"] = None
@@ -367,6 +409,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["remote_address_space"] = None
         __props__.__dict__["remote_bgp_communities"] = None
         __props__.__dict__["remote_virtual_network"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["type"] = None
         __props__.__dict__["use_remote_gateways"] = None
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
@@ -393,6 +437,14 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
         """
         return pulumi.get(self, "allow_virtual_network_access")
+
+    @property
+    @pulumi.getter(name="doNotVerifyRemoteGateways")
+    def do_not_verify_remote_gateways(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If we need to verify the provisioning state of the remote gateway.
+        """
+        return pulumi.get(self, "do_not_verify_remote_gateways")
 
     @property
     @pulumi.getter
@@ -449,6 +501,22 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """
         return pulumi.get(self, "remote_virtual_network")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        The resourceGuid property of the Virtual Network peering resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="useRemoteGateways")

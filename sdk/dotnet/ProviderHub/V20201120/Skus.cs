@@ -55,6 +55,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:Skus"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:Skus"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:Skus"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:Skus"},
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:Skus"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

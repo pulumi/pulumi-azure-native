@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetStorageProfileResponse? StorageProfile;
+        /// <summary>
+        /// UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// </summary>
+        public readonly string? UserData;
 
         [OutputConstructor]
         private VirtualMachineScaleSetVMProfileResponse(
@@ -80,7 +84,9 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.SecurityProfileResponse? securityProfile,
 
-            Outputs.VirtualMachineScaleSetStorageProfileResponse? storageProfile)
+            Outputs.VirtualMachineScaleSetStorageProfileResponse? storageProfile,
+
+            string? userData)
         {
             BillingProfile = billingProfile;
             DiagnosticsProfile = diagnosticsProfile;
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             ScheduledEventsProfile = scheduledEventsProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;
+            UserData = userData;
         }
     }
 }

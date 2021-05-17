@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
 
         /// <summary>
+        /// Application gateway IP configurations of virtual network resource.
+        /// </summary>
+        [Output("applicationGatewayIpConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> ApplicationGatewayIpConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
         [Output("delegations")]
@@ -135,6 +141,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         [Output("serviceEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse>> ServiceEndpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Subnet resource with the given unique name, arguments, and options.
@@ -233,6 +245,8 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -272,6 +286,18 @@ namespace Pulumi.AzureNative.Network.V20201101
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
             set => _addressPrefixes = value;
+        }
+
+        [Input("applicationGatewayIpConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+
+        /// <summary>
+        /// Application gateway IP configurations of virtual network resource.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        {
+            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIpConfigurations = value;
         }
 
         [Input("delegations")]
@@ -375,6 +401,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// The name of the virtual network.

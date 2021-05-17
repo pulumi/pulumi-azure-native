@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HostPool{}
 	case "azure-native:desktopvirtualization:MSIXPackage":
 		r = &MSIXPackage{}
+	case "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool":
+		r = &PrivateEndpointConnectionByHostPool{}
+	case "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace":
+		r = &PrivateEndpointConnectionByWorkspace{}
 	case "azure-native:desktopvirtualization:ScalingPlan":
 		r = &ScalingPlan{}
 	case "azure-native:desktopvirtualization:Workspace":

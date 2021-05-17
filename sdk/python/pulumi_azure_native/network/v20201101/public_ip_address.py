@@ -24,11 +24,15 @@ class PublicIPAddressArgs:
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 linked_public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]] = None,
+                 nat_gateway: Optional[pulumi.Input['NatGatewayArgs']] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
                  public_ip_address_name: Optional[pulumi.Input[str]] = None,
+                 service_public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
                  sku: Optional[pulumi.Input['PublicIPAddressSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -42,11 +46,15 @@ class PublicIPAddressArgs:
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of tags associated with the public IP address.
+        :param pulumi.Input['PublicIPAddressArgs'] linked_public_ip_address: The linked public IP address of the public IP address resource.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']] migration_phase: Migration phase of Public IP Address.
+        :param pulumi.Input['NatGatewayArgs'] nat_gateway: The NatGateway for the Public IP address.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[Union[str, 'IPAllocationMethod']] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
         :param pulumi.Input[str] public_ip_address_name: The name of the public IP address.
+        :param pulumi.Input['PublicIPAddressArgs'] service_public_ip_address: The service public IP address of the public IP address resource.
         :param pulumi.Input['PublicIPAddressSkuArgs'] sku: The public IP address SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
@@ -66,8 +74,14 @@ class PublicIPAddressArgs:
             pulumi.set(__self__, "ip_address", ip_address)
         if ip_tags is not None:
             pulumi.set(__self__, "ip_tags", ip_tags)
+        if linked_public_ip_address is not None:
+            pulumi.set(__self__, "linked_public_ip_address", linked_public_ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if migration_phase is not None:
+            pulumi.set(__self__, "migration_phase", migration_phase)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
         if public_ip_address_version is not None:
             pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
         if public_ip_allocation_method is not None:
@@ -76,6 +90,8 @@ class PublicIPAddressArgs:
             pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
         if public_ip_address_name is not None:
             pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
+        if service_public_ip_address is not None:
+            pulumi.set(__self__, "service_public_ip_address", service_public_ip_address)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -180,6 +196,18 @@ class PublicIPAddressArgs:
         pulumi.set(self, "ip_tags", value)
 
     @property
+    @pulumi.getter(name="linkedPublicIPAddress")
+    def linked_public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArgs']]:
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "linked_public_ip_address")
+
+    @linked_public_ip_address.setter
+    def linked_public_ip_address(self, value: Optional[pulumi.Input['PublicIPAddressArgs']]):
+        pulumi.set(self, "linked_public_ip_address", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -190,6 +218,30 @@ class PublicIPAddressArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]]:
+        """
+        Migration phase of Public IP Address.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @migration_phase.setter
+    def migration_phase(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]]):
+        pulumi.set(self, "migration_phase", value)
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['NatGatewayArgs']]:
+        """
+        The NatGateway for the Public IP address.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['NatGatewayArgs']]):
+        pulumi.set(self, "nat_gateway", value)
 
     @property
     @pulumi.getter(name="publicIPAddressVersion")
@@ -240,6 +292,18 @@ class PublicIPAddressArgs:
         pulumi.set(self, "public_ip_address_name", value)
 
     @property
+    @pulumi.getter(name="servicePublicIPAddress")
+    def service_public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArgs']]:
+        """
+        The service public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "service_public_ip_address")
+
+    @service_public_ip_address.setter
+    def service_public_ip_address(self, value: Optional[pulumi.Input['PublicIPAddressArgs']]):
+        pulumi.set(self, "service_public_ip_address", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['PublicIPAddressSkuArgs']]:
         """
@@ -288,12 +352,16 @@ class PublicIPAddress(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
+                 linked_public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['NatGatewayArgs']]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  public_ip_address_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -310,12 +378,16 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP address.
+        :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] linked_public_ip_address: The linked public IP address of the public IP address resource.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']] migration_phase: Migration phase of Public IP Address.
+        :param pulumi.Input[pulumi.InputType['NatGatewayArgs']] nat_gateway: The NatGateway for the Public IP address.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[Union[str, 'IPAllocationMethod']] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
         :param pulumi.Input[str] public_ip_address_name: The name of the public IP address.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] service_public_ip_address: The service public IP address of the public IP address resource.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressSkuArgs']] sku: The public IP address SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
@@ -351,12 +423,16 @@ class PublicIPAddress(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
+                 linked_public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['NatGatewayArgs']]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  public_ip_address_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -379,7 +455,10 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["ip_tags"] = ip_tags
+            __props__.__dict__["linked_public_ip_address"] = linked_public_ip_address
             __props__.__dict__["location"] = location
+            __props__.__dict__["migration_phase"] = migration_phase
+            __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
             __props__.__dict__["public_ip_allocation_method"] = public_ip_allocation_method
             __props__.__dict__["public_ip_prefix"] = public_ip_prefix
@@ -387,6 +466,7 @@ class PublicIPAddress(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_public_ip_address"] = service_public_ip_address
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
@@ -396,7 +476,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPAddress")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPAddress"), pulumi.Alias(type_="azure-native:network/v20210201:PublicIPAddress"), pulumi.Alias(type_="azure-nextgen:network/v20210201:PublicIPAddress")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPAddress, __self__).__init__(
             'azure-native:network/v20201101:PublicIPAddress',
@@ -428,13 +508,17 @@ class PublicIPAddress(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["ip_configuration"] = None
         __props__.__dict__["ip_tags"] = None
+        __props__.__dict__["linked_public_ip_address"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["migration_phase"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["nat_gateway"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_address_version"] = None
         __props__.__dict__["public_ip_allocation_method"] = None
         __props__.__dict__["public_ip_prefix"] = None
         __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["service_public_ip_address"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -506,6 +590,14 @@ class PublicIPAddress(pulumi.CustomResource):
         return pulumi.get(self, "ip_tags")
 
     @property
+    @pulumi.getter(name="linkedPublicIPAddress")
+    def linked_public_ip_address(self) -> pulumi.Output[Optional['outputs.PublicIPAddressResponse']]:
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "linked_public_ip_address")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
@@ -514,12 +606,28 @@ class PublicIPAddress(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> pulumi.Output[Optional[str]]:
+        """
+        Migration phase of Public IP Address.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> pulumi.Output[Optional['outputs.NatGatewayResponse']]:
+        """
+        The NatGateway for the Public IP address.
+        """
+        return pulumi.get(self, "nat_gateway")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -560,6 +668,14 @@ class PublicIPAddress(pulumi.CustomResource):
         The resource GUID property of the public IP address resource.
         """
         return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="servicePublicIPAddress")
+    def service_public_ip_address(self) -> pulumi.Output[Optional['outputs.PublicIPAddressResponse']]:
+        """
+        The service public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "service_public_ip_address")
 
     @property
     @pulumi.getter

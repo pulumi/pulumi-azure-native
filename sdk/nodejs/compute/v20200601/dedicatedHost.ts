@@ -142,7 +142,7 @@ export class DedicatedHost extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute:DedicatedHost" }, { type: "azure-nextgen:compute:DedicatedHost" }, { type: "azure-native:compute/v20190301:DedicatedHost" }, { type: "azure-nextgen:compute/v20190301:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-nextgen:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-nextgen:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-nextgen:compute/v20201201:DedicatedHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute:DedicatedHost" }, { type: "azure-nextgen:compute:DedicatedHost" }, { type: "azure-native:compute/v20190301:DedicatedHost" }, { type: "azure-nextgen:compute/v20190301:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-nextgen:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-nextgen:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-nextgen:compute/v20201201:DedicatedHost" }, { type: "azure-native:compute/v20210301:DedicatedHost" }, { type: "azure-nextgen:compute/v20210301:DedicatedHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHost.__pulumiType, name, inputs, opts);
     }

@@ -79,13 +79,25 @@ export interface GetPublicIPAddressResult {
      */
     readonly ipTags?: outputs.network.v20201101.IpTagResponse[];
     /**
+     * The linked public IP address of the public IP address resource.
+     */
+    readonly linkedPublicIPAddress?: outputs.network.v20201101.PublicIPAddressResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
     /**
+     * Migration phase of Public IP Address.
+     */
+    readonly migrationPhase?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The NatGateway for the Public IP address.
+     */
+    readonly natGateway?: outputs.network.v20201101.NatGatewayResponse;
     /**
      * The provisioning state of the public IP address resource.
      */
@@ -106,6 +118,10 @@ export interface GetPublicIPAddressResult {
      * The resource GUID property of the public IP address resource.
      */
     readonly resourceGuid: string;
+    /**
+     * The service public IP address of the public IP address resource.
+     */
+    readonly servicePublicIPAddress?: outputs.network.v20201101.PublicIPAddressResponse;
     /**
      * The public IP address SKU.
      */

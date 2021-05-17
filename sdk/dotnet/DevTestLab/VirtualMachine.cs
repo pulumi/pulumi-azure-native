@@ -502,6 +502,7 @@ namespace Pulumi.AzureNative.DevTestLab
             AllowClaim = false;
             DisallowPublicIpAddress = false;
             OwnerObjectId = "dynamicValue";
+            StorageType = "labStorageType";
         }
     }
 }

@@ -709,20 +709,23 @@ class DirectLineSpeechChannelArgs:
 @pulumi.input_type
 class DirectLineSpeechChannelPropertiesArgs:
     def __init__(__self__, *,
-                 cognitive_services_subscription_id: pulumi.Input[str],
+                 cognitive_service_region: pulumi.Input[str],
+                 cognitive_service_subscription_key: pulumi.Input[str],
                  custom_speech_model_id: Optional[pulumi.Input[str]] = None,
                  custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
                  is_default_bot_for_cog_svc_account: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The parameters to provide for the DirectLine Speech channel.
-        :param pulumi.Input[str] cognitive_services_subscription_id: The cognitive service subscription ID to use with this channel registration.
+        :param pulumi.Input[str] cognitive_service_region: The cognitive service region with this channel registration.
+        :param pulumi.Input[str] cognitive_service_subscription_key: The cognitive service subscription key to use with this channel registration.
         :param pulumi.Input[str] custom_speech_model_id: Custom voice deployment id (optional).
         :param pulumi.Input[str] custom_voice_deployment_id: Custom speech model id (optional).
         :param pulumi.Input[bool] is_default_bot_for_cog_svc_account: Make this a default bot for chosen cognitive service account.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled or not.
         """
-        pulumi.set(__self__, "cognitive_services_subscription_id", cognitive_services_subscription_id)
+        pulumi.set(__self__, "cognitive_service_region", cognitive_service_region)
+        pulumi.set(__self__, "cognitive_service_subscription_key", cognitive_service_subscription_key)
         if custom_speech_model_id is not None:
             pulumi.set(__self__, "custom_speech_model_id", custom_speech_model_id)
         if custom_voice_deployment_id is not None:
@@ -733,16 +736,28 @@ class DirectLineSpeechChannelPropertiesArgs:
             pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
-    @pulumi.getter(name="cognitiveServicesSubscriptionId")
-    def cognitive_services_subscription_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="cognitiveServiceRegion")
+    def cognitive_service_region(self) -> pulumi.Input[str]:
         """
-        The cognitive service subscription ID to use with this channel registration.
+        The cognitive service region with this channel registration.
         """
-        return pulumi.get(self, "cognitive_services_subscription_id")
+        return pulumi.get(self, "cognitive_service_region")
 
-    @cognitive_services_subscription_id.setter
-    def cognitive_services_subscription_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cognitive_services_subscription_id", value)
+    @cognitive_service_region.setter
+    def cognitive_service_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognitive_service_region", value)
+
+    @property
+    @pulumi.getter(name="cognitiveServiceSubscriptionKey")
+    def cognitive_service_subscription_key(self) -> pulumi.Input[str]:
+        """
+        The cognitive service subscription key to use with this channel registration.
+        """
+        return pulumi.get(self, "cognitive_service_subscription_key")
+
+    @cognitive_service_subscription_key.setter
+    def cognitive_service_subscription_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognitive_service_subscription_key", value)
 
     @property
     @pulumi.getter(name="customSpeechModelId")

@@ -80,7 +80,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-native:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-native:appplatform/v20200701:Certificate" }, { type: "azure-nextgen:appplatform/v20200701:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }, { type: "azure-native:appplatform/v20210303preview:Certificate" }, { type: "azure-nextgen:appplatform/v20210303preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Certificate" }, { type: "azure-native:appplatform/v20190501preview:Certificate" }, { type: "azure-nextgen:appplatform/v20190501preview:Certificate" }, { type: "azure-native:appplatform/v20200701:Certificate" }, { type: "azure-nextgen:appplatform/v20200701:Certificate" }, { type: "azure-native:appplatform/v20201101preview:Certificate" }, { type: "azure-nextgen:appplatform/v20201101preview:Certificate" }, { type: "azure-native:appplatform/v20210601preview:Certificate" }, { type: "azure-nextgen:appplatform/v20210601preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, inputs, opts);
     }

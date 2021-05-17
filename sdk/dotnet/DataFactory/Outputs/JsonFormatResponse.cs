@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
-        public readonly string? FilePattern;
+        public readonly object? FilePattern;
         /// <summary>
         /// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? encodingName,
 
-            string? filePattern,
+            object? filePattern,
 
             object? jsonNodeReference,
 

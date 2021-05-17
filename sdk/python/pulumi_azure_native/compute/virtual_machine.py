@@ -36,9 +36,11 @@ class VirtualMachineArgs:
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['SubResourceArgs']] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -46,7 +48,7 @@ class VirtualMachineArgs:
         The set of arguments for constructing a VirtualMachine resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
-        :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         :param pulumi.Input['BillingProfileArgs'] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -64,9 +66,11 @@ class VirtualMachineArgs:
         :param pulumi.Input[int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.<br><li>This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.<li>The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' &gt; 1.<li>This property cannot be updated once the Virtual Machine is created.<li>Fault domain assignment can be viewed in the Virtual Machine Instance View.<br><br>Minimum api‐version: 2020‐12‐01
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
         :param pulumi.Input['SubResourceArgs'] virtual_machine_scale_set: Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine zones.
@@ -110,12 +114,16 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group is not None:
             pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if scheduled_events_profile is not None:
+            pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set is not None:
             pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
         if vm_name is not None:
@@ -151,7 +159,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         """
         return pulumi.get(self, "availability_set")
 
@@ -364,6 +372,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "proximity_placement_group", value)
 
     @property
+    @pulumi.getter(name="scheduledEventsProfile")
+    def scheduled_events_profile(self) -> Optional[pulumi.Input['ScheduledEventsProfileArgs']]:
+        """
+        Specifies Scheduled Event related configurations.
+        """
+        return pulumi.get(self, "scheduled_events_profile")
+
+    @scheduled_events_profile.setter
+    def scheduled_events_profile(self, value: Optional[pulumi.Input['ScheduledEventsProfileArgs']]):
+        pulumi.set(self, "scheduled_events_profile", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
         """
@@ -398,6 +418,18 @@ class VirtualMachineArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
 
     @property
     @pulumi.getter(name="virtualMachineScaleSet")
@@ -461,21 +493,23 @@ class VirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_profile: Optional[pulumi.Input[pulumi.InputType['ScheduledEventsProfileArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Describes a Virtual Machine.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         :param pulumi.Input[pulumi.InputType['BillingProfileArgs']] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -494,9 +528,11 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['ScheduledEventsProfileArgs']] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_machine_scale_set: Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine zones.
@@ -509,7 +545,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -546,9 +582,11 @@ class VirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_profile: Optional[pulumi.Input[pulumi.InputType['ScheduledEventsProfileArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -586,9 +624,11 @@ class VirtualMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scheduled_events_profile"] = scheduled_events_profile
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set"] = virtual_machine_scale_set
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["zones"] = zones
@@ -598,7 +638,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["resources"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:compute/v20210301:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-native:compute:VirtualMachine',
@@ -645,10 +685,12 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proximity_placement_group"] = None
         __props__.__dict__["resources"] = None
+        __props__.__dict__["scheduled_events_profile"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["storage_profile"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["user_data"] = None
         __props__.__dict__["virtual_machine_scale_set"] = None
         __props__.__dict__["vm_id"] = None
         __props__.__dict__["zones"] = None
@@ -666,7 +708,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="availabilitySet")
     def availability_set(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         """
         return pulumi.get(self, "availability_set")
 
@@ -839,6 +881,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "resources")
 
     @property
+    @pulumi.getter(name="scheduledEventsProfile")
+    def scheduled_events_profile(self) -> pulumi.Output[Optional['outputs.ScheduledEventsProfileResponse']]:
+        """
+        Specifies Scheduled Event related configurations.
+        """
+        return pulumi.get(self, "scheduled_events_profile")
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> pulumi.Output[Optional['outputs.SecurityProfileResponse']]:
         """
@@ -869,6 +919,14 @@ class VirtualMachine(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        """
+        return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="virtualMachineScaleSet")

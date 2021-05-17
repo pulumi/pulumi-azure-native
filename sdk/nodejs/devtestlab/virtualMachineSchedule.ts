@@ -124,7 +124,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            inputs["status"] = (args ? args.status : undefined) ?? "Disabled";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["taskType"] = args ? args.taskType : undefined;

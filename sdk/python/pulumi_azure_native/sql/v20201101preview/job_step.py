@@ -298,7 +298,7 @@ class JobStep(pulumi.CustomResource):
             __props__.__dict__["target_group"] = target_group
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:JobStep"), pulumi.Alias(type_="azure-native:sql:JobStep"), pulumi.Alias(type_="azure-nextgen:sql:JobStep"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:JobStep")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:JobStep"), pulumi.Alias(type_="azure-native:sql:JobStep"), pulumi.Alias(type_="azure-nextgen:sql:JobStep"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20210201preview:JobStep")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobStep, __self__).__init__(
             'azure-native:sql/v20201101preview:JobStep',

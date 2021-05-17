@@ -42,6 +42,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.costmanagement.v20200301preview as v20200301preview
     import pulumi_azure_native.costmanagement.v20200601 as v20200601
     import pulumi_azure_native.costmanagement.v20201201preview as v20201201preview
+    import pulumi_azure_native.costmanagement.v20210101 as v20210101
 else:
     v20180531 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180531')
     v20180801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180801preview')
@@ -54,4 +55,5 @@ else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20200301preview')
     v20200601 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20200601')
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20201201preview')
+    v20210101 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20210101')
 

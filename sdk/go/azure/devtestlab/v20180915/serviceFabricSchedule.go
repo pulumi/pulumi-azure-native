@@ -66,6 +66,9 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	if args.Status == nil {
+		args.Status = pulumi.StringPtr("Disabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule"),

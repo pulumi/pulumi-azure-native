@@ -36,6 +36,8 @@ from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
 from .get_proximity_placement_group import *
+from .get_restore_point import *
+from .get_restore_point_collection import *
 from .get_snapshot import *
 from .get_ssh_public_key import *
 from .get_virtual_machine import *
@@ -48,6 +50,8 @@ from .get_virtual_machine_scale_set_vm_extension import *
 from .get_virtual_machine_scale_set_vm_run_command import *
 from .image import *
 from .proximity_placement_group import *
+from .restore_point import *
+from .restore_point_collection import *
 from .snapshot import *
 from .ssh_public_key import *
 from .virtual_machine import *

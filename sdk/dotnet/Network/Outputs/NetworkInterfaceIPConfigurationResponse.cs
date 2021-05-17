@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubnetResponse? Subnet;
         /// <summary>
+        /// Resource type.
+        /// </summary>
+        public readonly string? Type;
+        /// <summary>
         /// The reference to Virtual Network Taps.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkTapResponse> VirtualNetworkTaps;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubnetResponse? subnet,
 
+            string? type,
+
             ImmutableArray<Outputs.VirtualNetworkTapResponse> virtualNetworkTaps)
         {
             ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             ProvisioningState = provisioningState;
             PublicIPAddress = publicIPAddress;
             Subnet = subnet;
+            Type = type;
             VirtualNetworkTaps = virtualNetworkTaps;
         }
     }

@@ -127,6 +127,7 @@ from .get_virtual_network_gateway_advertised_routes import *
 from .get_virtual_network_gateway_bgp_peer_status import *
 from .get_virtual_network_gateway_connection import *
 from .get_virtual_network_gateway_learned_routes import *
+from .get_virtual_network_gateway_nat_rule import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_network_link import *
@@ -203,6 +204,7 @@ from .virtual_hub_route_table_v2 import *
 from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
+from .virtual_network_gateway_nat_rule import *
 from .virtual_network_link import *
 from .virtual_network_peering import *
 from .virtual_network_tap import *
@@ -269,6 +271,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.network.v20200701 as v20200701
     import pulumi_azure_native.network.v20200801 as v20200801
     import pulumi_azure_native.network.v20201101 as v20201101
+    import pulumi_azure_native.network.v20210201 as v20210201
     import pulumi_azure_native.network.v20210201preview as v20210201preview
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
@@ -320,5 +323,6 @@ else:
     v20200701 = _utilities.lazy_import('pulumi_azure_native.network.v20200701')
     v20200801 = _utilities.lazy_import('pulumi_azure_native.network.v20200801')
     v20201101 = _utilities.lazy_import('pulumi_azure_native.network.v20201101')
+    v20210201 = _utilities.lazy_import('pulumi_azure_native.network.v20210201')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.network.v20210201preview')
 

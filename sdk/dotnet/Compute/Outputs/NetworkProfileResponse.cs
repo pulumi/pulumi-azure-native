@@ -14,13 +14,28 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class NetworkProfileResponse
     {
         /// <summary>
+        /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+        /// </summary>
+        public readonly string? NetworkApiVersion;
+        /// <summary>
+        /// Specifies the networking configurations that will be used to create the virtual machine networking resources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualMachineNetworkInterfaceConfigurationResponse> NetworkInterfaceConfigurations;
+        /// <summary>
         /// Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInterfaceReferenceResponse> NetworkInterfaces;
 
         [OutputConstructor]
-        private NetworkProfileResponse(ImmutableArray<Outputs.NetworkInterfaceReferenceResponse> networkInterfaces)
+        private NetworkProfileResponse(
+            string? networkApiVersion,
+
+            ImmutableArray<Outputs.VirtualMachineNetworkInterfaceConfigurationResponse> networkInterfaceConfigurations,
+
+            ImmutableArray<Outputs.NetworkInterfaceReferenceResponse> networkInterfaces)
         {
+            NetworkApiVersion = networkApiVersion;
+            NetworkInterfaceConfigurations = networkInterfaceConfigurations;
             NetworkInterfaces = networkInterfaces;
         }
     }

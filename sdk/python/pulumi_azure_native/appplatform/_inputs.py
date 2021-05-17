@@ -47,6 +47,8 @@ class AppResourcePropertiesArgs:
             pulumi.set(__self__, "active_deployment_name", active_deployment_name)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if https_only is None:
+            https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if persistent_disk is not None:
@@ -375,6 +377,8 @@ class DeploymentSettingsArgs:
             pulumi.set(__self__, "memory_in_gb", memory_in_gb)
         if net_core_main_entry_path is not None:
             pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
+        if runtime_version is None:
+            runtime_version = 'Java_8'
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
 

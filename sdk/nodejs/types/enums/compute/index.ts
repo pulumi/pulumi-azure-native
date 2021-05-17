@@ -90,6 +90,16 @@ export const DedicatedHostLicenseTypes = {
  */
 export type DedicatedHostLicenseTypes = (typeof DedicatedHostLicenseTypes)[keyof typeof DedicatedHostLicenseTypes];
 
+export const DeleteOptions = {
+    Delete: "Delete",
+    Detach: "Detach",
+} as const;
+
+/**
+ * Specify what happens to the public IP when the VM is deleted
+ */
+export type DeleteOptions = (typeof DeleteOptions)[keyof typeof DeleteOptions];
+
 export const DiffDiskOptions = {
     Local: "Local",
 } as const;
@@ -105,7 +115,7 @@ export const DiffDiskPlacement = {
 } as const;
 
 /**
- * Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+ * Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
  */
 export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
 
@@ -155,6 +165,16 @@ export const DiskCreateOptionTypes = {
  * Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
  */
 export type DiskCreateOptionTypes = (typeof DiskCreateOptionTypes)[keyof typeof DiskCreateOptionTypes];
+
+export const DiskDeleteOptionTypes = {
+    Delete: "Delete",
+    Detach: "Detach",
+} as const;
+
+/**
+ * Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+ */
+export type DiskDeleteOptionTypes = (typeof DiskDeleteOptionTypes)[keyof typeof DiskDeleteOptionTypes];
 
 export const DiskDetachOptionTypes = {
     ForceDetach: "ForceDetach",
@@ -315,6 +335,16 @@ export const IPVersion = {
  */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
 
+export const IPVersions = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+ */
+export type IPVersions = (typeof IPVersions)[keyof typeof IPVersions];
+
 export const IntervalInMins = {
     ThreeMins: "ThreeMins",
     FiveMins: "FiveMins",
@@ -327,13 +357,23 @@ export const IntervalInMins = {
  */
 export type IntervalInMins = (typeof IntervalInMins)[keyof typeof IntervalInMins];
 
+export const LinuxPatchAssessmentMode = {
+    ImageDefault: "ImageDefault",
+    AutomaticByPlatform: "AutomaticByPlatform",
+} as const;
+
+/**
+ * Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+ */
+export type LinuxPatchAssessmentMode = (typeof LinuxPatchAssessmentMode)[keyof typeof LinuxPatchAssessmentMode];
+
 export const LinuxVMGuestPatchMode = {
     ImageDefault: "ImageDefault",
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
 /**
- * Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
  */
 export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
 
@@ -356,6 +396,15 @@ export const NetworkAccessPolicy = {
  * Policy for accessing the disk via network.
  */
 export type NetworkAccessPolicy = (typeof NetworkAccessPolicy)[keyof typeof NetworkAccessPolicy];
+
+export const NetworkApiVersion = {
+    NetworkApiVersion_2020_11_01: "2020-11-01",
+} as const;
+
+/**
+ * specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+ */
+export type NetworkApiVersion = (typeof NetworkApiVersion)[keyof typeof NetworkApiVersion];
 
 export const OperatingSystemStateTypes = {
     /**
@@ -432,6 +481,36 @@ export const ProximityPlacementGroupType = {
  * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
  */
 export type ProximityPlacementGroupType = (typeof ProximityPlacementGroupType)[keyof typeof ProximityPlacementGroupType];
+
+export const PublicIPAddressSkuName = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * Specify public IP sku name
+ */
+export type PublicIPAddressSkuName = (typeof PublicIPAddressSkuName)[keyof typeof PublicIPAddressSkuName];
+
+export const PublicIPAddressSkuTier = {
+    Regional: "Regional",
+    Global: "Global",
+} as const;
+
+/**
+ * Specify public IP sku tier
+ */
+export type PublicIPAddressSkuTier = (typeof PublicIPAddressSkuTier)[keyof typeof PublicIPAddressSkuTier];
+
+export const PublicIPAllocationMethod = {
+    Dynamic: "Dynamic",
+    Static: "Static",
+} as const;
+
+/**
+ * Specify the public IP allocation type
+ */
+export type PublicIPAllocationMethod = (typeof PublicIPAllocationMethod)[keyof typeof PublicIPAllocationMethod];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -730,9 +809,19 @@ export const VirtualMachineSizeTypes = {
 } as const;
 
 /**
- * Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+ * Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
  */
 export type VirtualMachineSizeTypes = (typeof VirtualMachineSizeTypes)[keyof typeof VirtualMachineSizeTypes];
+
+export const WindowsPatchAssessmentMode = {
+    ImageDefault: "ImageDefault",
+    AutomaticByPlatform: "AutomaticByPlatform",
+} as const;
+
+/**
+ * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+ */
+export type WindowsPatchAssessmentMode = (typeof WindowsPatchAssessmentMode)[keyof typeof WindowsPatchAssessmentMode];
 
 export const WindowsVMGuestPatchMode = {
     Manual: "Manual",
@@ -741,6 +830,6 @@ export const WindowsVMGuestPatchMode = {
 } as const;
 
 /**
- * Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
  */
 export type WindowsVMGuestPatchMode = (typeof WindowsVMGuestPatchMode)[keyof typeof WindowsVMGuestPatchMode];

@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Output("etag")]
@@ -62,6 +68,12 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         /// </summary>
         [Output("flowType")]
         public Output<string?> FlowType { get; private set; } = null!;
+
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        [Output("forceCustomerStorageForProfiler")]
+        public Output<bool?> ForceCustomerStorageForProfiler { get; private set; } = null!;
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
@@ -251,6 +263,12 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Input("etag")]
@@ -261,6 +279,12 @@ namespace Pulumi.AzureNative.Insights.V20200202Preview
         /// </summary>
         [Input("flowType")]
         public InputUnion<string, Pulumi.AzureNative.Insights.V20200202Preview.FlowType>? FlowType { get; set; }
+
+        /// <summary>
+        /// Force users to create their own storage account for profiler and debugger.
+        /// </summary>
+        [Input("forceCustomerStorageForProfiler")]
+        public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.

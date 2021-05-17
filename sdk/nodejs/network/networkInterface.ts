@@ -77,6 +77,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly macAddress!: pulumi.Output<string>;
     /**
+     * Migration phase of Network Interface resource.
+     */
+    public readonly migrationPhase!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -85,6 +89,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly networkSecurityGroup!: pulumi.Output<outputs.network.NetworkSecurityGroupResponse | undefined>;
     /**
+     * Type of Network Interface resource.
+     */
+    public readonly nicType!: pulumi.Output<string | undefined>;
+    /**
      * Whether this is a primary network interface on a virtual machine.
      */
     public /*out*/ readonly primary!: pulumi.Output<boolean>;
@@ -92,6 +100,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * A reference to the private endpoint to which the network interface is linked.
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.PrivateEndpointResponse>;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    public readonly privateLinkService!: pulumi.Output<outputs.network.PrivateLinkServiceResponse | undefined>;
     /**
      * The provisioning state of the network interface resource.
      */
@@ -138,8 +150,11 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["migrationPhase"] = args ? args.migrationPhase : undefined;
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            inputs["nicType"] = args ? args.nicType : undefined;
+            inputs["privateLinkService"] = args ? args.privateLinkService : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["dscpConfiguration"] = undefined /*out*/;
@@ -165,10 +180,13 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["macAddress"] = undefined /*out*/;
+            inputs["migrationPhase"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["nicType"] = undefined /*out*/;
             inputs["primary"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["privateLinkService"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -179,7 +197,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkInterface" }, { type: "azure-native:network/v20150501preview:NetworkInterface" }, { type: "azure-nextgen:network/v20150501preview:NetworkInterface" }, { type: "azure-native:network/v20150615:NetworkInterface" }, { type: "azure-nextgen:network/v20150615:NetworkInterface" }, { type: "azure-native:network/v20160330:NetworkInterface" }, { type: "azure-nextgen:network/v20160330:NetworkInterface" }, { type: "azure-native:network/v20160601:NetworkInterface" }, { type: "azure-nextgen:network/v20160601:NetworkInterface" }, { type: "azure-native:network/v20160901:NetworkInterface" }, { type: "azure-nextgen:network/v20160901:NetworkInterface" }, { type: "azure-native:network/v20161201:NetworkInterface" }, { type: "azure-nextgen:network/v20161201:NetworkInterface" }, { type: "azure-native:network/v20170301:NetworkInterface" }, { type: "azure-nextgen:network/v20170301:NetworkInterface" }, { type: "azure-native:network/v20170601:NetworkInterface" }, { type: "azure-nextgen:network/v20170601:NetworkInterface" }, { type: "azure-native:network/v20170801:NetworkInterface" }, { type: "azure-nextgen:network/v20170801:NetworkInterface" }, { type: "azure-native:network/v20170901:NetworkInterface" }, { type: "azure-nextgen:network/v20170901:NetworkInterface" }, { type: "azure-native:network/v20171001:NetworkInterface" }, { type: "azure-nextgen:network/v20171001:NetworkInterface" }, { type: "azure-native:network/v20171101:NetworkInterface" }, { type: "azure-nextgen:network/v20171101:NetworkInterface" }, { type: "azure-native:network/v20180101:NetworkInterface" }, { type: "azure-nextgen:network/v20180101:NetworkInterface" }, { type: "azure-native:network/v20180201:NetworkInterface" }, { type: "azure-nextgen:network/v20180201:NetworkInterface" }, { type: "azure-native:network/v20180401:NetworkInterface" }, { type: "azure-nextgen:network/v20180401:NetworkInterface" }, { type: "azure-native:network/v20180601:NetworkInterface" }, { type: "azure-nextgen:network/v20180601:NetworkInterface" }, { type: "azure-native:network/v20180701:NetworkInterface" }, { type: "azure-nextgen:network/v20180701:NetworkInterface" }, { type: "azure-native:network/v20180801:NetworkInterface" }, { type: "azure-nextgen:network/v20180801:NetworkInterface" }, { type: "azure-native:network/v20181001:NetworkInterface" }, { type: "azure-nextgen:network/v20181001:NetworkInterface" }, { type: "azure-native:network/v20181101:NetworkInterface" }, { type: "azure-nextgen:network/v20181101:NetworkInterface" }, { type: "azure-native:network/v20181201:NetworkInterface" }, { type: "azure-nextgen:network/v20181201:NetworkInterface" }, { type: "azure-native:network/v20190201:NetworkInterface" }, { type: "azure-nextgen:network/v20190201:NetworkInterface" }, { type: "azure-native:network/v20190401:NetworkInterface" }, { type: "azure-nextgen:network/v20190401:NetworkInterface" }, { type: "azure-native:network/v20190601:NetworkInterface" }, { type: "azure-nextgen:network/v20190601:NetworkInterface" }, { type: "azure-native:network/v20190701:NetworkInterface" }, { type: "azure-nextgen:network/v20190701:NetworkInterface" }, { type: "azure-native:network/v20190801:NetworkInterface" }, { type: "azure-nextgen:network/v20190801:NetworkInterface" }, { type: "azure-native:network/v20190901:NetworkInterface" }, { type: "azure-nextgen:network/v20190901:NetworkInterface" }, { type: "azure-native:network/v20191101:NetworkInterface" }, { type: "azure-nextgen:network/v20191101:NetworkInterface" }, { type: "azure-native:network/v20191201:NetworkInterface" }, { type: "azure-nextgen:network/v20191201:NetworkInterface" }, { type: "azure-native:network/v20200301:NetworkInterface" }, { type: "azure-nextgen:network/v20200301:NetworkInterface" }, { type: "azure-native:network/v20200401:NetworkInterface" }, { type: "azure-nextgen:network/v20200401:NetworkInterface" }, { type: "azure-native:network/v20200501:NetworkInterface" }, { type: "azure-nextgen:network/v20200501:NetworkInterface" }, { type: "azure-native:network/v20200601:NetworkInterface" }, { type: "azure-nextgen:network/v20200601:NetworkInterface" }, { type: "azure-native:network/v20200701:NetworkInterface" }, { type: "azure-nextgen:network/v20200701:NetworkInterface" }, { type: "azure-native:network/v20200801:NetworkInterface" }, { type: "azure-nextgen:network/v20200801:NetworkInterface" }, { type: "azure-native:network/v20201101:NetworkInterface" }, { type: "azure-nextgen:network/v20201101:NetworkInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkInterface" }, { type: "azure-native:network/v20150501preview:NetworkInterface" }, { type: "azure-nextgen:network/v20150501preview:NetworkInterface" }, { type: "azure-native:network/v20150615:NetworkInterface" }, { type: "azure-nextgen:network/v20150615:NetworkInterface" }, { type: "azure-native:network/v20160330:NetworkInterface" }, { type: "azure-nextgen:network/v20160330:NetworkInterface" }, { type: "azure-native:network/v20160601:NetworkInterface" }, { type: "azure-nextgen:network/v20160601:NetworkInterface" }, { type: "azure-native:network/v20160901:NetworkInterface" }, { type: "azure-nextgen:network/v20160901:NetworkInterface" }, { type: "azure-native:network/v20161201:NetworkInterface" }, { type: "azure-nextgen:network/v20161201:NetworkInterface" }, { type: "azure-native:network/v20170301:NetworkInterface" }, { type: "azure-nextgen:network/v20170301:NetworkInterface" }, { type: "azure-native:network/v20170601:NetworkInterface" }, { type: "azure-nextgen:network/v20170601:NetworkInterface" }, { type: "azure-native:network/v20170801:NetworkInterface" }, { type: "azure-nextgen:network/v20170801:NetworkInterface" }, { type: "azure-native:network/v20170901:NetworkInterface" }, { type: "azure-nextgen:network/v20170901:NetworkInterface" }, { type: "azure-native:network/v20171001:NetworkInterface" }, { type: "azure-nextgen:network/v20171001:NetworkInterface" }, { type: "azure-native:network/v20171101:NetworkInterface" }, { type: "azure-nextgen:network/v20171101:NetworkInterface" }, { type: "azure-native:network/v20180101:NetworkInterface" }, { type: "azure-nextgen:network/v20180101:NetworkInterface" }, { type: "azure-native:network/v20180201:NetworkInterface" }, { type: "azure-nextgen:network/v20180201:NetworkInterface" }, { type: "azure-native:network/v20180401:NetworkInterface" }, { type: "azure-nextgen:network/v20180401:NetworkInterface" }, { type: "azure-native:network/v20180601:NetworkInterface" }, { type: "azure-nextgen:network/v20180601:NetworkInterface" }, { type: "azure-native:network/v20180701:NetworkInterface" }, { type: "azure-nextgen:network/v20180701:NetworkInterface" }, { type: "azure-native:network/v20180801:NetworkInterface" }, { type: "azure-nextgen:network/v20180801:NetworkInterface" }, { type: "azure-native:network/v20181001:NetworkInterface" }, { type: "azure-nextgen:network/v20181001:NetworkInterface" }, { type: "azure-native:network/v20181101:NetworkInterface" }, { type: "azure-nextgen:network/v20181101:NetworkInterface" }, { type: "azure-native:network/v20181201:NetworkInterface" }, { type: "azure-nextgen:network/v20181201:NetworkInterface" }, { type: "azure-native:network/v20190201:NetworkInterface" }, { type: "azure-nextgen:network/v20190201:NetworkInterface" }, { type: "azure-native:network/v20190401:NetworkInterface" }, { type: "azure-nextgen:network/v20190401:NetworkInterface" }, { type: "azure-native:network/v20190601:NetworkInterface" }, { type: "azure-nextgen:network/v20190601:NetworkInterface" }, { type: "azure-native:network/v20190701:NetworkInterface" }, { type: "azure-nextgen:network/v20190701:NetworkInterface" }, { type: "azure-native:network/v20190801:NetworkInterface" }, { type: "azure-nextgen:network/v20190801:NetworkInterface" }, { type: "azure-native:network/v20190901:NetworkInterface" }, { type: "azure-nextgen:network/v20190901:NetworkInterface" }, { type: "azure-native:network/v20191101:NetworkInterface" }, { type: "azure-nextgen:network/v20191101:NetworkInterface" }, { type: "azure-native:network/v20191201:NetworkInterface" }, { type: "azure-nextgen:network/v20191201:NetworkInterface" }, { type: "azure-native:network/v20200301:NetworkInterface" }, { type: "azure-nextgen:network/v20200301:NetworkInterface" }, { type: "azure-native:network/v20200401:NetworkInterface" }, { type: "azure-nextgen:network/v20200401:NetworkInterface" }, { type: "azure-native:network/v20200501:NetworkInterface" }, { type: "azure-nextgen:network/v20200501:NetworkInterface" }, { type: "azure-native:network/v20200601:NetworkInterface" }, { type: "azure-nextgen:network/v20200601:NetworkInterface" }, { type: "azure-native:network/v20200701:NetworkInterface" }, { type: "azure-nextgen:network/v20200701:NetworkInterface" }, { type: "azure-native:network/v20200801:NetworkInterface" }, { type: "azure-nextgen:network/v20200801:NetworkInterface" }, { type: "azure-native:network/v20201101:NetworkInterface" }, { type: "azure-nextgen:network/v20201101:NetworkInterface" }, { type: "azure-native:network/v20210201:NetworkInterface" }, { type: "azure-nextgen:network/v20210201:NetworkInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }
@@ -218,6 +236,10 @@ export interface NetworkInterfaceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Migration phase of Network Interface resource.
+     */
+    readonly migrationPhase?: pulumi.Input<string | enums.network.NetworkInterfaceMigrationPhase>;
+    /**
      * The name of the network interface.
      */
     readonly networkInterfaceName?: pulumi.Input<string>;
@@ -225,6 +247,14 @@ export interface NetworkInterfaceArgs {
      * The reference to the NetworkSecurityGroup resource.
      */
     readonly networkSecurityGroup?: pulumi.Input<inputs.network.NetworkSecurityGroupArgs>;
+    /**
+     * Type of Network Interface resource.
+     */
+    readonly nicType?: pulumi.Input<string | enums.network.NetworkInterfaceNicType>;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    readonly privateLinkService?: pulumi.Input<inputs.network.PrivateLinkServiceArgs>;
     /**
      * The name of the resource group.
      */

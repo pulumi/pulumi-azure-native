@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify what happens to the public IP when the VM is deleted
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DeleteOptions>? DeleteOption { get; set; }
+
+        /// <summary>
         /// The dns settings to be applied on the publicIP addresses .
         /// </summary>
         [Input("dnsSettings")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("publicIPPrefix")]
         public Input<Inputs.SubResourceArgs>? PublicIPPrefix { get; set; }
+
+        /// <summary>
+        /// Describes the public IP Sku
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.PublicIPAddressSkuArgs>? Sku { get; set; }
 
         public VirtualMachineScaleSetPublicIPAddressConfigurationArgs()
         {

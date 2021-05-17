@@ -47,6 +47,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
 
         public NotificationSettingsArgs()
         {
+            Status = "Disabled";
         }
     }
 }

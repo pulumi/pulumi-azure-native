@@ -67,6 +67,12 @@ func NewBackupShortTermRetentionPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:BackupShortTermRetentionPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210201preview:BackupShortTermRetentionPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupShortTermRetentionPolicy

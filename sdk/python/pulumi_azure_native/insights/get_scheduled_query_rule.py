@@ -88,7 +88,7 @@ class GetScheduledQueryRuleResult:
     @pulumi.getter(name="autoMitigate")
     def auto_mitigate(self) -> Optional[bool]:
         """
-        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        The flag that indicates whether the alert should be automatically resolved or not. The default is false.
         """
         return pulumi.get(self, "auto_mitigate")
 

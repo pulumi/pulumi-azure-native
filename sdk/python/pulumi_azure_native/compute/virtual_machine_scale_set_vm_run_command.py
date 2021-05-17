@@ -282,7 +282,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine run command.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,7 +310,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine run command.
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMRunCommandArgs args: The arguments to use to populate this resource's properties.
@@ -381,7 +381,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20210301:VirtualMachineScaleSetVMRunCommand")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMRunCommand, __self__).__init__(
             'azure-native:compute:VirtualMachineScaleSetVMRunCommand',

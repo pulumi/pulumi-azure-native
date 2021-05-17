@@ -5,21 +5,103 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./availabilitySet";
 export * from "./cloudService";
+export * from "./dedicatedHost";
+export * from "./dedicatedHostGroup";
+export * from "./getAvailabilitySet";
 export * from "./getCloudService";
+export * from "./getDedicatedHost";
+export * from "./getDedicatedHostGroup";
+export * from "./getImage";
+export * from "./getLogAnalyticExportRequestRateByInterval";
+export * from "./getLogAnalyticExportThrottledRequests";
+export * from "./getProximityPlacementGroup";
+export * from "./getRestorePoint";
+export * from "./getRestorePointCollection";
+export * from "./getSshPublicKey";
+export * from "./getVirtualMachine";
+export * from "./getVirtualMachineExtension";
+export * from "./getVirtualMachineRunCommandByVirtualMachine";
+export * from "./getVirtualMachineScaleSet";
+export * from "./getVirtualMachineScaleSetExtension";
+export * from "./getVirtualMachineScaleSetVM";
+export * from "./getVirtualMachineScaleSetVMExtension";
+export * from "./getVirtualMachineScaleSetVMRunCommand";
+export * from "./image";
+export * from "./proximityPlacementGroup";
+export * from "./restorePoint";
+export * from "./restorePointCollection";
+export * from "./sshPublicKey";
+export * from "./virtualMachine";
+export * from "./virtualMachineExtension";
+export * from "./virtualMachineRunCommandByVirtualMachine";
+export * from "./virtualMachineScaleSet";
+export * from "./virtualMachineScaleSetExtension";
+export * from "./virtualMachineScaleSetVM";
+export * from "./virtualMachineScaleSetVMExtension";
+export * from "./virtualMachineScaleSetVMRunCommand";
 
 // Export enums:
 export * from "../../types/enums/compute/v20210301";
 
 // Import resources to register:
+import { AvailabilitySet } from "./availabilitySet";
 import { CloudService } from "./cloudService";
+import { DedicatedHost } from "./dedicatedHost";
+import { DedicatedHostGroup } from "./dedicatedHostGroup";
+import { Image } from "./image";
+import { ProximityPlacementGroup } from "./proximityPlacementGroup";
+import { RestorePoint } from "./restorePoint";
+import { RestorePointCollection } from "./restorePointCollection";
+import { SshPublicKey } from "./sshPublicKey";
+import { VirtualMachine } from "./virtualMachine";
+import { VirtualMachineExtension } from "./virtualMachineExtension";
+import { VirtualMachineRunCommandByVirtualMachine } from "./virtualMachineRunCommandByVirtualMachine";
+import { VirtualMachineScaleSet } from "./virtualMachineScaleSet";
+import { VirtualMachineScaleSetExtension } from "./virtualMachineScaleSetExtension";
+import { VirtualMachineScaleSetVM } from "./virtualMachineScaleSetVM";
+import { VirtualMachineScaleSetVMExtension } from "./virtualMachineScaleSetVMExtension";
+import { VirtualMachineScaleSetVMRunCommand } from "./virtualMachineScaleSetVMRunCommand";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:compute/v20210301:AvailabilitySet":
+                return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure-native:compute/v20210301:CloudService":
                 return new CloudService(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:DedicatedHost":
+                return new DedicatedHost(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:DedicatedHostGroup":
+                return new DedicatedHostGroup(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:Image":
+                return new Image(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:ProximityPlacementGroup":
+                return new ProximityPlacementGroup(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:RestorePoint":
+                return new RestorePoint(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:RestorePointCollection":
+                return new RestorePointCollection(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:SshPublicKey":
+                return new SshPublicKey(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachine":
+                return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineExtension":
+                return new VirtualMachineExtension(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine":
+                return new VirtualMachineRunCommandByVirtualMachine(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineScaleSet":
+                return new VirtualMachineScaleSet(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineScaleSetExtension":
+                return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineScaleSetVM":
+                return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension":
+                return new VirtualMachineScaleSetVMExtension(name, <any>undefined, { urn })
+            case "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand":
+                return new VirtualMachineScaleSetVMRunCommand(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -137,6 +137,12 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:MachineLearningCompute"),
 		},
 		{

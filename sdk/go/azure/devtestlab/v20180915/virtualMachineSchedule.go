@@ -63,6 +63,9 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	if args.VirtualMachineName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
 	}
+	if args.Status == nil {
+		args.Status = pulumi.StringPtr("Disabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule"),

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
@@ -129,6 +129,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
     /**
+     * Specifies Scheduled Event related configurations.
+     */
+    public readonly scheduledEventsProfile!: pulumi.Output<outputs.compute.ScheduledEventsProfileResponse | undefined>;
+    /**
      * Specifies the Security related profile settings for the virtual machine.
      */
     public readonly securityProfile!: pulumi.Output<outputs.compute.SecurityProfileResponse | undefined>;
@@ -144,6 +148,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
      */
@@ -191,9 +199,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scheduledEventsProfile"] = args ? args.scheduledEventsProfile : undefined;
             inputs["securityProfile"] = args ? args.securityProfile : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["virtualMachineScaleSet"] = args ? args.virtualMachineScaleSet : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -227,10 +237,12 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proximityPlacementGroup"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
+            inputs["scheduledEventsProfile"] = undefined /*out*/;
             inputs["securityProfile"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userData"] = undefined /*out*/;
             inputs["virtualMachineScaleSet"] = undefined /*out*/;
             inputs["vmId"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
@@ -238,7 +250,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachine" }, { type: "azure-native:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-native:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-native:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-native:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-native:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-native:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-native:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-native:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-native:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-native:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-native:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachine" }, { type: "azure-native:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-native:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-native:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-native:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-native:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-native:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-native:compute/v20180601:VirtualMachine" }, { type: "azure-nextgen:compute/v20180601:VirtualMachine" }, { type: "azure-native:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-native:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-native:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-native:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachine" }, { type: "azure-nextgen:compute/v20210301:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
@@ -253,7 +265,7 @@ export interface VirtualMachineArgs {
      */
     readonly additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
      */
     readonly availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
@@ -329,6 +341,10 @@ export interface VirtualMachineArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies Scheduled Event related configurations.
+     */
+    readonly scheduledEventsProfile?: pulumi.Input<inputs.compute.ScheduledEventsProfileArgs>;
+    /**
      * Specifies the Security related profile settings for the virtual machine.
      */
     readonly securityProfile?: pulumi.Input<inputs.compute.SecurityProfileArgs>;
@@ -340,6 +356,10 @@ export interface VirtualMachineArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     */
+    readonly userData?: pulumi.Input<string>;
     /**
      * Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
      */

@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("storageProfile")]
         public Input<Inputs.VirtualMachineScaleSetStorageProfileArgs>? StorageProfile { get; set; }
 
+        /// <summary>
+        /// UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
+
         public VirtualMachineScaleSetVMProfileArgs()
         {
         }

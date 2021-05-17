@@ -68,13 +68,25 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public readonly ipTags!: pulumi.Output<outputs.network.v20201101.IpTagResponse[] | undefined>;
     /**
+     * The linked public IP address of the public IP address resource.
+     */
+    public readonly linkedPublicIPAddress!: pulumi.Output<outputs.network.v20201101.PublicIPAddressResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Migration phase of Public IP Address.
+     */
+    public readonly migrationPhase!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The NatGateway for the Public IP address.
+     */
+    public readonly natGateway!: pulumi.Output<outputs.network.v20201101.NatGatewayResponse | undefined>;
     /**
      * The provisioning state of the public IP address resource.
      */
@@ -95,6 +107,10 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * The resource GUID property of the public IP address resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * The service public IP address of the public IP address resource.
+     */
+    public readonly servicePublicIPAddress!: pulumi.Output<outputs.network.v20201101.PublicIPAddressResponse | undefined>;
     /**
      * The public IP address SKU.
      */
@@ -133,12 +149,16 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
+            inputs["linkedPublicIPAddress"] = args ? args.linkedPublicIPAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["migrationPhase"] = args ? args.migrationPhase : undefined;
+            inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
             inputs["publicIPPrefix"] = args ? args.publicIPPrefix : undefined;
             inputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["servicePublicIPAddress"] = args ? args.servicePublicIPAddress : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -157,13 +177,17 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["ipConfiguration"] = undefined /*out*/;
             inputs["ipTags"] = undefined /*out*/;
+            inputs["linkedPublicIPAddress"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["migrationPhase"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["natGateway"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddressVersion"] = undefined /*out*/;
             inputs["publicIPAllocationMethod"] = undefined /*out*/;
             inputs["publicIPPrefix"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
+            inputs["servicePublicIPAddress"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -172,7 +196,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20201101:PublicIPAddress" }, { type: "azure-native:network:PublicIPAddress" }, { type: "azure-nextgen:network:PublicIPAddress" }, { type: "azure-native:network/v20150501preview:PublicIPAddress" }, { type: "azure-nextgen:network/v20150501preview:PublicIPAddress" }, { type: "azure-native:network/v20150615:PublicIPAddress" }, { type: "azure-nextgen:network/v20150615:PublicIPAddress" }, { type: "azure-native:network/v20160330:PublicIPAddress" }, { type: "azure-nextgen:network/v20160330:PublicIPAddress" }, { type: "azure-native:network/v20160601:PublicIPAddress" }, { type: "azure-nextgen:network/v20160601:PublicIPAddress" }, { type: "azure-native:network/v20160901:PublicIPAddress" }, { type: "azure-nextgen:network/v20160901:PublicIPAddress" }, { type: "azure-native:network/v20161201:PublicIPAddress" }, { type: "azure-nextgen:network/v20161201:PublicIPAddress" }, { type: "azure-native:network/v20170301:PublicIPAddress" }, { type: "azure-nextgen:network/v20170301:PublicIPAddress" }, { type: "azure-native:network/v20170601:PublicIPAddress" }, { type: "azure-nextgen:network/v20170601:PublicIPAddress" }, { type: "azure-native:network/v20170801:PublicIPAddress" }, { type: "azure-nextgen:network/v20170801:PublicIPAddress" }, { type: "azure-native:network/v20170901:PublicIPAddress" }, { type: "azure-nextgen:network/v20170901:PublicIPAddress" }, { type: "azure-native:network/v20171001:PublicIPAddress" }, { type: "azure-nextgen:network/v20171001:PublicIPAddress" }, { type: "azure-native:network/v20171101:PublicIPAddress" }, { type: "azure-nextgen:network/v20171101:PublicIPAddress" }, { type: "azure-native:network/v20180101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180101:PublicIPAddress" }, { type: "azure-native:network/v20180201:PublicIPAddress" }, { type: "azure-nextgen:network/v20180201:PublicIPAddress" }, { type: "azure-native:network/v20180401:PublicIPAddress" }, { type: "azure-nextgen:network/v20180401:PublicIPAddress" }, { type: "azure-native:network/v20180601:PublicIPAddress" }, { type: "azure-nextgen:network/v20180601:PublicIPAddress" }, { type: "azure-native:network/v20180701:PublicIPAddress" }, { type: "azure-nextgen:network/v20180701:PublicIPAddress" }, { type: "azure-native:network/v20180801:PublicIPAddress" }, { type: "azure-nextgen:network/v20180801:PublicIPAddress" }, { type: "azure-native:network/v20181001:PublicIPAddress" }, { type: "azure-nextgen:network/v20181001:PublicIPAddress" }, { type: "azure-native:network/v20181101:PublicIPAddress" }, { type: "azure-nextgen:network/v20181101:PublicIPAddress" }, { type: "azure-native:network/v20181201:PublicIPAddress" }, { type: "azure-nextgen:network/v20181201:PublicIPAddress" }, { type: "azure-native:network/v20190201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190201:PublicIPAddress" }, { type: "azure-native:network/v20190401:PublicIPAddress" }, { type: "azure-nextgen:network/v20190401:PublicIPAddress" }, { type: "azure-native:network/v20190601:PublicIPAddress" }, { type: "azure-nextgen:network/v20190601:PublicIPAddress" }, { type: "azure-native:network/v20190701:PublicIPAddress" }, { type: "azure-nextgen:network/v20190701:PublicIPAddress" }, { type: "azure-native:network/v20190801:PublicIPAddress" }, { type: "azure-nextgen:network/v20190801:PublicIPAddress" }, { type: "azure-native:network/v20190901:PublicIPAddress" }, { type: "azure-nextgen:network/v20190901:PublicIPAddress" }, { type: "azure-native:network/v20191101:PublicIPAddress" }, { type: "azure-nextgen:network/v20191101:PublicIPAddress" }, { type: "azure-native:network/v20191201:PublicIPAddress" }, { type: "azure-nextgen:network/v20191201:PublicIPAddress" }, { type: "azure-native:network/v20200301:PublicIPAddress" }, { type: "azure-nextgen:network/v20200301:PublicIPAddress" }, { type: "azure-native:network/v20200401:PublicIPAddress" }, { type: "azure-nextgen:network/v20200401:PublicIPAddress" }, { type: "azure-native:network/v20200501:PublicIPAddress" }, { type: "azure-nextgen:network/v20200501:PublicIPAddress" }, { type: "azure-native:network/v20200601:PublicIPAddress" }, { type: "azure-nextgen:network/v20200601:PublicIPAddress" }, { type: "azure-native:network/v20200701:PublicIPAddress" }, { type: "azure-nextgen:network/v20200701:PublicIPAddress" }, { type: "azure-native:network/v20200801:PublicIPAddress" }, { type: "azure-nextgen:network/v20200801:PublicIPAddress" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20201101:PublicIPAddress" }, { type: "azure-native:network:PublicIPAddress" }, { type: "azure-nextgen:network:PublicIPAddress" }, { type: "azure-native:network/v20150501preview:PublicIPAddress" }, { type: "azure-nextgen:network/v20150501preview:PublicIPAddress" }, { type: "azure-native:network/v20150615:PublicIPAddress" }, { type: "azure-nextgen:network/v20150615:PublicIPAddress" }, { type: "azure-native:network/v20160330:PublicIPAddress" }, { type: "azure-nextgen:network/v20160330:PublicIPAddress" }, { type: "azure-native:network/v20160601:PublicIPAddress" }, { type: "azure-nextgen:network/v20160601:PublicIPAddress" }, { type: "azure-native:network/v20160901:PublicIPAddress" }, { type: "azure-nextgen:network/v20160901:PublicIPAddress" }, { type: "azure-native:network/v20161201:PublicIPAddress" }, { type: "azure-nextgen:network/v20161201:PublicIPAddress" }, { type: "azure-native:network/v20170301:PublicIPAddress" }, { type: "azure-nextgen:network/v20170301:PublicIPAddress" }, { type: "azure-native:network/v20170601:PublicIPAddress" }, { type: "azure-nextgen:network/v20170601:PublicIPAddress" }, { type: "azure-native:network/v20170801:PublicIPAddress" }, { type: "azure-nextgen:network/v20170801:PublicIPAddress" }, { type: "azure-native:network/v20170901:PublicIPAddress" }, { type: "azure-nextgen:network/v20170901:PublicIPAddress" }, { type: "azure-native:network/v20171001:PublicIPAddress" }, { type: "azure-nextgen:network/v20171001:PublicIPAddress" }, { type: "azure-native:network/v20171101:PublicIPAddress" }, { type: "azure-nextgen:network/v20171101:PublicIPAddress" }, { type: "azure-native:network/v20180101:PublicIPAddress" }, { type: "azure-nextgen:network/v20180101:PublicIPAddress" }, { type: "azure-native:network/v20180201:PublicIPAddress" }, { type: "azure-nextgen:network/v20180201:PublicIPAddress" }, { type: "azure-native:network/v20180401:PublicIPAddress" }, { type: "azure-nextgen:network/v20180401:PublicIPAddress" }, { type: "azure-native:network/v20180601:PublicIPAddress" }, { type: "azure-nextgen:network/v20180601:PublicIPAddress" }, { type: "azure-native:network/v20180701:PublicIPAddress" }, { type: "azure-nextgen:network/v20180701:PublicIPAddress" }, { type: "azure-native:network/v20180801:PublicIPAddress" }, { type: "azure-nextgen:network/v20180801:PublicIPAddress" }, { type: "azure-native:network/v20181001:PublicIPAddress" }, { type: "azure-nextgen:network/v20181001:PublicIPAddress" }, { type: "azure-native:network/v20181101:PublicIPAddress" }, { type: "azure-nextgen:network/v20181101:PublicIPAddress" }, { type: "azure-native:network/v20181201:PublicIPAddress" }, { type: "azure-nextgen:network/v20181201:PublicIPAddress" }, { type: "azure-native:network/v20190201:PublicIPAddress" }, { type: "azure-nextgen:network/v20190201:PublicIPAddress" }, { type: "azure-native:network/v20190401:PublicIPAddress" }, { type: "azure-nextgen:network/v20190401:PublicIPAddress" }, { type: "azure-native:network/v20190601:PublicIPAddress" }, { type: "azure-nextgen:network/v20190601:PublicIPAddress" }, { type: "azure-native:network/v20190701:PublicIPAddress" }, { type: "azure-nextgen:network/v20190701:PublicIPAddress" }, { type: "azure-native:network/v20190801:PublicIPAddress" }, { type: "azure-nextgen:network/v20190801:PublicIPAddress" }, { type: "azure-native:network/v20190901:PublicIPAddress" }, { type: "azure-nextgen:network/v20190901:PublicIPAddress" }, { type: "azure-native:network/v20191101:PublicIPAddress" }, { type: "azure-nextgen:network/v20191101:PublicIPAddress" }, { type: "azure-native:network/v20191201:PublicIPAddress" }, { type: "azure-nextgen:network/v20191201:PublicIPAddress" }, { type: "azure-native:network/v20200301:PublicIPAddress" }, { type: "azure-nextgen:network/v20200301:PublicIPAddress" }, { type: "azure-native:network/v20200401:PublicIPAddress" }, { type: "azure-nextgen:network/v20200401:PublicIPAddress" }, { type: "azure-native:network/v20200501:PublicIPAddress" }, { type: "azure-nextgen:network/v20200501:PublicIPAddress" }, { type: "azure-native:network/v20200601:PublicIPAddress" }, { type: "azure-nextgen:network/v20200601:PublicIPAddress" }, { type: "azure-native:network/v20200701:PublicIPAddress" }, { type: "azure-nextgen:network/v20200701:PublicIPAddress" }, { type: "azure-native:network/v20200801:PublicIPAddress" }, { type: "azure-nextgen:network/v20200801:PublicIPAddress" }, { type: "azure-native:network/v20210201:PublicIPAddress" }, { type: "azure-nextgen:network/v20210201:PublicIPAddress" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublicIPAddress.__pulumiType, name, inputs, opts);
     }
@@ -211,9 +235,21 @@ export interface PublicIPAddressArgs {
      */
     readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20201101.IpTagArgs>[]>;
     /**
+     * The linked public IP address of the public IP address resource.
+     */
+    readonly linkedPublicIPAddress?: pulumi.Input<inputs.network.v20201101.PublicIPAddressArgs>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Migration phase of Public IP Address.
+     */
+    readonly migrationPhase?: pulumi.Input<string | enums.network.v20201101.PublicIPAddressMigrationPhase>;
+    /**
+     * The NatGateway for the Public IP address.
+     */
+    readonly natGateway?: pulumi.Input<inputs.network.v20201101.NatGatewayArgs>;
     /**
      * The public IP address version.
      */
@@ -234,6 +270,10 @@ export interface PublicIPAddressArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The service public IP address of the public IP address resource.
+     */
+    readonly servicePublicIPAddress?: pulumi.Input<inputs.network.v20201101.PublicIPAddressArgs>;
     /**
      * The public IP address SKU.
      */

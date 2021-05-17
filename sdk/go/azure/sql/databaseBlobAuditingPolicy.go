@@ -157,6 +157,12 @@ func NewDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:DatabaseBlobAuditingPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210201preview:DatabaseBlobAuditingPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseBlobAuditingPolicy

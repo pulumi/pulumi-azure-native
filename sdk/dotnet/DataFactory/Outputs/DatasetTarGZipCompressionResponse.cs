@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The TarGZip compression level.
         /// </summary>
-        public readonly string? Level;
+        public readonly object? Level;
         /// <summary>
         /// Type of dataset compression.
         /// Expected value is 'TarGZip'.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DatasetTarGZipCompressionResponse(
-            string? level,
+            object? level,
 
             string type)
         {

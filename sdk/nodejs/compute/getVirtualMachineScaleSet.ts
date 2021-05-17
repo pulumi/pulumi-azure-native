@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
     if (!opts) {
@@ -18,12 +18,17 @@ export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:compute:getVirtualMachineScaleSet", {
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
     }, opts);
 }
 
 export interface GetVirtualMachineScaleSetArgs {
+    /**
+     * The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
+     */
+    readonly expand?: string;
     /**
      * The name of the resource group.
      */

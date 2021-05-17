@@ -166,6 +166,12 @@ func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ServiceEndpointPolicyDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:ServiceEndpointPolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:ServiceEndpointPolicyDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceEndpointPolicyDefinition

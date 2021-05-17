@@ -62,6 +62,12 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstanceAzureADOnlyAuthentication

@@ -187,6 +187,12 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20201101:PublicIPPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:PublicIPPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPPrefix

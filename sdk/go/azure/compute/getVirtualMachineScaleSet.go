@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetResult, error) {
 	var rv LookupVirtualMachineScaleSetResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSet", args, &rv, opts...)
@@ -19,6 +19,8 @@ func LookupVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupVirtualMachin
 }
 
 type LookupVirtualMachineScaleSetArgs struct {
+	// The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
+	Expand *string `pulumi:"expand"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VM scale set.

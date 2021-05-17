@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether data disk should be deleted or detached upon VM deletion.&lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the data disk is deleted when VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the data disk is retained after VM is deleted.&lt;br&gt;&lt;br&gt; The default value is set to **detach**
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskDeleteOptionTypes>? DeleteOption { get; set; }
+
+        /// <summary>
         /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. &lt;br&gt;&lt;br&gt; detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         /// </summary>
         [Input("detachOption")]

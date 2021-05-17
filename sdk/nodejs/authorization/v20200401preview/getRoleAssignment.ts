@@ -19,6 +19,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("azure-native:authorization/v20200401preview:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,
+        "tenantId": args.tenantId,
     }, opts);
 }
 
@@ -31,6 +32,10 @@ export interface GetRoleAssignmentArgs {
      * The scope of the role assignment.
      */
     readonly scope: string;
+    /**
+     * Tenant ID for cross-tenant request
+     */
+    readonly tenantId?: string;
 }
 
 /**

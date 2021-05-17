@@ -266,6 +266,12 @@ func NewSubnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20201101:Subnet"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:Subnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Subnet

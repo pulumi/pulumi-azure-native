@@ -126,6 +126,7 @@ export * from "./getVirtualNetworkGatewayAdvertisedRoutes";
 export * from "./getVirtualNetworkGatewayBgpPeerStatus";
 export * from "./getVirtualNetworkGatewayConnection";
 export * from "./getVirtualNetworkGatewayLearnedRoutes";
+export * from "./getVirtualNetworkGatewayNatRule";
 export * from "./getVirtualNetworkGatewayVpnclientConnectionHealth";
 export * from "./getVirtualNetworkGatewayVpnclientIpsecParameters";
 export * from "./getVirtualNetworkLink";
@@ -202,6 +203,7 @@ export * from "./virtualHubRouteTableV2";
 export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
+export * from "./virtualNetworkGatewayNatRule";
 export * from "./virtualNetworkLink";
 export * from "./virtualNetworkPeering";
 export * from "./virtualNetworkTap";
@@ -268,6 +270,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
 import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
+import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 
 export {
@@ -320,6 +323,7 @@ export {
     v20200701,
     v20200801,
     v20201101,
+    v20210201,
     v20210201preview,
 };
 
@@ -408,6 +412,7 @@ import { VirtualHubRouteTableV2 } from "./virtualHubRouteTableV2";
 import { VirtualNetwork } from "./virtualNetwork";
 import { VirtualNetworkGateway } from "./virtualNetworkGateway";
 import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
+import { VirtualNetworkGatewayNatRule } from "./virtualNetworkGatewayNatRule";
 import { VirtualNetworkLink } from "./virtualNetworkLink";
 import { VirtualNetworkPeering } from "./virtualNetworkPeering";
 import { VirtualNetworkTap } from "./virtualNetworkTap";
@@ -593,6 +598,8 @@ const _module = {
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkGatewayConnection":
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
+            case "azure-native:network:VirtualNetworkGatewayNatRule":
+                return new VirtualNetworkGatewayNatRule(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkLink":
                 return new VirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network:VirtualNetworkPeering":

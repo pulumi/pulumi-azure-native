@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a virtual machine scale set virtual machine.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetVirtualMachineScaleSetVMArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.AdditionalCapabilitiesResponse? AdditionalCapabilities;
         /// <summary>
-        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
         public readonly Outputs.SubResourceResponse? AvailabilitySet;
         /// <summary>
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// </summary>
+        public readonly string? UserData;
+        /// <summary>
         /// Azure VM unique ID.
         /// </summary>
         public readonly string VmId;
@@ -210,6 +214,8 @@ namespace Pulumi.AzureNative.Compute
 
             string type,
 
+            string? userData,
+
             string vmId,
 
             ImmutableArray<string> zones)
@@ -238,6 +244,7 @@ namespace Pulumi.AzureNative.Compute
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
+            UserData = userData;
             VmId = vmId;
             Zones = zones;
         }

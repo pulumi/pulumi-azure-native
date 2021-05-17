@@ -1893,6 +1893,8 @@ class LabVirtualMachineCreationParameterResponse(dict):
             pulumi.set(__self__, "size", size)
         if ssh_key is not None:
             pulumi.set(__self__, "ssh_key", ssh_key)
+        if storage_type is None:
+            storage_type = 'labStorageType'
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -2355,6 +2357,8 @@ class NotificationSettingsResponse(dict):
             pulumi.set(__self__, "email_recipient", email_recipient)
         if notification_locale is not None:
             pulumi.set(__self__, "notification_locale", notification_locale)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if time_in_minutes is not None:
@@ -2492,9 +2496,9 @@ class ScheduleCreationParameterResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 location: str,
                  daily_recurrence: Optional['outputs.DayDetailsResponse'] = None,
                  hourly_recurrence: Optional['outputs.HourDetailsResponse'] = None,
-                 location: Optional[str] = None,
                  name: Optional[str] = None,
                  notification_settings: Optional['outputs.NotificationSettingsResponse'] = None,
                  status: Optional[str] = None,
@@ -2505,9 +2509,9 @@ class ScheduleCreationParameterResponse(dict):
                  weekly_recurrence: Optional['outputs.WeekDetailsResponse'] = None):
         """
         Properties for creating a schedule.
+        :param str location: The location of the new virtual machine or environment
         :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        :param str location: The location of the new virtual machine or environment
         :param str name: The name of the virtual machine or environment
         :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param str status: The status of the schedule (i.e. Enabled, Disabled)
@@ -2517,16 +2521,17 @@ class ScheduleCreationParameterResponse(dict):
         :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
         :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
+        pulumi.set(__self__, "location", location)
         if daily_recurrence is not None:
             pulumi.set(__self__, "daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
             pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -2539,6 +2544,14 @@ class ScheduleCreationParameterResponse(dict):
             pulumi.set(__self__, "time_zone_id", time_zone_id)
         if weekly_recurrence is not None:
             pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the new virtual machine or environment
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="dailyRecurrence")
@@ -2555,14 +2568,6 @@ class ScheduleCreationParameterResponse(dict):
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
         return pulumi.get(self, "hourly_recurrence")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The location of the new virtual machine or environment
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -2719,6 +2724,8 @@ class ScheduleResponse(dict):
             pulumi.set(__self__, "location", location)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:

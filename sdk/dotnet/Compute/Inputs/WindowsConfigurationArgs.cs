@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<bool>? ProvisionVMAgent { get; set; }
 
         /// <summary>
-        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". &lt;br&gt;&lt;br&gt; Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". &lt;br&gt;&lt;br&gt; Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.BotService.Inputs
     public sealed class DirectLineSpeechChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cognitive service subscription ID to use with this channel registration.
+        /// The cognitive service region with this channel registration.
         /// </summary>
-        [Input("cognitiveServicesSubscriptionId", required: true)]
-        public Input<string> CognitiveServicesSubscriptionId { get; set; } = null!;
+        [Input("cognitiveServiceRegion", required: true)]
+        public Input<string> CognitiveServiceRegion { get; set; } = null!;
+
+        /// <summary>
+        /// The cognitive service subscription key to use with this channel registration.
+        /// </summary>
+        [Input("cognitiveServiceSubscriptionKey", required: true)]
+        public Input<string> CognitiveServiceSubscriptionKey { get; set; } = null!;
 
         /// <summary>
         /// Custom voice deployment id (optional).

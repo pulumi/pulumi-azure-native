@@ -22,6 +22,8 @@ type LookupRoleAssignmentArgs struct {
 	RoleAssignmentName string `pulumi:"roleAssignmentName"`
 	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
+	// Tenant ID for cross-tenant request
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // Role Assignments

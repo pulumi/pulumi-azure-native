@@ -25,6 +25,7 @@ __all__ = [
     'TagResponse',
     'UserIdentityPropertiesResponse',
     'WorkspaceCappingResponse',
+    'WorkspaceFeaturesResponse',
     'WorkspaceSkuResponse',
 ]
 
@@ -907,6 +908,88 @@ class WorkspaceCappingResponse(dict):
         The workspace daily quota for ingestion.
         """
         return pulumi.get(self, "daily_quota_gb")
+
+
+@pulumi.output_type
+class WorkspaceFeaturesResponse(dict):
+    """
+    Workspace features.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterResourceId":
+            suggest = "cluster_resource_id"
+        elif key == "enableDataExport":
+            suggest = "enable_data_export"
+        elif key == "enableLogAccessUsingOnlyResourcePermissions":
+            suggest = "enable_log_access_using_only_resource_permissions"
+        elif key == "immediatePurgeDataOn30Days":
+            suggest = "immediate_purge_data_on30_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceFeaturesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceFeaturesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceFeaturesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_resource_id: Optional[str] = None,
+                 enable_data_export: Optional[bool] = None,
+                 enable_log_access_using_only_resource_permissions: Optional[bool] = None,
+                 immediate_purge_data_on30_days: Optional[bool] = None):
+        """
+        Workspace features.
+        :param str cluster_resource_id: Dedicated LA cluster resourceId that is linked to the workspaces.
+        :param bool enable_data_export: Flag that indicate if data should be exported.
+        :param bool enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
+        :param bool immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
+        """
+        if cluster_resource_id is not None:
+            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if enable_data_export is not None:
+            pulumi.set(__self__, "enable_data_export", enable_data_export)
+        if enable_log_access_using_only_resource_permissions is not None:
+            pulumi.set(__self__, "enable_log_access_using_only_resource_permissions", enable_log_access_using_only_resource_permissions)
+        if immediate_purge_data_on30_days is not None:
+            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> Optional[str]:
+        """
+        Dedicated LA cluster resourceId that is linked to the workspaces.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="enableDataExport")
+    def enable_data_export(self) -> Optional[bool]:
+        """
+        Flag that indicate if data should be exported.
+        """
+        return pulumi.get(self, "enable_data_export")
+
+    @property
+    @pulumi.getter(name="enableLogAccessUsingOnlyResourcePermissions")
+    def enable_log_access_using_only_resource_permissions(self) -> Optional[bool]:
+        """
+        Flag that indicate which permission to use - resource or workspace or both.
+        """
+        return pulumi.get(self, "enable_log_access_using_only_resource_permissions")
+
+    @property
+    @pulumi.getter(name="immediatePurgeDataOn30Days")
+    def immediate_purge_data_on30_days(self) -> Optional[bool]:
+        """
+        Flag that describes if we want to remove the data after 30 days.
+        """
+        return pulumi.get(self, "immediate_purge_data_on30_days")
 
 
 @pulumi.output_type

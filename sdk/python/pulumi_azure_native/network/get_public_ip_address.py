@@ -20,7 +20,7 @@ class GetPublicIPAddressResult:
     """
     Public IP address resource.
     """
-    def __init__(__self__, ddos_settings=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, location=None, name=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, ddos_settings=None, dns_settings=None, etag=None, extended_location=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, linked_public_ip_address=None, location=None, migration_phase=None, name=None, nat_gateway=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, service_public_ip_address=None, sku=None, tags=None, type=None, zones=None):
         if ddos_settings and not isinstance(ddos_settings, dict):
             raise TypeError("Expected argument 'ddos_settings' to be a dict")
         pulumi.set(__self__, "ddos_settings", ddos_settings)
@@ -48,12 +48,21 @@ class GetPublicIPAddressResult:
         if ip_tags and not isinstance(ip_tags, list):
             raise TypeError("Expected argument 'ip_tags' to be a list")
         pulumi.set(__self__, "ip_tags", ip_tags)
+        if linked_public_ip_address and not isinstance(linked_public_ip_address, dict):
+            raise TypeError("Expected argument 'linked_public_ip_address' to be a dict")
+        pulumi.set(__self__, "linked_public_ip_address", linked_public_ip_address)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if migration_phase and not isinstance(migration_phase, str):
+            raise TypeError("Expected argument 'migration_phase' to be a str")
+        pulumi.set(__self__, "migration_phase", migration_phase)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nat_gateway and not isinstance(nat_gateway, dict):
+            raise TypeError("Expected argument 'nat_gateway' to be a dict")
+        pulumi.set(__self__, "nat_gateway", nat_gateway)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -69,6 +78,9 @@ class GetPublicIPAddressResult:
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
+        if service_public_ip_address and not isinstance(service_public_ip_address, dict):
+            raise TypeError("Expected argument 'service_public_ip_address' to be a dict")
+        pulumi.set(__self__, "service_public_ip_address", service_public_ip_address)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -155,6 +167,14 @@ class GetPublicIPAddressResult:
         return pulumi.get(self, "ip_tags")
 
     @property
+    @pulumi.getter(name="linkedPublicIPAddress")
+    def linked_public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "linked_public_ip_address")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
@@ -163,12 +183,28 @@ class GetPublicIPAddressResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> Optional[str]:
+        """
+        Migration phase of Public IP Address.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional['outputs.NatGatewayResponse']:
+        """
+        The NatGateway for the Public IP address.
+        """
+        return pulumi.get(self, "nat_gateway")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -209,6 +245,14 @@ class GetPublicIPAddressResult:
         The resource GUID property of the public IP address resource.
         """
         return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="servicePublicIPAddress")
+    def service_public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The service public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "service_public_ip_address")
 
     @property
     @pulumi.getter
@@ -258,13 +302,17 @@ class AwaitableGetPublicIPAddressResult(GetPublicIPAddressResult):
             ip_address=self.ip_address,
             ip_configuration=self.ip_configuration,
             ip_tags=self.ip_tags,
+            linked_public_ip_address=self.linked_public_ip_address,
             location=self.location,
+            migration_phase=self.migration_phase,
             name=self.name,
+            nat_gateway=self.nat_gateway,
             provisioning_state=self.provisioning_state,
             public_ip_address_version=self.public_ip_address_version,
             public_ip_allocation_method=self.public_ip_allocation_method,
             public_ip_prefix=self.public_ip_prefix,
             resource_guid=self.resource_guid,
+            service_public_ip_address=self.service_public_ip_address,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
@@ -304,13 +352,17 @@ def get_public_ip_address(expand: Optional[str] = None,
         ip_address=__ret__.ip_address,
         ip_configuration=__ret__.ip_configuration,
         ip_tags=__ret__.ip_tags,
+        linked_public_ip_address=__ret__.linked_public_ip_address,
         location=__ret__.location,
+        migration_phase=__ret__.migration_phase,
         name=__ret__.name,
+        nat_gateway=__ret__.nat_gateway,
         provisioning_state=__ret__.provisioning_state,
         public_ip_address_version=__ret__.public_ip_address_version,
         public_ip_allocation_method=__ret__.public_ip_allocation_method,
         public_ip_prefix=__ret__.public_ip_prefix,
         resource_guid=__ret__.resource_guid,
+        service_public_ip_address=__ret__.service_public_ip_address,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,

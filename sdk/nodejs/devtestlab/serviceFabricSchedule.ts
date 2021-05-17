@@ -128,7 +128,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
             inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceFabricName"] = args ? args.serviceFabricName : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            inputs["status"] = (args ? args.status : undefined) ?? "Disabled";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["taskType"] = args ? args.taskType : undefined;

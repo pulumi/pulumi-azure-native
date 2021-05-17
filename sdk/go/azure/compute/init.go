@@ -51,6 +51,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Image{}
 	case "azure-native:compute:ProximityPlacementGroup":
 		r = &ProximityPlacementGroup{}
+	case "azure-native:compute:RestorePoint":
+		r = &RestorePoint{}
+	case "azure-native:compute:RestorePointCollection":
+		r = &RestorePointCollection{}
 	case "azure-native:compute:Snapshot":
 		r = &Snapshot{}
 	case "azure-native:compute:SshPublicKey":

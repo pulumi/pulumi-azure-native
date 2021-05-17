@@ -81,9 +81,11 @@ __all__ = [
     'PatchSettingsArgs',
     'PlanArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'PublicIPAddressSkuArgs',
     'PurchasePlanArgs',
     'RecommendedMachineConfigurationArgs',
     'ResourceRangeArgs',
+    'RestorePointCollectionSourcePropertiesArgs',
     'RollingUpgradePolicyArgs',
     'RunCommandInputParameterArgs',
     'ScaleInPolicyArgs',
@@ -108,6 +110,12 @@ __all__ = [
     'VirtualHardDiskArgs',
     'VirtualMachineExtensionInstanceViewArgs',
     'VirtualMachineIdentityArgs',
+    'VirtualMachineIpTagArgs',
+    'VirtualMachineNetworkInterfaceConfigurationArgs',
+    'VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs',
+    'VirtualMachineNetworkInterfaceIPConfigurationArgs',
+    'VirtualMachinePublicIPAddressConfigurationArgs',
+    'VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs',
     'VirtualMachineRunCommandScriptSourceArgs',
     'VirtualMachineScaleSetDataDiskArgs',
     'VirtualMachineScaleSetExtensionArgs',
@@ -1174,6 +1182,7 @@ class DataDiskArgs:
                  create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
                  lun: pulumi.Input[int],
                  caching: Optional[pulumi.Input['CachingTypes']] = None,
+                 delete_option: Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]] = None,
                  detach_option: Optional[pulumi.Input[Union[str, 'DiskDetachOptionTypes']]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
@@ -1187,6 +1196,7 @@ class DataDiskArgs:
         :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input[Union[str, 'DiskDeleteOptionTypes']] delete_option: Specifies whether data disk should be deleted or detached upon VM deletion.<br><br> Possible values: <br><br> **Delete** If this value is used, the data disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the data disk is retained after VM is deleted.<br><br> The default value is set to **detach**
         :param pulumi.Input[Union[str, 'DiskDetachOptionTypes']] detach_option: Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -1200,6 +1210,8 @@ class DataDiskArgs:
         pulumi.set(__self__, "lun", lun)
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
         if detach_option is not None:
             pulumi.set(__self__, "detach_option", detach_option)
         if disk_size_gb is not None:
@@ -1252,6 +1264,18 @@ class DataDiskArgs:
     @caching.setter
     def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]:
+        """
+        Specifies whether data disk should be deleted or detached upon VM deletion.<br><br> Possible values: <br><br> **Delete** If this value is used, the data disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the data disk is retained after VM is deleted.<br><br> The default value is set to **detach**
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]):
+        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="detachOption")
@@ -1421,7 +1445,7 @@ class DiffDiskSettingsArgs:
         """
         Describes the parameters of ephemeral disk settings that can be specified for operating system disk. <br><br> NOTE: The ephemeral disk settings can only be specified for managed disk.
         :param pulumi.Input[Union[str, 'DiffDiskOptions']] option: Specifies the ephemeral disk settings for operating system disk.
-        :param pulumi.Input[Union[str, 'DiffDiskPlacement']] placement: Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+        :param pulumi.Input[Union[str, 'DiffDiskPlacement']] placement: Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
         """
         if option is not None:
             pulumi.set(__self__, "option", option)
@@ -1444,7 +1468,7 @@ class DiffDiskSettingsArgs:
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input[Union[str, 'DiffDiskPlacement']]]:
         """
-        Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+        Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
         """
         return pulumi.get(self, "placement")
 
@@ -2393,7 +2417,7 @@ class HardwareProfileArgs:
                  vm_size: Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]] = None):
         """
         Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[Union[str, 'VirtualMachineSizeTypes']] vm_size: Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+        :param pulumi.Input[Union[str, 'VirtualMachineSizeTypes']] vm_size: Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
         """
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
@@ -2402,7 +2426,7 @@ class HardwareProfileArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]:
         """
-        Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+        Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
         """
         return pulumi.get(self, "vm_size")
 
@@ -3222,7 +3246,7 @@ class LinuxConfigurationArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled.
         :param pulumi.Input['LinuxPatchSettingsArgs'] patch_settings: [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
         :param pulumi.Input[bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
@@ -3289,19 +3313,35 @@ class LinuxConfigurationArgs:
 @pulumi.input_type
 class LinuxPatchSettingsArgs:
     def __init__(__self__, *,
+                 assessment_mode: Optional[pulumi.Input[Union[str, 'LinuxPatchAssessmentMode']]] = None,
                  patch_mode: Optional[pulumi.Input[Union[str, 'LinuxVMGuestPatchMode']]] = None):
         """
         Specifies settings related to VM Guest Patching on Linux.
-        :param pulumi.Input[Union[str, 'LinuxVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        :param pulumi.Input[Union[str, 'LinuxPatchAssessmentMode']] assessment_mode: Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+        :param pulumi.Input[Union[str, 'LinuxVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
         """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[pulumi.Input[Union[str, 'LinuxPatchAssessmentMode']]]:
+        """
+        Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'LinuxPatchAssessmentMode']]]):
+        pulumi.set(self, "assessment_mode", value)
 
     @property
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[Union[str, 'LinuxVMGuestPatchMode']]]:
         """
-        Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
         """
         return pulumi.get(self, "patch_mode")
 
@@ -3538,17 +3578,33 @@ class ManagedDiskParametersArgs:
 @pulumi.input_type
 class NetworkInterfaceReferenceArgs:
     def __init__(__self__, *,
+                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
         Describes a network interface reference.
+        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the network interface when the VM is deleted
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         """
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
+        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter
@@ -3578,13 +3634,45 @@ class NetworkInterfaceReferenceArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
+                 network_api_version: Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]] = None,
+                 network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceConfigurationArgs']]]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]] = None):
         """
-        Specifies the network interfaces of the virtual machine.
+        Specifies the network interfaces or the networking configuration of the virtual machine.
+        :param pulumi.Input[Union[str, 'NetworkApiVersion']] network_api_version: specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceConfigurationArgs']]] network_interface_configurations: Specifies the networking configurations that will be used to create the virtual machine networking resources.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
+        if network_api_version is not None:
+            pulumi.set(__self__, "network_api_version", network_api_version)
+        if network_interface_configurations is not None:
+            pulumi.set(__self__, "network_interface_configurations", network_interface_configurations)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter(name="networkApiVersion")
+    def network_api_version(self) -> Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]]:
+        """
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+        """
+        return pulumi.get(self, "network_api_version")
+
+    @network_api_version.setter
+    def network_api_version(self, value: Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]]):
+        pulumi.set(self, "network_api_version", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceConfigurations")
+    def network_interface_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceConfigurationArgs']]]]:
+        """
+        Specifies the networking configurations that will be used to create the virtual machine networking resources.
+        """
+        return pulumi.get(self, "network_interface_configurations")
+
+    @network_interface_configurations.setter
+    def network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceConfigurationArgs']]]]):
+        pulumi.set(self, "network_interface_configurations", value)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -3604,6 +3692,7 @@ class OSDiskArgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
                  caching: Optional[pulumi.Input['CachingTypes']] = None,
+                 delete_option: Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]] = None,
                  diff_disk_settings: Optional[pulumi.Input['DiffDiskSettingsArgs']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['DiskEncryptionSettingsArgs']] = None,
@@ -3614,9 +3703,10 @@ class OSDiskArgs:
                  vhd: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
+        :param pulumi.Input[Union[str, 'DiskDeleteOptionTypes']] delete_option: Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
         :param pulumi.Input['DiffDiskSettingsArgs'] diff_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['DiskEncryptionSettingsArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
@@ -3630,6 +3720,8 @@ class OSDiskArgs:
         pulumi.set(__self__, "create_option", create_option)
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
         if diff_disk_settings is not None:
             pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
         if disk_size_gb is not None:
@@ -3672,6 +3764,18 @@ class OSDiskArgs:
     @caching.setter
     def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]:
+        """
+        Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DiskDeleteOptionTypes']]]):
+        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="diffDiskSettings")
@@ -3820,12 +3924,12 @@ class OSProfileArgs:
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
-        :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         :param pulumi.Input[bool] allow_extension_operations: Specifies whether extension operations should be allowed on the virtual machine. <br><br>This may only be set to False when no extensions are present on the virtual machine.
-        :param pulumi.Input[str] computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
-        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param pulumi.Input[str] computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[bool] require_guest_provision_signal: Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
         :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] secrets: Specifies set of certificates that should be installed onto the virtual machine.
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Specifies Windows operating system settings on the virtual machine.
@@ -3853,7 +3957,7 @@ class OSProfileArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         return pulumi.get(self, "admin_password")
 
@@ -3865,7 +3969,7 @@ class OSProfileArgs:
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         """
         return pulumi.get(self, "admin_username")
 
@@ -3889,7 +3993,7 @@ class OSProfileArgs:
     @pulumi.getter(name="computerName")
     def computer_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
+        Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
         """
         return pulumi.get(self, "computer_name")
 
@@ -3901,7 +4005,7 @@ class OSProfileArgs:
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         """
         return pulumi.get(self, "custom_data")
 
@@ -3913,7 +4017,7 @@ class OSProfileArgs:
     @pulumi.getter(name="linuxConfiguration")
     def linux_configuration(self) -> Optional[pulumi.Input['LinuxConfigurationArgs']]:
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         return pulumi.get(self, "linux_configuration")
 
@@ -3961,17 +4065,33 @@ class OSProfileArgs:
 @pulumi.input_type
 class PatchSettingsArgs:
     def __init__(__self__, *,
+                 assessment_mode: Optional[pulumi.Input[Union[str, 'WindowsPatchAssessmentMode']]] = None,
                  enable_hotpatching: Optional[pulumi.Input[bool]] = None,
                  patch_mode: Optional[pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']]] = None):
         """
         Specifies settings related to VM Guest Patching on Windows.
+        :param pulumi.Input[Union[str, 'WindowsPatchAssessmentMode']] assessment_mode: Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
         :param pulumi.Input[bool] enable_hotpatching: Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
-        :param pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        :param pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']] patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
         """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
         if enable_hotpatching is not None:
             pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[pulumi.Input[Union[str, 'WindowsPatchAssessmentMode']]]:
+        """
+        Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'WindowsPatchAssessmentMode']]]):
+        pulumi.set(self, "assessment_mode", value)
 
     @property
     @pulumi.getter(name="enableHotpatching")
@@ -3989,7 +4109,7 @@ class PatchSettingsArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[Union[str, 'WindowsVMGuestPatchMode']]]:
         """
-        Specifies the mode of VM Guest Patching to IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+        Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
         """
         return pulumi.get(self, "patch_mode")
 
@@ -4124,6 +4244,45 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PublicIPAddressSkuArgs:
+    def __init__(__self__, *,
+                 public_ip_address_sku_name: pulumi.Input[Union[str, 'PublicIPAddressSkuName']],
+                 public_ip_address_sku_tier: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]] = None):
+        """
+        Describes the public IP Sku
+        :param pulumi.Input[Union[str, 'PublicIPAddressSkuName']] public_ip_address_sku_name: Specify public IP sku name
+        :param pulumi.Input[Union[str, 'PublicIPAddressSkuTier']] public_ip_address_sku_tier: Specify public IP sku tier
+        """
+        pulumi.set(__self__, "public_ip_address_sku_name", public_ip_address_sku_name)
+        if public_ip_address_sku_tier is not None:
+            pulumi.set(__self__, "public_ip_address_sku_tier", public_ip_address_sku_tier)
+
+    @property
+    @pulumi.getter(name="publicIPAddressSkuName")
+    def public_ip_address_sku_name(self) -> pulumi.Input[Union[str, 'PublicIPAddressSkuName']]:
+        """
+        Specify public IP sku name
+        """
+        return pulumi.get(self, "public_ip_address_sku_name")
+
+    @public_ip_address_sku_name.setter
+    def public_ip_address_sku_name(self, value: pulumi.Input[Union[str, 'PublicIPAddressSkuName']]):
+        pulumi.set(self, "public_ip_address_sku_name", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressSkuTier")
+    def public_ip_address_sku_tier(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]:
+        """
+        Specify public IP sku tier
+        """
+        return pulumi.get(self, "public_ip_address_sku_tier")
+
+    @public_ip_address_sku_tier.setter
+    def public_ip_address_sku_tier(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]):
+        pulumi.set(self, "public_ip_address_sku_tier", value)
 
 
 @pulumi.input_type
@@ -4273,6 +4432,30 @@ class ResourceRangeArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class RestorePointCollectionSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the source resource that this restore point collection is created from.
+        :param pulumi.Input[str] id: Resource Id of the source resource used to create this restore point collection
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id of the source resource used to create this restore point collection
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -4679,7 +4862,7 @@ class SshPublicKeyArgs:
                  path: Optional[pulumi.Input[str]] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
-        :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param pulumi.Input[str] path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
         if key_data is not None:
@@ -4691,7 +4874,7 @@ class SshPublicKeyArgs:
     @pulumi.getter(name="keyData")
     def key_data(self) -> Optional[pulumi.Input[str]]:
         """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         return pulumi.get(self, "key_data")
 
@@ -4720,9 +4903,9 @@ class StorageProfileArgs:
                  os_disk: Optional[pulumi.Input['OSDiskArgs']] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-        :param pulumi.Input['OSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param pulumi.Input['OSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -4735,7 +4918,7 @@ class StorageProfileArgs:
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]:
         """
-        Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "data_disks")
 
@@ -4759,7 +4942,7 @@ class StorageProfileArgs:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> Optional[pulumi.Input['OSDiskArgs']]:
         """
-        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "os_disk")
 
@@ -5319,6 +5502,541 @@ class VirtualMachineIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class VirtualMachineIpTagArgs:
+    def __init__(__self__, *,
+                 ip_tag_type: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the IP tag associated with the public IP address.
+        :param pulumi.Input[str] ip_tag_type: IP tag type. Example: FirstPartyUsage.
+        :param pulumi.Input[str] tag: IP tag associated with the public IP. Example: SQL, Storage etc.
+        """
+        if ip_tag_type is not None:
+            pulumi.set(__self__, "ip_tag_type", ip_tag_type)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="ipTagType")
+    def ip_tag_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP tag type. Example: FirstPartyUsage.
+        """
+        return pulumi.get(self, "ip_tag_type")
+
+    @ip_tag_type.setter
+    def ip_tag_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_tag_type", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP tag associated with the public IP. Example: SQL, Storage etc.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
+
+
+@pulumi.input_type
+class VirtualMachineNetworkInterfaceConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceIPConfigurationArgs']]],
+                 name: pulumi.Input[str],
+                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
+                 dns_settings: Optional[pulumi.Input['VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs']] = None,
+                 dscp_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_fpga: Optional[pulumi.Input[bool]] = None,
+                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+                 network_security_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 primary: Optional[pulumi.Input[bool]] = None):
+        """
+        Describes a virtual machine network interface configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceIPConfigurationArgs']]] ip_configurations: Specifies the IP configurations of the network interface.
+        :param pulumi.Input[str] name: The network interface configuration name.
+        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the network interface when the VM is deleted
+        :param pulumi.Input['VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs'] dns_settings: The dns settings to be applied on the network interfaces.
+        :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
+        :param pulumi.Input[bool] enable_fpga: Specifies whether the network interface is FPGA networking-enabled.
+        :param pulumi.Input[bool] enable_ip_forwarding: Whether IP forwarding enabled on this NIC.
+        :param pulumi.Input['SubResourceArgs'] network_security_group: The network security group.
+        :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
+        if dns_settings is not None:
+            pulumi.set(__self__, "dns_settings", dns_settings)
+        if dscp_configuration is not None:
+            pulumi.set(__self__, "dscp_configuration", dscp_configuration)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_fpga is not None:
+            pulumi.set(__self__, "enable_fpga", enable_fpga)
+        if enable_ip_forwarding is not None:
+            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceIPConfigurationArgs']]]:
+        """
+        Specifies the IP configurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualMachineNetworkInterfaceIPConfigurationArgs']]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The network interface configuration name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
+        pulumi.set(self, "delete_option", value)
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional[pulumi.Input['VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs']]:
+        """
+        The dns settings to be applied on the network interfaces.
+        """
+        return pulumi.get(self, "dns_settings")
+
+    @dns_settings.setter
+    def dns_settings(self, value: Optional[pulumi.Input['VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs']]):
+        pulumi.set(self, "dns_settings", value)
+
+    @property
+    @pulumi.getter(name="dscpConfiguration")
+    def dscp_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        return pulumi.get(self, "dscp_configuration")
+
+    @dscp_configuration.setter
+    def dscp_configuration(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "dscp_configuration", value)
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @enable_accelerated_networking.setter
+    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_accelerated_networking", value)
+
+    @property
+    @pulumi.getter(name="enableFpga")
+    def enable_fpga(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the network interface is FPGA networking-enabled.
+        """
+        return pulumi.get(self, "enable_fpga")
+
+    @enable_fpga.setter
+    def enable_fpga(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_fpga", value)
+
+    @property
+    @pulumi.getter(name="enableIPForwarding")
+    def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether IP forwarding enabled on this NIC.
+        """
+        return pulumi.get(self, "enable_ip_forwarding")
+
+    @enable_ip_forwarding.setter
+    def enable_ip_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ip_forwarding", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The network security group.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary", value)
+
+
+@pulumi.input_type
+class VirtualMachineNetworkInterfaceDnsSettingsConfigurationArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Describes a virtual machines network configuration's DNS settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DNS servers IP addresses
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
+class VirtualMachineNetworkInterfaceIPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 application_gateway_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 primary: Optional[pulumi.Input[bool]] = None,
+                 private_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersions']]] = None,
+                 public_ip_address_configuration: Optional[pulumi.Input['VirtualMachinePublicIPAddressConfigurationArgs']] = None,
+                 subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        Describes a virtual machine network profile's IP configuration.
+        :param pulumi.Input[str] name: The IP configuration name.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_security_groups: Specifies an array of references to application security group.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A virtual machine can reference backend address pools of one public and one internal load balancer. [Multiple virtual machines cannot use the same basic sku load balancer].
+        :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        :param pulumi.Input[Union[str, 'IPVersions']] private_ip_address_version: Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        :param pulumi.Input['VirtualMachinePublicIPAddressConfigurationArgs'] public_ip_address_configuration: The publicIPAddressConfiguration.
+        :param pulumi.Input['SubResourceArgs'] subnet: Specifies the identifier of the subnet.
+        """
+        pulumi.set(__self__, "name", name)
+        if application_gateway_backend_address_pools is not None:
+            pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if load_balancer_backend_address_pools is not None:
+            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if public_ip_address_configuration is not None:
+            pulumi.set(__self__, "public_ip_address_configuration", public_ip_address_configuration)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The IP configuration name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="applicationGatewayBackendAddressPools")
+    def application_gateway_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
+        """
+        return pulumi.get(self, "application_gateway_backend_address_pools")
+
+    @application_gateway_backend_address_pools.setter
+    def application_gateway_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "application_gateway_backend_address_pools", value)
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to application security group.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @application_security_groups.setter
+    def application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "application_security_groups", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPools")
+    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to backend address pools of load balancers. A virtual machine can reference backend address pools of one public and one internal load balancer. [Multiple virtual machines cannot use the same basic sku load balancer].
+        """
+        return pulumi.get(self, "load_balancer_backend_address_pools")
+
+    @load_balancer_backend_address_pools.setter
+    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "load_balancer_backend_address_pools", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersions']]]:
+        """
+        Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @private_ip_address_version.setter
+    def private_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersions']]]):
+        pulumi.set(self, "private_ip_address_version", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressConfiguration")
+    def public_ip_address_configuration(self) -> Optional[pulumi.Input['VirtualMachinePublicIPAddressConfigurationArgs']]:
+        """
+        The publicIPAddressConfiguration.
+        """
+        return pulumi.get(self, "public_ip_address_configuration")
+
+    @public_ip_address_configuration.setter
+    def public_ip_address_configuration(self, value: Optional[pulumi.Input['VirtualMachinePublicIPAddressConfigurationArgs']]):
+        pulumi.set(self, "public_ip_address_configuration", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Specifies the identifier of the subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class VirtualMachinePublicIPAddressConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
+                 dns_settings: Optional[pulumi.Input['VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs']] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineIpTagArgs']]]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersions']]] = None,
+                 public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'PublicIPAllocationMethod']]] = None,
+                 public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 sku: Optional[pulumi.Input['PublicIPAddressSkuArgs']] = None):
+        """
+        Describes a virtual machines IP Configuration's PublicIPAddress configuration
+        :param pulumi.Input[str] name: The publicIP address configuration name.
+        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the public IP address when the VM is deleted
+        :param pulumi.Input['VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs'] dns_settings: The dns settings to be applied on the publicIP addresses .
+        :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineIpTagArgs']]] ip_tags: The list of IP tags associated with the public IP address.
+        :param pulumi.Input[Union[str, 'IPVersions']] public_ip_address_version: Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+        :param pulumi.Input[Union[str, 'PublicIPAllocationMethod']] public_ip_allocation_method: Specify the public IP allocation type
+        :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The PublicIPPrefix from which to allocate publicIP addresses.
+        :param pulumi.Input['PublicIPAddressSkuArgs'] sku: Describes the public IP Sku
+        """
+        pulumi.set(__self__, "name", name)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
+        if dns_settings is not None:
+            pulumi.set(__self__, "dns_settings", dns_settings)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+        if public_ip_allocation_method is not None:
+            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+        if public_ip_prefix is not None:
+            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The publicIP address configuration name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
+        """
+        Specify what happens to the public IP address when the VM is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
+        pulumi.set(self, "delete_option", value)
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional[pulumi.Input['VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs']]:
+        """
+        The dns settings to be applied on the publicIP addresses .
+        """
+        return pulumi.get(self, "dns_settings")
+
+    @dns_settings.setter
+    def dns_settings(self, value: Optional[pulumi.Input['VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs']]):
+        pulumi.set(self, "dns_settings", value)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The idle timeout of the public IP address.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineIpTagArgs']]]]:
+        """
+        The list of IP tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineIpTagArgs']]]]):
+        pulumi.set(self, "ip_tags", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersions']]]:
+        """
+        Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersions']]]):
+        pulumi.set(self, "public_ip_address_version", value)
+
+    @property
+    @pulumi.getter(name="publicIPAllocationMethod")
+    def public_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAllocationMethod']]]:
+        """
+        Specify the public IP allocation type
+        """
+        return pulumi.get(self, "public_ip_allocation_method")
+
+    @public_ip_allocation_method.setter
+    def public_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAllocationMethod']]]):
+        pulumi.set(self, "public_ip_allocation_method", value)
+
+    @property
+    @pulumi.getter(name="publicIPPrefix")
+    def public_ip_prefix(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The PublicIPPrefix from which to allocate publicIP addresses.
+        """
+        return pulumi.get(self, "public_ip_prefix")
+
+    @public_ip_prefix.setter
+    def public_ip_prefix(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "public_ip_prefix", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['PublicIPAddressSkuArgs']]:
+        """
+        Describes the public IP Sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['PublicIPAddressSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+
+@pulumi.input_type
+class VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs:
+    def __init__(__self__, *,
+                 domain_name_label: pulumi.Input[str]):
+        """
+        Describes a virtual machines network configuration's DNS settings.
+        :param pulumi.Input[str] domain_name_label: The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
+        """
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> pulumi.Input[str]:
+        """
+        The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @domain_name_label.setter
+    def domain_name_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name_label", value)
 
 
 @pulumi.input_type
@@ -6027,6 +6745,7 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
                  name: pulumi.Input[str],
+                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  dns_settings: Optional[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs']] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_fpga: Optional[pulumi.Input[bool]] = None,
@@ -6038,6 +6757,7 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
         Describes a virtual machine scale set network profile's network configurations.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]] ip_configurations: Specifies the IP configurations of the network interface.
         :param pulumi.Input[str] name: The network configuration name.
+        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the network interface when the VM is deleted
         :param pulumi.Input['VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs'] dns_settings: The dns settings to be applied on the network interfaces.
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_fpga: Specifies whether the network interface is FPGA networking-enabled.
@@ -6048,6 +6768,8 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if enable_accelerated_networking is not None:
@@ -6086,6 +6808,18 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
+        """
+        Specify what happens to the network interface when the VM is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
+        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -6200,14 +6934,18 @@ class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
 class VirtualMachineScaleSetNetworkProfileArgs:
     def __init__(__self__, *,
                  health_probe: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
+                 network_api_version: Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]] = None,
                  network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]] = None):
         """
         Describes a virtual machine scale set network profile.
         :param pulumi.Input['ApiEntityReferenceArgs'] health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+        :param pulumi.Input[Union[str, 'NetworkApiVersion']] network_api_version: specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]] network_interface_configurations: The list of network configurations.
         """
         if health_probe is not None:
             pulumi.set(__self__, "health_probe", health_probe)
+        if network_api_version is not None:
+            pulumi.set(__self__, "network_api_version", network_api_version)
         if network_interface_configurations is not None:
             pulumi.set(__self__, "network_interface_configurations", network_interface_configurations)
 
@@ -6222,6 +6960,18 @@ class VirtualMachineScaleSetNetworkProfileArgs:
     @health_probe.setter
     def health_probe(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
         pulumi.set(self, "health_probe", value)
+
+    @property
+    @pulumi.getter(name="networkApiVersion")
+    def network_api_version(self) -> Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]]:
+        """
+        specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+        """
+        return pulumi.get(self, "network_api_version")
+
+    @network_api_version.setter
+    def network_api_version(self, value: Optional[pulumi.Input[Union[str, 'NetworkApiVersion']]]):
+        pulumi.set(self, "network_api_version", value)
 
     @property
     @pulumi.getter(name="networkInterfaceConfigurations")
@@ -6415,11 +7165,11 @@ class VirtualMachineScaleSetOSProfileArgs:
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         Describes a virtual machine scale set OS profile.
-        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
-        :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters
         :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
-        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] secrets: Specifies set of certificates that should be installed onto the virtual machines in the scale set.
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
@@ -6442,7 +7192,7 @@ class VirtualMachineScaleSetOSProfileArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         return pulumi.get(self, "admin_password")
 
@@ -6454,7 +7204,7 @@ class VirtualMachineScaleSetOSProfileArgs:
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters
         """
         return pulumi.get(self, "admin_username")
 
@@ -6478,7 +7228,7 @@ class VirtualMachineScaleSetOSProfileArgs:
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         """
         return pulumi.get(self, "custom_data")
 
@@ -6490,7 +7240,7 @@ class VirtualMachineScaleSetOSProfileArgs:
     @pulumi.getter(name="linuxConfiguration")
     def linux_configuration(self) -> Optional[pulumi.Input['LinuxConfigurationArgs']]:
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         return pulumi.get(self, "linux_configuration")
 
@@ -6527,21 +7277,27 @@ class VirtualMachineScaleSetOSProfileArgs:
 class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  dns_settings: Optional[pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs']] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIpTagArgs']]]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
-                 public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None):
+                 public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 sku: Optional[pulumi.Input['PublicIPAddressSkuArgs']] = None):
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
         :param pulumi.Input[str] name: The publicIP address configuration name.
+        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the public IP when the VM is deleted
         :param pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs'] dns_settings: The dns settings to be applied on the publicIP addresses .
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIpTagArgs']]] ip_tags: The list of IP tags associated with the public IP address.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
         :param pulumi.Input['SubResourceArgs'] public_ip_prefix: The PublicIPPrefix from which to allocate publicIP addresses.
+        :param pulumi.Input['PublicIPAddressSkuArgs'] sku: Describes the public IP Sku
         """
         pulumi.set(__self__, "name", name)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if idle_timeout_in_minutes is not None:
@@ -6552,6 +7308,8 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
             pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
         if public_ip_prefix is not None:
             pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter
@@ -6564,6 +7322,18 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
+        """
+        Specify what happens to the public IP when the VM is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @delete_option.setter
+    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
+        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -6625,6 +7395,18 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     def public_ip_prefix(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "public_ip_prefix", value)
 
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['PublicIPAddressSkuArgs']]:
+        """
+        Describes the public IP Sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['PublicIPAddressSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
 
 @pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
@@ -6657,9 +7439,9 @@ class VirtualMachineScaleSetStorageProfileArgs:
                  os_disk: Optional[pulumi.Input['VirtualMachineScaleSetOSDiskArgs']] = None):
         """
         Describes a virtual machine scale set storage profile.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-        :param pulumi.Input['VirtualMachineScaleSetOSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param pulumi.Input['VirtualMachineScaleSetOSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -6672,7 +7454,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]]]:
         """
-        Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "data_disks")
 
@@ -6696,7 +7478,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> Optional[pulumi.Input['VirtualMachineScaleSetOSDiskArgs']]:
         """
-        Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "os_disk")
 
@@ -6742,7 +7524,8 @@ class VirtualMachineScaleSetVMProfileArgs:
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
-                 storage_profile: Optional[pulumi.Input['VirtualMachineScaleSetStorageProfileArgs']] = None):
+                 storage_profile: Optional[pulumi.Input['VirtualMachineScaleSetStorageProfileArgs']] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
         """
         Describes a virtual machine scale set virtual machine profile.
         :param pulumi.Input['BillingProfileArgs'] billing_profile: Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
@@ -6756,6 +7539,7 @@ class VirtualMachineScaleSetVMProfileArgs:
         :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machines in the scale set.
         :param pulumi.Input['VirtualMachineScaleSetStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param pulumi.Input[str] user_data: UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
         """
         if billing_profile is not None:
             pulumi.set(__self__, "billing_profile", billing_profile)
@@ -6779,6 +7563,8 @@ class VirtualMachineScaleSetVMProfileArgs:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
 
     @property
     @pulumi.getter(name="billingProfile")
@@ -6912,6 +7698,18 @@ class VirtualMachineScaleSetVMProfileArgs:
     def storage_profile(self, value: Optional[pulumi.Input['VirtualMachineScaleSetStorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
 
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
 
 @pulumi.input_type
 class VirtualMachineScaleSetVMProtectionPolicyArgs:
@@ -7032,7 +7830,7 @@ class WindowsConfigurationArgs:
         :param pulumi.Input[bool] enable_automatic_updates: Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
         :param pulumi.Input['PatchSettingsArgs'] patch_settings: [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         :param pulumi.Input[bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
-        :param pulumi.Input[str] time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         :param pulumi.Input['WinRMConfigurationArgs'] win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
         """
         if additional_unattend_content is not None:
@@ -7100,7 +7898,7 @@ class WindowsConfigurationArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         """
         return pulumi.get(self, "time_zone")
 

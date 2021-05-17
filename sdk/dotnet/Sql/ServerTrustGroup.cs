@@ -72,6 +72,8 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerTrustGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerTrustGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerTrustGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

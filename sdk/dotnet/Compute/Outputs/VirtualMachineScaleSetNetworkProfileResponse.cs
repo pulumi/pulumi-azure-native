@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.ApiEntityReferenceResponse? HealthProbe;
         /// <summary>
+        /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+        /// </summary>
+        public readonly string? NetworkApiVersion;
+        /// <summary>
         /// The list of network configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetNetworkConfigurationResponse> NetworkInterfaceConfigurations;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineScaleSetNetworkProfileResponse(
             Outputs.ApiEntityReferenceResponse? healthProbe,
 
+            string? networkApiVersion,
+
             ImmutableArray<Outputs.VirtualMachineScaleSetNetworkConfigurationResponse> networkInterfaceConfigurations)
         {
             HealthProbe = healthProbe;
+            NetworkApiVersion = networkApiVersion;
             NetworkInterfaceConfigurations = networkInterfaceConfigurations;
         }
     }

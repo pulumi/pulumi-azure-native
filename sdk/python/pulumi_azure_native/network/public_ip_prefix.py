@@ -22,6 +22,7 @@ class PublicIPPrefixArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 nat_gateway: Optional[pulumi.Input['NatGatewayArgs']] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class PublicIPPrefixArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['NatGatewayArgs'] nat_gateway: NatGateway of Public IP Prefix.
         :param pulumi.Input[int] prefix_length: The Length of the Public IP Prefix.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
@@ -54,6 +56,8 @@ class PublicIPPrefixArgs:
             pulumi.set(__self__, "ip_tags", ip_tags)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
         if prefix_length is not None:
             pulumi.set(__self__, "prefix_length", prefix_length)
         if public_ip_address_version is not None:
@@ -140,6 +144,18 @@ class PublicIPPrefixArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['NatGatewayArgs']]:
+        """
+        NatGateway of Public IP Prefix.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['NatGatewayArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @property
     @pulumi.getter(name="prefixLength")
     def prefix_length(self) -> Optional[pulumi.Input[int]]:
         """
@@ -222,6 +238,7 @@ class PublicIPPrefix(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['NatGatewayArgs']]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
@@ -241,6 +258,7 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[pulumi.InputType['NatGatewayArgs']] nat_gateway: NatGateway of Public IP Prefix.
         :param pulumi.Input[int] prefix_length: The Length of the Public IP Prefix.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
@@ -279,6 +297,7 @@ class PublicIPPrefix(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['NatGatewayArgs']]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
@@ -303,6 +322,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_tags"] = ip_tags
             __props__.__dict__["location"] = location
+            __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["prefix_length"] = prefix_length
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
             __props__.__dict__["public_ip_prefix_name"] = public_ip_prefix_name
@@ -320,7 +340,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20201101:PublicIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20210201:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPPrefix, __self__).__init__(
             'azure-native:network:PublicIPPrefix',
@@ -352,6 +372,7 @@ class PublicIPPrefix(pulumi.CustomResource):
         __props__.__dict__["load_balancer_frontend_ip_configuration"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["nat_gateway"] = None
         __props__.__dict__["prefix_length"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_address_version"] = None
@@ -426,6 +447,14 @@ class PublicIPPrefix(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> pulumi.Output[Optional['outputs.NatGatewayResponse']]:
+        """
+        NatGateway of Public IP Prefix.
+        """
+        return pulumi.get(self, "nat_gateway")
 
     @property
     @pulumi.getter(name="prefixLength")

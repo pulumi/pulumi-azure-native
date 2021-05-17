@@ -1183,6 +1183,8 @@ class LabVirtualMachineCreationParameterArgs:
             pulumi.set(__self__, "size", size)
         if ssh_key is not None:
             pulumi.set(__self__, "ssh_key", ssh_key)
+        if storage_type is None:
+            storage_type = 'labStorageType'
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -1711,6 +1713,8 @@ class NotificationSettingsArgs:
             pulumi.set(__self__, "email_recipient", email_recipient)
         if notification_locale is not None:
             pulumi.set(__self__, "notification_locale", notification_locale)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if time_in_minutes is not None:
@@ -1824,7 +1828,6 @@ class ScheduleCreationParameterArgs:
     def __init__(__self__, *,
                  daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
                  hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
                  status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
@@ -1837,7 +1840,6 @@ class ScheduleCreationParameterArgs:
         Properties for creating a schedule.
         :param pulumi.Input['DayDetailsArgs'] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
         :param pulumi.Input['HourDetailsArgs'] hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
-        :param pulumi.Input[str] location: The location of the new virtual machine or environment
         :param pulumi.Input[str] name: The name of the virtual machine or environment
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
         :param pulumi.Input[Union[str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
@@ -1851,12 +1853,12 @@ class ScheduleCreationParameterArgs:
             pulumi.set(__self__, "daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
             pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_settings is not None:
             pulumi.set(__self__, "notification_settings", notification_settings)
+        if status is None:
+            status = 'Disabled'
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -1893,18 +1895,6 @@ class ScheduleCreationParameterArgs:
     @hourly_recurrence.setter
     def hourly_recurrence(self, value: Optional[pulumi.Input['HourDetailsArgs']]):
         pulumi.set(self, "hourly_recurrence", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the new virtual machine or environment
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
         /// </summary>
-        public readonly string? FilePattern;
+        public readonly object? FilePattern;
         /// <summary>
         /// The write setting type.
         /// Expected value is 'JsonWriteSettings'.
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private JsonWriteSettingsResponse(
-            string? filePattern,
+            object? filePattern,
 
             string type)
         {

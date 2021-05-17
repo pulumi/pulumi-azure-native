@@ -2790,8 +2790,10 @@ func (o DirectLineSpeechChannelOutput) Properties() DirectLineSpeechChannelPrope
 
 // The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelProperties struct {
-	// The cognitive service subscription ID to use with this channel registration.
-	CognitiveServicesSubscriptionId string `pulumi:"cognitiveServicesSubscriptionId"`
+	// The cognitive service region with this channel registration.
+	CognitiveServiceRegion string `pulumi:"cognitiveServiceRegion"`
+	// The cognitive service subscription key to use with this channel registration.
+	CognitiveServiceSubscriptionKey string `pulumi:"cognitiveServiceSubscriptionKey"`
 	// Custom voice deployment id (optional).
 	CustomSpeechModelId *string `pulumi:"customSpeechModelId"`
 	// Custom speech model id (optional).
@@ -2815,8 +2817,10 @@ type DirectLineSpeechChannelPropertiesInput interface {
 
 // The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesArgs struct {
-	// The cognitive service subscription ID to use with this channel registration.
-	CognitiveServicesSubscriptionId pulumi.StringInput `pulumi:"cognitiveServicesSubscriptionId"`
+	// The cognitive service region with this channel registration.
+	CognitiveServiceRegion pulumi.StringInput `pulumi:"cognitiveServiceRegion"`
+	// The cognitive service subscription key to use with this channel registration.
+	CognitiveServiceSubscriptionKey pulumi.StringInput `pulumi:"cognitiveServiceSubscriptionKey"`
 	// Custom voice deployment id (optional).
 	CustomSpeechModelId pulumi.StringPtrInput `pulumi:"customSpeechModelId"`
 	// Custom speech model id (optional).
@@ -2905,9 +2909,14 @@ func (o DirectLineSpeechChannelPropertiesOutput) ToDirectLineSpeechChannelProper
 	}).(DirectLineSpeechChannelPropertiesPtrOutput)
 }
 
-// The cognitive service subscription ID to use with this channel registration.
-func (o DirectLineSpeechChannelPropertiesOutput) CognitiveServicesSubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectLineSpeechChannelProperties) string { return v.CognitiveServicesSubscriptionId }).(pulumi.StringOutput)
+// The cognitive service region with this channel registration.
+func (o DirectLineSpeechChannelPropertiesOutput) CognitiveServiceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelProperties) string { return v.CognitiveServiceRegion }).(pulumi.StringOutput)
+}
+
+// The cognitive service subscription key to use with this channel registration.
+func (o DirectLineSpeechChannelPropertiesOutput) CognitiveServiceSubscriptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelProperties) string { return v.CognitiveServiceSubscriptionKey }).(pulumi.StringOutput)
 }
 
 // Custom voice deployment id (optional).
@@ -2948,13 +2957,23 @@ func (o DirectLineSpeechChannelPropertiesPtrOutput) Elem() DirectLineSpeechChann
 	return o.ApplyT(func(v *DirectLineSpeechChannelProperties) DirectLineSpeechChannelProperties { return *v }).(DirectLineSpeechChannelPropertiesOutput)
 }
 
-// The cognitive service subscription ID to use with this channel registration.
-func (o DirectLineSpeechChannelPropertiesPtrOutput) CognitiveServicesSubscriptionId() pulumi.StringPtrOutput {
+// The cognitive service region with this channel registration.
+func (o DirectLineSpeechChannelPropertiesPtrOutput) CognitiveServiceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectLineSpeechChannelProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CognitiveServicesSubscriptionId
+		return &v.CognitiveServiceRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cognitive service subscription key to use with this channel registration.
+func (o DirectLineSpeechChannelPropertiesPtrOutput) CognitiveServiceSubscriptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectLineSpeechChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CognitiveServiceSubscriptionKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3000,8 +3019,10 @@ func (o DirectLineSpeechChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOu
 
 // The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesResponse struct {
-	// The cognitive service subscription ID to use with this channel registration.
-	CognitiveServicesSubscriptionId string `pulumi:"cognitiveServicesSubscriptionId"`
+	// The cognitive service region with this channel registration.
+	CognitiveServiceRegion string `pulumi:"cognitiveServiceRegion"`
+	// The cognitive service subscription key to use with this channel registration.
+	CognitiveServiceSubscriptionKey string `pulumi:"cognitiveServiceSubscriptionKey"`
 	// Custom voice deployment id (optional).
 	CustomSpeechModelId *string `pulumi:"customSpeechModelId"`
 	// Custom speech model id (optional).
@@ -3025,8 +3046,10 @@ type DirectLineSpeechChannelPropertiesResponseInput interface {
 
 // The parameters to provide for the DirectLine Speech channel.
 type DirectLineSpeechChannelPropertiesResponseArgs struct {
-	// The cognitive service subscription ID to use with this channel registration.
-	CognitiveServicesSubscriptionId pulumi.StringInput `pulumi:"cognitiveServicesSubscriptionId"`
+	// The cognitive service region with this channel registration.
+	CognitiveServiceRegion pulumi.StringInput `pulumi:"cognitiveServiceRegion"`
+	// The cognitive service subscription key to use with this channel registration.
+	CognitiveServiceSubscriptionKey pulumi.StringInput `pulumi:"cognitiveServiceSubscriptionKey"`
 	// Custom voice deployment id (optional).
 	CustomSpeechModelId pulumi.StringPtrInput `pulumi:"customSpeechModelId"`
 	// Custom speech model id (optional).
@@ -3115,9 +3138,14 @@ func (o DirectLineSpeechChannelPropertiesResponseOutput) ToDirectLineSpeechChann
 	}).(DirectLineSpeechChannelPropertiesResponsePtrOutput)
 }
 
-// The cognitive service subscription ID to use with this channel registration.
-func (o DirectLineSpeechChannelPropertiesResponseOutput) CognitiveServicesSubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectLineSpeechChannelPropertiesResponse) string { return v.CognitiveServicesSubscriptionId }).(pulumi.StringOutput)
+// The cognitive service region with this channel registration.
+func (o DirectLineSpeechChannelPropertiesResponseOutput) CognitiveServiceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelPropertiesResponse) string { return v.CognitiveServiceRegion }).(pulumi.StringOutput)
+}
+
+// The cognitive service subscription key to use with this channel registration.
+func (o DirectLineSpeechChannelPropertiesResponseOutput) CognitiveServiceSubscriptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelPropertiesResponse) string { return v.CognitiveServiceSubscriptionKey }).(pulumi.StringOutput)
 }
 
 // Custom voice deployment id (optional).
@@ -3160,13 +3188,23 @@ func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) Elem() DirectLineSpe
 	}).(DirectLineSpeechChannelPropertiesResponseOutput)
 }
 
-// The cognitive service subscription ID to use with this channel registration.
-func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) CognitiveServicesSubscriptionId() pulumi.StringPtrOutput {
+// The cognitive service region with this channel registration.
+func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) CognitiveServiceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectLineSpeechChannelPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CognitiveServicesSubscriptionId
+		return &v.CognitiveServiceRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cognitive service subscription key to use with this channel registration.
+func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) CognitiveServiceSubscriptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectLineSpeechChannelPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CognitiveServiceSubscriptionKey
 	}).(pulumi.StringPtrOutput)
 }
 

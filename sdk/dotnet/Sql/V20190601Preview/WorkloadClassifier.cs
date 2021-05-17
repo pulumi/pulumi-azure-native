@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:WorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:WorkloadClassifier"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:WorkloadClassifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

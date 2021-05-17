@@ -68,6 +68,10 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * NatGateway of Public IP Prefix.
+     */
+    public readonly natGateway!: pulumi.Output<outputs.network.v20201101.NatGatewayResponse | undefined>;
+    /**
      * The Length of the Public IP Prefix.
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
@@ -123,6 +127,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIpPrefixName"] = args ? args.publicIpPrefixName : undefined;
@@ -147,6 +152,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["natGateway"] = undefined /*out*/;
             inputs["prefixLength"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddressVersion"] = undefined /*out*/;
@@ -160,7 +166,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20201101:PublicIPPrefix" }, { type: "azure-native:network:PublicIPPrefix" }, { type: "azure-nextgen:network:PublicIPPrefix" }, { type: "azure-native:network/v20180701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180701:PublicIPPrefix" }, { type: "azure-native:network/v20180801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180801:PublicIPPrefix" }, { type: "azure-native:network/v20181001:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181001:PublicIPPrefix" }, { type: "azure-native:network/v20181101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181101:PublicIPPrefix" }, { type: "azure-native:network/v20181201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181201:PublicIPPrefix" }, { type: "azure-native:network/v20190201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190201:PublicIPPrefix" }, { type: "azure-native:network/v20190401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190401:PublicIPPrefix" }, { type: "azure-native:network/v20190601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190601:PublicIPPrefix" }, { type: "azure-native:network/v20190701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190701:PublicIPPrefix" }, { type: "azure-native:network/v20190801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190801:PublicIPPrefix" }, { type: "azure-native:network/v20190901:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190901:PublicIPPrefix" }, { type: "azure-native:network/v20191101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191101:PublicIPPrefix" }, { type: "azure-native:network/v20191201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191201:PublicIPPrefix" }, { type: "azure-native:network/v20200301:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200301:PublicIPPrefix" }, { type: "azure-native:network/v20200401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200401:PublicIPPrefix" }, { type: "azure-native:network/v20200501:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200501:PublicIPPrefix" }, { type: "azure-native:network/v20200601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200601:PublicIPPrefix" }, { type: "azure-native:network/v20200701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200701:PublicIPPrefix" }, { type: "azure-native:network/v20200801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200801:PublicIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20201101:PublicIPPrefix" }, { type: "azure-native:network:PublicIPPrefix" }, { type: "azure-nextgen:network:PublicIPPrefix" }, { type: "azure-native:network/v20180701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180701:PublicIPPrefix" }, { type: "azure-native:network/v20180801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20180801:PublicIPPrefix" }, { type: "azure-native:network/v20181001:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181001:PublicIPPrefix" }, { type: "azure-native:network/v20181101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181101:PublicIPPrefix" }, { type: "azure-native:network/v20181201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20181201:PublicIPPrefix" }, { type: "azure-native:network/v20190201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190201:PublicIPPrefix" }, { type: "azure-native:network/v20190401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190401:PublicIPPrefix" }, { type: "azure-native:network/v20190601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190601:PublicIPPrefix" }, { type: "azure-native:network/v20190701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190701:PublicIPPrefix" }, { type: "azure-native:network/v20190801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190801:PublicIPPrefix" }, { type: "azure-native:network/v20190901:PublicIPPrefix" }, { type: "azure-nextgen:network/v20190901:PublicIPPrefix" }, { type: "azure-native:network/v20191101:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191101:PublicIPPrefix" }, { type: "azure-native:network/v20191201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20191201:PublicIPPrefix" }, { type: "azure-native:network/v20200301:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200301:PublicIPPrefix" }, { type: "azure-native:network/v20200401:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200401:PublicIPPrefix" }, { type: "azure-native:network/v20200501:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200501:PublicIPPrefix" }, { type: "azure-native:network/v20200601:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200601:PublicIPPrefix" }, { type: "azure-native:network/v20200701:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200701:PublicIPPrefix" }, { type: "azure-native:network/v20200801:PublicIPPrefix" }, { type: "azure-nextgen:network/v20200801:PublicIPPrefix" }, { type: "azure-native:network/v20210201:PublicIPPrefix" }, { type: "azure-nextgen:network/v20210201:PublicIPPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublicIPPrefix.__pulumiType, name, inputs, opts);
     }
@@ -190,6 +196,10 @@ export interface PublicIPPrefixArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * NatGateway of Public IP Prefix.
+     */
+    readonly natGateway?: pulumi.Input<inputs.network.v20201101.NatGatewayArgs>;
     /**
      * The Length of the Public IP Prefix.
      */

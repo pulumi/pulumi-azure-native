@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _addressPrefixes = value;
         }
 
+        [Input("applicationGatewayIpConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+
+        /// <summary>
+        /// Application gateway IP configurations of virtual network resource.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        {
+            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIpConfigurations = value;
+        }
+
         [Input("delegations")]
         private InputList<Inputs.DelegationArgs>? _delegations;
 
@@ -122,6 +134,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.ServiceEndpointPropertiesFormatArgs>());
             set => _serviceEndpoints = value;
         }
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SubnetArgs()
         {

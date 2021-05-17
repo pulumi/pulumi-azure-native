@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.V20190901.Outputs
     public sealed class ApplicationGatewayRewriteRuleConditionResponse
     {
         /// <summary>
-        /// Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+        /// Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
         /// </summary>
         public readonly bool? IgnoreCase;
         /// <summary>

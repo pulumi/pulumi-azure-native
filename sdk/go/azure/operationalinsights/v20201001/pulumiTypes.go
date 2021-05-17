@@ -1865,6 +1865,388 @@ func (o WorkspaceCappingResponsePtrOutput) QuotaNextResetTime() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Workspace features.
+type WorkspaceFeatures struct {
+	// Dedicated LA cluster resourceId that is linked to the workspaces.
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// Flag that indicate if data should be exported.
+	EnableDataExport *bool `pulumi:"enableDataExport"`
+	// Flag that indicate which permission to use - resource or workspace or both.
+	EnableLogAccessUsingOnlyResourcePermissions *bool `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	// Flag that describes if we want to remove the data after 30 days.
+	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
+}
+
+// WorkspaceFeaturesInput is an input type that accepts WorkspaceFeaturesArgs and WorkspaceFeaturesOutput values.
+// You can construct a concrete instance of `WorkspaceFeaturesInput` via:
+//
+//          WorkspaceFeaturesArgs{...}
+type WorkspaceFeaturesInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeaturesOutput() WorkspaceFeaturesOutput
+	ToWorkspaceFeaturesOutputWithContext(context.Context) WorkspaceFeaturesOutput
+}
+
+// Workspace features.
+type WorkspaceFeaturesArgs struct {
+	// Dedicated LA cluster resourceId that is linked to the workspaces.
+	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	// Flag that indicate if data should be exported.
+	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
+	// Flag that indicate which permission to use - resource or workspace or both.
+	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	// Flag that describes if we want to remove the data after 30 days.
+	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput `pulumi:"immediatePurgeDataOn30Days"`
+}
+
+func (WorkspaceFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeatures)(nil)).Elem()
+}
+
+func (i WorkspaceFeaturesArgs) ToWorkspaceFeaturesOutput() WorkspaceFeaturesOutput {
+	return i.ToWorkspaceFeaturesOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeaturesArgs) ToWorkspaceFeaturesOutputWithContext(ctx context.Context) WorkspaceFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesOutput)
+}
+
+func (i WorkspaceFeaturesArgs) ToWorkspaceFeaturesPtrOutput() WorkspaceFeaturesPtrOutput {
+	return i.ToWorkspaceFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeaturesArgs) ToWorkspaceFeaturesPtrOutputWithContext(ctx context.Context) WorkspaceFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesOutput).ToWorkspaceFeaturesPtrOutputWithContext(ctx)
+}
+
+// WorkspaceFeaturesPtrInput is an input type that accepts WorkspaceFeaturesArgs, WorkspaceFeaturesPtr and WorkspaceFeaturesPtrOutput values.
+// You can construct a concrete instance of `WorkspaceFeaturesPtrInput` via:
+//
+//          WorkspaceFeaturesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeaturesPtrOutput() WorkspaceFeaturesPtrOutput
+	ToWorkspaceFeaturesPtrOutputWithContext(context.Context) WorkspaceFeaturesPtrOutput
+}
+
+type workspaceFeaturesPtrType WorkspaceFeaturesArgs
+
+func WorkspaceFeaturesPtr(v *WorkspaceFeaturesArgs) WorkspaceFeaturesPtrInput {
+	return (*workspaceFeaturesPtrType)(v)
+}
+
+func (*workspaceFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeatures)(nil)).Elem()
+}
+
+func (i *workspaceFeaturesPtrType) ToWorkspaceFeaturesPtrOutput() WorkspaceFeaturesPtrOutput {
+	return i.ToWorkspaceFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceFeaturesPtrType) ToWorkspaceFeaturesPtrOutputWithContext(ctx context.Context) WorkspaceFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesPtrOutput)
+}
+
+// Workspace features.
+type WorkspaceFeaturesOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeatures)(nil)).Elem()
+}
+
+func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesOutput() WorkspaceFeaturesOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesOutputWithContext(ctx context.Context) WorkspaceFeaturesOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesPtrOutput() WorkspaceFeaturesPtrOutput {
+	return o.ToWorkspaceFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesPtrOutputWithContext(ctx context.Context) WorkspaceFeaturesPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *WorkspaceFeatures {
+		return &v
+	}).(WorkspaceFeaturesPtrOutput)
+}
+
+// Dedicated LA cluster resourceId that is linked to the workspaces.
+func (o WorkspaceFeaturesOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Flag that indicate if data should be exported.
+func (o WorkspaceFeaturesOutput) EnableDataExport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
+}
+
+// Flag that indicate which permission to use - resource or workspace or both.
+func (o WorkspaceFeaturesOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.EnableLogAccessUsingOnlyResourcePermissions }).(pulumi.BoolPtrOutput)
+}
+
+// Flag that describes if we want to remove the data after 30 days.
+func (o WorkspaceFeaturesOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
+}
+
+type WorkspaceFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeatures)(nil)).Elem()
+}
+
+func (o WorkspaceFeaturesPtrOutput) ToWorkspaceFeaturesPtrOutput() WorkspaceFeaturesPtrOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesPtrOutput) ToWorkspaceFeaturesPtrOutputWithContext(ctx context.Context) WorkspaceFeaturesPtrOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesPtrOutput) Elem() WorkspaceFeaturesOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) WorkspaceFeatures { return *v }).(WorkspaceFeaturesOutput)
+}
+
+// Dedicated LA cluster resourceId that is linked to the workspaces.
+func (o WorkspaceFeaturesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Flag that indicate if data should be exported.
+func (o WorkspaceFeaturesPtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDataExport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag that indicate which permission to use - resource or workspace or both.
+func (o WorkspaceFeaturesPtrOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableLogAccessUsingOnlyResourcePermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag that describes if we want to remove the data after 30 days.
+func (o WorkspaceFeaturesPtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImmediatePurgeDataOn30Days
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Workspace features.
+type WorkspaceFeaturesResponse struct {
+	// Dedicated LA cluster resourceId that is linked to the workspaces.
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// Flag that indicate if data should be exported.
+	EnableDataExport *bool `pulumi:"enableDataExport"`
+	// Flag that indicate which permission to use - resource or workspace or both.
+	EnableLogAccessUsingOnlyResourcePermissions *bool `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	// Flag that describes if we want to remove the data after 30 days.
+	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
+}
+
+// WorkspaceFeaturesResponseInput is an input type that accepts WorkspaceFeaturesResponseArgs and WorkspaceFeaturesResponseOutput values.
+// You can construct a concrete instance of `WorkspaceFeaturesResponseInput` via:
+//
+//          WorkspaceFeaturesResponseArgs{...}
+type WorkspaceFeaturesResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeaturesResponseOutput() WorkspaceFeaturesResponseOutput
+	ToWorkspaceFeaturesResponseOutputWithContext(context.Context) WorkspaceFeaturesResponseOutput
+}
+
+// Workspace features.
+type WorkspaceFeaturesResponseArgs struct {
+	// Dedicated LA cluster resourceId that is linked to the workspaces.
+	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	// Flag that indicate if data should be exported.
+	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
+	// Flag that indicate which permission to use - resource or workspace or both.
+	EnableLogAccessUsingOnlyResourcePermissions pulumi.BoolPtrInput `pulumi:"enableLogAccessUsingOnlyResourcePermissions"`
+	// Flag that describes if we want to remove the data after 30 days.
+	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput `pulumi:"immediatePurgeDataOn30Days"`
+}
+
+func (WorkspaceFeaturesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeaturesResponse)(nil)).Elem()
+}
+
+func (i WorkspaceFeaturesResponseArgs) ToWorkspaceFeaturesResponseOutput() WorkspaceFeaturesResponseOutput {
+	return i.ToWorkspaceFeaturesResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeaturesResponseArgs) ToWorkspaceFeaturesResponseOutputWithContext(ctx context.Context) WorkspaceFeaturesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesResponseOutput)
+}
+
+func (i WorkspaceFeaturesResponseArgs) ToWorkspaceFeaturesResponsePtrOutput() WorkspaceFeaturesResponsePtrOutput {
+	return i.ToWorkspaceFeaturesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeaturesResponseArgs) ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx context.Context) WorkspaceFeaturesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesResponseOutput).ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceFeaturesResponsePtrInput is an input type that accepts WorkspaceFeaturesResponseArgs, WorkspaceFeaturesResponsePtr and WorkspaceFeaturesResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceFeaturesResponsePtrInput` via:
+//
+//          WorkspaceFeaturesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceFeaturesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeaturesResponsePtrOutput() WorkspaceFeaturesResponsePtrOutput
+	ToWorkspaceFeaturesResponsePtrOutputWithContext(context.Context) WorkspaceFeaturesResponsePtrOutput
+}
+
+type workspaceFeaturesResponsePtrType WorkspaceFeaturesResponseArgs
+
+func WorkspaceFeaturesResponsePtr(v *WorkspaceFeaturesResponseArgs) WorkspaceFeaturesResponsePtrInput {
+	return (*workspaceFeaturesResponsePtrType)(v)
+}
+
+func (*workspaceFeaturesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeaturesResponse)(nil)).Elem()
+}
+
+func (i *workspaceFeaturesResponsePtrType) ToWorkspaceFeaturesResponsePtrOutput() WorkspaceFeaturesResponsePtrOutput {
+	return i.ToWorkspaceFeaturesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceFeaturesResponsePtrType) ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx context.Context) WorkspaceFeaturesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeaturesResponsePtrOutput)
+}
+
+// Workspace features.
+type WorkspaceFeaturesResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeaturesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeaturesResponse)(nil)).Elem()
+}
+
+func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponseOutput() WorkspaceFeaturesResponseOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponseOutputWithContext(ctx context.Context) WorkspaceFeaturesResponseOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponsePtrOutput() WorkspaceFeaturesResponsePtrOutput {
+	return o.ToWorkspaceFeaturesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx context.Context) WorkspaceFeaturesResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *WorkspaceFeaturesResponse {
+		return &v
+	}).(WorkspaceFeaturesResponsePtrOutput)
+}
+
+// Dedicated LA cluster resourceId that is linked to the workspaces.
+func (o WorkspaceFeaturesResponseOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Flag that indicate if data should be exported.
+func (o WorkspaceFeaturesResponseOutput) EnableDataExport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
+}
+
+// Flag that indicate which permission to use - resource or workspace or both.
+func (o WorkspaceFeaturesResponseOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.EnableLogAccessUsingOnlyResourcePermissions }).(pulumi.BoolPtrOutput)
+}
+
+// Flag that describes if we want to remove the data after 30 days.
+func (o WorkspaceFeaturesResponseOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
+}
+
+type WorkspaceFeaturesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeaturesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeaturesResponse)(nil)).Elem()
+}
+
+func (o WorkspaceFeaturesResponsePtrOutput) ToWorkspaceFeaturesResponsePtrOutput() WorkspaceFeaturesResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesResponsePtrOutput) ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx context.Context) WorkspaceFeaturesResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceFeaturesResponsePtrOutput) Elem() WorkspaceFeaturesResponseOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) WorkspaceFeaturesResponse { return *v }).(WorkspaceFeaturesResponseOutput)
+}
+
+// Dedicated LA cluster resourceId that is linked to the workspaces.
+func (o WorkspaceFeaturesResponsePtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Flag that indicate if data should be exported.
+func (o WorkspaceFeaturesResponsePtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDataExport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag that indicate which permission to use - resource or workspace or both.
+func (o WorkspaceFeaturesResponsePtrOutput) EnableLogAccessUsingOnlyResourcePermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableLogAccessUsingOnlyResourcePermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag that describes if we want to remove the data after 30 days.
+func (o WorkspaceFeaturesResponsePtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImmediatePurgeDataOn30Days
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The SKU (tier) of a workspace.
 type WorkspaceSku struct {
 	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
@@ -2215,6 +2597,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceCappingPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCappingResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCappingResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeaturesOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeaturesResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeaturesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSkuOutput{})
 	pulumi.RegisterOutputType(WorkspaceSkuPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSkuResponseOutput{})

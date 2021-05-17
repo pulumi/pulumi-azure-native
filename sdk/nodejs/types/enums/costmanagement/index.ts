@@ -13,6 +13,7 @@ import * as v20191101 from "./v20191101";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200601 from "./v20200601";
 import * as v20201201preview from "./v20201201preview";
+import * as v20210101 from "./v20210101";
 
 export {
     v20180531,
@@ -26,6 +27,7 @@ export {
     v20200301preview,
     v20200601,
     v20201201preview,
+    v20210101,
 };
 
 export const AccumulatedType = {

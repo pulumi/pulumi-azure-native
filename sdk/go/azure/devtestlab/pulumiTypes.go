@@ -9850,8 +9850,6 @@ type ScheduleCreationParameter struct {
 	DailyRecurrence *DayDetails `pulumi:"dailyRecurrence"`
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
 	HourlyRecurrence *HourDetails `pulumi:"hourlyRecurrence"`
-	// The location of the new virtual machine or environment
-	Location *string `pulumi:"location"`
 	// The name of the virtual machine or environment
 	Name *string `pulumi:"name"`
 	// Notification settings.
@@ -9887,8 +9885,6 @@ type ScheduleCreationParameterArgs struct {
 	DailyRecurrence DayDetailsPtrInput `pulumi:"dailyRecurrence"`
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
 	HourlyRecurrence HourDetailsPtrInput `pulumi:"hourlyRecurrence"`
-	// The location of the new virtual machine or environment
-	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the virtual machine or environment
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Notification settings.
@@ -9969,11 +9965,6 @@ func (o ScheduleCreationParameterOutput) HourlyRecurrence() HourDetailsPtrOutput
 	return o.ApplyT(func(v ScheduleCreationParameter) *HourDetails { return v.HourlyRecurrence }).(HourDetailsPtrOutput)
 }
 
-// The location of the new virtual machine or environment
-func (o ScheduleCreationParameterOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduleCreationParameter) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
 // The name of the virtual machine or environment
 func (o ScheduleCreationParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleCreationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -10041,7 +10032,7 @@ type ScheduleCreationParameterResponse struct {
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
 	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
 	// The location of the new virtual machine or environment
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
 	// The name of the virtual machine or environment
 	Name *string `pulumi:"name"`
 	// Notification settings.
@@ -10078,7 +10069,7 @@ type ScheduleCreationParameterResponseArgs struct {
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
 	HourlyRecurrence HourDetailsResponsePtrInput `pulumi:"hourlyRecurrence"`
 	// The location of the new virtual machine or environment
-	Location pulumi.StringPtrInput `pulumi:"location"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the virtual machine or environment
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Notification settings.
@@ -10160,8 +10151,8 @@ func (o ScheduleCreationParameterResponseOutput) HourlyRecurrence() HourDetailsR
 }
 
 // The location of the new virtual machine or environment
-func (o ScheduleCreationParameterResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduleCreationParameterResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o ScheduleCreationParameterResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleCreationParameterResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the virtual machine or environment

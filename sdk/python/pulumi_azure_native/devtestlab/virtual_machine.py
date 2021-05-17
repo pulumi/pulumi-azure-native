@@ -129,6 +129,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "size", size)
         if ssh_key is not None:
             pulumi.set(__self__, "ssh_key", ssh_key)
+        if storage_type is None:
+            storage_type = 'labStorageType'
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -642,6 +644,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["schedule_parameters"] = schedule_parameters
             __props__.__dict__["size"] = size
             __props__.__dict__["ssh_key"] = ssh_key
+            if storage_type is None:
+                storage_type = 'labStorageType'
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_name"] = user_name

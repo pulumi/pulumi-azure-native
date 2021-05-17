@@ -11,10 +11,14 @@ export * from "./getApplication";
 export * from "./getApplicationGroup";
 export * from "./getHostPool";
 export * from "./getMSIXPackage";
+export * from "./getPrivateEndpointConnectionByHostPool";
+export * from "./getPrivateEndpointConnectionByWorkspace";
 export * from "./getScalingPlan";
 export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./msixpackage";
+export * from "./privateEndpointConnectionByHostPool";
+export * from "./privateEndpointConnectionByWorkspace";
 export * from "./scalingPlan";
 export * from "./workspace";
 
@@ -32,6 +36,7 @@ import * as v20201110preview from "./v20201110preview";
 import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210309preview from "./v20210309preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20190123preview,
@@ -44,6 +49,7 @@ export {
     v20210114preview,
     v20210201preview,
     v20210309preview,
+    v20210401preview,
 };
 
 // Import resources to register:
@@ -51,6 +57,8 @@ import { Application } from "./application";
 import { ApplicationGroup } from "./applicationGroup";
 import { HostPool } from "./hostPool";
 import { MSIXPackage } from "./msixpackage";
+import { PrivateEndpointConnectionByHostPool } from "./privateEndpointConnectionByHostPool";
+import { PrivateEndpointConnectionByWorkspace } from "./privateEndpointConnectionByWorkspace";
 import { ScalingPlan } from "./scalingPlan";
 import { Workspace } from "./workspace";
 
@@ -66,6 +74,10 @@ const _module = {
                 return new HostPool(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:MSIXPackage":
                 return new MSIXPackage(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool":
+                return new PrivateEndpointConnectionByHostPool(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace":
+                return new PrivateEndpointConnectionByWorkspace(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Workspace":

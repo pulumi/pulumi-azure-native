@@ -52,7 +52,7 @@ export interface GetWorkspaceResult {
     /**
      * Workspace features.
      */
-    readonly features?: any;
+    readonly features?: outputs.operationalinsights.v20201001.WorkspaceFeaturesResponse;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */

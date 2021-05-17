@@ -150,6 +150,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -180,7 +180,7 @@ class ServerKey(pulumi.CustomResource):
             __props__.__dict__["subregion"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerKey"), pulumi.Alias(type_="azure-nextgen:sql/v20210201preview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azure-native:sql:ServerKey',

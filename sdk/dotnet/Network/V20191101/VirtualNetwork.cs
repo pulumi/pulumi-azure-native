@@ -203,6 +203,8 @@ namespace Pulumi.AzureNative.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

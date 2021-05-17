@@ -27,8 +27,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// The data compressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
         [Input("compressionCodec")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.CompressionCodec>? CompressionCodec { get; set; }
+        public Input<object>? CompressionCodec { get; set; }
 
         /// <summary>
         /// Dataset description.

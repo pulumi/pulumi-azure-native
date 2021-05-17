@@ -102,7 +102,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[Any]:
+    def features(self) -> Optional['outputs.WorkspaceFeaturesResponse']:
         """
         Workspace features.
         """

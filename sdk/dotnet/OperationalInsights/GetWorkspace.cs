@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Workspace features.
         /// </summary>
-        public readonly object? Features;
+        public readonly Outputs.WorkspaceFeaturesResponse? Features;
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string? eTag,
 
-            object? features,
+            Outputs.WorkspaceFeaturesResponse? features,
 
             bool? forceCmkForQuery,
 

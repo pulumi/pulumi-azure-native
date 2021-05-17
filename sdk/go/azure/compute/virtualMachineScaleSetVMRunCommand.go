@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine run command.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type VirtualMachineScaleSetVMRunCommand struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +82,12 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineScaleSetVMRunCommand"),
 		},
 	})
 	opts = append(opts, aliases)

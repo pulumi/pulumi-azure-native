@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The ZipDeflate compression level.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.DatasetCompressionLevel>? Level { get; set; }
+        public Input<object>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

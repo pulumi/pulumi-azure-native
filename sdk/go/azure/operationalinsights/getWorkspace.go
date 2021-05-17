@@ -34,7 +34,7 @@ type LookupWorkspaceResult struct {
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
 	// Workspace features.
-	Features interface{} `pulumi:"features"`
+	Features *WorkspaceFeaturesResponse `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

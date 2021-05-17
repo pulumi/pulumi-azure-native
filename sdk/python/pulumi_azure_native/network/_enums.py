@@ -107,6 +107,8 @@ __all__ = [
     'MemberType',
     'MonitorProtocol',
     'NatGatewaySkuName',
+    'NetworkInterfaceMigrationPhase',
+    'NetworkInterfaceNicType',
     'Operator',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
@@ -121,6 +123,7 @@ __all__ = [
     'ProfileMonitorStatus',
     'ProfileStatus',
     'ProtocolType',
+    'PublicIPAddressMigrationPhase',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
     'PublicIPPrefixSkuName',
@@ -1113,6 +1116,25 @@ class NatGatewaySkuName(str, Enum):
     STANDARD = "Standard"
 
 
+class NetworkInterfaceMigrationPhase(str, Enum):
+    """
+    Migration phase of Network Interface resource.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
+
+
+class NetworkInterfaceNicType(str, Enum):
+    """
+    Type of Network Interface resource.
+    """
+    STANDARD = "Standard"
+    ELASTIC = "Elastic"
+
+
 class Operator(str, Enum):
     """
     Comparison type to use for matching with the variable value.
@@ -1255,6 +1277,17 @@ class ProtocolType(str, Enum):
     AH = "Ah"
     VXLAN = "Vxlan"
     ALL = "All"
+
+
+class PublicIPAddressMigrationPhase(str, Enum):
+    """
+    Migration phase of Public IP Address.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
 
 
 class PublicIPAddressSkuName(str, Enum):

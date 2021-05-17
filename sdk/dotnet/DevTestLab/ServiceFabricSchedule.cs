@@ -255,6 +255,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         public ServiceFabricScheduleArgs()
         {
+            Status = "Disabled";
         }
     }
 }

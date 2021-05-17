@@ -21,11 +21,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The column delimiter. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ColumnDelimiter;
-        public readonly string? CompressionCodec;
+        /// <summary>
+        /// The data compressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? CompressionCodec;
         /// <summary>
         /// The data compression method used for DelimitedText.
         /// </summary>
-        public readonly string? CompressionLevel;
+        public readonly object? CompressionLevel;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -90,9 +93,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? columnDelimiter,
 
-            string? compressionCodec,
+            object? compressionCodec,
 
-            string? compressionLevel,
+            object? compressionLevel,
 
             string? description,
 

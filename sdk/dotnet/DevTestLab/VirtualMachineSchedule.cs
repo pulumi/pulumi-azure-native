@@ -251,6 +251,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         public VirtualMachineScheduleArgs()
         {
+            Status = "Disabled";
         }
     }
 }

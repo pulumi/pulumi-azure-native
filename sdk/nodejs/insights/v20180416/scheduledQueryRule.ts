@@ -40,7 +40,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<outputs.insights.v20180416.AlertingActionResponse | outputs.insights.v20180416.LogToMetricActionResponse>;
     /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
      */
     public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface ScheduledQueryRuleArgs {
      */
     readonly action: pulumi.Input<inputs.insights.v20180416.AlertingActionArgs | inputs.insights.v20180416.LogToMetricActionArgs>;
     /**
-     * The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
     /**

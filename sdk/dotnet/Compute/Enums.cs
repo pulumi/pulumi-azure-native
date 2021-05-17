@@ -136,6 +136,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specify what happens to the public IP when the VM is deleted
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteOptions : IEquatable<DeleteOptions>
+    {
+        private readonly string _value;
+
+        private DeleteOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
+        public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
+
+        public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
+        public static bool operator !=(DeleteOptions left, DeleteOptions right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteOptions other && Equals(other);
+        public bool Equals(DeleteOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the ephemeral disk settings for operating system disk.
     /// </summary>
     [EnumType]
@@ -166,7 +197,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the ephemeral disk placement for operating system disk.&lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **CacheDisk** &lt;br&gt;&lt;br&gt; **ResourceDisk** &lt;br&gt;&lt;br&gt; Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.&lt;br&gt;&lt;br&gt; Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    /// Specifies the ephemeral disk placement for operating system disk.&lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **CacheDisk** &lt;br&gt;&lt;br&gt; **ResourceDisk** &lt;br&gt;&lt;br&gt; Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.&lt;br&gt;&lt;br&gt; Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
     /// </summary>
     [EnumType]
     public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
@@ -278,6 +309,37 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskCreateOptionTypes other && Equals(other);
         public bool Equals(DiskCreateOptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether OS Disk should be deleted or detached upon VM deletion. &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the os disk is retained after VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskDeleteOptionTypes : IEquatable<DiskDeleteOptionTypes>
+    {
+        private readonly string _value;
+
+        private DiskDeleteOptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskDeleteOptionTypes Delete { get; } = new DiskDeleteOptionTypes("Delete");
+        public static DiskDeleteOptionTypes Detach { get; } = new DiskDeleteOptionTypes("Detach");
+
+        public static bool operator ==(DiskDeleteOptionTypes left, DiskDeleteOptionTypes right) => left.Equals(right);
+        public static bool operator !=(DiskDeleteOptionTypes left, DiskDeleteOptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskDeleteOptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskDeleteOptionTypes other && Equals(other);
+        public bool Equals(DiskDeleteOptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -697,6 +759,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPVersions : IEquatable<IPVersions>
+    {
+        private readonly string _value;
+
+        private IPVersions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPVersions IPv4 { get; } = new IPVersions("IPv4");
+        public static IPVersions IPv6 { get; } = new IPVersions("IPv6");
+
+        public static bool operator ==(IPVersions left, IPVersions right) => left.Equals(right);
+        public static bool operator !=(IPVersions left, IPVersions right) => !left.Equals(right);
+
+        public static explicit operator string(IPVersions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPVersions other && Equals(other);
+        public bool Equals(IPVersions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Interval value in minutes used to create LogAnalytics call rate logs.
     /// </summary>
     [EnumType]
@@ -730,7 +823,38 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxPatchAssessmentMode : IEquatable<LinuxPatchAssessmentMode>
+    {
+        private readonly string _value;
+
+        private LinuxPatchAssessmentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxPatchAssessmentMode ImageDefault { get; } = new LinuxPatchAssessmentMode("ImageDefault");
+        public static LinuxPatchAssessmentMode AutomaticByPlatform { get; } = new LinuxPatchAssessmentMode("AutomaticByPlatform");
+
+        public static bool operator ==(LinuxPatchAssessmentMode left, LinuxPatchAssessmentMode right) => left.Equals(right);
+        public static bool operator !=(LinuxPatchAssessmentMode left, LinuxPatchAssessmentMode right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxPatchAssessmentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxPatchAssessmentMode other && Equals(other);
+        public bool Equals(LinuxPatchAssessmentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
     /// </summary>
     [EnumType]
     public readonly struct LinuxVMGuestPatchMode : IEquatable<LinuxVMGuestPatchMode>
@@ -794,6 +918,36 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkAccessPolicy other && Equals(other);
         public bool Equals(NetworkAccessPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkApiVersion : IEquatable<NetworkApiVersion>
+    {
+        private readonly string _value;
+
+        private NetworkApiVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkApiVersion NetworkApiVersion_2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
+
+        public static bool operator ==(NetworkApiVersion left, NetworkApiVersion right) => left.Equals(right);
+        public static bool operator !=(NetworkApiVersion left, NetworkApiVersion right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkApiVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkApiVersion other && Equals(other);
+        public bool Equals(NetworkApiVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1017,6 +1171,99 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProximityPlacementGroupType other && Equals(other);
         public bool Equals(ProximityPlacementGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify public IP sku name
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuName : IEquatable<PublicIPAddressSkuName>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuName Basic { get; } = new PublicIPAddressSkuName("Basic");
+        public static PublicIPAddressSkuName Standard { get; } = new PublicIPAddressSkuName("Standard");
+
+        public static bool operator ==(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuName other && Equals(other);
+        public bool Equals(PublicIPAddressSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify public IP sku tier
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuTier : IEquatable<PublicIPAddressSkuTier>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuTier Regional { get; } = new PublicIPAddressSkuTier("Regional");
+        public static PublicIPAddressSkuTier Global { get; } = new PublicIPAddressSkuTier("Global");
+
+        public static bool operator ==(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuTier other && Equals(other);
+        public bool Equals(PublicIPAddressSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify the public IP allocation type
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAllocationMethod : IEquatable<PublicIPAllocationMethod>
+    {
+        private readonly string _value;
+
+        private PublicIPAllocationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAllocationMethod Dynamic { get; } = new PublicIPAllocationMethod("Dynamic");
+        public static PublicIPAllocationMethod Static { get; } = new PublicIPAllocationMethod("Static");
+
+        public static bool operator ==(PublicIPAllocationMethod left, PublicIPAllocationMethod right) => left.Equals(right);
+        public static bool operator !=(PublicIPAllocationMethod left, PublicIPAllocationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAllocationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAllocationMethod other && Equals(other);
+        public bool Equals(PublicIPAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1383,7 +1630,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the size of the virtual machine. &lt;br&gt;&lt;br&gt; The enum data type is currently deprecated and will be removed by December 23rd 2023. &lt;br&gt;&lt;br&gt; Recommended way to get the list of available sizes is using these APIs: &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in a region]( https://docs.microsoft.com/en-us/rest/api/compute/resourceskus/list) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes). &lt;br&gt;&lt;br&gt; The available VM sizes depend on region and availability set.
+    /// Specifies the size of the virtual machine. &lt;br&gt;&lt;br&gt; The enum data type is currently deprecated and will be removed by December 23rd 2023. &lt;br&gt;&lt;br&gt; Recommended way to get the list of available sizes is using these APIs: &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) &lt;br&gt;&lt;br&gt; [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). &lt;br&gt;&lt;br&gt; The available VM sizes depend on region and availability set.
     /// </summary>
     [EnumType]
     public readonly struct VirtualMachineSizeTypes : IEquatable<VirtualMachineSizeTypes>
@@ -1578,7 +1825,38 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the mode of VM Guest Patching to IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsPatchAssessmentMode : IEquatable<WindowsPatchAssessmentMode>
+    {
+        private readonly string _value;
+
+        private WindowsPatchAssessmentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsPatchAssessmentMode ImageDefault { get; } = new WindowsPatchAssessmentMode("ImageDefault");
+        public static WindowsPatchAssessmentMode AutomaticByPlatform { get; } = new WindowsPatchAssessmentMode("AutomaticByPlatform");
+
+        public static bool operator ==(WindowsPatchAssessmentMode left, WindowsPatchAssessmentMode right) => left.Equals(right);
+        public static bool operator !=(WindowsPatchAssessmentMode left, WindowsPatchAssessmentMode right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsPatchAssessmentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsPatchAssessmentMode other && Equals(other);
+        public bool Equals(WindowsPatchAssessmentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
     /// </summary>
     [EnumType]
     public readonly struct WindowsVMGuestPatchMode : IEquatable<WindowsVMGuestPatchMode>

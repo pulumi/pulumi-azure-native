@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         /// Workspace features.
         /// </summary>
         [Output("features")]
-        public Output<object?> Features { get; private set; } = null!;
+        public Output<Outputs.WorkspaceFeaturesResponse?> Features { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         /// Workspace features.
         /// </summary>
         [Input("features")]
-        public Input<object>? Features { get; set; }
+        public Input<Inputs.WorkspaceFeaturesArgs>? Features { get; set; }
 
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.

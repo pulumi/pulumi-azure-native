@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Virtual Machine Extension.
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineExtension(ctx *pulumi.Context, args *LookupVirtualMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineExtensionResult, error) {
 	var rv LookupVirtualMachineExtensionResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineExtension", args, &rv, opts...)

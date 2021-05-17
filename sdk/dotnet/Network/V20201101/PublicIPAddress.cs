@@ -64,16 +64,34 @@ namespace Pulumi.AzureNative.Network.V20201101
         public Output<ImmutableArray<Outputs.IpTagResponse>> IpTags { get; private set; } = null!;
 
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        [Output("linkedPublicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponse?> LinkedPublicIPAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Output("migrationPhase")]
+        public Output<string?> MigrationPhase { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Output("natGateway")]
+        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the public IP address resource.
@@ -104,6 +122,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        [Output("servicePublicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponse?> ServicePublicIPAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address SKU.
@@ -227,6 +251,8 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PublicIPAddress"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPAddress"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:PublicIPAddress"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -299,10 +325,28 @@ namespace Pulumi.AzureNative.Network.V20201101
         }
 
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        [Input("linkedPublicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? LinkedPublicIPAddress { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Input("migrationPhase")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.PublicIPAddressMigrationPhase>? MigrationPhase { get; set; }
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Input("natGateway")]
+        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The public IP address version.
@@ -333,6 +377,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        [Input("servicePublicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? ServicePublicIPAddress { get; set; }
 
         /// <summary>
         /// The public IP address SKU.

@@ -58,6 +58,9 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Status == nil {
+		args.Status = pulumi.StringPtr("Disabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab:GlobalSchedule"),

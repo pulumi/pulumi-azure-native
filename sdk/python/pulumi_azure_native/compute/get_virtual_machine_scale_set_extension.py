@@ -181,7 +181,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetExtensionResult:
     """
     Describes a Virtual Machine Scale Set Extension.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

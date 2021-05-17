@@ -172,36 +172,6 @@ namespace Pulumi.AzureNative.DataFactory
         public override string ToString() => _value;
     }
 
-    [EnumType]
-    public readonly struct CompressionCodec : IEquatable<CompressionCodec>
-    {
-        private readonly string _value;
-
-        private CompressionCodec(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CompressionCodec None { get; } = new CompressionCodec("none");
-        public static CompressionCodec Gzip { get; } = new CompressionCodec("gzip");
-        public static CompressionCodec Snappy { get; } = new CompressionCodec("snappy");
-        public static CompressionCodec Lzo { get; } = new CompressionCodec("lzo");
-
-        public static bool operator ==(CompressionCodec left, CompressionCodec right) => left.Equals(right);
-        public static bool operator !=(CompressionCodec left, CompressionCodec right) => !left.Equals(right);
-
-        public static explicit operator string(CompressionCodec value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CompressionCodec other && Equals(other);
-        public bool Equals(CompressionCodec other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     /// <summary>
     /// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
     /// </summary>
@@ -289,37 +259,6 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataFlowComputeType other && Equals(other);
         public bool Equals(DataFlowComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data compression method used for DelimitedText.
-    /// </summary>
-    [EnumType]
-    public readonly struct DatasetCompressionLevel : IEquatable<DatasetCompressionLevel>
-    {
-        private readonly string _value;
-
-        private DatasetCompressionLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatasetCompressionLevel Optimal { get; } = new DatasetCompressionLevel("Optimal");
-        public static DatasetCompressionLevel Fastest { get; } = new DatasetCompressionLevel("Fastest");
-
-        public static bool operator ==(DatasetCompressionLevel left, DatasetCompressionLevel right) => left.Equals(right);
-        public static bool operator !=(DatasetCompressionLevel left, DatasetCompressionLevel right) => !left.Equals(right);
-
-        public static explicit operator string(DatasetCompressionLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatasetCompressionLevel other && Equals(other);
-        public bool Equals(DatasetCompressionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -449,100 +388,6 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DependencyCondition other && Equals(other);
         public bool Equals(DependencyCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
-    /// </summary>
-    [EnumType]
-    public readonly struct DynamicsAuthenticationType : IEquatable<DynamicsAuthenticationType>
-    {
-        private readonly string _value;
-
-        private DynamicsAuthenticationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DynamicsAuthenticationType Office365 { get; } = new DynamicsAuthenticationType("Office365");
-        public static DynamicsAuthenticationType Ifd { get; } = new DynamicsAuthenticationType("Ifd");
-        public static DynamicsAuthenticationType AADServicePrincipal { get; } = new DynamicsAuthenticationType("AADServicePrincipal");
-
-        public static bool operator ==(DynamicsAuthenticationType left, DynamicsAuthenticationType right) => left.Equals(right);
-        public static bool operator !=(DynamicsAuthenticationType left, DynamicsAuthenticationType right) => !left.Equals(right);
-
-        public static explicit operator string(DynamicsAuthenticationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DynamicsAuthenticationType other && Equals(other);
-        public bool Equals(DynamicsAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-    /// </summary>
-    [EnumType]
-    public readonly struct DynamicsDeploymentType : IEquatable<DynamicsDeploymentType>
-    {
-        private readonly string _value;
-
-        private DynamicsDeploymentType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DynamicsDeploymentType Online { get; } = new DynamicsDeploymentType("Online");
-        public static DynamicsDeploymentType OnPremisesWithIfd { get; } = new DynamicsDeploymentType("OnPremisesWithIfd");
-
-        public static bool operator ==(DynamicsDeploymentType left, DynamicsDeploymentType right) => left.Equals(right);
-        public static bool operator !=(DynamicsDeploymentType left, DynamicsDeploymentType right) => !left.Equals(right);
-
-        public static explicit operator string(DynamicsDeploymentType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DynamicsDeploymentType other && Equals(other);
-        public bool Equals(DynamicsDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-    /// </summary>
-    [EnumType]
-    public readonly struct DynamicsServicePrincipalCredentialType : IEquatable<DynamicsServicePrincipalCredentialType>
-    {
-        private readonly string _value;
-
-        private DynamicsServicePrincipalCredentialType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DynamicsServicePrincipalCredentialType ServicePrincipalKey { get; } = new DynamicsServicePrincipalCredentialType("ServicePrincipalKey");
-        public static DynamicsServicePrincipalCredentialType ServicePrincipalCert { get; } = new DynamicsServicePrincipalCredentialType("ServicePrincipalCert");
-
-        public static bool operator ==(DynamicsServicePrincipalCredentialType left, DynamicsServicePrincipalCredentialType right) => left.Equals(right);
-        public static bool operator !=(DynamicsServicePrincipalCredentialType left, DynamicsServicePrincipalCredentialType right) => !left.Equals(right);
-
-        public static explicit operator string(DynamicsServicePrincipalCredentialType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DynamicsServicePrincipalCredentialType other && Equals(other);
-        public bool Equals(DynamicsServicePrincipalCredentialType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -796,38 +641,6 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HDInsightActivityDebugInfoOption other && Equals(other);
         public bool Equals(HDInsightActivityDebugInfoOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The node types on which the script action should be executed.
-    /// </summary>
-    [EnumType]
-    public readonly struct HdiNodeTypes : IEquatable<HdiNodeTypes>
-    {
-        private readonly string _value;
-
-        private HdiNodeTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HdiNodeTypes Headnode { get; } = new HdiNodeTypes("Headnode");
-        public static HdiNodeTypes Workernode { get; } = new HdiNodeTypes("Workernode");
-        public static HdiNodeTypes Zookeeper { get; } = new HdiNodeTypes("Zookeeper");
-
-        public static bool operator ==(HdiNodeTypes left, HdiNodeTypes right) => left.Equals(right);
-        public static bool operator !=(HdiNodeTypes left, HdiNodeTypes right) => !left.Equals(right);
-
-        public static explicit operator string(HdiNodeTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HdiNodeTypes other && Equals(other);
-        public bool Equals(HdiNodeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1149,68 +962,6 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationRuntimeType other && Equals(other);
         public bool Equals(IntegrationRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-    /// </summary>
-    [EnumType]
-    public readonly struct JsonFormatFilePattern : IEquatable<JsonFormatFilePattern>
-    {
-        private readonly string _value;
-
-        private JsonFormatFilePattern(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static JsonFormatFilePattern SetOfObjects { get; } = new JsonFormatFilePattern("setOfObjects");
-        public static JsonFormatFilePattern ArrayOfObjects { get; } = new JsonFormatFilePattern("arrayOfObjects");
-
-        public static bool operator ==(JsonFormatFilePattern left, JsonFormatFilePattern right) => left.Equals(right);
-        public static bool operator !=(JsonFormatFilePattern left, JsonFormatFilePattern right) => !left.Equals(right);
-
-        public static explicit operator string(JsonFormatFilePattern value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is JsonFormatFilePattern other && Equals(other);
-        public bool Equals(JsonFormatFilePattern other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
-    /// </summary>
-    [EnumType]
-    public readonly struct JsonWriteFilePattern : IEquatable<JsonWriteFilePattern>
-    {
-        private readonly string _value;
-
-        private JsonWriteFilePattern(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static JsonWriteFilePattern SetOfObjects { get; } = new JsonWriteFilePattern("setOfObjects");
-        public static JsonWriteFilePattern ArrayOfObjects { get; } = new JsonWriteFilePattern("arrayOfObjects");
-
-        public static bool operator ==(JsonWriteFilePattern left, JsonWriteFilePattern right) => left.Equals(right);
-        public static bool operator !=(JsonWriteFilePattern left, JsonWriteFilePattern right) => !left.Equals(right);
-
-        public static explicit operator string(JsonWriteFilePattern value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is JsonWriteFilePattern other && Equals(other);
-        public bool Equals(JsonWriteFilePattern other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

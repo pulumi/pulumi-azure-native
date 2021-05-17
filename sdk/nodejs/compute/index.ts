@@ -35,6 +35,8 @@ export * from "./getImage";
 export * from "./getLogAnalyticExportRequestRateByInterval";
 export * from "./getLogAnalyticExportThrottledRequests";
 export * from "./getProximityPlacementGroup";
+export * from "./getRestorePoint";
+export * from "./getRestorePointCollection";
 export * from "./getSnapshot";
 export * from "./getSshPublicKey";
 export * from "./getVirtualMachine";
@@ -47,6 +49,8 @@ export * from "./getVirtualMachineScaleSetVMExtension";
 export * from "./getVirtualMachineScaleSetVMRunCommand";
 export * from "./image";
 export * from "./proximityPlacementGroup";
+export * from "./restorePoint";
+export * from "./restorePointCollection";
 export * from "./snapshot";
 export * from "./sshPublicKey";
 export * from "./virtualMachine";
@@ -122,6 +126,8 @@ import { GalleryImage } from "./galleryImage";
 import { GalleryImageVersion } from "./galleryImageVersion";
 import { Image } from "./image";
 import { ProximityPlacementGroup } from "./proximityPlacementGroup";
+import { RestorePoint } from "./restorePoint";
+import { RestorePointCollection } from "./restorePointCollection";
 import { Snapshot } from "./snapshot";
 import { SshPublicKey } from "./sshPublicKey";
 import { VirtualMachine } from "./virtualMachine";
@@ -167,6 +173,10 @@ const _module = {
                 return new Image(name, <any>undefined, { urn })
             case "azure-native:compute:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
+            case "azure-native:compute:RestorePoint":
+                return new RestorePoint(name, <any>undefined, { urn })
+            case "azure-native:compute:RestorePointCollection":
+                return new RestorePointCollection(name, <any>undefined, { urn })
             case "azure-native:compute:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:compute:SshPublicKey":

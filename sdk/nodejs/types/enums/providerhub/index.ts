@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20201120 from "./v20201120";
+import * as v20210501preview from "./v20210501preview";
 
 export {
     v20201120,
+    v20210501preview,
 };
 
 export const ExtensionCategory = {
