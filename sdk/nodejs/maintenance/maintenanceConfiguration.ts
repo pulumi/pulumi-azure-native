@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Maintenance configuration record type
- * API Version: 2021-05-01.
+ * API Version: 2020-04-01.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -37,15 +37,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
-     */
-    public readonly duration!: pulumi.Output<string | undefined>;
-    /**
-     * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-     */
-    public readonly expirationDateTime!: pulumi.Output<string | undefined>;
-    /**
-     * Gets or sets extensionProperties of the maintenanceConfiguration
+     * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
      */
     public readonly extensionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -53,7 +45,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets maintenanceScope of the configuration
+     * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
     public readonly maintenanceScope!: pulumi.Output<string | undefined>;
     /**
@@ -61,37 +53,17 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets namespace of the resource
+     * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
-    /**
-     * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-     */
-    public readonly recurEvery!: pulumi.Output<string | undefined>;
-    /**
-     * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-     */
-    public readonly startDateTime!: pulumi.Output<string | undefined>;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.maintenance.SystemDataResponse>;
     /**
      * Gets or sets tags of the resource
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-     */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
-    /**
      * Type of the resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Gets or sets the visibility of the configuration. The default value is 'Custom'
-     */
-    public readonly visibility!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MaintenanceConfiguration resource with the given unique name, arguments, and options.
@@ -107,37 +79,23 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["expirationDateTime"] = args ? args.expirationDateTime : undefined;
             inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["recurEvery"] = args ? args.recurEvery : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["startDateTime"] = args ? args.startDateTime : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["duration"] = undefined /*out*/;
-            inputs["expirationDateTime"] = undefined /*out*/;
             inputs["extensionProperties"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceScope"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["namespace"] = undefined /*out*/;
-            inputs["recurEvery"] = undefined /*out*/;
-            inputs["startDateTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -153,15 +111,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
  */
 export interface MaintenanceConfigurationArgs {
     /**
-     * Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
-     */
-    readonly duration?: pulumi.Input<string>;
-    /**
-     * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-     */
-    readonly expirationDateTime?: pulumi.Input<string>;
-    /**
-     * Gets or sets extensionProperties of the maintenanceConfiguration
+     * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
      */
     readonly extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -169,39 +119,23 @@ export interface MaintenanceConfigurationArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Gets or sets maintenanceScope of the configuration
+     * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
     readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.MaintenanceScope>;
     /**
-     * Gets or sets namespace of the resource
+     * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
     readonly namespace?: pulumi.Input<string>;
-    /**
-     * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-     */
-    readonly recurEvery?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Maintenance Configuration Name
+     * Resource Identifier
      */
     readonly resourceName?: pulumi.Input<string>;
-    /**
-     * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-     */
-    readonly startDateTime?: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-     */
-    readonly timeZone?: pulumi.Input<string>;
-    /**
-     * Gets or sets the visibility of the configuration. The default value is 'Custom'
-     */
-    readonly visibility?: pulumi.Input<string | enums.maintenance.Visibility>;
 }

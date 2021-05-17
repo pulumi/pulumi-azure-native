@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Maintenance
 {
     /// <summary>
-    /// Gets or sets maintenanceScope of the configuration
+    /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
     /// </summary>
     [EnumType]
     public readonly struct MaintenanceScope : IEquatable<MaintenanceScope>
@@ -20,30 +20,10 @@ namespace Pulumi.AzureNative.Maintenance
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// This maintenance scope controls installation of azure platform updates i.e. services on physical nodes hosting customer VMs.
-        /// </summary>
+        public static MaintenanceScope All { get; } = new MaintenanceScope("All");
         public static MaintenanceScope Host { get; } = new MaintenanceScope("Host");
-        /// <summary>
-        /// This maintenance scope controls os image installation on VM/VMSS
-        /// </summary>
-        public static MaintenanceScope OSImage { get; } = new MaintenanceScope("OSImage");
-        /// <summary>
-        /// This maintenance scope controls extension installation on VM/VMSS
-        /// </summary>
-        public static MaintenanceScope Extension { get; } = new MaintenanceScope("Extension");
-        /// <summary>
-        /// This maintenance scope controls installation of windows and linux packages on VM/VMSS
-        /// </summary>
-        public static MaintenanceScope InGuestPatch { get; } = new MaintenanceScope("InGuestPatch");
-        /// <summary>
-        /// This maintenance scope controls installation of SQL server platform updates.
-        /// </summary>
-        public static MaintenanceScope SQLDB { get; } = new MaintenanceScope("SQLDB");
-        /// <summary>
-        /// This maintenance scope controls installation of SQL managed instance platform update.
-        /// </summary>
-        public static MaintenanceScope SQLManagedInstance { get; } = new MaintenanceScope("SQLManagedInstance");
+        public static MaintenanceScope Resource { get; } = new MaintenanceScope("Resource");
+        public static MaintenanceScope InResource { get; } = new MaintenanceScope("InResource");
 
         public static bool operator ==(MaintenanceScope left, MaintenanceScope right) => left.Equals(right);
         public static bool operator !=(MaintenanceScope left, MaintenanceScope right) => !left.Equals(right);
@@ -53,43 +33,6 @@ namespace Pulumi.AzureNative.Maintenance
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MaintenanceScope other && Equals(other);
         public bool Equals(MaintenanceScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets the visibility of the configuration. The default value is 'Custom'
-    /// </summary>
-    [EnumType]
-    public readonly struct Visibility : IEquatable<Visibility>
-    {
-        private readonly string _value;
-
-        private Visibility(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Only visible to users with permissions.
-        /// </summary>
-        public static Visibility Custom { get; } = new Visibility("Custom");
-        /// <summary>
-        /// Visible to all users.
-        /// </summary>
-        public static Visibility Public { get; } = new Visibility("Public");
-
-        public static bool operator ==(Visibility left, Visibility right) => left.Equals(right);
-        public static bool operator !=(Visibility left, Visibility right) => !left.Equals(right);
-
-        public static explicit operator string(Visibility value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Visibility other && Equals(other);
-        public bool Equals(Visibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

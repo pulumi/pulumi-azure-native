@@ -6,25 +6,14 @@ from enum import Enum
 
 __all__ = [
     'MaintenanceScope',
-    'Visibility',
 ]
 
 
 class MaintenanceScope(str, Enum):
     """
-    Gets or sets maintenanceScope of the configuration
+    Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
     """
+    ALL = "All"
     HOST = "Host"
-    OS_IMAGE = "OSImage"
-    EXTENSION = "Extension"
-    IN_GUEST_PATCH = "InGuestPatch"
-    SQLDB = "SQLDB"
-    SQL_MANAGED_INSTANCE = "SQLManagedInstance"
-
-
-class Visibility(str, Enum):
-    """
-    Gets or sets the visibility of the configuration. The default value is 'Custom'
-    """
-    CUSTOM = "Custom"
-    PUBLIC = "Public"
+    RESOURCE = "Resource"
+    IN_RESOURCE = "InResource"

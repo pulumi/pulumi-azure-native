@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance
     {
         /// <summary>
         /// Maintenance configuration record type
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-04-01.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Maintenance
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Maintenance Configuration Name
+        /// Resource Identifier
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -44,15 +44,7 @@ namespace Pulumi.AzureNative.Maintenance
     public sealed class GetMaintenanceConfigurationResult
     {
         /// <summary>
-        /// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
-        /// </summary>
-        public readonly string? Duration;
-        /// <summary>
-        /// Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-        /// </summary>
-        public readonly string? ExpirationDateTime;
-        /// <summary>
-        /// Gets or sets extensionProperties of the maintenanceConfiguration
+        /// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtensionProperties;
         /// <summary>
@@ -64,7 +56,7 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Gets or sets maintenanceScope of the configuration
+        /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         /// </summary>
         public readonly string? MaintenanceScope;
         /// <summary>
@@ -72,44 +64,20 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets namespace of the resource
+        /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-        /// </summary>
-        public readonly string? RecurEvery;
-        /// <summary>
-        /// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-        /// </summary>
-        public readonly string? StartDateTime;
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Gets or sets tags of the resource
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-        /// </summary>
-        public readonly string? TimeZone;
-        /// <summary>
         /// Type of the resource
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Gets or sets the visibility of the configuration. The default value is 'Custom'
-        /// </summary>
-        public readonly string? Visibility;
 
         [OutputConstructor]
         private GetMaintenanceConfigurationResult(
-            string? duration,
-
-            string? expirationDateTime,
-
             ImmutableDictionary<string, string>? extensionProperties,
 
             string id,
@@ -122,35 +90,18 @@ namespace Pulumi.AzureNative.Maintenance
 
             string? @namespace,
 
-            string? recurEvery,
-
-            string? startDateTime,
-
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
-            string? timeZone,
-
-            string type,
-
-            string? visibility)
+            string type)
         {
-            Duration = duration;
-            ExpirationDateTime = expirationDateTime;
             ExtensionProperties = extensionProperties;
             Id = id;
             Location = location;
             MaintenanceScope = maintenanceScope;
             Name = name;
             Namespace = @namespace;
-            RecurEvery = recurEvery;
-            StartDateTime = startDateTime;
-            SystemData = systemData;
             Tags = tags;
-            TimeZone = timeZone;
             Type = type;
-            Visibility = visibility;
         }
     }
 }
