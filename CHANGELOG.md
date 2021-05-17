@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.6.0 (2020-05-17)
+
 #### New Features
 
 - Add support for authentication against private and hybrid cloud environments.
@@ -43,8 +49,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14317))
 - `devtestlab:ScheduleCreationParameter`'s `location` property is now read-only
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14294))
-
----
 
 ## 1.5.0 (2020-05-08)
 
