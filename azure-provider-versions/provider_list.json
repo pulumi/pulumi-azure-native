@@ -13752,6 +13752,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01",
           "2020-01-13-preview",
           "2019-06-01",
           "2018-06-30",
@@ -40310,6 +40311,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-10-privatepreview",
           "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
@@ -50724,6 +50726,7 @@
           "West India",
           "Canada Central",
           "Canada East",
+          "West Central US",
           "West US 2",
           "Korea Central",
           "Korea South",
@@ -50738,8 +50741,7 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South",
-          "West Central US"
+          "France South"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions"
@@ -51488,6 +51490,19 @@
         ],
         "properties": null,
         "resourceType": "automations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-01-15-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "ingestionSettings"
       }
     ]
   },
@@ -57618,6 +57633,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2020-07-01-preview",
           "2020-04-01",
           "2018-10-01",
@@ -57676,6 +57692,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2020-07-01-preview",
           "2020-04-01",
           "2018-10-01",
@@ -57734,6 +57751,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2020-07-01-preview",
           "2020-04-01",
           "2018-10-01",
@@ -57792,6 +57810,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2020-07-01-preview",
           "2020-04-01",
           "2018-10-01",
@@ -70846,6 +70865,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-14-preview",
           "2021-04-02-preview",
           "2021-03-05-preview",
           "2021-02-12-preview",
@@ -72836,6 +72856,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -72850,6 +72871,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -72864,6 +72886,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -72893,6 +72916,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -72920,6 +72944,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -72934,6 +72959,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2020-03-01-preview",
           "2020-03-01"
         ],
@@ -86790,8 +86816,8 @@
           "West US",
           "West US 2",
           "South Central US",
-          "North Europe",
-          "West Europe"
+          "West Europe",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "imageTemplates"
@@ -86815,8 +86841,8 @@
           "West US",
           "West US 2",
           "South Central US",
-          "North Europe",
-          "West Europe"
+          "West Europe",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "imageTemplates/runOutputs"
@@ -86870,8 +86896,8 @@
           "West US",
           "West US 2",
           "South Central US",
-          "North Europe",
-          "West Europe"
+          "West Europe",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "locations/operations"
@@ -86894,8 +86920,8 @@
           "West US",
           "West US 2",
           "South Central US",
-          "North Europe",
-          "West Europe"
+          "West Europe",
+          "North Europe"
         ],
         "properties": null,
         "resourceType": "operations"
