@@ -72,6 +72,7 @@ type azureNativeProvider struct {
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
+	autorest.Count429AsRetry = false
 	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
 	client := autorest.NewClientWithUserAgent(buildUserAgent(PulumiPartnerID))
 	// Log requests
