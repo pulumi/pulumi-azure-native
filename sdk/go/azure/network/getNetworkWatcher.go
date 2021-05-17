@@ -8,7 +8,7 @@ import (
 )
 
 // Network watcher in a resource group.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
 	err := ctx.Invoke("azure-native:network:getNetworkWatcher", args, &rv, opts...)

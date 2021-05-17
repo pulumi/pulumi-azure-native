@@ -12,7 +12,7 @@ import (
 )
 
 // VpnConnection Resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type VpnConnection struct {
 	pulumi.CustomResourceState
 

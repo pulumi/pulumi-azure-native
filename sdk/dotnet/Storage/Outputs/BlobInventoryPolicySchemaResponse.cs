@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class BlobInventoryPolicySchemaResponse
     {
         /// <summary>
+        /// Container name where blob inventory files are stored. Must be pre-created.
+        /// </summary>
+        public readonly string Destination;
+        /// <summary>
         /// Policy is enabled if set to true.
         /// </summary>
         public readonly bool Enabled;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
         [OutputConstructor]
         private BlobInventoryPolicySchemaResponse(
+            string destination,
+
             bool enabled,
 
             ImmutableArray<Outputs.BlobInventoryPolicyRuleResponse> rules,
 
             string type)
         {
+            Destination = destination;
             Enabled = enabled;
             Rules = rules;
             Type = type;

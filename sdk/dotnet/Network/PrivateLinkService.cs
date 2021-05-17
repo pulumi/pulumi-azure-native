@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Private link service resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateLinkService")]
     public partial class PrivateLinkService : Pulumi.CustomResource

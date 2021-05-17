@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Subnet in a virtual network resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Subnet")]
     public partial class Subnet : Pulumi.CustomResource

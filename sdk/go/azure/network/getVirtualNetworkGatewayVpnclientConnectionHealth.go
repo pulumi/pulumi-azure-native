@@ -8,7 +8,7 @@ import (
 )
 
 // List of virtual network gateway vpn client connection health.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientConnectionHealthResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientConnectionHealthResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayVpnclientConnectionHealth", args, &rv, opts...)

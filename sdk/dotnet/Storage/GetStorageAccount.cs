@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The storage account.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
@@ -57,10 +57,6 @@ namespace Pulumi.AzureNative.Storage
         /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         /// </summary>
         public readonly bool? AllowBlobPublicAccess;
-        /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        /// </summary>
-        public readonly bool? AllowCrossTenantReplication;
         /// <summary>
         /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         /// </summary>
@@ -212,8 +208,6 @@ namespace Pulumi.AzureNative.Storage
 
             bool? allowBlobPublicAccess,
 
-            bool? allowCrossTenantReplication,
-
             bool? allowSharedKeyAccess,
 
             Outputs.AzureFilesIdentityBasedAuthenticationResponse? azureFilesIdentityBasedAuthentication,
@@ -288,7 +282,6 @@ namespace Pulumi.AzureNative.Storage
         {
             AccessTier = accessTier;
             AllowBlobPublicAccess = allowBlobPublicAccess;
-            AllowCrossTenantReplication = allowCrossTenantReplication;
             AllowSharedKeyAccess = allowSharedKeyAccess;
             AzureFilesIdentityBasedAuthentication = azureFilesIdentityBasedAuthentication;
             BlobRestoreStatus = blobRestoreStatus;

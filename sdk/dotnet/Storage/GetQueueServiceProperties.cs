@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The properties of a storage account’s Queue service.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());

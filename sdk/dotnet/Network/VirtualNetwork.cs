@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Virtual Network resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetwork")]
     public partial class VirtualNetwork : Pulumi.CustomResource
@@ -63,12 +63,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The FlowTimeout value (in minutes) for the Virtual Network
-        /// </summary>
-        [Output("flowTimeoutInMinutes")]
-        public Output<int?> FlowTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// Array of IpAllocation which reference this VNET.
@@ -288,12 +282,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
-
-        /// <summary>
-        /// The FlowTimeout value (in minutes) for the Virtual Network
-        /// </summary>
-        [Input("flowTimeoutInMinutes")]
-        public Input<int>? FlowTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// Resource ID.

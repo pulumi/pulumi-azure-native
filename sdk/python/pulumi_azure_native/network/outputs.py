@@ -108,7 +108,6 @@ __all__ = [
     'ContainerResponse',
     'CustomDnsConfigPropertiesFormatResponse',
     'CustomHttpsConfigurationResponse',
-    'CustomIpPrefixResponse',
     'CustomRuleListResponse',
     'CustomRuleResponse',
     'DdosSettingsResponse',
@@ -177,7 +176,6 @@ __all__ = [
     'FrontendEndpointResponse',
     'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
     'FrontendIPConfigurationResponse',
-    'GatewayLoadBalancerTunnelInterfaceResponse',
     'GatewayRouteResponse',
     'GroupMembersItemResponse',
     'HTTPHeaderResponse',
@@ -312,7 +310,6 @@ __all__ = [
     'VirtualHubRouteV2Response',
     'VirtualNetworkBgpCommunitiesResponse',
     'VirtualNetworkGatewayIPConfigurationResponse',
-    'VirtualNetworkGatewayNatRuleResponse',
     'VirtualNetworkGatewayResponse',
     'VirtualNetworkGatewaySkuResponse',
     'VirtualNetworkPeeringResponse',
@@ -4582,12 +4579,8 @@ class ApplicationGatewayTrustedClientCertificateResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientCertIssuerDN":
-            suggest = "client_cert_issuer_dn"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "validatedCertData":
-            suggest = "validated_cert_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayTrustedClientCertificateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4601,44 +4594,30 @@ class ApplicationGatewayTrustedClientCertificateResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_cert_issuer_dn: str,
                  etag: str,
                  provisioning_state: str,
                  type: str,
-                 validated_cert_data: str,
                  data: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
         Trusted client certificates of an application gateway.
-        :param str client_cert_issuer_dn: Distinguished name of client certificate issuer.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the trusted client certificate resource.
         :param str type: Type of the resource.
-        :param str validated_cert_data: Validated certificate data.
         :param str data: Certificate public data.
         :param str id: Resource ID.
         :param str name: Name of the trusted client certificate that is unique within an Application Gateway.
         """
-        pulumi.set(__self__, "client_cert_issuer_dn", client_cert_issuer_dn)
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "validated_cert_data", validated_cert_data)
         if data is not None:
             pulumi.set(__self__, "data", data)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="clientCertIssuerDN")
-    def client_cert_issuer_dn(self) -> str:
-        """
-        Distinguished name of client certificate issuer.
-        """
-        return pulumi.get(self, "client_cert_issuer_dn")
 
     @property
     @pulumi.getter
@@ -4663,14 +4642,6 @@ class ApplicationGatewayTrustedClientCertificateResponse(dict):
         Type of the resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="validatedCertData")
-    def validated_cert_data(self) -> str:
-        """
-        Validated certificate data.
-        """
-        return pulumi.get(self, "validated_cert_data")
 
     @property
     @pulumi.getter
@@ -6748,8 +6719,6 @@ class BackendAddressPoolResponse(dict):
             suggest = "provisioning_state"
         elif key == "loadBalancerBackendAddresses":
             suggest = "load_balancer_backend_addresses"
-        elif key == "tunnelInterfaces":
-            suggest = "tunnel_interfaces"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6773,8 +6742,7 @@ class BackendAddressPoolResponse(dict):
                  id: Optional[str] = None,
                  load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
                  location: Optional[str] = None,
-                 name: Optional[str] = None,
-                 tunnel_interfaces: Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']] = None):
+                 name: Optional[str] = None):
         """
         Pool of backend IP addresses.
         :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
@@ -6788,7 +6756,6 @@ class BackendAddressPoolResponse(dict):
         :param Sequence['LoadBalancerBackendAddressResponse'] load_balancer_backend_addresses: An array of backend addresses.
         :param str location: The location of the backend address pool.
         :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-        :param Sequence['GatewayLoadBalancerTunnelInterfaceResponse'] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         """
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
         pulumi.set(__self__, "etag", etag)
@@ -6805,8 +6772,6 @@ class BackendAddressPoolResponse(dict):
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if tunnel_interfaces is not None:
-            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
@@ -6895,14 +6860,6 @@ class BackendAddressPoolResponse(dict):
         The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']]:
-        """
-        An array of gateway load balancer tunnel interfaces.
-        """
-        return pulumi.get(self, "tunnel_interfaces")
 
 
 @pulumi.output_type
@@ -9551,260 +9508,6 @@ class CustomHttpsConfigurationResponse(dict):
         The Key Vault containing the SSL certificate
         """
         return pulumi.get(self, "vault")
-
-
-@pulumi.output_type
-class CustomIpPrefixResponse(dict):
-    """
-    Custom IP prefix resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "childCustomIpPrefixes":
-            suggest = "child_custom_ip_prefixes"
-        elif key == "failedReason":
-            suggest = "failed_reason"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "publicIpPrefixes":
-            suggest = "public_ip_prefixes"
-        elif key == "resourceGuid":
-            suggest = "resource_guid"
-        elif key == "authorizationMessage":
-            suggest = "authorization_message"
-        elif key == "commissionedState":
-            suggest = "commissioned_state"
-        elif key == "customIpPrefixParent":
-            suggest = "custom_ip_prefix_parent"
-        elif key == "extendedLocation":
-            suggest = "extended_location"
-        elif key == "signedMessage":
-            suggest = "signed_message"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomIpPrefixResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CustomIpPrefixResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CustomIpPrefixResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 child_custom_ip_prefixes: Sequence['outputs.CustomIpPrefixResponse'],
-                 etag: str,
-                 failed_reason: str,
-                 name: str,
-                 provisioning_state: str,
-                 public_ip_prefixes: Sequence['outputs.SubResourceResponse'],
-                 resource_guid: str,
-                 type: str,
-                 authorization_message: Optional[str] = None,
-                 cidr: Optional[str] = None,
-                 commissioned_state: Optional[str] = None,
-                 custom_ip_prefix_parent: Optional['outputs.CustomIpPrefixResponse'] = None,
-                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
-                 id: Optional[str] = None,
-                 location: Optional[str] = None,
-                 signed_message: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None,
-                 zones: Optional[Sequence[str]] = None):
-        """
-        Custom IP prefix resource.
-        :param Sequence['CustomIpPrefixResponse'] child_custom_ip_prefixes: The list of all Children for IPv6 /48 CustomIpPrefix.
-        :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param str failed_reason: The reason why resource is in failed state.
-        :param str name: Resource name.
-        :param str provisioning_state: The provisioning state of the custom IP prefix resource.
-        :param Sequence['SubResourceResponse'] public_ip_prefixes: The list of all referenced PublicIpPrefixes.
-        :param str resource_guid: The resource GUID property of the custom IP prefix resource.
-        :param str type: Resource type.
-        :param str authorization_message: Authorization message for WAN validation.
-        :param str cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
-        :param str commissioned_state: The commissioned state of the Custom IP Prefix.
-        :param 'CustomIpPrefixResponse' custom_ip_prefix_parent: The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-        :param 'ExtendedLocationResponse' extended_location: The extended location of the custom IP prefix.
-        :param str id: Resource ID.
-        :param str location: Resource location.
-        :param str signed_message: Signed message for WAN validation.
-        :param Mapping[str, str] tags: Resource tags.
-        :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
-        """
-        pulumi.set(__self__, "child_custom_ip_prefixes", child_custom_ip_prefixes)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "failed_reason", failed_reason)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
-        pulumi.set(__self__, "resource_guid", resource_guid)
-        pulumi.set(__self__, "type", type)
-        if authorization_message is not None:
-            pulumi.set(__self__, "authorization_message", authorization_message)
-        if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
-        if commissioned_state is not None:
-            pulumi.set(__self__, "commissioned_state", commissioned_state)
-        if custom_ip_prefix_parent is not None:
-            pulumi.set(__self__, "custom_ip_prefix_parent", custom_ip_prefix_parent)
-        if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if signed_message is not None:
-            pulumi.set(__self__, "signed_message", signed_message)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if zones is not None:
-            pulumi.set(__self__, "zones", zones)
-
-    @property
-    @pulumi.getter(name="childCustomIpPrefixes")
-    def child_custom_ip_prefixes(self) -> Sequence['outputs.CustomIpPrefixResponse']:
-        """
-        The list of all Children for IPv6 /48 CustomIpPrefix.
-        """
-        return pulumi.get(self, "child_custom_ip_prefixes")
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="failedReason")
-    def failed_reason(self) -> str:
-        """
-        The reason why resource is in failed state.
-        """
-        return pulumi.get(self, "failed_reason")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the custom IP prefix resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        The list of all referenced PublicIpPrefixes.
-        """
-        return pulumi.get(self, "public_ip_prefixes")
-
-    @property
-    @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
-        """
-        The resource GUID property of the custom IP prefix resource.
-        """
-        return pulumi.get(self, "resource_guid")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="authorizationMessage")
-    def authorization_message(self) -> Optional[str]:
-        """
-        Authorization message for WAN validation.
-        """
-        return pulumi.get(self, "authorization_message")
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> Optional[str]:
-        """
-        The prefix range in CIDR notation. Should include the start address and the prefix length.
-        """
-        return pulumi.get(self, "cidr")
-
-    @property
-    @pulumi.getter(name="commissionedState")
-    def commissioned_state(self) -> Optional[str]:
-        """
-        The commissioned state of the Custom IP Prefix.
-        """
-        return pulumi.get(self, "commissioned_state")
-
-    @property
-    @pulumi.getter(name="customIpPrefixParent")
-    def custom_ip_prefix_parent(self) -> Optional['outputs.CustomIpPrefixResponse']:
-        """
-        The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-        """
-        return pulumi.get(self, "custom_ip_prefix_parent")
-
-    @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
-        """
-        The extended location of the custom IP prefix.
-        """
-        return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="signedMessage")
-    def signed_message(self) -> Optional[str]:
-        """
-        Signed message for WAN validation.
-        """
-        return pulumi.get(self, "signed_message")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def zones(self) -> Optional[Sequence[str]]:
-        """
-        A list of availability zones denoting the IP allocated for the resource needs to come from.
-        """
-        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type
@@ -13003,21 +12706,19 @@ class ExtendedLocationResponse(dict):
     ExtendedLocation complex type.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
+                 name: str,
+                 type: str):
         """
         ExtendedLocation complex type.
         :param str name: The name of the extended location.
         :param str type: The type of the extended location.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The name of the extended location.
         """
@@ -13025,7 +12726,7 @@ class ExtendedLocationResponse(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         The type of the extended location.
         """
@@ -15258,8 +14959,6 @@ class FrontendIPConfigurationResponse(dict):
             suggest = "outbound_rules"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "gatewayLoadBalancer":
-            suggest = "gateway_load_balancer"
         elif key == "privateIPAddress":
             suggest = "private_ip_address"
         elif key == "privateIPAddressVersion":
@@ -15290,7 +14989,6 @@ class FrontendIPConfigurationResponse(dict):
                  outbound_rules: Sequence['outputs.SubResourceResponse'],
                  provisioning_state: str,
                  type: str,
-                 gateway_load_balancer: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
@@ -15309,7 +15007,6 @@ class FrontendIPConfigurationResponse(dict):
         :param Sequence['SubResourceResponse'] outbound_rules: An array of references to outbound rules that use this frontend IP.
         :param str provisioning_state: The provisioning state of the frontend IP configuration resource.
         :param str type: Type of the resource.
-        :param 'SubResourceResponse' gateway_load_balancer: The reference to gateway load balancer frontend IP.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
         :param str private_ip_address: The private IP address of the IP configuration.
@@ -15327,8 +15024,6 @@ class FrontendIPConfigurationResponse(dict):
         pulumi.set(__self__, "outbound_rules", outbound_rules)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
-        if gateway_load_balancer is not None:
-            pulumi.set(__self__, "gateway_load_balancer", gateway_load_balancer)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -15405,14 +15100,6 @@ class FrontendIPConfigurationResponse(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="gatewayLoadBalancer")
-    def gateway_load_balancer(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The reference to gateway load balancer frontend IP.
-        """
-        return pulumi.get(self, "gateway_load_balancer")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -15483,65 +15170,6 @@ class FrontendIPConfigurationResponse(dict):
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         return pulumi.get(self, "zones")
-
-
-@pulumi.output_type
-class GatewayLoadBalancerTunnelInterfaceResponse(dict):
-    """
-    Gateway load balancer tunnel interface of a load balancer backend address pool.
-    """
-    def __init__(__self__, *,
-                 identifier: Optional[int] = None,
-                 port: Optional[int] = None,
-                 protocol: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        Gateway load balancer tunnel interface of a load balancer backend address pool.
-        :param int identifier: Identifier of gateway load balancer tunnel interface.
-        :param int port: Port of gateway load balancer tunnel interface.
-        :param str protocol: Protocol of gateway load balancer tunnel interface.
-        :param str type: Traffic type of gateway load balancer tunnel interface.
-        """
-        if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def identifier(self) -> Optional[int]:
-        """
-        Identifier of gateway load balancer tunnel interface.
-        """
-        return pulumi.get(self, "identifier")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        """
-        Port of gateway load balancer tunnel interface.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[str]:
-        """
-        Protocol of gateway load balancer tunnel interface.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Traffic type of gateway load balancer tunnel interface.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -17301,8 +16929,6 @@ class LoadBalancingRuleResponse(dict):
             suggest = "provisioning_state"
         elif key == "backendAddressPool":
             suggest = "backend_address_pool"
-        elif key == "backendAddressPools":
-            suggest = "backend_address_pools"
         elif key == "backendPort":
             suggest = "backend_port"
         elif key == "disableOutboundSnat":
@@ -17336,7 +16962,6 @@ class LoadBalancingRuleResponse(dict):
                  provisioning_state: str,
                  type: str,
                  backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
-                 backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  backend_port: Optional[int] = None,
                  disable_outbound_snat: Optional[bool] = None,
                  enable_floating_ip: Optional[bool] = None,
@@ -17355,7 +16980,6 @@ class LoadBalancingRuleResponse(dict):
         :param str provisioning_state: The provisioning state of the load balancing rule resource.
         :param str type: Type of the resource.
         :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
-        :param Sequence['SubResourceResponse'] backend_address_pools: An array of references to pool of DIPs.
         :param int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
         :param bool disable_outbound_snat: Configures SNAT for the VMs in the backend pool to use the publicIP address specified in the frontend of the load balancing rule.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
@@ -17374,8 +16998,6 @@ class LoadBalancingRuleResponse(dict):
         pulumi.set(__self__, "type", type)
         if backend_address_pool is not None:
             pulumi.set(__self__, "backend_address_pool", backend_address_pool)
-        if backend_address_pools is not None:
-            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
         if disable_outbound_snat is not None:
@@ -17444,14 +17066,6 @@ class LoadBalancingRuleResponse(dict):
         A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
         """
         return pulumi.get(self, "backend_address_pool")
-
-    @property
-    @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
-        """
-        An array of references to pool of DIPs.
-        """
-        return pulumi.get(self, "backend_address_pools")
 
     @property
     @pulumi.getter(name="backendPort")
@@ -19369,8 +18983,6 @@ class NetworkInterfaceIPConfigurationResponse(dict):
             suggest = "application_gateway_backend_address_pools"
         elif key == "applicationSecurityGroups":
             suggest = "application_security_groups"
-        elif key == "gatewayLoadBalancer":
-            suggest = "gateway_load_balancer"
         elif key == "loadBalancerBackendAddressPools":
             suggest = "load_balancer_backend_address_pools"
         elif key == "loadBalancerInboundNatRules":
@@ -19403,7 +19015,6 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  provisioning_state: str,
                  application_gateway_backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
                  application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
-                 gateway_load_balancer: Optional['outputs.SubResourceResponse'] = None,
                  id: Optional[str] = None,
                  load_balancer_backend_address_pools: Optional[Sequence['outputs.BackendAddressPoolResponse']] = None,
                  load_balancer_inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None,
@@ -19423,7 +19034,6 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         :param str provisioning_state: The provisioning state of the network interface IP configuration.
         :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] application_gateway_backend_address_pools: The reference to ApplicationGatewayBackendAddressPool resource.
         :param Sequence['ApplicationSecurityGroupResponse'] application_security_groups: Application security groups in which the IP configuration is included.
-        :param 'SubResourceResponse' gateway_load_balancer: The reference to gateway load balancer frontend IP.
         :param str id: Resource ID.
         :param Sequence['BackendAddressPoolResponse'] load_balancer_backend_address_pools: The reference to LoadBalancerBackendAddressPool resource.
         :param Sequence['InboundNatRuleResponse'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
@@ -19444,8 +19054,6 @@ class NetworkInterfaceIPConfigurationResponse(dict):
             pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
         if application_security_groups is not None:
             pulumi.set(__self__, "application_security_groups", application_security_groups)
-        if gateway_load_balancer is not None:
-            pulumi.set(__self__, "gateway_load_balancer", gateway_load_balancer)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_address_pools is not None:
@@ -19510,14 +19118,6 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         Application security groups in which the IP configuration is included.
         """
         return pulumi.get(self, "application_security_groups")
-
-    @property
-    @pulumi.getter(name="gatewayLoadBalancer")
-    def gateway_load_balancer(self) -> Optional['outputs.SubResourceResponse']:
-        """
-        The reference to gateway load balancer frontend IP.
-        """
-        return pulumi.get(self, "gateway_load_balancer")
 
     @property
     @pulumi.getter
@@ -19658,8 +19258,6 @@ class NetworkInterfaceResponse(dict):
             suggest = "nic_type"
         elif key == "privateLinkService":
             suggest = "private_link_service"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -19696,8 +19294,7 @@ class NetworkInterfaceResponse(dict):
                  network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
                  nic_type: Optional[str] = None,
                  private_link_service: Optional['outputs.PrivateLinkServiceResponse'] = None,
-                 tags: Optional[Mapping[str, str]] = None,
-                 workload_type: Optional[str] = None):
+                 tags: Optional[Mapping[str, str]] = None):
         """
         A network interface in a resource group.
         :param 'SubResourceResponse' dscp_configuration: A reference to the dscp configuration to which the network interface is linked.
@@ -19724,7 +19321,6 @@ class NetworkInterfaceResponse(dict):
         :param str nic_type: Type of Network Interface resource.
         :param 'PrivateLinkServiceResponse' private_link_service: Privatelinkservice of the network interface resource.
         :param Mapping[str, str] tags: Resource tags.
-        :param str workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
         pulumi.set(__self__, "dscp_configuration", dscp_configuration)
         pulumi.set(__self__, "etag", etag)
@@ -19762,8 +19358,6 @@ class NetworkInterfaceResponse(dict):
             pulumi.set(__self__, "private_link_service", private_link_service)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
 
     @property
     @pulumi.getter(name="dscpConfiguration")
@@ -19956,14 +19550,6 @@ class NetworkInterfaceResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        WorkloadType of the NetworkInterface for BareMetal resources
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -23610,8 +23196,6 @@ class PublicIPAddressResponse(dict):
             suggest = "resource_guid"
         elif key == "ddosSettings":
             suggest = "ddos_settings"
-        elif key == "deleteOption":
-            suggest = "delete_option"
         elif key == "dnsSettings":
             suggest = "dns_settings"
         elif key == "extendedLocation":
@@ -23656,7 +23240,6 @@ class PublicIPAddressResponse(dict):
                  resource_guid: str,
                  type: str,
                  ddos_settings: Optional['outputs.DdosSettingsResponse'] = None,
-                 delete_option: Optional[str] = None,
                  dns_settings: Optional['outputs.PublicIPAddressDnsSettingsResponse'] = None,
                  extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  id: Optional[str] = None,
@@ -23683,7 +23266,6 @@ class PublicIPAddressResponse(dict):
         :param str resource_guid: The resource GUID property of the public IP address resource.
         :param str type: Resource type.
         :param 'DdosSettingsResponse' ddos_settings: The DDoS protection custom policy associated with the public IP address.
-        :param str delete_option: Specify what happens to the public IP address when the VM using it is deleted
         :param 'PublicIPAddressDnsSettingsResponse' dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param 'ExtendedLocationResponse' extended_location: The extended location of the public ip address.
         :param str id: Resource ID.
@@ -23710,8 +23292,6 @@ class PublicIPAddressResponse(dict):
         pulumi.set(__self__, "type", type)
         if ddos_settings is not None:
             pulumi.set(__self__, "ddos_settings", ddos_settings)
-        if delete_option is not None:
-            pulumi.set(__self__, "delete_option", delete_option)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if extended_location is not None:
@@ -23802,14 +23382,6 @@ class PublicIPAddressResponse(dict):
         The DDoS protection custom policy associated with the public IP address.
         """
         return pulumi.get(self, "ddos_settings")
-
-    @property
-    @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> Optional[str]:
-        """
-        Specify what happens to the public IP address when the VM using it is deleted
-        """
-        return pulumi.get(self, "delete_option")
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -28350,145 +27922,6 @@ class VirtualNetworkGatewayIPConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayNatRuleResponse(dict):
-    """
-    VirtualNetworkGatewayNatRule Resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "externalMappings":
-            suggest = "external_mappings"
-        elif key == "internalMappings":
-            suggest = "internal_mappings"
-        elif key == "ipConfigurationId":
-            suggest = "ip_configuration_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworkGatewayNatRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworkGatewayNatRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 etag: str,
-                 provisioning_state: str,
-                 type: str,
-                 external_mappings: Optional[Sequence['outputs.VpnNatRuleMappingResponse']] = None,
-                 id: Optional[str] = None,
-                 internal_mappings: Optional[Sequence['outputs.VpnNatRuleMappingResponse']] = None,
-                 ip_configuration_id: Optional[str] = None,
-                 mode: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        VirtualNetworkGatewayNatRule Resource.
-        :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param str provisioning_state: The provisioning state of the NAT Rule resource.
-        :param str type: Resource type.
-        :param Sequence['VpnNatRuleMappingResponse'] external_mappings: The private IP address external mapping for NAT.
-        :param str id: Resource ID.
-        :param Sequence['VpnNatRuleMappingResponse'] internal_mappings: The private IP address internal mapping for NAT.
-        :param str ip_configuration_id: The IP Configuration ID this NAT rule applies to.
-        :param str mode: The Source NAT direction of a VPN NAT.
-        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
-        if external_mappings is not None:
-            pulumi.set(__self__, "external_mappings", external_mappings)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if internal_mappings is not None:
-            pulumi.set(__self__, "internal_mappings", internal_mappings)
-        if ip_configuration_id is not None:
-            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the NAT Rule resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
-        """
-        The private IP address external mapping for NAT.
-        """
-        return pulumi.get(self, "external_mappings")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[Sequence['outputs.VpnNatRuleMappingResponse']]:
-        """
-        The private IP address internal mapping for NAT.
-        """
-        return pulumi.get(self, "internal_mappings")
-
-    @property
-    @pulumi.getter(name="ipConfigurationId")
-    def ip_configuration_id(self) -> Optional[str]:
-        """
-        The IP Configuration ID this NAT rule applies to.
-        """
-        return pulumi.get(self, "ip_configuration_id")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        """
-        The Source NAT direction of a VPN NAT.
-        """
-        return pulumi.get(self, "mode")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
 class VirtualNetworkGatewayResponse(dict):
     """
     A common class for general resource information.
@@ -28510,8 +27943,6 @@ class VirtualNetworkGatewayResponse(dict):
             suggest = "custom_routes"
         elif key == "enableBgp":
             suggest = "enable_bgp"
-        elif key == "enableBgpRouteTranslationForNat":
-            suggest = "enable_bgp_route_translation_for_nat"
         elif key == "enableDnsForwarding":
             suggest = "enable_dns_forwarding"
         elif key == "enablePrivateIpAddress":
@@ -28524,8 +27955,6 @@ class VirtualNetworkGatewayResponse(dict):
             suggest = "gateway_type"
         elif key == "ipConfigurations":
             suggest = "ip_configurations"
-        elif key == "natRules":
-            suggest = "nat_rules"
         elif key == "vNetExtendedLocationResourceId":
             suggest = "v_net_extended_location_resource_id"
         elif key == "vpnClientConfiguration":
@@ -28557,7 +27986,6 @@ class VirtualNetworkGatewayResponse(dict):
                  bgp_settings: Optional['outputs.BgpSettingsResponse'] = None,
                  custom_routes: Optional['outputs.AddressSpaceResponse'] = None,
                  enable_bgp: Optional[bool] = None,
-                 enable_bgp_route_translation_for_nat: Optional[bool] = None,
                  enable_dns_forwarding: Optional[bool] = None,
                  enable_private_ip_address: Optional[bool] = None,
                  extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
@@ -28566,7 +27994,6 @@ class VirtualNetworkGatewayResponse(dict):
                  id: Optional[str] = None,
                  ip_configurations: Optional[Sequence['outputs.VirtualNetworkGatewayIPConfigurationResponse']] = None,
                  location: Optional[str] = None,
-                 nat_rules: Optional[Sequence['outputs.VirtualNetworkGatewayNatRuleResponse']] = None,
                  sku: Optional['outputs.VirtualNetworkGatewaySkuResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  v_net_extended_location_resource_id: Optional[str] = None,
@@ -28585,7 +28012,6 @@ class VirtualNetworkGatewayResponse(dict):
         :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
         :param 'AddressSpaceResponse' custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param bool enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
-        :param bool enable_bgp_route_translation_for_nat: EnableBgpRouteTranslationForNat flag.
         :param bool enable_dns_forwarding: Whether dns forwarding is enabled or not.
         :param bool enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
         :param 'ExtendedLocationResponse' extended_location: The extended location of type local virtual network gateway.
@@ -28594,7 +28020,6 @@ class VirtualNetworkGatewayResponse(dict):
         :param str id: Resource ID.
         :param Sequence['VirtualNetworkGatewayIPConfigurationResponse'] ip_configurations: IP configurations for virtual network gateway.
         :param str location: Resource location.
-        :param Sequence['VirtualNetworkGatewayNatRuleResponse'] nat_rules: NatRules for virtual network gateway.
         :param 'VirtualNetworkGatewaySkuResponse' sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param Mapping[str, str] tags: Resource tags.
         :param str v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
@@ -28616,8 +28041,6 @@ class VirtualNetworkGatewayResponse(dict):
             pulumi.set(__self__, "custom_routes", custom_routes)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
-        if enable_bgp_route_translation_for_nat is not None:
-            pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
         if enable_dns_forwarding is not None:
             pulumi.set(__self__, "enable_dns_forwarding", enable_dns_forwarding)
         if enable_private_ip_address is not None:
@@ -28634,8 +28057,6 @@ class VirtualNetworkGatewayResponse(dict):
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if nat_rules is not None:
-            pulumi.set(__self__, "nat_rules", nat_rules)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -28730,14 +28151,6 @@ class VirtualNetworkGatewayResponse(dict):
         return pulumi.get(self, "enable_bgp")
 
     @property
-    @pulumi.getter(name="enableBgpRouteTranslationForNat")
-    def enable_bgp_route_translation_for_nat(self) -> Optional[bool]:
-        """
-        EnableBgpRouteTranslationForNat flag.
-        """
-        return pulumi.get(self, "enable_bgp_route_translation_for_nat")
-
-    @property
     @pulumi.getter(name="enableDnsForwarding")
     def enable_dns_forwarding(self) -> Optional[bool]:
         """
@@ -28800,14 +28213,6 @@ class VirtualNetworkGatewayResponse(dict):
         Resource location.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="natRules")
-    def nat_rules(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayNatRuleResponse']]:
-        """
-        NatRules for virtual network gateway.
-        """
-        return pulumi.get(self, "nat_rules")
 
     @property
     @pulumi.getter
@@ -28926,16 +28331,12 @@ class VirtualNetworkPeeringResponse(dict):
             suggest = "do_not_verify_remote_gateways"
         elif key == "peeringState":
             suggest = "peering_state"
-        elif key == "peeringSyncLevel":
-            suggest = "peering_sync_level"
         elif key == "remoteAddressSpace":
             suggest = "remote_address_space"
         elif key == "remoteBgpCommunities":
             suggest = "remote_bgp_communities"
         elif key == "remoteVirtualNetwork":
             suggest = "remote_virtual_network"
-        elif key == "remoteVirtualNetworkAddressSpace":
-            suggest = "remote_virtual_network_address_space"
         elif key == "useRemoteGateways":
             suggest = "use_remote_gateways"
 
@@ -28961,11 +28362,9 @@ class VirtualNetworkPeeringResponse(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  peering_state: Optional[str] = None,
-                 peering_sync_level: Optional[str] = None,
                  remote_address_space: Optional['outputs.AddressSpaceResponse'] = None,
                  remote_bgp_communities: Optional['outputs.VirtualNetworkBgpCommunitiesResponse'] = None,
                  remote_virtual_network: Optional['outputs.SubResourceResponse'] = None,
-                 remote_virtual_network_address_space: Optional['outputs.AddressSpaceResponse'] = None,
                  type: Optional[str] = None,
                  use_remote_gateways: Optional[bool] = None):
         """
@@ -28980,11 +28379,9 @@ class VirtualNetworkPeeringResponse(dict):
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str peering_state: The status of the virtual network peering.
-        :param str peering_sync_level: The peering sync status of the virtual network peering.
-        :param 'AddressSpaceResponse' remote_address_space: The reference to the address space peered with the remote virtual network.
+        :param 'AddressSpaceResponse' remote_address_space: The reference to the remote virtual network address space.
         :param 'VirtualNetworkBgpCommunitiesResponse' remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
         :param 'SubResourceResponse' remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-        :param 'AddressSpaceResponse' remote_virtual_network_address_space: The reference to the current address space of the remote virtual network.
         :param str type: Resource type.
         :param bool use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
@@ -29005,16 +28402,12 @@ class VirtualNetworkPeeringResponse(dict):
             pulumi.set(__self__, "name", name)
         if peering_state is not None:
             pulumi.set(__self__, "peering_state", peering_state)
-        if peering_sync_level is not None:
-            pulumi.set(__self__, "peering_sync_level", peering_sync_level)
         if remote_address_space is not None:
             pulumi.set(__self__, "remote_address_space", remote_address_space)
         if remote_bgp_communities is not None:
             pulumi.set(__self__, "remote_bgp_communities", remote_bgp_communities)
         if remote_virtual_network is not None:
             pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
-        if remote_virtual_network_address_space is not None:
-            pulumi.set(__self__, "remote_virtual_network_address_space", remote_virtual_network_address_space)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if use_remote_gateways is not None:
@@ -29101,18 +28494,10 @@ class VirtualNetworkPeeringResponse(dict):
         return pulumi.get(self, "peering_state")
 
     @property
-    @pulumi.getter(name="peeringSyncLevel")
-    def peering_sync_level(self) -> Optional[str]:
-        """
-        The peering sync status of the virtual network peering.
-        """
-        return pulumi.get(self, "peering_sync_level")
-
-    @property
     @pulumi.getter(name="remoteAddressSpace")
     def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
         """
-        The reference to the address space peered with the remote virtual network.
+        The reference to the remote virtual network address space.
         """
         return pulumi.get(self, "remote_address_space")
 
@@ -29131,14 +28516,6 @@ class VirtualNetworkPeeringResponse(dict):
         The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """
         return pulumi.get(self, "remote_virtual_network")
-
-    @property
-    @pulumi.getter(name="remoteVirtualNetworkAddressSpace")
-    def remote_virtual_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        The reference to the current address space of the remote virtual network.
-        """
-        return pulumi.get(self, "remote_virtual_network_address_space")
 
     @property
     @pulumi.getter

@@ -11,45 +11,15 @@ namespace Pulumi.AzureNative.Storage.Inputs
 {
 
     /// <summary>
-    /// An object that defines the blob inventory rule.
+    /// An object that defines the blob inventory rule. Each definition consists of a set of filters.
     /// </summary>
     public sealed class BlobInventoryPolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object that defines the filter set.
         /// </summary>
-        [Input("filters")]
-        public Input<Inputs.BlobInventoryPolicyFilterArgs>? Filters { get; set; }
-
-        /// <summary>
-        /// This is a required field, it specifies the format for the inventory files.
-        /// </summary>
-        [Input("format", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Storage.Format> Format { get; set; } = null!;
-
-        /// <summary>
-        /// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-        /// </summary>
-        [Input("objectType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Storage.ObjectType> ObjectType { get; set; } = null!;
-
-        /// <summary>
-        /// This is a required field. This field is used to schedule an inventory formation.
-        /// </summary>
-        [Input("schedule", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Storage.Schedule> Schedule { get; set; } = null!;
-
-        [Input("schemaFields", required: true)]
-        private InputList<string>? _schemaFields;
-
-        /// <summary>
-        /// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-        /// </summary>
-        public InputList<string> SchemaFields
-        {
-            get => _schemaFields ?? (_schemaFields = new InputList<string>());
-            set => _schemaFields = value;
-        }
+        [Input("filters", required: true)]
+        public Input<Inputs.BlobInventoryPolicyFilterArgs> Filters { get; set; } = null!;
 
         public BlobInventoryPolicyDefinitionArgs()
         {

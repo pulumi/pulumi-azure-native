@@ -12,7 +12,7 @@ import (
 )
 
 // Specifies information about the proximity placement group.
-// API Version: 2021-03-01.
+// API Version: 2020-12-01.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 

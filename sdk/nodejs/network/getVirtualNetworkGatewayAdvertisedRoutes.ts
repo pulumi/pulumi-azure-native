@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of virtual network gateway routes.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
     if (!opts) {

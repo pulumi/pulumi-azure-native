@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
     if (!opts) {

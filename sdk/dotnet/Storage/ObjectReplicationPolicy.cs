@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Destination account name.
         /// </summary>
         [Output("destinationAccount")]
         public Output<string> DestinationAccount { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Source account name.
         /// </summary>
         [Output("sourceAccount")]
         public Output<string> SourceAccount { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Destination account name.
         /// </summary>
         [Input("destinationAccount", required: true)]
         public Input<string> DestinationAccount { get; set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Storage
         }
 
         /// <summary>
-        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Source account name.
         /// </summary>
         [Input("sourceAccount", required: true)]
         public Input<string> SourceAccount { get; set; } = null!;

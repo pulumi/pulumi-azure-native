@@ -45,18 +45,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("tunnelInterfaces")]
-        private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;
-
-        /// <summary>
-        /// An array of gateway load balancer tunnel interfaces.
-        /// </summary>
-        public InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs> TunnelInterfaces
-        {
-            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>());
-            set => _tunnelInterfaces = value;
-        }
-
         public BackendAddressPoolArgs()
         {
         }

@@ -8,7 +8,7 @@ import (
 )
 
 // Bastion Host resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	var rv LookupBastionHostResult
 	err := ctx.Invoke("azure-native:network:getBastionHost", args, &rv, opts...)
@@ -41,8 +41,6 @@ type LookupBastionHostResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state of the bastion host resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku of this Bastion Host.
-	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * API Version: 2021-03-01.
+ * API Version: 2020-12-01.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
 
 export interface GetDedicatedHostArgs {
     /**
-     * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
+     * The expand expression to apply on the operation.
      */
     readonly expand?: string;
     /**

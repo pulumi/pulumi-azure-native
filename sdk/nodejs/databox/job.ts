@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Job Resource.
- * API Version: 2021-03-01.
+ * API Version: 2020-11-01.
  */
 export class Job extends pulumi.CustomResource {
     /**

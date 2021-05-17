@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL Database sync group.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
 	err := ctx.Invoke("azure-native:sql:getSyncGroup", args, &rv, opts...)

@@ -20,7 +20,7 @@ class GetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, etag=None, has_immutability_policy=None, has_legal_hold=None, id=None, immutability_policy=None, immutable_storage_with_versioning=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
+    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, etag=None, has_immutability_policy=None, has_legal_hold=None, id=None, immutability_policy=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
         if default_encryption_scope and not isinstance(default_encryption_scope, str):
             raise TypeError("Expected argument 'default_encryption_scope' to be a str")
         pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
@@ -48,9 +48,6 @@ class GetBlobContainerResult:
         if immutability_policy and not isinstance(immutability_policy, dict):
             raise TypeError("Expected argument 'immutability_policy' to be a dict")
         pulumi.set(__self__, "immutability_policy", immutability_policy)
-        if immutable_storage_with_versioning and not isinstance(immutable_storage_with_versioning, dict):
-            raise TypeError("Expected argument 'immutable_storage_with_versioning' to be a dict")
-        pulumi.set(__self__, "immutable_storage_with_versioning", immutable_storage_with_versioning)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -158,14 +155,6 @@ class GetBlobContainerResult:
         return pulumi.get(self, "immutability_policy")
 
     @property
-    @pulumi.getter(name="immutableStorageWithVersioning")
-    def immutable_storage_with_versioning(self) -> Optional['outputs.ImmutableStorageWithVersioningResponse']:
-        """
-        The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-        """
-        return pulumi.get(self, "immutable_storage_with_versioning")
-
-    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
@@ -269,7 +258,6 @@ class AwaitableGetBlobContainerResult(GetBlobContainerResult):
             has_legal_hold=self.has_legal_hold,
             id=self.id,
             immutability_policy=self.immutability_policy,
-            immutable_storage_with_versioning=self.immutable_storage_with_versioning,
             last_modified_time=self.last_modified_time,
             lease_duration=self.lease_duration,
             lease_state=self.lease_state,
@@ -289,7 +277,7 @@ def get_blob_container(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
-    API Version: 2021-04-01.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -316,7 +304,6 @@ def get_blob_container(account_name: Optional[str] = None,
         has_legal_hold=__ret__.has_legal_hold,
         id=__ret__.id,
         immutability_policy=__ret__.immutability_policy,
-        immutable_storage_with_versioning=__ret__.immutable_storage_with_versioning,
         last_modified_time=__ret__.last_modified_time,
         lease_duration=__ret__.lease_duration,
         lease_state=__ret__.lease_state,

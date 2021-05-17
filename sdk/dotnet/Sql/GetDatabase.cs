@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A database resource.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
@@ -105,14 +105,6 @@ namespace Pulumi.AzureNative.Sql
         /// Resource ID.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Infra encryption is enabled for this database.
-        /// </summary>
-        public readonly bool IsInfraEncryptionEnabled;
-        /// <summary>
-        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        /// </summary>
-        public readonly bool? IsLedgerOn;
         /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
@@ -234,10 +226,6 @@ namespace Pulumi.AzureNative.Sql
 
             string id,
 
-            bool isInfraEncryptionEnabled,
-
-            bool? isLedgerOn,
-
             string kind,
 
             string? licenseType,
@@ -292,8 +280,6 @@ namespace Pulumi.AzureNative.Sql
             FailoverGroupId = failoverGroupId;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
-            IsInfraEncryptionEnabled = isInfraEncryptionEnabled;
-            IsLedgerOn = isLedgerOn;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;

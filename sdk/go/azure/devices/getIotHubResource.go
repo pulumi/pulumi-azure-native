@@ -8,7 +8,7 @@ import (
 )
 
 // The description of the IoT hub.
-// API Version: 2021-03-31.
+// API Version: 2020-08-31.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
 	err := ctx.Invoke("azure-native:devices:getIotHubResource", args, &rv, opts...)
@@ -31,8 +31,6 @@ type LookupIotHubResourceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
-	// The managed identities for the IotHub.
-	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.

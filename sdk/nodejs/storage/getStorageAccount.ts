@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {
@@ -51,10 +51,6 @@ export interface GetStorageAccountResult {
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
     readonly allowBlobPublicAccess?: boolean;
-    /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-     */
-    readonly allowCrossTenantReplication?: boolean;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
      */

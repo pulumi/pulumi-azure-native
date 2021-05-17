@@ -38,7 +38,7 @@ class GetPatchScheduleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -46,7 +46,7 @@ class GetPatchScheduleResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class GetPatchScheduleResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
 
@@ -85,7 +85,7 @@ def get_patch_schedule(default: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchScheduleResult:
     """
     Response to put/get patch schedules for Redis cache.
-    API Version: 2020-12-01.
+    API Version: 2020-06-01.
 
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.

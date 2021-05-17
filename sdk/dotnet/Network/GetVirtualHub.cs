@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VirtualHub Resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
@@ -87,10 +87,6 @@ namespace Pulumi.AzureNative.Network
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
         public readonly Outputs.SubResourceResponse? P2SVpnGateway;
-        /// <summary>
-        /// The preferred gateway to route on-prem traffic
-        /// </summary>
-        public readonly string? PreferredRoutingGateway;
         /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
@@ -168,8 +164,6 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? p2SVpnGateway,
 
-            string? preferredRoutingGateway,
-
             string provisioningState,
 
             Outputs.VirtualHubRouteTableResponse? routeTable,
@@ -207,7 +201,6 @@ namespace Pulumi.AzureNative.Network
             Location = location;
             Name = name;
             P2SVpnGateway = p2SVpnGateway;
-            PreferredRoutingGateway = preferredRoutingGateway;
             ProvisioningState = provisioningState;
             RouteTable = routeTable;
             RoutingState = routingState;

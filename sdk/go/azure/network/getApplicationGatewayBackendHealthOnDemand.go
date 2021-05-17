@@ -8,7 +8,7 @@ import (
 )
 
 // Result of on demand test probe.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func GetApplicationGatewayBackendHealthOnDemand(ctx *pulumi.Context, args *GetApplicationGatewayBackendHealthOnDemandArgs, opts ...pulumi.InvokeOption) (*GetApplicationGatewayBackendHealthOnDemandResult, error) {
 	var rv GetApplicationGatewayBackendHealthOnDemandResult
 	err := ctx.Invoke("azure-native:network:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)

@@ -387,7 +387,7 @@ def get_managed_instance(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     An Azure SQL managed instance.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str expand: The child resources to include in the response.

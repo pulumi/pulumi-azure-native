@@ -24,7 +24,6 @@ class VirtualNetworkArgs:
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
-                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -42,7 +41,6 @@ class VirtualNetworkArgs:
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the virtual network.
-        :param pulumi.Input[int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
@@ -70,8 +68,6 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
-        if flow_timeout_in_minutes is not None:
-            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip_allocations is not None:
@@ -184,18 +180,6 @@ class VirtualNetworkArgs:
         pulumi.set(self, "extended_location", value)
 
     @property
-    @pulumi.getter(name="flowTimeoutInMinutes")
-    def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        The FlowTimeout value (in minutes) for the Virtual Network
-        """
-        return pulumi.get(self, "flow_timeout_in_minutes")
-
-    @flow_timeout_in_minutes.setter
-    def flow_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "flow_timeout_in_minutes", value)
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -292,7 +276,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -304,7 +287,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Network resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,7 +298,6 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the virtual network.
-        :param pulumi.Input[int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
@@ -333,7 +315,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -357,7 +339,6 @@ class VirtualNetwork(pulumi.CustomResource):
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
-                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -389,7 +370,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 enable_vm_protection = False
             __props__.__dict__["enable_vm_protection"] = enable_vm_protection
             __props__.__dict__["extended_location"] = extended_location
-            __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_allocations"] = ip_allocations
             __props__.__dict__["location"] = location
@@ -437,7 +417,6 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["enable_vm_protection"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
-        __props__.__dict__["flow_timeout_in_minutes"] = None
         __props__.__dict__["ip_allocations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -512,14 +491,6 @@ class VirtualNetwork(pulumi.CustomResource):
         The extended location of the virtual network.
         """
         return pulumi.get(self, "extended_location")
-
-    @property
-    @pulumi.getter(name="flowTimeoutInMinutes")
-    def flow_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
-        """
-        The FlowTimeout value (in minutes) for the Virtual Network
-        """
-        return pulumi.get(self, "flow_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="ipAllocations")

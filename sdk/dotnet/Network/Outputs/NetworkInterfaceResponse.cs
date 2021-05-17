@@ -109,10 +109,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The reference to a virtual machine.
         /// </summary>
         public readonly Outputs.SubResourceResponse VirtualMachine;
-        /// <summary>
-        /// WorkloadType of the NetworkInterface for BareMetal resources
-        /// </summary>
-        public readonly string? WorkloadType;
 
         [OutputConstructor]
         private NetworkInterfaceResponse(
@@ -162,9 +158,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine,
-
-            string? workloadType)
+            Outputs.SubResourceResponse virtualMachine)
         {
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
@@ -190,7 +184,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             TapConfigurations = tapConfigurations;
             Type = type;
             VirtualMachine = virtualMachine;
-            WorkloadType = workloadType;
         }
     }
 }

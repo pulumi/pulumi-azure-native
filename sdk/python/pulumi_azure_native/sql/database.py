@@ -25,7 +25,6 @@ class DatabaseArgs:
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
-                 is_ledger_on: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
@@ -72,7 +71,6 @@ class DatabaseArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
-        :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
@@ -119,8 +117,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if high_availability_replica_count is not None:
             pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
-        if is_ledger_on is not None:
-            pulumi.set(__self__, "is_ledger_on", is_ledger_on)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -283,18 +279,6 @@ class DatabaseArgs:
     @high_availability_replica_count.setter
     def high_availability_replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "high_availability_replica_count", value)
-
-    @property
-    @pulumi.getter(name="isLedgerOn")
-    def is_ledger_on(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        """
-        return pulumi.get(self, "is_ledger_on")
-
-    @is_ledger_on.setter
-    def is_ledger_on(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_ledger_on", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -547,7 +531,6 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
-                 is_ledger_on: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
@@ -572,7 +555,7 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         A database resource.
-        API Version: 2021-02-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -599,7 +582,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
-        :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
@@ -640,7 +622,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A database resource.
-        API Version: 2021-02-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -664,7 +646,6 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  high_availability_replica_count: Optional[pulumi.Input[int]] = None,
-                 is_ledger_on: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
@@ -705,7 +686,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
-            __props__.__dict__["is_ledger_on"] = is_ledger_on
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["long_term_retention_backup_resource_id"] = long_term_retention_backup_resource_id
@@ -739,7 +719,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["default_secondary_location"] = None
             __props__.__dict__["earliest_restore_date"] = None
             __props__.__dict__["failover_group_id"] = None
-            __props__.__dict__["is_infra_encryption_enabled"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["max_log_size_bytes"] = None
@@ -786,8 +765,6 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["elastic_pool_id"] = None
         __props__.__dict__["failover_group_id"] = None
         __props__.__dict__["high_availability_replica_count"] = None
-        __props__.__dict__["is_infra_encryption_enabled"] = None
-        __props__.__dict__["is_ledger_on"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
@@ -913,22 +890,6 @@ class Database(pulumi.CustomResource):
         The number of secondary replicas associated with the database that are used to provide high availability.
         """
         return pulumi.get(self, "high_availability_replica_count")
-
-    @property
-    @pulumi.getter(name="isInfraEncryptionEnabled")
-    def is_infra_encryption_enabled(self) -> pulumi.Output[bool]:
-        """
-        Infra encryption is enabled for this database.
-        """
-        return pulumi.get(self, "is_infra_encryption_enabled")
-
-    @property
-    @pulumi.getter(name="isLedgerOn")
-    def is_ledger_on(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        """
-        return pulumi.get(self, "is_ledger_on")
 
     @property
     @pulumi.getter

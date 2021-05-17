@@ -60,7 +60,7 @@ def list_job_credentials(job_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobCredentialsResult:
     """
     List of unencrypted credentials for accessing device.
-    API Version: 2021-03-01.
+    API Version: 2020-11-01.
 
 
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

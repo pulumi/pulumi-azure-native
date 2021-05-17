@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A long term retention policy.
-        /// API Version: 2021-02-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetLongTermRetentionPolicyResult> InvokeAsync(GetLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithVersion());

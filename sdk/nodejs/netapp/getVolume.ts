@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume resource
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {

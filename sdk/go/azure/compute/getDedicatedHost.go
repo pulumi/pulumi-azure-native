@@ -8,7 +8,7 @@ import (
 )
 
 // Specifies information about the Dedicated host.
-// API Version: 2021-03-01.
+// API Version: 2020-12-01.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
 	err := ctx.Invoke("azure-native:compute:getDedicatedHost", args, &rv, opts...)
@@ -19,7 +19,7 @@ func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opt
 }
 
 type LookupDedicatedHostArgs struct {
-	// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
+	// The expand expression to apply on the operation.
 	Expand *string `pulumi:"expand"`
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`

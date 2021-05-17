@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * API Version: 2021-03-01.
+ * API Version: 2020-12-01.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

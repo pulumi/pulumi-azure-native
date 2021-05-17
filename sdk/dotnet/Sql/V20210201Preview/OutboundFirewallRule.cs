@@ -59,8 +59,6 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:OutboundFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:OutboundFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

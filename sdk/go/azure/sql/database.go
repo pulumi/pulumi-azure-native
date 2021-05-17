@@ -12,7 +12,7 @@ import (
 )
 
 // A database resource.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -42,10 +42,6 @@ type Database struct {
 	FailoverGroupId pulumi.StringOutput `pulumi:"failoverGroupId"`
 	// The number of secondary replicas associated with the database that are used to provide high availability.
 	HighAvailabilityReplicaCount pulumi.IntPtrOutput `pulumi:"highAvailabilityReplicaCount"`
-	// Infra encryption is enabled for this database.
-	IsInfraEncryptionEnabled pulumi.BoolOutput `pulumi:"isInfraEncryptionEnabled"`
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn pulumi.BoolPtrOutput `pulumi:"isLedgerOn"`
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -205,10 +201,6 @@ type databaseState struct {
 	FailoverGroupId *string `pulumi:"failoverGroupId"`
 	// The number of secondary replicas associated with the database that are used to provide high availability.
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
-	// Infra encryption is enabled for this database.
-	IsInfraEncryptionEnabled *bool `pulumi:"isInfraEncryptionEnabled"`
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn *bool `pulumi:"isLedgerOn"`
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -280,10 +272,6 @@ type DatabaseState struct {
 	FailoverGroupId pulumi.StringPtrInput
 	// The number of secondary replicas associated with the database that are used to provide high availability.
 	HighAvailabilityReplicaCount pulumi.IntPtrInput
-	// Infra encryption is enabled for this database.
-	IsInfraEncryptionEnabled pulumi.BoolPtrInput
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn pulumi.BoolPtrInput
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -363,8 +351,6 @@ type databaseArgs struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// The number of secondary replicas associated with the database that are used to provide high availability.
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn *bool `pulumi:"isLedgerOn"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -443,8 +429,6 @@ type DatabaseArgs struct {
 	ElasticPoolId pulumi.StringPtrInput
 	// The number of secondary replicas associated with the database that are used to provide high availability.
 	HighAvailabilityReplicaCount pulumi.IntPtrInput
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn pulumi.BoolPtrInput
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
 	LicenseType pulumi.StringPtrInput
 	// Resource location.

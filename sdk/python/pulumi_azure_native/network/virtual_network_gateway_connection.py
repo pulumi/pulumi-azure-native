@@ -23,11 +23,9 @@ class VirtualNetworkGatewayConnectionArgs:
                  connection_mode: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']]] = None,
                  connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -49,11 +47,9 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']] connection_mode: The connection mode for this connection.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] connection_protocol: Connection protocol used for this connection.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] egress_nat_rules: List of egress NatRules.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ingress_nat_rules: List of ingress NatRules.
         :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input['LocalNetworkGatewayArgs'] local_network_gateway2: The reference to local network gateway resource.
         :param pulumi.Input[str] location: Resource location.
@@ -78,16 +74,12 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "connection_protocol", connection_protocol)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
-        if egress_nat_rules is not None:
-            pulumi.set(__self__, "egress_nat_rules", egress_nat_rules)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_gateway_bypass is not None:
             pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if ingress_nat_rules is not None:
-            pulumi.set(__self__, "ingress_nat_rules", ingress_nat_rules)
         if ipsec_policies is not None:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if local_network_gateway2 is not None:
@@ -198,18 +190,6 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "dpd_timeout_seconds", value)
 
     @property
-    @pulumi.getter(name="egressNatRules")
-    def egress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        List of egress NatRules.
-        """
-        return pulumi.get(self, "egress_nat_rules")
-
-    @egress_nat_rules.setter
-    def egress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "egress_nat_rules", value)
-
-    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -244,18 +224,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="ingressNatRules")
-    def ingress_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        List of ingress NatRules.
-        """
-        return pulumi.get(self, "ingress_nat_rules")
-
-    @ingress_nat_rules.setter
-    def ingress_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "ingress_nat_rules", value)
 
     @property
     @pulumi.getter(name="ipsecPolicies")
@@ -412,11 +380,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -434,7 +400,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A common class for general resource information.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,11 +409,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] connection_protocol: Connection protocol used for this connection.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] egress_nat_rules: List of egress NatRules.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ingress_nat_rules: List of ingress NatRules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: The reference to local network gateway resource.
         :param pulumi.Input[str] location: Resource location.
@@ -471,7 +435,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -493,11 +457,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-                 egress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ingress_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -531,11 +493,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_type'")
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
-            __props__.__dict__["egress_nat_rules"] = egress_nat_rules
             __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["id"] = id
-            __props__.__dict__["ingress_nat_rules"] = ingress_nat_rules
             __props__.__dict__["ipsec_policies"] = ipsec_policies
             __props__.__dict__["local_network_gateway2"] = local_network_gateway2
             __props__.__dict__["location"] = location
@@ -594,12 +554,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["connection_type"] = None
         __props__.__dict__["dpd_timeout_seconds"] = None
         __props__.__dict__["egress_bytes_transferred"] = None
-        __props__.__dict__["egress_nat_rules"] = None
         __props__.__dict__["enable_bgp"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["express_route_gateway_bypass"] = None
         __props__.__dict__["ingress_bytes_transferred"] = None
-        __props__.__dict__["ingress_nat_rules"] = None
         __props__.__dict__["ipsec_policies"] = None
         __props__.__dict__["local_network_gateway2"] = None
         __props__.__dict__["location"] = None
@@ -676,14 +634,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         return pulumi.get(self, "egress_bytes_transferred")
 
     @property
-    @pulumi.getter(name="egressNatRules")
-    def egress_nat_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
-        """
-        List of egress NatRules.
-        """
-        return pulumi.get(self, "egress_nat_rules")
-
-    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -714,14 +664,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         The ingress bytes transferred in this connection.
         """
         return pulumi.get(self, "ingress_bytes_transferred")
-
-    @property
-    @pulumi.getter(name="ingressNatRules")
-    def ingress_nat_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
-        """
-        List of ingress NatRules.
-        """
-        return pulumi.get(self, "ingress_nat_rules")
 
     @property
     @pulumi.getter(name="ipsecPolicies")

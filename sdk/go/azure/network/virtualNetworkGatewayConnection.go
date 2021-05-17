@@ -12,7 +12,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type VirtualNetworkGatewayConnection struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +30,6 @@ type VirtualNetworkGatewayConnection struct {
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// The egress bytes transferred in this connection.
 	EgressBytesTransferred pulumi.Float64Output `pulumi:"egressBytesTransferred"`
-	// List of egress NatRules.
-	EgressNatRules SubResourceResponseArrayOutput `pulumi:"egressNatRules"`
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -40,8 +38,6 @@ type VirtualNetworkGatewayConnection struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypass"`
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred pulumi.Float64Output `pulumi:"ingressBytesTransferred"`
-	// List of ingress NatRules.
-	IngressNatRules SubResourceResponseArrayOutput `pulumi:"ingressNatRules"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.
@@ -352,8 +348,6 @@ type virtualNetworkGatewayConnectionState struct {
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// The egress bytes transferred in this connection.
 	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
-	// List of egress NatRules.
-	EgressNatRules []SubResourceResponse `pulumi:"egressNatRules"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -362,8 +356,6 @@ type virtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
-	// List of ingress NatRules.
-	IngressNatRules []SubResourceResponse `pulumi:"ingressNatRules"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.
@@ -415,8 +407,6 @@ type VirtualNetworkGatewayConnectionState struct {
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// The egress bytes transferred in this connection.
 	EgressBytesTransferred pulumi.Float64PtrInput
-	// List of egress NatRules.
-	EgressNatRules SubResourceResponseArrayInput
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
@@ -425,8 +415,6 @@ type VirtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred pulumi.Float64PtrInput
-	// List of ingress NatRules.
-	IngressNatRules SubResourceResponseArrayInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyResponseArrayInput
 	// The reference to local network gateway resource.
@@ -478,16 +466,12 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ConnectionType string `pulumi:"connectionType"`
 	// The dead peer detection timeout of this connection in seconds.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
-	// List of egress NatRules.
-	EgressNatRules []SubResource `pulumi:"egressNatRules"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Bypass ExpressRoute Gateway for data forwarding.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// List of ingress NatRules.
-	IngressNatRules []SubResource `pulumi:"ingressNatRules"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.
@@ -530,16 +514,12 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ConnectionType pulumi.StringInput
 	// The dead peer detection timeout of this connection in seconds.
 	DpdTimeoutSeconds pulumi.IntPtrInput
-	// List of egress NatRules.
-	EgressNatRules SubResourceArrayInput
 	// EnableBgp flag.
 	EnableBgp pulumi.BoolPtrInput
 	// Bypass ExpressRoute Gateway for data forwarding.
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// List of ingress NatRules.
-	IngressNatRules SubResourceArrayInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyArrayInput
 	// The reference to local network gateway resource.

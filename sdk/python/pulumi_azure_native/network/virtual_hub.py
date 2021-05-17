@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualHubArgs', 'VirtualHub']
@@ -24,7 +23,6 @@ class VirtualHubArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 preferred_routing_gateway: Optional[pulumi.Input[Union[str, 'PreferredRoutingGateway']]] = None,
                  route_table: Optional[pulumi.Input['VirtualHubRouteTableArgs']] = None,
                  security_partner_provider: Optional[pulumi.Input['SubResourceArgs']] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +44,6 @@ class VirtualHubArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['SubResourceArgs'] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
-        :param pulumi.Input[Union[str, 'PreferredRoutingGateway']] preferred_routing_gateway: The preferred gateway to route on-prem traffic
         :param pulumi.Input['VirtualHubRouteTableArgs'] route_table: The routeTable associated with this virtual hub.
         :param pulumi.Input['SubResourceArgs'] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
@@ -74,8 +71,6 @@ class VirtualHubArgs:
             pulumi.set(__self__, "location", location)
         if p2_s_vpn_gateway is not None:
             pulumi.set(__self__, "p2_s_vpn_gateway", p2_s_vpn_gateway)
-        if preferred_routing_gateway is not None:
-            pulumi.set(__self__, "preferred_routing_gateway", preferred_routing_gateway)
         if route_table is not None:
             pulumi.set(__self__, "route_table", route_table)
         if security_partner_provider is not None:
@@ -194,18 +189,6 @@ class VirtualHubArgs:
     @p2_s_vpn_gateway.setter
     def p2_s_vpn_gateway(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "p2_s_vpn_gateway", value)
-
-    @property
-    @pulumi.getter(name="preferredRoutingGateway")
-    def preferred_routing_gateway(self) -> Optional[pulumi.Input[Union[str, 'PreferredRoutingGateway']]]:
-        """
-        The preferred gateway to route on-prem traffic
-        """
-        return pulumi.get(self, "preferred_routing_gateway")
-
-    @preferred_routing_gateway.setter
-    def preferred_routing_gateway(self, value: Optional[pulumi.Input[Union[str, 'PreferredRoutingGateway']]]):
-        pulumi.set(self, "preferred_routing_gateway", value)
 
     @property
     @pulumi.getter(name="routeTable")
@@ -352,7 +335,6 @@ class VirtualHub(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 preferred_routing_gateway: Optional[pulumi.Input[Union[str, 'PreferredRoutingGateway']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
                  security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -368,7 +350,7 @@ class VirtualHub(pulumi.CustomResource):
                  __props__=None):
         """
         VirtualHub Resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,7 +361,6 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub.
-        :param pulumi.Input[Union[str, 'PreferredRoutingGateway']] preferred_routing_gateway: The preferred gateway to route on-prem traffic
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']] route_table: The routeTable associated with this virtual hub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] security_partner_provider: The securityPartnerProvider associated with this VirtualHub.
@@ -401,7 +382,7 @@ class VirtualHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualHub Resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualHubArgs args: The arguments to use to populate this resource's properties.
@@ -425,7 +406,6 @@ class VirtualHub(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 preferred_routing_gateway: Optional[pulumi.Input[Union[str, 'PreferredRoutingGateway']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table: Optional[pulumi.Input[pulumi.InputType['VirtualHubRouteTableArgs']]] = None,
                  security_partner_provider: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -457,7 +437,6 @@ class VirtualHub(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["p2_s_vpn_gateway"] = p2_s_vpn_gateway
-            __props__.__dict__["preferred_routing_gateway"] = preferred_routing_gateway
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -513,7 +492,6 @@ class VirtualHub(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["p2_s_vpn_gateway"] = None
-        __props__.__dict__["preferred_routing_gateway"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["route_table"] = None
         __props__.__dict__["routing_state"] = None
@@ -608,14 +586,6 @@ class VirtualHub(pulumi.CustomResource):
         The P2SVpnGateway associated with this VirtualHub.
         """
         return pulumi.get(self, "p2_s_vpn_gateway")
-
-    @property
-    @pulumi.getter(name="preferredRoutingGateway")
-    def preferred_routing_gateway(self) -> pulumi.Output[Optional[str]]:
-        """
-        The preferred gateway to route on-prem traffic
-        """
-        return pulumi.get(self, "preferred_routing_gateway")
 
     @property
     @pulumi.getter(name="provisioningState")

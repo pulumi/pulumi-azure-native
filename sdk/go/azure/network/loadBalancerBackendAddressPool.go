@@ -12,7 +12,7 @@ import (
 )
 
 // Pool of backend IP addresses.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type LoadBalancerBackendAddressPool struct {
 	pulumi.CustomResourceState
 
@@ -34,8 +34,6 @@ type LoadBalancerBackendAddressPool struct {
 	OutboundRules SubResourceResponseArrayOutput `pulumi:"outboundRules"`
 	// The provisioning state of the backend address pool resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces GatewayLoadBalancerTunnelInterfaceResponseArrayOutput `pulumi:"tunnelInterfaces"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -141,8 +139,6 @@ type loadBalancerBackendAddressPoolState struct {
 	OutboundRules []SubResourceResponse `pulumi:"outboundRules"`
 	// The provisioning state of the backend address pool resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces []GatewayLoadBalancerTunnelInterfaceResponse `pulumi:"tunnelInterfaces"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -166,8 +162,6 @@ type LoadBalancerBackendAddressPoolState struct {
 	OutboundRules SubResourceResponseArrayInput
 	// The provisioning state of the backend address pool resource.
 	ProvisioningState pulumi.StringPtrInput
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces GatewayLoadBalancerTunnelInterfaceResponseArrayInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
@@ -191,8 +185,6 @@ type loadBalancerBackendAddressPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces []GatewayLoadBalancerTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 // The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
@@ -211,8 +203,6 @@ type LoadBalancerBackendAddressPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces GatewayLoadBalancerTunnelInterfaceArrayInput
 }
 
 func (LoadBalancerBackendAddressPoolArgs) ElementType() reflect.Type {

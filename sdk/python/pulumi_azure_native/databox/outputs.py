@@ -41,7 +41,6 @@ __all__ = [
     'JobDeliveryInfoResponse',
     'JobStagesResponse',
     'KeyEncryptionKeyResponse',
-    'LastMitigationActionOnJobResponse',
     'ManagedDiskDetailsResponse',
     'NotificationPreferenceResponse',
     'PackageShippingDetailsResponse',
@@ -994,8 +993,6 @@ class DataBoxDiskJobDetailsResponse(dict):
             suggest = "job_details_type"
         elif key == "jobStages":
             suggest = "job_stages"
-        elif key == "lastMitigationActionOnJob":
-            suggest = "last_mitigation_action_on_job"
         elif key == "returnPackage":
             suggest = "return_package"
         elif key == "reverseShipmentLabelSasKey":
@@ -1025,7 +1022,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 actions: Sequence[str],
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
                  copy_log_details: Sequence[Any],
@@ -1034,7 +1030,6 @@ class DataBoxDiskJobDetailsResponse(dict):
                  disks_and_size_details: Mapping[str, int],
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 last_mitigation_action_on_job: 'outputs.LastMitigationActionOnJobResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
@@ -1047,7 +1042,6 @@ class DataBoxDiskJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         DataBox Disk Job Details.
-        :param Sequence[str] actions: Available actions on the job.
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
         :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
@@ -1057,7 +1051,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
         :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
-        :param 'LastMitigationActionOnJobResponse' last_mitigation_action_on_job: Last mitigation action performed on the job.
         :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponse'] data_export_details: Details of the data to be exported from azure.
@@ -1069,7 +1062,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param Mapping[str, int] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "copy_log_details", copy_log_details)
@@ -1078,7 +1070,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
         pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -1097,14 +1088,6 @@ class DataBoxDiskJobDetailsResponse(dict):
             pulumi.set(__self__, "preferred_disks", preferred_disks)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence[str]:
-        """
-        Available actions on the job.
-        """
-        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="chainOfCustodySasKey")
@@ -1170,14 +1153,6 @@ class DataBoxDiskJobDetailsResponse(dict):
         List of stages that run in the job.
         """
         return pulumi.get(self, "job_stages")
-
-    @property
-    @pulumi.getter(name="lastMitigationActionOnJob")
-    def last_mitigation_action_on_job(self) -> 'outputs.LastMitigationActionOnJobResponse':
-        """
-        Last mitigation action performed on the job.
-        """
-        return pulumi.get(self, "last_mitigation_action_on_job")
 
     @property
     @pulumi.getter(name="returnPackage")
@@ -1441,8 +1416,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
             suggest = "job_details_type"
         elif key == "jobStages":
             suggest = "job_stages"
-        elif key == "lastMitigationActionOnJob":
-            suggest = "last_mitigation_action_on_job"
         elif key == "returnPackage":
             suggest = "return_package"
         elif key == "reverseShipmentLabelSasKey":
@@ -1472,7 +1445,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 actions: Sequence[str],
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
                  copy_log_details: Sequence[Any],
@@ -1480,7 +1452,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 last_mitigation_action_on_job: 'outputs.LastMitigationActionOnJobResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
@@ -1492,7 +1463,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Databox Heavy Device Job Details
-        :param Sequence[str] actions: Available actions on the job.
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
         :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
@@ -1501,7 +1471,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
         :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
-        :param 'LastMitigationActionOnJobResponse' last_mitigation_action_on_job: Last mitigation action performed on the job.
         :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponse'] data_export_details: Details of the data to be exported from azure.
@@ -1512,7 +1481,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param 'PreferencesResponse' preferences: Preferences for the order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "copy_log_details", copy_log_details)
@@ -1520,7 +1488,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -1537,14 +1504,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence[str]:
-        """
-        Available actions on the job.
-        """
-        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="chainOfCustodySasKey")
@@ -1602,14 +1561,6 @@ class DataBoxHeavyJobDetailsResponse(dict):
         List of stages that run in the job.
         """
         return pulumi.get(self, "job_stages")
-
-    @property
-    @pulumi.getter(name="lastMitigationActionOnJob")
-    def last_mitigation_action_on_job(self) -> 'outputs.LastMitigationActionOnJobResponse':
-        """
-        Last mitigation action performed on the job.
-        """
-        return pulumi.get(self, "last_mitigation_action_on_job")
 
     @property
     @pulumi.getter(name="returnPackage")
@@ -1829,8 +1780,6 @@ class DataBoxJobDetailsResponse(dict):
             suggest = "job_details_type"
         elif key == "jobStages":
             suggest = "job_stages"
-        elif key == "lastMitigationActionOnJob":
-            suggest = "last_mitigation_action_on_job"
         elif key == "returnPackage":
             suggest = "return_package"
         elif key == "reverseShipmentLabelSasKey":
@@ -1860,7 +1809,6 @@ class DataBoxJobDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 actions: Sequence[str],
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
                  copy_log_details: Sequence[Any],
@@ -1868,7 +1816,6 @@ class DataBoxJobDetailsResponse(dict):
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
                  job_details_type: str,
                  job_stages: Sequence['outputs.JobStagesResponse'],
-                 last_mitigation_action_on_job: 'outputs.LastMitigationActionOnJobResponse',
                  return_package: 'outputs.PackageShippingDetailsResponse',
                  reverse_shipment_label_sas_key: str,
                  data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
@@ -1880,7 +1827,6 @@ class DataBoxJobDetailsResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Databox Job Details
-        :param Sequence[str] actions: Available actions on the job.
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
         :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
@@ -1889,7 +1835,6 @@ class DataBoxJobDetailsResponse(dict):
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
         :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
-        :param 'LastMitigationActionOnJobResponse' last_mitigation_action_on_job: Last mitigation action performed on the job.
         :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
         :param Sequence['DataExportDetailsResponse'] data_export_details: Details of the data to be exported from azure.
@@ -1900,7 +1845,6 @@ class DataBoxJobDetailsResponse(dict):
         :param 'PreferencesResponse' preferences: Preferences for the order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "copy_log_details", copy_log_details)
@@ -1908,7 +1852,6 @@ class DataBoxJobDetailsResponse(dict):
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "job_details_type", 'DataBox')
         pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
@@ -1925,14 +1868,6 @@ class DataBoxJobDetailsResponse(dict):
             pulumi.set(__self__, "preferences", preferences)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence[str]:
-        """
-        Available actions on the job.
-        """
-        return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="chainOfCustodySasKey")
@@ -1990,14 +1925,6 @@ class DataBoxJobDetailsResponse(dict):
         List of stages that run in the job.
         """
         return pulumi.get(self, "job_stages")
-
-    @property
-    @pulumi.getter(name="lastMitigationActionOnJob")
-    def last_mitigation_action_on_job(self) -> 'outputs.LastMitigationActionOnJobResponse':
-        """
-        Last mitigation action performed on the job.
-        """
-        return pulumi.get(self, "last_mitigation_action_on_job")
 
     @property
     @pulumi.getter(name="returnPackage")
@@ -2729,76 +2656,6 @@ class KeyEncryptionKeyResponse(dict):
         Kek vault resource id. It is required in case of Customer managed KekType.
         """
         return pulumi.get(self, "kek_vault_resource_id")
-
-
-@pulumi.output_type
-class LastMitigationActionOnJobResponse(dict):
-    """
-    Last Mitigation Action Performed On Job
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionDateTimeInUtc":
-            suggest = "action_date_time_in_utc"
-        elif key == "customerResolution":
-            suggest = "customer_resolution"
-        elif key == "isPerformedByCustomer":
-            suggest = "is_performed_by_customer"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LastMitigationActionOnJobResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LastMitigationActionOnJobResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LastMitigationActionOnJobResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action_date_time_in_utc: Optional[str] = None,
-                 customer_resolution: Optional[str] = None,
-                 is_performed_by_customer: Optional[bool] = None):
-        """
-        Last Mitigation Action Performed On Job
-        :param str action_date_time_in_utc: Action performed date time
-        :param str customer_resolution: Resolution code provided by customer
-        :param bool is_performed_by_customer: Action performed by customer,
-               possibility is that mitigation might happen by customer or service or by ops
-        """
-        if action_date_time_in_utc is not None:
-            pulumi.set(__self__, "action_date_time_in_utc", action_date_time_in_utc)
-        if customer_resolution is not None:
-            pulumi.set(__self__, "customer_resolution", customer_resolution)
-        if is_performed_by_customer is not None:
-            pulumi.set(__self__, "is_performed_by_customer", is_performed_by_customer)
-
-    @property
-    @pulumi.getter(name="actionDateTimeInUtc")
-    def action_date_time_in_utc(self) -> Optional[str]:
-        """
-        Action performed date time
-        """
-        return pulumi.get(self, "action_date_time_in_utc")
-
-    @property
-    @pulumi.getter(name="customerResolution")
-    def customer_resolution(self) -> Optional[str]:
-        """
-        Resolution code provided by customer
-        """
-        return pulumi.get(self, "customer_resolution")
-
-    @property
-    @pulumi.getter(name="isPerformedByCustomer")
-    def is_performed_by_customer(self) -> Optional[bool]:
-        """
-        Action performed by customer,
-        possibility is that mitigation might happen by customer or service or by ops
-        """
-        return pulumi.get(self, "is_performed_by_customer")
 
 
 @pulumi.output_type

@@ -8,7 +8,7 @@ import (
 )
 
 // Azure Active Directory only authentication.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupServerAzureADOnlyAuthentication(ctx *pulumi.Context, args *LookupServerAzureADOnlyAuthenticationArgs, opts ...pulumi.InvokeOption) (*LookupServerAzureADOnlyAuthenticationResult, error) {
 	var rv LookupServerAzureADOnlyAuthenticationResult
 	err := ctx.Invoke("azure-native:sql:getServerAzureADOnlyAuthentication", args, &rv, opts...)

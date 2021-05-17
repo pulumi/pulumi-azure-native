@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -73,10 +73,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * An array of gateway load balancer tunnel interfaces.
-     */
-    public readonly tunnelInterfaces!: pulumi.Output<outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[] | undefined>;
-    /**
      * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -105,7 +101,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             inputs["backendIPConfigurations"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
@@ -123,7 +118,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             inputs["outboundRule"] = undefined /*out*/;
             inputs["outboundRules"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["tunnelInterfaces"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -167,8 +161,4 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * An array of gateway load balancer tunnel interfaces.
-     */
-    readonly tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.network.GatewayLoadBalancerTunnelInterfaceArgs>[]>;
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
     if (!opts) {
@@ -79,10 +79,6 @@ export interface GetBlobContainerResult {
      * The ImmutabilityPolicy property of the container.
      */
     readonly immutabilityPolicy: outputs.storage.ImmutabilityPolicyPropertiesResponse;
-    /**
-     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-     */
-    readonly immutableStorageWithVersioning?: outputs.storage.ImmutableStorageWithVersioningResponse;
     /**
      * Returns the date and time the container was last modified.
      */

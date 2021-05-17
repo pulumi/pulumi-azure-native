@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
-    /// API Version: 2021-03-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : Pulumi.CustomResource

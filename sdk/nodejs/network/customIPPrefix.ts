@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -37,14 +37,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     }
 
     /**
-     * Authorization message for WAN validation.
-     */
-    public readonly authorizationMessage!: pulumi.Output<string | undefined>;
-    /**
-     * The list of all Children for IPv6 /48 CustomIpPrefix.
-     */
-    public /*out*/ readonly childCustomIpPrefixes!: pulumi.Output<outputs.network.CustomIpPrefixResponse[]>;
-    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     public readonly cidr!: pulumi.Output<string | undefined>;
@@ -53,10 +45,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      */
     public readonly commissionedState!: pulumi.Output<string | undefined>;
     /**
-     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-     */
-    public readonly customIpPrefixParent!: pulumi.Output<outputs.network.CustomIpPrefixResponse | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -64,10 +52,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * The extended location of the custom IP prefix.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
-    /**
-     * The reason why resource is in failed state.
-     */
-    public /*out*/ readonly failedReason!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -88,10 +72,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * The resource GUID property of the custom IP prefix resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
-    /**
-     * Signed message for WAN validation.
-     */
-    public readonly signedMessage!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -119,41 +99,31 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationMessage"] = args ? args.authorizationMessage : undefined;
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["commissionedState"] = args ? args.commissionedState : undefined;
             inputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
-            inputs["customIpPrefixParent"] = args ? args.customIpPrefixParent : undefined;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["signedMessage"] = args ? args.signedMessage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["childCustomIpPrefixes"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["failedReason"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIpPrefixes"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizationMessage"] = undefined /*out*/;
-            inputs["childCustomIpPrefixes"] = undefined /*out*/;
             inputs["cidr"] = undefined /*out*/;
             inputs["commissionedState"] = undefined /*out*/;
-            inputs["customIpPrefixParent"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["extendedLocation"] = undefined /*out*/;
-            inputs["failedReason"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIpPrefixes"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
-            inputs["signedMessage"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
@@ -172,10 +142,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
  */
 export interface CustomIPPrefixArgs {
     /**
-     * Authorization message for WAN validation.
-     */
-    readonly authorizationMessage?: pulumi.Input<string>;
-    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     readonly cidr?: pulumi.Input<string>;
@@ -187,10 +153,6 @@ export interface CustomIPPrefixArgs {
      * The name of the custom IP prefix.
      */
     readonly customIpPrefixName?: pulumi.Input<string>;
-    /**
-     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-     */
-    readonly customIpPrefixParent?: pulumi.Input<inputs.network.CustomIpPrefixArgs>;
     /**
      * The extended location of the custom IP prefix.
      */
@@ -207,10 +169,6 @@ export interface CustomIPPrefixArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Signed message for WAN validation.
-     */
-    readonly signedMessage?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

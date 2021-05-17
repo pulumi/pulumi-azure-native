@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server DNS alias.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerDnsAlias")]
     public partial class ServerDnsAlias : Pulumi.CustomResource

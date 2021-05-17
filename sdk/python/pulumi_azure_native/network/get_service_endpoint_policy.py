@@ -169,7 +169,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyResult:
     """
     Service End point policy resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.

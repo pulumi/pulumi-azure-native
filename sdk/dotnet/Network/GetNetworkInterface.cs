@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// A network interface in a resource group.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:network:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
@@ -145,10 +145,6 @@ namespace Pulumi.AzureNative.Network
         /// The reference to a virtual machine.
         /// </summary>
         public readonly Outputs.SubResourceResponse VirtualMachine;
-        /// <summary>
-        /// WorkloadType of the NetworkInterface for BareMetal resources
-        /// </summary>
-        public readonly string? WorkloadType;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
@@ -198,9 +194,7 @@ namespace Pulumi.AzureNative.Network
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine,
-
-            string? workloadType)
+            Outputs.SubResourceResponse virtualMachine)
         {
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
@@ -226,7 +220,6 @@ namespace Pulumi.AzureNative.Network
             TapConfigurations = tapConfigurations;
             Type = type;
             VirtualMachine = virtualMachine;
-            WorkloadType = workloadType;
         }
     }
 }

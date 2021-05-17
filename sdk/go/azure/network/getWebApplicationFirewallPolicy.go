@@ -8,7 +8,7 @@ import (
 )
 
 // Defines web application firewall policy.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebApplicationFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupWebApplicationFirewallPolicyResult, error) {
 	var rv LookupWebApplicationFirewallPolicyResult
 	err := ctx.Invoke("azure-native:network:getWebApplicationFirewallPolicy", args, &rv, opts...)

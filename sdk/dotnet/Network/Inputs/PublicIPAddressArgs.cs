@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<Inputs.DdosSettingsArgs>? DdosSettings { get; set; }
 
         /// <summary>
-        /// Specify what happens to the public IP address when the VM using it is deleted
-        /// </summary>
-        [Input("deleteOption")]
-        public InputUnion<string, Pulumi.AzureNative.Network.DeleteOptions>? DeleteOption { get; set; }
-
-        /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
         [Input("dnsSettings")]

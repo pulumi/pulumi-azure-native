@@ -145,7 +145,7 @@ def get_workload_group(database_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadGroupResult:
     """
     Workload group operations for a data warehouse
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database.

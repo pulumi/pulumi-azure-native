@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
-    /// API Version: 2020-12-01.
+    /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:PatchSchedule")]
     public partial class PatchSchedule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<ImmutableArray<Outputs.ScheduleEntryResponse>> ScheduleEntries { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

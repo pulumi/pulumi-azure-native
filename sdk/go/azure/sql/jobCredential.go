@@ -12,7 +12,7 @@ import (
 )
 
 // A stored credential that can be used by a job to connect to target databases.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type JobCredential struct {
 	pulumi.CustomResourceState
 

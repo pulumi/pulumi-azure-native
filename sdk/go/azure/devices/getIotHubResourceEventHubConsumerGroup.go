@@ -8,7 +8,7 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
-// API Version: 2021-03-31.
+// API Version: 2020-08-31.
 func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *LookupIotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceEventHubConsumerGroupResult, error) {
 	var rv LookupIotHubResourceEventHubConsumerGroupResult
 	err := ctx.Invoke("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
@@ -38,7 +38,7 @@ type LookupIotHubResourceEventHubConsumerGroupResult struct {
 	// The Event Hub-compatible consumer group name.
 	Name string `pulumi:"name"`
 	// The tags.
-	Properties interface{} `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
 	// the resource type.
 	Type string `pulumi:"type"`
 }

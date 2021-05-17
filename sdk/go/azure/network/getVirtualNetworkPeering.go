@@ -8,7 +8,7 @@ import (
 )
 
 // Peerings in a virtual network resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetworkPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkPeeringResult, error) {
 	var rv LookupVirtualNetworkPeeringResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkPeering", args, &rv, opts...)
@@ -45,18 +45,14 @@ type LookupVirtualNetworkPeeringResult struct {
 	Name *string `pulumi:"name"`
 	// The status of the virtual network peering.
 	PeeringState *string `pulumi:"peeringState"`
-	// The peering sync status of the virtual network peering.
-	PeeringSyncLevel *string `pulumi:"peeringSyncLevel"`
 	// The provisioning state of the virtual network peering resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The reference to the address space peered with the remote virtual network.
+	// The reference to the remote virtual network address space.
 	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
 	// The reference to the remote virtual network's Bgp Communities.
 	RemoteBgpCommunities *VirtualNetworkBgpCommunitiesResponse `pulumi:"remoteBgpCommunities"`
 	// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
 	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
-	// The reference to the current address space of the remote virtual network.
-	RemoteVirtualNetworkAddressSpace *AddressSpaceResponse `pulumi:"remoteVirtualNetworkAddressSpace"`
 	// The resourceGuid property of the Virtual Network peering resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource type.

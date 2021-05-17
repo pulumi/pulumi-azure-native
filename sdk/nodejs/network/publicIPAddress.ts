@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public IP address resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**
@@ -40,10 +40,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * The DDoS protection custom policy associated with the public IP address.
      */
     public readonly ddosSettings!: pulumi.Output<outputs.network.DdosSettingsResponse | undefined>;
-    /**
-     * Specify what happens to the public IP address when the VM using it is deleted
-     */
-    public readonly deleteOption!: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
@@ -148,7 +144,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["ddosSettings"] = args ? args.ddosSettings : undefined;
-            inputs["deleteOption"] = args ? args.deleteOption : undefined;
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -176,7 +171,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["ddosSettings"] = undefined /*out*/;
-            inputs["deleteOption"] = undefined /*out*/;
             inputs["dnsSettings"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["extendedLocation"] = undefined /*out*/;
@@ -217,10 +211,6 @@ export interface PublicIPAddressArgs {
      * The DDoS protection custom policy associated with the public IP address.
      */
     readonly ddosSettings?: pulumi.Input<inputs.network.DdosSettingsArgs>;
-    /**
-     * Specify what happens to the public IP address when the VM using it is deleted
-     */
-    readonly deleteOption?: pulumi.Input<string | enums.network.DeleteOptions>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */

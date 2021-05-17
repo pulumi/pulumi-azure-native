@@ -8,7 +8,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGateway", args, &rv, opts...)
@@ -35,8 +35,6 @@ type LookupVirtualNetworkGatewayResult struct {
 	CustomRoutes *AddressSpaceResponse `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -59,8 +57,6 @@ type LookupVirtualNetworkGatewayResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// NatRules for virtual network gateway.
-	NatRules []VirtualNetworkGatewayNatRuleResponse `pulumi:"natRules"`
 	// The provisioning state of the virtual network gateway resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the virtual network gateway resource.

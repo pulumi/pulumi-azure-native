@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetFileShareResult',
@@ -20,7 +19,7 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, id=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, signed_identifiers=None, snapshot_time=None, type=None, version=None):
+    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, id=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, snapshot_time=None, type=None, version=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -48,15 +47,6 @@ class GetFileShareResult:
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
-        if lease_duration and not isinstance(lease_duration, str):
-            raise TypeError("Expected argument 'lease_duration' to be a str")
-        pulumi.set(__self__, "lease_duration", lease_duration)
-        if lease_state and not isinstance(lease_state, str):
-            raise TypeError("Expected argument 'lease_state' to be a str")
-        pulumi.set(__self__, "lease_state", lease_state)
-        if lease_status and not isinstance(lease_status, str):
-            raise TypeError("Expected argument 'lease_status' to be a str")
-        pulumi.set(__self__, "lease_status", lease_status)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -75,9 +65,6 @@ class GetFileShareResult:
         if share_usage_bytes and not isinstance(share_usage_bytes, float):
             raise TypeError("Expected argument 'share_usage_bytes' to be a float")
         pulumi.set(__self__, "share_usage_bytes", share_usage_bytes)
-        if signed_identifiers and not isinstance(signed_identifiers, list):
-            raise TypeError("Expected argument 'signed_identifiers' to be a list")
-        pulumi.set(__self__, "signed_identifiers", signed_identifiers)
         if snapshot_time and not isinstance(snapshot_time, str):
             raise TypeError("Expected argument 'snapshot_time' to be a str")
         pulumi.set(__self__, "snapshot_time", snapshot_time)
@@ -161,30 +148,6 @@ class GetFileShareResult:
         return pulumi.get(self, "last_modified_time")
 
     @property
-    @pulumi.getter(name="leaseDuration")
-    def lease_duration(self) -> str:
-        """
-        Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-        """
-        return pulumi.get(self, "lease_duration")
-
-    @property
-    @pulumi.getter(name="leaseState")
-    def lease_state(self) -> str:
-        """
-        Lease state of the share.
-        """
-        return pulumi.get(self, "lease_state")
-
-    @property
-    @pulumi.getter(name="leaseStatus")
-    def lease_status(self) -> str:
-        """
-        The lease status of the share.
-        """
-        return pulumi.get(self, "lease_status")
-
-    @property
     @pulumi.getter
     def metadata(self) -> Optional[Mapping[str, str]]:
         """
@@ -233,14 +196,6 @@ class GetFileShareResult:
         return pulumi.get(self, "share_usage_bytes")
 
     @property
-    @pulumi.getter(name="signedIdentifiers")
-    def signed_identifiers(self) -> Optional[Sequence['outputs.SignedIdentifierResponse']]:
-        """
-        List of stored access policies specified on the share.
-        """
-        return pulumi.get(self, "signed_identifiers")
-
-    @property
     @pulumi.getter(name="snapshotTime")
     def snapshot_time(self) -> str:
         """
@@ -280,16 +235,12 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             etag=self.etag,
             id=self.id,
             last_modified_time=self.last_modified_time,
-            lease_duration=self.lease_duration,
-            lease_state=self.lease_state,
-            lease_status=self.lease_status,
             metadata=self.metadata,
             name=self.name,
             remaining_retention_days=self.remaining_retention_days,
             root_squash=self.root_squash,
             share_quota=self.share_quota,
             share_usage_bytes=self.share_usage_bytes,
-            signed_identifiers=self.signed_identifiers,
             snapshot_time=self.snapshot_time,
             type=self.type,
             version=self.version)
@@ -302,11 +253,11 @@ def get_file_share(account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
-    API Version: 2021-04-01.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-    :param str expand: Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
+    :param str expand: Optional, used to expand the properties within share's properties.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     """
@@ -331,16 +282,12 @@ def get_file_share(account_name: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
-        lease_duration=__ret__.lease_duration,
-        lease_state=__ret__.lease_state,
-        lease_status=__ret__.lease_status,
         metadata=__ret__.metadata,
         name=__ret__.name,
         remaining_retention_days=__ret__.remaining_retention_days,
         root_squash=__ret__.root_squash,
         share_quota=__ret__.share_quota,
         share_usage_bytes=__ret__.share_usage_bytes,
-        signed_identifiers=__ret__.signed_identifiers,
         snapshot_time=__ret__.snapshot_time,
         type=__ret__.type,
         version=__ret__.version)

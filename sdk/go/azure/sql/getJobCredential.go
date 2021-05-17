@@ -8,7 +8,7 @@ import (
 )
 
 // A stored credential that can be used by a job to connect to target databases.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupJobCredential(ctx *pulumi.Context, args *LookupJobCredentialArgs, opts ...pulumi.InvokeOption) (*LookupJobCredentialResult, error) {
 	var rv LookupJobCredentialResult
 	err := ctx.Invoke("azure-native:sql:getJobCredential", args, &rv, opts...)

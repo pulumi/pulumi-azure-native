@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Route resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Route")]
     public partial class Route : Pulumi.CustomResource

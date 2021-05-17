@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Route Filter Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class RouteFilter extends pulumi.CustomResource {
     /**

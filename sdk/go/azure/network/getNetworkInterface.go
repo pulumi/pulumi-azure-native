@@ -8,7 +8,7 @@ import (
 )
 
 // A network interface in a resource group.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("azure-native:network:getNetworkInterface", args, &rv, opts...)
@@ -77,6 +77,4 @@ type LookupNetworkInterfaceResult struct {
 	Type string `pulumi:"type"`
 	// The reference to a virtual machine.
 	VirtualMachine SubResourceResponse `pulumi:"virtualMachine"`
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType *string `pulumi:"workloadType"`
 }

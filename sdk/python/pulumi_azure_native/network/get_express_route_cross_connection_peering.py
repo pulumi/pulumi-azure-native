@@ -253,7 +253,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCrossConnectionPeeringResult:
     """
     Peering in an ExpressRoute Cross Connection resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str cross_connection_name: The name of the ExpressRouteCrossConnection.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetObjectReplicationPolicyArgs {
  */
 export interface GetObjectReplicationPolicyResult {
     /**
-     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Destination account name.
      */
     readonly destinationAccount: string;
     /**
@@ -68,7 +68,7 @@ export interface GetObjectReplicationPolicyResult {
      */
     readonly rules?: outputs.storage.ObjectReplicationPolicyRuleResponse[];
     /**
-     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Source account name.
      */
     readonly sourceAccount: string;
     /**

@@ -19,7 +19,6 @@ class IotHubResourceArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IotHubSkuInfoArgs'],
                  etag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ArmIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['IotHubPropertiesArgs']] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +28,6 @@ class IotHubResourceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input['IotHubSkuInfoArgs'] sku: IotHub SKU info
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        :param pulumi.Input['ArmIdentityArgs'] identity: The managed identities for the IotHub.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input['IotHubPropertiesArgs'] properties: IotHub properties
         :param pulumi.Input[str] resource_name: The name of the IoT hub.
@@ -39,8 +37,6 @@ class IotHubResourceArgs:
         pulumi.set(__self__, "sku", sku)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -85,18 +81,6 @@ class IotHubResourceArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ArmIdentityArgs']]:
-        """
-        The managed identities for the IotHub.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ArmIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class IotHubResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ArmIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -163,12 +146,11 @@ class IotHubResource(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the IoT hub.
-        API Version: 2021-03-31.
+        API Version: 2020-08-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        :param pulumi.Input[pulumi.InputType['ArmIdentityArgs']] identity: The managed identities for the IotHub.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']] properties: IotHub properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
@@ -184,7 +166,7 @@ class IotHubResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the IoT hub.
-        API Version: 2021-03-31.
+        API Version: 2020-08-31.
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +184,6 @@ class IotHubResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ArmIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,7 +203,6 @@ class IotHubResource(pulumi.CustomResource):
             __props__ = IotHubResourceArgs.__new__(IotHubResourceArgs)
 
             __props__.__dict__["etag"] = etag
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -260,7 +240,6 @@ class IotHubResource(pulumi.CustomResource):
         __props__ = IotHubResourceArgs.__new__(IotHubResourceArgs)
 
         __props__.__dict__["etag"] = None
-        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -276,14 +255,6 @@ class IotHubResource(pulumi.CustomResource):
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ArmIdentityResponse']]:
-        """
-        The managed identities for the IotHub.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -8,7 +8,7 @@ import (
 )
 
 // Application gateway resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	var rv LookupApplicationGatewayResult
 	err := ctx.Invoke("azure-native:network:getApplicationGateway", args, &rv, opts...)

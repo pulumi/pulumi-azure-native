@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peerings in a virtual network resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
     if (!opts) {
@@ -76,15 +76,11 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly peeringState?: string;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    readonly peeringSyncLevel?: string;
-    /**
      * The provisioning state of the virtual network peering resource.
      */
     readonly provisioningState: string;
     /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     readonly remoteAddressSpace?: outputs.network.AddressSpaceResponse;
     /**
@@ -95,10 +91,6 @@ export interface GetVirtualNetworkPeeringResult {
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
     readonly remoteVirtualNetwork?: outputs.network.SubResourceResponse;
-    /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    readonly remoteVirtualNetworkAddressSpace?: outputs.network.AddressSpaceResponse;
     /**
      * The resourceGuid property of the Virtual Network peering resource.
      */

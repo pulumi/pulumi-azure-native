@@ -12,7 +12,7 @@ import (
 )
 
 // A single Redis item in List or Get Operation.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 type Redis struct {
 	pulumi.CustomResourceState
 
@@ -30,7 +30,7 @@ type Redis struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Redis non-SSL port.
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -42,12 +42,10 @@ type Redis struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapOutput `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion pulumi.StringPtrOutput `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
+	// Redis version.
+	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
+	// The number of replicas to be created per master.
 	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary pulumi.IntPtrOutput `pulumi:"replicasPerPrimary"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -62,7 +60,7 @@ type Redis struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A dictionary of tenant settings
 	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -171,7 +169,7 @@ type redisState struct {
 	Location *string `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the resource
+	// Resource name.
 	Name *string `pulumi:"name"`
 	// Redis non-SSL port.
 	Port *int `pulumi:"port"`
@@ -183,12 +181,10 @@ type redisState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	// Redis version.
 	RedisVersion *string `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
+	// The number of replicas to be created per master.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -203,7 +199,7 @@ type redisState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A dictionary of tenant settings
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type *string `pulumi:"type"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
@@ -224,7 +220,7 @@ type RedisState struct {
 	Location pulumi.StringPtrInput
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringPtrInput
 	// Redis non-SSL port.
 	Port pulumi.IntPtrInput
@@ -236,12 +232,10 @@ type RedisState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+	// Redis version.
 	RedisVersion pulumi.StringPtrInput
-	// The number of replicas to be created per primary.
+	// The number of replicas to be created per master.
 	ReplicasPerMaster pulumi.IntPtrInput
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary pulumi.IntPtrInput
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount pulumi.IntPtrInput
 	// The SKU of the Redis cache to deploy.
@@ -256,7 +250,7 @@ type RedisState struct {
 	Tags pulumi.StringMapInput
 	// A dictionary of tenant settings
 	TenantSettings pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringPtrInput
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones pulumi.StringArrayInput
@@ -279,12 +273,8 @@ type redisArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion *string `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
+	// The number of replicas to be created per master.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of shards to be created on a Premium Cluster Cache.
@@ -317,12 +307,8 @@ type RedisArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion pulumi.StringPtrInput
-	// The number of replicas to be created per primary.
+	// The number of replicas to be created per master.
 	ReplicasPerMaster pulumi.IntPtrInput
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The number of shards to be created on a Premium Cluster Cache.

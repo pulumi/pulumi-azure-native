@@ -37,7 +37,7 @@ __all__ = [
     'SecurityAlertsPolicyState',
     'SensitivityLabelRank',
     'ServerKeyType',
-    'ServerNetworkAccessFlag',
+    'ServerPublicNetworkAccess',
     'StorageAccountType',
     'SyncConflictResolutionPolicy',
     'SyncDirection',
@@ -338,9 +338,9 @@ class ServerKeyType(str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 
-class ServerNetworkAccessFlag(str, Enum):
+class ServerPublicNetworkAccess(str, Enum):
     """
-    Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

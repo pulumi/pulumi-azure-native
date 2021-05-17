@@ -56,7 +56,7 @@ def list_storage_account_sas(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountSASResult:
     """
     The List SAS credentials operation response.
-    API Version: 2021-04-01.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

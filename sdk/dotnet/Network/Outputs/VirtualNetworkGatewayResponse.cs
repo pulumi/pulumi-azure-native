@@ -30,10 +30,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? EnableBgp;
         /// <summary>
-        /// EnableBgpRouteTranslationForNat flag.
-        /// </summary>
-        public readonly bool? EnableBgpRouteTranslationForNat;
-        /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
         public readonly bool? EnableDnsForwarding;
@@ -77,10 +73,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// NatRules for virtual network gateway.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
         /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
@@ -128,8 +120,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             bool? enableBgp,
 
-            bool? enableBgpRouteTranslationForNat,
-
             bool? enableDnsForwarding,
 
             bool? enablePrivateIpAddress,
@@ -151,8 +141,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             string? location,
 
             string name,
-
-            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
 
             string provisioningState,
 
@@ -176,7 +164,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             EnableBgp = enableBgp;
-            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
@@ -188,7 +175,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            NatRules = natRules;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Sku = sku;

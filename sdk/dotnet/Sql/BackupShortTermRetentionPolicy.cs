@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A short term retention policy.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:BackupShortTermRetentionPolicy")]
     public partial class BackupShortTermRetentionPolicy : Pulumi.CustomResource

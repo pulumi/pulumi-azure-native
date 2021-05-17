@@ -157,7 +157,7 @@ def get_image(expand: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-    API Version: 2021-03-01.
+    API Version: 2020-12-01.
 
 
     :param str expand: The expand expression to apply on the operation.

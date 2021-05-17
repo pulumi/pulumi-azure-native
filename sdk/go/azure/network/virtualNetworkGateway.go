@@ -12,7 +12,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,6 @@ type VirtualNetworkGateway struct {
 	CustomRoutes AddressSpaceResponsePtrOutput `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat pulumi.BoolPtrOutput `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrOutput `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -46,8 +44,6 @@ type VirtualNetworkGateway struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// NatRules for virtual network gateway.
-	NatRules VirtualNetworkGatewayNatRuleResponseArrayOutput `pulumi:"natRules"`
 	// The provisioning state of the virtual network gateway resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource GUID property of the virtual network gateway resource.
@@ -330,8 +326,6 @@ type virtualNetworkGatewayState struct {
 	CustomRoutes *AddressSpaceResponse `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -352,8 +346,6 @@ type virtualNetworkGatewayState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// NatRules for virtual network gateway.
-	NatRules []VirtualNetworkGatewayNatRuleResponse `pulumi:"natRules"`
 	// The provisioning state of the virtual network gateway resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource GUID property of the virtual network gateway resource.
@@ -383,8 +375,6 @@ type VirtualNetworkGatewayState struct {
 	CustomRoutes AddressSpaceResponsePtrInput
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrInput
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat pulumi.BoolPtrInput
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrInput
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -405,8 +395,6 @@ type VirtualNetworkGatewayState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// NatRules for virtual network gateway.
-	NatRules VirtualNetworkGatewayNatRuleResponseArrayInput
 	// The provisioning state of the virtual network gateway resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The resource GUID property of the virtual network gateway resource.
@@ -440,8 +428,6 @@ type virtualNetworkGatewayArgs struct {
 	CustomRoutes *AddressSpace `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat *bool `pulumi:"enableBgpRouteTranslationForNat"`
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding *bool `pulumi:"enableDnsForwarding"`
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -458,8 +444,6 @@ type virtualNetworkGatewayArgs struct {
 	IpConfigurations []VirtualNetworkGatewayIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// NatRules for virtual network gateway.
-	NatRules []VirtualNetworkGatewayNatRuleType `pulumi:"natRules"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
@@ -488,8 +472,6 @@ type VirtualNetworkGatewayArgs struct {
 	CustomRoutes AddressSpacePtrInput
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp pulumi.BoolPtrInput
-	// EnableBgpRouteTranslationForNat flag.
-	EnableBgpRouteTranslationForNat pulumi.BoolPtrInput
 	// Whether dns forwarding is enabled or not.
 	EnableDnsForwarding pulumi.BoolPtrInput
 	// Whether private IP needs to be enabled on this gateway for connections or not.
@@ -506,8 +488,6 @@ type VirtualNetworkGatewayArgs struct {
 	IpConfigurations VirtualNetworkGatewayIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// NatRules for virtual network gateway.
-	NatRules VirtualNetworkGatewayNatRuleTypeArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.

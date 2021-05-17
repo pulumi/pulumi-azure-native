@@ -121,7 +121,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualApplianceSiteResult:
     """
     Virtual Appliance Site resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.

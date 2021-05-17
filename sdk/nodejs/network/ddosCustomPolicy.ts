@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A DDoS custom policy in a resource group.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class DdosCustomPolicy extends pulumi.CustomResource {
     /**

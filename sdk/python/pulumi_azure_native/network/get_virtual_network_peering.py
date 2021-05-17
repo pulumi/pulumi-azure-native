@@ -20,7 +20,7 @@ class GetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, do_not_verify_remote_gateways=None, etag=None, id=None, name=None, peering_state=None, peering_sync_level=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, remote_virtual_network_address_space=None, resource_guid=None, type=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, do_not_verify_remote_gateways=None, etag=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, resource_guid=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -45,9 +45,6 @@ class GetVirtualNetworkPeeringResult:
         if peering_state and not isinstance(peering_state, str):
             raise TypeError("Expected argument 'peering_state' to be a str")
         pulumi.set(__self__, "peering_state", peering_state)
-        if peering_sync_level and not isinstance(peering_sync_level, str):
-            raise TypeError("Expected argument 'peering_sync_level' to be a str")
-        pulumi.set(__self__, "peering_sync_level", peering_sync_level)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -60,9 +57,6 @@ class GetVirtualNetworkPeeringResult:
         if remote_virtual_network and not isinstance(remote_virtual_network, dict):
             raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
         pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
-        if remote_virtual_network_address_space and not isinstance(remote_virtual_network_address_space, dict):
-            raise TypeError("Expected argument 'remote_virtual_network_address_space' to be a dict")
-        pulumi.set(__self__, "remote_virtual_network_address_space", remote_virtual_network_address_space)
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
@@ -138,14 +132,6 @@ class GetVirtualNetworkPeeringResult:
         return pulumi.get(self, "peering_state")
 
     @property
-    @pulumi.getter(name="peeringSyncLevel")
-    def peering_sync_level(self) -> Optional[str]:
-        """
-        The peering sync status of the virtual network peering.
-        """
-        return pulumi.get(self, "peering_sync_level")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -157,7 +143,7 @@ class GetVirtualNetworkPeeringResult:
     @pulumi.getter(name="remoteAddressSpace")
     def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
         """
-        The reference to the address space peered with the remote virtual network.
+        The reference to the remote virtual network address space.
         """
         return pulumi.get(self, "remote_address_space")
 
@@ -176,14 +162,6 @@ class GetVirtualNetworkPeeringResult:
         The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """
         return pulumi.get(self, "remote_virtual_network")
-
-    @property
-    @pulumi.getter(name="remoteVirtualNetworkAddressSpace")
-    def remote_virtual_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
-        """
-        The reference to the current address space of the remote virtual network.
-        """
-        return pulumi.get(self, "remote_virtual_network_address_space")
 
     @property
     @pulumi.getter(name="resourceGuid")
@@ -224,12 +202,10 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
             id=self.id,
             name=self.name,
             peering_state=self.peering_state,
-            peering_sync_level=self.peering_sync_level,
             provisioning_state=self.provisioning_state,
             remote_address_space=self.remote_address_space,
             remote_bgp_communities=self.remote_bgp_communities,
             remote_virtual_network=self.remote_virtual_network,
-            remote_virtual_network_address_space=self.remote_virtual_network_address_space,
             resource_guid=self.resource_guid,
             type=self.type,
             use_remote_gateways=self.use_remote_gateways)
@@ -241,7 +217,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -267,12 +243,10 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         peering_state=__ret__.peering_state,
-        peering_sync_level=__ret__.peering_sync_level,
         provisioning_state=__ret__.provisioning_state,
         remote_address_space=__ret__.remote_address_space,
         remote_bgp_communities=__ret__.remote_bgp_communities,
         remote_virtual_network=__ret__.remote_virtual_network,
-        remote_virtual_network_address_space=__ret__.remote_virtual_network_address_space,
         resource_guid=__ret__.resource_guid,
         type=__ret__.type,
         use_remote_gateways=__ret__.use_remote_gateways)

@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure SQL instance pool.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type InstancePool struct {
 	pulumi.CustomResourceState
 

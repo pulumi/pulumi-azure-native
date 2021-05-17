@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database security alert policy.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
     if (!opts) {

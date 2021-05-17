@@ -8,7 +8,7 @@ import (
 )
 
 // Public IP prefix resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupPublicIPPrefix(ctx *pulumi.Context, args *LookupPublicIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPPrefixResult, error) {
 	var rv LookupPublicIPPrefixResult
 	err := ctx.Invoke("azure-native:network:getPublicIPPrefix", args, &rv, opts...)

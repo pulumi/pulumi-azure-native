@@ -30,7 +30,6 @@ __all__ = [
     'AzureFirewallSkuTier',
     'AzureFirewallThreatIntelMode',
     'BackendEnabledState',
-    'BastionHostSkuName',
     'CommissionedState',
     'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
@@ -44,7 +43,6 @@ __all__ = [
     'DdosSettingsProtectionCoverage',
     'DeleteExistingNSGs',
     'DeleteExistingPeering',
-    'DeleteOptions',
     'DestinationPortBehavior',
     'DhGroup',
     'DynamicCompressionEnabled',
@@ -85,8 +83,6 @@ __all__ = [
     'FrontDoorQuery',
     'FrontDoorRedirectProtocol',
     'FrontDoorRedirectType',
-    'GatewayLoadBalancerTunnelInterfaceType',
-    'GatewayLoadBalancerTunnelProtocol',
     'GroupConnectivity',
     'HTTPConfigurationMethod',
     'HeaderActionType',
@@ -123,7 +119,6 @@ __all__ = [
     'PolicyMode',
     'PolicyRequestBodyCheck',
     'PreferredIPVersion',
-    'PreferredRoutingGateway',
     'ProbeProtocol',
     'ProfileMonitorStatus',
     'ProfileStatus',
@@ -162,7 +157,6 @@ __all__ = [
     'VirtualNetworkGatewaySkuName',
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
-    'VirtualNetworkPeeringLevel',
     'VirtualNetworkPeeringState',
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
@@ -430,14 +424,6 @@ class BackendEnabledState(str, Enum):
     DISABLED = "Disabled"
 
 
-class BastionHostSkuName(str, Enum):
-    """
-    The name of this Bastion Host.
-    """
-    BASIC = "Basic"
-    STANDARD = "Standard"
-
-
 class CommissionedState(str, Enum):
     """
     The commissioned state of the Custom IP Prefix.
@@ -551,14 +537,6 @@ class DeleteExistingPeering(str, Enum):
     """
     FALSE = "False"
     TRUE = "True"
-
-
-class DeleteOptions(str, Enum):
-    """
-    Specify what happens to the public IP address when the VM using it is deleted
-    """
-    DELETE = "Delete"
-    DETACH = "Detach"
 
 
 class DestinationPortBehavior(str, Enum):
@@ -917,24 +895,6 @@ class FrontDoorRedirectType(str, Enum):
     PERMANENT_REDIRECT = "PermanentRedirect"
 
 
-class GatewayLoadBalancerTunnelInterfaceType(str, Enum):
-    """
-    Traffic type of gateway load balancer tunnel interface.
-    """
-    NONE = "None"
-    INTERNAL = "Internal"
-    EXTERNAL = "External"
-
-
-class GatewayLoadBalancerTunnelProtocol(str, Enum):
-    """
-    Protocol of gateway load balancer tunnel interface.
-    """
-    NONE = "None"
-    NATIVE = "Native"
-    VXLAN = "VXLAN"
-
-
 class GroupConnectivity(str, Enum):
     """
     Group connectivity type.
@@ -1067,7 +1027,6 @@ class LoadBalancerSkuName(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
-    GATEWAY = "Gateway"
 
 
 class LoadBalancerSkuTier(str, Enum):
@@ -1275,15 +1234,6 @@ class PreferredIPVersion(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
-
-
-class PreferredRoutingGateway(str, Enum):
-    """
-    The preferred gateway to route on-prem traffic
-    """
-    EXPRESS_ROUTE = "ExpressRoute"
-    VPN_GATEWAY = "VpnGateway"
-    NONE = "None"
 
 
 class ProbeProtocol(str, Enum):
@@ -1679,16 +1629,6 @@ class VirtualNetworkGatewayType(str, Enum):
     VPN = "Vpn"
     EXPRESS_ROUTE = "ExpressRoute"
     LOCAL_GATEWAY = "LocalGateway"
-
-
-class VirtualNetworkPeeringLevel(str, Enum):
-    """
-    The peering sync status of the virtual network peering.
-    """
-    FULLY_IN_SYNC = "FullyInSync"
-    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
-    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
-    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
 
 
 class VirtualNetworkPeeringState(str, Enum):

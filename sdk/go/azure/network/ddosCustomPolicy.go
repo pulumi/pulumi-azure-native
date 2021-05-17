@@ -12,7 +12,7 @@ import (
 )
 
 // A DDoS custom policy in a resource group.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type DdosCustomPolicy struct {
 	pulumi.CustomResourceState
 

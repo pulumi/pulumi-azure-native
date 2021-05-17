@@ -24,9 +24,9 @@ class ObjectReplicationPolicyArgs:
         """
         The set of arguments for constructing a ObjectReplicationPolicy resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input[str] destination_account: Required. Destination account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] source_account: Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input[str] source_account: Required. Source account name.
         :param pulumi.Input[str] object_replication_policy_id: The ID of object replication policy or 'default' if the policy ID is unknown.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]] rules: The storage account object replication rules.
         """
@@ -55,7 +55,7 @@ class ObjectReplicationPolicyArgs:
     @pulumi.getter(name="destinationAccount")
     def destination_account(self) -> pulumi.Input[str]:
         """
-        Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        Required. Destination account name.
         """
         return pulumi.get(self, "destination_account")
 
@@ -79,7 +79,7 @@ class ObjectReplicationPolicyArgs:
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> pulumi.Input[str]:
         """
-        Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        Required. Source account name.
         """
         return pulumi.get(self, "source_account")
 
@@ -126,16 +126,16 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input[str] destination_account: Required. Destination account name.
         :param pulumi.Input[str] object_replication_policy_id: The ID of object replication policy or 'default' if the policy ID is unknown.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
-        :param pulumi.Input[str] source_account: Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        :param pulumi.Input[str] source_account: Required. Source account name.
         """
         ...
     @overload
@@ -145,7 +145,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param ObjectReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +235,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     @pulumi.getter(name="destinationAccount")
     def destination_account(self) -> pulumi.Output[str]:
         """
-        Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        Required. Destination account name.
         """
         return pulumi.get(self, "destination_account")
 
@@ -275,7 +275,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> pulumi.Output[str]:
         """
-        Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        Required. Source account name.
         """
         return pulumi.get(self, "source_account")
 

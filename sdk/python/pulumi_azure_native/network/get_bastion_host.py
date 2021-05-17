@@ -20,7 +20,7 @@ class GetBastionHostResult:
     """
     Bastion Host resource.
     """
-    def __init__(__self__, dns_name=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, dns_name=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -42,9 +42,6 @@ class GetBastionHostResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -110,14 +107,6 @@ class GetBastionHostResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of this Bastion Host.
-        """
-        return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
@@ -146,7 +135,6 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            sku=self.sku,
             tags=self.tags,
             type=self.type)
 
@@ -156,7 +144,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
     Bastion Host resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -179,6 +167,5 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)

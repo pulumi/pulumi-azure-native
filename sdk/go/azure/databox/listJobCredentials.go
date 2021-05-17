@@ -8,7 +8,7 @@ import (
 )
 
 // List of unencrypted credentials for accessing device.
-// API Version: 2021-03-01.
+// API Version: 2020-11-01.
 func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts ...pulumi.InvokeOption) (*ListJobCredentialsResult, error) {
 	var rv ListJobCredentialsResult
 	err := ctx.Invoke("azure-native:databox:listJobCredentials", args, &rv, opts...)

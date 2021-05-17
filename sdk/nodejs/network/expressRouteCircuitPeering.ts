@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering in an ExpressRouteCircuit resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**

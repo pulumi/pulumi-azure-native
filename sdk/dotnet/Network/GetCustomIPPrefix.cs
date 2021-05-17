@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Custom IP prefix resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-native:network:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithVersion());
@@ -50,14 +50,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetCustomIPPrefixResult
     {
         /// <summary>
-        /// Authorization message for WAN validation.
-        /// </summary>
-        public readonly string? AuthorizationMessage;
-        /// <summary>
-        /// The list of all Children for IPv6 /48 CustomIpPrefix.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.CustomIpPrefixResponse> ChildCustomIpPrefixes;
-        /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
         /// </summary>
         public readonly string? Cidr;
@@ -66,10 +58,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? CommissionedState;
         /// <summary>
-        /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-        /// </summary>
-        public readonly Outputs.CustomIpPrefixResponse? CustomIpPrefixParent;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -77,10 +65,6 @@ namespace Pulumi.AzureNative.Network
         /// The extended location of the custom IP prefix.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
-        /// <summary>
-        /// The reason why resource is in failed state.
-        /// </summary>
-        public readonly string FailedReason;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -106,10 +90,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ResourceGuid;
         /// <summary>
-        /// Signed message for WAN validation.
-        /// </summary>
-        public readonly string? SignedMessage;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -124,21 +104,13 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetCustomIPPrefixResult(
-            string? authorizationMessage,
-
-            ImmutableArray<Outputs.CustomIpPrefixResponse> childCustomIpPrefixes,
-
             string? cidr,
 
             string? commissionedState,
 
-            Outputs.CustomIpPrefixResponse? customIpPrefixParent,
-
             string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
-
-            string failedReason,
 
             string? id,
 
@@ -152,29 +124,22 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
-            string? signedMessage,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
             ImmutableArray<string> zones)
         {
-            AuthorizationMessage = authorizationMessage;
-            ChildCustomIpPrefixes = childCustomIpPrefixes;
             Cidr = cidr;
             CommissionedState = commissionedState;
-            CustomIpPrefixParent = customIpPrefixParent;
             Etag = etag;
             ExtendedLocation = extendedLocation;
-            FailedReason = failedReason;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             PublicIpPrefixes = publicIpPrefixes;
             ResourceGuid = resourceGuid;
-            SignedMessage = signedMessage;
             Tags = tags;
             Type = type;
             Zones = zones;

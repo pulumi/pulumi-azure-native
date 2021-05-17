@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * HubVirtualNetworkConnection Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
     if (!opts) {

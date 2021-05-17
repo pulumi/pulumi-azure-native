@@ -11,14 +11,12 @@ __all__ = [
     'BlobType',
     'Bypass',
     'DefaultAction',
-    'DefaultSharePermission',
     'DirectoryServiceOptions',
     'EnabledProtocols',
     'EncryptionScopeSource',
     'EncryptionScopeState',
     'ExpirationAction',
     'ExtendedLocationTypes',
-    'Format',
     'HttpProtocol',
     'IdentityType',
     'InventoryRuleType',
@@ -28,14 +26,12 @@ __all__ = [
     'LargeFileSharesState',
     'MinimumTlsVersion',
     'Name',
-    'ObjectType',
     'Permissions',
     'PrivateEndpointServiceConnectionStatus',
     'PublicAccess',
     'RootSquashType',
     'RoutingChoice',
     'RuleType',
-    'Schedule',
     'Services',
     'ShareAccessTier',
     'SignedResource',
@@ -95,17 +91,6 @@ class DefaultAction(str, Enum):
     DENY = "Deny"
 
 
-class DefaultSharePermission(str, Enum):
-    """
-    Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-    """
-    NONE = "None"
-    STORAGE_FILE_DATA_SMB_SHARE_READER = "StorageFileDataSmbShareReader"
-    STORAGE_FILE_DATA_SMB_SHARE_CONTRIBUTOR = "StorageFileDataSmbShareContributor"
-    STORAGE_FILE_DATA_SMB_SHARE_ELEVATED_CONTRIBUTOR = "StorageFileDataSmbShareElevatedContributor"
-    STORAGE_FILE_DATA_SMB_SHARE_OWNER = "StorageFileDataSmbShareOwner"
-
-
 class DirectoryServiceOptions(str, Enum):
     """
     Indicates the directory service used.
@@ -151,14 +136,6 @@ class ExtendedLocationTypes(str, Enum):
     The type of the extended location.
     """
     EDGE_ZONE = "EdgeZone"
-
-
-class Format(str, Enum):
-    """
-    This is a required field, it specifies the format for the inventory files.
-    """
-    CSV = "Csv"
-    PARQUET = "Parquet"
 
 
 class HttpProtocol(str, Enum):
@@ -237,14 +214,6 @@ class Name(str, Enum):
     ACCESS_TIME_TRACKING = "AccessTimeTracking"
 
 
-class ObjectType(str, Enum):
-    """
-    This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-    """
-    BLOB = "Blob"
-    CONTAINER = "Container"
-
-
 class Permissions(str, Enum):
     """
     The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
@@ -299,14 +268,6 @@ class RuleType(str, Enum):
     The valid value is Lifecycle
     """
     LIFECYCLE = "Lifecycle"
-
-
-class Schedule(str, Enum):
-    """
-    This is a required field. This field is used to schedule an inventory formation.
-    """
-    DAILY = "Daily"
-    WEEKLY = "Weekly"
 
 
 class Services(str, Enum):
@@ -366,8 +327,8 @@ class State(str, Enum):
     """
     Gets the state of virtual network rule.
     """
-    PROVISIONING = "Provisioning"
-    DEPROVISIONING = "Deprovisioning"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"
+    PROVISIONING = "provisioning"
+    DEPROVISIONING = "deprovisioning"
+    SUCCEEDED = "succeeded"
+    FAILED = "failed"
+    NETWORK_SOURCE_DELETED = "networkSourceDeleted"

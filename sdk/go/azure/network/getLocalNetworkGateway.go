@@ -8,7 +8,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	var rv LookupLocalNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network:getLocalNetworkGateway", args, &rv, opts...)

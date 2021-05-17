@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobContainer")]
     public partial class BlobContainer : Pulumi.CustomResource
@@ -63,12 +63,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("immutabilityPolicy")]
         public Output<Outputs.ImmutabilityPolicyPropertiesResponse> ImmutabilityPolicy { get; private set; } = null!;
-
-        /// <summary>
-        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-        /// </summary>
-        [Output("immutableStorageWithVersioning")]
-        public Output<Outputs.ImmutableStorageWithVersioningResponse?> ImmutableStorageWithVersioning { get; private set; } = null!;
 
         /// <summary>
         /// Returns the date and time the container was last modified.
@@ -228,12 +222,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("denyEncryptionScopeOverride")]
         public Input<bool>? DenyEncryptionScopeOverride { get; set; }
-
-        /// <summary>
-        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-        /// </summary>
-        [Input("immutableStorageWithVersioning")]
-        public Input<Inputs.ImmutableStorageWithVersioningArgs>? ImmutableStorageWithVersioning { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

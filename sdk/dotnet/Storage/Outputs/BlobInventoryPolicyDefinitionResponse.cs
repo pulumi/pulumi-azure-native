@@ -16,41 +16,12 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// <summary>
         /// An object that defines the filter set.
         /// </summary>
-        public readonly Outputs.BlobInventoryPolicyFilterResponse? Filters;
-        /// <summary>
-        /// This is a required field, it specifies the format for the inventory files.
-        /// </summary>
-        public readonly string Format;
-        /// <summary>
-        /// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-        /// </summary>
-        public readonly string ObjectType;
-        /// <summary>
-        /// This is a required field. This field is used to schedule an inventory formation.
-        /// </summary>
-        public readonly string Schedule;
-        /// <summary>
-        /// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-        /// </summary>
-        public readonly ImmutableArray<string> SchemaFields;
+        public readonly Outputs.BlobInventoryPolicyFilterResponse Filters;
 
         [OutputConstructor]
-        private BlobInventoryPolicyDefinitionResponse(
-            Outputs.BlobInventoryPolicyFilterResponse? filters,
-
-            string format,
-
-            string objectType,
-
-            string schedule,
-
-            ImmutableArray<string> schemaFields)
+        private BlobInventoryPolicyDefinitionResponse(Outputs.BlobInventoryPolicyFilterResponse filters)
         {
             Filters = filters;
-            Format = format;
-            ObjectType = objectType;
-            Schedule = schedule;
-            SchemaFields = schemaFields;
         }
     }
 }

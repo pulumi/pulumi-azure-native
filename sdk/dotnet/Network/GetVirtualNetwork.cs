@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Virtual Network resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:network:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
@@ -82,10 +82,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// The FlowTimeout value (in minutes) for the Virtual Network
-        /// </summary>
-        public readonly int? FlowTimeoutInMinutes;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -144,8 +140,6 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
-            int? flowTimeoutInMinutes,
-
             string? id,
 
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
@@ -174,7 +168,6 @@ namespace Pulumi.AzureNative.Network
             EnableVmProtection = enableVmProtection;
             Etag = etag;
             ExtendedLocation = extendedLocation;
-            FlowTimeoutInMinutes = flowTimeoutInMinutes;
             Id = id;
             IpAllocations = ipAllocations;
             Location = location;

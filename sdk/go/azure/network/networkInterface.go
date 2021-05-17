@@ -12,7 +12,7 @@ import (
 )
 
 // A network interface in a resource group.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
@@ -62,8 +62,6 @@ type NetworkInterface struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The reference to a virtual machine.
 	VirtualMachine SubResourceResponseOutput `pulumi:"virtualMachine"`
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType pulumi.StringPtrOutput `pulumi:"workloadType"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -372,8 +370,6 @@ type networkInterfaceState struct {
 	Type *string `pulumi:"type"`
 	// The reference to a virtual machine.
 	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType *string `pulumi:"workloadType"`
 }
 
 type NetworkInterfaceState struct {
@@ -423,8 +419,6 @@ type NetworkInterfaceState struct {
 	Type pulumi.StringPtrInput
 	// The reference to a virtual machine.
 	VirtualMachine SubResourceResponsePtrInput
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceState) ElementType() reflect.Type {
@@ -460,8 +454,6 @@ type networkInterfaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType *string `pulumi:"workloadType"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
@@ -494,8 +486,6 @@ type NetworkInterfaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// WorkloadType of the NetworkInterface for BareMetal resources
-	WorkloadType pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

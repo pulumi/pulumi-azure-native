@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bastion Host resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class BastionHost extends pulumi.CustomResource {
     /**
@@ -61,10 +61,6 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The sku of this Bastion Host.
-     */
-    public readonly sku!: pulumi.Output<outputs.network.SkuResponse | undefined>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -93,7 +89,6 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -106,7 +101,6 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -147,10 +141,6 @@ export interface BastionHostArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The sku of this Bastion Host.
-     */
-    readonly sku?: pulumi.Input<inputs.network.SkuArgs>;
     /**
      * Resource tags.
      */

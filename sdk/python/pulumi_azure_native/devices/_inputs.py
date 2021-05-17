@@ -10,7 +10,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ArmIdentityArgs',
     'CertificatePropertiesArgs',
     'CloudToDevicePropertiesArgs',
     'EnrichmentPropertiesArgs',
@@ -24,7 +23,6 @@ __all__ = [
     'IotHubPropertiesArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
-    'ManagedIdentityArgs',
     'MessagingEndpointPropertiesArgs',
     'NetworkRuleSetIpRuleArgs',
     'NetworkRuleSetPropertiesArgs',
@@ -43,41 +41,6 @@ __all__ = [
     'StorageEndpointPropertiesArgs',
     'TargetIpFilterRuleArgs',
 ]
-
-@pulumi.input_type
-class ArmIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
 
 @pulumi.input_type
 class CertificatePropertiesArgs:
@@ -215,23 +178,24 @@ class EnrichmentPropertiesArgs:
 @pulumi.input_type
 class EventHubConsumerGroupNameArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The EventHub consumer group name.
         :param pulumi.Input[str] name: EventHub consumer group name
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         EventHub consumer group name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -987,30 +951,6 @@ class IpFilterRuleArgs:
 
 
 @pulumi.input_type
-class ManagedIdentityArgs:
-    def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
-        """
-        The properties of the Managed identity.
-        :param pulumi.Input[str] user_assigned_identity: The user assigned identity.
-        """
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user assigned identity.
-        """
-        return pulumi.get(self, "user_assigned_identity")
-
-    @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_assigned_identity", value)
-
-
-@pulumi.input_type
 class MessagingEndpointPropertiesArgs:
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[pulumi.Input[str]] = None,
@@ -1443,7 +1383,6 @@ class RoutingEventHubPropertiesArgs:
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1454,7 +1393,6 @@ class RoutingEventHubPropertiesArgs:
         :param pulumi.Input[str] endpoint_uri: The url of the event hub endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Event hub name on the event hub namespace
         :param pulumi.Input[str] id: Id of the event hub endpoint
-        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of routing event hub endpoint.
         :param pulumi.Input[str] resource_group: The name of the resource group of the event hub endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the event hub endpoint.
         """
@@ -1469,8 +1407,6 @@ class RoutingEventHubPropertiesArgs:
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -1547,18 +1483,6 @@ class RoutingEventHubPropertiesArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
-        """
-        Managed identity properties of routing event hub endpoint.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -1666,7 +1590,6 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1677,7 +1600,6 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
         :param pulumi.Input[str] endpoint_uri: The url of the service bus queue endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Queue name on the service bus namespace
         :param pulumi.Input[str] id: Id of the service bus queue endpoint
-        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of routing service bus queue endpoint.
         :param pulumi.Input[str] resource_group: The name of the resource group of the service bus queue endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the service bus queue endpoint.
         """
@@ -1692,8 +1614,6 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -1772,18 +1692,6 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
         pulumi.set(self, "id", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
-        """
-        Managed identity properties of routing service bus queue endpoint.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1817,7 +1725,6 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1828,7 +1735,6 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
         :param pulumi.Input[str] endpoint_uri: The url of the service bus topic endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Queue name on the service bus topic
         :param pulumi.Input[str] id: Id of the service bus topic endpoint
-        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of routing service bus topic endpoint.
         :param pulumi.Input[str] resource_group: The name of the resource group of the service bus topic endpoint.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the service bus topic endpoint.
         """
@@ -1843,8 +1749,6 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -1923,18 +1827,6 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
         pulumi.set(self, "id", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
-        """
-        Managed identity properties of routing service bus topic endpoint.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1971,7 +1863,6 @@ class RoutingStorageContainerPropertiesArgs:
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
@@ -1986,7 +1877,6 @@ class RoutingStorageContainerPropertiesArgs:
         :param pulumi.Input[str] endpoint_uri: The url of the storage endpoint. It must include the protocol https://
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
         :param pulumi.Input[str] id: Id of the storage container endpoint
-        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of routing storage endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] resource_group: The name of the resource group of the storage account.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the storage account.
@@ -2007,8 +1897,6 @@ class RoutingStorageContainerPropertiesArgs:
             pulumi.set(__self__, "file_name_format", file_name_format)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if max_chunk_size_in_bytes is not None:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group is not None:
@@ -2123,18 +2011,6 @@ class RoutingStorageContainerPropertiesArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
-        """
-        Managed identity properties of routing storage endpoint.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
@@ -2319,22 +2195,18 @@ class StorageEndpointPropertiesArgs:
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
                  authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
-                 identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  sas_ttl_as_iso8601: Optional[pulumi.Input[str]] = None):
         """
         The properties of the Azure Storage endpoint for file upload.
         :param pulumi.Input[str] connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param pulumi.Input[str] container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
         :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies authentication type being used for connecting to the storage account.
-        :param pulumi.Input['ManagedIdentityArgs'] identity: Managed identity properties of storage endpoint for file upload.
         :param pulumi.Input[str] sas_ttl_as_iso8601: The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "container_name", container_name)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if sas_ttl_as_iso8601 is not None:
             pulumi.set(__self__, "sas_ttl_as_iso8601", sas_ttl_as_iso8601)
 
@@ -2373,18 +2245,6 @@ class StorageEndpointPropertiesArgs:
     @authentication_type.setter
     def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
-        """
-        Managed identity properties of storage endpoint for file upload.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="sasTtlAsIso8601")

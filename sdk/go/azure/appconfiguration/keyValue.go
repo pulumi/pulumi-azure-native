@@ -12,7 +12,7 @@ import (
 )
 
 // The key-value resource along with all resource properties.
-// API Version: 2021-03-01-preview.
+// API Version: 2020-07-01-preview.
 type KeyValue struct {
 	pulumi.CustomResourceState
 

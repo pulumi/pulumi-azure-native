@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A job.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {

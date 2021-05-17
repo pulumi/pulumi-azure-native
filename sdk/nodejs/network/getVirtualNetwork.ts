@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     if (!opts) {
@@ -75,10 +75,6 @@ export interface GetVirtualNetworkResult {
      * The extended location of the virtual network.
      */
     readonly extendedLocation?: outputs.network.ExtendedLocationResponse;
-    /**
-     * The FlowTimeout value (in minutes) for the Virtual Network
-     */
-    readonly flowTimeoutInMinutes?: number;
     /**
      * Resource ID.
      */

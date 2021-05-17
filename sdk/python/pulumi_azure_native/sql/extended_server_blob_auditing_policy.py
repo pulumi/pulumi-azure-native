@@ -65,10 +65,6 @@ class ExtendedServerBlobAuditingPolicyArgs:
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
-               DBCC_GROUP
-               DATABASE_OWNERSHIP_CHANGE_GROUP
-               DATABASE_CHANGE_GROUP
-               LEDGER_OPERATION_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -228,10 +224,6 @@ class ExtendedServerBlobAuditingPolicyArgs:
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
-        DBCC_GROUP
-        DATABASE_OWNERSHIP_CHANGE_GROUP
-        DATABASE_CHANGE_GROUP
-        LEDGER_OPERATION_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         
@@ -432,7 +424,7 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         An extended server blob auditing policy.
-        API Version: 2021-02-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -468,10 +460,6 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
-               DBCC_GROUP
-               DATABASE_OWNERSHIP_CHANGE_GROUP
-               DATABASE_CHANGE_GROUP
-               LEDGER_OPERATION_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -544,7 +532,7 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An extended server blob auditing policy.
-        API Version: 2021-02-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ExtendedServerBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -683,10 +671,6 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
-        DBCC_GROUP
-        DATABASE_OWNERSHIP_CHANGE_GROUP
-        DATABASE_CHANGE_GROUP
-        LEDGER_OPERATION_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
-    /// API Version: 2021-03-31.
+    /// API Version: 2020-08-31.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : Pulumi.CustomResource
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Devices
         /// The tags.
         /// </summary>
         [Output("properties")]
-        public Output<object> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// the resource type.
@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// The EventHub consumer group name.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EventHubConsumerGroupNameArgs> Properties { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.EventHubConsumerGroupNameArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

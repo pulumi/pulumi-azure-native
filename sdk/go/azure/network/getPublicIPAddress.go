@@ -8,7 +8,7 @@ import (
 )
 
 // Public IP address resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network:getPublicIPAddress", args, &rv, opts...)
@@ -31,8 +31,6 @@ type LookupPublicIPAddressArgs struct {
 type LookupPublicIPAddressResult struct {
 	// The DDoS protection custom policy associated with the public IP address.
 	DdosSettings *DdosSettingsResponse `pulumi:"ddosSettings"`
-	// Specify what happens to the public IP address when the VM using it is deleted
-	DeleteOption *string `pulumi:"deleteOption"`
 	// The FQDN of the DNS record associated with the public IP address.
 	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.

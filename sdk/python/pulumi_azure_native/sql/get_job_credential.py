@@ -85,7 +85,7 @@ def get_job_credential(credential_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCredentialResult:
     """
     A stored credential that can be used by a job to connect to target databases.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str credential_name: The name of the credential.

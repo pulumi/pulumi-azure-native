@@ -119,7 +119,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkWatcherResult:
     """
     Network watcher in a resource group.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str network_watcher_name: The name of the network watcher.

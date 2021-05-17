@@ -266,7 +266,7 @@ class LoadBalancer(pulumi.CustomResource):
                  __props__=None):
         """
         LoadBalancer resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,7 +293,7 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         LoadBalancer resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

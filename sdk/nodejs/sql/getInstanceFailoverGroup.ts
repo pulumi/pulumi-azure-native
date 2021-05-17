@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An instance failover group.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
     if (!opts) {

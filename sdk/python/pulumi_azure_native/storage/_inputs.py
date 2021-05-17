@@ -10,7 +10,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AccessPolicyArgs',
     'ActiveDirectoryPropertiesArgs',
     'AzureFilesIdentityBasedAuthenticationArgs',
     'BlobInventoryPolicyDefinitionArgs',
@@ -32,7 +31,6 @@ __all__ = [
     'ExtendedLocationArgs',
     'IPRuleArgs',
     'IdentityArgs',
-    'ImmutableStorageWithVersioningArgs',
     'KeyPolicyArgs',
     'KeyVaultPropertiesArgs',
     'LastAccessTimeTrackingPolicyArgs',
@@ -54,67 +52,11 @@ __all__ = [
     'RestorePolicyPropertiesArgs',
     'RoutingPreferenceArgs',
     'SasPolicyArgs',
-    'SignedIdentifierArgs',
     'SkuArgs',
     'SmbSettingArgs',
     'TagFilterArgs',
     'VirtualNetworkRuleArgs',
 ]
-
-@pulumi.input_type
-class AccessPolicyArgs:
-    def __init__(__self__, *,
-                 expiry: Optional[pulumi.Input[str]] = None,
-                 permission: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] expiry: Expiry time of the access policy
-        :param pulumi.Input[str] permission: List of abbreviated permissions.
-        :param pulumi.Input[str] start: Start time of the access policy
-        """
-        if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
-        if permission is not None:
-            pulumi.set(__self__, "permission", permission)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[str]]:
-        """
-        Expiry time of the access policy
-        """
-        return pulumi.get(self, "expiry")
-
-    @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expiry", value)
-
-    @property
-    @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[str]]:
-        """
-        List of abbreviated permissions.
-        """
-        return pulumi.get(self, "permission")
-
-    @permission.setter
-    def permission(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "permission", value)
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[str]]:
-        """
-        Start time of the access policy
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start", value)
-
 
 @pulumi.input_type
 class ActiveDirectoryPropertiesArgs:
@@ -218,19 +160,15 @@ class ActiveDirectoryPropertiesArgs:
 class AzureFilesIdentityBasedAuthenticationArgs:
     def __init__(__self__, *,
                  directory_service_options: pulumi.Input[Union[str, 'DirectoryServiceOptions']],
-                 active_directory_properties: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']] = None,
-                 default_share_permission: Optional[pulumi.Input[Union[str, 'DefaultSharePermission']]] = None):
+                 active_directory_properties: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']] = None):
         """
         Settings for Azure Files identity based authentication.
         :param pulumi.Input[Union[str, 'DirectoryServiceOptions']] directory_service_options: Indicates the directory service used.
         :param pulumi.Input['ActiveDirectoryPropertiesArgs'] active_directory_properties: Required if choose AD.
-        :param pulumi.Input[Union[str, 'DefaultSharePermission']] default_share_permission: Default share permission for users using Kerberos authentication if RBAC role is not assigned.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
         if active_directory_properties is not None:
             pulumi.set(__self__, "active_directory_properties", active_directory_properties)
-        if default_share_permission is not None:
-            pulumi.set(__self__, "default_share_permission", default_share_permission)
 
     @property
     @pulumi.getter(name="directoryServiceOptions")
@@ -256,119 +194,45 @@ class AzureFilesIdentityBasedAuthenticationArgs:
     def active_directory_properties(self, value: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']]):
         pulumi.set(self, "active_directory_properties", value)
 
-    @property
-    @pulumi.getter(name="defaultSharePermission")
-    def default_share_permission(self) -> Optional[pulumi.Input[Union[str, 'DefaultSharePermission']]]:
-        """
-        Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-        """
-        return pulumi.get(self, "default_share_permission")
-
-    @default_share_permission.setter
-    def default_share_permission(self, value: Optional[pulumi.Input[Union[str, 'DefaultSharePermission']]]):
-        pulumi.set(self, "default_share_permission", value)
-
 
 @pulumi.input_type
 class BlobInventoryPolicyDefinitionArgs:
     def __init__(__self__, *,
-                 format: pulumi.Input[Union[str, 'Format']],
-                 object_type: pulumi.Input[Union[str, 'ObjectType']],
-                 schedule: pulumi.Input[Union[str, 'Schedule']],
-                 schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 filters: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']] = None):
+                 filters: pulumi.Input['BlobInventoryPolicyFilterArgs']):
         """
-        An object that defines the blob inventory rule.
-        :param pulumi.Input[Union[str, 'Format']] format: This is a required field, it specifies the format for the inventory files.
-        :param pulumi.Input[Union[str, 'ObjectType']] object_type: This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-        :param pulumi.Input[Union[str, 'Schedule']] schedule: This is a required field. This field is used to schedule an inventory formation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
+        An object that defines the blob inventory rule. Each definition consists of a set of filters.
         :param pulumi.Input['BlobInventoryPolicyFilterArgs'] filters: An object that defines the filter set.
         """
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "schema_fields", schema_fields)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
-    def format(self) -> pulumi.Input[Union[str, 'Format']]:
-        """
-        This is a required field, it specifies the format for the inventory files.
-        """
-        return pulumi.get(self, "format")
-
-    @format.setter
-    def format(self, value: pulumi.Input[Union[str, 'Format']]):
-        pulumi.set(self, "format", value)
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[Union[str, 'ObjectType']]:
-        """
-        This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-        """
-        return pulumi.get(self, "object_type")
-
-    @object_type.setter
-    def object_type(self, value: pulumi.Input[Union[str, 'ObjectType']]):
-        pulumi.set(self, "object_type", value)
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> pulumi.Input[Union[str, 'Schedule']]:
-        """
-        This is a required field. This field is used to schedule an inventory formation.
-        """
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: pulumi.Input[Union[str, 'Schedule']]):
-        pulumi.set(self, "schedule", value)
-
-    @property
-    @pulumi.getter(name="schemaFields")
-    def schema_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-        """
-        return pulumi.get(self, "schema_fields")
-
-    @schema_fields.setter
-    def schema_fields(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "schema_fields", value)
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']]:
+    def filters(self) -> pulumi.Input['BlobInventoryPolicyFilterArgs']:
         """
         An object that defines the filter set.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']]):
+    def filters(self, value: pulumi.Input['BlobInventoryPolicyFilterArgs']):
         pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type
 class BlobInventoryPolicyFilterArgs:
     def __init__(__self__, *,
-                 blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  include_blob_versions: Optional[pulumi.Input[bool]] = None,
                  include_snapshots: Optional[pulumi.Input[bool]] = None,
                  prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
-        :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
-        :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+        An object that defines the blob inventory rule filter conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory when value set to true.
+        :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory when value set to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_match: An array of strings for blob prefixes to be matched.
         """
-        if blob_types is not None:
-            pulumi.set(__self__, "blob_types", blob_types)
+        pulumi.set(__self__, "blob_types", blob_types)
         if include_blob_versions is not None:
             pulumi.set(__self__, "include_blob_versions", include_blob_versions)
         if include_snapshots is not None:
@@ -378,21 +242,21 @@ class BlobInventoryPolicyFilterArgs:
 
     @property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def blob_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
         """
         return pulumi.get(self, "blob_types")
 
     @blob_types.setter
-    def blob_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def blob_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "blob_types", value)
 
     @property
     @pulumi.getter(name="includeBlobVersions")
     def include_blob_versions(self) -> Optional[pulumi.Input[bool]]:
         """
-        Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+        Includes blob versions in blob inventory when value set to true.
         """
         return pulumi.get(self, "include_blob_versions")
 
@@ -404,7 +268,7 @@ class BlobInventoryPolicyFilterArgs:
     @pulumi.getter(name="includeSnapshots")
     def include_snapshots(self) -> Optional[pulumi.Input[bool]]:
         """
-        Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+        Includes blob snapshots in blob inventory when value set to true.
         """
         return pulumi.get(self, "include_snapshots")
 
@@ -429,18 +293,15 @@ class BlobInventoryPolicyFilterArgs:
 class BlobInventoryPolicyRuleArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['BlobInventoryPolicyDefinitionArgs'],
-                 destination: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
                  name: pulumi.Input[str]):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
         :param pulumi.Input['BlobInventoryPolicyDefinitionArgs'] definition: An object that defines the blob inventory policy rule.
-        :param pulumi.Input[str] destination: Container name where blob inventory files are stored. Must be pre-created.
         :param pulumi.Input[bool] enabled: Rule is enabled when set to true.
         :param pulumi.Input[str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "name", name)
 
@@ -455,18 +316,6 @@ class BlobInventoryPolicyRuleArgs:
     @definition.setter
     def definition(self, value: pulumi.Input['BlobInventoryPolicyDefinitionArgs']):
         pulumi.set(self, "definition", value)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Input[str]:
-        """
-        Container name where blob inventory files are stored. Must be pre-created.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter
@@ -496,18 +345,33 @@ class BlobInventoryPolicyRuleArgs:
 @pulumi.input_type
 class BlobInventoryPolicySchemaArgs:
     def __init__(__self__, *,
+                 destination: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
                  rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
                  type: pulumi.Input[Union[str, 'InventoryRuleType']]):
         """
         The storage account blob inventory policy rules.
+        :param pulumi.Input[str] destination: Container name where blob inventory files are stored. Must be pre-created.
         :param pulumi.Input[bool] enabled: Policy is enabled if set to true.
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param pulumi.Input[Union[str, 'InventoryRuleType']] type: The valid value is Inventory
         """
+        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "rules", rules)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        Container name where blob inventory files are stored. Must be pre-created.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter
@@ -1202,30 +1066,6 @@ class IdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class ImmutableStorageWithVersioningArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        Object level immutability properties of the container.
-        :param pulumi.Input[bool] enabled: This is an immutable property, when set to true it enables object level immutability at the container level.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        This is an immutable property, when set to true it enables object level immutability at the container level.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -2282,45 +2122,6 @@ class SasPolicyArgs:
     @sas_expiration_period.setter
     def sas_expiration_period(self, value: pulumi.Input[str]):
         pulumi.set(self, "sas_expiration_period", value)
-
-
-@pulumi.input_type
-class SignedIdentifierArgs:
-    def __init__(__self__, *,
-                 access_policy: Optional[pulumi.Input['AccessPolicyArgs']] = None,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input['AccessPolicyArgs'] access_policy: Access policy
-        :param pulumi.Input[str] id: An unique identifier of the stored access policy.
-        """
-        if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> Optional[pulumi.Input['AccessPolicyArgs']]:
-        """
-        Access policy
-        """
-        return pulumi.get(self, "access_policy")
-
-    @access_policy.setter
-    def access_policy(self, value: Optional[pulumi.Input['AccessPolicyArgs']]):
-        pulumi.set(self, "access_policy", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        An unique identifier of the stored access policy.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

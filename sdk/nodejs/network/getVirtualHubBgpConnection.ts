@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Appliance Site resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
     if (!opts) {

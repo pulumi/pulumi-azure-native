@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetApp account resource
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {

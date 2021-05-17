@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A group of job targets.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class JobTargetGroup extends pulumi.CustomResource {
     /**

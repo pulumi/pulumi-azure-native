@@ -208,25 +208,12 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
 export const RoutingSource = {
     Invalid: "Invalid",
     DeviceMessages: "DeviceMessages",
     TwinChangeEvents: "TwinChangeEvents",
     DeviceLifecycleEvents: "DeviceLifecycleEvents",
     DeviceJobLifecycleEvents: "DeviceJobLifecycleEvents",
-    DeviceConnectionStateEvents: "DeviceConnectionStateEvents",
 } as const;
 
 /**

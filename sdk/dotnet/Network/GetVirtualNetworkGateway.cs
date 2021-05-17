@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// A common class for general resource information.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithVersion());
@@ -60,10 +60,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? EnableBgp;
         /// <summary>
-        /// EnableBgpRouteTranslationForNat flag.
-        /// </summary>
-        public readonly bool? EnableBgpRouteTranslationForNat;
-        /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
         public readonly bool? EnableDnsForwarding;
@@ -107,10 +103,6 @@ namespace Pulumi.AzureNative.Network
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// NatRules for virtual network gateway.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> NatRules;
         /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
@@ -158,8 +150,6 @@ namespace Pulumi.AzureNative.Network
 
             bool? enableBgp,
 
-            bool? enableBgpRouteTranslationForNat,
-
             bool? enableDnsForwarding,
 
             bool? enablePrivateIpAddress,
@@ -181,8 +171,6 @@ namespace Pulumi.AzureNative.Network
             string? location,
 
             string name,
-
-            ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
 
             string provisioningState,
 
@@ -206,7 +194,6 @@ namespace Pulumi.AzureNative.Network
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             EnableBgp = enableBgp;
-            EnableBgpRouteTranslationForNat = enableBgpRouteTranslationForNat;
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
@@ -218,7 +205,6 @@ namespace Pulumi.AzureNative.Network
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            NatRules = natRules;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Sku = sku;

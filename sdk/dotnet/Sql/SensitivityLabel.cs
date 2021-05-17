@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A sensitivity label.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SensitivityLabel")]
     public partial class SensitivityLabel : Pulumi.CustomResource

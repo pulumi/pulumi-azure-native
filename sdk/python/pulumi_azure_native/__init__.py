@@ -12407,7 +12407,6 @@ _utilities.register(
    "azure-native:sql:ManagedInstanceKey": "ManagedInstanceKey",
    "azure-native:sql:ManagedInstancePrivateEndpointConnection": "ManagedInstancePrivateEndpointConnection",
    "azure-native:sql:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment",
-   "azure-native:sql:OutboundFirewallRule": "OutboundFirewallRule",
    "azure-native:sql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:sql:SensitivityLabel": "SensitivityLabel",
    "azure-native:sql:Server": "Server",

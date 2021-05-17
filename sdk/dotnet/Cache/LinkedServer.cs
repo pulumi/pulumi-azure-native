@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
-    /// API Version: 2020-12-01.
+    /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:LinkedServer")]
     public partial class LinkedServer : Pulumi.CustomResource
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> LinkedRedisCacheLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> ServerRole { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

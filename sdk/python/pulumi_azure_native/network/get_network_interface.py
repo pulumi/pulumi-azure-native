@@ -20,7 +20,7 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None, workload_type=None):
+    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, migration_phase=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -93,9 +93,6 @@ class GetNetworkInterfaceResult:
         if virtual_machine and not isinstance(virtual_machine, dict):
             raise TypeError("Expected argument 'virtual_machine' to be a dict")
         pulumi.set(__self__, "virtual_machine", virtual_machine)
-        if workload_type and not isinstance(workload_type, str):
-            raise TypeError("Expected argument 'workload_type' to be a str")
-        pulumi.set(__self__, "workload_type", workload_type)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -289,14 +286,6 @@ class GetNetworkInterfaceResult:
         """
         return pulumi.get(self, "virtual_machine")
 
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        WorkloadType of the NetworkInterface for BareMetal resources
-        """
-        return pulumi.get(self, "workload_type")
-
 
 class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
@@ -327,8 +316,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             tags=self.tags,
             tap_configurations=self.tap_configurations,
             type=self.type,
-            virtual_machine=self.virtual_machine,
-            workload_type=self.workload_type)
+            virtual_machine=self.virtual_machine)
 
 
 def get_network_interface(expand: Optional[str] = None,
@@ -337,7 +325,7 @@ def get_network_interface(expand: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     A network interface in a resource group.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -378,5 +366,4 @@ def get_network_interface(expand: Optional[str] = None,
         tags=__ret__.tags,
         tap_configurations=__ret__.tap_configurations,
         type=__ret__.type,
-        virtual_machine=__ret__.virtual_machine,
-        workload_type=__ret__.workload_type)
+        virtual_machine=__ret__.virtual_machine)

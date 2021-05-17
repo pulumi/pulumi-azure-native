@@ -12,7 +12,7 @@ import (
 )
 
 // A short term retention policy.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type BackupShortTermRetentionPolicy struct {
 	pulumi.CustomResourceState
 

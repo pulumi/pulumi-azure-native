@@ -20,16 +20,13 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, federated_client_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, public_network_access=None, restrict_outbound_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrators=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrators and not isinstance(administrators, dict):
             raise TypeError("Expected argument 'administrators' to be a dict")
         pulumi.set(__self__, "administrators", administrators)
-        if federated_client_id and not isinstance(federated_client_id, str):
-            raise TypeError("Expected argument 'federated_client_id' to be a str")
-        pulumi.set(__self__, "federated_client_id", federated_client_id)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -63,9 +60,6 @@ class GetServerResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if restrict_outbound_network_access and not isinstance(restrict_outbound_network_access, str):
-            raise TypeError("Expected argument 'restrict_outbound_network_access' to be a str")
-        pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -97,14 +91,6 @@ class GetServerResult:
         The Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "administrators")
-
-    @property
-    @pulumi.getter(name="federatedClientId")
-    def federated_client_id(self) -> Optional[str]:
-        """
-        The Client id used for cross tenant CMK scenario
-        """
-        return pulumi.get(self, "federated_client_id")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -195,14 +181,6 @@ class GetServerResult:
         return pulumi.get(self, "public_network_access")
 
     @property
-    @pulumi.getter(name="restrictOutboundNetworkAccess")
-    def restrict_outbound_network_access(self) -> Optional[str]:
-        """
-        Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "restrict_outbound_network_access")
-
-    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -251,7 +229,6 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             administrators=self.administrators,
-            federated_client_id=self.federated_client_id,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
@@ -263,7 +240,6 @@ class AwaitableGetServerResult(GetServerResult):
             primary_user_assigned_identity_id=self.primary_user_assigned_identity_id,
             private_endpoint_connections=self.private_endpoint_connections,
             public_network_access=self.public_network_access,
-            restrict_outbound_network_access=self.restrict_outbound_network_access,
             state=self.state,
             tags=self.tags,
             type=self.type,
@@ -277,7 +253,7 @@ def get_server(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     An Azure SQL Database server.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -297,7 +273,6 @@ def get_server(expand: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
         administrators=__ret__.administrators,
-        federated_client_id=__ret__.federated_client_id,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -309,7 +284,6 @@ def get_server(expand: Optional[str] = None,
         primary_user_assigned_identity_id=__ret__.primary_user_assigned_identity_id,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         public_network_access=__ret__.public_network_access,
-        restrict_outbound_network_access=__ret__.restrict_outbound_network_access,
         state=__ret__.state,
         tags=__ret__.tags,
         type=__ret__.type,

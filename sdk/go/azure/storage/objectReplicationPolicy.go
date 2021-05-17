@@ -12,11 +12,11 @@ import (
 )
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type ObjectReplicationPolicy struct {
 	pulumi.CustomResourceState
 
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount pulumi.StringOutput `pulumi:"destinationAccount"`
 	// Indicates when the policy is enabled on the source account.
 	EnabledTime pulumi.StringOutput `pulumi:"enabledTime"`
@@ -26,7 +26,7 @@ type ObjectReplicationPolicy struct {
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The storage account object replication rules.
 	Rules ObjectReplicationPolicyRuleResponseArrayOutput `pulumi:"rules"`
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -109,7 +109,7 @@ func GetObjectReplicationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectReplicationPolicy resources.
 type objectReplicationPolicyState struct {
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount *string `pulumi:"destinationAccount"`
 	// Indicates when the policy is enabled on the source account.
 	EnabledTime *string `pulumi:"enabledTime"`
@@ -119,14 +119,14 @@ type objectReplicationPolicyState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// The storage account object replication rules.
 	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount *string `pulumi:"sourceAccount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type ObjectReplicationPolicyState struct {
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount pulumi.StringPtrInput
 	// Indicates when the policy is enabled on the source account.
 	EnabledTime pulumi.StringPtrInput
@@ -136,7 +136,7 @@ type ObjectReplicationPolicyState struct {
 	PolicyId pulumi.StringPtrInput
 	// The storage account object replication rules.
 	Rules ObjectReplicationPolicyRuleResponseArrayInput
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
@@ -149,7 +149,7 @@ func (ObjectReplicationPolicyState) ElementType() reflect.Type {
 type objectReplicationPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount string `pulumi:"destinationAccount"`
 	// The ID of object replication policy or 'default' if the policy ID is unknown.
 	ObjectReplicationPolicyId *string `pulumi:"objectReplicationPolicyId"`
@@ -157,7 +157,7 @@ type objectReplicationPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage account object replication rules.
 	Rules []ObjectReplicationPolicyRule `pulumi:"rules"`
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount string `pulumi:"sourceAccount"`
 }
 
@@ -165,7 +165,7 @@ type objectReplicationPolicyArgs struct {
 type ObjectReplicationPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount pulumi.StringInput
 	// The ID of object replication policy or 'default' if the policy ID is unknown.
 	ObjectReplicationPolicyId pulumi.StringPtrInput
@@ -173,7 +173,7 @@ type ObjectReplicationPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The storage account object replication rules.
 	Rules ObjectReplicationPolicyRuleArrayInput
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount pulumi.StringInput
 }
 

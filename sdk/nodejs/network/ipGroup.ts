@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The IpGroups resource information.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class IpGroup extends pulumi.CustomResource {
     /**

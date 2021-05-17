@@ -16,17 +16,17 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The name of the extended location.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The type of the extended location.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ExtendedLocationResponse(
-            string? name,
+            string name,
 
-            string? type)
+            string type)
         {
             Name = name;
             Type = type;

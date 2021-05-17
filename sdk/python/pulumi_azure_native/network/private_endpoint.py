@@ -198,7 +198,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Private endpoint resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.

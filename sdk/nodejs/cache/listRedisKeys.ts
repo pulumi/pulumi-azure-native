@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Redis cache access keys.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
     if (!opts) {

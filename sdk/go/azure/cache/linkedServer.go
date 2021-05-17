@@ -12,7 +12,7 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 type LinkedServer struct {
 	pulumi.CustomResourceState
 
@@ -20,13 +20,13 @@ type LinkedServer struct {
 	LinkedRedisCacheId pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation pulumi.StringOutput `pulumi:"linkedRedisCacheLocation"`
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Terminal state of the link between primary and secondary redis cache.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Role of the linked server.
 	ServerRole pulumi.StringOutput `pulumi:"serverRole"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -117,13 +117,13 @@ type linkedServerState struct {
 	LinkedRedisCacheId *string `pulumi:"linkedRedisCacheId"`
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation *string `pulumi:"linkedRedisCacheLocation"`
-	// The name of the resource
+	// Resource name.
 	Name *string `pulumi:"name"`
 	// Terminal state of the link between primary and secondary redis cache.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Role of the linked server.
 	ServerRole *string `pulumi:"serverRole"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
@@ -132,13 +132,13 @@ type LinkedServerState struct {
 	LinkedRedisCacheId pulumi.StringPtrInput
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation pulumi.StringPtrInput
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringPtrInput
 	// Terminal state of the link between primary and secondary redis cache.
 	ProvisioningState pulumi.StringPtrInput
 	// Role of the linked server.
 	ServerRole pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringPtrInput
 }
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
- * API Version: 2021-03-31.
+ * API Version: 2020-08-31.
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**
@@ -47,7 +47,7 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * The tags.
      */
-    public readonly properties!: pulumi.Output<any>;
+    public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
      * the resource type.
      */
@@ -66,9 +66,6 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.eventHubEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventHubEndpointName'");
-            }
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -113,7 +110,7 @@ export interface IotHubResourceEventHubConsumerGroupArgs {
     /**
      * The EventHub consumer group name.
      */
-    readonly properties: pulumi.Input<inputs.devices.EventHubConsumerGroupNameArgs>;
+    readonly properties?: pulumi.Input<inputs.devices.EventHubConsumerGroupNameArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

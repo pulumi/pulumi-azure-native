@@ -12,7 +12,7 @@ import (
 )
 
 // The X509 Certificate.
-// API Version: 2021-03-31.
+// API Version: 2020-08-31.
 type Certificate struct {
 	pulumi.CustomResourceState
 

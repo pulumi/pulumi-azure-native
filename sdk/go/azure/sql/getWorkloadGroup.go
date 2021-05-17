@@ -8,7 +8,7 @@ import (
 )
 
 // Workload group operations for a data warehouse
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	var rv LookupWorkloadGroupResult
 	err := ctx.Invoke("azure-native:sql:getWorkloadGroup", args, &rv, opts...)

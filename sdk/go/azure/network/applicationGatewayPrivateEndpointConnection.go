@@ -12,7 +12,7 @@ import (
 )
 
 // Private Endpoint connection on an application gateway.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type ApplicationGatewayPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

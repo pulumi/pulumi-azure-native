@@ -301,7 +301,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
     VpnConnection Resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str connection_name: The name of the vpn connection.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
     if (!opts) {
@@ -51,7 +51,7 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
@@ -71,7 +71,7 @@ export interface GetRedisResult {
      */
     readonly minimumTlsVersion?: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -95,17 +95,13 @@ export interface GetRedisResult {
      */
     readonly redisConfiguration?: {[key: string]: string};
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+     * Redis version.
      */
-    readonly redisVersion?: string;
+    readonly redisVersion: string;
     /**
-     * The number of replicas to be created per primary.
+     * The number of replicas to be created per master.
      */
     readonly replicasPerMaster?: number;
-    /**
-     * The number of replicas to be created per primary.
-     */
-    readonly replicasPerPrimary?: number;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -135,7 +131,7 @@ export interface GetRedisResult {
      */
     readonly tenantSettings?: {[key: string]: string};
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     readonly type: string;
     /**

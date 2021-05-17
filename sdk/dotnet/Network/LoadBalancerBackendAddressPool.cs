@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Pool of backend IP addresses.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LoadBalancerBackendAddressPool")]
     public partial class LoadBalancerBackendAddressPool : Pulumi.CustomResource
@@ -69,12 +69,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// An array of gateway load balancer tunnel interfaces.
-        /// </summary>
-        [Output("tunnelInterfaces")]
-        public Output<ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse>> TunnelInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.
@@ -192,18 +186,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tunnelInterfaces")]
-        private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;
-
-        /// <summary>
-        /// An array of gateway load balancer tunnel interfaces.
-        /// </summary>
-        public InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs> TunnelInterfaces
-        {
-            get => _tunnelInterfaces ?? (_tunnelInterfaces = new InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>());
-            set => _tunnelInterfaces = value;
-        }
 
         public LoadBalancerBackendAddressPoolArgs()
         {

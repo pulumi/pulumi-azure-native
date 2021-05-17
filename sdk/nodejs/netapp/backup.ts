@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup of a Volume
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -76,10 +76,6 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-     */
-    public readonly useExistingSnapshot!: pulumi.Output<boolean | undefined>;
-    /**
      * Volume name
      */
     public readonly volumeName!: pulumi.Output<string>;
@@ -113,7 +109,6 @@ export class Backup extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["backupId"] = undefined /*out*/;
             inputs["backupType"] = undefined /*out*/;
@@ -134,7 +129,6 @@ export class Backup extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["size"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["useExistingSnapshot"] = undefined /*out*/;
             inputs["volumeName"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -174,10 +168,6 @@ export interface BackupArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-     */
-    readonly useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the volume
      */

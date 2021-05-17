@@ -12,7 +12,7 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type BlobContainerImmutabilityPolicy struct {
 	pulumi.CustomResourceState
 

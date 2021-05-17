@@ -20,8 +20,6 @@ type CommonExportPropertiesResponse struct {
 	Format *string `pulumi:"format"`
 	// If the export has an active schedule, provides an estimate of the next execution time.
 	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
-	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-	PartitionData *bool `pulumi:"partitionData"`
 	// If requested, has the most recent execution history for the export.
 	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
 }
@@ -47,8 +45,6 @@ type CommonExportPropertiesResponseArgs struct {
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// If the export has an active schedule, provides an estimate of the next execution time.
 	NextRunTimeEstimate pulumi.StringInput `pulumi:"nextRunTimeEstimate"`
-	// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-	PartitionData pulumi.BoolPtrInput `pulumi:"partitionData"`
 	// If requested, has the most recent execution history for the export.
 	RunHistory ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
 }
@@ -151,11 +147,6 @@ func (o CommonExportPropertiesResponseOutput) NextRunTimeEstimate() pulumi.Strin
 	return o.ApplyT(func(v CommonExportPropertiesResponse) string { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
 }
 
-// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-func (o CommonExportPropertiesResponseOutput) PartitionData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CommonExportPropertiesResponse) *bool { return v.PartitionData }).(pulumi.BoolPtrOutput)
-}
-
 // If requested, has the most recent execution history for the export.
 func (o CommonExportPropertiesResponseOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) *ExportExecutionListResultResponse { return v.RunHistory }).(ExportExecutionListResultResponsePtrOutput)
@@ -217,16 +208,6 @@ func (o CommonExportPropertiesResponsePtrOutput) NextRunTimeEstimate() pulumi.St
 		}
 		return &v.NextRunTimeEstimate
 	}).(pulumi.StringPtrOutput)
-}
-
-// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-func (o CommonExportPropertiesResponsePtrOutput) PartitionData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CommonExportPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionData
-	}).(pulumi.BoolPtrOutput)
 }
 
 // If requested, has the most recent execution history for the export.
@@ -2640,18 +2621,14 @@ func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestination struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+	// The name of the container where exports will be uploaded.
 	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId *string `pulumi:"resourceId"`
+	// The resource id of the storage account where exports will be delivered.
+	ResourceId string `pulumi:"resourceId"`
 	// The name of the directory where exports will be uploaded.
 	RootFolderPath *string `pulumi:"rootFolderPath"`
-	// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-	SasToken *string `pulumi:"sasToken"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-	StorageAccount *string `pulumi:"storageAccount"`
 }
 
 // ExportDeliveryDestinationInput is an input type that accepts ExportDeliveryDestinationArgs and ExportDeliveryDestinationOutput values.
@@ -2665,18 +2642,14 @@ type ExportDeliveryDestinationInput interface {
 	ToExportDeliveryDestinationOutputWithContext(context.Context) ExportDeliveryDestinationOutput
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationArgs struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+	// The name of the container where exports will be uploaded.
 	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The resource id of the storage account where exports will be delivered.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The name of the directory where exports will be uploaded.
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-	// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
 }
 
 func (ExportDeliveryDestinationArgs) ElementType() reflect.Type {
@@ -2732,7 +2705,7 @@ func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationPtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -2757,29 +2730,19 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWit
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-func (o ExportDeliveryDestinationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+// The resource id of the storage account where exports will be delivered.
+func (o ExportDeliveryDestinationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
-}
-
-// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-func (o ExportDeliveryDestinationOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.SasToken }).(pulumi.StringPtrOutput)
-}
-
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-func (o ExportDeliveryDestinationOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
 }
 
 type ExportDeliveryDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -2800,7 +2763,7 @@ func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutp
 	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination { return *v }).(ExportDeliveryDestinationOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -2810,13 +2773,13 @@ func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ResourceId
+		return &v.ResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2830,36 +2793,14 @@ func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
-func (o ExportDeliveryDestinationPtrOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SasToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-func (o ExportDeliveryDestinationPtrOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponse struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+	// The name of the container where exports will be uploaded.
 	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId *string `pulumi:"resourceId"`
+	// The resource id of the storage account where exports will be delivered.
+	ResourceId string `pulumi:"resourceId"`
 	// The name of the directory where exports will be uploaded.
 	RootFolderPath *string `pulumi:"rootFolderPath"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-	StorageAccount *string `pulumi:"storageAccount"`
 }
 
 // ExportDeliveryDestinationResponseInput is an input type that accepts ExportDeliveryDestinationResponseArgs and ExportDeliveryDestinationResponseOutput values.
@@ -2873,16 +2814,14 @@ type ExportDeliveryDestinationResponseInput interface {
 	ToExportDeliveryDestinationResponseOutputWithContext(context.Context) ExportDeliveryDestinationResponseOutput
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseArgs struct {
-	// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+	// The name of the container where exports will be uploaded.
 	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The resource id of the storage account where exports will be delivered.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The name of the directory where exports will be uploaded.
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-	// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
 }
 
 func (ExportDeliveryDestinationResponseArgs) ElementType() reflect.Type {
@@ -2938,7 +2877,7 @@ func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
@@ -2963,24 +2902,19 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
-func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+// The resource id of the storage account where exports will be delivered.
+func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
-}
-
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-func (o ExportDeliveryDestinationResponseOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
 }
 
 type ExportDeliveryDestinationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3001,7 +2935,7 @@ func (o ExportDeliveryDestinationResponsePtrOutput) Elem() ExportDeliveryDestina
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse { return *v }).(ExportDeliveryDestinationResponseOutput)
 }
 
-// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -3011,13 +2945,13 @@ func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ResourceId
+		return &v.ResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3028,16 +2962,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 			return nil
 		}
 		return v.RootFolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-func (o ExportDeliveryDestinationResponsePtrOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
 	}).(pulumi.StringPtrOutput)
 }
 

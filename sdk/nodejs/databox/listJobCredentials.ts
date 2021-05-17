@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of unencrypted credentials for accessing device.
- * API Version: 2021-03-01.
+ * API Version: 2020-11-01.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
     if (!opts) {

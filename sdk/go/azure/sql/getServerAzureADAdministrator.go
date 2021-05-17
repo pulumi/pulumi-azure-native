@@ -8,7 +8,7 @@ import (
 )
 
 // Azure Active Directory administrator.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupServerAzureADAdministrator(ctx *pulumi.Context, args *LookupServerAzureADAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAzureADAdministratorResult, error) {
 	var rv LookupServerAzureADAdministratorResult
 	err := ctx.Invoke("azure-native:sql:getServerAzureADAdministrator", args, &rv, opts...)

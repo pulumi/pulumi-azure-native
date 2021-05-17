@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Specifies information about the Dedicated host.
-        /// API Version: 2021-03-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
+        /// The expand expression to apply on the operation.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }

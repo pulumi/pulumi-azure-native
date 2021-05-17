@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// A single Redis item in List or Get Operation.
-        /// API Version: 2020-12-01.
+        /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisArgs(), options.WithVersion());
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -100,17 +100,13 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RedisConfiguration;
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// Redis version.
         /// </summary>
-        public readonly string? RedisVersion;
+        public readonly string RedisVersion;
         /// <summary>
-        /// The number of replicas to be created per primary.
+        /// The number of replicas to be created per master.
         /// </summary>
         public readonly int? ReplicasPerMaster;
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        public readonly int? ReplicasPerPrimary;
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
         /// </summary>
@@ -140,7 +136,7 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly ImmutableDictionary<string, string>? TenantSettings;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -178,11 +174,9 @@ namespace Pulumi.AzureNative.Cache
 
             ImmutableDictionary<string, string>? redisConfiguration,
 
-            string? redisVersion,
+            string redisVersion,
 
             int? replicasPerMaster,
-
-            int? replicasPerPrimary,
 
             int? shardCount,
 
@@ -218,7 +212,6 @@ namespace Pulumi.AzureNative.Cache
             RedisConfiguration = redisConfiguration;
             RedisVersion = redisVersion;
             ReplicasPerMaster = replicasPerMaster;
-            ReplicasPerPrimary = replicasPerPrimary;
             ShardCount = shardCount;
             Sku = sku;
             SslPort = sslPort;

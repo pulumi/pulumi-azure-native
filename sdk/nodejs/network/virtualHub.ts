@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**
@@ -76,10 +76,6 @@ export class VirtualHub extends pulumi.CustomResource {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     public readonly p2SVpnGateway!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
-    /**
-     * The preferred gateway to route on-prem traffic
-     */
-    public readonly preferredRoutingGateway!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the virtual hub resource.
      */
@@ -154,7 +150,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
-            inputs["preferredRoutingGateway"] = args ? args.preferredRoutingGateway : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["securityPartnerProvider"] = args ? args.securityPartnerProvider : undefined;
@@ -185,7 +180,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["p2SVpnGateway"] = undefined /*out*/;
-            inputs["preferredRoutingGateway"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["routeTable"] = undefined /*out*/;
             inputs["routingState"] = undefined /*out*/;
@@ -241,10 +235,6 @@ export interface VirtualHubArgs {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     readonly p2SVpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
-    /**
-     * The preferred gateway to route on-prem traffic
-     */
-    readonly preferredRoutingGateway?: pulumi.Input<string | enums.network.PreferredRoutingGateway>;
     /**
      * The resource group name of the VirtualHub.
      */

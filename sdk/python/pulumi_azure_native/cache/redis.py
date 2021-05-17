@@ -24,9 +24,7 @@ class RedisArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -43,9 +41,7 @@ class RedisArgs:
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
-        :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
+        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per master.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[str] static_ip: Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
@@ -67,12 +63,8 @@ class RedisArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_configuration is not None:
             pulumi.set(__self__, "redis_configuration", redis_configuration)
-        if redis_version is not None:
-            pulumi.set(__self__, "redis_version", redis_version)
         if replicas_per_master is not None:
             pulumi.set(__self__, "replicas_per_master", replicas_per_master)
-        if replicas_per_primary is not None:
-            pulumi.set(__self__, "replicas_per_primary", replicas_per_primary)
         if shard_count is not None:
             pulumi.set(__self__, "shard_count", shard_count)
         if static_ip is not None:
@@ -183,40 +175,16 @@ class RedisArgs:
         pulumi.set(self, "redis_configuration", value)
 
     @property
-    @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-        """
-        return pulumi.get(self, "redis_version")
-
-    @redis_version.setter
-    def redis_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "redis_version", value)
-
-    @property
     @pulumi.getter(name="replicasPerMaster")
     def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of replicas to be created per primary.
+        The number of replicas to be created per master.
         """
         return pulumi.get(self, "replicas_per_master")
 
     @replicas_per_master.setter
     def replicas_per_master(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replicas_per_master", value)
-
-    @property
-    @pulumi.getter(name="replicasPerPrimary")
-    def replicas_per_primary(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of replicas to be created per primary.
-        """
-        return pulumi.get(self, "replicas_per_primary")
-
-    @replicas_per_primary.setter
-    def replicas_per_primary(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "replicas_per_primary", value)
 
     @property
     @pulumi.getter(name="shardCount")
@@ -302,9 +270,7 @@ class Redis(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -316,7 +282,7 @@ class Redis(pulumi.CustomResource):
                  __props__=None):
         """
         A single Redis item in List or Get Operation.
-        API Version: 2020-12-01.
+        API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,9 +292,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
-        :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
+        :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per master.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Redis cache to deploy.
@@ -346,7 +310,7 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single Redis item in List or Get Operation.
-        API Version: 2020-12-01.
+        API Version: 2020-06-01.
 
         :param str resource_name: The name of the resource.
         :param RedisArgs args: The arguments to use to populate this resource's properties.
@@ -369,9 +333,7 @@ class Redis(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
-                 replicas_per_primary: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -398,9 +360,7 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redis_configuration"] = redis_configuration
-            __props__.__dict__["redis_version"] = redis_version
             __props__.__dict__["replicas_per_master"] = replicas_per_master
-            __props__.__dict__["replicas_per_primary"] = replicas_per_primary
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -420,6 +380,7 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["port"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["redis_version"] = None
             __props__.__dict__["ssl_port"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache:Redis"), pulumi.Alias(type_="azure-native:cache/v20150801:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20150801:Redis"), pulumi.Alias(type_="azure-native:cache/v20160401:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20160401:Redis"), pulumi.Alias(type_="azure-native:cache/v20170201:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:Redis"), pulumi.Alias(type_="azure-native:cache/v20171001:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:Redis"), pulumi.Alias(type_="azure-native:cache/v20180301:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:Redis"), pulumi.Alias(type_="azure-native:cache/v20190701:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20190701:Redis"), pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20201201:Redis"), pulumi.Alias(type_="azure-nextgen:cache/v20201201:Redis")])
@@ -461,7 +422,6 @@ class Redis(pulumi.CustomResource):
         __props__.__dict__["redis_configuration"] = None
         __props__.__dict__["redis_version"] = None
         __props__.__dict__["replicas_per_master"] = None
-        __props__.__dict__["replicas_per_primary"] = None
         __props__.__dict__["shard_count"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["ssl_port"] = None
@@ -533,7 +493,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -579,9 +539,9 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> pulumi.Output[Optional[str]]:
+    def redis_version(self) -> pulumi.Output[str]:
         """
-        Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        Redis version.
         """
         return pulumi.get(self, "redis_version")
 
@@ -589,17 +549,9 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="replicasPerMaster")
     def replicas_per_master(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of replicas to be created per primary.
+        The number of replicas to be created per master.
         """
         return pulumi.get(self, "replicas_per_master")
-
-    @property
-    @pulumi.getter(name="replicasPerPrimary")
-    def replicas_per_primary(self) -> pulumi.Output[Optional[int]]:
-        """
-        The number of replicas to be created per primary.
-        """
-        return pulumi.get(self, "replicas_per_primary")
 
     @property
     @pulumi.getter(name="shardCount")
@@ -661,7 +613,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
 

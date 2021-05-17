@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network security rule.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
     if (!opts) {

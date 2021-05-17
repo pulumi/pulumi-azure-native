@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -68,10 +68,6 @@ export class BlobContainer extends pulumi.CustomResource {
      * The ImmutabilityPolicy property of the container.
      */
     public /*out*/ readonly immutabilityPolicy!: pulumi.Output<outputs.storage.ImmutabilityPolicyPropertiesResponse>;
-    /**
-     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-     */
-    public readonly immutableStorageWithVersioning!: pulumi.Output<outputs.storage.ImmutableStorageWithVersioningResponse | undefined>;
     /**
      * Returns the date and time the container was last modified.
      */
@@ -138,7 +134,6 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
             inputs["denyEncryptionScopeOverride"] = args ? args.denyEncryptionScopeOverride : undefined;
-            inputs["immutableStorageWithVersioning"] = args ? args.immutableStorageWithVersioning : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["publicAccess"] = args ? args.publicAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -166,7 +161,6 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["hasImmutabilityPolicy"] = undefined /*out*/;
             inputs["hasLegalHold"] = undefined /*out*/;
             inputs["immutabilityPolicy"] = undefined /*out*/;
-            inputs["immutableStorageWithVersioning"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["leaseDuration"] = undefined /*out*/;
             inputs["leaseState"] = undefined /*out*/;
@@ -208,10 +202,6 @@ export interface BlobContainerArgs {
      * Block override of encryption scope from the container default.
      */
     readonly denyEncryptionScopeOverride?: pulumi.Input<boolean>;
-    /**
-     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-     */
-    readonly immutableStorageWithVersioning?: pulumi.Input<inputs.storage.ImmutableStorageWithVersioningArgs>;
     /**
      * A name-value pair to associate with the container as metadata.
      */

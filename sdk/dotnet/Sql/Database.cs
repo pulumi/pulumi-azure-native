@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database resource.
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Database")]
     public partial class Database : Pulumi.CustomResource
@@ -93,18 +93,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
-
-        /// <summary>
-        /// Infra encryption is enabled for this database.
-        /// </summary>
-        [Output("isInfraEncryptionEnabled")]
-        public Output<bool> IsInfraEncryptionEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        /// </summary>
-        [Output("isLedgerOn")]
-        public Output<bool?> IsLedgerOn { get; private set; } = null!;
 
         /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
@@ -358,12 +346,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
-
-        /// <summary>
-        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        /// </summary>
-        [Input("isLedgerOn")]
-        public Input<bool>? IsLedgerOn { get; set; }
 
         /// <summary>
         /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.

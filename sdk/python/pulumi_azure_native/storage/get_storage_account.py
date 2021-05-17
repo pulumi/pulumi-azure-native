@@ -20,16 +20,13 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_cross_tenant_replication=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
         if allow_blob_public_access and not isinstance(allow_blob_public_access, bool):
             raise TypeError("Expected argument 'allow_blob_public_access' to be a bool")
         pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
-        if allow_cross_tenant_replication and not isinstance(allow_cross_tenant_replication, bool):
-            raise TypeError("Expected argument 'allow_cross_tenant_replication' to be a bool")
-        pulumi.set(__self__, "allow_cross_tenant_replication", allow_cross_tenant_replication)
         if allow_shared_key_access and not isinstance(allow_shared_key_access, bool):
             raise TypeError("Expected argument 'allow_shared_key_access' to be a bool")
         pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
@@ -154,14 +151,6 @@ class GetStorageAccountResult:
         Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         """
         return pulumi.get(self, "allow_blob_public_access")
-
-    @property
-    @pulumi.getter(name="allowCrossTenantReplication")
-    def allow_cross_tenant_replication(self) -> Optional[bool]:
-        """
-        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        """
-        return pulumi.get(self, "allow_cross_tenant_replication")
 
     @property
     @pulumi.getter(name="allowSharedKeyAccess")
@@ -460,7 +449,6 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
         return GetStorageAccountResult(
             access_tier=self.access_tier,
             allow_blob_public_access=self.allow_blob_public_access,
-            allow_cross_tenant_replication=self.allow_cross_tenant_replication,
             allow_shared_key_access=self.allow_shared_key_access,
             azure_files_identity_based_authentication=self.azure_files_identity_based_authentication,
             blob_restore_status=self.blob_restore_status,
@@ -505,7 +493,7 @@ def get_storage_account(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     The storage account.
-    API Version: 2021-04-01.
+    API Version: 2021-02-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -525,7 +513,6 @@ def get_storage_account(account_name: Optional[str] = None,
     return AwaitableGetStorageAccountResult(
         access_tier=__ret__.access_tier,
         allow_blob_public_access=__ret__.allow_blob_public_access,
-        allow_cross_tenant_replication=__ret__.allow_cross_tenant_replication,
         allow_shared_key_access=__ret__.allow_shared_key_access,
         azure_files_identity_based_authentication=__ret__.azure_files_identity_based_authentication,
         blob_restore_status=__ret__.blob_restore_status,

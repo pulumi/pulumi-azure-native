@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
     if (!opts) {
@@ -82,10 +82,6 @@ export interface GetVirtualHubResult {
      * The P2SVpnGateway associated with this VirtualHub.
      */
     readonly p2SVpnGateway?: outputs.network.SubResourceResponse;
-    /**
-     * The preferred gateway to route on-prem traffic
-     */
-    readonly preferredRoutingGateway?: string;
     /**
      * The provisioning state of the virtual hub resource.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The storage account.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("allowBlobPublicAccess")]
         public Output<bool?> AllowBlobPublicAccess { get; private set; } = null!;
-
-        /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        /// </summary>
-        [Output("allowCrossTenantReplication")]
-        public Output<bool?> AllowCrossTenantReplication { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
@@ -344,12 +338,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("allowBlobPublicAccess")]
         public Input<bool>? AllowBlobPublicAccess { get; set; }
-
-        /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        /// </summary>
-        [Input("allowCrossTenantReplication")]
-        public Input<bool>? AllowCrossTenantReplication { get; set; }
 
         /// <summary>
         /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.

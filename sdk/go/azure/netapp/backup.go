@@ -12,7 +12,7 @@ import (
 )
 
 // Backup of a Volume
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 type Backup struct {
 	pulumi.CustomResourceState
 
@@ -36,8 +36,6 @@ type Backup struct {
 	Size pulumi.Float64Output `pulumi:"size"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot pulumi.BoolPtrOutput `pulumi:"useExistingSnapshot"`
 	// Volume name
 	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
 }
@@ -60,9 +58,6 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	if args.VolumeName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
-	}
-	if args.UseExistingSnapshot == nil {
-		args.UseExistingSnapshot = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -160,8 +155,6 @@ type backupState struct {
 	Size *float64 `pulumi:"size"`
 	// Resource type
 	Type *string `pulumi:"type"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
 	// Volume name
 	VolumeName *string `pulumi:"volumeName"`
 }
@@ -187,8 +180,6 @@ type BackupState struct {
 	Size pulumi.Float64PtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot pulumi.BoolPtrInput
 	// Volume name
 	VolumeName pulumi.StringPtrInput
 }
@@ -210,8 +201,6 @@ type backupArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -230,8 +219,6 @@ type BackupArgs struct {
 	PoolName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot pulumi.BoolPtrInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

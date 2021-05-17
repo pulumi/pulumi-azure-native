@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bastion Host resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
     if (!opts) {
@@ -66,10 +66,6 @@ export interface GetBastionHostResult {
      * The provisioning state of the bastion host resource.
      */
     readonly provisioningState: string;
-    /**
-     * The sku of this Bastion Host.
-     */
-    readonly sku?: outputs.network.SkuResponse;
     /**
      * Resource tags.
      */

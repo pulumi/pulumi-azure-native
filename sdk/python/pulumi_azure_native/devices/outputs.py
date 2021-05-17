@@ -11,8 +11,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ArmIdentityResponse',
-    'ArmUserIdentityResponse',
     'CertificatePropertiesResponse',
     'CloudToDevicePropertiesResponse',
     'EnrichmentPropertiesResponse',
@@ -26,7 +24,6 @@ __all__ = [
     'IotHubPropertiesResponse',
     'IotHubSkuInfoResponse',
     'IpFilterRuleResponse',
-    'ManagedIdentityResponse',
     'MessagingEndpointPropertiesResponse',
     'NetworkRuleSetIpRuleResponse',
     'NetworkRuleSetPropertiesResponse',
@@ -46,114 +43,6 @@ __all__ = [
     'StorageEndpointPropertiesResponse',
     'TargetIpFilterRuleResponse',
 ]
-
-@pulumi.output_type
-class ArmIdentityResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ArmIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ArmIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ArmIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']] = None):
-        """
-        :param str principal_id: Principal Id
-        :param str tenant_id: Tenant Id
-        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        Principal Id
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        Tenant Id
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']]:
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ArmUserIdentityResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ArmUserIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ArmUserIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ArmUserIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        return pulumi.get(self, "principal_id")
-
 
 @pulumi.output_type
 class CertificatePropertiesResponse(dict):
@@ -1349,46 +1238,6 @@ class IpFilterRuleResponse(dict):
 
 
 @pulumi.output_type
-class ManagedIdentityResponse(dict):
-    """
-    The properties of the Managed identity.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAssignedIdentity":
-            suggest = "user_assigned_identity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_assigned_identity: Optional[str] = None):
-        """
-        The properties of the Managed identity.
-        :param str user_assigned_identity: The user assigned identity.
-        """
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[str]:
-        """
-        The user assigned identity.
-        """
-        return pulumi.get(self, "user_assigned_identity")
-
-
-@pulumi.output_type
 class MessagingEndpointPropertiesResponse(dict):
     """
     The properties of the messaging endpoints used by this IoT hub.
@@ -1989,7 +1838,6 @@ class RoutingEventHubPropertiesResponse(dict):
                  endpoint_uri: Optional[str] = None,
                  entity_path: Optional[str] = None,
                  id: Optional[str] = None,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  resource_group: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
@@ -2000,7 +1848,6 @@ class RoutingEventHubPropertiesResponse(dict):
         :param str endpoint_uri: The url of the event hub endpoint. It must include the protocol sb://
         :param str entity_path: Event hub name on the event hub namespace
         :param str id: Id of the event hub endpoint
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing event hub endpoint.
         :param str resource_group: The name of the resource group of the event hub endpoint.
         :param str subscription_id: The subscription identifier of the event hub endpoint.
         """
@@ -2015,8 +1862,6 @@ class RoutingEventHubPropertiesResponse(dict):
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -2069,14 +1914,6 @@ class RoutingEventHubPropertiesResponse(dict):
         Id of the event hub endpoint
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of routing event hub endpoint.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -2210,7 +2047,6 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
                  endpoint_uri: Optional[str] = None,
                  entity_path: Optional[str] = None,
                  id: Optional[str] = None,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  resource_group: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
@@ -2221,7 +2057,6 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
         :param str endpoint_uri: The url of the service bus queue endpoint. It must include the protocol sb://
         :param str entity_path: Queue name on the service bus namespace
         :param str id: Id of the service bus queue endpoint
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing service bus queue endpoint.
         :param str resource_group: The name of the resource group of the service bus queue endpoint.
         :param str subscription_id: The subscription identifier of the service bus queue endpoint.
         """
@@ -2236,8 +2071,6 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -2290,14 +2123,6 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
         Id of the service bus queue endpoint
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of routing service bus queue endpoint.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -2355,7 +2180,6 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
                  endpoint_uri: Optional[str] = None,
                  entity_path: Optional[str] = None,
                  id: Optional[str] = None,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  resource_group: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
@@ -2366,7 +2190,6 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
         :param str endpoint_uri: The url of the service bus topic endpoint. It must include the protocol sb://
         :param str entity_path: Queue name on the service bus topic
         :param str id: Id of the service bus topic endpoint
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing service bus topic endpoint.
         :param str resource_group: The name of the resource group of the service bus topic endpoint.
         :param str subscription_id: The subscription identifier of the service bus topic endpoint.
         """
@@ -2381,8 +2204,6 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
             pulumi.set(__self__, "entity_path", entity_path)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription_id is not None:
@@ -2435,14 +2256,6 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
         Id of the service bus topic endpoint
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of routing service bus topic endpoint.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -2509,7 +2322,6 @@ class RoutingStorageContainerPropertiesResponse(dict):
                  endpoint_uri: Optional[str] = None,
                  file_name_format: Optional[str] = None,
                  id: Optional[str] = None,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  max_chunk_size_in_bytes: Optional[int] = None,
                  resource_group: Optional[str] = None,
                  subscription_id: Optional[str] = None):
@@ -2524,7 +2336,6 @@ class RoutingStorageContainerPropertiesResponse(dict):
         :param str endpoint_uri: The url of the storage endpoint. It must include the protocol https://
         :param str file_name_format: File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
         :param str id: Id of the storage container endpoint
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing storage endpoint.
         :param int max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param str resource_group: The name of the resource group of the storage account.
         :param str subscription_id: The subscription identifier of the storage account.
@@ -2545,8 +2356,6 @@ class RoutingStorageContainerPropertiesResponse(dict):
             pulumi.set(__self__, "file_name_format", file_name_format)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if max_chunk_size_in_bytes is not None:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group is not None:
@@ -2625,14 +2434,6 @@ class RoutingStorageContainerPropertiesResponse(dict):
         Id of the storage container endpoint
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of routing storage endpoint.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
@@ -2847,22 +2648,18 @@ class StorageEndpointPropertiesResponse(dict):
                  connection_string: str,
                  container_name: str,
                  authentication_type: Optional[str] = None,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  sas_ttl_as_iso8601: Optional[str] = None):
         """
         The properties of the Azure Storage endpoint for file upload.
         :param str connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param str container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
         :param str authentication_type: Specifies authentication type being used for connecting to the storage account.
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of storage endpoint for file upload.
         :param str sas_ttl_as_iso8601: The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "container_name", container_name)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if sas_ttl_as_iso8601 is not None:
             pulumi.set(__self__, "sas_ttl_as_iso8601", sas_ttl_as_iso8601)
 
@@ -2889,14 +2686,6 @@ class StorageEndpointPropertiesResponse(dict):
         Specifies authentication type being used for connecting to the storage account.
         """
         return pulumi.get(self, "authentication_type")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of storage endpoint for file upload.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="sasTtlAsIso8601")

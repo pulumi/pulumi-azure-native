@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -128,10 +128,6 @@ export class NetworkInterface extends pulumi.CustomResource {
      * The reference to a virtual machine.
      */
     public /*out*/ readonly virtualMachine!: pulumi.Output<outputs.network.SubResourceResponse>;
-    /**
-     * WorkloadType of the NetworkInterface for BareMetal resources
-     */
-    public readonly workloadType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -161,7 +157,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["privateLinkService"] = args ? args.privateLinkService : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["workloadType"] = args ? args.workloadType : undefined;
             inputs["dscpConfiguration"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["hostedWorkloads"] = undefined /*out*/;
@@ -198,7 +193,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["tapConfigurations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachine"] = undefined /*out*/;
-            inputs["workloadType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -269,8 +263,4 @@ export interface NetworkInterfaceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * WorkloadType of the NetworkInterface for BareMetal resources
-     */
-    readonly workloadType?: pulumi.Input<string>;
 }

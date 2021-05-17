@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Bastion Host resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The sku of this Bastion Host.
-        /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -100,8 +96,6 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
-            Outputs.SkuResponse? sku,
-
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -113,7 +107,6 @@ namespace Pulumi.AzureNative.Network
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            Sku = sku;
             Tags = tags;
             Type = type;
         }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class FileShare extends pulumi.CustomResource {
     /**
@@ -69,18 +69,6 @@ export class FileShare extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
-     * Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-     */
-    public /*out*/ readonly leaseDuration!: pulumi.Output<string>;
-    /**
-     * Lease state of the share.
-     */
-    public /*out*/ readonly leaseState!: pulumi.Output<string>;
-    /**
-     * The lease status of the share.
-     */
-    public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
-    /**
      * A name-value pair to associate with the share as metadata.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -104,10 +92,6 @@ export class FileShare extends pulumi.CustomResource {
      * The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
      */
     public /*out*/ readonly shareUsageBytes!: pulumi.Output<number>;
-    /**
-     * List of stored access policies specified on the share.
-     */
-    public readonly signedIdentifiers!: pulumi.Output<outputs.storage.SignedIdentifierResponse[] | undefined>;
     /**
      * Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
      */
@@ -147,16 +131,12 @@ export class FileShare extends pulumi.CustomResource {
             inputs["rootSquash"] = args ? args.rootSquash : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
             inputs["shareQuota"] = args ? args.shareQuota : undefined;
-            inputs["signedIdentifiers"] = args ? args.signedIdentifiers : undefined;
             inputs["accessTierChangeTime"] = undefined /*out*/;
             inputs["accessTierStatus"] = undefined /*out*/;
             inputs["deleted"] = undefined /*out*/;
             inputs["deletedTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["leaseDuration"] = undefined /*out*/;
-            inputs["leaseState"] = undefined /*out*/;
-            inputs["leaseStatus"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["remainingRetentionDays"] = undefined /*out*/;
             inputs["shareUsageBytes"] = undefined /*out*/;
@@ -172,16 +152,12 @@ export class FileShare extends pulumi.CustomResource {
             inputs["enabledProtocols"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["leaseDuration"] = undefined /*out*/;
-            inputs["leaseState"] = undefined /*out*/;
-            inputs["leaseStatus"] = undefined /*out*/;
             inputs["metadata"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["remainingRetentionDays"] = undefined /*out*/;
             inputs["rootSquash"] = undefined /*out*/;
             inputs["shareQuota"] = undefined /*out*/;
             inputs["shareUsageBytes"] = undefined /*out*/;
-            inputs["signedIdentifiers"] = undefined /*out*/;
             inputs["snapshotTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -212,7 +188,7 @@ export interface FileShareArgs {
      */
     readonly enabledProtocols?: pulumi.Input<string | enums.storage.EnabledProtocols>;
     /**
-     * Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+     * Optional, used to create a snapshot.
      */
     readonly expand?: pulumi.Input<string>;
     /**
@@ -235,8 +211,4 @@ export interface FileShareArgs {
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
      */
     readonly shareQuota?: pulumi.Input<number>;
-    /**
-     * List of stored access policies specified on the share.
-     */
-    readonly signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.SignedIdentifierArgs>[]>;
 }

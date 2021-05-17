@@ -51,7 +51,6 @@ export * from "./getManagedInstanceAzureADOnlyAuthentication";
 export * from "./getManagedInstanceKey";
 export * from "./getManagedInstancePrivateEndpointConnection";
 export * from "./getManagedInstanceVulnerabilityAssessment";
-export * from "./getOutboundFirewallRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSensitivityLabel";
 export * from "./getServer";
@@ -89,7 +88,6 @@ export * from "./managedInstanceAzureADOnlyAuthentication";
 export * from "./managedInstanceKey";
 export * from "./managedInstancePrivateEndpointConnection";
 export * from "./managedInstanceVulnerabilityAssessment";
-export * from "./outboundFirewallRule";
 export * from "./privateEndpointConnection";
 export * from "./sensitivityLabel";
 export * from "./server";
@@ -171,7 +169,6 @@ import { ManagedInstanceAzureADOnlyAuthentication } from "./managedInstanceAzure
 import { ManagedInstanceKey } from "./managedInstanceKey";
 import { ManagedInstancePrivateEndpointConnection } from "./managedInstancePrivateEndpointConnection";
 import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
-import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SensitivityLabel } from "./sensitivityLabel";
 import { Server } from "./server";
@@ -260,8 +257,6 @@ const _module = {
                 return new ManagedInstancePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:sql:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-native:sql:OutboundFirewallRule":
-                return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:sql:SensitivityLabel":

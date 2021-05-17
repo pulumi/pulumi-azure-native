@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL Database server.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:sql:getServer", args, &rv, opts...)
@@ -33,8 +33,6 @@ type LookupServerResult struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
-	// The Client id used for cross tenant CMK scenario
-	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
@@ -57,8 +55,6 @@ type LookupServerResult struct {
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	RestrictOutboundNetworkAccess *string `pulumi:"restrictOutboundNetworkAccess"`
 	// The state of the server.
 	State string `pulumi:"state"`
 	// Resource tags.

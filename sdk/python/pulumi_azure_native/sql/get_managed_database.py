@@ -180,7 +180,7 @@ def get_managed_database(database_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDatabaseResult:
     """
     A managed database resource.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database.

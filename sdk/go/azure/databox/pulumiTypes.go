@@ -2167,8 +2167,6 @@ func (o DataBoxDiskJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput 
 
 // DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponse struct {
-	// Available actions on the job.
-	Actions []string `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -2194,8 +2192,6 @@ type DataBoxDiskJobDetailsResponse struct {
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponse `pulumi:"lastMitigationActionOnJob"`
 	// User entered passkey for DataBox Disk job.
 	Passkey *string `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2223,8 +2219,6 @@ type DataBoxDiskJobDetailsResponseInput interface {
 
 // DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponseArgs struct {
-	// Available actions on the job.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -2250,8 +2244,6 @@ type DataBoxDiskJobDetailsResponseArgs struct {
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponseInput `pulumi:"lastMitigationActionOnJob"`
 	// User entered passkey for DataBox Disk job.
 	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
 	// Preferences for the order.
@@ -2291,11 +2283,6 @@ func (o DataBoxDiskJobDetailsResponseOutput) ToDataBoxDiskJobDetailsResponseOutp
 
 func (o DataBoxDiskJobDetailsResponseOutput) ToDataBoxDiskJobDetailsResponseOutputWithContext(ctx context.Context) DataBoxDiskJobDetailsResponseOutput {
 	return o
-}
-
-// Available actions on the job.
-func (o DataBoxDiskJobDetailsResponseOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 // Shared access key to download the chain of custody logs
@@ -2357,13 +2344,6 @@ func (o DataBoxDiskJobDetailsResponseOutput) JobStages() JobStagesResponseArrayO
 // Details about which key encryption type is being used.
 func (o DataBoxDiskJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
-}
-
-// Last mitigation action performed on the job.
-func (o DataBoxDiskJobDetailsResponseOutput) LastMitigationActionOnJob() LastMitigationActionOnJobResponseOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) LastMitigationActionOnJobResponse {
-		return v.LastMitigationActionOnJob
-	}).(LastMitigationActionOnJobResponseOutput)
 }
 
 // User entered passkey for DataBox Disk job.
@@ -2716,8 +2696,6 @@ func (o DataBoxHeavyJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput
 
 // Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponse struct {
-	// Available actions on the job.
-	Actions []string `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -2743,8 +2721,6 @@ type DataBoxHeavyJobDetailsResponse struct {
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponse `pulumi:"lastMitigationActionOnJob"`
 	// Preferences for the order.
 	Preferences *PreferencesResponse `pulumi:"preferences"`
 	// Return package shipping details.
@@ -2768,8 +2744,6 @@ type DataBoxHeavyJobDetailsResponseInput interface {
 
 // Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponseArgs struct {
-	// Available actions on the job.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -2795,8 +2769,6 @@ type DataBoxHeavyJobDetailsResponseArgs struct {
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponseInput `pulumi:"lastMitigationActionOnJob"`
 	// Preferences for the order.
 	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
 	// Return package shipping details.
@@ -2832,11 +2804,6 @@ func (o DataBoxHeavyJobDetailsResponseOutput) ToDataBoxHeavyJobDetailsResponseOu
 
 func (o DataBoxHeavyJobDetailsResponseOutput) ToDataBoxHeavyJobDetailsResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobDetailsResponseOutput {
 	return o
-}
-
-// Available actions on the job.
-func (o DataBoxHeavyJobDetailsResponseOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 // Shared access key to download the chain of custody logs
@@ -2898,13 +2865,6 @@ func (o DataBoxHeavyJobDetailsResponseOutput) JobStages() JobStagesResponseArray
 // Details about which key encryption type is being used.
 func (o DataBoxHeavyJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
-}
-
-// Last mitigation action performed on the job.
-func (o DataBoxHeavyJobDetailsResponseOutput) LastMitigationActionOnJob() LastMitigationActionOnJobResponseOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) LastMitigationActionOnJobResponse {
-		return v.LastMitigationActionOnJob
-	}).(LastMitigationActionOnJobResponseOutput)
 }
 
 // Preferences for the order.
@@ -3284,8 +3244,6 @@ func (o DataBoxJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput {
 
 // Databox Job Details
 type DataBoxJobDetailsResponse struct {
-	// Available actions on the job.
-	Actions []string `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -3311,8 +3269,6 @@ type DataBoxJobDetailsResponse struct {
 	JobStages []JobStagesResponse `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey *KeyEncryptionKeyResponse `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponse `pulumi:"lastMitigationActionOnJob"`
 	// Preferences for the order.
 	Preferences *PreferencesResponse `pulumi:"preferences"`
 	// Return package shipping details.
@@ -3336,8 +3292,6 @@ type DataBoxJobDetailsResponseInput interface {
 
 // Databox Job Details
 type DataBoxJobDetailsResponseArgs struct {
-	// Available actions on the job.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
 	// Contact details for notification and shipping.
@@ -3363,8 +3317,6 @@ type DataBoxJobDetailsResponseArgs struct {
 	JobStages JobStagesResponseArrayInput `pulumi:"jobStages"`
 	// Details about which key encryption type is being used.
 	KeyEncryptionKey KeyEncryptionKeyResponsePtrInput `pulumi:"keyEncryptionKey"`
-	// Last mitigation action performed on the job.
-	LastMitigationActionOnJob LastMitigationActionOnJobResponseInput `pulumi:"lastMitigationActionOnJob"`
 	// Preferences for the order.
 	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
 	// Return package shipping details.
@@ -3400,11 +3352,6 @@ func (o DataBoxJobDetailsResponseOutput) ToDataBoxJobDetailsResponseOutput() Dat
 
 func (o DataBoxJobDetailsResponseOutput) ToDataBoxJobDetailsResponseOutputWithContext(ctx context.Context) DataBoxJobDetailsResponseOutput {
 	return o
-}
-
-// Available actions on the job.
-func (o DataBoxJobDetailsResponseOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataBoxJobDetailsResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 // Shared access key to download the chain of custody logs
@@ -3466,13 +3413,6 @@ func (o DataBoxJobDetailsResponseOutput) JobStages() JobStagesResponseArrayOutpu
 // Details about which key encryption type is being used.
 func (o DataBoxJobDetailsResponseOutput) KeyEncryptionKey() KeyEncryptionKeyResponsePtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetailsResponse) *KeyEncryptionKeyResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyResponsePtrOutput)
-}
-
-// Last mitigation action performed on the job.
-func (o DataBoxJobDetailsResponseOutput) LastMitigationActionOnJob() LastMitigationActionOnJobResponseOutput {
-	return o.ApplyT(func(v DataBoxJobDetailsResponse) LastMitigationActionOnJobResponse {
-		return v.LastMitigationActionOnJob
-	}).(LastMitigationActionOnJobResponseOutput)
 }
 
 // Preferences for the order.
@@ -5901,82 +5841,6 @@ func (o KeyEncryptionKeyResponsePtrOutput) KekVaultResourceID() pulumi.StringPtr
 		}
 		return v.KekVaultResourceID
 	}).(pulumi.StringPtrOutput)
-}
-
-// Last Mitigation Action Performed On Job
-type LastMitigationActionOnJobResponse struct {
-	// Action performed date time
-	ActionDateTimeInUtc *string `pulumi:"actionDateTimeInUtc"`
-	// Resolution code provided by customer
-	CustomerResolution *string `pulumi:"customerResolution"`
-	// Action performed by customer,
-	// possibility is that mitigation might happen by customer or service or by ops
-	IsPerformedByCustomer *bool `pulumi:"isPerformedByCustomer"`
-}
-
-// LastMitigationActionOnJobResponseInput is an input type that accepts LastMitigationActionOnJobResponseArgs and LastMitigationActionOnJobResponseOutput values.
-// You can construct a concrete instance of `LastMitigationActionOnJobResponseInput` via:
-//
-//          LastMitigationActionOnJobResponseArgs{...}
-type LastMitigationActionOnJobResponseInput interface {
-	pulumi.Input
-
-	ToLastMitigationActionOnJobResponseOutput() LastMitigationActionOnJobResponseOutput
-	ToLastMitigationActionOnJobResponseOutputWithContext(context.Context) LastMitigationActionOnJobResponseOutput
-}
-
-// Last Mitigation Action Performed On Job
-type LastMitigationActionOnJobResponseArgs struct {
-	// Action performed date time
-	ActionDateTimeInUtc pulumi.StringPtrInput `pulumi:"actionDateTimeInUtc"`
-	// Resolution code provided by customer
-	CustomerResolution pulumi.StringPtrInput `pulumi:"customerResolution"`
-	// Action performed by customer,
-	// possibility is that mitigation might happen by customer or service or by ops
-	IsPerformedByCustomer pulumi.BoolPtrInput `pulumi:"isPerformedByCustomer"`
-}
-
-func (LastMitigationActionOnJobResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LastMitigationActionOnJobResponse)(nil)).Elem()
-}
-
-func (i LastMitigationActionOnJobResponseArgs) ToLastMitigationActionOnJobResponseOutput() LastMitigationActionOnJobResponseOutput {
-	return i.ToLastMitigationActionOnJobResponseOutputWithContext(context.Background())
-}
-
-func (i LastMitigationActionOnJobResponseArgs) ToLastMitigationActionOnJobResponseOutputWithContext(ctx context.Context) LastMitigationActionOnJobResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LastMitigationActionOnJobResponseOutput)
-}
-
-// Last Mitigation Action Performed On Job
-type LastMitigationActionOnJobResponseOutput struct{ *pulumi.OutputState }
-
-func (LastMitigationActionOnJobResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LastMitigationActionOnJobResponse)(nil)).Elem()
-}
-
-func (o LastMitigationActionOnJobResponseOutput) ToLastMitigationActionOnJobResponseOutput() LastMitigationActionOnJobResponseOutput {
-	return o
-}
-
-func (o LastMitigationActionOnJobResponseOutput) ToLastMitigationActionOnJobResponseOutputWithContext(ctx context.Context) LastMitigationActionOnJobResponseOutput {
-	return o
-}
-
-// Action performed date time
-func (o LastMitigationActionOnJobResponseOutput) ActionDateTimeInUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LastMitigationActionOnJobResponse) *string { return v.ActionDateTimeInUtc }).(pulumi.StringPtrOutput)
-}
-
-// Resolution code provided by customer
-func (o LastMitigationActionOnJobResponseOutput) CustomerResolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LastMitigationActionOnJobResponse) *string { return v.CustomerResolution }).(pulumi.StringPtrOutput)
-}
-
-// Action performed by customer,
-// possibility is that mitigation might happen by customer or service or by ops
-func (o LastMitigationActionOnJobResponseOutput) IsPerformedByCustomer() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LastMitigationActionOnJobResponse) *bool { return v.IsPerformedByCustomer }).(pulumi.BoolPtrOutput)
 }
 
 // Details of the managed disks.
@@ -10832,7 +10696,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(KeyEncryptionKeyResponseOutput{})
 	pulumi.RegisterOutputType(KeyEncryptionKeyResponsePtrOutput{})
-	pulumi.RegisterOutputType(LastMitigationActionOnJobResponseOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})

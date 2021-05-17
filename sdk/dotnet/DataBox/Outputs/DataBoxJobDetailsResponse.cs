@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class DataBoxJobDetailsResponse
     {
         /// <summary>
-        /// Available actions on the job.
-        /// </summary>
-        public readonly ImmutableArray<string> Actions;
-        /// <summary>
         /// Shared access key to download the chain of custody logs
         /// </summary>
         public readonly string ChainOfCustodySasKey;
@@ -67,10 +63,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
         /// <summary>
-        /// Last mitigation action performed on the job.
-        /// </summary>
-        public readonly Outputs.LastMitigationActionOnJobResponse LastMitigationActionOnJob;
-        /// <summary>
         /// Preferences for the order.
         /// </summary>
         public readonly Outputs.PreferencesResponse? Preferences;
@@ -89,8 +81,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
         [OutputConstructor]
         private DataBoxJobDetailsResponse(
-            ImmutableArray<string> actions,
-
             string chainOfCustodySasKey,
 
             Outputs.ContactDetailsResponse contactDetails,
@@ -115,8 +105,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
 
-            Outputs.LastMitigationActionOnJobResponse lastMitigationActionOnJob,
-
             Outputs.PreferencesResponse? preferences,
 
             Outputs.PackageShippingDetailsResponse returnPackage,
@@ -125,7 +113,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.ShippingAddressResponse? shippingAddress)
         {
-            Actions = actions;
             ChainOfCustodySasKey = chainOfCustodySasKey;
             ContactDetails = contactDetails;
             CopyLogDetails = copyLogDetails;
@@ -138,7 +125,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;
             KeyEncryptionKey = keyEncryptionKey;
-            LastMitigationActionOnJob = lastMitigationActionOnJob;
             Preferences = preferences;
             ReturnPackage = returnPackage;
             ReverseShipmentLabelSasKey = reverseShipmentLabelSasKey;

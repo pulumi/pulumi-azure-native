@@ -8,7 +8,7 @@ import (
 )
 
 // The Get Storage Account ManagementPolicies operation response.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagementPolicyResult, error) {
 	var rv LookupManagementPolicyResult
 	err := ctx.Invoke("azure-native:storage:getManagementPolicy", args, &rv, opts...)

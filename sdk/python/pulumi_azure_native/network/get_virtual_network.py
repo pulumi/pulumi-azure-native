@@ -20,7 +20,7 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, extended_location=None, flow_timeout_in_minutes=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, extended_location=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
@@ -45,9 +45,6 @@ class GetVirtualNetworkResult:
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
-        if flow_timeout_in_minutes and not isinstance(flow_timeout_in_minutes, int):
-            raise TypeError("Expected argument 'flow_timeout_in_minutes' to be a int")
-        pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -144,14 +141,6 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "extended_location")
 
     @property
-    @pulumi.getter(name="flowTimeoutInMinutes")
-    def flow_timeout_in_minutes(self) -> Optional[int]:
-        """
-        The FlowTimeout value (in minutes) for the Virtual Network
-        """
-        return pulumi.get(self, "flow_timeout_in_minutes")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -246,7 +235,6 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             enable_vm_protection=self.enable_vm_protection,
             etag=self.etag,
             extended_location=self.extended_location,
-            flow_timeout_in_minutes=self.flow_timeout_in_minutes,
             id=self.id,
             ip_allocations=self.ip_allocations,
             location=self.location,
@@ -265,7 +253,7 @@ def get_virtual_network(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Virtual Network resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -291,7 +279,6 @@ def get_virtual_network(expand: Optional[str] = None,
         enable_vm_protection=__ret__.enable_vm_protection,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
-        flow_timeout_in_minutes=__ret__.flow_timeout_in_minutes,
         id=__ret__.id,
         ip_allocations=__ret__.ip_allocations,
         location=__ret__.location,

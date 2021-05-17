@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of an IoT hub shared access policy.
- * API Version: 2021-03-31.
+ * API Version: 2020-08-31.
  */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
     if (!opts) {

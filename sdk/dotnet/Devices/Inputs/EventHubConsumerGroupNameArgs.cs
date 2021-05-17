@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Devices.Inputs
         /// <summary>
         /// EventHub consumer group name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public EventHubConsumerGroupNameArgs()
         {

@@ -8,7 +8,7 @@ import (
 )
 
 // FirewallPolicy Resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	var rv LookupFirewallPolicyResult
 	err := ctx.Invoke("azure-native:network:getFirewallPolicy", args, &rv, opts...)

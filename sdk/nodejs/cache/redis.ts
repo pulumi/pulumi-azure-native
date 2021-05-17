@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -65,7 +65,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -89,17 +89,13 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+     * Redis version.
      */
-    public readonly redisVersion!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly redisVersion!: pulumi.Output<string>;
     /**
-     * The number of replicas to be created per primary.
+     * The number of replicas to be created per master.
      */
     public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
-    /**
-     * The number of replicas to be created per primary.
-     */
-    public readonly replicasPerPrimary!: pulumi.Output<number | undefined>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -129,7 +125,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -160,9 +156,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            inputs["redisVersion"] = args ? args.redisVersion : undefined;
             inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            inputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -178,6 +172,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["port"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["redisVersion"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -196,7 +191,6 @@ export class Redis extends pulumi.CustomResource {
             inputs["redisConfiguration"] = undefined /*out*/;
             inputs["redisVersion"] = undefined /*out*/;
             inputs["replicasPerMaster"] = undefined /*out*/;
-            inputs["replicasPerPrimary"] = undefined /*out*/;
             inputs["shardCount"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
@@ -245,17 +239,9 @@ export interface RedisArgs {
      */
     readonly redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-     */
-    readonly redisVersion?: pulumi.Input<string>;
-    /**
-     * The number of replicas to be created per primary.
+     * The number of replicas to be created per master.
      */
     readonly replicasPerMaster?: pulumi.Input<number>;
-    /**
-     * The number of replicas to be created per primary.
-     */
-    readonly replicasPerPrimary?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */

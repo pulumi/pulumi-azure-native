@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * LogAnalytics operation status response
- * API Version: 2021-03-01.
+ * API Version: 2020-12-01.
  */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
     if (!opts) {

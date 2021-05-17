@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_bgp_route_translation_for_nat=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, nat_rules=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
@@ -33,9 +33,6 @@ class GetVirtualNetworkGatewayResult:
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
         pulumi.set(__self__, "enable_bgp", enable_bgp)
-        if enable_bgp_route_translation_for_nat and not isinstance(enable_bgp_route_translation_for_nat, bool):
-            raise TypeError("Expected argument 'enable_bgp_route_translation_for_nat' to be a bool")
-        pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
         if enable_dns_forwarding and not isinstance(enable_dns_forwarding, bool):
             raise TypeError("Expected argument 'enable_dns_forwarding' to be a bool")
         pulumi.set(__self__, "enable_dns_forwarding", enable_dns_forwarding)
@@ -69,9 +66,6 @@ class GetVirtualNetworkGatewayResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if nat_rules and not isinstance(nat_rules, list):
-            raise TypeError("Expected argument 'nat_rules' to be a list")
-        pulumi.set(__self__, "nat_rules", nat_rules)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -131,14 +125,6 @@ class GetVirtualNetworkGatewayResult:
         Whether BGP is enabled for this virtual network gateway or not.
         """
         return pulumi.get(self, "enable_bgp")
-
-    @property
-    @pulumi.getter(name="enableBgpRouteTranslationForNat")
-    def enable_bgp_route_translation_for_nat(self) -> Optional[bool]:
-        """
-        EnableBgpRouteTranslationForNat flag.
-        """
-        return pulumi.get(self, "enable_bgp_route_translation_for_nat")
 
     @property
     @pulumi.getter(name="enableDnsForwarding")
@@ -229,14 +215,6 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="natRules")
-    def nat_rules(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayNatRuleResponse']]:
-        """
-        NatRules for virtual network gateway.
-        """
-        return pulumi.get(self, "nat_rules")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -319,7 +297,6 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             bgp_settings=self.bgp_settings,
             custom_routes=self.custom_routes,
             enable_bgp=self.enable_bgp,
-            enable_bgp_route_translation_for_nat=self.enable_bgp_route_translation_for_nat,
             enable_dns_forwarding=self.enable_dns_forwarding,
             enable_private_ip_address=self.enable_private_ip_address,
             etag=self.etag,
@@ -331,7 +308,6 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
-            nat_rules=self.nat_rules,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
             sku=self.sku,
@@ -348,7 +324,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -368,7 +344,6 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         bgp_settings=__ret__.bgp_settings,
         custom_routes=__ret__.custom_routes,
         enable_bgp=__ret__.enable_bgp,
-        enable_bgp_route_translation_for_nat=__ret__.enable_bgp_route_translation_for_nat,
         enable_dns_forwarding=__ret__.enable_dns_forwarding,
         enable_private_ip_address=__ret__.enable_private_ip_address,
         etag=__ret__.etag,
@@ -380,7 +355,6 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,
-        nat_rules=__ret__.nat_rules,
         provisioning_state=__ret__.provisioning_state,
         resource_guid=__ret__.resource_guid,
         sku=__ret__.sku,

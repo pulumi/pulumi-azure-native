@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class Queue extends pulumi.CustomResource {
     /**

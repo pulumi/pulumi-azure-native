@@ -46,12 +46,6 @@ namespace Pulumi.AzureNative.Devices.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Managed identity properties of routing service bus queue endpoint.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
-
-        /// <summary>
         /// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
         /// </summary>
         [Input("name", required: true)]

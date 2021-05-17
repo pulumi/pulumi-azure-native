@@ -8,7 +8,7 @@ import (
 )
 
 // A database security alert policy.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupDatabaseSecurityAlertPolicy(ctx *pulumi.Context, args *LookupDatabaseSecurityAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseSecurityAlertPolicyResult, error) {
 	var rv LookupDatabaseSecurityAlertPolicyResult
 	err := ctx.Invoke("azure-native:sql:getDatabaseSecurityAlertPolicy", args, &rv, opts...)

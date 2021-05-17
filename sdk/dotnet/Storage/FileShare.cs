@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:FileShare")]
     public partial class FileShare : Pulumi.CustomResource
@@ -65,24 +65,6 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-        /// </summary>
-        [Output("leaseDuration")]
-        public Output<string> LeaseDuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Lease state of the share.
-        /// </summary>
-        [Output("leaseState")]
-        public Output<string> LeaseState { get; private set; } = null!;
-
-        /// <summary>
-        /// The lease status of the share.
-        /// </summary>
-        [Output("leaseStatus")]
-        public Output<string> LeaseStatus { get; private set; } = null!;
-
-        /// <summary>
         /// A name-value pair to associate with the share as metadata.
         /// </summary>
         [Output("metadata")]
@@ -117,12 +99,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("shareUsageBytes")]
         public Output<double> ShareUsageBytes { get; private set; } = null!;
-
-        /// <summary>
-        /// List of stored access policies specified on the share.
-        /// </summary>
-        [Output("signedIdentifiers")]
-        public Output<ImmutableArray<Outputs.SignedIdentifierResponse>> SignedIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
@@ -222,7 +198,7 @@ namespace Pulumi.AzureNative.Storage
         public InputUnion<string, Pulumi.AzureNative.Storage.EnabledProtocols>? EnabledProtocols { get; set; }
 
         /// <summary>
-        /// Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+        /// Optional, used to create a snapshot.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -262,18 +238,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("shareQuota")]
         public Input<int>? ShareQuota { get; set; }
-
-        [Input("signedIdentifiers")]
-        private InputList<Inputs.SignedIdentifierArgs>? _signedIdentifiers;
-
-        /// <summary>
-        /// List of stored access policies specified on the share.
-        /// </summary>
-        public InputList<Inputs.SignedIdentifierArgs> SignedIdentifiers
-        {
-            get => _signedIdentifiers ?? (_signedIdentifiers = new InputList<Inputs.SignedIdentifierArgs>());
-            set => _signedIdentifiers = value;
-        }
 
         public FileShareArgs()
         {

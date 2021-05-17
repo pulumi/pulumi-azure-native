@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Nat Gateway resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     if (!opts) {

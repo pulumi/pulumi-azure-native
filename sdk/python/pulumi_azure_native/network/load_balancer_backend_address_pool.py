@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['LoadBalancerBackendAddressPoolArgs', 'LoadBalancerBackendAddressPool']
@@ -22,8 +21,7 @@ class LoadBalancerBackendAddressPoolArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
@@ -33,7 +31,6 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -47,8 +44,6 @@ class LoadBalancerBackendAddressPoolArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if tunnel_interfaces is not None:
-            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -134,18 +129,6 @@ class LoadBalancerBackendAddressPoolArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]]:
-        """
-        An array of gateway load balancer tunnel interfaces.
-        """
-        return pulumi.get(self, "tunnel_interfaces")
-
-    @tunnel_interfaces.setter
-    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]]):
-        pulumi.set(self, "tunnel_interfaces", value)
-
 
 class LoadBalancerBackendAddressPool(pulumi.CustomResource):
     @overload
@@ -159,11 +142,10 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
                  __props__=None):
         """
         Pool of backend IP addresses.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +156,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         """
         ...
     @overload
@@ -184,7 +165,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pool of backend IP addresses.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerBackendAddressPoolArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +189,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayLoadBalancerTunnelInterfaceArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -232,7 +212,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
             __props__.__dict__["backend_ip_configurations"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["load_balancing_rules"] = None
@@ -273,7 +252,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         __props__.__dict__["outbound_rule"] = None
         __props__.__dict__["outbound_rules"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["tunnel_interfaces"] = None
         __props__.__dict__["type"] = None
         return LoadBalancerBackendAddressPool(resource_name, opts=opts, __props__=__props__)
 
@@ -348,14 +326,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         The provisioning state of the backend address pool resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']]]:
-        """
-        An array of gateway load balancer tunnel interfaces.
-        """
-        return pulumi.get(self, "tunnel_interfaces")
 
     @property
     @pulumi.getter

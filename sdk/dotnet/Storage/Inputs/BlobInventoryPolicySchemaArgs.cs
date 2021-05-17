@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class BlobInventoryPolicySchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Container name where blob inventory files are stored. Must be pre-created.
+        /// </summary>
+        [Input("destination", required: true)]
+        public Input<string> Destination { get; set; } = null!;
+
+        /// <summary>
         /// Policy is enabled if set to true.
         /// </summary>
         [Input("enabled", required: true)]

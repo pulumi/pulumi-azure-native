@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("backendAddressPool")]
         public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
 
-        [Input("backendAddressPools")]
-        private InputList<Inputs.SubResourceArgs>? _backendAddressPools;
-
-        /// <summary>
-        /// An array of references to pool of DIPs.
-        /// </summary>
-        public InputList<Inputs.SubResourceArgs> BackendAddressPools
-        {
-            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.SubResourceArgs>());
-            set => _backendAddressPools = value;
-        }
-
         /// <summary>
         /// The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
         /// </summary>

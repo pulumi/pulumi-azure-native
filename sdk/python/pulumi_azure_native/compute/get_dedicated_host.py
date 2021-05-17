@@ -206,10 +206,10 @@ def get_dedicated_host(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
-    API Version: 2021-03-01.
+    API Version: 2020-12-01.
 
 
-    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
+    :param str expand: The expand expression to apply on the operation.
     :param str host_group_name: The name of the dedicated host group.
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.

@@ -18,7 +18,6 @@ class PublicIPAddressArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  ddos_settings: Optional[pulumi.Input['DdosSettingsArgs']] = None,
-                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -41,7 +40,6 @@ class PublicIPAddressArgs:
         The set of arguments for constructing a PublicIPAddress resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['DdosSettingsArgs'] ddos_settings: The DDoS protection custom policy associated with the public IP address.
-        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the public IP address when the VM using it is deleted
         :param pulumi.Input['PublicIPAddressDnsSettingsArgs'] dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the public ip address.
         :param pulumi.Input[str] id: Resource ID.
@@ -64,8 +62,6 @@ class PublicIPAddressArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ddos_settings is not None:
             pulumi.set(__self__, "ddos_settings", ddos_settings)
-        if delete_option is not None:
-            pulumi.set(__self__, "delete_option", delete_option)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if extended_location is not None:
@@ -126,18 +122,6 @@ class PublicIPAddressArgs:
     @ddos_settings.setter
     def ddos_settings(self, value: Optional[pulumi.Input['DdosSettingsArgs']]):
         pulumi.set(self, "ddos_settings", value)
-
-    @property
-    @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> Optional[pulumi.Input[Union[str, 'DeleteOptions']]]:
-        """
-        Specify what happens to the public IP address when the VM using it is deleted
-        """
-        return pulumi.get(self, "delete_option")
-
-    @delete_option.setter
-    def delete_option(self, value: Optional[pulumi.Input[Union[str, 'DeleteOptions']]]):
-        pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
@@ -362,7 +346,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_settings: Optional[pulumi.Input[pulumi.InputType['DdosSettingsArgs']]] = None,
-                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -385,12 +368,11 @@ class PublicIPAddress(pulumi.CustomResource):
                  __props__=None):
         """
         Public IP address resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DdosSettingsArgs']] ddos_settings: The DDoS protection custom policy associated with the public IP address.
-        :param pulumi.Input[Union[str, 'DeleteOptions']] delete_option: Specify what happens to the public IP address when the VM using it is deleted
         :param pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']] dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the public ip address.
         :param pulumi.Input[str] id: Resource ID.
@@ -419,7 +401,7 @@ class PublicIPAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Public IP address resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param PublicIPAddressArgs args: The arguments to use to populate this resource's properties.
@@ -437,7 +419,6 @@ class PublicIPAddress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_settings: Optional[pulumi.Input[pulumi.InputType['DdosSettingsArgs']]] = None,
-                 delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -470,7 +451,6 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__ = PublicIPAddressArgs.__new__(PublicIPAddressArgs)
 
             __props__.__dict__["ddos_settings"] = ddos_settings
-            __props__.__dict__["delete_option"] = delete_option
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
@@ -523,7 +503,6 @@ class PublicIPAddress(pulumi.CustomResource):
         __props__ = PublicIPAddressArgs.__new__(PublicIPAddressArgs)
 
         __props__.__dict__["ddos_settings"] = None
-        __props__.__dict__["delete_option"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
@@ -555,14 +534,6 @@ class PublicIPAddress(pulumi.CustomResource):
         The DDoS protection custom policy associated with the public IP address.
         """
         return pulumi.get(self, "ddos_settings")
-
-    @property
-    @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specify what happens to the public IP address when the VM using it is deleted
-        """
-        return pulumi.get(self, "delete_option")
 
     @property
     @pulumi.getter(name="dnsSettings")

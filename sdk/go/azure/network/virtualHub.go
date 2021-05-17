@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualHub Resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type VirtualHub struct {
 	pulumi.CustomResourceState
 
@@ -36,8 +36,6 @@ type VirtualHub struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourceResponsePtrOutput `pulumi:"p2SVpnGateway"`
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway pulumi.StringPtrOutput `pulumi:"preferredRoutingGateway"`
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
@@ -262,8 +260,6 @@ type virtualHubState struct {
 	Name *string `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway *string `pulumi:"preferredRoutingGateway"`
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
@@ -313,8 +309,6 @@ type VirtualHubState struct {
 	Name pulumi.StringPtrInput
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourceResponsePtrInput
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway pulumi.StringPtrInput
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The routeTable associated with this virtual hub.
@@ -362,8 +356,6 @@ type virtualHubArgs struct {
 	Location *string `pulumi:"location"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway *string `pulumi:"preferredRoutingGateway"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routeTable associated with this virtual hub.
@@ -406,8 +398,6 @@ type VirtualHubArgs struct {
 	Location pulumi.StringPtrInput
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway SubResourcePtrInput
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// The routeTable associated with this virtual hub.

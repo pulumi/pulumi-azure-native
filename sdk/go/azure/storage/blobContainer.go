@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type BlobContainer struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +32,6 @@ type BlobContainer struct {
 	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
 	// The ImmutabilityPolicy property of the container.
 	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponseOutput `pulumi:"immutabilityPolicy"`
-	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-	ImmutableStorageWithVersioning ImmutableStorageWithVersioningResponsePtrOutput `pulumi:"immutableStorageWithVersioning"`
 	// Returns the date and time the container was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
@@ -175,8 +173,6 @@ type blobContainerState struct {
 	HasLegalHold *bool `pulumi:"hasLegalHold"`
 	// The ImmutabilityPolicy property of the container.
 	ImmutabilityPolicy *ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
-	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-	ImmutableStorageWithVersioning *ImmutableStorageWithVersioningResponse `pulumi:"immutableStorageWithVersioning"`
 	// Returns the date and time the container was last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
@@ -218,8 +214,6 @@ type BlobContainerState struct {
 	HasLegalHold pulumi.BoolPtrInput
 	// The ImmutabilityPolicy property of the container.
 	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponsePtrInput
-	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-	ImmutableStorageWithVersioning ImmutableStorageWithVersioningResponsePtrInput
 	// Returns the date and time the container was last modified.
 	LastModifiedTime pulumi.StringPtrInput
 	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
@@ -257,8 +251,6 @@ type blobContainerArgs struct {
 	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
 	// Block override of encryption scope from the container default.
 	DenyEncryptionScopeOverride *bool `pulumi:"denyEncryptionScopeOverride"`
-	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-	ImmutableStorageWithVersioning *ImmutableStorageWithVersioning `pulumi:"immutableStorageWithVersioning"`
 	// A name-value pair to associate with the container as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
@@ -277,8 +269,6 @@ type BlobContainerArgs struct {
 	DefaultEncryptionScope pulumi.StringPtrInput
 	// Block override of encryption scope from the container default.
 	DenyEncryptionScopeOverride pulumi.BoolPtrInput
-	// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-	ImmutableStorageWithVersioning ImmutableStorageWithVersioningPtrInput
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Encryption Scope resource.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class EncryptionScope extends pulumi.CustomResource {
     /**

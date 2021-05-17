@@ -395,16 +395,6 @@ export const BackendEnabledState = {
  */
 export type BackendEnabledState = (typeof BackendEnabledState)[keyof typeof BackendEnabledState];
 
-export const BastionHostSkuName = {
-    Basic: "Basic",
-    Standard: "Standard",
-} as const;
-
-/**
- * The name of this Bastion Host.
- */
-export type BastionHostSkuName = (typeof BastionHostSkuName)[keyof typeof BastionHostSkuName];
-
 export const CommissionedState = {
     Provisioning: "Provisioning",
     Provisioned: "Provisioned",
@@ -545,16 +535,6 @@ export const DeleteExistingPeering = {
  * Flag if need to remove current existing peerings.
  */
 export type DeleteExistingPeering = (typeof DeleteExistingPeering)[keyof typeof DeleteExistingPeering];
-
-export const DeleteOptions = {
-    Delete: "Delete",
-    Detach: "Detach",
-} as const;
-
-/**
- * Specify what happens to the public IP address when the VM using it is deleted
- */
-export type DeleteOptions = (typeof DeleteOptions)[keyof typeof DeleteOptions];
 
 export const DestinationPortBehavior = {
     None: "None",
@@ -992,28 +972,6 @@ export const FrontDoorRedirectType = {
  */
 export type FrontDoorRedirectType = (typeof FrontDoorRedirectType)[keyof typeof FrontDoorRedirectType];
 
-export const GatewayLoadBalancerTunnelInterfaceType = {
-    None: "None",
-    Internal: "Internal",
-    External: "External",
-} as const;
-
-/**
- * Traffic type of gateway load balancer tunnel interface.
- */
-export type GatewayLoadBalancerTunnelInterfaceType = (typeof GatewayLoadBalancerTunnelInterfaceType)[keyof typeof GatewayLoadBalancerTunnelInterfaceType];
-
-export const GatewayLoadBalancerTunnelProtocol = {
-    None: "None",
-    Native: "Native",
-    VXLAN: "VXLAN",
-} as const;
-
-/**
- * Protocol of gateway load balancer tunnel interface.
- */
-export type GatewayLoadBalancerTunnelProtocol = (typeof GatewayLoadBalancerTunnelProtocol)[keyof typeof GatewayLoadBalancerTunnelProtocol];
-
 export const GroupConnectivity = {
     None: "None",
     DirectlyConnected: "DirectlyConnected",
@@ -1169,7 +1127,6 @@ export type LoadBalancerOutboundRuleProtocol = (typeof LoadBalancerOutboundRuleP
 export const LoadBalancerSkuName = {
     Basic: "Basic",
     Standard: "Standard",
-    Gateway: "Gateway",
 } as const;
 
 /**
@@ -1427,17 +1384,6 @@ export const PreferredIPVersion = {
  * The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
  */
 export type PreferredIPVersion = (typeof PreferredIPVersion)[keyof typeof PreferredIPVersion];
-
-export const PreferredRoutingGateway = {
-    ExpressRoute: "ExpressRoute",
-    VpnGateway: "VpnGateway",
-    None: "None",
-} as const;
-
-/**
- * The preferred gateway to route on-prem traffic
- */
-export type PreferredRoutingGateway = (typeof PreferredRoutingGateway)[keyof typeof PreferredRoutingGateway];
 
 export const ProbeProtocol = {
     Http: "Http",
@@ -1909,18 +1855,6 @@ export const VirtualNetworkGatewayType = {
  * The type of this virtual network gateway.
  */
 export type VirtualNetworkGatewayType = (typeof VirtualNetworkGatewayType)[keyof typeof VirtualNetworkGatewayType];
-
-export const VirtualNetworkPeeringLevel = {
-    FullyInSync: "FullyInSync",
-    RemoteNotInSync: "RemoteNotInSync",
-    LocalNotInSync: "LocalNotInSync",
-    LocalAndRemoteNotInSync: "LocalAndRemoteNotInSync",
-} as const;
-
-/**
- * The peering sync status of the virtual network peering.
- */
-export type VirtualNetworkPeeringLevel = (typeof VirtualNetworkPeeringLevel)[keyof typeof VirtualNetworkPeeringLevel];
 
 export const VirtualNetworkPeeringState = {
     Initiated: "Initiated",

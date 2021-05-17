@@ -185,37 +185,6 @@ func (e DefaultAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-type DefaultSharePermission pulumi.String
-
-const (
-	DefaultSharePermissionNone                                       = DefaultSharePermission("None")
-	DefaultSharePermissionStorageFileDataSmbShareReader              = DefaultSharePermission("StorageFileDataSmbShareReader")
-	DefaultSharePermissionStorageFileDataSmbShareContributor         = DefaultSharePermission("StorageFileDataSmbShareContributor")
-	DefaultSharePermissionStorageFileDataSmbShareElevatedContributor = DefaultSharePermission("StorageFileDataSmbShareElevatedContributor")
-	DefaultSharePermissionStorageFileDataSmbShareOwner               = DefaultSharePermission("StorageFileDataSmbShareOwner")
-)
-
-func (DefaultSharePermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DefaultSharePermission) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DefaultSharePermission) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DefaultSharePermission) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DefaultSharePermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Indicates the directory service used.
 type DirectoryServiceOptions pulumi.String
 
@@ -380,34 +349,6 @@ func (e ExtendedLocationTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ExtendedLocationTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// This is a required field, it specifies the format for the inventory files.
-type Format pulumi.String
-
-const (
-	FormatCsv     = Format("Csv")
-	FormatParquet = Format("Parquet")
-)
-
-func (Format) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Format) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Format) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Format) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Format) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -667,34 +608,6 @@ func (e Name) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-type ObjectType pulumi.String
-
-const (
-	ObjectTypeBlob      = ObjectType("Blob")
-	ObjectTypeContainer = ObjectType("Container")
-)
-
-func (ObjectType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ObjectType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ObjectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ObjectType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ObjectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
 type Permissions pulumi.String
 
@@ -871,34 +784,6 @@ func (e RuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// This is a required field. This field is used to schedule an inventory formation.
-type Schedule pulumi.String
-
-const (
-	ScheduleDaily  = Schedule("Daily")
-	ScheduleWeekly = Schedule("Weekly")
-)
-
-func (Schedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Schedule) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Schedule) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Schedule) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Schedule) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
 type Services pulumi.String
 
@@ -1056,11 +941,11 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 type State pulumi.String
 
 const (
-	StateProvisioning         = State("Provisioning")
-	StateDeprovisioning       = State("Deprovisioning")
-	StateSucceeded            = State("Succeeded")
-	StateFailed               = State("Failed")
-	StateNetworkSourceDeleted = State("NetworkSourceDeleted")
+	StateProvisioning         = State("provisioning")
+	StateDeprovisioning       = State("deprovisioning")
+	StateSucceeded            = State("succeeded")
+	StateFailed               = State("failed")
+	StateNetworkSourceDeleted = State("networkSourceDeleted")
 )
 
 func (State) ElementType() reflect.Type {

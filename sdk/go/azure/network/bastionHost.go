@@ -12,7 +12,7 @@ import (
 )
 
 // Bastion Host resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,6 @@ type BastionHost struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the bastion host resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku of this Bastion Host.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -176,8 +174,6 @@ type bastionHostState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state of the bastion host resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The sku of this Bastion Host.
-	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -197,8 +193,6 @@ type BastionHostState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state of the bastion host resource.
 	ProvisioningState pulumi.StringPtrInput
-	// The sku of this Bastion Host.
-	Sku SkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
@@ -222,8 +216,6 @@ type bastionHostArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of this Bastion Host.
-	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -242,8 +234,6 @@ type BastionHostArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The sku of this Bastion Host.
-	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

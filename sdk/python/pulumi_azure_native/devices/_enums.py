@@ -18,7 +18,6 @@ __all__ = [
     'NetworkRuleIPAction',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
-    'ResourceIdentityType',
     'RoutingSource',
     'State',
 ]
@@ -152,16 +151,6 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
-class ResourceIdentityType(str, Enum):
-    """
-    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-    NONE = "None"
-
-
 class RoutingSource(str, Enum):
     """
     The source that the routing rule is to be applied to, such as DeviceMessages.
@@ -171,7 +160,6 @@ class RoutingSource(str, Enum):
     TWIN_CHANGE_EVENTS = "TwinChangeEvents"
     DEVICE_LIFECYCLE_EVENTS = "DeviceLifecycleEvents"
     DEVICE_JOB_LIFECYCLE_EVENTS = "DeviceJobLifecycleEvents"
-    DEVICE_CONNECTION_STATE_EVENTS = "DeviceConnectionStateEvents"
 
 
 class State(str, Enum):

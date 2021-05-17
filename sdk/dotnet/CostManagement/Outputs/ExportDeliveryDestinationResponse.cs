@@ -14,36 +14,29 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
     public sealed class ExportDeliveryDestinationResponse
     {
         /// <summary>
-        /// The name of the container where exports will be uploaded. If the container does not exist it will be created.
+        /// The name of the container where exports will be uploaded.
         /// </summary>
         public readonly string Container;
         /// <summary>
-        /// The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+        /// The resource id of the storage account where exports will be delivered.
         /// </summary>
-        public readonly string? ResourceId;
+        public readonly string ResourceId;
         /// <summary>
         /// The name of the directory where exports will be uploaded.
         /// </summary>
         public readonly string? RootFolderPath;
-        /// <summary>
-        /// The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-        /// </summary>
-        public readonly string? StorageAccount;
 
         [OutputConstructor]
         private ExportDeliveryDestinationResponse(
             string container,
 
-            string? resourceId,
+            string resourceId,
 
-            string? rootFolderPath,
-
-            string? storageAccount)
+            string? rootFolderPath)
         {
             Container = container;
             ResourceId = resourceId;
             RootFolderPath = rootFolderPath;
-            StorageAccount = storageAccount;
         }
     }
 }

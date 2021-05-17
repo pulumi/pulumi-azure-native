@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for list BGP peer status API service call.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayBgpPeerStatus(args: GetVirtualNetworkGatewayBgpPeerStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayBgpPeerStatusResult> {
     if (!opts) {

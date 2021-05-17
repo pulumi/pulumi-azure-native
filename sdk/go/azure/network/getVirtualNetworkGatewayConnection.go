@@ -8,7 +8,7 @@ import (
 )
 
 // A common class for general resource information.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayConnectionResult, error) {
 	var rv LookupVirtualNetworkGatewayConnectionResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayConnection", args, &rv, opts...)
@@ -41,8 +41,6 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// The egress bytes transferred in this connection.
 	EgressBytesTransferred float64 `pulumi:"egressBytesTransferred"`
-	// List of egress NatRules.
-	EgressNatRules []SubResourceResponse `pulumi:"egressNatRules"`
 	// EnableBgp flag.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -53,8 +51,6 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	Id *string `pulumi:"id"`
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
-	// List of ingress NatRules.
-	IngressNatRules []SubResourceResponse `pulumi:"ingressNatRules"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
 	// The reference to local network gateway resource.

@@ -109,7 +109,7 @@ def get_managed_instance_private_endpoint_connection(managed_instance_name: Opti
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstancePrivateEndpointConnectionResult:
     """
     A private endpoint connection
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.

@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// EnableBgpRouteTranslationForNat flag.
-        /// </summary>
-        [Input("enableBgpRouteTranslationForNat")]
-        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
-
-        /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
         [Input("enableDnsForwarding")]
@@ -98,18 +92,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("natRules")]
-        private InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>? _natRules;
-
-        /// <summary>
-        /// NatRules for virtual network gateway.
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkGatewayNatRuleArgs> NatRules
-        {
-            get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
-            set => _natRules = value;
-        }
 
         /// <summary>
         /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.

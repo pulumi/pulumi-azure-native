@@ -228,7 +228,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
     DSCP Configuration in a resource group.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str dscp_configuration_name: The name of the resource.

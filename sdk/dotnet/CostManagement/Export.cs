@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// An export resource.
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Export")]
     public partial class Export : Pulumi.CustomResource
@@ -51,12 +51,6 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Output("nextRunTimeEstimate")]
         public Output<string> NextRunTimeEstimate { get; private set; } = null!;
-
-        /// <summary>
-        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-        /// </summary>
-        [Output("partitionData")]
-        public Output<bool?> PartitionData { get; private set; } = null!;
 
         /// <summary>
         /// If requested, has the most recent execution history for the export.
@@ -168,12 +162,6 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("format")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.FormatType>? Format { get; set; }
-
-        /// <summary>
-        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-        /// </summary>
-        [Input("partitionData")]
-        public Input<bool>? PartitionData { get; set; }
 
         /// <summary>
         /// Has schedule information for the export.

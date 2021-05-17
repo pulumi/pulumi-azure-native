@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
-        /// The reference to gateway load balancer frontend IP.
-        /// </summary>
-        [Input("gatewayLoadBalancer")]
-        public Input<Inputs.SubResourceArgs>? GatewayLoadBalancer { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

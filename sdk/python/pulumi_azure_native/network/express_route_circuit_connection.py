@@ -212,7 +212,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +236,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Backup of a Volume
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : Pulumi.CustomResource
@@ -75,12 +75,6 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-        /// </summary>
-        [Output("useExistingSnapshot")]
-        public Output<bool?> UseExistingSnapshot { get; private set; } = null!;
 
         /// <summary>
         /// Volume name
@@ -190,12 +184,6 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-        /// </summary>
-        [Input("useExistingSnapshot")]
-        public Input<bool>? UseExistingSnapshot { get; set; }
-
-        /// <summary>
         /// The name of the volume
         /// </summary>
         [Input("volumeName", required: true)]
@@ -203,7 +191,6 @@ namespace Pulumi.AzureNative.NetApp
 
         public BackupArgs()
         {
-            UseExistingSnapshot = false;
         }
     }
 }

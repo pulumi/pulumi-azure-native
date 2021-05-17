@@ -398,46 +398,15 @@ func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-type ResourceIdentityType pulumi.String
-
-const (
-	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
-	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
-	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
-	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
-)
-
-func (ResourceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The source that the routing rule is to be applied to, such as DeviceMessages.
 type RoutingSource pulumi.String
 
 const (
-	RoutingSourceInvalid                     = RoutingSource("Invalid")
-	RoutingSourceDeviceMessages              = RoutingSource("DeviceMessages")
-	RoutingSourceTwinChangeEvents            = RoutingSource("TwinChangeEvents")
-	RoutingSourceDeviceLifecycleEvents       = RoutingSource("DeviceLifecycleEvents")
-	RoutingSourceDeviceJobLifecycleEvents    = RoutingSource("DeviceJobLifecycleEvents")
-	RoutingSourceDeviceConnectionStateEvents = RoutingSource("DeviceConnectionStateEvents")
+	RoutingSourceInvalid                  = RoutingSource("Invalid")
+	RoutingSourceDeviceMessages           = RoutingSource("DeviceMessages")
+	RoutingSourceTwinChangeEvents         = RoutingSource("TwinChangeEvents")
+	RoutingSourceDeviceLifecycleEvents    = RoutingSource("DeviceLifecycleEvents")
+	RoutingSourceDeviceJobLifecycleEvents = RoutingSource("DeviceJobLifecycleEvents")
 )
 
 func (RoutingSource) ElementType() reflect.Type {

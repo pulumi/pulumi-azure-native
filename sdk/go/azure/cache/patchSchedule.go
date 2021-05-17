@@ -12,15 +12,15 @@ import (
 )
 
 // Response to put/get patch schedules for Redis cache.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
 	ScheduleEntries ScheduleEntryResponseArrayOutput `pulumi:"scheduleEntries"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -98,20 +98,20 @@ func GetPatchSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PatchSchedule resources.
 type patchScheduleState struct {
-	// The name of the resource
+	// Resource name.
 	Name *string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
 	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type PatchScheduleState struct {
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringPtrInput
 	// List of patch schedules for a Redis cache.
 	ScheduleEntries ScheduleEntryResponseArrayInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringPtrInput
 }
 

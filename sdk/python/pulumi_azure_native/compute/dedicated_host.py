@@ -179,7 +179,7 @@ class DedicatedHost(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2021-03-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +201,7 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2021-03-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.

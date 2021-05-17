@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetObjectReplicationPolicyResult
     {
         /// <summary>
-        /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Destination account name.
         /// </summary>
         public readonly string DestinationAccount;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse> Rules;
         /// <summary>
-        /// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+        /// Required. Source account name.
         /// </summary>
         public readonly string SourceAccount;
         /// <summary>

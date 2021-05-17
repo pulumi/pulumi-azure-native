@@ -84,7 +84,7 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult:
     """
     Azure Active Directory only authentication.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.

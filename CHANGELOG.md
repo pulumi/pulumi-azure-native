@@ -3,7 +3,46 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-- Add support for authentication agianst private and hybrid cloud environments. [#831](https://github.com/pulumi/pulumi-azure-native/pull/831/)
+#### New Features
+
+- Add support for authentication against private and hybrid cloud environments.
+  [#831](https://github.com/pulumi/pulumi-azure-native/pull/831/)
+
+#### New Resources
+
+- `compute:RestorePoint`
+- `compute:RestorePointCollection`
+- `desktopvirtualization:PrivateEndpointConnectionByHostPool`
+- `desktopvirtualization:PrivateEndpointConnectionByWorkspace`
+- `network:VirtualNetworkGatewayNatRule`
+
+#### New Functions
+
+- `compute:getRestorePoint`
+- `compute:getRestorePointCollection`
+- `desktopvirtualization:getPrivateEndpointConnectionByHostPool`
+- `desktopvirtualization:getPrivateEndpointConnectionByWorkspace`
+- `network:getVirtualNetworkGatewayNatRule`
+
+#### Updated API versions for top-level resources
+
+- `compute:VirtualMachine`, `compute:VirtualMachineExtension`, `compute:VirtualMachineRunCommandByVirtualMachine`,
+  `compute:VirtualMachineScaleSet`, `compute:VirtualMachineScaleSetExtension`, `compute:VirtualMachineScaleSetVM`,
+  `compute:VirtualMachineScaleSetVMExtension`, `compute:VirtualMachineScaleSetVMRunCommand` are upgraded from version
+  `2020-12-01` to `2021-03-01` to enable `RestorePoint` and `RestorePointCollection` resources
+
+#### Breaking Changes published by Microsoft
+
+- `appplatform` version `2021-03-03-preview` is renamed to `2021-06-01-preview`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14323))
+- `operationalinsights.Workspace` reshaped the `features` property
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14326))
+- Several properties in `datafactory` resources were changed from enums to unstructured dictionaries
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14160))
+- `botservice` removed the `cognitiveServicesSubscriptionId` property from `DirectLineSpeechChannelProperties`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14317))
+- `devtestlab:ScheduleCreationParameter`'s `location` property is now read-only
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14294))
 
 ---
 

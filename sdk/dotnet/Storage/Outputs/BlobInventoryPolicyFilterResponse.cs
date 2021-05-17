@@ -14,15 +14,15 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class BlobInventoryPolicyFilterResponse
     {
         /// <summary>
-        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
-        /// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+        /// Includes blob versions in blob inventory when value set to true.
         /// </summary>
         public readonly bool? IncludeBlobVersions;
         /// <summary>
-        /// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+        /// Includes blob snapshots in blob inventory when value set to true.
         /// </summary>
         public readonly bool? IncludeSnapshots;
         /// <summary>

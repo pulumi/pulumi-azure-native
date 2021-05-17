@@ -157,7 +157,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
-    API Version: 2021-03-01.
+    API Version: 2020-12-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

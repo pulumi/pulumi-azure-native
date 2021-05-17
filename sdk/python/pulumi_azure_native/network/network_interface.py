@@ -29,8 +29,7 @@ class NetworkInterfaceArgs:
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
                  nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
                  private_link_service: Optional[pulumi.Input['PrivateLinkServiceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -47,7 +46,6 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
         :param pulumi.Input['PrivateLinkServiceArgs'] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dns_settings is not None:
@@ -76,8 +74,6 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "private_link_service", private_link_service)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -247,18 +243,6 @@ class NetworkInterfaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        WorkloadType of the NetworkInterface for BareMetal resources
-        """
-        return pulumi.get(self, "workload_type")
-
-    @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "workload_type", value)
-
 
 class NetworkInterface(pulumi.CustomResource):
     @overload
@@ -279,11 +263,10 @@ class NetworkInterface(pulumi.CustomResource):
                  private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A network interface in a resource group.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +284,6 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] workload_type: WorkloadType of the NetworkInterface for BareMetal resources
         """
         ...
     @overload
@@ -311,7 +293,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A network interface in a resource group.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -342,7 +324,6 @@ class NetworkInterface(pulumi.CustomResource):
                  private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -371,7 +352,6 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["workload_type"] = workload_type
             __props__.__dict__["dscp_configuration"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["hosted_workloads"] = None
@@ -431,7 +411,6 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["tap_configurations"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine"] = None
-        __props__.__dict__["workload_type"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -617,12 +596,4 @@ class NetworkInterface(pulumi.CustomResource):
         The reference to a virtual machine.
         """
         return pulumi.get(self, "virtual_machine")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        WorkloadType of the NetworkInterface for BareMetal resources
-        """
-        return pulumi.get(self, "workload_type")
 

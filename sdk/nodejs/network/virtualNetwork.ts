@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -69,10 +69,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
-     * The FlowTimeout value (in minutes) for the Virtual Network
-     */
-    public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
-    /**
      * Array of IpAllocation which reference this VNET.
      */
     public readonly ipAllocations!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
@@ -130,7 +126,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) ?? false;
             inputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) ?? false;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -153,7 +148,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["enableVmProtection"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["extendedLocation"] = undefined /*out*/;
-            inputs["flowTimeoutInMinutes"] = undefined /*out*/;
             inputs["ipAllocations"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -205,10 +199,6 @@ export interface VirtualNetworkArgs {
      * The extended location of the virtual network.
      */
     readonly extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
-    /**
-     * The FlowTimeout value (in minutes) for the Virtual Network
-     */
-    readonly flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource ID.
      */

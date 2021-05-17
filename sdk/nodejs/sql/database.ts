@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -88,14 +88,6 @@ export class Database extends pulumi.CustomResource {
      * The number of secondary replicas associated with the database that are used to provide high availability.
      */
     public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
-    /**
-     * Infra encryption is enabled for this database.
-     */
-    public /*out*/ readonly isInfraEncryptionEnabled!: pulumi.Output<boolean>;
-    /**
-     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-     */
-    public readonly isLedgerOn!: pulumi.Output<boolean | undefined>;
     /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
@@ -211,7 +203,6 @@ export class Database extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             inputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
-            inputs["isLedgerOn"] = args ? args.isLedgerOn : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
@@ -241,7 +232,6 @@ export class Database extends pulumi.CustomResource {
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["isInfraEncryptionEnabled"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["maxLogSizeBytes"] = undefined /*out*/;
@@ -265,8 +255,6 @@ export class Database extends pulumi.CustomResource {
             inputs["elasticPoolId"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
             inputs["highAvailabilityReplicaCount"] = undefined /*out*/;
-            inputs["isInfraEncryptionEnabled"] = undefined /*out*/;
-            inputs["isLedgerOn"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -345,10 +333,6 @@ export interface DatabaseArgs {
      * The number of secondary replicas associated with the database that are used to provide high availability.
      */
     readonly highAvailabilityReplicaCount?: pulumi.Input<number>;
-    /**
-     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-     */
-    readonly isLedgerOn?: pulumi.Input<boolean>;
     /**
      * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
      */

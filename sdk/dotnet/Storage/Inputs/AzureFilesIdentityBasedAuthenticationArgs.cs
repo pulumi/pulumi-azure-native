@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public Input<Inputs.ActiveDirectoryPropertiesArgs>? ActiveDirectoryProperties { get; set; }
 
         /// <summary>
-        /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-        /// </summary>
-        [Input("defaultSharePermission")]
-        public InputUnion<string, Pulumi.AzureNative.Storage.DefaultSharePermission>? DefaultSharePermission { get; set; }
-
-        /// <summary>
         /// Indicates the directory service used.
         /// </summary>
         [Input("directoryServiceOptions", required: true)]

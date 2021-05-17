@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
     if (!opts) {
@@ -44,11 +44,11 @@ export interface GetPatchScheduleArgs {
  */
 export interface GetPatchScheduleResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -56,7 +56,7 @@ export interface GetPatchScheduleResult {
      */
     readonly scheduleEntries: outputs.cache.ScheduleEntryResponse[];
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     readonly type: string;
 }

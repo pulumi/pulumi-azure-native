@@ -8,7 +8,7 @@ import (
 )
 
 // Authorization in an ExpressRouteCircuit resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExpressRouteCircuitAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitAuthorizationResult, error) {
 	var rv LookupExpressRouteCircuitAuthorizationResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteCircuitAuthorization", args, &rv, opts...)

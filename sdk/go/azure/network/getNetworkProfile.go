@@ -8,7 +8,7 @@ import (
 )
 
 // Network profile resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkProfileResult, error) {
 	var rv LookupNetworkProfileResult
 	err := ctx.Invoke("azure-native:network:getNetworkProfile", args, &rv, opts...)

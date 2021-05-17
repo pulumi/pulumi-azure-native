@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL Database sync agent.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pulumi.InvokeOption) (*LookupSyncAgentResult, error) {
 	var rv LookupSyncAgentResult
 	err := ctx.Invoke("azure-native:sql:getSyncAgent", args, &rv, opts...)

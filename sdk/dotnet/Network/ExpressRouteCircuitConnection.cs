@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource

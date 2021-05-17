@@ -22,7 +22,6 @@ class BastionHostArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
@@ -32,7 +31,6 @@ class BastionHostArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input['SkuArgs'] sku: The sku of this Bastion Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -46,8 +44,6 @@ class BastionHostArgs:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -125,18 +121,6 @@ class BastionHostArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
-        """
-        The sku of this Bastion Host.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -159,12 +143,11 @@ class BastionHost(pulumi.CustomResource):
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Bastion Host resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +157,6 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of this Bastion Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -185,7 +167,7 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bastion Host resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param BastionHostArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +190,6 @@ class BastionHost(pulumi.CustomResource):
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BastionHostIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -230,7 +211,6 @@ class BastionHost(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -266,7 +246,6 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BastionHost(resource_name, opts=opts, __props__=__props__)
@@ -318,14 +297,6 @@ class BastionHost(pulumi.CustomResource):
         The provisioning state of the bastion host resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
-        """
-        The sku of this Bastion Host.
-        """
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter

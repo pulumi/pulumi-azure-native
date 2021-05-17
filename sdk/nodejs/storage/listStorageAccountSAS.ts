@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The List SAS credentials operation response.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSASResult> {
     if (!opts) {

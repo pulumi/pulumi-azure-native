@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// </summary>
         public readonly Outputs.ActiveDirectoryPropertiesResponse? ActiveDirectoryProperties;
         /// <summary>
-        /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-        /// </summary>
-        public readonly string? DefaultSharePermission;
-        /// <summary>
         /// Indicates the directory service used.
         /// </summary>
         public readonly string DirectoryServiceOptions;
@@ -30,12 +26,9 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private AzureFilesIdentityBasedAuthenticationResponse(
             Outputs.ActiveDirectoryPropertiesResponse? activeDirectoryProperties,
 
-            string? defaultSharePermission,
-
             string directoryServiceOptions)
         {
             ActiveDirectoryProperties = activeDirectoryProperties;
-            DefaultSharePermission = defaultSharePermission;
             DirectoryServiceOptions = directoryServiceOptions;
         }
     }

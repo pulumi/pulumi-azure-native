@@ -67,8 +67,6 @@ class CommonExportPropertiesResponse(dict):
             suggest = "delivery_info"
         elif key == "nextRunTimeEstimate":
             suggest = "next_run_time_estimate"
-        elif key == "partitionData":
-            suggest = "partition_data"
         elif key == "runHistory":
             suggest = "run_history"
 
@@ -88,7 +86,6 @@ class CommonExportPropertiesResponse(dict):
                  delivery_info: 'outputs.ExportDeliveryInfoResponse',
                  next_run_time_estimate: str,
                  format: Optional[str] = None,
-                 partition_data: Optional[bool] = None,
                  run_history: Optional['outputs.ExportExecutionListResultResponse'] = None):
         """
         The common properties of the export.
@@ -96,7 +93,6 @@ class CommonExportPropertiesResponse(dict):
         :param 'ExportDeliveryInfoResponse' delivery_info: Has delivery information for the export.
         :param str next_run_time_estimate: If the export has an active schedule, provides an estimate of the next execution time.
         :param str format: The format of the export being delivered. Currently only 'Csv' is supported.
-        :param bool partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
         :param 'ExportExecutionListResultResponse' run_history: If requested, has the most recent execution history for the export.
         """
         pulumi.set(__self__, "definition", definition)
@@ -104,8 +100,6 @@ class CommonExportPropertiesResponse(dict):
         pulumi.set(__self__, "next_run_time_estimate", next_run_time_estimate)
         if format is not None:
             pulumi.set(__self__, "format", format)
-        if partition_data is not None:
-            pulumi.set(__self__, "partition_data", partition_data)
         if run_history is not None:
             pulumi.set(__self__, "run_history", run_history)
 
@@ -140,14 +134,6 @@ class CommonExportPropertiesResponse(dict):
         The format of the export being delivered. Currently only 'Csv' is supported.
         """
         return pulumi.get(self, "format")
-
-    @property
-    @pulumi.getter(name="partitionData")
-    def partition_data(self) -> Optional[bool]:
-        """
-        If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.
-        """
-        return pulumi.get(self, "partition_data")
 
     @property
     @pulumi.getter(name="runHistory")
@@ -656,7 +642,7 @@ class ExportDefinitionResponse(dict):
 @pulumi.output_type
 class ExportDeliveryDestinationResponse(dict):
     """
-    This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+    The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
     """
     @staticmethod
     def __key_warning(key: str):
@@ -665,8 +651,6 @@ class ExportDeliveryDestinationResponse(dict):
             suggest = "resource_id"
         elif key == "rootFolderPath":
             suggest = "root_folder_path"
-        elif key == "storageAccount":
-            suggest = "storage_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExportDeliveryDestinationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -681,37 +665,32 @@ class ExportDeliveryDestinationResponse(dict):
 
     def __init__(__self__, *,
                  container: str,
-                 resource_id: Optional[str] = None,
-                 root_folder_path: Optional[str] = None,
-                 storage_account: Optional[str] = None):
+                 resource_id: str,
+                 root_folder_path: Optional[str] = None):
         """
-        This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Azure Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
-        :param str container: The name of the container where exports will be uploaded. If the container does not exist it will be created.
-        :param str resource_id: The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+        :param str container: The name of the container where exports will be uploaded.
+        :param str resource_id: The resource id of the storage account where exports will be delivered.
         :param str root_folder_path: The name of the directory where exports will be uploaded.
-        :param str storage_account: The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
         pulumi.set(__self__, "container", container)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if root_folder_path is not None:
             pulumi.set(__self__, "root_folder_path", root_folder_path)
-        if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
 
     @property
     @pulumi.getter
     def container(self) -> str:
         """
-        The name of the container where exports will be uploaded. If the container does not exist it will be created.
+        The name of the container where exports will be uploaded.
         """
         return pulumi.get(self, "container")
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    def resource_id(self) -> str:
         """
-        The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
+        The resource id of the storage account where exports will be delivered.
         """
         return pulumi.get(self, "resource_id")
 
@@ -722,14 +701,6 @@ class ExportDeliveryDestinationResponse(dict):
         The name of the directory where exports will be uploaded.
         """
         return pulumi.get(self, "root_folder_path")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[str]:
-        """
-        The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
-        """
-        return pulumi.get(self, "storage_account")
 
 
 @pulumi.output_type

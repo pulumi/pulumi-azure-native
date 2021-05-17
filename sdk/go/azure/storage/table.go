@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type Table struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the resource
+     * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -45,7 +45,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      */
     public readonly scheduleEntries!: pulumi.Output<outputs.cache.ScheduleEntryResponse[]>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

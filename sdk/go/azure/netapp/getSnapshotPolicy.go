@@ -8,7 +8,7 @@ import (
 )
 
 // Snapshot policy information
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
 	err := ctx.Invoke("azure-native:netapp:getSnapshotPolicy", args, &rv, opts...)

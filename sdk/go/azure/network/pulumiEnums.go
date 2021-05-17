@@ -755,34 +755,6 @@ func (e BackendEnabledState) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The name of this Bastion Host.
-type BastionHostSkuName pulumi.String
-
-const (
-	BastionHostSkuNameBasic    = BastionHostSkuName("Basic")
-	BastionHostSkuNameStandard = BastionHostSkuName("Standard")
-)
-
-func (BastionHostSkuName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e BastionHostSkuName) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BastionHostSkuName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BastionHostSkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e BastionHostSkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The commissioned state of the Custom IP Prefix.
 type CommissionedState pulumi.String
 
@@ -1155,34 +1127,6 @@ func (e DeleteExistingPeering) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DeleteExistingPeering) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Specify what happens to the public IP address when the VM using it is deleted
-type DeleteOptions pulumi.String
-
-const (
-	DeleteOptionsDelete = DeleteOptions("Delete")
-	DeleteOptionsDetach = DeleteOptions("Detach")
-)
-
-func (DeleteOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DeleteOptions) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeleteOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeleteOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DeleteOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -2342,64 +2286,6 @@ func (e FrontDoorRedirectType) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Traffic type of gateway load balancer tunnel interface.
-type GatewayLoadBalancerTunnelInterfaceType pulumi.String
-
-const (
-	GatewayLoadBalancerTunnelInterfaceTypeNone     = GatewayLoadBalancerTunnelInterfaceType("None")
-	GatewayLoadBalancerTunnelInterfaceTypeInternal = GatewayLoadBalancerTunnelInterfaceType("Internal")
-	GatewayLoadBalancerTunnelInterfaceTypeExternal = GatewayLoadBalancerTunnelInterfaceType("External")
-)
-
-func (GatewayLoadBalancerTunnelInterfaceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e GatewayLoadBalancerTunnelInterfaceType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayLoadBalancerTunnelInterfaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayLoadBalancerTunnelInterfaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e GatewayLoadBalancerTunnelInterfaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Protocol of gateway load balancer tunnel interface.
-type GatewayLoadBalancerTunnelProtocol pulumi.String
-
-const (
-	GatewayLoadBalancerTunnelProtocolNone   = GatewayLoadBalancerTunnelProtocol("None")
-	GatewayLoadBalancerTunnelProtocolNative = GatewayLoadBalancerTunnelProtocol("Native")
-	GatewayLoadBalancerTunnelProtocolVXLAN  = GatewayLoadBalancerTunnelProtocol("VXLAN")
-)
-
-func (GatewayLoadBalancerTunnelProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e GatewayLoadBalancerTunnelProtocol) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayLoadBalancerTunnelProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayLoadBalancerTunnelProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e GatewayLoadBalancerTunnelProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Group connectivity type.
 type GroupConnectivity pulumi.String
 
@@ -2792,7 +2678,6 @@ type LoadBalancerSkuName pulumi.String
 const (
 	LoadBalancerSkuNameBasic    = LoadBalancerSkuName("Basic")
 	LoadBalancerSkuNameStandard = LoadBalancerSkuName("Standard")
-	LoadBalancerSkuNameGateway  = LoadBalancerSkuName("Gateway")
 )
 
 func (LoadBalancerSkuName) ElementType() reflect.Type {
@@ -3459,35 +3344,6 @@ func (e PreferredIPVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PreferredIPVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The preferred gateway to route on-prem traffic
-type PreferredRoutingGateway pulumi.String
-
-const (
-	PreferredRoutingGatewayExpressRoute = PreferredRoutingGateway("ExpressRoute")
-	PreferredRoutingGatewayVpnGateway   = PreferredRoutingGateway("VpnGateway")
-	PreferredRoutingGatewayNone         = PreferredRoutingGateway("None")
-)
-
-func (PreferredRoutingGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e PreferredRoutingGateway) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PreferredRoutingGateway) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PreferredRoutingGateway) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PreferredRoutingGateway) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -4643,36 +4499,6 @@ func (e VirtualNetworkGatewayTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutpu
 }
 
 func (e VirtualNetworkGatewayTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The peering sync status of the virtual network peering.
-type VirtualNetworkPeeringLevel pulumi.String
-
-const (
-	VirtualNetworkPeeringLevelFullyInSync             = VirtualNetworkPeeringLevel("FullyInSync")
-	VirtualNetworkPeeringLevelRemoteNotInSync         = VirtualNetworkPeeringLevel("RemoteNotInSync")
-	VirtualNetworkPeeringLevelLocalNotInSync          = VirtualNetworkPeeringLevel("LocalNotInSync")
-	VirtualNetworkPeeringLevelLocalAndRemoteNotInSync = VirtualNetworkPeeringLevel("LocalAndRemoteNotInSync")
-)
-
-func (VirtualNetworkPeeringLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e VirtualNetworkPeeringLevel) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualNetworkPeeringLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualNetworkPeeringLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e VirtualNetworkPeeringLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -218,7 +218,7 @@ def get_sync_group(database_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
     An Azure SQL Database sync group.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.

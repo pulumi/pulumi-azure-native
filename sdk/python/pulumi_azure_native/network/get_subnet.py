@@ -314,7 +314,7 @@ def get_subnet(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
     Subnet in a virtual network resource.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.

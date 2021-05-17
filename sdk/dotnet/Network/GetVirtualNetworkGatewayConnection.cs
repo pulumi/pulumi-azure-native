@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// A common class for general resource information.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithVersion());
@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double EgressBytesTransferred;
         /// <summary>
-        /// List of egress NatRules.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> EgressNatRules;
-        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         public readonly bool? EnableBgp;
@@ -95,10 +91,6 @@ namespace Pulumi.AzureNative.Network
         /// The ingress bytes transferred in this connection.
         /// </summary>
         public readonly double IngressBytesTransferred;
-        /// <summary>
-        /// List of ingress NatRules.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> IngressNatRules;
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
@@ -184,8 +176,6 @@ namespace Pulumi.AzureNative.Network
 
             double egressBytesTransferred,
 
-            ImmutableArray<Outputs.SubResourceResponse> egressNatRules,
-
             bool? enableBgp,
 
             string etag,
@@ -195,8 +185,6 @@ namespace Pulumi.AzureNative.Network
             string? id,
 
             double ingressBytesTransferred,
-
-            ImmutableArray<Outputs.SubResourceResponse> ingressNatRules,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
 
@@ -239,13 +227,11 @@ namespace Pulumi.AzureNative.Network
             ConnectionType = connectionType;
             DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressBytesTransferred = egressBytesTransferred;
-            EgressNatRules = egressNatRules;
             EnableBgp = enableBgp;
             Etag = etag;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
             Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
-            IngressNatRules = ingressNatRules;
             IpsecPolicies = ipsecPolicies;
             LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;

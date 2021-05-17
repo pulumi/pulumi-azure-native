@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A sensitivity label.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class SensitivityLabel extends pulumi.CustomResource {
     /**

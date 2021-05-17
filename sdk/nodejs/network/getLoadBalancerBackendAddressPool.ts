@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
     if (!opts) {
@@ -83,10 +83,6 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      * The provisioning state of the backend address pool resource.
      */
     readonly provisioningState: string;
-    /**
-     * An array of gateway load balancer tunnel interfaces.
-     */
-    readonly tunnelInterfaces?: outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[];
     /**
      * Type of the resource.
      */

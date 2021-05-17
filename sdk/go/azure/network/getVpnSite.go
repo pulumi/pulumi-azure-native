@@ -8,7 +8,7 @@ import (
 )
 
 // VpnSite Resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVpnSite(ctx *pulumi.Context, args *LookupVpnSiteArgs, opts ...pulumi.InvokeOption) (*LookupVpnSiteResult, error) {
 	var rv LookupVpnSiteResult
 	err := ctx.Invoke("azure-native:network:getVpnSite", args, &rv, opts...)

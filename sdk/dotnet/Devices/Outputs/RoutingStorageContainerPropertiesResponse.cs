@@ -46,10 +46,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Managed identity properties of routing storage endpoint.
-        /// </summary>
-        public readonly Outputs.ManagedIdentityResponse? Identity;
-        /// <summary>
         /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         /// </summary>
         public readonly int? MaxChunkSizeInBytes;
@@ -84,8 +80,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string? id,
 
-            Outputs.ManagedIdentityResponse? identity,
-
             int? maxChunkSizeInBytes,
 
             string name,
@@ -102,7 +96,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
             EndpointUri = endpointUri;
             FileNameFormat = fileNameFormat;
             Id = id;
-            Identity = identity;
             MaxChunkSizeInBytes = maxChunkSizeInBytes;
             Name = name;
             ResourceGroup = resourceGroup;

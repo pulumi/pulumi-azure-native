@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     if (!opts) {
@@ -31,7 +31,7 @@ export interface GetFileShareArgs {
      */
     readonly accountName: string;
     /**
-     * Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
+     * Optional, used to expand the properties within share's properties.
      */
     readonly expand?: string;
     /**
@@ -85,18 +85,6 @@ export interface GetFileShareResult {
      */
     readonly lastModifiedTime: string;
     /**
-     * Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-     */
-    readonly leaseDuration: string;
-    /**
-     * Lease state of the share.
-     */
-    readonly leaseState: string;
-    /**
-     * The lease status of the share.
-     */
-    readonly leaseStatus: string;
-    /**
      * A name-value pair to associate with the share as metadata.
      */
     readonly metadata?: {[key: string]: string};
@@ -120,10 +108,6 @@ export interface GetFileShareResult {
      * The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
      */
     readonly shareUsageBytes: number;
-    /**
-     * List of stored access policies specified on the share.
-     */
-    readonly signedIdentifiers?: outputs.storage.SignedIdentifierResponse[];
     /**
      * Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
      */

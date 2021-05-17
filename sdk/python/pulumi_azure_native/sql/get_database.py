@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, id=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -63,12 +63,6 @@ class GetDatabaseResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_infra_encryption_enabled and not isinstance(is_infra_encryption_enabled, bool):
-            raise TypeError("Expected argument 'is_infra_encryption_enabled' to be a bool")
-        pulumi.set(__self__, "is_infra_encryption_enabled", is_infra_encryption_enabled)
-        if is_ledger_on and not isinstance(is_ledger_on, bool):
-            raise TypeError("Expected argument 'is_ledger_on' to be a bool")
-        pulumi.set(__self__, "is_ledger_on", is_ledger_on)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -241,22 +235,6 @@ class GetDatabaseResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isInfraEncryptionEnabled")
-    def is_infra_encryption_enabled(self) -> bool:
-        """
-        Infra encryption is enabled for this database.
-        """
-        return pulumi.get(self, "is_infra_encryption_enabled")
-
-    @property
-    @pulumi.getter(name="isLedgerOn")
-    def is_ledger_on(self) -> Optional[bool]:
-        """
-        Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-        """
-        return pulumi.get(self, "is_ledger_on")
 
     @property
     @pulumi.getter
@@ -449,8 +427,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             failover_group_id=self.failover_group_id,
             high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
-            is_infra_encryption_enabled=self.is_infra_encryption_enabled,
-            is_ledger_on=self.is_ledger_on,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
@@ -479,7 +455,7 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     A database resource.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -511,8 +487,6 @@ def get_database(database_name: Optional[str] = None,
         failover_group_id=__ret__.failover_group_id,
         high_availability_replica_count=__ret__.high_availability_replica_count,
         id=__ret__.id,
-        is_infra_encryption_enabled=__ret__.is_infra_encryption_enabled,
-        is_ledger_on=__ret__.is_ledger_on,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,

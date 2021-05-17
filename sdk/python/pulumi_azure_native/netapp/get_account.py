@@ -144,7 +144,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     NetApp account resource
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str account_name: The name of the NetApp account

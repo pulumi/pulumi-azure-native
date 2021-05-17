@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type Queue struct {
 	pulumi.CustomResourceState
 

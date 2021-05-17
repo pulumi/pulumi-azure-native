@@ -8,7 +8,7 @@ import (
 )
 
 // Job Resource.
-// API Version: 2021-03-01.
+// API Version: 2020-11-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:databox:getJob", args, &rv, opts...)

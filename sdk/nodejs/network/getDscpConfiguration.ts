@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * DSCP Configuration in a resource group.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
     if (!opts) {

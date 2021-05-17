@@ -216,7 +216,7 @@ class IpAllocation(pulumi.CustomResource):
                  __props__=None):
         """
         IpAllocation resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class IpAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IpAllocation resource.
-        API Version: 2021-02-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param IpAllocationArgs args: The arguments to use to populate this resource's properties.

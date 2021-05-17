@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about the connection monitor.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
     if (!opts) {

@@ -828,37 +828,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// The name of this Bastion Host.
-    /// </summary>
-    [EnumType]
-    public readonly struct BastionHostSkuName : IEquatable<BastionHostSkuName>
-    {
-        private readonly string _value;
-
-        private BastionHostSkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BastionHostSkuName Basic { get; } = new BastionHostSkuName("Basic");
-        public static BastionHostSkuName Standard { get; } = new BastionHostSkuName("Standard");
-
-        public static bool operator ==(BastionHostSkuName left, BastionHostSkuName right) => left.Equals(right);
-        public static bool operator !=(BastionHostSkuName left, BastionHostSkuName right) => !left.Equals(right);
-
-        public static explicit operator string(BastionHostSkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BastionHostSkuName other && Equals(other);
-        public bool Equals(BastionHostSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The commissioned state of the Custom IP Prefix.
     /// </summary>
     [EnumType]
@@ -1265,37 +1234,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeleteExistingPeering other && Equals(other);
         public bool Equals(DeleteExistingPeering other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specify what happens to the public IP address when the VM using it is deleted
-    /// </summary>
-    [EnumType]
-    public readonly struct DeleteOptions : IEquatable<DeleteOptions>
-    {
-        private readonly string _value;
-
-        private DeleteOptions(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
-        public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
-
-        public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
-        public static bool operator !=(DeleteOptions left, DeleteOptions right) => !left.Equals(right);
-
-        public static explicit operator string(DeleteOptions value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeleteOptions other && Equals(other);
-        public bool Equals(DeleteOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2580,70 +2518,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Traffic type of gateway load balancer tunnel interface.
-    /// </summary>
-    [EnumType]
-    public readonly struct GatewayLoadBalancerTunnelInterfaceType : IEquatable<GatewayLoadBalancerTunnelInterfaceType>
-    {
-        private readonly string _value;
-
-        private GatewayLoadBalancerTunnelInterfaceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GatewayLoadBalancerTunnelInterfaceType None { get; } = new GatewayLoadBalancerTunnelInterfaceType("None");
-        public static GatewayLoadBalancerTunnelInterfaceType Internal { get; } = new GatewayLoadBalancerTunnelInterfaceType("Internal");
-        public static GatewayLoadBalancerTunnelInterfaceType External { get; } = new GatewayLoadBalancerTunnelInterfaceType("External");
-
-        public static bool operator ==(GatewayLoadBalancerTunnelInterfaceType left, GatewayLoadBalancerTunnelInterfaceType right) => left.Equals(right);
-        public static bool operator !=(GatewayLoadBalancerTunnelInterfaceType left, GatewayLoadBalancerTunnelInterfaceType right) => !left.Equals(right);
-
-        public static explicit operator string(GatewayLoadBalancerTunnelInterfaceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayLoadBalancerTunnelInterfaceType other && Equals(other);
-        public bool Equals(GatewayLoadBalancerTunnelInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Protocol of gateway load balancer tunnel interface.
-    /// </summary>
-    [EnumType]
-    public readonly struct GatewayLoadBalancerTunnelProtocol : IEquatable<GatewayLoadBalancerTunnelProtocol>
-    {
-        private readonly string _value;
-
-        private GatewayLoadBalancerTunnelProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GatewayLoadBalancerTunnelProtocol None { get; } = new GatewayLoadBalancerTunnelProtocol("None");
-        public static GatewayLoadBalancerTunnelProtocol Native { get; } = new GatewayLoadBalancerTunnelProtocol("Native");
-        public static GatewayLoadBalancerTunnelProtocol VXLAN { get; } = new GatewayLoadBalancerTunnelProtocol("VXLAN");
-
-        public static bool operator ==(GatewayLoadBalancerTunnelProtocol left, GatewayLoadBalancerTunnelProtocol right) => left.Equals(right);
-        public static bool operator !=(GatewayLoadBalancerTunnelProtocol left, GatewayLoadBalancerTunnelProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(GatewayLoadBalancerTunnelProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayLoadBalancerTunnelProtocol other && Equals(other);
-        public bool Equals(GatewayLoadBalancerTunnelProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Group connectivity type.
     /// </summary>
     [EnumType]
@@ -3083,7 +2957,6 @@ namespace Pulumi.AzureNative.Network
 
         public static LoadBalancerSkuName Basic { get; } = new LoadBalancerSkuName("Basic");
         public static LoadBalancerSkuName Standard { get; } = new LoadBalancerSkuName("Standard");
-        public static LoadBalancerSkuName Gateway { get; } = new LoadBalancerSkuName("Gateway");
 
         public static bool operator ==(LoadBalancerSkuName left, LoadBalancerSkuName right) => left.Equals(right);
         public static bool operator !=(LoadBalancerSkuName left, LoadBalancerSkuName right) => !left.Equals(right);
@@ -3806,38 +3679,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PreferredIPVersion other && Equals(other);
         public bool Equals(PreferredIPVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The preferred gateway to route on-prem traffic
-    /// </summary>
-    [EnumType]
-    public readonly struct PreferredRoutingGateway : IEquatable<PreferredRoutingGateway>
-    {
-        private readonly string _value;
-
-        private PreferredRoutingGateway(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PreferredRoutingGateway ExpressRoute { get; } = new PreferredRoutingGateway("ExpressRoute");
-        public static PreferredRoutingGateway VpnGateway { get; } = new PreferredRoutingGateway("VpnGateway");
-        public static PreferredRoutingGateway None { get; } = new PreferredRoutingGateway("None");
-
-        public static bool operator ==(PreferredRoutingGateway left, PreferredRoutingGateway right) => left.Equals(right);
-        public static bool operator !=(PreferredRoutingGateway left, PreferredRoutingGateway right) => !left.Equals(right);
-
-        public static explicit operator string(PreferredRoutingGateway value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PreferredRoutingGateway other && Equals(other);
-        public bool Equals(PreferredRoutingGateway other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5107,39 +4948,6 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualNetworkGatewayType other && Equals(other);
         public bool Equals(VirtualNetworkGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The peering sync status of the virtual network peering.
-    /// </summary>
-    [EnumType]
-    public readonly struct VirtualNetworkPeeringLevel : IEquatable<VirtualNetworkPeeringLevel>
-    {
-        private readonly string _value;
-
-        private VirtualNetworkPeeringLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VirtualNetworkPeeringLevel FullyInSync { get; } = new VirtualNetworkPeeringLevel("FullyInSync");
-        public static VirtualNetworkPeeringLevel RemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("RemoteNotInSync");
-        public static VirtualNetworkPeeringLevel LocalNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalNotInSync");
-        public static VirtualNetworkPeeringLevel LocalAndRemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalAndRemoteNotInSync");
-
-        public static bool operator ==(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => left.Equals(right);
-        public static bool operator !=(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => !left.Equals(right);
-
-        public static explicit operator string(VirtualNetworkPeeringLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VirtualNetworkPeeringLevel other && Equals(other);
-        public bool Equals(VirtualNetworkPeeringLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

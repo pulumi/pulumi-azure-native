@@ -8,7 +8,7 @@ import (
 )
 
 // Volume resource
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("azure-native:netapp:getVolume", args, &rv, opts...)

@@ -97,7 +97,7 @@ def get_certificate(certificate_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     The X509 Certificate.
-    API Version: 2021-03-31.
+    API Version: 2020-08-31.
 
 
     :param str certificate_name: The name of the certificate

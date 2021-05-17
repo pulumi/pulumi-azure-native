@@ -8,7 +8,7 @@ import (
 )
 
 // VirtualHub Resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
 	err := ctx.Invoke("azure-native:network:getVirtualHub", args, &rv, opts...)
@@ -49,8 +49,6 @@ type LookupVirtualHubResult struct {
 	Name string `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
 	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
-	// The preferred gateway to route on-prem traffic
-	PreferredRoutingGateway *string `pulumi:"preferredRoutingGateway"`
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.

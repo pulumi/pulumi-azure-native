@@ -1707,10 +1707,8 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 
 // Details of single instance of redis.
 type RedisInstanceDetailsResponse struct {
-	// Specifies whether the instance is a primary node.
+	// Specifies whether the instance is a master node.
 	IsMaster bool `pulumi:"isMaster"`
-	// Specifies whether the instance is a primary node.
-	IsPrimary bool `pulumi:"isPrimary"`
 	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
 	NonSslPort int `pulumi:"nonSslPort"`
 	// If clustering is enabled, the Shard ID of Redis Instance
@@ -1734,10 +1732,8 @@ type RedisInstanceDetailsResponseInput interface {
 
 // Details of single instance of redis.
 type RedisInstanceDetailsResponseArgs struct {
-	// Specifies whether the instance is a primary node.
+	// Specifies whether the instance is a master node.
 	IsMaster pulumi.BoolInput `pulumi:"isMaster"`
-	// Specifies whether the instance is a primary node.
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
 	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
 	NonSslPort pulumi.IntInput `pulumi:"nonSslPort"`
 	// If clustering is enabled, the Shard ID of Redis Instance
@@ -1800,14 +1796,9 @@ func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutput
 	return o
 }
 
-// Specifies whether the instance is a primary node.
+// Specifies whether the instance is a master node.
 func (o RedisInstanceDetailsResponseOutput) IsMaster() pulumi.BoolOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsMaster }).(pulumi.BoolOutput)
-}
-
-// Specifies whether the instance is a primary node.
-func (o RedisInstanceDetailsResponseOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
 // If enableNonSslPort is true, provides Redis instance Non-SSL port.

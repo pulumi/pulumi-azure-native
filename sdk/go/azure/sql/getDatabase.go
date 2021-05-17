@@ -8,7 +8,7 @@ import (
 )
 
 // A database resource.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:sql:getDatabase", args, &rv, opts...)
@@ -57,10 +57,6 @@ type LookupDatabaseResult struct {
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Infra encryption is enabled for this database.
-	IsInfraEncryptionEnabled bool `pulumi:"isInfraEncryptionEnabled"`
-	// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-	IsLedgerOn *bool `pulumi:"isLedgerOn"`
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.

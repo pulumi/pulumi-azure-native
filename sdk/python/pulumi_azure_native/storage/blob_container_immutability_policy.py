@@ -125,7 +125,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.

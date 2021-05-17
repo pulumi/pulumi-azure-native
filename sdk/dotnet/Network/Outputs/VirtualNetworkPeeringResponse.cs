@@ -46,15 +46,11 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? PeeringState;
         /// <summary>
-        /// The peering sync status of the virtual network peering.
-        /// </summary>
-        public readonly string? PeeringSyncLevel;
-        /// <summary>
         /// The provisioning state of the virtual network peering resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The reference to the address space peered with the remote virtual network.
+        /// The reference to the remote virtual network address space.
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? RemoteAddressSpace;
         /// <summary>
@@ -65,10 +61,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         /// </summary>
         public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
-        /// <summary>
-        /// The reference to the current address space of the remote virtual network.
-        /// </summary>
-        public readonly Outputs.AddressSpaceResponse? RemoteVirtualNetworkAddressSpace;
         /// <summary>
         /// The resourceGuid property of the Virtual Network peering resource.
         /// </summary>
@@ -100,8 +92,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? peeringState,
 
-            string? peeringSyncLevel,
-
             string provisioningState,
 
             Outputs.AddressSpaceResponse? remoteAddressSpace,
@@ -109,8 +99,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             Outputs.VirtualNetworkBgpCommunitiesResponse? remoteBgpCommunities,
 
             Outputs.SubResourceResponse? remoteVirtualNetwork,
-
-            Outputs.AddressSpaceResponse? remoteVirtualNetworkAddressSpace,
 
             string resourceGuid,
 
@@ -126,12 +114,10 @@ namespace Pulumi.AzureNative.Network.Outputs
             Id = id;
             Name = name;
             PeeringState = peeringState;
-            PeeringSyncLevel = peeringSyncLevel;
             ProvisioningState = provisioningState;
             RemoteAddressSpace = remoteAddressSpace;
             RemoteBgpCommunities = remoteBgpCommunities;
             RemoteVirtualNetwork = remoteVirtualNetwork;
-            RemoteVirtualNetworkAddressSpace = remoteVirtualNetworkAddressSpace;
             ResourceGuid = resourceGuid;
             Type = type;
             UseRemoteGateways = useRemoteGateways;

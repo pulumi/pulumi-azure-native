@@ -8,7 +8,7 @@ import (
 )
 
 // An instance failover group.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupInstanceFailoverGroup(ctx *pulumi.Context, args *LookupInstanceFailoverGroupArgs, opts ...pulumi.InvokeOption) (*LookupInstanceFailoverGroupResult, error) {
 	var rv LookupInstanceFailoverGroupResult
 	err := ctx.Invoke("azure-native:sql:getInstanceFailoverGroup", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capacity pool resource
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {

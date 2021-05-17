@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Pool of backend IP addresses.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetLoadBalancerBackendAddressPoolResult> InvokeAsync(GetLoadBalancerBackendAddressPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerBackendAddressPoolResult>("azure-native:network:getLoadBalancerBackendAddressPool", args ?? new GetLoadBalancerBackendAddressPoolArgs(), options.WithVersion());
@@ -90,10 +90,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// An array of gateway load balancer tunnel interfaces.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> TunnelInterfaces;
-        /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
@@ -120,8 +116,6 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
-            ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> tunnelInterfaces,
-
             string type)
         {
             BackendIPConfigurations = backendIPConfigurations;
@@ -134,7 +128,6 @@ namespace Pulumi.AzureNative.Network
             OutboundRule = outboundRule;
             OutboundRules = outboundRules;
             ProvisioningState = provisioningState;
-            TunnelInterfaces = tunnelInterfaces;
             Type = type;
         }
     }

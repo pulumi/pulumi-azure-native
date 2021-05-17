@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL managed instance.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupManagedInstance(ctx *pulumi.Context, args *LookupManagedInstanceArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceResult, error) {
 	var rv LookupManagedInstanceResult
 	err := ctx.Invoke("azure-native:sql:getManagedInstance", args, &rv, opts...)

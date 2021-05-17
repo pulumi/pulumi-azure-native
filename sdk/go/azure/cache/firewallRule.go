@@ -12,17 +12,17 @@ import (
 )
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
 	// highest IP address included in the range
 	EndIP pulumi.StringOutput `pulumi:"endIP"`
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// lowest IP address included in the range
 	StartIP pulumi.StringOutput `pulumi:"startIP"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -117,22 +117,22 @@ func GetFirewallRule(ctx *pulumi.Context,
 type firewallRuleState struct {
 	// highest IP address included in the range
 	EndIP *string `pulumi:"endIP"`
-	// The name of the resource
+	// Resource name.
 	Name *string `pulumi:"name"`
 	// lowest IP address included in the range
 	StartIP *string `pulumi:"startIP"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
 	// highest IP address included in the range
 	EndIP pulumi.StringPtrInput
-	// The name of the resource
+	// Resource name.
 	Name pulumi.StringPtrInput
 	// lowest IP address included in the range
 	StartIP pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type pulumi.StringPtrInput
 }
 

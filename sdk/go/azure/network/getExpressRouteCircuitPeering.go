@@ -8,7 +8,7 @@ import (
 )
 
 // Peering in an ExpressRouteCircuit resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
 	var rv LookupExpressRouteCircuitPeeringResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteCircuitPeering", args, &rv, opts...)

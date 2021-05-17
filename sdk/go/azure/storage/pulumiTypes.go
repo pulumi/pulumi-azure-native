@@ -10,344 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AccessPolicy struct {
-	// Expiry time of the access policy
-	Expiry *string `pulumi:"expiry"`
-	// List of abbreviated permissions.
-	Permission *string `pulumi:"permission"`
-	// Start time of the access policy
-	Start *string `pulumi:"start"`
-}
-
-// AccessPolicyInput is an input type that accepts AccessPolicyArgs and AccessPolicyOutput values.
-// You can construct a concrete instance of `AccessPolicyInput` via:
-//
-//          AccessPolicyArgs{...}
-type AccessPolicyInput interface {
-	pulumi.Input
-
-	ToAccessPolicyOutput() AccessPolicyOutput
-	ToAccessPolicyOutputWithContext(context.Context) AccessPolicyOutput
-}
-
-type AccessPolicyArgs struct {
-	// Expiry time of the access policy
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// List of abbreviated permissions.
-	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	// Start time of the access policy
-	Start pulumi.StringPtrInput `pulumi:"start"`
-}
-
-func (AccessPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
-}
-
-func (i AccessPolicyArgs) ToAccessPolicyOutput() AccessPolicyOutput {
-	return i.ToAccessPolicyOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyArgs) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
-}
-
-func (i AccessPolicyArgs) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
-	return i.ToAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyArgs) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput).ToAccessPolicyPtrOutputWithContext(ctx)
-}
-
-// AccessPolicyPtrInput is an input type that accepts AccessPolicyArgs, AccessPolicyPtr and AccessPolicyPtrOutput values.
-// You can construct a concrete instance of `AccessPolicyPtrInput` via:
-//
-//          AccessPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyPtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyPtrOutput() AccessPolicyPtrOutput
-	ToAccessPolicyPtrOutputWithContext(context.Context) AccessPolicyPtrOutput
-}
-
-type accessPolicyPtrType AccessPolicyArgs
-
-func AccessPolicyPtr(v *AccessPolicyArgs) AccessPolicyPtrInput {
-	return (*accessPolicyPtrType)(v)
-}
-
-func (*accessPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicy)(nil)).Elem()
-}
-
-func (i *accessPolicyPtrType) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
-	return i.ToAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyPtrType) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyPtrOutput)
-}
-
-type AccessPolicyOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicy)(nil)).Elem()
-}
-
-func (o AccessPolicyOutput) ToAccessPolicyOutput() AccessPolicyOutput {
-	return o
-}
-
-func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context) AccessPolicyOutput {
-	return o
-}
-
-func (o AccessPolicyOutput) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
-	return o.ToAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyOutput) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *AccessPolicy {
-		return &v
-	}).(AccessPolicyPtrOutput)
-}
-
-// Expiry time of the access policy
-func (o AccessPolicyOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
-}
-
-// List of abbreviated permissions.
-func (o AccessPolicyOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *string { return v.Permission }).(pulumi.StringPtrOutput)
-}
-
-// Start time of the access policy
-func (o AccessPolicyOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *string { return v.Start }).(pulumi.StringPtrOutput)
-}
-
-type AccessPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicy)(nil)).Elem()
-}
-
-func (o AccessPolicyPtrOutput) ToAccessPolicyPtrOutput() AccessPolicyPtrOutput {
-	return o
-}
-
-func (o AccessPolicyPtrOutput) ToAccessPolicyPtrOutputWithContext(ctx context.Context) AccessPolicyPtrOutput {
-	return o
-}
-
-func (o AccessPolicyPtrOutput) Elem() AccessPolicyOutput {
-	return o.ApplyT(func(v *AccessPolicy) AccessPolicy { return *v }).(AccessPolicyOutput)
-}
-
-// Expiry time of the access policy
-func (o AccessPolicyPtrOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Expiry
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of abbreviated permissions.
-func (o AccessPolicyPtrOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Permission
-	}).(pulumi.StringPtrOutput)
-}
-
-// Start time of the access policy
-func (o AccessPolicyPtrOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Start
-	}).(pulumi.StringPtrOutput)
-}
-
-type AccessPolicyResponse struct {
-	// Expiry time of the access policy
-	Expiry *string `pulumi:"expiry"`
-	// List of abbreviated permissions.
-	Permission *string `pulumi:"permission"`
-	// Start time of the access policy
-	Start *string `pulumi:"start"`
-}
-
-// AccessPolicyResponseInput is an input type that accepts AccessPolicyResponseArgs and AccessPolicyResponseOutput values.
-// You can construct a concrete instance of `AccessPolicyResponseInput` via:
-//
-//          AccessPolicyResponseArgs{...}
-type AccessPolicyResponseInput interface {
-	pulumi.Input
-
-	ToAccessPolicyResponseOutput() AccessPolicyResponseOutput
-	ToAccessPolicyResponseOutputWithContext(context.Context) AccessPolicyResponseOutput
-}
-
-type AccessPolicyResponseArgs struct {
-	// Expiry time of the access policy
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// List of abbreviated permissions.
-	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	// Start time of the access policy
-	Start pulumi.StringPtrInput `pulumi:"start"`
-}
-
-func (AccessPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyResponse)(nil)).Elem()
-}
-
-func (i AccessPolicyResponseArgs) ToAccessPolicyResponseOutput() AccessPolicyResponseOutput {
-	return i.ToAccessPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyResponseArgs) ToAccessPolicyResponseOutputWithContext(ctx context.Context) AccessPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResponseOutput)
-}
-
-func (i AccessPolicyResponseArgs) ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput {
-	return i.ToAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyResponseArgs) ToAccessPolicyResponsePtrOutputWithContext(ctx context.Context) AccessPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResponseOutput).ToAccessPolicyResponsePtrOutputWithContext(ctx)
-}
-
-// AccessPolicyResponsePtrInput is an input type that accepts AccessPolicyResponseArgs, AccessPolicyResponsePtr and AccessPolicyResponsePtrOutput values.
-// You can construct a concrete instance of `AccessPolicyResponsePtrInput` via:
-//
-//          AccessPolicyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput
-	ToAccessPolicyResponsePtrOutputWithContext(context.Context) AccessPolicyResponsePtrOutput
-}
-
-type accessPolicyResponsePtrType AccessPolicyResponseArgs
-
-func AccessPolicyResponsePtr(v *AccessPolicyResponseArgs) AccessPolicyResponsePtrInput {
-	return (*accessPolicyResponsePtrType)(v)
-}
-
-func (*accessPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyResponse)(nil)).Elem()
-}
-
-func (i *accessPolicyResponsePtrType) ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput {
-	return i.ToAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyResponsePtrType) ToAccessPolicyResponsePtrOutputWithContext(ctx context.Context) AccessPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResponsePtrOutput)
-}
-
-type AccessPolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyResponse)(nil)).Elem()
-}
-
-func (o AccessPolicyResponseOutput) ToAccessPolicyResponseOutput() AccessPolicyResponseOutput {
-	return o
-}
-
-func (o AccessPolicyResponseOutput) ToAccessPolicyResponseOutputWithContext(ctx context.Context) AccessPolicyResponseOutput {
-	return o
-}
-
-func (o AccessPolicyResponseOutput) ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput {
-	return o.ToAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyResponseOutput) ToAccessPolicyResponsePtrOutputWithContext(ctx context.Context) AccessPolicyResponsePtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *AccessPolicyResponse {
-		return &v
-	}).(AccessPolicyResponsePtrOutput)
-}
-
-// Expiry time of the access policy
-func (o AccessPolicyResponseOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
-}
-
-// List of abbreviated permissions.
-func (o AccessPolicyResponseOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Permission }).(pulumi.StringPtrOutput)
-}
-
-// Start time of the access policy
-func (o AccessPolicyResponseOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
-}
-
-type AccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyResponse)(nil)).Elem()
-}
-
-func (o AccessPolicyResponsePtrOutput) ToAccessPolicyResponsePtrOutput() AccessPolicyResponsePtrOutput {
-	return o
-}
-
-func (o AccessPolicyResponsePtrOutput) ToAccessPolicyResponsePtrOutputWithContext(ctx context.Context) AccessPolicyResponsePtrOutput {
-	return o
-}
-
-func (o AccessPolicyResponsePtrOutput) Elem() AccessPolicyResponseOutput {
-	return o.ApplyT(func(v *AccessPolicyResponse) AccessPolicyResponse { return *v }).(AccessPolicyResponseOutput)
-}
-
-// Expiry time of the access policy
-func (o AccessPolicyResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Expiry
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of abbreviated permissions.
-func (o AccessPolicyResponsePtrOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Permission
-	}).(pulumi.StringPtrOutput)
-}
-
-// Start time of the access policy
-func (o AccessPolicyResponsePtrOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Start
-	}).(pulumi.StringPtrOutput)
-}
-
 // Settings properties for Active Directory (AD).
 type ActiveDirectoryProperties struct {
 	// Specifies the security identifier (SID) for Azure Storage.
@@ -810,8 +472,6 @@ func (o ActiveDirectoryPropertiesResponsePtrOutput) NetBiosDomainName() pulumi.S
 type AzureFilesIdentityBasedAuthentication struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryProperties `pulumi:"activeDirectoryProperties"`
-	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-	DefaultSharePermission *string `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
 }
@@ -831,8 +491,6 @@ type AzureFilesIdentityBasedAuthenticationInput interface {
 type AzureFilesIdentityBasedAuthenticationArgs struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties ActiveDirectoryPropertiesPtrInput `pulumi:"activeDirectoryProperties"`
-	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-	DefaultSharePermission pulumi.StringPtrInput `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions pulumi.StringInput `pulumi:"directoryServiceOptions"`
 }
@@ -922,11 +580,6 @@ func (o AzureFilesIdentityBasedAuthenticationOutput) ActiveDirectoryProperties()
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
-// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-func (o AzureFilesIdentityBasedAuthenticationOutput) DefaultSharePermission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) *string { return v.DefaultSharePermission }).(pulumi.StringPtrOutput)
-}
-
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationOutput) DirectoryServiceOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthentication) string { return v.DirectoryServiceOptions }).(pulumi.StringOutput)
@@ -960,16 +613,6 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) ActiveDirectoryPropertie
 	}).(ActiveDirectoryPropertiesPtrOutput)
 }
 
-// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DefaultSharePermission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultSharePermission
-	}).(pulumi.StringPtrOutput)
-}
-
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthentication) *string {
@@ -984,8 +627,6 @@ func (o AzureFilesIdentityBasedAuthenticationPtrOutput) DirectoryServiceOptions(
 type AzureFilesIdentityBasedAuthenticationResponse struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties *ActiveDirectoryPropertiesResponse `pulumi:"activeDirectoryProperties"`
-	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-	DefaultSharePermission *string `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions string `pulumi:"directoryServiceOptions"`
 }
@@ -1005,8 +646,6 @@ type AzureFilesIdentityBasedAuthenticationResponseInput interface {
 type AzureFilesIdentityBasedAuthenticationResponseArgs struct {
 	// Required if choose AD.
 	ActiveDirectoryProperties ActiveDirectoryPropertiesResponsePtrInput `pulumi:"activeDirectoryProperties"`
-	// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-	DefaultSharePermission pulumi.StringPtrInput `pulumi:"defaultSharePermission"`
 	// Indicates the directory service used.
 	DirectoryServiceOptions pulumi.StringInput `pulumi:"directoryServiceOptions"`
 }
@@ -1096,11 +735,6 @@ func (o AzureFilesIdentityBasedAuthenticationResponseOutput) ActiveDirectoryProp
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
-// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-func (o AzureFilesIdentityBasedAuthenticationResponseOutput) DefaultSharePermission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) *string { return v.DefaultSharePermission }).(pulumi.StringPtrOutput)
-}
-
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationResponseOutput) DirectoryServiceOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFilesIdentityBasedAuthenticationResponse) string { return v.DirectoryServiceOptions }).(pulumi.StringOutput)
@@ -1136,16 +770,6 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) ActiveDirectoryP
 	}).(ActiveDirectoryPropertiesResponsePtrOutput)
 }
 
-// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DefaultSharePermission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultSharePermission
-	}).(pulumi.StringPtrOutput)
-}
-
 // Indicates the directory service used.
 func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryServiceOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFilesIdentityBasedAuthenticationResponse) *string {
@@ -1156,18 +780,10 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryService
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinition struct {
 	// An object that defines the filter set.
-	Filters *BlobInventoryPolicyFilter `pulumi:"filters"`
-	// This is a required field, it specifies the format for the inventory files.
-	Format string `pulumi:"format"`
-	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-	ObjectType string `pulumi:"objectType"`
-	// This is a required field. This field is used to schedule an inventory formation.
-	Schedule string `pulumi:"schedule"`
-	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-	SchemaFields []string `pulumi:"schemaFields"`
+	Filters BlobInventoryPolicyFilter `pulumi:"filters"`
 }
 
 // BlobInventoryPolicyDefinitionInput is an input type that accepts BlobInventoryPolicyDefinitionArgs and BlobInventoryPolicyDefinitionOutput values.
@@ -1181,18 +797,10 @@ type BlobInventoryPolicyDefinitionInput interface {
 	ToBlobInventoryPolicyDefinitionOutputWithContext(context.Context) BlobInventoryPolicyDefinitionOutput
 }
 
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinitionArgs struct {
 	// An object that defines the filter set.
-	Filters BlobInventoryPolicyFilterPtrInput `pulumi:"filters"`
-	// This is a required field, it specifies the format for the inventory files.
-	Format pulumi.StringInput `pulumi:"format"`
-	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// This is a required field. This field is used to schedule an inventory formation.
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-	SchemaFields pulumi.StringArrayInput `pulumi:"schemaFields"`
+	Filters BlobInventoryPolicyFilterInput `pulumi:"filters"`
 }
 
 func (BlobInventoryPolicyDefinitionArgs) ElementType() reflect.Type {
@@ -1207,7 +815,7 @@ func (i BlobInventoryPolicyDefinitionArgs) ToBlobInventoryPolicyDefinitionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyDefinitionOutput)
 }
 
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyDefinitionOutput) ElementType() reflect.Type {
@@ -1223,42 +831,14 @@ func (o BlobInventoryPolicyDefinitionOutput) ToBlobInventoryPolicyDefinitionOutp
 }
 
 // An object that defines the filter set.
-func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterPtrOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) *BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterPtrOutput)
+func (o BlobInventoryPolicyDefinitionOutput) Filters() BlobInventoryPolicyFilterOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinition) BlobInventoryPolicyFilter { return v.Filters }).(BlobInventoryPolicyFilterOutput)
 }
 
-// This is a required field, it specifies the format for the inventory files.
-func (o BlobInventoryPolicyDefinitionOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.Format }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-func (o BlobInventoryPolicyDefinitionOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.ObjectType }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field is used to schedule an inventory formation.
-func (o BlobInventoryPolicyDefinitionOutput) Schedule() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) string { return v.Schedule }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-func (o BlobInventoryPolicyDefinitionOutput) SchemaFields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinition) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
-}
-
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinitionResponse struct {
 	// An object that defines the filter set.
-	Filters *BlobInventoryPolicyFilterResponse `pulumi:"filters"`
-	// This is a required field, it specifies the format for the inventory files.
-	Format string `pulumi:"format"`
-	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-	ObjectType string `pulumi:"objectType"`
-	// This is a required field. This field is used to schedule an inventory formation.
-	Schedule string `pulumi:"schedule"`
-	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-	SchemaFields []string `pulumi:"schemaFields"`
+	Filters BlobInventoryPolicyFilterResponse `pulumi:"filters"`
 }
 
 // BlobInventoryPolicyDefinitionResponseInput is an input type that accepts BlobInventoryPolicyDefinitionResponseArgs and BlobInventoryPolicyDefinitionResponseOutput values.
@@ -1272,18 +852,10 @@ type BlobInventoryPolicyDefinitionResponseInput interface {
 	ToBlobInventoryPolicyDefinitionResponseOutputWithContext(context.Context) BlobInventoryPolicyDefinitionResponseOutput
 }
 
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinitionResponseArgs struct {
 	// An object that defines the filter set.
-	Filters BlobInventoryPolicyFilterResponsePtrInput `pulumi:"filters"`
-	// This is a required field, it specifies the format for the inventory files.
-	Format pulumi.StringInput `pulumi:"format"`
-	// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// This is a required field. This field is used to schedule an inventory formation.
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-	SchemaFields pulumi.StringArrayInput `pulumi:"schemaFields"`
+	Filters BlobInventoryPolicyFilterResponseInput `pulumi:"filters"`
 }
 
 func (BlobInventoryPolicyDefinitionResponseArgs) ElementType() reflect.Type {
@@ -1298,7 +870,7 @@ func (i BlobInventoryPolicyDefinitionResponseArgs) ToBlobInventoryPolicyDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyDefinitionResponseOutput)
 }
 
-// An object that defines the blob inventory rule.
+// An object that defines the blob inventory rule. Each definition consists of a set of filters.
 type BlobInventoryPolicyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1314,37 +886,17 @@ func (o BlobInventoryPolicyDefinitionResponseOutput) ToBlobInventoryPolicyDefini
 }
 
 // An object that defines the filter set.
-func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponsePtrOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) *BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponsePtrOutput)
+func (o BlobInventoryPolicyDefinitionResponseOutput) Filters() BlobInventoryPolicyFilterResponseOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) BlobInventoryPolicyFilterResponse { return v.Filters }).(BlobInventoryPolicyFilterResponseOutput)
 }
 
-// This is a required field, it specifies the format for the inventory files.
-func (o BlobInventoryPolicyDefinitionResponseOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.Format }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-func (o BlobInventoryPolicyDefinitionResponseOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field is used to schedule an inventory formation.
-func (o BlobInventoryPolicyDefinitionResponseOutput) Schedule() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) string { return v.Schedule }).(pulumi.StringOutput)
-}
-
-// This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime'. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl' are valid only for Hns enabled accounts.
-func (o BlobInventoryPolicyDefinitionResponseOutput) SchemaFields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyDefinitionResponse) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
-}
-
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilter struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+	// Includes blob versions in blob inventory when value set to true.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+	// Includes blob snapshots in blob inventory when value set to true.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
 	// An array of strings for blob prefixes to be matched.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -1361,13 +913,13 @@ type BlobInventoryPolicyFilterInput interface {
 	ToBlobInventoryPolicyFilterOutputWithContext(context.Context) BlobInventoryPolicyFilterOutput
 }
 
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilterArgs struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+	// Includes blob versions in blob inventory when value set to true.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+	// Includes blob snapshots in blob inventory when value set to true.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
 	// An array of strings for blob prefixes to be matched.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -1385,48 +937,7 @@ func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterOutput)
 }
 
-func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
-	return i.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
-}
-
-func (i BlobInventoryPolicyFilterArgs) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterOutput).ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx)
-}
-
-// BlobInventoryPolicyFilterPtrInput is an input type that accepts BlobInventoryPolicyFilterArgs, BlobInventoryPolicyFilterPtr and BlobInventoryPolicyFilterPtrOutput values.
-// You can construct a concrete instance of `BlobInventoryPolicyFilterPtrInput` via:
-//
-//          BlobInventoryPolicyFilterArgs{...}
-//
-//  or:
-//
-//          nil
-type BlobInventoryPolicyFilterPtrInput interface {
-	pulumi.Input
-
-	ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput
-	ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Context) BlobInventoryPolicyFilterPtrOutput
-}
-
-type blobInventoryPolicyFilterPtrType BlobInventoryPolicyFilterArgs
-
-func BlobInventoryPolicyFilterPtr(v *BlobInventoryPolicyFilterArgs) BlobInventoryPolicyFilterPtrInput {
-	return (*blobInventoryPolicyFilterPtrType)(v)
-}
-
-func (*blobInventoryPolicyFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicyFilter)(nil)).Elem()
-}
-
-func (i *blobInventoryPolicyFilterPtrType) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
-	return i.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *blobInventoryPolicyFilterPtrType) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterPtrOutput)
-}
-
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilterOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyFilterOutput) ElementType() reflect.Type {
@@ -1441,27 +952,17 @@ func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterOutputWithCo
 	return o
 }
 
-func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
-	return o.ToBlobInventoryPolicyFilterPtrOutputWithContext(context.Background())
-}
-
-func (o BlobInventoryPolicyFilterOutput) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyFilter) *BlobInventoryPolicyFilter {
-		return &v
-	}).(BlobInventoryPolicyFilterPtrOutput)
-}
-
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 func (o BlobInventoryPolicyFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+// Includes blob versions in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+// Includes blob snapshots in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -1471,71 +972,13 @@ func (o BlobInventoryPolicyFilterOutput) PrefixMatch() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v BlobInventoryPolicyFilter) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
 
-type BlobInventoryPolicyFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (BlobInventoryPolicyFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicyFilter)(nil)).Elem()
-}
-
-func (o BlobInventoryPolicyFilterPtrOutput) ToBlobInventoryPolicyFilterPtrOutput() BlobInventoryPolicyFilterPtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyFilterPtrOutput) ToBlobInventoryPolicyFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterPtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyFilterPtrOutput) Elem() BlobInventoryPolicyFilterOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilter) BlobInventoryPolicyFilter { return *v }).(BlobInventoryPolicyFilterOutput)
-}
-
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
-func (o BlobInventoryPolicyFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.BlobTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
-func (o BlobInventoryPolicyFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeBlobVersions
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
-func (o BlobInventoryPolicyFilterPtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeSnapshots
-	}).(pulumi.BoolPtrOutput)
-}
-
-// An array of strings for blob prefixes to be matched.
-func (o BlobInventoryPolicyFilterPtrOutput) PrefixMatch() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PrefixMatch
-	}).(pulumi.StringArrayOutput)
-}
-
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilterResponse struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 	BlobTypes []string `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+	// Includes blob versions in blob inventory when value set to true.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+	// Includes blob snapshots in blob inventory when value set to true.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
 	// An array of strings for blob prefixes to be matched.
 	PrefixMatch []string `pulumi:"prefixMatch"`
@@ -1552,13 +995,13 @@ type BlobInventoryPolicyFilterResponseInput interface {
 	ToBlobInventoryPolicyFilterResponseOutputWithContext(context.Context) BlobInventoryPolicyFilterResponseOutput
 }
 
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilterResponseArgs struct {
-	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+	// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
-	// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+	// Includes blob versions in blob inventory when value set to true.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
-	// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+	// Includes blob snapshots in blob inventory when value set to true.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
 	// An array of strings for blob prefixes to be matched.
 	PrefixMatch pulumi.StringArrayInput `pulumi:"prefixMatch"`
@@ -1576,48 +1019,7 @@ func (i BlobInventoryPolicyFilterResponseArgs) ToBlobInventoryPolicyFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterResponseOutput)
 }
 
-func (i BlobInventoryPolicyFilterResponseArgs) ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput {
-	return i.ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BlobInventoryPolicyFilterResponseArgs) ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterResponseOutput).ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx)
-}
-
-// BlobInventoryPolicyFilterResponsePtrInput is an input type that accepts BlobInventoryPolicyFilterResponseArgs, BlobInventoryPolicyFilterResponsePtr and BlobInventoryPolicyFilterResponsePtrOutput values.
-// You can construct a concrete instance of `BlobInventoryPolicyFilterResponsePtrInput` via:
-//
-//          BlobInventoryPolicyFilterResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type BlobInventoryPolicyFilterResponsePtrInput interface {
-	pulumi.Input
-
-	ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput
-	ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(context.Context) BlobInventoryPolicyFilterResponsePtrOutput
-}
-
-type blobInventoryPolicyFilterResponsePtrType BlobInventoryPolicyFilterResponseArgs
-
-func BlobInventoryPolicyFilterResponsePtr(v *BlobInventoryPolicyFilterResponseArgs) BlobInventoryPolicyFilterResponsePtrInput {
-	return (*blobInventoryPolicyFilterResponsePtrType)(v)
-}
-
-func (*blobInventoryPolicyFilterResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicyFilterResponse)(nil)).Elem()
-}
-
-func (i *blobInventoryPolicyFilterResponsePtrType) ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput {
-	return i.ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *blobInventoryPolicyFilterResponsePtrType) ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyFilterResponsePtrOutput)
-}
-
-// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+// An object that defines the blob inventory rule filter conditions.
 type BlobInventoryPolicyFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyFilterResponseOutput) ElementType() reflect.Type {
@@ -1632,27 +1034,17 @@ func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResp
 	return o
 }
 
-func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput {
-	return o.ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BlobInventoryPolicyFilterResponseOutput) ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponsePtrOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *BlobInventoryPolicyFilterResponse {
-		return &v
-	}).(BlobInventoryPolicyFilterResponsePtrOutput)
-}
-
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
 func (o BlobInventoryPolicyFilterResponseOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
-// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+// Includes blob versions in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
 
-// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+// Includes blob snapshots in blob inventory when value set to true.
 func (o BlobInventoryPolicyFilterResponseOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -1662,70 +1054,10 @@ func (o BlobInventoryPolicyFilterResponseOutput) PrefixMatch() pulumi.StringArra
 	return o.ApplyT(func(v BlobInventoryPolicyFilterResponse) []string { return v.PrefixMatch }).(pulumi.StringArrayOutput)
 }
 
-type BlobInventoryPolicyFilterResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BlobInventoryPolicyFilterResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobInventoryPolicyFilterResponse)(nil)).Elem()
-}
-
-func (o BlobInventoryPolicyFilterResponsePtrOutput) ToBlobInventoryPolicyFilterResponsePtrOutput() BlobInventoryPolicyFilterResponsePtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyFilterResponsePtrOutput) ToBlobInventoryPolicyFilterResponsePtrOutputWithContext(ctx context.Context) BlobInventoryPolicyFilterResponsePtrOutput {
-	return o
-}
-
-func (o BlobInventoryPolicyFilterResponsePtrOutput) Elem() BlobInventoryPolicyFilterResponseOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) BlobInventoryPolicyFilterResponse { return *v }).(BlobInventoryPolicyFilterResponseOutput)
-}
-
-// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
-func (o BlobInventoryPolicyFilterResponsePtrOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.BlobTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
-func (o BlobInventoryPolicyFilterResponsePtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeBlobVersions
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
-func (o BlobInventoryPolicyFilterResponsePtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeSnapshots
-	}).(pulumi.BoolPtrOutput)
-}
-
-// An array of strings for blob prefixes to be matched.
-func (o BlobInventoryPolicyFilterResponsePtrOutput) PrefixMatch() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BlobInventoryPolicyFilterResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PrefixMatch
-	}).(pulumi.StringArrayOutput)
-}
-
 // An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
 type BlobInventoryPolicyRule struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinition `pulumi:"definition"`
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination string `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled bool `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -1747,8 +1079,6 @@ type BlobInventoryPolicyRuleInput interface {
 type BlobInventoryPolicyRuleArgs struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionInput `pulumi:"definition"`
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination pulumi.StringInput `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -1812,11 +1142,6 @@ func (o BlobInventoryPolicyRuleOutput) Definition() BlobInventoryPolicyDefinitio
 	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyDefinition { return v.Definition }).(BlobInventoryPolicyDefinitionOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
-func (o BlobInventoryPolicyRuleOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Destination }).(pulumi.StringOutput)
-}
-
 // Rule is enabled when set to true.
 func (o BlobInventoryPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1851,8 +1176,6 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 type BlobInventoryPolicyRuleResponse struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionResponse `pulumi:"definition"`
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination string `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled bool `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -1874,8 +1197,6 @@ type BlobInventoryPolicyRuleResponseInput interface {
 type BlobInventoryPolicyRuleResponseArgs struct {
 	// An object that defines the blob inventory policy rule.
 	Definition BlobInventoryPolicyDefinitionResponseInput `pulumi:"definition"`
-	// Container name where blob inventory files are stored. Must be pre-created.
-	Destination pulumi.StringInput `pulumi:"destination"`
 	// Rule is enabled when set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
@@ -1939,11 +1260,6 @@ func (o BlobInventoryPolicyRuleResponseOutput) Definition() BlobInventoryPolicyD
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) BlobInventoryPolicyDefinitionResponse { return v.Definition }).(BlobInventoryPolicyDefinitionResponseOutput)
 }
 
-// Container name where blob inventory files are stored. Must be pre-created.
-func (o BlobInventoryPolicyRuleResponseOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) string { return v.Destination }).(pulumi.StringOutput)
-}
-
 // Rule is enabled when set to true.
 func (o BlobInventoryPolicyRuleResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1976,6 +1292,8 @@ func (o BlobInventoryPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) Blo
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchema struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled bool `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -1997,6 +1315,8 @@ type BlobInventoryPolicySchemaInput interface {
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchemaArgs struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination pulumi.StringInput `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -2083,6 +1403,11 @@ func (o BlobInventoryPolicySchemaOutput) ToBlobInventoryPolicySchemaPtrOutputWit
 	}).(BlobInventoryPolicySchemaPtrOutput)
 }
 
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchema) string { return v.Destination }).(pulumi.StringOutput)
+}
+
 // Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchema) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -2114,6 +1439,16 @@ func (o BlobInventoryPolicySchemaPtrOutput) ToBlobInventoryPolicySchemaPtrOutput
 
 func (o BlobInventoryPolicySchemaPtrOutput) Elem() BlobInventoryPolicySchemaOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchema) BlobInventoryPolicySchema { return *v }).(BlobInventoryPolicySchemaOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Policy is enabled if set to true.
@@ -2148,6 +1483,8 @@ func (o BlobInventoryPolicySchemaPtrOutput) Type() pulumi.StringPtrOutput {
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchemaResponse struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination string `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled bool `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -2169,6 +1506,8 @@ type BlobInventoryPolicySchemaResponseInput interface {
 
 // The storage account blob inventory policy rules.
 type BlobInventoryPolicySchemaResponseArgs struct {
+	// Container name where blob inventory files are stored. Must be pre-created.
+	Destination pulumi.StringInput `pulumi:"destination"`
 	// Policy is enabled if set to true.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -2255,6 +1594,11 @@ func (o BlobInventoryPolicySchemaResponseOutput) ToBlobInventoryPolicySchemaResp
 	}).(BlobInventoryPolicySchemaResponsePtrOutput)
 }
 
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaResponseOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) string { return v.Destination }).(pulumi.StringOutput)
+}
+
 // Policy is enabled if set to true.
 func (o BlobInventoryPolicySchemaResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BlobInventoryPolicySchemaResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -2286,6 +1630,16 @@ func (o BlobInventoryPolicySchemaResponsePtrOutput) ToBlobInventoryPolicySchemaR
 
 func (o BlobInventoryPolicySchemaResponsePtrOutput) Elem() BlobInventoryPolicySchemaResponseOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) BlobInventoryPolicySchemaResponse { return *v }).(BlobInventoryPolicySchemaResponseOutput)
+}
+
+// Container name where blob inventory files are stored. Must be pre-created.
+func (o BlobInventoryPolicySchemaResponsePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicySchemaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Policy is enabled if set to true.
@@ -8021,312 +7375,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 		}
 		return v.UpdateHistory
 	}).(UpdateHistoryPropertyResponseArrayOutput)
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioning struct {
-	// This is an immutable property, when set to true it enables object level immutability at the container level.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// ImmutableStorageWithVersioningInput is an input type that accepts ImmutableStorageWithVersioningArgs and ImmutableStorageWithVersioningOutput values.
-// You can construct a concrete instance of `ImmutableStorageWithVersioningInput` via:
-//
-//          ImmutableStorageWithVersioningArgs{...}
-type ImmutableStorageWithVersioningInput interface {
-	pulumi.Input
-
-	ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput
-	ToImmutableStorageWithVersioningOutputWithContext(context.Context) ImmutableStorageWithVersioningOutput
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioningArgs struct {
-	// This is an immutable property, when set to true it enables object level immutability at the container level.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (ImmutableStorageWithVersioningArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutableStorageWithVersioning)(nil)).Elem()
-}
-
-func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput {
-	return i.ToImmutableStorageWithVersioningOutputWithContext(context.Background())
-}
-
-func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningOutput)
-}
-
-func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
-	return i.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
-}
-
-func (i ImmutableStorageWithVersioningArgs) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningOutput).ToImmutableStorageWithVersioningPtrOutputWithContext(ctx)
-}
-
-// ImmutableStorageWithVersioningPtrInput is an input type that accepts ImmutableStorageWithVersioningArgs, ImmutableStorageWithVersioningPtr and ImmutableStorageWithVersioningPtrOutput values.
-// You can construct a concrete instance of `ImmutableStorageWithVersioningPtrInput` via:
-//
-//          ImmutableStorageWithVersioningArgs{...}
-//
-//  or:
-//
-//          nil
-type ImmutableStorageWithVersioningPtrInput interface {
-	pulumi.Input
-
-	ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput
-	ToImmutableStorageWithVersioningPtrOutputWithContext(context.Context) ImmutableStorageWithVersioningPtrOutput
-}
-
-type immutableStorageWithVersioningPtrType ImmutableStorageWithVersioningArgs
-
-func ImmutableStorageWithVersioningPtr(v *ImmutableStorageWithVersioningArgs) ImmutableStorageWithVersioningPtrInput {
-	return (*immutableStorageWithVersioningPtrType)(v)
-}
-
-func (*immutableStorageWithVersioningPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutableStorageWithVersioning)(nil)).Elem()
-}
-
-func (i *immutableStorageWithVersioningPtrType) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
-	return i.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
-}
-
-func (i *immutableStorageWithVersioningPtrType) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningPtrOutput)
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioningOutput struct{ *pulumi.OutputState }
-
-func (ImmutableStorageWithVersioningOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutableStorageWithVersioning)(nil)).Elem()
-}
-
-func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningOutput() ImmutableStorageWithVersioningOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
-	return o.ToImmutableStorageWithVersioningPtrOutputWithContext(context.Background())
-}
-
-func (o ImmutableStorageWithVersioningOutput) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioning) *ImmutableStorageWithVersioning {
-		return &v
-	}).(ImmutableStorageWithVersioningPtrOutput)
-}
-
-// This is an immutable property, when set to true it enables object level immutability at the container level.
-func (o ImmutableStorageWithVersioningOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ImmutableStorageWithVersioningPtrOutput struct{ *pulumi.OutputState }
-
-func (ImmutableStorageWithVersioningPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutableStorageWithVersioning)(nil)).Elem()
-}
-
-func (o ImmutableStorageWithVersioningPtrOutput) ToImmutableStorageWithVersioningPtrOutput() ImmutableStorageWithVersioningPtrOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningPtrOutput) ToImmutableStorageWithVersioningPtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningPtrOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningPtrOutput) Elem() ImmutableStorageWithVersioningOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioning) ImmutableStorageWithVersioning { return *v }).(ImmutableStorageWithVersioningOutput)
-}
-
-// This is an immutable property, when set to true it enables object level immutability at the container level.
-func (o ImmutableStorageWithVersioningPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioning) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioningResponse struct {
-	// This is an immutable property, when set to true it enables object level immutability at the container level.
-	Enabled *bool `pulumi:"enabled"`
-	// This property denotes the container level immutability to object level immutability migration state.
-	MigrationState string `pulumi:"migrationState"`
-	// Returns the date and time the object level immutability was enabled.
-	TimeStamp string `pulumi:"timeStamp"`
-}
-
-// ImmutableStorageWithVersioningResponseInput is an input type that accepts ImmutableStorageWithVersioningResponseArgs and ImmutableStorageWithVersioningResponseOutput values.
-// You can construct a concrete instance of `ImmutableStorageWithVersioningResponseInput` via:
-//
-//          ImmutableStorageWithVersioningResponseArgs{...}
-type ImmutableStorageWithVersioningResponseInput interface {
-	pulumi.Input
-
-	ToImmutableStorageWithVersioningResponseOutput() ImmutableStorageWithVersioningResponseOutput
-	ToImmutableStorageWithVersioningResponseOutputWithContext(context.Context) ImmutableStorageWithVersioningResponseOutput
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioningResponseArgs struct {
-	// This is an immutable property, when set to true it enables object level immutability at the container level.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// This property denotes the container level immutability to object level immutability migration state.
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// Returns the date and time the object level immutability was enabled.
-	TimeStamp pulumi.StringInput `pulumi:"timeStamp"`
-}
-
-func (ImmutableStorageWithVersioningResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutableStorageWithVersioningResponse)(nil)).Elem()
-}
-
-func (i ImmutableStorageWithVersioningResponseArgs) ToImmutableStorageWithVersioningResponseOutput() ImmutableStorageWithVersioningResponseOutput {
-	return i.ToImmutableStorageWithVersioningResponseOutputWithContext(context.Background())
-}
-
-func (i ImmutableStorageWithVersioningResponseArgs) ToImmutableStorageWithVersioningResponseOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningResponseOutput)
-}
-
-func (i ImmutableStorageWithVersioningResponseArgs) ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput {
-	return i.ToImmutableStorageWithVersioningResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ImmutableStorageWithVersioningResponseArgs) ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningResponseOutput).ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx)
-}
-
-// ImmutableStorageWithVersioningResponsePtrInput is an input type that accepts ImmutableStorageWithVersioningResponseArgs, ImmutableStorageWithVersioningResponsePtr and ImmutableStorageWithVersioningResponsePtrOutput values.
-// You can construct a concrete instance of `ImmutableStorageWithVersioningResponsePtrInput` via:
-//
-//          ImmutableStorageWithVersioningResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ImmutableStorageWithVersioningResponsePtrInput interface {
-	pulumi.Input
-
-	ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput
-	ToImmutableStorageWithVersioningResponsePtrOutputWithContext(context.Context) ImmutableStorageWithVersioningResponsePtrOutput
-}
-
-type immutableStorageWithVersioningResponsePtrType ImmutableStorageWithVersioningResponseArgs
-
-func ImmutableStorageWithVersioningResponsePtr(v *ImmutableStorageWithVersioningResponseArgs) ImmutableStorageWithVersioningResponsePtrInput {
-	return (*immutableStorageWithVersioningResponsePtrType)(v)
-}
-
-func (*immutableStorageWithVersioningResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutableStorageWithVersioningResponse)(nil)).Elem()
-}
-
-func (i *immutableStorageWithVersioningResponsePtrType) ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput {
-	return i.ToImmutableStorageWithVersioningResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *immutableStorageWithVersioningResponsePtrType) ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutableStorageWithVersioningResponsePtrOutput)
-}
-
-// Object level immutability properties of the container.
-type ImmutableStorageWithVersioningResponseOutput struct{ *pulumi.OutputState }
-
-func (ImmutableStorageWithVersioningResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutableStorageWithVersioningResponse)(nil)).Elem()
-}
-
-func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponseOutput() ImmutableStorageWithVersioningResponseOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponseOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponseOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput {
-	return o.ToImmutableStorageWithVersioningResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ImmutableStorageWithVersioningResponseOutput) ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponsePtrOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) *ImmutableStorageWithVersioningResponse {
-		return &v
-	}).(ImmutableStorageWithVersioningResponsePtrOutput)
-}
-
-// This is an immutable property, when set to true it enables object level immutability at the container level.
-func (o ImmutableStorageWithVersioningResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// This property denotes the container level immutability to object level immutability migration state.
-func (o ImmutableStorageWithVersioningResponseOutput) MigrationState() pulumi.StringOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) string { return v.MigrationState }).(pulumi.StringOutput)
-}
-
-// Returns the date and time the object level immutability was enabled.
-func (o ImmutableStorageWithVersioningResponseOutput) TimeStamp() pulumi.StringOutput {
-	return o.ApplyT(func(v ImmutableStorageWithVersioningResponse) string { return v.TimeStamp }).(pulumi.StringOutput)
-}
-
-type ImmutableStorageWithVersioningResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ImmutableStorageWithVersioningResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutableStorageWithVersioningResponse)(nil)).Elem()
-}
-
-func (o ImmutableStorageWithVersioningResponsePtrOutput) ToImmutableStorageWithVersioningResponsePtrOutput() ImmutableStorageWithVersioningResponsePtrOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningResponsePtrOutput) ToImmutableStorageWithVersioningResponsePtrOutputWithContext(ctx context.Context) ImmutableStorageWithVersioningResponsePtrOutput {
-	return o
-}
-
-func (o ImmutableStorageWithVersioningResponsePtrOutput) Elem() ImmutableStorageWithVersioningResponseOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) ImmutableStorageWithVersioningResponse { return *v }).(ImmutableStorageWithVersioningResponseOutput)
-}
-
-// This is an immutable property, when set to true it enables object level immutability at the container level.
-func (o ImmutableStorageWithVersioningResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// This property denotes the container level immutability to object level immutability migration state.
-func (o ImmutableStorageWithVersioningResponsePtrOutput) MigrationState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MigrationState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns the date and time the object level immutability was enabled.
-func (o ImmutableStorageWithVersioningResponsePtrOutput) TimeStamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImmutableStorageWithVersioningResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeStamp
-	}).(pulumi.StringPtrOutput)
 }
 
 // Storage account keys creation time.
@@ -15223,218 +14271,6 @@ func (o SasPolicyResponsePtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-type SignedIdentifier struct {
-	// Access policy
-	AccessPolicy *AccessPolicy `pulumi:"accessPolicy"`
-	// An unique identifier of the stored access policy.
-	Id *string `pulumi:"id"`
-}
-
-// SignedIdentifierInput is an input type that accepts SignedIdentifierArgs and SignedIdentifierOutput values.
-// You can construct a concrete instance of `SignedIdentifierInput` via:
-//
-//          SignedIdentifierArgs{...}
-type SignedIdentifierInput interface {
-	pulumi.Input
-
-	ToSignedIdentifierOutput() SignedIdentifierOutput
-	ToSignedIdentifierOutputWithContext(context.Context) SignedIdentifierOutput
-}
-
-type SignedIdentifierArgs struct {
-	// Access policy
-	AccessPolicy AccessPolicyPtrInput `pulumi:"accessPolicy"`
-	// An unique identifier of the stored access policy.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SignedIdentifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedIdentifier)(nil)).Elem()
-}
-
-func (i SignedIdentifierArgs) ToSignedIdentifierOutput() SignedIdentifierOutput {
-	return i.ToSignedIdentifierOutputWithContext(context.Background())
-}
-
-func (i SignedIdentifierArgs) ToSignedIdentifierOutputWithContext(ctx context.Context) SignedIdentifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierOutput)
-}
-
-// SignedIdentifierArrayInput is an input type that accepts SignedIdentifierArray and SignedIdentifierArrayOutput values.
-// You can construct a concrete instance of `SignedIdentifierArrayInput` via:
-//
-//          SignedIdentifierArray{ SignedIdentifierArgs{...} }
-type SignedIdentifierArrayInput interface {
-	pulumi.Input
-
-	ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput
-	ToSignedIdentifierArrayOutputWithContext(context.Context) SignedIdentifierArrayOutput
-}
-
-type SignedIdentifierArray []SignedIdentifierInput
-
-func (SignedIdentifierArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignedIdentifier)(nil)).Elem()
-}
-
-func (i SignedIdentifierArray) ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput {
-	return i.ToSignedIdentifierArrayOutputWithContext(context.Background())
-}
-
-func (i SignedIdentifierArray) ToSignedIdentifierArrayOutputWithContext(ctx context.Context) SignedIdentifierArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierArrayOutput)
-}
-
-type SignedIdentifierOutput struct{ *pulumi.OutputState }
-
-func (SignedIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedIdentifier)(nil)).Elem()
-}
-
-func (o SignedIdentifierOutput) ToSignedIdentifierOutput() SignedIdentifierOutput {
-	return o
-}
-
-func (o SignedIdentifierOutput) ToSignedIdentifierOutputWithContext(ctx context.Context) SignedIdentifierOutput {
-	return o
-}
-
-// Access policy
-func (o SignedIdentifierOutput) AccessPolicy() AccessPolicyPtrOutput {
-	return o.ApplyT(func(v SignedIdentifier) *AccessPolicy { return v.AccessPolicy }).(AccessPolicyPtrOutput)
-}
-
-// An unique identifier of the stored access policy.
-func (o SignedIdentifierOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignedIdentifier) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type SignedIdentifierArrayOutput struct{ *pulumi.OutputState }
-
-func (SignedIdentifierArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignedIdentifier)(nil)).Elem()
-}
-
-func (o SignedIdentifierArrayOutput) ToSignedIdentifierArrayOutput() SignedIdentifierArrayOutput {
-	return o
-}
-
-func (o SignedIdentifierArrayOutput) ToSignedIdentifierArrayOutputWithContext(ctx context.Context) SignedIdentifierArrayOutput {
-	return o
-}
-
-func (o SignedIdentifierArrayOutput) Index(i pulumi.IntInput) SignedIdentifierOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignedIdentifier {
-		return vs[0].([]SignedIdentifier)[vs[1].(int)]
-	}).(SignedIdentifierOutput)
-}
-
-type SignedIdentifierResponse struct {
-	// Access policy
-	AccessPolicy *AccessPolicyResponse `pulumi:"accessPolicy"`
-	// An unique identifier of the stored access policy.
-	Id *string `pulumi:"id"`
-}
-
-// SignedIdentifierResponseInput is an input type that accepts SignedIdentifierResponseArgs and SignedIdentifierResponseOutput values.
-// You can construct a concrete instance of `SignedIdentifierResponseInput` via:
-//
-//          SignedIdentifierResponseArgs{...}
-type SignedIdentifierResponseInput interface {
-	pulumi.Input
-
-	ToSignedIdentifierResponseOutput() SignedIdentifierResponseOutput
-	ToSignedIdentifierResponseOutputWithContext(context.Context) SignedIdentifierResponseOutput
-}
-
-type SignedIdentifierResponseArgs struct {
-	// Access policy
-	AccessPolicy AccessPolicyResponsePtrInput `pulumi:"accessPolicy"`
-	// An unique identifier of the stored access policy.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SignedIdentifierResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedIdentifierResponse)(nil)).Elem()
-}
-
-func (i SignedIdentifierResponseArgs) ToSignedIdentifierResponseOutput() SignedIdentifierResponseOutput {
-	return i.ToSignedIdentifierResponseOutputWithContext(context.Background())
-}
-
-func (i SignedIdentifierResponseArgs) ToSignedIdentifierResponseOutputWithContext(ctx context.Context) SignedIdentifierResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierResponseOutput)
-}
-
-// SignedIdentifierResponseArrayInput is an input type that accepts SignedIdentifierResponseArray and SignedIdentifierResponseArrayOutput values.
-// You can construct a concrete instance of `SignedIdentifierResponseArrayInput` via:
-//
-//          SignedIdentifierResponseArray{ SignedIdentifierResponseArgs{...} }
-type SignedIdentifierResponseArrayInput interface {
-	pulumi.Input
-
-	ToSignedIdentifierResponseArrayOutput() SignedIdentifierResponseArrayOutput
-	ToSignedIdentifierResponseArrayOutputWithContext(context.Context) SignedIdentifierResponseArrayOutput
-}
-
-type SignedIdentifierResponseArray []SignedIdentifierResponseInput
-
-func (SignedIdentifierResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignedIdentifierResponse)(nil)).Elem()
-}
-
-func (i SignedIdentifierResponseArray) ToSignedIdentifierResponseArrayOutput() SignedIdentifierResponseArrayOutput {
-	return i.ToSignedIdentifierResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SignedIdentifierResponseArray) ToSignedIdentifierResponseArrayOutputWithContext(ctx context.Context) SignedIdentifierResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignedIdentifierResponseArrayOutput)
-}
-
-type SignedIdentifierResponseOutput struct{ *pulumi.OutputState }
-
-func (SignedIdentifierResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedIdentifierResponse)(nil)).Elem()
-}
-
-func (o SignedIdentifierResponseOutput) ToSignedIdentifierResponseOutput() SignedIdentifierResponseOutput {
-	return o
-}
-
-func (o SignedIdentifierResponseOutput) ToSignedIdentifierResponseOutputWithContext(ctx context.Context) SignedIdentifierResponseOutput {
-	return o
-}
-
-// Access policy
-func (o SignedIdentifierResponseOutput) AccessPolicy() AccessPolicyResponsePtrOutput {
-	return o.ApplyT(func(v SignedIdentifierResponse) *AccessPolicyResponse { return v.AccessPolicy }).(AccessPolicyResponsePtrOutput)
-}
-
-// An unique identifier of the stored access policy.
-func (o SignedIdentifierResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignedIdentifierResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type SignedIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (SignedIdentifierResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignedIdentifierResponse)(nil)).Elem()
-}
-
-func (o SignedIdentifierResponseArrayOutput) ToSignedIdentifierResponseArrayOutput() SignedIdentifierResponseArrayOutput {
-	return o
-}
-
-func (o SignedIdentifierResponseArrayOutput) ToSignedIdentifierResponseArrayOutputWithContext(ctx context.Context) SignedIdentifierResponseArrayOutput {
-	return o
-}
-
-func (o SignedIdentifierResponseArrayOutput) Index(i pulumi.IntInput) SignedIdentifierResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignedIdentifierResponse {
-		return vs[0].([]SignedIdentifierResponse)[vs[1].(int)]
-	}).(SignedIdentifierResponseOutput)
-}
-
 // The SKU of the storage account.
 type Sku struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
@@ -17781,10 +16617,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessPolicyOutput{})
-	pulumi.RegisterOutputType(AccessPolicyPtrOutput{})
-	pulumi.RegisterOutputType(AccessPolicyResponseOutput{})
-	pulumi.RegisterOutputType(AccessPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryPropertiesResponseOutput{})
@@ -17796,9 +16628,7 @@ func init() {
 	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyFilterOutput{})
-	pulumi.RegisterOutputType(BlobInventoryPolicyFilterPtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyFilterResponseOutput{})
-	pulumi.RegisterOutputType(BlobInventoryPolicyFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleResponseOutput{})
@@ -17879,10 +16709,6 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImmutableStorageWithVersioningOutput{})
-	pulumi.RegisterOutputType(ImmutableStorageWithVersioningPtrOutput{})
-	pulumi.RegisterOutputType(ImmutableStorageWithVersioningResponseOutput{})
-	pulumi.RegisterOutputType(ImmutableStorageWithVersioningResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyCreationTimeResponseOutput{})
 	pulumi.RegisterOutputType(KeyCreationTimeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyPolicyOutput{})
@@ -17971,10 +16797,6 @@ func init() {
 	pulumi.RegisterOutputType(SasPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SasPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SasPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(SignedIdentifierOutput{})
-	pulumi.RegisterOutputType(SignedIdentifierArrayOutput{})
-	pulumi.RegisterOutputType(SignedIdentifierResponseOutput{})
-	pulumi.RegisterOutputType(SignedIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

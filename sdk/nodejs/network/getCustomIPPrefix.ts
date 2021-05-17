@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
     if (!opts) {
@@ -44,14 +44,6 @@ export interface GetCustomIPPrefixArgs {
  */
 export interface GetCustomIPPrefixResult {
     /**
-     * Authorization message for WAN validation.
-     */
-    readonly authorizationMessage?: string;
-    /**
-     * The list of all Children for IPv6 /48 CustomIpPrefix.
-     */
-    readonly childCustomIpPrefixes: outputs.network.CustomIpPrefixResponse[];
-    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     readonly cidr?: string;
@@ -60,10 +52,6 @@ export interface GetCustomIPPrefixResult {
      */
     readonly commissionedState?: string;
     /**
-     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-     */
-    readonly customIpPrefixParent?: outputs.network.CustomIpPrefixResponse;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -71,10 +59,6 @@ export interface GetCustomIPPrefixResult {
      * The extended location of the custom IP prefix.
      */
     readonly extendedLocation?: outputs.network.ExtendedLocationResponse;
-    /**
-     * The reason why resource is in failed state.
-     */
-    readonly failedReason: string;
     /**
      * Resource ID.
      */
@@ -99,10 +83,6 @@ export interface GetCustomIPPrefixResult {
      * The resource GUID property of the custom IP prefix resource.
      */
     readonly resourceGuid: string;
-    /**
-     * Signed message for WAN validation.
-     */
-    readonly signedMessage?: string;
     /**
      * Resource tags.
      */

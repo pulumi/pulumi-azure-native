@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Destination account name.
      */
     public readonly destinationAccount!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.storage.ObjectReplicationPolicyRuleResponse[] | undefined>;
     /**
-     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Source account name.
      */
     public readonly sourceAccount!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export interface ObjectReplicationPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Destination account name.
      */
     readonly destinationAccount: pulumi.Input<string>;
     /**
@@ -141,7 +141,7 @@ export interface ObjectReplicationPolicyArgs {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRuleArgs>[]>;
     /**
-     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+     * Required. Source account name.
      */
     readonly sourceAccount: pulumi.Input<string>;
 }

@@ -1036,29 +1036,29 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
-    public readonly struct ServerNetworkAccessFlag : IEquatable<ServerNetworkAccessFlag>
+    public readonly struct ServerPublicNetworkAccess : IEquatable<ServerPublicNetworkAccess>
     {
         private readonly string _value;
 
-        private ServerNetworkAccessFlag(string value)
+        private ServerPublicNetworkAccess(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerNetworkAccessFlag Enabled { get; } = new ServerNetworkAccessFlag("Enabled");
-        public static ServerNetworkAccessFlag Disabled { get; } = new ServerNetworkAccessFlag("Disabled");
+        public static ServerPublicNetworkAccess Enabled { get; } = new ServerPublicNetworkAccess("Enabled");
+        public static ServerPublicNetworkAccess Disabled { get; } = new ServerPublicNetworkAccess("Disabled");
 
-        public static bool operator ==(ServerNetworkAccessFlag left, ServerNetworkAccessFlag right) => left.Equals(right);
-        public static bool operator !=(ServerNetworkAccessFlag left, ServerNetworkAccessFlag right) => !left.Equals(right);
+        public static bool operator ==(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => !left.Equals(right);
 
-        public static explicit operator string(ServerNetworkAccessFlag value) => value._value;
+        public static explicit operator string(ServerPublicNetworkAccess value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerNetworkAccessFlag other && Equals(other);
-        public bool Equals(ServerNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccess other && Equals(other);
+        public bool Equals(ServerPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

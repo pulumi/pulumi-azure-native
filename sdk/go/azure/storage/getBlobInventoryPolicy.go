@@ -8,7 +8,7 @@ import (
 )
 
 // The storage account blob inventory policy.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 func LookupBlobInventoryPolicy(ctx *pulumi.Context, args *LookupBlobInventoryPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobInventoryPolicyResult, error) {
 	var rv LookupBlobInventoryPolicyResult
 	err := ctx.Invoke("azure-native:storage:getBlobInventoryPolicy", args, &rv, opts...)

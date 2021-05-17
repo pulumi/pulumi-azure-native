@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class Table extends pulumi.CustomResource {
     /**

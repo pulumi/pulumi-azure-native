@@ -944,31 +944,31 @@ func (e ServerKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-type ServerNetworkAccessFlag pulumi.String
+// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+type ServerPublicNetworkAccess pulumi.String
 
 const (
-	ServerNetworkAccessFlagEnabled  = ServerNetworkAccessFlag("Enabled")
-	ServerNetworkAccessFlagDisabled = ServerNetworkAccessFlag("Disabled")
+	ServerPublicNetworkAccessEnabled  = ServerPublicNetworkAccess("Enabled")
+	ServerPublicNetworkAccessDisabled = ServerPublicNetworkAccess("Disabled")
 )
 
-func (ServerNetworkAccessFlag) ElementType() reflect.Type {
+func (ServerPublicNetworkAccess) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e ServerNetworkAccessFlag) ToStringOutput() pulumi.StringOutput {
+func (e ServerPublicNetworkAccess) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ServerNetworkAccessFlag) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ServerPublicNetworkAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ServerNetworkAccessFlag) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ServerPublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ServerNetworkAccessFlag) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ServerPublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

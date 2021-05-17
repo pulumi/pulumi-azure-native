@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +32,6 @@ type VirtualNetwork struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations SubResourceResponseArrayOutput `pulumi:"ipAllocations"`
 	// Resource location.
@@ -336,8 +334,6 @@ type virtualNetworkState struct {
 	Etag *string `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations []SubResourceResponse `pulumi:"ipAllocations"`
 	// Resource location.
@@ -375,8 +371,6 @@ type VirtualNetworkState struct {
 	Etag pulumi.StringPtrInput
 	// The extended location of the virtual network.
 	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations SubResourceResponseArrayInput
 	// Resource location.
@@ -416,8 +410,6 @@ type virtualNetworkArgs struct {
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
@@ -452,8 +444,6 @@ type VirtualNetworkArgs struct {
 	EnableVmProtection pulumi.BoolPtrInput
 	// The extended location of the virtual network.
 	ExtendedLocation ExtendedLocationPtrInput
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Array of IpAllocation which reference this VNET.

@@ -8,7 +8,7 @@ import (
 )
 
 // Service End point policy resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupServiceEndpointPolicy(ctx *pulumi.Context, args *LookupServiceEndpointPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointPolicyResult, error) {
 	var rv LookupServiceEndpointPolicyResult
 	err := ctx.Invoke("azure-native:network:getServiceEndpointPolicy", args, &rv, opts...)

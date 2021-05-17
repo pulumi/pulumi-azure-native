@@ -8,7 +8,7 @@ import (
 )
 
 // A short term retention policy.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupBackupShortTermRetentionPolicy(ctx *pulumi.Context, args *LookupBackupShortTermRetentionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupShortTermRetentionPolicyResult, error) {
 	var rv LookupBackupShortTermRetentionPolicyResult
 	err := ctx.Invoke("azure-native:sql:getBackupShortTermRetentionPolicy", args, &rv, opts...)

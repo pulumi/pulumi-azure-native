@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Endpoint policy definitions.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**

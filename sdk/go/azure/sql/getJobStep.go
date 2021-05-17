@@ -8,7 +8,7 @@ import (
 )
 
 // A job step.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.InvokeOption) (*LookupJobStepResult, error) {
 	var rv LookupJobStepResult
 	err := ctx.Invoke("azure-native:sql:getJobStep", args, &rv, opts...)

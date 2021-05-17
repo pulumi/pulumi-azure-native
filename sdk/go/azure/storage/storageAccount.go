@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type StorageAccount struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrOutput `pulumi:"allowBlobPublicAccess"`
-	// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-	AllowCrossTenantReplication pulumi.BoolPtrOutput `pulumi:"allowCrossTenantReplication"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
 	AllowSharedKeyAccess pulumi.BoolPtrOutput `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
@@ -244,8 +242,6 @@ type storageAccountState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
-	// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-	AllowCrossTenantReplication *bool `pulumi:"allowCrossTenantReplication"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
 	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
@@ -323,8 +319,6 @@ type StorageAccountState struct {
 	AccessTier pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
-	// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-	AllowCrossTenantReplication pulumi.BoolPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
 	AllowSharedKeyAccess pulumi.BoolPtrInput
 	// Provides the identity based authentication settings for Azure Files.
@@ -408,8 +402,6 @@ type storageAccountArgs struct {
 	AccountName *string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
-	// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-	AllowCrossTenantReplication *bool `pulumi:"allowCrossTenantReplication"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
 	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
 	// Provides the identity based authentication settings for Azure Files.
@@ -460,8 +452,6 @@ type StorageAccountArgs struct {
 	AccountName pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
-	// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-	AllowCrossTenantReplication pulumi.BoolPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
 	AllowSharedKeyAccess pulumi.BoolPtrInput
 	// Provides the identity based authentication settings for Azure Files.

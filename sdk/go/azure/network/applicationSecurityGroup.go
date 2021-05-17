@@ -12,7 +12,7 @@ import (
 )
 
 // An application security group in a resource group.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 type ApplicationSecurityGroup struct {
 	pulumi.CustomResourceState
 

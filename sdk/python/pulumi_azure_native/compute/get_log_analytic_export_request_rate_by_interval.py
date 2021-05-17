@@ -57,7 +57,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportRequestRateByIntervalResult:
     """
     LogAnalytics operation status response
-    API Version: 2021-03-01.
+    API Version: 2020-12-01.
 
 
     :param str blob_container_sas_uri: SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.

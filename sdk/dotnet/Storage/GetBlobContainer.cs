@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
@@ -86,10 +86,6 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly Outputs.ImmutabilityPolicyPropertiesResponse ImmutabilityPolicy;
         /// <summary>
-        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
-        /// </summary>
-        public readonly Outputs.ImmutableStorageWithVersioningResponse? ImmutableStorageWithVersioning;
-        /// <summary>
         /// Returns the date and time the container was last modified.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -154,8 +150,6 @@ namespace Pulumi.AzureNative.Storage
 
             Outputs.ImmutabilityPolicyPropertiesResponse immutabilityPolicy,
 
-            Outputs.ImmutableStorageWithVersioningResponse? immutableStorageWithVersioning,
-
             string lastModifiedTime,
 
             string leaseDuration,
@@ -187,7 +181,6 @@ namespace Pulumi.AzureNative.Storage
             HasLegalHold = hasLegalHold;
             Id = id;
             ImmutabilityPolicy = immutabilityPolicy;
-            ImmutableStorageWithVersioning = immutableStorageWithVersioning;
             LastModifiedTime = lastModifiedTime;
             LeaseDuration = leaseDuration;
             LeaseState = leaseState;

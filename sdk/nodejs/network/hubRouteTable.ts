@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * RouteTable resource in a virtual hub.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**

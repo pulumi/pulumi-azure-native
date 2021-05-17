@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The private endpoint connection of an IotHub
-        /// API Version: 2021-03-31.
+        /// API Version: 2020-08-31.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:devices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());

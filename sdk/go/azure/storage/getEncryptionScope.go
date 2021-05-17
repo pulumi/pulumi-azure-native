@@ -8,7 +8,7 @@ import (
 )
 
 // The Encryption Scope resource.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
 	var rv LookupEncryptionScopeResult
 	err := ctx.Invoke("azure-native:storage:getEncryptionScope", args, &rv, opts...)

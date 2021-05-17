@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
     public sealed class DataBoxDiskJobDetailsResponse
     {
         /// <summary>
-        /// Available actions on the job.
-        /// </summary>
-        public readonly ImmutableArray<string> Actions;
-        /// <summary>
         /// Shared access key to download the chain of custody logs
         /// </summary>
         public readonly string ChainOfCustodySasKey;
@@ -67,10 +63,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly Outputs.KeyEncryptionKeyResponse? KeyEncryptionKey;
         /// <summary>
-        /// Last mitigation action performed on the job.
-        /// </summary>
-        public readonly Outputs.LastMitigationActionOnJobResponse LastMitigationActionOnJob;
-        /// <summary>
         /// User entered passkey for DataBox Disk job.
         /// </summary>
         public readonly string? Passkey;
@@ -97,8 +89,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
         [OutputConstructor]
         private DataBoxDiskJobDetailsResponse(
-            ImmutableArray<string> actions,
-
             string chainOfCustodySasKey,
 
             Outputs.ContactDetailsResponse contactDetails,
@@ -123,8 +113,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.KeyEncryptionKeyResponse? keyEncryptionKey,
 
-            Outputs.LastMitigationActionOnJobResponse lastMitigationActionOnJob,
-
             string? passkey,
 
             Outputs.PreferencesResponse? preferences,
@@ -137,7 +125,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             Outputs.ShippingAddressResponse? shippingAddress)
         {
-            Actions = actions;
             ChainOfCustodySasKey = chainOfCustodySasKey;
             ContactDetails = contactDetails;
             CopyLogDetails = copyLogDetails;
@@ -150,7 +137,6 @@ namespace Pulumi.AzureNative.DataBox.Outputs
             JobDetailsType = jobDetailsType;
             JobStages = jobStages;
             KeyEncryptionKey = keyEncryptionKey;
-            LastMitigationActionOnJob = lastMitigationActionOnJob;
             Passkey = passkey;
             Preferences = preferences;
             PreferredDisks = preferredDisks;

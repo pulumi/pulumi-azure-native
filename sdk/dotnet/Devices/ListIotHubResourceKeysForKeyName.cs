@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// The properties of an IoT hub shared access policy.
-        /// API Version: 2021-03-31.
+        /// API Version: 2020-08-31.
         /// </summary>
         public static Task<ListIotHubResourceKeysForKeyNameResult> InvokeAsync(ListIotHubResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysForKeyNameResult>("azure-native:devices:listIotHubResourceKeysForKeyName", args ?? new ListIotHubResourceKeysForKeyNameArgs(), options.WithVersion());

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
@@ -99,14 +99,6 @@ export interface GetDatabaseResult {
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * Infra encryption is enabled for this database.
-     */
-    readonly isInfraEncryptionEnabled: boolean;
-    /**
-     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
-     */
-    readonly isLedgerOn?: boolean;
     /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */

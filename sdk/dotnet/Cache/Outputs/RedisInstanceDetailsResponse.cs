@@ -14,13 +14,9 @@ namespace Pulumi.AzureNative.Cache.Outputs
     public sealed class RedisInstanceDetailsResponse
     {
         /// <summary>
-        /// Specifies whether the instance is a primary node.
+        /// Specifies whether the instance is a master node.
         /// </summary>
         public readonly bool IsMaster;
-        /// <summary>
-        /// Specifies whether the instance is a primary node.
-        /// </summary>
-        public readonly bool IsPrimary;
         /// <summary>
         /// If enableNonSslPort is true, provides Redis instance Non-SSL port.
         /// </summary>
@@ -42,8 +38,6 @@ namespace Pulumi.AzureNative.Cache.Outputs
         private RedisInstanceDetailsResponse(
             bool isMaster,
 
-            bool isPrimary,
-
             int nonSslPort,
 
             int shardId,
@@ -53,7 +47,6 @@ namespace Pulumi.AzureNative.Cache.Outputs
             string zone)
         {
             IsMaster = isMaster;
-            IsPrimary = isPrimary;
             NonSslPort = nonSslPort;
             ShardId = shardId;
             SslPort = sslPort;

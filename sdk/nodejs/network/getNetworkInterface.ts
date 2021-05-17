@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     if (!opts) {
@@ -139,8 +139,4 @@ export interface GetNetworkInterfaceResult {
      * The reference to a virtual machine.
      */
     readonly virtualMachine: outputs.network.SubResourceResponse;
-    /**
-     * WorkloadType of the NetworkInterface for BareMetal resources
-     */
-    readonly workloadType?: string;
 }

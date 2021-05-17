@@ -8,7 +8,7 @@ import (
 )
 
 // A single Redis item in List or Get Operation.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.InvokeOption) (*LookupRedisResult, error) {
 	var rv LookupRedisResult
 	err := ctx.Invoke("azure-native:cache:getRedis", args, &rv, opts...)
@@ -33,7 +33,7 @@ type LookupRedisResult struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName string `pulumi:"hostName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Resource ID.
 	Id string `pulumi:"id"`
 	// List of the Redis instances associated with the cache
 	Instances []RedisInstanceDetailsResponse `pulumi:"instances"`
@@ -43,7 +43,7 @@ type LookupRedisResult struct {
 	Location string `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the resource
+	// Resource name.
 	Name string `pulumi:"name"`
 	// Redis non-SSL port.
 	Port int `pulumi:"port"`
@@ -55,12 +55,10 @@ type LookupRedisResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
-	// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-	RedisVersion *string `pulumi:"redisVersion"`
-	// The number of replicas to be created per primary.
+	// Redis version.
+	RedisVersion string `pulumi:"redisVersion"`
+	// The number of replicas to be created per master.
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
-	// The number of replicas to be created per primary.
-	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -75,7 +73,7 @@ type LookupRedisResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A dictionary of tenant settings
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type string `pulumi:"type"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`

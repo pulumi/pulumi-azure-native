@@ -211,40 +211,6 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultSharePermission : IEquatable<DefaultSharePermission>
-    {
-        private readonly string _value;
-
-        private DefaultSharePermission(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultSharePermission None { get; } = new DefaultSharePermission("None");
-        public static DefaultSharePermission StorageFileDataSmbShareReader { get; } = new DefaultSharePermission("StorageFileDataSmbShareReader");
-        public static DefaultSharePermission StorageFileDataSmbShareContributor { get; } = new DefaultSharePermission("StorageFileDataSmbShareContributor");
-        public static DefaultSharePermission StorageFileDataSmbShareElevatedContributor { get; } = new DefaultSharePermission("StorageFileDataSmbShareElevatedContributor");
-        public static DefaultSharePermission StorageFileDataSmbShareOwner { get; } = new DefaultSharePermission("StorageFileDataSmbShareOwner");
-
-        public static bool operator ==(DefaultSharePermission left, DefaultSharePermission right) => left.Equals(right);
-        public static bool operator !=(DefaultSharePermission left, DefaultSharePermission right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultSharePermission value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultSharePermission other && Equals(other);
-        public bool Equals(DefaultSharePermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates the directory service used.
     /// </summary>
     [EnumType]
@@ -422,37 +388,6 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// This is a required field, it specifies the format for the inventory files.
-    /// </summary>
-    [EnumType]
-    public readonly struct Format : IEquatable<Format>
-    {
-        private readonly string _value;
-
-        private Format(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Format Csv { get; } = new Format("Csv");
-        public static Format Parquet { get; } = new Format("Parquet");
-
-        public static bool operator ==(Format left, Format right) => left.Equals(right);
-        public static bool operator !=(Format left, Format right) => !left.Equals(right);
-
-        public static explicit operator string(Format value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Format other && Equals(other);
-        public bool Equals(Format other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -744,37 +679,6 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-    /// </summary>
-    [EnumType]
-    public readonly struct ObjectType : IEquatable<ObjectType>
-    {
-        private readonly string _value;
-
-        private ObjectType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ObjectType Blob { get; } = new ObjectType("Blob");
-        public static ObjectType Container { get; } = new ObjectType("Container");
-
-        public static bool operator ==(ObjectType left, ObjectType right) => left.Equals(right);
-        public static bool operator !=(ObjectType left, ObjectType right) => !left.Equals(right);
-
-        public static explicit operator string(ObjectType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ObjectType other && Equals(other);
-        public bool Equals(ObjectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
     /// </summary>
     [EnumType]
@@ -969,37 +873,6 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// This is a required field. This field is used to schedule an inventory formation.
-    /// </summary>
-    [EnumType]
-    public readonly struct Schedule : IEquatable<Schedule>
-    {
-        private readonly string _value;
-
-        private Schedule(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Schedule Daily { get; } = new Schedule("Daily");
-        public static Schedule Weekly { get; } = new Schedule("Weekly");
-
-        public static bool operator ==(Schedule left, Schedule right) => left.Equals(right);
-        public static bool operator !=(Schedule left, Schedule right) => !left.Equals(right);
-
-        public static explicit operator string(Schedule value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Schedule other && Equals(other);
-        public bool Equals(Schedule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
     /// </summary>
     [EnumType]
@@ -1180,11 +1053,11 @@ namespace Pulumi.AzureNative.Storage
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static State Provisioning { get; } = new State("Provisioning");
-        public static State Deprovisioning { get; } = new State("Deprovisioning");
-        public static State Succeeded { get; } = new State("Succeeded");
-        public static State Failed { get; } = new State("Failed");
-        public static State NetworkSourceDeleted { get; } = new State("NetworkSourceDeleted");
+        public static State Provisioning { get; } = new State("provisioning");
+        public static State Deprovisioning { get; } = new State("deprovisioning");
+        public static State Succeeded { get; } = new State("succeeded");
+        public static State Failed { get; } = new State("failed");
+        public static State NetworkSourceDeleted { get; } = new State("networkSourceDeleted");
 
         public static bool operator ==(State left, State right) => left.Equals(right);
         public static bool operator !=(State left, State right) => !left.Equals(right);

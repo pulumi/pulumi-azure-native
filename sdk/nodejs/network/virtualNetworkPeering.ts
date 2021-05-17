@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peerings in a virtual network resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
@@ -65,15 +65,11 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly peeringState!: pulumi.Output<string | undefined>;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    public readonly peeringSyncLevel!: pulumi.Output<string | undefined>;
-    /**
      * The provisioning state of the virtual network peering resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     public readonly remoteAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
@@ -84,10 +80,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
     public readonly remoteVirtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
-    /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    public readonly remoteVirtualNetworkAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The resourceGuid property of the Virtual Network peering resource.
      */
@@ -125,13 +117,10 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringState"] = args ? args.peeringState : undefined;
-            inputs["peeringSyncLevel"] = args ? args.peeringSyncLevel : undefined;
             inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
             inputs["remoteBgpCommunities"] = args ? args.remoteBgpCommunities : undefined;
             inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            inputs["remoteVirtualNetworkAddressSpace"] = args ? args.remoteVirtualNetworkAddressSpace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["syncRemoteAddressSpace"] = args ? args.syncRemoteAddressSpace : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
@@ -147,12 +136,10 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["peeringState"] = undefined /*out*/;
-            inputs["peeringSyncLevel"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["remoteAddressSpace"] = undefined /*out*/;
             inputs["remoteBgpCommunities"] = undefined /*out*/;
             inputs["remoteVirtualNetwork"] = undefined /*out*/;
-            inputs["remoteVirtualNetworkAddressSpace"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["useRemoteGateways"] = undefined /*out*/;
@@ -199,11 +186,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     readonly peeringState?: pulumi.Input<string | enums.network.VirtualNetworkPeeringState>;
     /**
-     * The peering sync status of the virtual network peering.
-     */
-    readonly peeringSyncLevel?: pulumi.Input<string | enums.network.VirtualNetworkPeeringLevel>;
-    /**
-     * The reference to the address space peered with the remote virtual network.
+     * The reference to the remote virtual network address space.
      */
     readonly remoteAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
     /**
@@ -215,17 +198,9 @@ export interface VirtualNetworkPeeringArgs {
      */
     readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
-     * The reference to the current address space of the remote virtual network.
-     */
-    readonly remoteVirtualNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
-     */
-    readonly syncRemoteAddressSpace?: pulumi.Input<string>;
     /**
      * Resource type.
      */

@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.DdosSettingsResponse? DdosSettings;
         /// <summary>
-        /// Specify what happens to the public IP address when the VM using it is deleted
-        /// </summary>
-        public readonly string? DeleteOption;
-        /// <summary>
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
         public readonly Outputs.PublicIPAddressDnsSettingsResponse? DnsSettings;
@@ -118,8 +114,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         private PublicIPAddressResponse(
             Outputs.DdosSettingsResponse? ddosSettings,
 
-            string? deleteOption,
-
             Outputs.PublicIPAddressDnsSettingsResponse? dnsSettings,
 
             string etag,
@@ -167,7 +161,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<string> zones)
         {
             DdosSettings = ddosSettings;
-            DeleteOption = deleteOption;
             DnsSettings = dnsSettings;
             Etag = etag;
             ExtendedLocation = extendedLocation;

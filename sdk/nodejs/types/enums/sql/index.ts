@@ -382,15 +382,15 @@ export const ServerKeyType = {
  */
 export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
-export const ServerNetworkAccessFlag = {
+export const ServerPublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
  */
-export type ServerNetworkAccessFlag = (typeof ServerNetworkAccessFlag)[keyof typeof ServerNetworkAccessFlag];
+export type ServerPublicNetworkAccess = (typeof ServerPublicNetworkAccess)[keyof typeof ServerPublicNetworkAccess];
 
 export const StorageAccountType = {
     GRS: "GRS",

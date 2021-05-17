@@ -11,23 +11,11 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Custom IP prefix resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:CustomIPPrefix")]
     public partial class CustomIPPrefix : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authorization message for WAN validation.
-        /// </summary>
-        [Output("authorizationMessage")]
-        public Output<string?> AuthorizationMessage { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of all Children for IPv6 /48 CustomIpPrefix.
-        /// </summary>
-        [Output("childCustomIpPrefixes")]
-        public Output<ImmutableArray<Outputs.CustomIpPrefixResponse>> ChildCustomIpPrefixes { get; private set; } = null!;
-
         /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
         /// </summary>
@@ -41,12 +29,6 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> CommissionedState { get; private set; } = null!;
 
         /// <summary>
-        /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-        /// </summary>
-        [Output("customIpPrefixParent")]
-        public Output<Outputs.CustomIpPrefixResponse?> CustomIpPrefixParent { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -57,12 +39,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The reason why resource is in failed state.
-        /// </summary>
-        [Output("failedReason")]
-        public Output<string> FailedReason { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -93,12 +69,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
-
-        /// <summary>
-        /// Signed message for WAN validation.
-        /// </summary>
-        [Output("signedMessage")]
-        public Output<string?> SignedMessage { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -178,12 +148,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class CustomIPPrefixArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authorization message for WAN validation.
-        /// </summary>
-        [Input("authorizationMessage")]
-        public Input<string>? AuthorizationMessage { get; set; }
-
-        /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
         /// </summary>
         [Input("cidr")]
@@ -200,12 +164,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("customIpPrefixName")]
         public Input<string>? CustomIpPrefixName { get; set; }
-
-        /// <summary>
-        /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
-        /// </summary>
-        [Input("customIpPrefixParent")]
-        public Input<Inputs.CustomIpPrefixArgs>? CustomIpPrefixParent { get; set; }
 
         /// <summary>
         /// The extended location of the custom IP prefix.
@@ -230,12 +188,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Signed message for WAN validation.
-        /// </summary>
-        [Input("signedMessage")]
-        public Input<string>? SignedMessage { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

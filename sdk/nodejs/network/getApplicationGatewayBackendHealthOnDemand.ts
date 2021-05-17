@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Result of on demand test probe.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
     if (!opts) {

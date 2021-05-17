@@ -117,19 +117,6 @@ export const DefaultAction = {
  */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
-export const DefaultSharePermission = {
-    None: "None",
-    StorageFileDataSmbShareReader: "StorageFileDataSmbShareReader",
-    StorageFileDataSmbShareContributor: "StorageFileDataSmbShareContributor",
-    StorageFileDataSmbShareElevatedContributor: "StorageFileDataSmbShareElevatedContributor",
-    StorageFileDataSmbShareOwner: "StorageFileDataSmbShareOwner",
-} as const;
-
-/**
- * Default share permission for users using Kerberos authentication if RBAC role is not assigned.
- */
-export type DefaultSharePermission = (typeof DefaultSharePermission)[keyof typeof DefaultSharePermission];
-
 export const DirectoryServiceOptions = {
     None: "None",
     AADDS: "AADDS",
@@ -188,16 +175,6 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
-
-export const Format = {
-    Csv: "Csv",
-    Parquet: "Parquet",
-} as const;
-
-/**
- * This is a required field, it specifies the format for the inventory files.
- */
-export type Format = (typeof Format)[keyof typeof Format];
 
 export const HttpProtocol = {
     Https_http: "https,http",
@@ -293,16 +270,6 @@ export const Name = {
  */
 export type Name = (typeof Name)[keyof typeof Name];
 
-export const ObjectType = {
-    Blob: "Blob",
-    Container: "Container",
-} as const;
-
-/**
- * This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
- */
-export type ObjectType = (typeof ObjectType)[keyof typeof ObjectType];
-
 export const Permissions = {
     R: "r",
     D: "d",
@@ -371,16 +338,6 @@ export const RuleType = {
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
-export const Schedule = {
-    Daily: "Daily",
-    Weekly: "Weekly",
-} as const;
-
-/**
- * This is a required field. This field is used to schedule an inventory formation.
- */
-export type Schedule = (typeof Schedule)[keyof typeof Schedule];
-
 export const Services = {
     B: "b",
     Q: "q",
@@ -445,11 +402,11 @@ export const SkuName = {
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const State = {
-    Provisioning: "Provisioning",
-    Deprovisioning: "Deprovisioning",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    NetworkSourceDeleted: "NetworkSourceDeleted",
+    Provisioning: "provisioning",
+    Deprovisioning: "deprovisioning",
+    Succeeded: "succeeded",
+    Failed: "failed",
+    NetworkSourceDeleted: "networkSourceDeleted",
 } as const;
 
 /**

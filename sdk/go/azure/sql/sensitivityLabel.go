@@ -12,7 +12,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type SensitivityLabel struct {
 	pulumi.CustomResourceState
 

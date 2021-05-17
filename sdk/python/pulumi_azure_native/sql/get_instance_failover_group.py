@@ -145,7 +145,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceFailoverGroupResult:
     """
     An instance failover group.
-    API Version: 2021-02-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str failover_group_name: The name of the failover group.

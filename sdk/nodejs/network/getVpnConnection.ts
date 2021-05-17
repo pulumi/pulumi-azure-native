@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnConnection Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
     if (!opts) {

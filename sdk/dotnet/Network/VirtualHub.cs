@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualHub Resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHub")]
     public partial class VirtualHub : Pulumi.CustomResource
@@ -75,12 +75,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("p2SVpnGateway")]
         public Output<Outputs.SubResourceResponse?> P2SVpnGateway { get; private set; } = null!;
-
-        /// <summary>
-        /// The preferred gateway to route on-prem traffic
-        /// </summary>
-        [Output("preferredRoutingGateway")]
-        public Output<string?> PreferredRoutingGateway { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the virtual hub resource.
@@ -296,12 +290,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("p2SVpnGateway")]
         public Input<Inputs.SubResourceArgs>? P2SVpnGateway { get; set; }
-
-        /// <summary>
-        /// The preferred gateway to route on-prem traffic
-        /// </summary>
-        [Input("preferredRoutingGateway")]
-        public InputUnion<string, Pulumi.AzureNative.Network.PreferredRoutingGateway>? PreferredRoutingGateway { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.

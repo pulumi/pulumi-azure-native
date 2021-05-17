@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A network interface in a resource group.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
@@ -153,12 +153,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("virtualMachine")]
         public Output<Outputs.SubResourceResponse> VirtualMachine { get; private set; } = null!;
-
-        /// <summary>
-        /// WorkloadType of the NetworkInterface for BareMetal resources
-        /// </summary>
-        [Output("workloadType")]
-        public Output<string?> WorkloadType { get; private set; } = null!;
 
 
         /// <summary>
@@ -378,12 +372,6 @@ namespace Pulumi.AzureNative.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// WorkloadType of the NetworkInterface for BareMetal resources
-        /// </summary>
-        [Input("workloadType")]
-        public Input<string>? WorkloadType { get; set; }
 
         public NetworkInterfaceArgs()
         {

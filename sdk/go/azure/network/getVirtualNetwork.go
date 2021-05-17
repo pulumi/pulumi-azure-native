@@ -8,7 +8,7 @@ import (
 )
 
 // Virtual Network resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetwork", args, &rv, opts...)
@@ -45,8 +45,6 @@ type LookupVirtualNetworkResult struct {
 	Etag string `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The FlowTimeout value (in minutes) for the Virtual Network
-	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.

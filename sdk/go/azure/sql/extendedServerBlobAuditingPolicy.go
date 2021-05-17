@@ -12,7 +12,7 @@ import (
 )
 
 // An extended server blob auditing policy.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 type ExtendedServerBlobAuditingPolicy struct {
 	pulumi.CustomResourceState
 
@@ -48,10 +48,6 @@ type ExtendedServerBlobAuditingPolicy struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
-	// DBCC_GROUP
-	// DATABASE_OWNERSHIP_CHANGE_GROUP
-	// DATABASE_CHANGE_GROUP
-	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -225,10 +221,6 @@ type extendedServerBlobAuditingPolicyState struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
-	// DBCC_GROUP
-	// DATABASE_OWNERSHIP_CHANGE_GROUP
-	// DATABASE_CHANGE_GROUP
-	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -332,10 +324,6 @@ type ExtendedServerBlobAuditingPolicyState struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
-	// DBCC_GROUP
-	// DATABASE_OWNERSHIP_CHANGE_GROUP
-	// DATABASE_CHANGE_GROUP
-	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -443,10 +431,6 @@ type extendedServerBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
-	// DBCC_GROUP
-	// DATABASE_OWNERSHIP_CHANGE_GROUP
-	// DATABASE_CHANGE_GROUP
-	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -560,10 +544,6 @@ type ExtendedServerBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
-	// DBCC_GROUP
-	// DATABASE_OWNERSHIP_CHANGE_GROUP
-	// DATABASE_CHANGE_GROUP
-	// LEDGER_OPERATION_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//

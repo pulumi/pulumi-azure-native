@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01.
  */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetLinkedServerArgs {
  */
 export interface GetLinkedServerResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource ID.
      */
     readonly id: string;
     /**
@@ -56,7 +56,7 @@ export interface GetLinkedServerResult {
      */
     readonly linkedRedisCacheLocation: string;
     /**
-     * The name of the resource
+     * Resource name.
      */
     readonly name: string;
     /**
@@ -68,7 +68,7 @@ export interface GetLinkedServerResult {
      */
     readonly serverRole: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     readonly type: string;
 }

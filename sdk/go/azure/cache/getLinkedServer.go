@@ -8,7 +8,7 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServerResult, error) {
 	var rv LookupLinkedServerResult
 	err := ctx.Invoke("azure-native:cache:getLinkedServer", args, &rv, opts...)
@@ -29,18 +29,18 @@ type LookupLinkedServerArgs struct {
 
 // Response to put/get linked server (with properties) for Redis cache.
 type LookupLinkedServerResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Resource ID.
 	Id string `pulumi:"id"`
 	// Fully qualified resourceId of the linked redis cache.
 	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`
 	// Location of the linked redis cache.
 	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
-	// The name of the resource
+	// Resource name.
 	Name string `pulumi:"name"`
 	// Terminal state of the link between primary and secondary redis cache.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Role of the linked server.
 	ServerRole string `pulumi:"serverRole"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type.
 	Type string `pulumi:"type"`
 }

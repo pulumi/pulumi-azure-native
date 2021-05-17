@@ -62,7 +62,7 @@ class GetIotHubResourceEventHubConsumerGroupResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Any:
+    def properties(self) -> Mapping[str, str]:
         """
         The tags.
         """
@@ -97,7 +97,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
     The properties of the EventHubConsumerGroupInfo object.
-    API Version: 2021-03-31.
+    API Version: 2020-08-31.
 
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.

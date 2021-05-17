@@ -432,8 +432,6 @@ class RedisInstanceDetailsResponse(dict):
         suggest = None
         if key == "isMaster":
             suggest = "is_master"
-        elif key == "isPrimary":
-            suggest = "is_primary"
         elif key == "nonSslPort":
             suggest = "non_ssl_port"
         elif key == "shardId":
@@ -454,22 +452,19 @@ class RedisInstanceDetailsResponse(dict):
 
     def __init__(__self__, *,
                  is_master: bool,
-                 is_primary: bool,
                  non_ssl_port: int,
                  shard_id: int,
                  ssl_port: int,
                  zone: str):
         """
         Details of single instance of redis.
-        :param bool is_master: Specifies whether the instance is a primary node.
-        :param bool is_primary: Specifies whether the instance is a primary node.
+        :param bool is_master: Specifies whether the instance is a master node.
         :param int non_ssl_port: If enableNonSslPort is true, provides Redis instance Non-SSL port.
         :param int shard_id: If clustering is enabled, the Shard ID of Redis Instance
         :param int ssl_port: Redis instance SSL port.
         :param str zone: If the Cache uses availability zones, specifies availability zone where this instance is located.
         """
         pulumi.set(__self__, "is_master", is_master)
-        pulumi.set(__self__, "is_primary", is_primary)
         pulumi.set(__self__, "non_ssl_port", non_ssl_port)
         pulumi.set(__self__, "shard_id", shard_id)
         pulumi.set(__self__, "ssl_port", ssl_port)
@@ -479,17 +474,9 @@ class RedisInstanceDetailsResponse(dict):
     @pulumi.getter(name="isMaster")
     def is_master(self) -> bool:
         """
-        Specifies whether the instance is a primary node.
+        Specifies whether the instance is a master node.
         """
         return pulumi.get(self, "is_master")
-
-    @property
-    @pulumi.getter(name="isPrimary")
-    def is_primary(self) -> bool:
-        """
-        Specifies whether the instance is a primary node.
-        """
-        return pulumi.get(self, "is_primary")
 
     @property
     @pulumi.getter(name="nonSslPort")

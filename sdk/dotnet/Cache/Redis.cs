@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
-    /// API Version: 2020-12-01.
+    /// API Version: 2020-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Redis")]
     public partial class Redis : Pulumi.CustomResource
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -95,22 +95,16 @@ namespace Pulumi.AzureNative.Cache
         public Output<ImmutableDictionary<string, string>?> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
+        /// Redis version.
         /// </summary>
         [Output("redisVersion")]
-        public Output<string?> RedisVersion { get; private set; } = null!;
+        public Output<string> RedisVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replicas to be created per primary.
+        /// The number of replicas to be created per master.
         /// </summary>
         [Output("replicasPerMaster")]
         public Output<int?> ReplicasPerMaster { get; private set; } = null!;
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Output("replicasPerPrimary")]
-        public Output<int?> ReplicasPerPrimary { get; private set; } = null!;
 
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
@@ -155,7 +149,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -274,22 +268,10 @@ namespace Pulumi.AzureNative.Cache
         }
 
         /// <summary>
-        /// Redis version. Only major version will be used in PUT/PATCH request with current valid values: (4, 6)
-        /// </summary>
-        [Input("redisVersion")]
-        public Input<string>? RedisVersion { get; set; }
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
+        /// The number of replicas to be created per master.
         /// </summary>
         [Input("replicasPerMaster")]
         public Input<int>? ReplicasPerMaster { get; set; }
-
-        /// <summary>
-        /// The number of replicas to be created per primary.
-        /// </summary>
-        [Input("replicasPerPrimary")]
-        public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
         /// The name of the resource group.

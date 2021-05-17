@@ -22,7 +22,6 @@ class StorageAccountArgs:
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
-                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs']] = None,
                  custom_domain: Optional[pulumi.Input['CustomDomainArgs']] = None,
@@ -48,7 +47,6 @@ class StorageAccountArgs:
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-        :param pulumi.Input[bool] allow_cross_tenant_replication: Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
         :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         :param pulumi.Input['AzureFilesIdentityBasedAuthenticationArgs'] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input['CustomDomainArgs'] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -76,8 +74,6 @@ class StorageAccountArgs:
             pulumi.set(__self__, "account_name", account_name)
         if allow_blob_public_access is not None:
             pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
-        if allow_cross_tenant_replication is not None:
-            pulumi.set(__self__, "allow_cross_tenant_replication", allow_cross_tenant_replication)
         if allow_shared_key_access is not None:
             pulumi.set(__self__, "allow_shared_key_access", allow_shared_key_access)
         if azure_files_identity_based_authentication is not None:
@@ -184,18 +180,6 @@ class StorageAccountArgs:
     @allow_blob_public_access.setter
     def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_blob_public_access", value)
-
-    @property
-    @pulumi.getter(name="allowCrossTenantReplication")
-    def allow_cross_tenant_replication(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        """
-        return pulumi.get(self, "allow_cross_tenant_replication")
-
-    @allow_cross_tenant_replication.setter
-    def allow_cross_tenant_replication(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_cross_tenant_replication", value)
 
     @property
     @pulumi.getter(name="allowSharedKeyAccess")
@@ -410,7 +394,6 @@ class StorageAccount(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
-                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
@@ -434,14 +417,13 @@ class StorageAccount(pulumi.CustomResource):
                  __props__=None):
         """
         The storage account.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-        :param pulumi.Input[bool] allow_cross_tenant_replication: Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
         :param pulumi.Input[bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -471,7 +453,7 @@ class StorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account.
-        API Version: 2021-04-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountArgs args: The arguments to use to populate this resource's properties.
@@ -491,7 +473,6 @@ class StorageAccount(pulumi.CustomResource):
                  access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
-                 allow_cross_tenant_replication: Optional[pulumi.Input[bool]] = None,
                  allow_shared_key_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
@@ -527,7 +508,6 @@ class StorageAccount(pulumi.CustomResource):
             __props__.__dict__["access_tier"] = access_tier
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
-            __props__.__dict__["allow_cross_tenant_replication"] = allow_cross_tenant_replication
             __props__.__dict__["allow_shared_key_access"] = allow_shared_key_access
             __props__.__dict__["azure_files_identity_based_authentication"] = azure_files_identity_based_authentication
             __props__.__dict__["custom_domain"] = custom_domain
@@ -596,7 +576,6 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__.__dict__["access_tier"] = None
         __props__.__dict__["allow_blob_public_access"] = None
-        __props__.__dict__["allow_cross_tenant_replication"] = None
         __props__.__dict__["allow_shared_key_access"] = None
         __props__.__dict__["azure_files_identity_based_authentication"] = None
         __props__.__dict__["blob_restore_status"] = None
@@ -649,14 +628,6 @@ class StorageAccount(pulumi.CustomResource):
         Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         """
         return pulumi.get(self, "allow_blob_public_access")
-
-    @property
-    @pulumi.getter(name="allowCrossTenantReplication")
-    def allow_cross_tenant_replication(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-        """
-        return pulumi.get(self, "allow_cross_tenant_replication")
 
     @property
     @pulumi.getter(name="allowSharedKeyAccess")

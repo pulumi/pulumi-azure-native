@@ -8,7 +8,7 @@ import (
 )
 
 // LogAnalytics operation status response
-// API Version: 2021-03-01.
+// API Version: 2020-12-01.
 func GetLogAnalyticExportRequestRateByInterval(ctx *pulumi.Context, args *GetLogAnalyticExportRequestRateByIntervalArgs, opts ...pulumi.InvokeOption) (*GetLogAnalyticExportRequestRateByIntervalResult, error) {
 	var rv GetLogAnalyticExportRequestRateByIntervalResult
 	err := ctx.Invoke("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args, &rv, opts...)

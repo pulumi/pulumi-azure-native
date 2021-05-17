@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
@@ -53,10 +53,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly enableBgp!: pulumi.Output<boolean | undefined>;
     /**
-     * EnableBgpRouteTranslationForNat flag.
-     */
-    public readonly enableBgpRouteTranslationForNat!: pulumi.Output<boolean | undefined>;
-    /**
      * Whether dns forwarding is enabled or not.
      */
     public readonly enableDnsForwarding!: pulumi.Output<boolean | undefined>;
@@ -96,10 +92,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * NatRules for virtual network gateway.
-     */
-    public readonly natRules!: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleResponse[] | undefined>;
     /**
      * The provisioning state of the virtual network gateway resource.
      */
@@ -155,7 +147,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["customRoutes"] = args ? args.customRoutes : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
-            inputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
             inputs["enableDnsForwarding"] = args ? args.enableDnsForwarding : undefined;
             inputs["enablePrivateIpAddress"] = args ? args.enablePrivateIpAddress : undefined;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
@@ -164,7 +155,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["natRules"] = args ? args.natRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -184,7 +174,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["bgpSettings"] = undefined /*out*/;
             inputs["customRoutes"] = undefined /*out*/;
             inputs["enableBgp"] = undefined /*out*/;
-            inputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
             inputs["enableDnsForwarding"] = undefined /*out*/;
             inputs["enablePrivateIpAddress"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -195,7 +184,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["natRules"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -236,10 +224,6 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly enableBgp?: pulumi.Input<boolean>;
     /**
-     * EnableBgpRouteTranslationForNat flag.
-     */
-    readonly enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
-    /**
      * Whether dns forwarding is enabled or not.
      */
     readonly enableDnsForwarding?: pulumi.Input<boolean>;
@@ -271,10 +255,6 @@ export interface VirtualNetworkGatewayArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * NatRules for virtual network gateway.
-     */
-    readonly natRules?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleArgs>[]>;
     /**
      * The name of the resource group.
      */

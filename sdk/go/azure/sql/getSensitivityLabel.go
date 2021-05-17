@@ -8,7 +8,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2021-02-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupSensitivityLabel(ctx *pulumi.Context, args *LookupSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSensitivityLabelResult, error) {
 	var rv LookupSensitivityLabelResult
 	err := ctx.Invoke("azure-native:sql:getSensitivityLabel", args, &rv, opts...)

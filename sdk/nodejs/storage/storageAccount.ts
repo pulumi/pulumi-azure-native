@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account.
- * API Version: 2021-04-01.
+ * API Version: 2021-02-01.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class StorageAccount extends pulumi.CustomResource {
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
     public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
-    /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-     */
-    public readonly allowCrossTenantReplication!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
      */
@@ -212,7 +208,6 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["accessTier"] = args ? args.accessTier : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
-            inputs["allowCrossTenantReplication"] = args ? args.allowCrossTenantReplication : undefined;
             inputs["allowSharedKeyAccess"] = args ? args.allowSharedKeyAccess : undefined;
             inputs["azureFilesIdentityBasedAuthentication"] = args ? args.azureFilesIdentityBasedAuthentication : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
@@ -252,7 +247,6 @@ export class StorageAccount extends pulumi.CustomResource {
         } else {
             inputs["accessTier"] = undefined /*out*/;
             inputs["allowBlobPublicAccess"] = undefined /*out*/;
-            inputs["allowCrossTenantReplication"] = undefined /*out*/;
             inputs["allowSharedKeyAccess"] = undefined /*out*/;
             inputs["azureFilesIdentityBasedAuthentication"] = undefined /*out*/;
             inputs["blobRestoreStatus"] = undefined /*out*/;
@@ -314,10 +308,6 @@ export interface StorageAccountArgs {
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
     readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
-    /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
-     */
-    readonly allowCrossTenantReplication?: pulumi.Input<boolean>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
      */

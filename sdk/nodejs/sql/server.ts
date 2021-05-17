@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * API Version: 2021-02-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class Server extends pulumi.CustomResource {
      * The Azure Active Directory identity of the server.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
-    /**
-     * The Client id used for cross tenant CMK scenario
-     */
-    public readonly federatedClientId!: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of the server.
      */
@@ -89,10 +85,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-     */
-    public readonly restrictOutboundNetworkAccess!: pulumi.Output<string | undefined>;
-    /**
      * The state of the server.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -130,7 +122,6 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["administrators"] = args ? args.administrators : undefined;
-            inputs["federatedClientId"] = args ? args.federatedClientId : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -138,7 +129,6 @@ export class Server extends pulumi.CustomResource {
             inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -152,7 +142,6 @@ export class Server extends pulumi.CustomResource {
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administrators"] = undefined /*out*/;
-            inputs["federatedClientId"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
@@ -163,7 +152,6 @@ export class Server extends pulumi.CustomResource {
             inputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["restrictOutboundNetworkAccess"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -196,10 +184,6 @@ export interface ServerArgs {
      */
     readonly administrators?: pulumi.Input<inputs.sql.ServerExternalAdministratorArgs>;
     /**
-     * The Client id used for cross tenant CMK scenario
-     */
-    readonly federatedClientId?: pulumi.Input<string>;
-    /**
      * The Azure Active Directory identity of the server.
      */
     readonly identity?: pulumi.Input<inputs.sql.ResourceIdentityWithUserAssignedIdentitiesArgs>;
@@ -222,15 +206,11 @@ export interface ServerArgs {
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerPublicNetworkAccess>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-     */
-    readonly restrictOutboundNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
     /**
      * The name of the server.
      */

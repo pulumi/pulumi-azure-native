@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The description of the IoT hub.
-    /// API Version: 2021-03-31.
+    /// API Version: 2020-08-31.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResource")]
     public partial class IotHubResource : Pulumi.CustomResource
@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// The managed identities for the IotHub.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.ArmIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -158,12 +152,6 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The managed identities for the IotHub.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ArmIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The resource location.

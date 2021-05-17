@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfiguration Resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
     if (!opts) {

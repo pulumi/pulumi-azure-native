@@ -8,7 +8,7 @@ import (
 )
 
 // Redis cache access keys.
-// API Version: 2020-12-01.
+// API Version: 2020-06-01.
 func ListRedisKeys(ctx *pulumi.Context, args *ListRedisKeysArgs, opts ...pulumi.InvokeOption) (*ListRedisKeysResult, error) {
 	var rv ListRedisKeysResult
 	err := ctx.Invoke("azure-native:cache:listRedisKeys", args, &rv, opts...)

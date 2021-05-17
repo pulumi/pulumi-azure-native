@@ -10,436 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ArmIdentity struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *string                `pulumi:"type"`
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
-}
-
-// ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
-// You can construct a concrete instance of `ArmIdentityInput` via:
-//
-//          ArmIdentityArgs{...}
-type ArmIdentityInput interface {
-	pulumi.Input
-
-	ToArmIdentityOutput() ArmIdentityOutput
-	ToArmIdentityOutputWithContext(context.Context) ArmIdentityOutput
-}
-
-type ArmIdentityArgs struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *ResourceIdentityType `pulumi:"type"`
-	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
-}
-
-func (ArmIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
-}
-
-func (i ArmIdentityArgs) ToArmIdentityOutput() ArmIdentityOutput {
-	return i.ToArmIdentityOutputWithContext(context.Background())
-}
-
-func (i ArmIdentityArgs) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput)
-}
-
-func (i ArmIdentityArgs) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
-	return i.ToArmIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ArmIdentityArgs) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput).ToArmIdentityPtrOutputWithContext(ctx)
-}
-
-// ArmIdentityPtrInput is an input type that accepts ArmIdentityArgs, ArmIdentityPtr and ArmIdentityPtrOutput values.
-// You can construct a concrete instance of `ArmIdentityPtrInput` via:
-//
-//          ArmIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmIdentityPtrInput interface {
-	pulumi.Input
-
-	ToArmIdentityPtrOutput() ArmIdentityPtrOutput
-	ToArmIdentityPtrOutputWithContext(context.Context) ArmIdentityPtrOutput
-}
-
-type armIdentityPtrType ArmIdentityArgs
-
-func ArmIdentityPtr(v *ArmIdentityArgs) ArmIdentityPtrInput {
-	return (*armIdentityPtrType)(v)
-}
-
-func (*armIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
-}
-
-func (i *armIdentityPtrType) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
-	return i.ToArmIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *armIdentityPtrType) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityPtrOutput)
-}
-
-type ArmIdentityOutput struct{ *pulumi.OutputState }
-
-func (ArmIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
-}
-
-func (o ArmIdentityOutput) ToArmIdentityOutput() ArmIdentityOutput {
-	return o
-}
-
-func (o ArmIdentityOutput) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
-	return o
-}
-
-func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
-	return o.ToArmIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
-		return &v
-	}).(ArmIdentityPtrOutput)
-}
-
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
-}
-
-type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
-}
-
-func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
-	return o
-}
-
-func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return o
-}
-
-func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
-	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
-}
-
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
-}
-
-type ArmIdentityResponse struct {
-	// Principal Id
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *string                            `pulumi:"type"`
-	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
-}
-
-// ArmIdentityResponseInput is an input type that accepts ArmIdentityResponseArgs and ArmIdentityResponseOutput values.
-// You can construct a concrete instance of `ArmIdentityResponseInput` via:
-//
-//          ArmIdentityResponseArgs{...}
-type ArmIdentityResponseInput interface {
-	pulumi.Input
-
-	ToArmIdentityResponseOutput() ArmIdentityResponseOutput
-	ToArmIdentityResponseOutputWithContext(context.Context) ArmIdentityResponseOutput
-}
-
-type ArmIdentityResponseArgs struct {
-	// Principal Id
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant Id
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   pulumi.StringPtrInput           `pulumi:"type"`
-	UserAssignedIdentities ArmUserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ArmIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
-}
-
-func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
-	return i.ToArmIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput)
-}
-
-func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
-	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput).ToArmIdentityResponsePtrOutputWithContext(ctx)
-}
-
-// ArmIdentityResponsePtrInput is an input type that accepts ArmIdentityResponseArgs, ArmIdentityResponsePtr and ArmIdentityResponsePtrOutput values.
-// You can construct a concrete instance of `ArmIdentityResponsePtrInput` via:
-//
-//          ArmIdentityResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput
-	ToArmIdentityResponsePtrOutputWithContext(context.Context) ArmIdentityResponsePtrOutput
-}
-
-type armIdentityResponsePtrType ArmIdentityResponseArgs
-
-func ArmIdentityResponsePtr(v *ArmIdentityResponseArgs) ArmIdentityResponsePtrInput {
-	return (*armIdentityResponsePtrType)(v)
-}
-
-func (*armIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
-}
-
-func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
-	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponsePtrOutput)
-}
-
-type ArmIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
-}
-
-func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
-	return o
-}
-
-func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
-	return o
-}
-
-func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
-	return o.ToArmIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
-		return &v
-	}).(ArmIdentityResponsePtrOutput)
-}
-
-// Principal Id
-func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-// Tenant Id
-func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o ArmIdentityResponseOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) map[string]ArmUserIdentityResponse { return v.UserAssignedIdentities }).(ArmUserIdentityResponseMapOutput)
-}
-
-type ArmIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArmIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
-}
-
-func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
-}
-
-// Principal Id
-func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tenant Id
-func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) map[string]ArmUserIdentityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(ArmUserIdentityResponseMapOutput)
-}
-
-type ArmUserIdentityResponse struct {
-	ClientId    string `pulumi:"clientId"`
-	PrincipalId string `pulumi:"principalId"`
-}
-
-// ArmUserIdentityResponseInput is an input type that accepts ArmUserIdentityResponseArgs and ArmUserIdentityResponseOutput values.
-// You can construct a concrete instance of `ArmUserIdentityResponseInput` via:
-//
-//          ArmUserIdentityResponseArgs{...}
-type ArmUserIdentityResponseInput interface {
-	pulumi.Input
-
-	ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput
-	ToArmUserIdentityResponseOutputWithContext(context.Context) ArmUserIdentityResponseOutput
-}
-
-type ArmUserIdentityResponseArgs struct {
-	ClientId    pulumi.StringInput `pulumi:"clientId"`
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-}
-
-func (ArmUserIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
-}
-
-func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
-	return i.ToArmUserIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseOutput)
-}
-
-// ArmUserIdentityResponseMapInput is an input type that accepts ArmUserIdentityResponseMap and ArmUserIdentityResponseMapOutput values.
-// You can construct a concrete instance of `ArmUserIdentityResponseMapInput` via:
-//
-//          ArmUserIdentityResponseMap{ "key": ArmUserIdentityResponseArgs{...} }
-type ArmUserIdentityResponseMapInput interface {
-	pulumi.Input
-
-	ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput
-	ToArmUserIdentityResponseMapOutputWithContext(context.Context) ArmUserIdentityResponseMapOutput
-}
-
-type ArmUserIdentityResponseMap map[string]ArmUserIdentityResponseInput
-
-func (ArmUserIdentityResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
-}
-
-func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
-	return i.ToArmUserIdentityResponseMapOutputWithContext(context.Background())
-}
-
-func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseMapOutput)
-}
-
-type ArmUserIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmUserIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
-}
-
-func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
-	return o
-}
-
-func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
-	return o
-}
-
-func (o ArmUserIdentityResponseOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-func (o ArmUserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
-}
-
-type ArmUserIdentityResponseMapOutput struct{ *pulumi.OutputState }
-
-func (ArmUserIdentityResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
-}
-
-func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
-	return o
-}
-
-func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
-	return o
-}
-
-func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUserIdentityResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityResponse {
-		return vs[0].(map[string]ArmUserIdentityResponse)[vs[1].(string)]
-	}).(ArmUserIdentityResponseOutput)
-}
-
 // The description of an X509 CA Certificate.
 type CertificateProperties struct {
 	// The certificate content
@@ -1405,7 +975,7 @@ func (o EnrichmentPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Enrich
 // The EventHub consumer group name.
 type EventHubConsumerGroupName struct {
 	// EventHub consumer group name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // EventHubConsumerGroupNameInput is an input type that accepts EventHubConsumerGroupNameArgs and EventHubConsumerGroupNameOutput values.
@@ -1422,7 +992,7 @@ type EventHubConsumerGroupNameInput interface {
 // The EventHub consumer group name.
 type EventHubConsumerGroupNameArgs struct {
 	// EventHub consumer group name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (EventHubConsumerGroupNameArgs) ElementType() reflect.Type {
@@ -1504,8 +1074,8 @@ func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutputWit
 }
 
 // EventHub consumer group name
-func (o EventHubConsumerGroupNameOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHubConsumerGroupName) string { return v.Name }).(pulumi.StringOutput)
+func (o EventHubConsumerGroupNameOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubConsumerGroupName) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type EventHubConsumerGroupNamePtrOutput struct{ *pulumi.OutputState }
@@ -1532,7 +1102,7 @@ func (o EventHubConsumerGroupNamePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5248,274 +4818,6 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	}).(IpFilterRuleResponseOutput)
 }
 
-// The properties of the Managed identity.
-type ManagedIdentity struct {
-	// The user assigned identity.
-	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
-}
-
-// ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
-// You can construct a concrete instance of `ManagedIdentityInput` via:
-//
-//          ManagedIdentityArgs{...}
-type ManagedIdentityInput interface {
-	pulumi.Input
-
-	ToManagedIdentityOutput() ManagedIdentityOutput
-	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
-}
-
-// The properties of the Managed identity.
-type ManagedIdentityArgs struct {
-	// The user assigned identity.
-	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
-}
-
-func (ManagedIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
-}
-
-func (i ManagedIdentityArgs) ToManagedIdentityOutput() ManagedIdentityOutput {
-	return i.ToManagedIdentityOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityArgs) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput)
-}
-
-func (i ManagedIdentityArgs) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
-	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput).ToManagedIdentityPtrOutputWithContext(ctx)
-}
-
-// ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
-// You can construct a concrete instance of `ManagedIdentityPtrInput` via:
-//
-//          ManagedIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedIdentityPtrInput interface {
-	pulumi.Input
-
-	ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput
-	ToManagedIdentityPtrOutputWithContext(context.Context) ManagedIdentityPtrOutput
-}
-
-type managedIdentityPtrType ManagedIdentityArgs
-
-func ManagedIdentityPtr(v *ManagedIdentityArgs) ManagedIdentityPtrInput {
-	return (*managedIdentityPtrType)(v)
-}
-
-func (*managedIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
-}
-
-func (i *managedIdentityPtrType) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
-	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
-}
-
-// The properties of the Managed identity.
-type ManagedIdentityOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
-}
-
-func (o ManagedIdentityOutput) ToManagedIdentityOutput() ManagedIdentityOutput {
-	return o
-}
-
-func (o ManagedIdentityOutput) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
-	return o
-}
-
-func (o ManagedIdentityOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
-	return o.ToManagedIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *ManagedIdentity {
-		return &v
-	}).(ManagedIdentityPtrOutput)
-}
-
-// The user assigned identity.
-func (o ManagedIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
-}
-
-type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
-}
-
-func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
-	return o
-}
-
-func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return o
-}
-
-func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
-	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity { return *v }).(ManagedIdentityOutput)
-}
-
-// The user assigned identity.
-func (o ManagedIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of the Managed identity.
-type ManagedIdentityResponse struct {
-	// The user assigned identity.
-	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
-}
-
-// ManagedIdentityResponseInput is an input type that accepts ManagedIdentityResponseArgs and ManagedIdentityResponseOutput values.
-// You can construct a concrete instance of `ManagedIdentityResponseInput` via:
-//
-//          ManagedIdentityResponseArgs{...}
-type ManagedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput
-	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
-}
-
-// The properties of the Managed identity.
-type ManagedIdentityResponseArgs struct {
-	// The user assigned identity.
-	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
-}
-
-func (ManagedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i ManagedIdentityResponseArgs) ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput {
-	return i.ToManagedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityResponseArgs) ToManagedIdentityResponseOutputWithContext(ctx context.Context) ManagedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponseOutput)
-}
-
-func (i ManagedIdentityResponseArgs) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
-	return i.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityResponseArgs) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponseOutput).ToManagedIdentityResponsePtrOutputWithContext(ctx)
-}
-
-// ManagedIdentityResponsePtrInput is an input type that accepts ManagedIdentityResponseArgs, ManagedIdentityResponsePtr and ManagedIdentityResponsePtrOutput values.
-// You can construct a concrete instance of `ManagedIdentityResponsePtrInput` via:
-//
-//          ManagedIdentityResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput
-	ToManagedIdentityResponsePtrOutputWithContext(context.Context) ManagedIdentityResponsePtrOutput
-}
-
-type managedIdentityResponsePtrType ManagedIdentityResponseArgs
-
-func ManagedIdentityResponsePtr(v *ManagedIdentityResponseArgs) ManagedIdentityResponsePtrInput {
-	return (*managedIdentityResponsePtrType)(v)
-}
-
-func (*managedIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
-	return i.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
-}
-
-// The properties of the Managed identity.
-type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityResponse)(nil)).Elem()
-}
-
-func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput {
-	return o
-}
-
-func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutputWithContext(ctx context.Context) ManagedIdentityResponseOutput {
-	return o
-}
-
-func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
-	return o.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityResponse) *ManagedIdentityResponse {
-		return &v
-	}).(ManagedIdentityResponsePtrOutput)
-}
-
-// The user assigned identity.
-func (o ManagedIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
-}
-
-type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentityResponse)(nil)).Elem()
-}
-
-func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return o
-}
-
-func (o ManagedIdentityResponsePtrOutput) Elem() ManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse { return *v }).(ManagedIdentityResponseOutput)
-}
-
-// The user assigned identity.
-func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
 // The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointProperties struct {
 	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
@@ -8006,8 +7308,6 @@ type RoutingEventHubProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -8039,8 +7339,6 @@ type RoutingEventHubPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -8126,11 +7424,6 @@ func (o RoutingEventHubPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing event hub endpoint.
-func (o RoutingEventHubPropertiesOutput) Identity() ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v RoutingEventHubProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
-}
-
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingEventHubPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -8178,8 +7471,6 @@ type RoutingEventHubPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -8211,8 +7502,6 @@ type RoutingEventHubPropertiesResponseArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the event hub endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the event hub endpoint.
@@ -8296,11 +7585,6 @@ func (o RoutingEventHubPropertiesResponseOutput) EntityPath() pulumi.StringPtrOu
 // Id of the event hub endpoint
 func (o RoutingEventHubPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Managed identity properties of routing event hub endpoint.
-func (o RoutingEventHubPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -8732,8 +8016,6 @@ type RoutingServiceBusQueueEndpointProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -8765,8 +8047,6 @@ type RoutingServiceBusQueueEndpointPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -8852,11 +8132,6 @@ func (o RoutingServiceBusQueueEndpointPropertiesOutput) Id() pulumi.StringPtrOut
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus queue endpoint.
-func (o RoutingServiceBusQueueEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
-}
-
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -8904,8 +8179,6 @@ type RoutingServiceBusQueueEndpointPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -8937,8 +8210,6 @@ type RoutingServiceBusQueueEndpointPropertiesResponseArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus queue endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus queue endpoint.
@@ -9024,11 +8295,6 @@ func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus queue endpoint.
-func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
-}
-
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -9076,8 +8342,6 @@ type RoutingServiceBusTopicEndpointProperties struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -9109,8 +8373,6 @@ type RoutingServiceBusTopicEndpointPropertiesArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -9196,11 +8458,6 @@ func (o RoutingServiceBusTopicEndpointPropertiesOutput) Id() pulumi.StringPtrOut
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus topic endpoint.
-func (o RoutingServiceBusTopicEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
-}
-
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -9248,8 +8505,6 @@ type RoutingServiceBusTopicEndpointPropertiesResponse struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name string `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -9281,8 +8536,6 @@ type RoutingServiceBusTopicEndpointPropertiesResponseArgs struct {
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// Id of the service bus topic endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group of the service bus topic endpoint.
@@ -9368,11 +8621,6 @@ func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus topic endpoint.
-func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
-}
-
 // The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -9426,8 +8674,6 @@ type RoutingStorageContainerProperties struct {
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -9467,8 +8713,6 @@ type RoutingStorageContainerPropertiesArgs struct {
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -9571,11 +8815,6 @@ func (o RoutingStorageContainerPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing storage endpoint.
-func (o RoutingStorageContainerPropertiesOutput) Identity() ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v RoutingStorageContainerProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
-}
-
 // Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 func (o RoutingStorageContainerPropertiesOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
@@ -9634,8 +8873,6 @@ type RoutingStorageContainerPropertiesResponse struct {
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id *string `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -9675,8 +8912,6 @@ type RoutingStorageContainerPropertiesResponseArgs struct {
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
 	// Id of the storage container endpoint
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -9777,11 +9012,6 @@ func (o RoutingStorageContainerPropertiesResponseOutput) FileNameFormat() pulumi
 // Id of the storage container endpoint
 func (o RoutingStorageContainerPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Managed identity properties of routing storage endpoint.
-func (o RoutingStorageContainerPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
@@ -10344,8 +9574,6 @@ type StorageEndpointProperties struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity *ManagedIdentity `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
 }
@@ -10369,8 +9597,6 @@ type StorageEndpointPropertiesArgs struct {
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
 }
@@ -10442,11 +9668,6 @@ func (o StorageEndpointPropertiesOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Managed identity properties of storage endpoint for file upload.
-func (o StorageEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v StorageEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
-}
-
 // The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 func (o StorageEndpointPropertiesOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
@@ -10480,8 +9701,6 @@ type StorageEndpointPropertiesResponse struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
 }
@@ -10505,8 +9724,6 @@ type StorageEndpointPropertiesResponseArgs struct {
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
 	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
 }
@@ -10576,11 +9793,6 @@ func (o StorageEndpointPropertiesResponseOutput) ConnectionString() pulumi.Strin
 // The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 func (o StorageEndpointPropertiesResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
-}
-
-// Managed identity properties of storage endpoint for file upload.
-func (o StorageEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
 // The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
@@ -10863,12 +10075,6 @@ func (o TargetIpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) TargetIp
 }
 
 func init() {
-	pulumi.RegisterOutputType(ArmIdentityOutput{})
-	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ArmIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ArmIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ArmUserIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ArmUserIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
@@ -10921,10 +10127,6 @@ func init() {
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})

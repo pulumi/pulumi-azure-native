@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// </summary>
         public readonly Outputs.BlobInventoryPolicyDefinitionResponse Definition;
         /// <summary>
-        /// Container name where blob inventory files are stored. Must be pre-created.
-        /// </summary>
-        public readonly string Destination;
-        /// <summary>
         /// Rule is enabled when set to true.
         /// </summary>
         public readonly bool Enabled;
@@ -34,14 +30,11 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private BlobInventoryPolicyRuleResponse(
             Outputs.BlobInventoryPolicyDefinitionResponse definition,
 
-            string destination,
-
             bool enabled,
 
             string name)
         {
             Definition = definition;
-            Destination = destination;
             Enabled = enabled;
             Name = name;
         }

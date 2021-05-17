@@ -8,7 +8,7 @@ import (
 )
 
 // Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-// API Version: 2021-02-01.
+// API Version: 2020-11-01.
 func LookupExpressRouteCircuitConnection(ctx *pulumi.Context, args *LookupExpressRouteCircuitConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitConnectionResult, error) {
 	var rv LookupExpressRouteCircuitConnectionResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteCircuitConnection", args, &rv, opts...)

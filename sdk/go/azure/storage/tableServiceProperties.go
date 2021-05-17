@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of a storage account’s Table service.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type TableServiceProperties struct {
 	pulumi.CustomResourceState
 

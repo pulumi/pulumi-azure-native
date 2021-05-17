@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tap configuration in a Network Interface.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**

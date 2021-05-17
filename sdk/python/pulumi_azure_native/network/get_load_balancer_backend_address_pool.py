@@ -20,7 +20,7 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, backend_ip_configurations=None, etag=None, id=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, tunnel_interfaces=None, type=None):
+    def __init__(__self__, backend_ip_configurations=None, etag=None, id=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -51,9 +51,6 @@ class GetLoadBalancerBackendAddressPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if tunnel_interfaces and not isinstance(tunnel_interfaces, list):
-            raise TypeError("Expected argument 'tunnel_interfaces' to be a list")
-        pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -139,14 +136,6 @@ class GetLoadBalancerBackendAddressPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']]:
-        """
-        An array of gateway load balancer tunnel interfaces.
-        """
-        return pulumi.get(self, "tunnel_interfaces")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -171,7 +160,6 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
             outbound_rule=self.outbound_rule,
             outbound_rules=self.outbound_rules,
             provisioning_state=self.provisioning_state,
-            tunnel_interfaces=self.tunnel_interfaces,
             type=self.type)
 
 
@@ -181,7 +169,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
-    API Version: 2021-02-01.
+    API Version: 2020-11-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.
@@ -209,5 +197,4 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         outbound_rule=__ret__.outbound_rule,
         outbound_rules=__ret__.outbound_rules,
         provisioning_state=__ret__.provisioning_state,
-        tunnel_interfaces=__ret__.tunnel_interfaces,
         type=__ret__.type)

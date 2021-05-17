@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Firewall resource.
- * API Version: 2021-02-01.
+ * API Version: 2020-11-01.
  */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
     if (!opts) {

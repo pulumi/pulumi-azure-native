@@ -8,7 +8,7 @@ import (
 )
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupObjectReplicationPolicyResult, error) {
 	var rv LookupObjectReplicationPolicyResult
 	err := ctx.Invoke("azure-native:storage:getObjectReplicationPolicy", args, &rv, opts...)
@@ -29,7 +29,7 @@ type LookupObjectReplicationPolicyArgs struct {
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 type LookupObjectReplicationPolicyResult struct {
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Destination account name.
 	DestinationAccount string `pulumi:"destinationAccount"`
 	// Indicates when the policy is enabled on the source account.
 	EnabledTime string `pulumi:"enabledTime"`
@@ -41,7 +41,7 @@ type LookupObjectReplicationPolicyResult struct {
 	PolicyId string `pulumi:"policyId"`
 	// The storage account object replication rules.
 	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
+	// Required. Source account name.
 	SourceAccount string `pulumi:"sourceAccount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`

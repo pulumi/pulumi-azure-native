@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2021-04-01.
+// API Version: 2021-02-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 
@@ -32,12 +32,6 @@ type FileShare struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Returns the date and time the share was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-	LeaseDuration pulumi.StringOutput `pulumi:"leaseDuration"`
-	// Lease state of the share.
-	LeaseState pulumi.StringOutput `pulumi:"leaseState"`
-	// The lease status of the share.
-	LeaseStatus pulumi.StringOutput `pulumi:"leaseStatus"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the resource
@@ -50,8 +44,6 @@ type FileShare struct {
 	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.Float64Output `pulumi:"shareUsageBytes"`
-	// List of stored access policies specified on the share.
-	SignedIdentifiers SignedIdentifierResponseArrayOutput `pulumi:"signedIdentifiers"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -153,12 +145,6 @@ type fileShareState struct {
 	Etag *string `pulumi:"etag"`
 	// Returns the date and time the share was last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-	LeaseDuration *string `pulumi:"leaseDuration"`
-	// Lease state of the share.
-	LeaseState *string `pulumi:"leaseState"`
-	// The lease status of the share.
-	LeaseStatus *string `pulumi:"leaseStatus"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
@@ -171,8 +157,6 @@ type fileShareState struct {
 	ShareQuota *int `pulumi:"shareQuota"`
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes *float64 `pulumi:"shareUsageBytes"`
-	// List of stored access policies specified on the share.
-	SignedIdentifiers []SignedIdentifierResponse `pulumi:"signedIdentifiers"`
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime *string `pulumi:"snapshotTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -198,12 +182,6 @@ type FileShareState struct {
 	Etag pulumi.StringPtrInput
 	// Returns the date and time the share was last modified.
 	LastModifiedTime pulumi.StringPtrInput
-	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-	LeaseDuration pulumi.StringPtrInput
-	// Lease state of the share.
-	LeaseState pulumi.StringPtrInput
-	// The lease status of the share.
-	LeaseStatus pulumi.StringPtrInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
 	// The name of the resource
@@ -216,8 +194,6 @@ type FileShareState struct {
 	ShareQuota pulumi.IntPtrInput
 	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
 	ShareUsageBytes pulumi.Float64PtrInput
-	// List of stored access policies specified on the share.
-	SignedIdentifiers SignedIdentifierResponseArrayInput
 	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
 	SnapshotTime pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -237,7 +213,7 @@ type fileShareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols *string `pulumi:"enabledProtocols"`
-	// Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+	// Optional, used to create a snapshot.
 	Expand *string `pulumi:"expand"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -249,8 +225,6 @@ type fileShareArgs struct {
 	ShareName *string `pulumi:"shareName"`
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota *int `pulumi:"shareQuota"`
-	// List of stored access policies specified on the share.
-	SignedIdentifiers []SignedIdentifier `pulumi:"signedIdentifiers"`
 }
 
 // The set of arguments for constructing a FileShare resource.
@@ -261,7 +235,7 @@ type FileShareArgs struct {
 	AccountName pulumi.StringInput
 	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
 	EnabledProtocols pulumi.StringPtrInput
-	// Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
+	// Optional, used to create a snapshot.
 	Expand pulumi.StringPtrInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
@@ -273,8 +247,6 @@ type FileShareArgs struct {
 	ShareName pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
 	ShareQuota pulumi.IntPtrInput
-	// List of stored access policies specified on the share.
-	SignedIdentifiers SignedIdentifierArrayInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {

@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.Storage.Inputs
 {
 
     /// <summary>
-    /// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+    /// An object that defines the blob inventory rule filter conditions.
     /// </summary>
     public sealed class BlobInventoryPolicyFilterArgs : Pulumi.ResourceArgs
     {
-        [Input("blobTypes")]
+        [Input("blobTypes", required: true)]
         private InputList<string>? _blobTypes;
 
         /// <summary>
-        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
         /// </summary>
         public InputList<string> BlobTypes
         {
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.Storage.Inputs
         }
 
         /// <summary>
-        /// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+        /// Includes blob versions in blob inventory when value set to true.
         /// </summary>
         [Input("includeBlobVersions")]
         public Input<bool>? IncludeBlobVersions { get; set; }
 
         /// <summary>
-        /// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+        /// Includes blob snapshots in blob inventory when value set to true.
         /// </summary>
         [Input("includeSnapshots")]
         public Input<bool>? IncludeSnapshots { get; set; }
