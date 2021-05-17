@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Web.V20200601.Inputs
     public sealed class SiteConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Flag to use Managed Identity Creds for ACR pull
+        /// </summary>
+        [Input("acrUseManagedIdentityCreds")]
+        public Input<bool>? AcrUseManagedIdentityCreds { get; set; }
+
+        /// <summary>
+        /// If using user managed identity, the user managed identity ClientId
+        /// </summary>
+        [Input("acrUserManagedIdentityID")]
+        public Input<string>? AcrUserManagedIdentityID { get; set; }
+
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if Always On is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         [Input("alwaysOn")]

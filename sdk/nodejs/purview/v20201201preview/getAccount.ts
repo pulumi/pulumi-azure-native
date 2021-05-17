@@ -75,6 +75,10 @@ export interface GetAccountResult {
      */
     readonly location?: string;
     /**
+     * Gets or sets the managed resource group name
+     */
+    readonly managedResourceGroupName?: string;
+    /**
      * Gets the resource identifiers of the managed resources.
      */
     readonly managedResources: outputs.purview.v20201201preview.AccountPropertiesResponseManagedResources;

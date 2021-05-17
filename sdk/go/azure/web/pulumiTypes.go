@@ -33671,6 +33671,10 @@ func (o ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponseArrayOutpu
 
 // Configuration of an App Service app.
 type SiteConfig struct {
+	// Flag to use Managed Identity Creds for ACR pull
+	AcrUseManagedIdentityCreds *bool `pulumi:"acrUseManagedIdentityCreds"`
+	// If using user managed identity, the user managed identity ClientId
+	AcrUserManagedIdentityID *string `pulumi:"acrUserManagedIdentityID"`
 	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the app.
@@ -33819,6 +33823,10 @@ type SiteConfigInput interface {
 
 // Configuration of an App Service app.
 type SiteConfigArgs struct {
+	// Flag to use Managed Identity Creds for ACR pull
+	AcrUseManagedIdentityCreds pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCreds"`
+	// If using user managed identity, the user managed identity ClientId
+	AcrUserManagedIdentityID pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityID"`
 	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the app.
@@ -34030,6 +34038,16 @@ func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyT(func(v SiteConfig) *SiteConfig {
 		return &v
 	}).(SiteConfigPtrOutput)
+}
+
+// Flag to use Managed Identity Creds for ACR pull
+func (o SiteConfigOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.AcrUseManagedIdentityCreds }).(pulumi.BoolPtrOutput)
+}
+
+// If using user managed identity, the user managed identity ClientId
+func (o SiteConfigOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.AcrUserManagedIdentityID }).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
@@ -34373,6 +34391,26 @@ func (o SiteConfigPtrOutput) ToSiteConfigPtrOutputWithContext(ctx context.Contex
 
 func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
 	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
+}
+
+// Flag to use Managed Identity Creds for ACR pull
+func (o SiteConfigPtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUseManagedIdentityCreds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If using user managed identity, the user managed identity ClientId
+func (o SiteConfigPtrOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUserManagedIdentityID
+	}).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
@@ -35022,6 +35060,10 @@ func (o SiteConfigPtrOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 
 // Configuration of an App Service app.
 type SiteConfigResponse struct {
+	// Flag to use Managed Identity Creds for ACR pull
+	AcrUseManagedIdentityCreds *bool `pulumi:"acrUseManagedIdentityCreds"`
+	// If using user managed identity, the user managed identity ClientId
+	AcrUserManagedIdentityID *string `pulumi:"acrUserManagedIdentityID"`
 	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the app.
@@ -35172,6 +35214,10 @@ type SiteConfigResponseInput interface {
 
 // Configuration of an App Service app.
 type SiteConfigResponseArgs struct {
+	// Flag to use Managed Identity Creds for ACR pull
+	AcrUseManagedIdentityCreds pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCreds"`
+	// If using user managed identity, the user managed identity ClientId
+	AcrUserManagedIdentityID pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityID"`
 	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the app.
@@ -35385,6 +35431,16 @@ func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutputWithContext(ctx c
 	return o.ApplyT(func(v SiteConfigResponse) *SiteConfigResponse {
 		return &v
 	}).(SiteConfigResponsePtrOutput)
+}
+
+// Flag to use Managed Identity Creds for ACR pull
+func (o SiteConfigResponseOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.AcrUseManagedIdentityCreds }).(pulumi.BoolPtrOutput)
+}
+
+// If using user managed identity, the user managed identity ClientId
+func (o SiteConfigResponseOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *string { return v.AcrUserManagedIdentityID }).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
@@ -35733,6 +35789,26 @@ func (o SiteConfigResponsePtrOutput) ToSiteConfigResponsePtrOutputWithContext(ct
 
 func (o SiteConfigResponsePtrOutput) Elem() SiteConfigResponseOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse { return *v }).(SiteConfigResponseOutput)
+}
+
+// Flag to use Managed Identity Creds for ACR pull
+func (o SiteConfigResponsePtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUseManagedIdentityCreds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If using user managed identity, the user managed identity ClientId
+func (o SiteConfigResponsePtrOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcrUserManagedIdentityID
+	}).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.

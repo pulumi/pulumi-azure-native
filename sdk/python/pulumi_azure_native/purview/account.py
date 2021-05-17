@@ -20,6 +20,7 @@ class AccountArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  sku: Optional[pulumi.Input['AccountSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -29,6 +30,7 @@ class AccountArgs:
         :param pulumi.Input[str] account_name: The name of the account.
         :param pulumi.Input['IdentityArgs'] identity: Identity Info on the tracked resource
         :param pulumi.Input[str] location: Gets or sets the location.
+        :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input['AccountSkuArgs'] sku: Gets or sets the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
@@ -40,6 +42,10 @@ class AccountArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_resource_group_name is not None:
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if sku is not None:
@@ -96,6 +102,18 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the managed resource group name
+        """
+        return pulumi.get(self, "managed_resource_group_name")
+
+    @managed_resource_group_name.setter
+    def managed_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_group_name", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
@@ -140,6 +158,7 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AccountSkuArgs']]] = None,
@@ -154,6 +173,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the account.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity Info on the tracked resource
         :param pulumi.Input[str] location: Gets or sets the location.
+        :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['AccountSkuArgs']] sku: Gets or sets the Sku.
@@ -187,6 +207,7 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AccountSkuArgs']]] = None,
@@ -206,6 +227,9 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -256,6 +280,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_resource_group_name"] = None
         __props__.__dict__["managed_resources"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
@@ -331,6 +356,14 @@ class Account(pulumi.CustomResource):
         Gets or sets the location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets or sets the managed resource group name
+        """
+        return pulumi.get(self, "managed_resource_group_name")
 
     @property
     @pulumi.getter(name="managedResources")

@@ -45,6 +45,8 @@ type LookupAccountResult struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Gets or sets the location.
 	Location *string `pulumi:"location"`
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Gets the resource identifiers of the managed resources.
 	ManagedResources AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
 	// Gets or sets the name.

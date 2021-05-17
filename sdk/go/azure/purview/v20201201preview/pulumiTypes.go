@@ -359,17 +359,17 @@ func (o AccountPropertiesResponseManagedResourcesPtrOutput) StorageAccount() pul
 // Metadata pertaining to creation and last modification of the resource.
 type AccountPropertiesResponseSystemData struct {
 	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt string `pulumi:"createdAt"`
 	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
+	CreatedBy string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
+	CreatedByType string `pulumi:"createdByType"`
 	// The timestamp of the last modification the resource (UTC).
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	LastModifiedAt string `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
 	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+	LastModifiedByType string `pulumi:"lastModifiedByType"`
 }
 
 // AccountPropertiesResponseSystemDataInput is an input type that accepts AccountPropertiesResponseSystemDataArgs and AccountPropertiesResponseSystemDataOutput values.
@@ -386,17 +386,17 @@ type AccountPropertiesResponseSystemDataInput interface {
 // Metadata pertaining to creation and last modification of the resource.
 type AccountPropertiesResponseSystemDataArgs struct {
 	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
 	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	CreatedByType pulumi.StringInput `pulumi:"createdByType"`
 	// The timestamp of the last modification the resource (UTC).
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
 	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
 }
 
 func (AccountPropertiesResponseSystemDataArgs) ElementType() reflect.Type {
@@ -478,33 +478,33 @@ func (o AccountPropertiesResponseSystemDataOutput) ToAccountPropertiesResponseSy
 }
 
 // The timestamp of resource creation (UTC).
-func (o AccountPropertiesResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The identity that created the resource.
-func (o AccountPropertiesResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
 // The type of identity that created the resource.
-func (o AccountPropertiesResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) CreatedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.CreatedByType }).(pulumi.StringOutput)
 }
 
 // The timestamp of the last modification the resource (UTC).
-func (o AccountPropertiesResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
 // The identity that last modified the resource.
-func (o AccountPropertiesResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
 // The type of identity that last modified the resource.
-func (o AccountPropertiesResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
 
 type AccountPropertiesResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
@@ -531,7 +531,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedAt() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return v.CreatedAt
+		return &v.CreatedAt
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -541,7 +541,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedBy() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return v.CreatedBy
+		return &v.CreatedBy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -551,7 +551,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedByType() pulumi.Str
 		if v == nil {
 			return nil
 		}
-		return v.CreatedByType
+		return &v.CreatedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -561,7 +561,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedAt() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.LastModifiedAt
+		return &v.LastModifiedAt
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -571,7 +571,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedBy() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.LastModifiedBy
+		return &v.LastModifiedBy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -581,7 +581,7 @@ func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedByType() pulum
 		if v == nil {
 			return nil
 		}
-		return v.LastModifiedByType
+		return &v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -32,6 +32,8 @@ type Account struct {
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Gets or sets the location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName pulumi.StringPtrOutput `pulumi:"managedResourceGroupName"`
 	// Gets the resource identifiers of the managed resources.
 	ManagedResources AccountPropertiesResponseManagedResourcesOutput `pulumi:"managedResources"`
 	// Gets or sets the name.
@@ -61,6 +63,9 @@ func NewAccount(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -113,6 +118,8 @@ type accountState struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Gets or sets the location.
 	Location *string `pulumi:"location"`
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Gets the resource identifiers of the managed resources.
 	ManagedResources *AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
 	// Gets or sets the name.
@@ -151,6 +158,8 @@ type AccountState struct {
 	Identity IdentityResponsePtrInput
 	// Gets or sets the location.
 	Location pulumi.StringPtrInput
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName pulumi.StringPtrInput
 	// Gets the resource identifiers of the managed resources.
 	ManagedResources AccountPropertiesResponseManagedResourcesPtrInput
 	// Gets or sets the name.
@@ -182,6 +191,8 @@ type accountArgs struct {
 	Identity *Identity `pulumi:"identity"`
 	// Gets or sets the location.
 	Location *string `pulumi:"location"`
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Gets or sets the public network access.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource group name.
@@ -200,6 +211,8 @@ type AccountArgs struct {
 	Identity IdentityPtrInput
 	// Gets or sets the location.
 	Location pulumi.StringPtrInput
+	// Gets or sets the managed resource group name
+	ManagedResourceGroupName pulumi.StringPtrInput
 	// Gets or sets the public network access.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The resource group name.

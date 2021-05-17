@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Gets or sets the managed resource group name
+        /// </summary>
+        public readonly string? ManagedResourceGroupName;
+        /// <summary>
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
         public readonly Outputs.AccountPropertiesResponseManagedResources ManagedResources;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.Purview
 
             string? location,
 
+            string? managedResourceGroupName,
+
             Outputs.AccountPropertiesResponseManagedResources managedResources,
 
             string name,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Purview
             Id = id;
             Identity = identity;
             Location = location;
+            ManagedResourceGroupName = managedResourceGroupName;
             ManagedResources = managedResources;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;

@@ -5778,6 +5778,10 @@ class SiteConfigResponse(dict):
         suggest = None
         if key == "machineKey":
             suggest = "machine_key"
+        elif key == "acrUseManagedIdentityCreds":
+            suggest = "acr_use_managed_identity_creds"
+        elif key == "acrUserManagedIdentityID":
+            suggest = "acr_user_managed_identity_id"
         elif key == "alwaysOn":
             suggest = "always_on"
         elif key == "apiDefinition":
@@ -5898,6 +5902,8 @@ class SiteConfigResponse(dict):
 
     def __init__(__self__, *,
                  machine_key: 'outputs.SiteMachineKeyResponse',
+                 acr_use_managed_identity_creds: Optional[bool] = None,
+                 acr_user_managed_identity_id: Optional[str] = None,
                  always_on: Optional[bool] = None,
                  api_definition: Optional['outputs.ApiDefinitionInfoResponse'] = None,
                  api_management_config: Optional['outputs.ApiManagementConfigResponse'] = None,
@@ -5958,6 +5964,8 @@ class SiteConfigResponse(dict):
         """
         Configuration of an App Service app.
         :param 'SiteMachineKeyResponse' machine_key: Site MachineKey.
+        :param bool acr_use_managed_identity_creds: Flag to use Managed Identity Creds for ACR pull
+        :param str acr_user_managed_identity_id: If using user managed identity, the user managed identity ClientId
         :param bool always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
         :param 'ApiDefinitionInfoResponse' api_definition: Information about the formal API definition for the app.
         :param 'ApiManagementConfigResponse' api_management_config: Azure API management settings linked to the app.
@@ -6018,6 +6026,10 @@ class SiteConfigResponse(dict):
         :param int x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
         pulumi.set(__self__, "machine_key", machine_key)
+        if acr_use_managed_identity_creds is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_creds", acr_use_managed_identity_creds)
+        if acr_user_managed_identity_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_id", acr_user_managed_identity_id)
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
         if api_definition is not None:
@@ -6146,6 +6158,22 @@ class SiteConfigResponse(dict):
         Site MachineKey.
         """
         return pulumi.get(self, "machine_key")
+
+    @property
+    @pulumi.getter(name="acrUseManagedIdentityCreds")
+    def acr_use_managed_identity_creds(self) -> Optional[bool]:
+        """
+        Flag to use Managed Identity Creds for ACR pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_creds")
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityID")
+    def acr_user_managed_identity_id(self) -> Optional[str]:
+        """
+        If using user managed identity, the user managed identity ClientId
+        """
+        return pulumi.get(self, "acr_user_managed_identity_id")
 
     @property
     @pulumi.getter(name="alwaysOn")

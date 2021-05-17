@@ -66,6 +66,12 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Gets or sets the managed resource group name
+        /// </summary>
+        [Output("managedResourceGroupName")]
+        public Output<string?> ManagedResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
         [Output("managedResources")]
@@ -189,6 +195,12 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Gets or sets the managed resource group name
+        /// </summary>
+        [Input("managedResourceGroupName")]
+        public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
         /// Gets or sets the public network access.
         /// </summary>
         [Input("publicNetworkAccess")]
@@ -220,6 +232,7 @@ namespace Pulumi.AzureNative.Purview
 
         public AccountArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     Account resource
     """
-    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
         if cloud_connectors and not isinstance(cloud_connectors, dict):
             raise TypeError("Expected argument 'cloud_connectors' to be a dict")
         pulumi.set(__self__, "cloud_connectors", cloud_connectors)
@@ -48,6 +48,9 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_resource_group_name and not isinstance(managed_resource_group_name, str):
+            raise TypeError("Expected argument 'managed_resource_group_name' to be a str")
+        pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if managed_resources and not isinstance(managed_resources, dict):
             raise TypeError("Expected argument 'managed_resources' to be a dict")
         pulumi.set(__self__, "managed_resources", managed_resources)
@@ -150,6 +153,14 @@ class GetAccountResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[str]:
+        """
+        Gets or sets the managed resource group name
+        """
+        return pulumi.get(self, "managed_resource_group_name")
+
+    @property
     @pulumi.getter(name="managedResources")
     def managed_resources(self) -> 'outputs.AccountPropertiesResponseManagedResources':
         """
@@ -237,6 +248,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             identity=self.identity,
             location=self.location,
+            managed_resource_group_name=self.managed_resource_group_name,
             managed_resources=self.managed_resources,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -277,6 +289,7 @@ def get_account(account_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
+        managed_resource_group_name=__ret__.managed_resource_group_name,
         managed_resources=__ret__.managed_resources,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,

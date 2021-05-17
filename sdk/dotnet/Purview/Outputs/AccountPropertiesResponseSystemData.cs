@@ -16,41 +16,41 @@ namespace Pulumi.AzureNative.Purview.Outputs
         /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
-        public readonly string? CreatedAt;
+        public readonly string CreatedAt;
         /// <summary>
         /// The identity that created the resource.
         /// </summary>
-        public readonly string? CreatedBy;
+        public readonly string CreatedBy;
         /// <summary>
         /// The type of identity that created the resource.
         /// </summary>
-        public readonly string? CreatedByType;
+        public readonly string CreatedByType;
         /// <summary>
         /// The timestamp of the last modification the resource (UTC).
         /// </summary>
-        public readonly string? LastModifiedAt;
+        public readonly string LastModifiedAt;
         /// <summary>
         /// The identity that last modified the resource.
         /// </summary>
-        public readonly string? LastModifiedBy;
+        public readonly string LastModifiedBy;
         /// <summary>
         /// The type of identity that last modified the resource.
         /// </summary>
-        public readonly string? LastModifiedByType;
+        public readonly string LastModifiedByType;
 
         [OutputConstructor]
         private AccountPropertiesResponseSystemData(
-            string? createdAt,
+            string createdAt,
 
-            string? createdBy,
+            string createdBy,
 
-            string? createdByType,
+            string createdByType,
 
-            string? lastModifiedAt,
+            string lastModifiedAt,
 
-            string? lastModifiedBy,
+            string lastModifiedBy,
 
-            string? lastModifiedByType)
+            string lastModifiedByType)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;

@@ -69,6 +69,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Gets or sets the managed resource group name
+     */
+    public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
+    /**
      * Gets the resource identifiers of the managed resources.
      */
     public /*out*/ readonly managedResources!: pulumi.Output<outputs.purview.v20201201preview.AccountPropertiesResponseManagedResources>;
@@ -122,7 +126,8 @@ export class Account extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -147,6 +152,7 @@ export class Account extends pulumi.CustomResource {
             inputs["friendlyName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedResourceGroupName"] = undefined /*out*/;
             inputs["managedResources"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
@@ -182,6 +188,10 @@ export interface AccountArgs {
      * Gets or sets the location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Gets or sets the managed resource group name
+     */
+    readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Gets or sets the public network access.
      */

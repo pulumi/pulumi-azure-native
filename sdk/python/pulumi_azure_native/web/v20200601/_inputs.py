@@ -4060,6 +4060,8 @@ class RequestsBasedTriggerArgs:
 @pulumi.input_type
 class SiteConfigArgs:
     def __init__(__self__, *,
+                 acr_use_managed_identity_creds: Optional[pulumi.Input[bool]] = None,
+                 acr_user_managed_identity_id: Optional[pulumi.Input[str]] = None,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition: Optional[pulumi.Input['ApiDefinitionInfoArgs']] = None,
                  api_management_config: Optional[pulumi.Input['ApiManagementConfigArgs']] = None,
@@ -4119,6 +4121,8 @@ class SiteConfigArgs:
                  x_managed_service_identity_id: Optional[pulumi.Input[int]] = None):
         """
         Configuration of an App Service app.
+        :param pulumi.Input[bool] acr_use_managed_identity_creds: Flag to use Managed Identity Creds for ACR pull
+        :param pulumi.Input[str] acr_user_managed_identity_id: If using user managed identity, the user managed identity ClientId
         :param pulumi.Input[bool] always_on: <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
         :param pulumi.Input['ApiDefinitionInfoArgs'] api_definition: Information about the formal API definition for the app.
         :param pulumi.Input['ApiManagementConfigArgs'] api_management_config: Azure API management settings linked to the app.
@@ -4178,6 +4182,10 @@ class SiteConfigArgs:
         :param pulumi.Input[str] windows_fx_version: Xenon App Framework and version
         :param pulumi.Input[int] x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
+        if acr_use_managed_identity_creds is not None:
+            pulumi.set(__self__, "acr_use_managed_identity_creds", acr_use_managed_identity_creds)
+        if acr_user_managed_identity_id is not None:
+            pulumi.set(__self__, "acr_user_managed_identity_id", acr_user_managed_identity_id)
         if always_on is not None:
             pulumi.set(__self__, "always_on", always_on)
         if api_definition is not None:
@@ -4298,6 +4306,30 @@ class SiteConfigArgs:
             pulumi.set(__self__, "windows_fx_version", windows_fx_version)
         if x_managed_service_identity_id is not None:
             pulumi.set(__self__, "x_managed_service_identity_id", x_managed_service_identity_id)
+
+    @property
+    @pulumi.getter(name="acrUseManagedIdentityCreds")
+    def acr_use_managed_identity_creds(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to use Managed Identity Creds for ACR pull
+        """
+        return pulumi.get(self, "acr_use_managed_identity_creds")
+
+    @acr_use_managed_identity_creds.setter
+    def acr_use_managed_identity_creds(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "acr_use_managed_identity_creds", value)
+
+    @property
+    @pulumi.getter(name="acrUserManagedIdentityID")
+    def acr_user_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If using user managed identity, the user managed identity ClientId
+        """
+        return pulumi.get(self, "acr_user_managed_identity_id")
+
+    @acr_user_managed_identity_id.setter
+    def acr_user_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acr_user_managed_identity_id", value)
 
     @property
     @pulumi.getter(name="alwaysOn")

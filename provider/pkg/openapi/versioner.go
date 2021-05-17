@@ -127,14 +127,9 @@ var lockedTypeVersions = map[string]string{
 	"compute:SshPublicKey":                              "v20201201",
 	"compute:getLogAnalyticExportRequestRateByInterval": "v20201201",
 	"compute:getLogAnalyticExportThrottledRequests":     "v20201201",
-	//"compute:VirtualMachine":                           "v20201201",
-	//"compute:VirtualMachineExtension":                  "v20201201",
-	//"compute:VirtualMachineRunCommandByVirtualMachine": "v20201201",
-	//"compute:VirtualMachineScaleSet":                   "v20201201",
-	//"compute:VirtualMachineScaleSetExtension":          "v20201201",
-	//"compute:VirtualMachineScaleSetVM":                 "v20201201",
-	//"compute:VirtualMachineScaleSetVMExtension":        "v20201201",
-	//"compute:VirtualMachineScaleSetVMRunCommand":       "v20201201",
+
+	"maintenance:MaintenanceConfiguration":    "v20200401",
+	"maintenance:getMaintenanceConfiguration": "v20200401",
 
 	"network:ApplicationGateway":                          "v20201101",
 	"network:ApplicationGatewayPrivateEndpointConnection": "v20201101",

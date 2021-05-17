@@ -14,6 +14,14 @@ namespace Pulumi.AzureNative.Web.V20201001.Outputs
     public sealed class SiteConfigResponse
     {
         /// <summary>
+        /// Flag to use Managed Identity Creds for ACR pull
+        /// </summary>
+        public readonly bool? AcrUseManagedIdentityCreds;
+        /// <summary>
+        /// If using user managed identity, the user managed identity ClientId
+        /// </summary>
+        public readonly string? AcrUserManagedIdentityID;
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if Always On is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool? AlwaysOn;
@@ -249,6 +257,10 @@ namespace Pulumi.AzureNative.Web.V20201001.Outputs
 
         [OutputConstructor]
         private SiteConfigResponse(
+            bool? acrUseManagedIdentityCreds,
+
+            string? acrUserManagedIdentityID,
+
             bool? alwaysOn,
 
             Outputs.ApiDefinitionInfoResponse? apiDefinition,
@@ -365,6 +377,8 @@ namespace Pulumi.AzureNative.Web.V20201001.Outputs
 
             int? xManagedServiceIdentityId)
         {
+            AcrUseManagedIdentityCreds = acrUseManagedIdentityCreds;
+            AcrUserManagedIdentityID = acrUserManagedIdentityID;
             AlwaysOn = alwaysOn;
             ApiDefinition = apiDefinition;
             ApiManagementConfig = apiManagementConfig;
