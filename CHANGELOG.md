@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Improvements
+
+- Do not count 429 (Too Many Requests) towards the limit of retry attempts, retry them indefinitely
+  [#849](https://github.com/pulumi/pulumi-azure-native/issues/849)
 
 ---
 
