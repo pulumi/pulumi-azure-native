@@ -12685,6 +12685,8 @@ type ComputeInstanceProperties struct {
 	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettings `pulumi:"personalComputeInstanceSettings"`
+	// The list of schedules to be applied on the compute instance.
+	Schedules *ComputeSchedules `pulumi:"schedules"`
 	// Details of customized scripts to execute for setting up the cluster.
 	SetupScripts *SetupScripts `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
@@ -12714,6 +12716,8 @@ type ComputeInstancePropertiesArgs struct {
 	ComputeInstanceAuthorizationType pulumi.StringPtrInput `pulumi:"computeInstanceAuthorizationType"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsPtrInput `pulumi:"personalComputeInstanceSettings"`
+	// The list of schedules to be applied on the compute instance.
+	Schedules ComputeSchedulesPtrInput `pulumi:"schedules"`
 	// Details of customized scripts to execute for setting up the cluster.
 	SetupScripts SetupScriptsPtrInput `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
@@ -12819,6 +12823,11 @@ func (o ComputeInstancePropertiesOutput) PersonalComputeInstanceSettings() Perso
 	}).(PersonalComputeInstanceSettingsPtrOutput)
 }
 
+// The list of schedules to be applied on the compute instance.
+func (o ComputeInstancePropertiesOutput) Schedules() ComputeSchedulesPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeSchedules { return v.Schedules }).(ComputeSchedulesPtrOutput)
+}
+
 // Details of customized scripts to execute for setting up the cluster.
 func (o ComputeInstancePropertiesOutput) SetupScripts() SetupScriptsPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceProperties) *SetupScripts { return v.SetupScripts }).(SetupScriptsPtrOutput)
@@ -12885,6 +12894,16 @@ func (o ComputeInstancePropertiesPtrOutput) PersonalComputeInstanceSettings() Pe
 		}
 		return v.PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// The list of schedules to be applied on the compute instance.
+func (o ComputeInstancePropertiesPtrOutput) Schedules() ComputeSchedulesPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *ComputeSchedules {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(ComputeSchedulesPtrOutput)
 }
 
 // Details of customized scripts to execute for setting up the cluster.
@@ -13093,6 +13112,8 @@ type ComputeInstanceResponseProperties struct {
 	LastOperation ComputeInstanceLastOperationResponse `pulumi:"lastOperation"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettingsResponse `pulumi:"personalComputeInstanceSettings"`
+	// The list of schedules to be applied on the compute instance.
+	Schedules *ComputeSchedulesResponse `pulumi:"schedules"`
 	// Details of customized scripts to execute for setting up the cluster.
 	SetupScripts *SetupScriptsResponse `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
@@ -13134,6 +13155,8 @@ type ComputeInstanceResponsePropertiesArgs struct {
 	LastOperation ComputeInstanceLastOperationResponseInput `pulumi:"lastOperation"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsResponsePtrInput `pulumi:"personalComputeInstanceSettings"`
+	// The list of schedules to be applied on the compute instance.
+	Schedules ComputeSchedulesResponsePtrInput `pulumi:"schedules"`
 	// Details of customized scripts to execute for setting up the cluster.
 	SetupScripts SetupScriptsResponsePtrInput `pulumi:"setupScripts"`
 	// Specifies policy and settings for SSH access.
@@ -13268,6 +13291,11 @@ func (o ComputeInstanceResponsePropertiesOutput) PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
 }
 
+// The list of schedules to be applied on the compute instance.
+func (o ComputeInstanceResponsePropertiesOutput) Schedules() ComputeSchedulesResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeSchedulesResponse { return v.Schedules }).(ComputeSchedulesResponsePtrOutput)
+}
+
 // Details of customized scripts to execute for setting up the cluster.
 func (o ComputeInstanceResponsePropertiesOutput) SetupScripts() SetupScriptsResponsePtrOutput {
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) *SetupScriptsResponse { return v.SetupScripts }).(SetupScriptsResponsePtrOutput)
@@ -13389,6 +13417,16 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) PersonalComputeInstanceSetti
 		}
 		return v.PersonalComputeInstanceSettings
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// The list of schedules to be applied on the compute instance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) Schedules() ComputeSchedulesResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeSchedulesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(ComputeSchedulesResponsePtrOutput)
 }
 
 // Details of customized scripts to execute for setting up the cluster.
@@ -13783,6 +13821,564 @@ func (o ComputeInstanceSshSettingsResponsePtrOutput) SshPublicAccess() pulumi.St
 		}
 		return v.SshPublicAccess
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedules struct {
+	// The list of compute start stop schedules to be applied.
+	ComputeStartStop []ComputeStartStopSchedule `pulumi:"computeStartStop"`
+}
+
+// ComputeSchedulesInput is an input type that accepts ComputeSchedulesArgs and ComputeSchedulesOutput values.
+// You can construct a concrete instance of `ComputeSchedulesInput` via:
+//
+//          ComputeSchedulesArgs{...}
+type ComputeSchedulesInput interface {
+	pulumi.Input
+
+	ToComputeSchedulesOutput() ComputeSchedulesOutput
+	ToComputeSchedulesOutputWithContext(context.Context) ComputeSchedulesOutput
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesArgs struct {
+	// The list of compute start stop schedules to be applied.
+	ComputeStartStop ComputeStartStopScheduleArrayInput `pulumi:"computeStartStop"`
+}
+
+func (ComputeSchedulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeSchedules)(nil)).Elem()
+}
+
+func (i ComputeSchedulesArgs) ToComputeSchedulesOutput() ComputeSchedulesOutput {
+	return i.ToComputeSchedulesOutputWithContext(context.Background())
+}
+
+func (i ComputeSchedulesArgs) ToComputeSchedulesOutputWithContext(ctx context.Context) ComputeSchedulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesOutput)
+}
+
+func (i ComputeSchedulesArgs) ToComputeSchedulesPtrOutput() ComputeSchedulesPtrOutput {
+	return i.ToComputeSchedulesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeSchedulesArgs) ToComputeSchedulesPtrOutputWithContext(ctx context.Context) ComputeSchedulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesOutput).ToComputeSchedulesPtrOutputWithContext(ctx)
+}
+
+// ComputeSchedulesPtrInput is an input type that accepts ComputeSchedulesArgs, ComputeSchedulesPtr and ComputeSchedulesPtrOutput values.
+// You can construct a concrete instance of `ComputeSchedulesPtrInput` via:
+//
+//          ComputeSchedulesArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeSchedulesPtrInput interface {
+	pulumi.Input
+
+	ToComputeSchedulesPtrOutput() ComputeSchedulesPtrOutput
+	ToComputeSchedulesPtrOutputWithContext(context.Context) ComputeSchedulesPtrOutput
+}
+
+type computeSchedulesPtrType ComputeSchedulesArgs
+
+func ComputeSchedulesPtr(v *ComputeSchedulesArgs) ComputeSchedulesPtrInput {
+	return (*computeSchedulesPtrType)(v)
+}
+
+func (*computeSchedulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeSchedules)(nil)).Elem()
+}
+
+func (i *computeSchedulesPtrType) ToComputeSchedulesPtrOutput() ComputeSchedulesPtrOutput {
+	return i.ToComputeSchedulesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeSchedulesPtrType) ToComputeSchedulesPtrOutputWithContext(ctx context.Context) ComputeSchedulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesPtrOutput)
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesOutput struct{ *pulumi.OutputState }
+
+func (ComputeSchedulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeSchedules)(nil)).Elem()
+}
+
+func (o ComputeSchedulesOutput) ToComputeSchedulesOutput() ComputeSchedulesOutput {
+	return o
+}
+
+func (o ComputeSchedulesOutput) ToComputeSchedulesOutputWithContext(ctx context.Context) ComputeSchedulesOutput {
+	return o
+}
+
+func (o ComputeSchedulesOutput) ToComputeSchedulesPtrOutput() ComputeSchedulesPtrOutput {
+	return o.ToComputeSchedulesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeSchedulesOutput) ToComputeSchedulesPtrOutputWithContext(ctx context.Context) ComputeSchedulesPtrOutput {
+	return o.ApplyT(func(v ComputeSchedules) *ComputeSchedules {
+		return &v
+	}).(ComputeSchedulesPtrOutput)
+}
+
+// The list of compute start stop schedules to be applied.
+func (o ComputeSchedulesOutput) ComputeStartStop() ComputeStartStopScheduleArrayOutput {
+	return o.ApplyT(func(v ComputeSchedules) []ComputeStartStopSchedule { return v.ComputeStartStop }).(ComputeStartStopScheduleArrayOutput)
+}
+
+type ComputeSchedulesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeSchedulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeSchedules)(nil)).Elem()
+}
+
+func (o ComputeSchedulesPtrOutput) ToComputeSchedulesPtrOutput() ComputeSchedulesPtrOutput {
+	return o
+}
+
+func (o ComputeSchedulesPtrOutput) ToComputeSchedulesPtrOutputWithContext(ctx context.Context) ComputeSchedulesPtrOutput {
+	return o
+}
+
+func (o ComputeSchedulesPtrOutput) Elem() ComputeSchedulesOutput {
+	return o.ApplyT(func(v *ComputeSchedules) ComputeSchedules { return *v }).(ComputeSchedulesOutput)
+}
+
+// The list of compute start stop schedules to be applied.
+func (o ComputeSchedulesPtrOutput) ComputeStartStop() ComputeStartStopScheduleArrayOutput {
+	return o.ApplyT(func(v *ComputeSchedules) []ComputeStartStopSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeStartStop
+	}).(ComputeStartStopScheduleArrayOutput)
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesResponse struct {
+	// The list of compute start stop schedules to be applied.
+	ComputeStartStop []ComputeStartStopScheduleResponse `pulumi:"computeStartStop"`
+}
+
+// ComputeSchedulesResponseInput is an input type that accepts ComputeSchedulesResponseArgs and ComputeSchedulesResponseOutput values.
+// You can construct a concrete instance of `ComputeSchedulesResponseInput` via:
+//
+//          ComputeSchedulesResponseArgs{...}
+type ComputeSchedulesResponseInput interface {
+	pulumi.Input
+
+	ToComputeSchedulesResponseOutput() ComputeSchedulesResponseOutput
+	ToComputeSchedulesResponseOutputWithContext(context.Context) ComputeSchedulesResponseOutput
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesResponseArgs struct {
+	// The list of compute start stop schedules to be applied.
+	ComputeStartStop ComputeStartStopScheduleResponseArrayInput `pulumi:"computeStartStop"`
+}
+
+func (ComputeSchedulesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeSchedulesResponse)(nil)).Elem()
+}
+
+func (i ComputeSchedulesResponseArgs) ToComputeSchedulesResponseOutput() ComputeSchedulesResponseOutput {
+	return i.ToComputeSchedulesResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeSchedulesResponseArgs) ToComputeSchedulesResponseOutputWithContext(ctx context.Context) ComputeSchedulesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesResponseOutput)
+}
+
+func (i ComputeSchedulesResponseArgs) ToComputeSchedulesResponsePtrOutput() ComputeSchedulesResponsePtrOutput {
+	return i.ToComputeSchedulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeSchedulesResponseArgs) ToComputeSchedulesResponsePtrOutputWithContext(ctx context.Context) ComputeSchedulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesResponseOutput).ToComputeSchedulesResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeSchedulesResponsePtrInput is an input type that accepts ComputeSchedulesResponseArgs, ComputeSchedulesResponsePtr and ComputeSchedulesResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeSchedulesResponsePtrInput` via:
+//
+//          ComputeSchedulesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeSchedulesResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeSchedulesResponsePtrOutput() ComputeSchedulesResponsePtrOutput
+	ToComputeSchedulesResponsePtrOutputWithContext(context.Context) ComputeSchedulesResponsePtrOutput
+}
+
+type computeSchedulesResponsePtrType ComputeSchedulesResponseArgs
+
+func ComputeSchedulesResponsePtr(v *ComputeSchedulesResponseArgs) ComputeSchedulesResponsePtrInput {
+	return (*computeSchedulesResponsePtrType)(v)
+}
+
+func (*computeSchedulesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeSchedulesResponse)(nil)).Elem()
+}
+
+func (i *computeSchedulesResponsePtrType) ToComputeSchedulesResponsePtrOutput() ComputeSchedulesResponsePtrOutput {
+	return i.ToComputeSchedulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeSchedulesResponsePtrType) ToComputeSchedulesResponsePtrOutputWithContext(ctx context.Context) ComputeSchedulesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeSchedulesResponsePtrOutput)
+}
+
+// The list of schedules to be applied on the computes
+type ComputeSchedulesResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeSchedulesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeSchedulesResponse)(nil)).Elem()
+}
+
+func (o ComputeSchedulesResponseOutput) ToComputeSchedulesResponseOutput() ComputeSchedulesResponseOutput {
+	return o
+}
+
+func (o ComputeSchedulesResponseOutput) ToComputeSchedulesResponseOutputWithContext(ctx context.Context) ComputeSchedulesResponseOutput {
+	return o
+}
+
+func (o ComputeSchedulesResponseOutput) ToComputeSchedulesResponsePtrOutput() ComputeSchedulesResponsePtrOutput {
+	return o.ToComputeSchedulesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeSchedulesResponseOutput) ToComputeSchedulesResponsePtrOutputWithContext(ctx context.Context) ComputeSchedulesResponsePtrOutput {
+	return o.ApplyT(func(v ComputeSchedulesResponse) *ComputeSchedulesResponse {
+		return &v
+	}).(ComputeSchedulesResponsePtrOutput)
+}
+
+// The list of compute start stop schedules to be applied.
+func (o ComputeSchedulesResponseOutput) ComputeStartStop() ComputeStartStopScheduleResponseArrayOutput {
+	return o.ApplyT(func(v ComputeSchedulesResponse) []ComputeStartStopScheduleResponse { return v.ComputeStartStop }).(ComputeStartStopScheduleResponseArrayOutput)
+}
+
+type ComputeSchedulesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeSchedulesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeSchedulesResponse)(nil)).Elem()
+}
+
+func (o ComputeSchedulesResponsePtrOutput) ToComputeSchedulesResponsePtrOutput() ComputeSchedulesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeSchedulesResponsePtrOutput) ToComputeSchedulesResponsePtrOutputWithContext(ctx context.Context) ComputeSchedulesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeSchedulesResponsePtrOutput) Elem() ComputeSchedulesResponseOutput {
+	return o.ApplyT(func(v *ComputeSchedulesResponse) ComputeSchedulesResponse { return *v }).(ComputeSchedulesResponseOutput)
+}
+
+// The list of compute start stop schedules to be applied.
+func (o ComputeSchedulesResponsePtrOutput) ComputeStartStop() ComputeStartStopScheduleResponseArrayOutput {
+	return o.ApplyT(func(v *ComputeSchedulesResponse) []ComputeStartStopScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeStartStop
+	}).(ComputeStartStopScheduleResponseArrayOutput)
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopSchedule struct {
+	// The compute power action.
+	Action *string `pulumi:"action"`
+	// The workflow trigger cron for ComputeStartStop schedule type.
+	Cron *Cron `pulumi:"cron"`
+	// The workflow trigger recurrence for ComputeStartStop schedule type.
+	Recurrence *Recurrence `pulumi:"recurrence"`
+	// The schedule status.
+	Status *string `pulumi:"status"`
+	// The schedule trigger type.
+	TriggerType *string `pulumi:"triggerType"`
+}
+
+// ComputeStartStopScheduleInput is an input type that accepts ComputeStartStopScheduleArgs and ComputeStartStopScheduleOutput values.
+// You can construct a concrete instance of `ComputeStartStopScheduleInput` via:
+//
+//          ComputeStartStopScheduleArgs{...}
+type ComputeStartStopScheduleInput interface {
+	pulumi.Input
+
+	ToComputeStartStopScheduleOutput() ComputeStartStopScheduleOutput
+	ToComputeStartStopScheduleOutputWithContext(context.Context) ComputeStartStopScheduleOutput
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleArgs struct {
+	// The compute power action.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The workflow trigger cron for ComputeStartStop schedule type.
+	Cron CronPtrInput `pulumi:"cron"`
+	// The workflow trigger recurrence for ComputeStartStop schedule type.
+	Recurrence RecurrencePtrInput `pulumi:"recurrence"`
+	// The schedule status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The schedule trigger type.
+	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
+}
+
+func (ComputeStartStopScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeStartStopSchedule)(nil)).Elem()
+}
+
+func (i ComputeStartStopScheduleArgs) ToComputeStartStopScheduleOutput() ComputeStartStopScheduleOutput {
+	return i.ToComputeStartStopScheduleOutputWithContext(context.Background())
+}
+
+func (i ComputeStartStopScheduleArgs) ToComputeStartStopScheduleOutputWithContext(ctx context.Context) ComputeStartStopScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeStartStopScheduleOutput)
+}
+
+// ComputeStartStopScheduleArrayInput is an input type that accepts ComputeStartStopScheduleArray and ComputeStartStopScheduleArrayOutput values.
+// You can construct a concrete instance of `ComputeStartStopScheduleArrayInput` via:
+//
+//          ComputeStartStopScheduleArray{ ComputeStartStopScheduleArgs{...} }
+type ComputeStartStopScheduleArrayInput interface {
+	pulumi.Input
+
+	ToComputeStartStopScheduleArrayOutput() ComputeStartStopScheduleArrayOutput
+	ToComputeStartStopScheduleArrayOutputWithContext(context.Context) ComputeStartStopScheduleArrayOutput
+}
+
+type ComputeStartStopScheduleArray []ComputeStartStopScheduleInput
+
+func (ComputeStartStopScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeStartStopSchedule)(nil)).Elem()
+}
+
+func (i ComputeStartStopScheduleArray) ToComputeStartStopScheduleArrayOutput() ComputeStartStopScheduleArrayOutput {
+	return i.ToComputeStartStopScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeStartStopScheduleArray) ToComputeStartStopScheduleArrayOutputWithContext(ctx context.Context) ComputeStartStopScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeStartStopScheduleArrayOutput)
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleOutput struct{ *pulumi.OutputState }
+
+func (ComputeStartStopScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeStartStopSchedule)(nil)).Elem()
+}
+
+func (o ComputeStartStopScheduleOutput) ToComputeStartStopScheduleOutput() ComputeStartStopScheduleOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleOutput) ToComputeStartStopScheduleOutputWithContext(ctx context.Context) ComputeStartStopScheduleOutput {
+	return o
+}
+
+// The compute power action.
+func (o ComputeStartStopScheduleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopSchedule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+func (o ComputeStartStopScheduleOutput) Cron() CronPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopSchedule) *Cron { return v.Cron }).(CronPtrOutput)
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+func (o ComputeStartStopScheduleOutput) Recurrence() RecurrencePtrOutput {
+	return o.ApplyT(func(v ComputeStartStopSchedule) *Recurrence { return v.Recurrence }).(RecurrencePtrOutput)
+}
+
+// The schedule status.
+func (o ComputeStartStopScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The schedule trigger type.
+func (o ComputeStartStopScheduleOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopSchedule) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
+}
+
+type ComputeStartStopScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeStartStopScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeStartStopSchedule)(nil)).Elem()
+}
+
+func (o ComputeStartStopScheduleArrayOutput) ToComputeStartStopScheduleArrayOutput() ComputeStartStopScheduleArrayOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleArrayOutput) ToComputeStartStopScheduleArrayOutputWithContext(ctx context.Context) ComputeStartStopScheduleArrayOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleArrayOutput) Index(i pulumi.IntInput) ComputeStartStopScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeStartStopSchedule {
+		return vs[0].([]ComputeStartStopSchedule)[vs[1].(int)]
+	}).(ComputeStartStopScheduleOutput)
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleResponse struct {
+	// The compute power action.
+	Action *string `pulumi:"action"`
+	// The workflow trigger cron for ComputeStartStop schedule type.
+	Cron *CronResponse `pulumi:"cron"`
+	// Schedule id.
+	Id string `pulumi:"id"`
+	// The current deployment state of schedule.
+	ProvisioningStatus string `pulumi:"provisioningStatus"`
+	// The workflow trigger recurrence for ComputeStartStop schedule type.
+	Recurrence *RecurrenceResponse `pulumi:"recurrence"`
+	// The schedule status.
+	Status *string `pulumi:"status"`
+	// The schedule trigger type.
+	TriggerType *string `pulumi:"triggerType"`
+}
+
+// ComputeStartStopScheduleResponseInput is an input type that accepts ComputeStartStopScheduleResponseArgs and ComputeStartStopScheduleResponseOutput values.
+// You can construct a concrete instance of `ComputeStartStopScheduleResponseInput` via:
+//
+//          ComputeStartStopScheduleResponseArgs{...}
+type ComputeStartStopScheduleResponseInput interface {
+	pulumi.Input
+
+	ToComputeStartStopScheduleResponseOutput() ComputeStartStopScheduleResponseOutput
+	ToComputeStartStopScheduleResponseOutputWithContext(context.Context) ComputeStartStopScheduleResponseOutput
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleResponseArgs struct {
+	// The compute power action.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The workflow trigger cron for ComputeStartStop schedule type.
+	Cron CronResponsePtrInput `pulumi:"cron"`
+	// Schedule id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The current deployment state of schedule.
+	ProvisioningStatus pulumi.StringInput `pulumi:"provisioningStatus"`
+	// The workflow trigger recurrence for ComputeStartStop schedule type.
+	Recurrence RecurrenceResponsePtrInput `pulumi:"recurrence"`
+	// The schedule status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The schedule trigger type.
+	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
+}
+
+func (ComputeStartStopScheduleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeStartStopScheduleResponse)(nil)).Elem()
+}
+
+func (i ComputeStartStopScheduleResponseArgs) ToComputeStartStopScheduleResponseOutput() ComputeStartStopScheduleResponseOutput {
+	return i.ToComputeStartStopScheduleResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeStartStopScheduleResponseArgs) ToComputeStartStopScheduleResponseOutputWithContext(ctx context.Context) ComputeStartStopScheduleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeStartStopScheduleResponseOutput)
+}
+
+// ComputeStartStopScheduleResponseArrayInput is an input type that accepts ComputeStartStopScheduleResponseArray and ComputeStartStopScheduleResponseArrayOutput values.
+// You can construct a concrete instance of `ComputeStartStopScheduleResponseArrayInput` via:
+//
+//          ComputeStartStopScheduleResponseArray{ ComputeStartStopScheduleResponseArgs{...} }
+type ComputeStartStopScheduleResponseArrayInput interface {
+	pulumi.Input
+
+	ToComputeStartStopScheduleResponseArrayOutput() ComputeStartStopScheduleResponseArrayOutput
+	ToComputeStartStopScheduleResponseArrayOutputWithContext(context.Context) ComputeStartStopScheduleResponseArrayOutput
+}
+
+type ComputeStartStopScheduleResponseArray []ComputeStartStopScheduleResponseInput
+
+func (ComputeStartStopScheduleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeStartStopScheduleResponse)(nil)).Elem()
+}
+
+func (i ComputeStartStopScheduleResponseArray) ToComputeStartStopScheduleResponseArrayOutput() ComputeStartStopScheduleResponseArrayOutput {
+	return i.ToComputeStartStopScheduleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeStartStopScheduleResponseArray) ToComputeStartStopScheduleResponseArrayOutputWithContext(ctx context.Context) ComputeStartStopScheduleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeStartStopScheduleResponseArrayOutput)
+}
+
+// Compute start stop schedule properties
+type ComputeStartStopScheduleResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeStartStopScheduleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeStartStopScheduleResponse)(nil)).Elem()
+}
+
+func (o ComputeStartStopScheduleResponseOutput) ToComputeStartStopScheduleResponseOutput() ComputeStartStopScheduleResponseOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleResponseOutput) ToComputeStartStopScheduleResponseOutputWithContext(ctx context.Context) ComputeStartStopScheduleResponseOutput {
+	return o
+}
+
+// The compute power action.
+func (o ComputeStartStopScheduleResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+func (o ComputeStartStopScheduleResponseOutput) Cron() CronResponsePtrOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) *CronResponse { return v.Cron }).(CronResponsePtrOutput)
+}
+
+// Schedule id.
+func (o ComputeStartStopScheduleResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The current deployment state of schedule.
+func (o ComputeStartStopScheduleResponseOutput) ProvisioningStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) string { return v.ProvisioningStatus }).(pulumi.StringOutput)
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+func (o ComputeStartStopScheduleResponseOutput) Recurrence() RecurrenceResponsePtrOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) *RecurrenceResponse { return v.Recurrence }).(RecurrenceResponsePtrOutput)
+}
+
+// The schedule status.
+func (o ComputeStartStopScheduleResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The schedule trigger type.
+func (o ComputeStartStopScheduleResponseOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeStartStopScheduleResponse) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
+}
+
+type ComputeStartStopScheduleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeStartStopScheduleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeStartStopScheduleResponse)(nil)).Elem()
+}
+
+func (o ComputeStartStopScheduleResponseArrayOutput) ToComputeStartStopScheduleResponseArrayOutput() ComputeStartStopScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleResponseArrayOutput) ToComputeStartStopScheduleResponseArrayOutputWithContext(ctx context.Context) ComputeStartStopScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ComputeStartStopScheduleResponseArrayOutput) Index(i pulumi.IntInput) ComputeStartStopScheduleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeStartStopScheduleResponse {
+		return vs[0].([]ComputeStartStopScheduleResponse)[vs[1].(int)]
+	}).(ComputeStartStopScheduleResponseOutput)
 }
 
 // The resource requirements for the container (cpu and memory).
@@ -14922,6 +15518,350 @@ func (o CreateServiceRequestKeysPtrOutput) SecondaryKey() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type Cron struct {
+	// The cron expression.
+	Expression *string `pulumi:"expression"`
+	// The start time.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// CronInput is an input type that accepts CronArgs and CronOutput values.
+// You can construct a concrete instance of `CronInput` via:
+//
+//          CronArgs{...}
+type CronInput interface {
+	pulumi.Input
+
+	ToCronOutput() CronOutput
+	ToCronOutputWithContext(context.Context) CronOutput
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type CronArgs struct {
+	// The cron expression.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (CronArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cron)(nil)).Elem()
+}
+
+func (i CronArgs) ToCronOutput() CronOutput {
+	return i.ToCronOutputWithContext(context.Background())
+}
+
+func (i CronArgs) ToCronOutputWithContext(ctx context.Context) CronOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronOutput)
+}
+
+func (i CronArgs) ToCronPtrOutput() CronPtrOutput {
+	return i.ToCronPtrOutputWithContext(context.Background())
+}
+
+func (i CronArgs) ToCronPtrOutputWithContext(ctx context.Context) CronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronOutput).ToCronPtrOutputWithContext(ctx)
+}
+
+// CronPtrInput is an input type that accepts CronArgs, CronPtr and CronPtrOutput values.
+// You can construct a concrete instance of `CronPtrInput` via:
+//
+//          CronArgs{...}
+//
+//  or:
+//
+//          nil
+type CronPtrInput interface {
+	pulumi.Input
+
+	ToCronPtrOutput() CronPtrOutput
+	ToCronPtrOutputWithContext(context.Context) CronPtrOutput
+}
+
+type cronPtrType CronArgs
+
+func CronPtr(v *CronArgs) CronPtrInput {
+	return (*cronPtrType)(v)
+}
+
+func (*cronPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Cron)(nil)).Elem()
+}
+
+func (i *cronPtrType) ToCronPtrOutput() CronPtrOutput {
+	return i.ToCronPtrOutputWithContext(context.Background())
+}
+
+func (i *cronPtrType) ToCronPtrOutputWithContext(ctx context.Context) CronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronPtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type CronOutput struct{ *pulumi.OutputState }
+
+func (CronOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Cron)(nil)).Elem()
+}
+
+func (o CronOutput) ToCronOutput() CronOutput {
+	return o
+}
+
+func (o CronOutput) ToCronOutputWithContext(ctx context.Context) CronOutput {
+	return o
+}
+
+func (o CronOutput) ToCronPtrOutput() CronPtrOutput {
+	return o.ToCronPtrOutputWithContext(context.Background())
+}
+
+func (o CronOutput) ToCronPtrOutputWithContext(ctx context.Context) CronPtrOutput {
+	return o.ApplyT(func(v Cron) *Cron {
+		return &v
+	}).(CronPtrOutput)
+}
+
+// The cron expression.
+func (o CronOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Cron) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// The start time.
+func (o CronOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Cron) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o CronOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Cron) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type CronPtrOutput struct{ *pulumi.OutputState }
+
+func (CronPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Cron)(nil)).Elem()
+}
+
+func (o CronPtrOutput) ToCronPtrOutput() CronPtrOutput {
+	return o
+}
+
+func (o CronPtrOutput) ToCronPtrOutputWithContext(ctx context.Context) CronPtrOutput {
+	return o
+}
+
+func (o CronPtrOutput) Elem() CronOutput {
+	return o.ApplyT(func(v *Cron) Cron { return *v }).(CronOutput)
+}
+
+// The cron expression.
+func (o CronPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cron) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start time.
+func (o CronPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cron) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o CronPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cron) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type CronResponse struct {
+	// The cron expression.
+	Expression *string `pulumi:"expression"`
+	// The start time.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// CronResponseInput is an input type that accepts CronResponseArgs and CronResponseOutput values.
+// You can construct a concrete instance of `CronResponseInput` via:
+//
+//          CronResponseArgs{...}
+type CronResponseInput interface {
+	pulumi.Input
+
+	ToCronResponseOutput() CronResponseOutput
+	ToCronResponseOutputWithContext(context.Context) CronResponseOutput
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type CronResponseArgs struct {
+	// The cron expression.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (CronResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CronResponse)(nil)).Elem()
+}
+
+func (i CronResponseArgs) ToCronResponseOutput() CronResponseOutput {
+	return i.ToCronResponseOutputWithContext(context.Background())
+}
+
+func (i CronResponseArgs) ToCronResponseOutputWithContext(ctx context.Context) CronResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronResponseOutput)
+}
+
+func (i CronResponseArgs) ToCronResponsePtrOutput() CronResponsePtrOutput {
+	return i.ToCronResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CronResponseArgs) ToCronResponsePtrOutputWithContext(ctx context.Context) CronResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronResponseOutput).ToCronResponsePtrOutputWithContext(ctx)
+}
+
+// CronResponsePtrInput is an input type that accepts CronResponseArgs, CronResponsePtr and CronResponsePtrOutput values.
+// You can construct a concrete instance of `CronResponsePtrInput` via:
+//
+//          CronResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CronResponsePtrInput interface {
+	pulumi.Input
+
+	ToCronResponsePtrOutput() CronResponsePtrOutput
+	ToCronResponsePtrOutputWithContext(context.Context) CronResponsePtrOutput
+}
+
+type cronResponsePtrType CronResponseArgs
+
+func CronResponsePtr(v *CronResponseArgs) CronResponsePtrInput {
+	return (*cronResponsePtrType)(v)
+}
+
+func (*cronResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CronResponse)(nil)).Elem()
+}
+
+func (i *cronResponsePtrType) ToCronResponsePtrOutput() CronResponsePtrOutput {
+	return i.ToCronResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cronResponsePtrType) ToCronResponsePtrOutputWithContext(ctx context.Context) CronResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CronResponsePtrOutput)
+}
+
+// The workflow trigger cron for ComputeStartStop schedule type.
+type CronResponseOutput struct{ *pulumi.OutputState }
+
+func (CronResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CronResponse)(nil)).Elem()
+}
+
+func (o CronResponseOutput) ToCronResponseOutput() CronResponseOutput {
+	return o
+}
+
+func (o CronResponseOutput) ToCronResponseOutputWithContext(ctx context.Context) CronResponseOutput {
+	return o
+}
+
+func (o CronResponseOutput) ToCronResponsePtrOutput() CronResponsePtrOutput {
+	return o.ToCronResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CronResponseOutput) ToCronResponsePtrOutputWithContext(ctx context.Context) CronResponsePtrOutput {
+	return o.ApplyT(func(v CronResponse) *CronResponse {
+		return &v
+	}).(CronResponsePtrOutput)
+}
+
+// The cron expression.
+func (o CronResponseOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CronResponse) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// The start time.
+func (o CronResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CronResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o CronResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CronResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type CronResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CronResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CronResponse)(nil)).Elem()
+}
+
+func (o CronResponsePtrOutput) ToCronResponsePtrOutput() CronResponsePtrOutput {
+	return o
+}
+
+func (o CronResponsePtrOutput) ToCronResponsePtrOutputWithContext(ctx context.Context) CronResponsePtrOutput {
+	return o
+}
+
+func (o CronResponsePtrOutput) Elem() CronResponseOutput {
+	return o.ApplyT(func(v *CronResponse) CronResponse { return *v }).(CronResponseOutput)
+}
+
+// The cron expression.
+func (o CronResponsePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CronResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start time.
+func (o CronResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CronResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o CronResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CronResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -35962,6 +36902,770 @@ func (o RGitHubPackageResponseResponseArrayOutput) Index(i pulumi.IntInput) RGit
 	}).(RGitHubPackageResponseResponseOutput)
 }
 
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type Recurrence struct {
+	// The recurrence frequency.
+	Frequency *string `pulumi:"frequency"`
+	// The interval.
+	Interval *int `pulumi:"interval"`
+	// The recurrence schedule
+	Schedule *RecurrenceSchedule `pulumi:"schedule"`
+	// The start time.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// RecurrenceInput is an input type that accepts RecurrenceArgs and RecurrenceOutput values.
+// You can construct a concrete instance of `RecurrenceInput` via:
+//
+//          RecurrenceArgs{...}
+type RecurrenceInput interface {
+	pulumi.Input
+
+	ToRecurrenceOutput() RecurrenceOutput
+	ToRecurrenceOutputWithContext(context.Context) RecurrenceOutput
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type RecurrenceArgs struct {
+	// The recurrence frequency.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// The interval.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The recurrence schedule
+	Schedule RecurrenceSchedulePtrInput `pulumi:"schedule"`
+	// The start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (RecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Recurrence)(nil)).Elem()
+}
+
+func (i RecurrenceArgs) ToRecurrenceOutput() RecurrenceOutput {
+	return i.ToRecurrenceOutputWithContext(context.Background())
+}
+
+func (i RecurrenceArgs) ToRecurrenceOutputWithContext(ctx context.Context) RecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceOutput)
+}
+
+func (i RecurrenceArgs) ToRecurrencePtrOutput() RecurrencePtrOutput {
+	return i.ToRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrenceArgs) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceOutput).ToRecurrencePtrOutputWithContext(ctx)
+}
+
+// RecurrencePtrInput is an input type that accepts RecurrenceArgs, RecurrencePtr and RecurrencePtrOutput values.
+// You can construct a concrete instance of `RecurrencePtrInput` via:
+//
+//          RecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrencePtrInput interface {
+	pulumi.Input
+
+	ToRecurrencePtrOutput() RecurrencePtrOutput
+	ToRecurrencePtrOutputWithContext(context.Context) RecurrencePtrOutput
+}
+
+type recurrencePtrType RecurrenceArgs
+
+func RecurrencePtr(v *RecurrenceArgs) RecurrencePtrInput {
+	return (*recurrencePtrType)(v)
+}
+
+func (*recurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Recurrence)(nil)).Elem()
+}
+
+func (i *recurrencePtrType) ToRecurrencePtrOutput() RecurrencePtrOutput {
+	return i.ToRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrencePtrType) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrencePtrOutput)
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type RecurrenceOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Recurrence)(nil)).Elem()
+}
+
+func (o RecurrenceOutput) ToRecurrenceOutput() RecurrenceOutput {
+	return o
+}
+
+func (o RecurrenceOutput) ToRecurrenceOutputWithContext(ctx context.Context) RecurrenceOutput {
+	return o
+}
+
+func (o RecurrenceOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
+	return o.ToRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
+	return o.ApplyT(func(v Recurrence) *Recurrence {
+		return &v
+	}).(RecurrencePtrOutput)
+}
+
+// The recurrence frequency.
+func (o RecurrenceOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Recurrence) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o RecurrenceOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Recurrence) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule
+func (o RecurrenceOutput) Schedule() RecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v Recurrence) *RecurrenceSchedule { return v.Schedule }).(RecurrenceSchedulePtrOutput)
+}
+
+// The start time.
+func (o RecurrenceOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Recurrence) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o RecurrenceOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Recurrence) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type RecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Recurrence)(nil)).Elem()
+}
+
+func (o RecurrencePtrOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
+	return o
+}
+
+func (o RecurrencePtrOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
+	return o
+}
+
+func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
+	return o.ApplyT(func(v *Recurrence) Recurrence { return *v }).(RecurrenceOutput)
+}
+
+// The recurrence frequency.
+func (o RecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o RecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule
+func (o RecurrencePtrOutput) Schedule() RecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v *Recurrence) *RecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(RecurrenceSchedulePtrOutput)
+}
+
+// The start time.
+func (o RecurrencePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o RecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type RecurrenceResponse struct {
+	// The recurrence frequency.
+	Frequency *string `pulumi:"frequency"`
+	// The interval.
+	Interval *int `pulumi:"interval"`
+	// The recurrence schedule
+	Schedule *RecurrenceScheduleResponse `pulumi:"schedule"`
+	// The start time.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// RecurrenceResponseInput is an input type that accepts RecurrenceResponseArgs and RecurrenceResponseOutput values.
+// You can construct a concrete instance of `RecurrenceResponseInput` via:
+//
+//          RecurrenceResponseArgs{...}
+type RecurrenceResponseInput interface {
+	pulumi.Input
+
+	ToRecurrenceResponseOutput() RecurrenceResponseOutput
+	ToRecurrenceResponseOutputWithContext(context.Context) RecurrenceResponseOutput
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type RecurrenceResponseArgs struct {
+	// The recurrence frequency.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// The interval.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The recurrence schedule
+	Schedule RecurrenceScheduleResponsePtrInput `pulumi:"schedule"`
+	// The start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (RecurrenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceResponse)(nil)).Elem()
+}
+
+func (i RecurrenceResponseArgs) ToRecurrenceResponseOutput() RecurrenceResponseOutput {
+	return i.ToRecurrenceResponseOutputWithContext(context.Background())
+}
+
+func (i RecurrenceResponseArgs) ToRecurrenceResponseOutputWithContext(ctx context.Context) RecurrenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput)
+}
+
+func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
+	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput).ToRecurrenceResponsePtrOutputWithContext(ctx)
+}
+
+// RecurrenceResponsePtrInput is an input type that accepts RecurrenceResponseArgs, RecurrenceResponsePtr and RecurrenceResponsePtrOutput values.
+// You can construct a concrete instance of `RecurrenceResponsePtrInput` via:
+//
+//          RecurrenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput
+	ToRecurrenceResponsePtrOutputWithContext(context.Context) RecurrenceResponsePtrOutput
+}
+
+type recurrenceResponsePtrType RecurrenceResponseArgs
+
+func RecurrenceResponsePtr(v *RecurrenceResponseArgs) RecurrenceResponsePtrInput {
+	return (*recurrenceResponsePtrType)(v)
+}
+
+func (*recurrenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceResponse)(nil)).Elem()
+}
+
+func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
+	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponsePtrOutput)
+}
+
+// The workflow trigger recurrence for ComputeStartStop schedule type.
+type RecurrenceResponseOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceResponse)(nil)).Elem()
+}
+
+func (o RecurrenceResponseOutput) ToRecurrenceResponseOutput() RecurrenceResponseOutput {
+	return o
+}
+
+func (o RecurrenceResponseOutput) ToRecurrenceResponseOutputWithContext(ctx context.Context) RecurrenceResponseOutput {
+	return o
+}
+
+func (o RecurrenceResponseOutput) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
+	return o.ToRecurrenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrenceResponseOutput) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *RecurrenceResponse {
+		return &v
+	}).(RecurrenceResponsePtrOutput)
+}
+
+// The recurrence frequency.
+func (o RecurrenceResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o RecurrenceResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule
+func (o RecurrenceResponseOutput) Schedule() RecurrenceScheduleResponsePtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *RecurrenceScheduleResponse { return v.Schedule }).(RecurrenceScheduleResponsePtrOutput)
+}
+
+// The start time.
+func (o RecurrenceResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o RecurrenceResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type RecurrenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceResponse)(nil)).Elem()
+}
+
+func (o RecurrenceResponsePtrOutput) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceResponsePtrOutput) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceResponsePtrOutput) Elem() RecurrenceResponseOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) RecurrenceResponse { return *v }).(RecurrenceResponseOutput)
+}
+
+// The recurrence frequency.
+func (o RecurrenceResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o RecurrenceResponsePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule
+func (o RecurrenceResponsePtrOutput) Schedule() RecurrenceScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) *RecurrenceScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(RecurrenceScheduleResponsePtrOutput)
+}
+
+// The start time.
+func (o RecurrenceResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o RecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecurrenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recurrence schedule
+type RecurrenceSchedule struct {
+	// The hours.
+	Hours []int `pulumi:"hours"`
+	// The minutes.
+	Minutes []int `pulumi:"minutes"`
+	// The days of the week.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleInput` via:
+//
+//          RecurrenceScheduleArgs{...}
+type RecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleOutput() RecurrenceScheduleOutput
+	ToRecurrenceScheduleOutputWithContext(context.Context) RecurrenceScheduleOutput
+}
+
+// The recurrence schedule
+type RecurrenceScheduleArgs struct {
+	// The hours.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// The minutes.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// The days of the week.
+	WeekDays DaysOfWeekArrayInput `pulumi:"weekDays"`
+}
+
+func (RecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceSchedule)(nil)).Elem()
+}
+
+func (i RecurrenceScheduleArgs) ToRecurrenceScheduleOutput() RecurrenceScheduleOutput {
+	return i.ToRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleArgs) ToRecurrenceScheduleOutputWithContext(ctx context.Context) RecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOutput)
+}
+
+func (i RecurrenceScheduleArgs) ToRecurrenceSchedulePtrOutput() RecurrenceSchedulePtrOutput {
+	return i.ToRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleArgs) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOutput).ToRecurrenceSchedulePtrOutputWithContext(ctx)
+}
+
+// RecurrenceSchedulePtrInput is an input type that accepts RecurrenceScheduleArgs, RecurrenceSchedulePtr and RecurrenceSchedulePtrOutput values.
+// You can construct a concrete instance of `RecurrenceSchedulePtrInput` via:
+//
+//          RecurrenceScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrenceSchedulePtrInput interface {
+	pulumi.Input
+
+	ToRecurrenceSchedulePtrOutput() RecurrenceSchedulePtrOutput
+	ToRecurrenceSchedulePtrOutputWithContext(context.Context) RecurrenceSchedulePtrOutput
+}
+
+type recurrenceSchedulePtrType RecurrenceScheduleArgs
+
+func RecurrenceSchedulePtr(v *RecurrenceScheduleArgs) RecurrenceSchedulePtrInput {
+	return (*recurrenceSchedulePtrType)(v)
+}
+
+func (*recurrenceSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceSchedule)(nil)).Elem()
+}
+
+func (i *recurrenceSchedulePtrType) ToRecurrenceSchedulePtrOutput() RecurrenceSchedulePtrOutput {
+	return i.ToRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrenceSchedulePtrType) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceSchedulePtrOutput)
+}
+
+// The recurrence schedule
+type RecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceSchedule)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleOutput) ToRecurrenceScheduleOutput() RecurrenceScheduleOutput {
+	return o
+}
+
+func (o RecurrenceScheduleOutput) ToRecurrenceScheduleOutputWithContext(ctx context.Context) RecurrenceScheduleOutput {
+	return o
+}
+
+func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutput() RecurrenceSchedulePtrOutput {
+	return o.ToRecurrenceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) *RecurrenceSchedule {
+		return &v
+	}).(RecurrenceSchedulePtrOutput)
+}
+
+// The hours.
+func (o RecurrenceScheduleOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceScheduleOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceSchedule)(nil)).Elem()
+}
+
+func (o RecurrenceSchedulePtrOutput) ToRecurrenceSchedulePtrOutput() RecurrenceSchedulePtrOutput {
+	return o
+}
+
+func (o RecurrenceSchedulePtrOutput) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
+	return o
+}
+
+func (o RecurrenceSchedulePtrOutput) Elem() RecurrenceScheduleOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule { return *v }).(RecurrenceScheduleOutput)
+}
+
+// The hours.
+func (o RecurrenceSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
+// The recurrence schedule
+type RecurrenceScheduleResponse struct {
+	// The hours.
+	Hours []int `pulumi:"hours"`
+	// The minutes.
+	Minutes []int `pulumi:"minutes"`
+	// The days of the week.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// RecurrenceScheduleResponseInput is an input type that accepts RecurrenceScheduleResponseArgs and RecurrenceScheduleResponseOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleResponseInput` via:
+//
+//          RecurrenceScheduleResponseArgs{...}
+type RecurrenceScheduleResponseInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleResponseOutput() RecurrenceScheduleResponseOutput
+	ToRecurrenceScheduleResponseOutputWithContext(context.Context) RecurrenceScheduleResponseOutput
+}
+
+// The recurrence schedule
+type RecurrenceScheduleResponseArgs struct {
+	// The hours.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// The minutes.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// The days of the week.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (RecurrenceScheduleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleResponse)(nil)).Elem()
+}
+
+func (i RecurrenceScheduleResponseArgs) ToRecurrenceScheduleResponseOutput() RecurrenceScheduleResponseOutput {
+	return i.ToRecurrenceScheduleResponseOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleResponseArgs) ToRecurrenceScheduleResponseOutputWithContext(ctx context.Context) RecurrenceScheduleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleResponseOutput)
+}
+
+func (i RecurrenceScheduleResponseArgs) ToRecurrenceScheduleResponsePtrOutput() RecurrenceScheduleResponsePtrOutput {
+	return i.ToRecurrenceScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleResponseArgs) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleResponseOutput).ToRecurrenceScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// RecurrenceScheduleResponsePtrInput is an input type that accepts RecurrenceScheduleResponseArgs, RecurrenceScheduleResponsePtr and RecurrenceScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleResponsePtrInput` via:
+//
+//          RecurrenceScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrenceScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleResponsePtrOutput() RecurrenceScheduleResponsePtrOutput
+	ToRecurrenceScheduleResponsePtrOutputWithContext(context.Context) RecurrenceScheduleResponsePtrOutput
+}
+
+type recurrenceScheduleResponsePtrType RecurrenceScheduleResponseArgs
+
+func RecurrenceScheduleResponsePtr(v *RecurrenceScheduleResponseArgs) RecurrenceScheduleResponsePtrInput {
+	return (*recurrenceScheduleResponsePtrType)(v)
+}
+
+func (*recurrenceScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceScheduleResponse)(nil)).Elem()
+}
+
+func (i *recurrenceScheduleResponsePtrType) ToRecurrenceScheduleResponsePtrOutput() RecurrenceScheduleResponsePtrOutput {
+	return i.ToRecurrenceScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrenceScheduleResponsePtrType) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleResponsePtrOutput)
+}
+
+// The recurrence schedule
+type RecurrenceScheduleResponseOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponseOutput() RecurrenceScheduleResponseOutput {
+	return o
+}
+
+func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponseOutputWithContext(ctx context.Context) RecurrenceScheduleResponseOutput {
+	return o
+}
+
+func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutput() RecurrenceScheduleResponsePtrOutput {
+	return o.ToRecurrenceScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
+		return &v
+	}).(RecurrenceScheduleResponsePtrOutput)
+}
+
+// The hours.
+func (o RecurrenceScheduleResponseOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleResponse) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceScheduleResponseOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleResponse) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceScheduleResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type RecurrenceScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceScheduleResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleResponsePtrOutput) ToRecurrenceScheduleResponsePtrOutput() RecurrenceScheduleResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceScheduleResponsePtrOutput) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceScheduleResponsePtrOutput) Elem() RecurrenceScheduleResponseOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse { return *v }).(RecurrenceScheduleResponseOutput)
+}
+
+// The hours.
+func (o RecurrenceScheduleResponsePtrOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceScheduleResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
 type RegistryListCredentialsResultResponse struct {
 	Location  string             `pulumi:"location"`
 	Passwords []PasswordResponse `pulumi:"passwords"`
@@ -45648,6 +47352,14 @@ func init() {
 	pulumi.RegisterOutputType(ComputeInstanceSshSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceSshSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceSshSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeSchedulesOutput{})
+	pulumi.RegisterOutputType(ComputeSchedulesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeSchedulesResponseOutput{})
+	pulumi.RegisterOutputType(ComputeSchedulesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeStartStopScheduleOutput{})
+	pulumi.RegisterOutputType(ComputeStartStopScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ComputeStartStopScheduleResponseOutput{})
+	pulumi.RegisterOutputType(ComputeStartStopScheduleResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsResponseOutput{})
@@ -45660,6 +47372,10 @@ func init() {
 	pulumi.RegisterOutputType(CreateServiceRequestEnvironmentImageRequestPtrOutput{})
 	pulumi.RegisterOutputType(CreateServiceRequestKeysOutput{})
 	pulumi.RegisterOutputType(CreateServiceRequestKeysPtrOutput{})
+	pulumi.RegisterOutputType(CronOutput{})
+	pulumi.RegisterOutputType(CronPtrOutput{})
+	pulumi.RegisterOutputType(CronResponseOutput{})
+	pulumi.RegisterOutputType(CronResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataContainerTypeOutput{})
 	pulumi.RegisterOutputType(DataContainerTypePtrOutput{})
 	pulumi.RegisterOutputType(DataContainerResponseOutput{})
@@ -45905,6 +47621,14 @@ func init() {
 	pulumi.RegisterOutputType(RGitHubPackageArrayOutput{})
 	pulumi.RegisterOutputType(RGitHubPackageResponseResponseOutput{})
 	pulumi.RegisterOutputType(RGitHubPackageResponseResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecurrenceOutput{})
+	pulumi.RegisterOutputType(RecurrencePtrOutput{})
+	pulumi.RegisterOutputType(RecurrenceResponseOutput{})
+	pulumi.RegisterOutputType(RecurrenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(RecurrenceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleResponseOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdOutput{})
 	pulumi.RegisterOutputType(ResourceIdPtrOutput{})

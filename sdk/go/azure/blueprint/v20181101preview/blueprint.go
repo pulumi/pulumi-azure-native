@@ -140,8 +140,6 @@ type blueprintArgs struct {
 	Description *string `pulumi:"description"`
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
-	// Layout view of the blueprint definition for UI reference.
-	Layout interface{} `pulumi:"layout"`
 	// Parameters required by this blueprint definition.
 	Parameters map[string]ParameterDefinition `pulumi:"parameters"`
 	// Resource group placeholders defined by this blueprint definition.
@@ -162,8 +160,6 @@ type BlueprintArgs struct {
 	Description pulumi.StringPtrInput
 	// One-liner string explain this resource.
 	DisplayName pulumi.StringPtrInput
-	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.Input
 	// Parameters required by this blueprint definition.
 	Parameters ParameterDefinitionMapInput
 	// Resource group placeholders defined by this blueprint definition.

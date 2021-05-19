@@ -18,6 +18,7 @@ import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210210 from "./v20210210";
 import * as v20210301 from "./v20210301";
+import * as v20210401 from "./v20210401";
 
 export {
     v20160601,
@@ -36,6 +37,7 @@ export {
     v20210201preview,
     v20210210,
     v20210301,
+    v20210401,
 };
 
 export const AgentAutoUpdateStatus = {

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
-        public readonly Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.Sql
 
             string id,
 
-            Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? identity,
+            Outputs.ResourceIdentityResponse? identity,
 
             string? instancePoolId,
 

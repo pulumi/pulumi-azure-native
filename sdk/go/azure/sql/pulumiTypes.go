@@ -6241,145 +6241,141 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentities struct {
+type ResourceIdentity struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type *string `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
-// ResourceIdentityWithUserAssignedIdentitiesInput is an input type that accepts ResourceIdentityWithUserAssignedIdentitiesArgs and ResourceIdentityWithUserAssignedIdentitiesOutput values.
-// You can construct a concrete instance of `ResourceIdentityWithUserAssignedIdentitiesInput` via:
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ResourceIdentityWithUserAssignedIdentitiesArgs{...}
-type ResourceIdentityWithUserAssignedIdentitiesInput interface {
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
 	pulumi.Input
 
-	ToResourceIdentityWithUserAssignedIdentitiesOutput() ResourceIdentityWithUserAssignedIdentitiesOutput
-	ToResourceIdentityWithUserAssignedIdentitiesOutputWithContext(context.Context) ResourceIdentityWithUserAssignedIdentitiesOutput
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentitiesArgs struct {
+type ResourceIdentityArgs struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
-func (ResourceIdentityWithUserAssignedIdentitiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityWithUserAssignedIdentities)(nil)).Elem()
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesArgs) ToResourceIdentityWithUserAssignedIdentitiesOutput() ResourceIdentityWithUserAssignedIdentitiesOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesOutputWithContext(context.Background())
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesArgs) ToResourceIdentityWithUserAssignedIdentitiesOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesOutput)
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesArgs) ToResourceIdentityWithUserAssignedIdentitiesPtrOutput() ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(context.Background())
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesArgs) ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesOutput).ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(ctx)
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
 }
 
-// ResourceIdentityWithUserAssignedIdentitiesPtrInput is an input type that accepts ResourceIdentityWithUserAssignedIdentitiesArgs, ResourceIdentityWithUserAssignedIdentitiesPtr and ResourceIdentityWithUserAssignedIdentitiesPtrOutput values.
-// You can construct a concrete instance of `ResourceIdentityWithUserAssignedIdentitiesPtrInput` via:
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ResourceIdentityWithUserAssignedIdentitiesArgs{...}
+//          ResourceIdentityArgs{...}
 //
 //  or:
 //
 //          nil
-type ResourceIdentityWithUserAssignedIdentitiesPtrInput interface {
+type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
-	ToResourceIdentityWithUserAssignedIdentitiesPtrOutput() ResourceIdentityWithUserAssignedIdentitiesPtrOutput
-	ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(context.Context) ResourceIdentityWithUserAssignedIdentitiesPtrOutput
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
 }
 
-type resourceIdentityWithUserAssignedIdentitiesPtrType ResourceIdentityWithUserAssignedIdentitiesArgs
+type resourceIdentityPtrType ResourceIdentityArgs
 
-func ResourceIdentityWithUserAssignedIdentitiesPtr(v *ResourceIdentityWithUserAssignedIdentitiesArgs) ResourceIdentityWithUserAssignedIdentitiesPtrInput {
-	return (*resourceIdentityWithUserAssignedIdentitiesPtrType)(v)
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
 }
 
-func (*resourceIdentityWithUserAssignedIdentitiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityWithUserAssignedIdentities)(nil)).Elem()
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
 }
 
-func (i *resourceIdentityWithUserAssignedIdentitiesPtrType) ToResourceIdentityWithUserAssignedIdentitiesPtrOutput() ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(context.Background())
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i *resourceIdentityWithUserAssignedIdentitiesPtrType) ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesPtrOutput)
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityWithUserAssignedIdentitiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityWithUserAssignedIdentities)(nil)).Elem()
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) ToResourceIdentityWithUserAssignedIdentitiesOutput() ResourceIdentityWithUserAssignedIdentitiesOutput {
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) ToResourceIdentityWithUserAssignedIdentitiesOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesOutput {
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) ToResourceIdentityWithUserAssignedIdentitiesPtrOutput() ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return o.ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(context.Background())
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentities) *ResourceIdentityWithUserAssignedIdentities {
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
-	}).(ResourceIdentityWithUserAssignedIdentitiesPtrOutput)
+	}).(ResourceIdentityPtrOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentities) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityWithUserAssignedIdentitiesOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentities) map[string]interface{} {
-		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
-type ResourceIdentityWithUserAssignedIdentitiesPtrOutput struct{ *pulumi.OutputState }
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityWithUserAssignedIdentitiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityWithUserAssignedIdentities)(nil)).Elem()
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) ToResourceIdentityWithUserAssignedIdentitiesPtrOutput() ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) ToResourceIdentityWithUserAssignedIdentitiesPtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesPtrOutput {
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) Elem() ResourceIdentityWithUserAssignedIdentitiesOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentities) ResourceIdentityWithUserAssignedIdentities {
-		return *v
-	}).(ResourceIdentityWithUserAssignedIdentitiesOutput)
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentities) *string {
+func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -6388,8 +6384,8 @@ func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) Type() pulumi.Strin
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentities) map[string]interface{} {
+func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ResourceIdentity) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
@@ -6398,7 +6394,7 @@ func (o ResourceIdentityWithUserAssignedIdentitiesPtrOutput) UserAssignedIdentit
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentitiesResponse struct {
+type ResourceIdentityResponse struct {
 	// The Azure Active Directory principal id.
 	PrincipalId string `pulumi:"principalId"`
 	// The Azure Active Directory tenant id.
@@ -6409,19 +6405,19 @@ type ResourceIdentityWithUserAssignedIdentitiesResponse struct {
 	UserAssignedIdentities map[string]UserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
-// ResourceIdentityWithUserAssignedIdentitiesResponseInput is an input type that accepts ResourceIdentityWithUserAssignedIdentitiesResponseArgs and ResourceIdentityWithUserAssignedIdentitiesResponseOutput values.
-// You can construct a concrete instance of `ResourceIdentityWithUserAssignedIdentitiesResponseInput` via:
+// ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponseInput` via:
 //
-//          ResourceIdentityWithUserAssignedIdentitiesResponseArgs{...}
-type ResourceIdentityWithUserAssignedIdentitiesResponseInput interface {
+//          ResourceIdentityResponseArgs{...}
+type ResourceIdentityResponseInput interface {
 	pulumi.Input
 
-	ToResourceIdentityWithUserAssignedIdentitiesResponseOutput() ResourceIdentityWithUserAssignedIdentitiesResponseOutput
-	ToResourceIdentityWithUserAssignedIdentitiesResponseOutputWithContext(context.Context) ResourceIdentityWithUserAssignedIdentitiesResponseOutput
+	ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput
+	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentitiesResponseArgs struct {
+type ResourceIdentityResponseArgs struct {
 	// The Azure Active Directory principal id.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Azure Active Directory tenant id.
@@ -6432,129 +6428,125 @@ type ResourceIdentityWithUserAssignedIdentitiesResponseArgs struct {
 	UserAssignedIdentities UserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
-func (ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityWithUserAssignedIdentitiesResponse)(nil)).Elem()
+func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ToResourceIdentityWithUserAssignedIdentitiesResponseOutput() ResourceIdentityWithUserAssignedIdentitiesResponseOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesResponseOutputWithContext(context.Background())
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return i.ToResourceIdentityResponseOutputWithContext(context.Background())
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ToResourceIdentityWithUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesResponseOutput)
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput)
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput() ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesResponseOutput).ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(ctx)
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput).ToResourceIdentityResponsePtrOutputWithContext(ctx)
 }
 
-// ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput is an input type that accepts ResourceIdentityWithUserAssignedIdentitiesResponseArgs, ResourceIdentityWithUserAssignedIdentitiesResponsePtr and ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput values.
-// You can construct a concrete instance of `ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput` via:
+// ResourceIdentityResponsePtrInput is an input type that accepts ResourceIdentityResponseArgs, ResourceIdentityResponsePtr and ResourceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponsePtrInput` via:
 //
-//          ResourceIdentityWithUserAssignedIdentitiesResponseArgs{...}
+//          ResourceIdentityResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput interface {
+type ResourceIdentityResponsePtrInput interface {
 	pulumi.Input
 
-	ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput() ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput
-	ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(context.Context) ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput
+	ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput
+	ToResourceIdentityResponsePtrOutputWithContext(context.Context) ResourceIdentityResponsePtrOutput
 }
 
-type resourceIdentityWithUserAssignedIdentitiesResponsePtrType ResourceIdentityWithUserAssignedIdentitiesResponseArgs
+type resourceIdentityResponsePtrType ResourceIdentityResponseArgs
 
-func ResourceIdentityWithUserAssignedIdentitiesResponsePtr(v *ResourceIdentityWithUserAssignedIdentitiesResponseArgs) ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput {
-	return (*resourceIdentityWithUserAssignedIdentitiesResponsePtrType)(v)
+func ResourceIdentityResponsePtr(v *ResourceIdentityResponseArgs) ResourceIdentityResponsePtrInput {
+	return (*resourceIdentityResponsePtrType)(v)
 }
 
-func (*resourceIdentityWithUserAssignedIdentitiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityWithUserAssignedIdentitiesResponse)(nil)).Elem()
+func (*resourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (i *resourceIdentityWithUserAssignedIdentitiesResponsePtrType) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput() ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *resourceIdentityWithUserAssignedIdentitiesResponsePtrType) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput)
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.
-type ResourceIdentityWithUserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
+type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityWithUserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityWithUserAssignedIdentitiesResponse)(nil)).Elem()
+func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) ToResourceIdentityWithUserAssignedIdentitiesResponseOutput() ResourceIdentityWithUserAssignedIdentitiesResponseOutput {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) ToResourceIdentityWithUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponseOutput {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput() ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return o.ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentitiesResponse) *ResourceIdentityWithUserAssignedIdentitiesResponse {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
-	}).(ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput)
+	}).(ResourceIdentityResponsePtrOutput)
 }
 
 // The Azure Active Directory principal id.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The Azure Active Directory tenant id.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentitiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
+func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentitiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityWithUserAssignedIdentitiesResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
-	return o.ApplyT(func(v ResourceIdentityWithUserAssignedIdentitiesResponse) map[string]UserIdentityResponse {
-		return v.UserAssignedIdentities
-	}).(UserIdentityResponseMapOutput)
+func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserIdentityResponse { return v.UserAssignedIdentities }).(UserIdentityResponseMapOutput)
 }
 
-type ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput struct{ *pulumi.OutputState }
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityWithUserAssignedIdentitiesResponse)(nil)).Elem()
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput() ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) ToResourceIdentityWithUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput {
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) Elem() ResourceIdentityWithUserAssignedIdentitiesResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentitiesResponse) ResourceIdentityWithUserAssignedIdentitiesResponse {
-		return *v
-	}).(ResourceIdentityWithUserAssignedIdentitiesResponseOutput)
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
 // The Azure Active Directory principal id.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentitiesResponse) *string {
+func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6563,8 +6555,8 @@ func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) PrincipalId
 }
 
 // The Azure Active Directory tenant id.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentitiesResponse) *string {
+func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6573,8 +6565,8 @@ func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) TenantId() 
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentitiesResponse) *string {
+func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6583,8 +6575,8 @@ func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) Type() pulu
 }
 
 // The resource ids of the user assigned identities to use
-func (o ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
-	return o.ApplyT(func(v *ResourceIdentityWithUserAssignedIdentitiesResponse) map[string]UserIdentityResponse {
+func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserIdentityResponse {
 		if v == nil {
 			return nil
 		}
@@ -9310,10 +9302,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityWithUserAssignedIdentitiesOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityWithUserAssignedIdentitiesPtrOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityWithUserAssignedIdentitiesResponseOutput{})
-	pulumi.RegisterOutputType(ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerExternalAdministratorOutput{})
 	pulumi.RegisterOutputType(ServerExternalAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerExternalAdministratorResponseOutput{})

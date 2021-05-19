@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
@@ -280,7 +280,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityWithUserAssignedIdentitiesArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.

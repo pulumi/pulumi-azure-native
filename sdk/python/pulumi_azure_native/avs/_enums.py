@@ -10,6 +10,7 @@ __all__ = [
     'DnsServiceLogLevelEnum',
     'InternetEnum',
     'PortMirroringDirectionEnum',
+    'ScriptExecutionParameterType',
     'SslEnum',
 ]
 
@@ -53,6 +54,15 @@ class PortMirroringDirectionEnum(str, Enum):
     Direction of port mirroring profile.
     """
     INGRES_S_EGRES_S_BIDIRECTIONAL = "INGRESS, EGRESS, BIDIRECTIONAL"
+
+
+class ScriptExecutionParameterType(str, Enum):
+    """
+    The type of execution parameter
+    """
+    VALUE = "Value"
+    SECURE_VALUE = "SecureValue"
+    CREDENTIAL = "Credential"
 
 
 class SslEnum(str, Enum):

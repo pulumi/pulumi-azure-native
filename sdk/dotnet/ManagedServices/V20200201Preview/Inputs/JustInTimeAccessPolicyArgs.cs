@@ -15,8 +15,20 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
     /// </summary>
     public sealed class JustInTimeAccessPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("managedByTenantApprovers")]
+        private InputList<Inputs.EligibleApproverArgs>? _managedByTenantApprovers;
+
         /// <summary>
-        /// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        /// The list of managedByTenant approvers for the eligible authorization.
+        /// </summary>
+        public InputList<Inputs.EligibleApproverArgs> ManagedByTenantApprovers
+        {
+            get => _managedByTenantApprovers ?? (_managedByTenantApprovers = new InputList<Inputs.EligibleApproverArgs>());
+            set => _managedByTenantApprovers = value;
+        }
+
+        /// <summary>
+        /// Maximum access duration in ISO 8601 format.
         /// </summary>
         [Input("maximumActivationDuration")]
         public Input<string>? MaximumActivationDuration { get; set; }
@@ -29,6 +41,8 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 
         public JustInTimeAccessPolicyArgs()
         {
+            MaximumActivationDuration = "PT8H";
+            MultiFactorAuthProvider = "None";
         }
     }
 }

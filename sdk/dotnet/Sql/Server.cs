@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.Sql
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNative.Sql
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityWithUserAssignedIdentitiesArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.

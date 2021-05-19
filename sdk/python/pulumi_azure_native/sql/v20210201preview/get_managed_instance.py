@@ -159,7 +159,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
         """
         The Azure Active Directory identity of the managed instance.
         """

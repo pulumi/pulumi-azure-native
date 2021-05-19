@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AuthorizationResponse',
+    'EligibleApproverResponse',
     'EligibleAuthorizationResponse',
     'JustInTimeAccessPolicyResponse',
     'PlanResponse',
@@ -91,6 +92,59 @@ class AuthorizationResponse(dict):
         The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
         """
         return pulumi.get(self, "delegated_role_definition_ids")
+
+    @property
+    @pulumi.getter(name="principalIdDisplayName")
+    def principal_id_display_name(self) -> Optional[str]:
+        """
+        Display name of the principal Id.
+        """
+        return pulumi.get(self, "principal_id_display_name")
+
+
+@pulumi.output_type
+class EligibleApproverResponse(dict):
+    """
+    A principal Id and user-friendly display name representing an eligible authorization approver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "principalIdDisplayName":
+            suggest = "principal_id_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EligibleApproverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EligibleApproverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EligibleApproverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 principal_id_display_name: Optional[str] = None):
+        """
+        A principal Id and user-friendly display name representing an eligible authorization approver.
+        :param str principal_id: Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        :param str principal_id_display_name: Display name of the principal Id.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        if principal_id_display_name is not None:
+            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        """
+        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="principalIdDisplayName")
@@ -191,6 +245,8 @@ class JustInTimeAccessPolicyResponse(dict):
         suggest = None
         if key == "multiFactorAuthProvider":
             suggest = "multi_factor_auth_provider"
+        elif key == "managedByTenantApprovers":
+            suggest = "managed_by_tenant_approvers"
         elif key == "maximumActivationDuration":
             suggest = "maximum_activation_duration"
 
@@ -207,13 +263,21 @@ class JustInTimeAccessPolicyResponse(dict):
 
     def __init__(__self__, *,
                  multi_factor_auth_provider: str,
+                 managed_by_tenant_approvers: Optional[Sequence['outputs.EligibleApproverResponse']] = None,
                  maximum_activation_duration: Optional[str] = None):
         """
         Just-in-time access policy setting.
         :param str multi_factor_auth_provider: MFA provider.
-        :param str maximum_activation_duration: Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        :param Sequence['EligibleApproverResponse'] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
+        :param str maximum_activation_duration: Maximum access duration in ISO 8601 format.
         """
+        if multi_factor_auth_provider is None:
+            multi_factor_auth_provider = 'None'
         pulumi.set(__self__, "multi_factor_auth_provider", multi_factor_auth_provider)
+        if managed_by_tenant_approvers is not None:
+            pulumi.set(__self__, "managed_by_tenant_approvers", managed_by_tenant_approvers)
+        if maximum_activation_duration is None:
+            maximum_activation_duration = 'PT8H'
         if maximum_activation_duration is not None:
             pulumi.set(__self__, "maximum_activation_duration", maximum_activation_duration)
 
@@ -226,10 +290,18 @@ class JustInTimeAccessPolicyResponse(dict):
         return pulumi.get(self, "multi_factor_auth_provider")
 
     @property
+    @pulumi.getter(name="managedByTenantApprovers")
+    def managed_by_tenant_approvers(self) -> Optional[Sequence['outputs.EligibleApproverResponse']]:
+        """
+        The list of managedByTenant approvers for the eligible authorization.
+        """
+        return pulumi.get(self, "managed_by_tenant_approvers")
+
+    @property
     @pulumi.getter(name="maximumActivationDuration")
     def maximum_activation_duration(self) -> Optional[str]:
         """
-        Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        Maximum access duration in ISO 8601 format.
         """
         return pulumi.get(self, "maximum_activation_duration")
 

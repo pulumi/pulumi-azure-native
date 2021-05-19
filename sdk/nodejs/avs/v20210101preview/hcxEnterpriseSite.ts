@@ -84,7 +84,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210601:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20210601:HcxEnterpriseSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }

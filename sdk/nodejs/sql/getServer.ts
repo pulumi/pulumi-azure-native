@@ -62,7 +62,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.sql.ResourceIdentityWithUserAssignedIdentitiesResponse;
+    readonly identity?: outputs.sql.ResourceIdentityResponse;
     /**
      * A CMK URI of the key to use for encryption.
      */

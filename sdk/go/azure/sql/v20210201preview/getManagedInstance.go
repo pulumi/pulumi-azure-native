@@ -41,7 +41,7 @@ type LookupManagedInstanceResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
 	// A CMK URI of the key to use for encryption.

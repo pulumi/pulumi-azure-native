@@ -60,8 +60,11 @@ __all__ = [
     'ComputeInstanceResponse',
     'ComputeInstanceResponseProperties',
     'ComputeInstanceSshSettingsResponse',
+    'ComputeSchedulesResponse',
+    'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
     'CosmosDbSettingsResponse',
+    'CronResponse',
     'DataContainerResponse',
     'DataFactoryResponse',
     'DataLakeAnalyticsResponse',
@@ -139,6 +142,8 @@ __all__ = [
     'PyTorchResponse',
     'RCranPackageResponse',
     'RGitHubPackageResponseResponse',
+    'RecurrenceResponse',
+    'RecurrenceScheduleResponse',
     'RegistryListCredentialsResultResponse',
     'ResourceIdResponse',
     'ResourceIdentityResponse',
@@ -5293,6 +5298,7 @@ class ComputeInstanceResponseProperties(dict):
                  application_sharing_policy: Optional[str] = None,
                  compute_instance_authorization_type: Optional[str] = None,
                  personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
+                 schedules: Optional['outputs.ComputeSchedulesResponse'] = None,
                  setup_scripts: Optional['outputs.SetupScriptsResponse'] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
@@ -5308,6 +5314,7 @@ class ComputeInstanceResponseProperties(dict):
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'ComputeSchedulesResponse' schedules: The list of schedules to be applied on the compute instance.
         :param 'SetupScriptsResponse' setup_scripts: Details of customized scripts to execute for setting up the cluster.
         :param 'ComputeInstanceSshSettingsResponse' ssh_settings: Specifies policy and settings for SSH access.
         :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -5329,6 +5336,8 @@ class ComputeInstanceResponseProperties(dict):
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if setup_scripts is not None:
             pulumi.set(__self__, "setup_scripts", setup_scripts)
         if ssh_settings is not None:
@@ -5409,6 +5418,14 @@ class ComputeInstanceResponseProperties(dict):
         Settings for a personal compute instance.
         """
         return pulumi.get(self, "personal_compute_instance_settings")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional['outputs.ComputeSchedulesResponse']:
+        """
+        The list of schedules to be applied on the compute instance.
+        """
+        return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter(name="setupScripts")
@@ -5523,6 +5540,158 @@ class ComputeInstanceSshSettingsResponse(dict):
         State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
         return pulumi.get(self, "ssh_public_access")
+
+
+@pulumi.output_type
+class ComputeSchedulesResponse(dict):
+    """
+    The list of schedules to be applied on the computes
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeStartStop":
+            suggest = "compute_start_stop"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeSchedulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeSchedulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeSchedulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_start_stop: Optional[Sequence['outputs.ComputeStartStopScheduleResponse']] = None):
+        """
+        The list of schedules to be applied on the computes
+        :param Sequence['ComputeStartStopScheduleResponse'] compute_start_stop: The list of compute start stop schedules to be applied.
+        """
+        if compute_start_stop is not None:
+            pulumi.set(__self__, "compute_start_stop", compute_start_stop)
+
+    @property
+    @pulumi.getter(name="computeStartStop")
+    def compute_start_stop(self) -> Optional[Sequence['outputs.ComputeStartStopScheduleResponse']]:
+        """
+        The list of compute start stop schedules to be applied.
+        """
+        return pulumi.get(self, "compute_start_stop")
+
+
+@pulumi.output_type
+class ComputeStartStopScheduleResponse(dict):
+    """
+    Compute start stop schedule properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningStatus":
+            suggest = "provisioning_status"
+        elif key == "triggerType":
+            suggest = "trigger_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeStartStopScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeStartStopScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeStartStopScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 provisioning_status: str,
+                 action: Optional[str] = None,
+                 cron: Optional['outputs.CronResponse'] = None,
+                 recurrence: Optional['outputs.RecurrenceResponse'] = None,
+                 status: Optional[str] = None,
+                 trigger_type: Optional[str] = None):
+        """
+        Compute start stop schedule properties
+        :param str id: Schedule id.
+        :param str provisioning_status: The current deployment state of schedule.
+        :param str action: The compute power action.
+        :param 'CronResponse' cron: The workflow trigger cron for ComputeStartStop schedule type.
+        :param 'RecurrenceResponse' recurrence: The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param str status: The schedule status.
+        :param str trigger_type: The schedule trigger type.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_status", provisioning_status)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if trigger_type is not None:
+            pulumi.set(__self__, "trigger_type", trigger_type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Schedule id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> str:
+        """
+        The current deployment state of schedule.
+        """
+        return pulumi.get(self, "provisioning_status")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The compute power action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional['outputs.CronResponse']:
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        """
+        return pulumi.get(self, "cron")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.RecurrenceResponse']:
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The schedule status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> Optional[str]:
+        """
+        The schedule trigger type.
+        """
+        return pulumi.get(self, "trigger_type")
 
 
 @pulumi.output_type
@@ -5671,6 +5840,72 @@ class CosmosDbSettingsResponse(dict):
         The throughput of the collections in cosmosdb database
         """
         return pulumi.get(self, "collections_throughput")
+
+
+@pulumi.output_type
+class CronResponse(dict):
+    """
+    The workflow trigger cron for ComputeStartStop schedule type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CronResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CronResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CronResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        :param str expression: The cron expression.
+        :param str start_time: The start time.
+        :param str time_zone: The time zone.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        The cron expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -11613,6 +11848,160 @@ class RGitHubPackageResponseResponse(dict):
         Repository address in the format username/repo[/subdir][@ref|#pull].
         """
         return pulumi.get(self, "repository")
+
+
+@pulumi.output_type
+class RecurrenceResponse(dict):
+    """
+    The workflow trigger recurrence for ComputeStartStop schedule type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 schedule: Optional['outputs.RecurrenceScheduleResponse'] = None,
+                 start_time: Optional[str] = None,
+                 time_zone: Optional[str] = None):
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param str frequency: The recurrence frequency.
+        :param int interval: The interval.
+        :param 'RecurrenceScheduleResponse' schedule: The recurrence schedule
+        :param str start_time: The start time.
+        :param str time_zone: The time zone.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        The recurrence frequency.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The interval.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.RecurrenceScheduleResponse']:
+        """
+        The recurrence schedule
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class RecurrenceScheduleResponse(dict):
+    """
+    The recurrence schedule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecurrenceScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecurrenceScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecurrenceScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hours: Optional[Sequence[int]] = None,
+                 minutes: Optional[Sequence[int]] = None,
+                 week_days: Optional[Sequence[str]] = None):
+        """
+        The recurrence schedule
+        :param Sequence[int] hours: The hours.
+        :param Sequence[int] minutes: The minutes.
+        :param Sequence[str] week_days: The days of the week.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[Sequence[int]]:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[Sequence[int]]:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[Sequence[str]]:
+        """
+        The days of the week.
+        """
+        return pulumi.get(self, "week_days")
 
 
 @pulumi.output_type

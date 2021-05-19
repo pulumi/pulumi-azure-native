@@ -29,6 +29,7 @@ __all__ = [
     'DenylistCustomAlertRuleResponse',
     'GcpCredentialsDetailsPropertiesResponse',
     'HybridComputeSettingsPropertiesResponse',
+    'IngestionConnectionStringResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
@@ -1437,6 +1438,39 @@ class HybridComputeSettingsPropertiesResponse(dict):
         An object to access resources that are secured by an Azure AD tenant.
         """
         return pulumi.get(self, "service_principal")
+
+
+@pulumi.output_type
+class IngestionConnectionStringResponse(dict):
+    """
+    Connection string for ingesting security data and logs
+    """
+    def __init__(__self__, *,
+                 location: str,
+                 value: str):
+        """
+        Connection string for ingesting security data and logs
+        :param str location: The region where ingested logs and data resides
+        :param str value: Connection string value
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The region where ingested logs and data resides
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Connection string value
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

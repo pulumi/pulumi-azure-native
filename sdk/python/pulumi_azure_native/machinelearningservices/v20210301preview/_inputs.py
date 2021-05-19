@@ -43,10 +43,13 @@ __all__ = [
     'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
+    'ComputeSchedulesArgs',
+    'ComputeStartStopScheduleArgs',
     'ContainerResourceRequirementsArgs',
     'CosmosDbSettingsArgs',
     'CreateServiceRequestEnvironmentImageRequestArgs',
     'CreateServiceRequestKeysArgs',
+    'CronArgs',
     'DataContainerArgs',
     'DataFactoryArgs',
     'DataLakeAnalyticsArgs',
@@ -113,6 +116,8 @@ __all__ = [
     'PyTorchArgs',
     'RCranPackageArgs',
     'RGitHubPackageArgs',
+    'RecurrenceArgs',
+    'RecurrenceScheduleArgs',
     'ResourceIdArgs',
     'ResourceIdentityArgs',
     'RouteArgs',
@@ -2919,6 +2924,7 @@ class ComputeInstancePropertiesArgs:
                  application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
                  compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
+                 schedules: Optional[pulumi.Input['ComputeSchedulesArgs']] = None,
                  setup_scripts: Optional[pulumi.Input['SetupScriptsArgs']] = None,
                  ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
@@ -2928,6 +2934,7 @@ class ComputeInstancePropertiesArgs:
         :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
+        :param pulumi.Input['ComputeSchedulesArgs'] schedules: The list of schedules to be applied on the compute instance.
         :param pulumi.Input['SetupScriptsArgs'] setup_scripts: Details of customized scripts to execute for setting up the cluster.
         :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -2943,6 +2950,8 @@ class ComputeInstancePropertiesArgs:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if setup_scripts is not None:
             pulumi.set(__self__, "setup_scripts", setup_scripts)
         if ssh_settings is not None:
@@ -2987,6 +2996,18 @@ class ComputeInstancePropertiesArgs:
     @personal_compute_instance_settings.setter
     def personal_compute_instance_settings(self, value: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]):
         pulumi.set(self, "personal_compute_instance_settings", value)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input['ComputeSchedulesArgs']]:
+        """
+        The list of schedules to be applied on the compute instance.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input['ComputeSchedulesArgs']]):
+        pulumi.set(self, "schedules", value)
 
     @property
     @pulumi.getter(name="setupScripts")
@@ -3077,6 +3098,118 @@ class ComputeInstanceSshSettingsArgs:
     @ssh_public_access.setter
     def ssh_public_access(self, value: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]):
         pulumi.set(self, "ssh_public_access", value)
+
+
+@pulumi.input_type
+class ComputeSchedulesArgs:
+    def __init__(__self__, *,
+                 compute_start_stop: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]] = None):
+        """
+        The list of schedules to be applied on the computes
+        :param pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]] compute_start_stop: The list of compute start stop schedules to be applied.
+        """
+        if compute_start_stop is not None:
+            pulumi.set(__self__, "compute_start_stop", compute_start_stop)
+
+    @property
+    @pulumi.getter(name="computeStartStop")
+    def compute_start_stop(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]]:
+        """
+        The list of compute start stop schedules to be applied.
+        """
+        return pulumi.get(self, "compute_start_stop")
+
+    @compute_start_stop.setter
+    def compute_start_stop(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeStartStopScheduleArgs']]]]):
+        pulumi.set(self, "compute_start_stop", value)
+
+
+@pulumi.input_type
+class ComputeStartStopScheduleArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[str, 'ComputePowerAction']]] = None,
+                 cron: Optional[pulumi.Input['CronArgs']] = None,
+                 recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]] = None,
+                 trigger_type: Optional[pulumi.Input[Union[str, 'TriggerType']]] = None):
+        """
+        Compute start stop schedule properties
+        :param pulumi.Input[Union[str, 'ComputePowerAction']] action: The compute power action.
+        :param pulumi.Input['CronArgs'] cron: The workflow trigger cron for ComputeStartStop schedule type.
+        :param pulumi.Input['RecurrenceArgs'] recurrence: The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param pulumi.Input[Union[str, 'ScheduleStatus']] status: The schedule status.
+        :param pulumi.Input[Union[str, 'TriggerType']] trigger_type: The schedule trigger type.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if trigger_type is not None:
+            pulumi.set(__self__, "trigger_type", trigger_type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'ComputePowerAction']]]:
+        """
+        The compute power action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'ComputePowerAction']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional[pulumi.Input['CronArgs']]:
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        """
+        return pulumi.get(self, "cron")
+
+    @cron.setter
+    def cron(self, value: Optional[pulumi.Input['CronArgs']]):
+        pulumi.set(self, "cron", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['RecurrenceArgs']]:
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['RecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]:
+        """
+        The schedule status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ScheduleStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> Optional[pulumi.Input[Union[str, 'TriggerType']]]:
+        """
+        The schedule trigger type.
+        """
+        return pulumi.get(self, "trigger_type")
+
+    @trigger_type.setter
+    def trigger_type(self, value: Optional[pulumi.Input[Union[str, 'TriggerType']]]):
+        pulumi.set(self, "trigger_type", value)
 
 
 @pulumi.input_type
@@ -3356,6 +3489,62 @@ class CreateServiceRequestKeysArgs:
     @secondary_key.setter
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
+
+
+@pulumi.input_type
+class CronArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The workflow trigger cron for ComputeStartStop schedule type.
+        :param pulumi.Input[str] expression: The cron expression.
+        :param pulumi.Input[str] start_time: The start time.
+        :param pulumi.Input[str] time_zone: The time zone.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cron expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -7930,6 +8119,150 @@ class RGitHubPackageArgs:
     @repository.setter
     def repository(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
+class RecurrenceArgs:
+    def __init__(__self__, *,
+                 frequency: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schedule: Optional[pulumi.Input['RecurrenceScheduleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        The workflow trigger recurrence for ComputeStartStop schedule type.
+        :param pulumi.Input[Union[str, 'RecurrenceFrequency']] frequency: The recurrence frequency.
+        :param pulumi.Input[int] interval: The interval.
+        :param pulumi.Input['RecurrenceScheduleArgs'] schedule: The recurrence schedule
+        :param pulumi.Input[str] start_time: The start time.
+        :param pulumi.Input[str] time_zone: The time zone.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]:
+        """
+        The recurrence frequency.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[Union[str, 'RecurrenceFrequency']]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['RecurrenceScheduleArgs']]:
+        """
+        The recurrence schedule
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['RecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]] = None):
+        """
+        The recurrence schedule
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: The hours.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: The minutes.
+        :param pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]] week_days: The days of the week.
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "hours", value)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]:
+        """
+        The days of the week.
+        """
+        return pulumi.get(self, "week_days")
+
+    @week_days.setter
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
+        pulumi.set(self, "week_days", value)
 
 
 @pulumi.input_type

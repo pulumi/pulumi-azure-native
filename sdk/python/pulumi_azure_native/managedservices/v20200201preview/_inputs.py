@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
+    'EligibleApproverArgs',
     'EligibleAuthorizationArgs',
     'JustInTimeAccessPolicyArgs',
     'PlanArgs',
@@ -74,6 +75,45 @@ class AuthorizationArgs:
     @delegated_role_definition_ids.setter
     def delegated_role_definition_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "delegated_role_definition_ids", value)
+
+    @property
+    @pulumi.getter(name="principalIdDisplayName")
+    def principal_id_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the principal Id.
+        """
+        return pulumi.get(self, "principal_id_display_name")
+
+    @principal_id_display_name.setter
+    def principal_id_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id_display_name", value)
+
+
+@pulumi.input_type
+class EligibleApproverArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 principal_id_display_name: Optional[pulumi.Input[str]] = None):
+        """
+        A principal Id and user-friendly display name representing an eligible authorization approver.
+        :param pulumi.Input[str] principal_id: Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        :param pulumi.Input[str] principal_id_display_name: Display name of the principal Id.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        if principal_id_display_name is not None:
+            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
 
     @property
     @pulumi.getter(name="principalIdDisplayName")
@@ -162,13 +202,21 @@ class EligibleAuthorizationArgs:
 class JustInTimeAccessPolicyArgs:
     def __init__(__self__, *,
                  multi_factor_auth_provider: pulumi.Input[Union[str, 'MultiFactorAuthProvider']],
+                 managed_by_tenant_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]]] = None,
                  maximum_activation_duration: Optional[pulumi.Input[str]] = None):
         """
         Just-in-time access policy setting.
         :param pulumi.Input[Union[str, 'MultiFactorAuthProvider']] multi_factor_auth_provider: MFA provider.
-        :param pulumi.Input[str] maximum_activation_duration: Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        :param pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
+        :param pulumi.Input[str] maximum_activation_duration: Maximum access duration in ISO 8601 format.
         """
+        if multi_factor_auth_provider is None:
+            multi_factor_auth_provider = 'None'
         pulumi.set(__self__, "multi_factor_auth_provider", multi_factor_auth_provider)
+        if managed_by_tenant_approvers is not None:
+            pulumi.set(__self__, "managed_by_tenant_approvers", managed_by_tenant_approvers)
+        if maximum_activation_duration is None:
+            maximum_activation_duration = 'PT8H'
         if maximum_activation_duration is not None:
             pulumi.set(__self__, "maximum_activation_duration", maximum_activation_duration)
 
@@ -185,10 +233,22 @@ class JustInTimeAccessPolicyArgs:
         pulumi.set(self, "multi_factor_auth_provider", value)
 
     @property
+    @pulumi.getter(name="managedByTenantApprovers")
+    def managed_by_tenant_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]]]:
+        """
+        The list of managedByTenant approvers for the eligible authorization.
+        """
+        return pulumi.get(self, "managed_by_tenant_approvers")
+
+    @managed_by_tenant_approvers.setter
+    def managed_by_tenant_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]]]):
+        pulumi.set(self, "managed_by_tenant_approvers", value)
+
+    @property
     @pulumi.getter(name="maximumActivationDuration")
     def maximum_activation_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        Maximum access duration in ISO 8601 format.
         """
         return pulumi.get(self, "maximum_activation_duration")
 

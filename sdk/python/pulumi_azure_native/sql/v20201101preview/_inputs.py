@@ -29,7 +29,7 @@ __all__ = [
     'PartnerRegionInfoArgs',
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
-    'ResourceIdentityWithUserAssignedIdentitiesArgs',
+    'ResourceIdentityArgs',
     'ServerExternalAdministratorArgs',
     'ServerInfoArgs',
     'SkuArgs',
@@ -1048,7 +1048,7 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 
 
 @pulumi.input_type
-class ResourceIdentityWithUserAssignedIdentitiesArgs:
+class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):

@@ -27,7 +27,7 @@ type ManagedInstance struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput `pulumi:"identity"`
+	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrOutput `pulumi:"instancePoolId"`
 	// A CMK URI of the key to use for encryption.
@@ -163,7 +163,7 @@ type managedInstanceState struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
 	// A CMK URI of the key to use for encryption.
@@ -226,7 +226,7 @@ type ManagedInstanceState struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput
+	Identity ResourceIdentityResponsePtrInput
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrInput
 	// A CMK URI of the key to use for encryption.
@@ -293,7 +293,7 @@ type managedInstanceArgs struct {
 	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
 	DnsZonePartner *string `pulumi:"dnsZonePartner"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityWithUserAssignedIdentities `pulumi:"identity"`
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
 	// A CMK URI of the key to use for encryption.
@@ -362,7 +362,7 @@ type ManagedInstanceArgs struct {
 	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
 	DnsZonePartner pulumi.StringPtrInput
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityWithUserAssignedIdentitiesPtrInput
+	Identity ResourceIdentityPtrInput
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrInput
 	// A CMK URI of the key to use for encryption.

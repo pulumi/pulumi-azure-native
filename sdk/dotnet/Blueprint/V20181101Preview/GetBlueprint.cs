@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// <summary>
         /// Layout view of the blueprint definition for UI reference.
         /// </summary>
-        public readonly object? Layout;
+        public readonly object Layout;
         /// <summary>
         /// Name of this resource.
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 
             string id,
 
-            object? layout,
+            object layout,
 
             string name,
 

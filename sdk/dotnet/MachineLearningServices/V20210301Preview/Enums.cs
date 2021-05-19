@@ -195,6 +195,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
     /// <summary>
+    /// The compute power action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputePowerAction : IEquatable<ComputePowerAction>
+    {
+        private readonly string _value;
+
+        private ComputePowerAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputePowerAction Start { get; } = new ComputePowerAction("Start");
+        public static ComputePowerAction Stop { get; } = new ComputePowerAction("Stop");
+
+        public static bool operator ==(ComputePowerAction left, ComputePowerAction right) => left.Equals(right);
+        public static bool operator !=(ComputePowerAction left, ComputePowerAction right) => !left.Equals(right);
+
+        public static explicit operator string(ComputePowerAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputePowerAction other && Equals(other);
+        public bool Equals(ComputePowerAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of compute
     /// </summary>
     [EnumType]
@@ -391,6 +422,39 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatasetType other && Equals(other);
         public bool Equals(DatasetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
+    {
+        private readonly string _value;
+
+        private DaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
+
+        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
+        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -903,6 +967,43 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
     /// <summary>
+    /// The recurrence frequency.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecurrenceFrequency : IEquatable<RecurrenceFrequency>
+    {
+        private readonly string _value;
+
+        private RecurrenceFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecurrenceFrequency NotSpecified { get; } = new RecurrenceFrequency("NotSpecified");
+        public static RecurrenceFrequency Second { get; } = new RecurrenceFrequency("Second");
+        public static RecurrenceFrequency Minute { get; } = new RecurrenceFrequency("Minute");
+        public static RecurrenceFrequency Hour { get; } = new RecurrenceFrequency("Hour");
+        public static RecurrenceFrequency Day { get; } = new RecurrenceFrequency("Day");
+        public static RecurrenceFrequency Week { get; } = new RecurrenceFrequency("Week");
+        public static RecurrenceFrequency Month { get; } = new RecurrenceFrequency("Month");
+        public static RecurrenceFrequency Year { get; } = new RecurrenceFrequency("Year");
+
+        public static bool operator ==(RecurrenceFrequency left, RecurrenceFrequency right) => left.Equals(right);
+        public static bool operator !=(RecurrenceFrequency left, RecurrenceFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RecurrenceFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecurrenceFrequency other && Equals(other);
+        public bool Equals(RecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the type of asset reference.
     /// </summary>
     [EnumType]
@@ -1093,6 +1194,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     }
 
     /// <summary>
+    /// The schedule status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleStatus : IEquatable<ScheduleStatus>
+    {
+        private readonly string _value;
+
+        private ScheduleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleStatus Enabled { get; } = new ScheduleStatus("Enabled");
+        public static ScheduleStatus Disabled { get; } = new ScheduleStatus("Disabled");
+
+        public static bool operator ==(ScheduleStatus left, ScheduleStatus right) => left.Equals(right);
+        public static bool operator !=(ScheduleStatus left, ScheduleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleStatus other && Equals(other);
+        public bool Equals(ScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Credential type used to authentication with storage.
     /// </summary>
     [EnumType]
@@ -1181,6 +1313,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TextAnnotationType other && Equals(other);
         public bool Equals(TextAnnotationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The schedule trigger type.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType Recurrence { get; } = new TriggerType("Recurrence");
+        public static TriggerType Cron { get; } = new TriggerType("Cron");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

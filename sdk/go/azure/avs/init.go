@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Addon{}
 	case "azure-native:avs:Authorization":
 		r = &Authorization{}
+	case "azure-native:avs:CloudLink":
+		r = &CloudLink{}
 	case "azure-native:avs:Cluster":
 		r = &Cluster{}
 	case "azure-native:avs:Datastore":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HcxEnterpriseSite{}
 	case "azure-native:avs:PrivateCloud":
 		r = &PrivateCloud{}
+	case "azure-native:avs:ScriptExecution":
+		r = &ScriptExecution{}
 	case "azure-native:avs:WorkloadNetworkDhcp":
 		r = &WorkloadNetworkDhcp{}
 	case "azure-native:avs:WorkloadNetworkDnsService":
@@ -43,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkloadNetworkDnsZone{}
 	case "azure-native:avs:WorkloadNetworkPortMirroring":
 		r = &WorkloadNetworkPortMirroring{}
+	case "azure-native:avs:WorkloadNetworkPublicIP":
+		r = &WorkloadNetworkPublicIP{}
 	case "azure-native:avs:WorkloadNetworkSegment":
 		r = &WorkloadNetworkSegment{}
 	case "azure-native:avs:WorkloadNetworkVMGroup":

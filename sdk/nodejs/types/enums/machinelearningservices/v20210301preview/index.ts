@@ -63,6 +63,16 @@ export const ComputeInstanceAuthorizationType = {
  */
 export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
 
+export const ComputePowerAction = {
+    Start: "Start",
+    Stop: "Stop",
+} as const;
+
+/**
+ * The compute power action.
+ */
+export type ComputePowerAction = (typeof ComputePowerAction)[keyof typeof ComputePowerAction];
+
 export const ComputeType = {
     AKS: "AKS",
     AmlCompute: "AmlCompute",
@@ -140,6 +150,18 @@ export const DatasetType = {
  * The Format of dataset.
  */
 export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
+
+export const DaysOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const DistributionType = {
     PyTorch: "PyTorch",
@@ -309,6 +331,22 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const RecurrenceFrequency = {
+    NotSpecified: "NotSpecified",
+    Second: "Second",
+    Minute: "Minute",
+    Hour: "Hour",
+    Day: "Day",
+    Week: "Week",
+    Month: "Month",
+    Year: "Year",
+} as const;
+
+/**
+ * The recurrence frequency.
+ */
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
+
 export const ReferenceType = {
     Id: "Id",
     DataPath: "DataPath",
@@ -373,6 +411,16 @@ export const ScaleType = {
 
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
+export const ScheduleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The schedule status.
+ */
+export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
+
 export const SecretsType = {
     AccountKey: "AccountKey",
     Certificate: "Certificate",
@@ -405,6 +453,16 @@ export const TextAnnotationType = {
  * Annotation type of text labeling job.
  */
 export type TextAnnotationType = (typeof TextAnnotationType)[keyof typeof TextAnnotationType];
+
+export const TriggerType = {
+    Recurrence: "Recurrence",
+    Cron: "Cron",
+} as const;
+
+/**
+ * The schedule trigger type.
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 export const ValueFormat = {
     JSON: "JSON",

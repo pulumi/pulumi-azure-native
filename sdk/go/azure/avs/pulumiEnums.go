@@ -151,6 +151,35 @@ func (e PortMirroringDirectionEnum) ToStringPtrOutputWithContext(ctx context.Con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of execution parameter
+type ScriptExecutionParameterType pulumi.String
+
+const (
+	ScriptExecutionParameterTypeValue       = ScriptExecutionParameterType("Value")
+	ScriptExecutionParameterTypeSecureValue = ScriptExecutionParameterType("SecureValue")
+	ScriptExecutionParameterTypeCredential  = ScriptExecutionParameterType("Credential")
+)
+
+func (ScriptExecutionParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ScriptExecutionParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScriptExecutionParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScriptExecutionParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScriptExecutionParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Protect LDAP communication using SSL certificate (LDAPS)
 type SslEnum pulumi.String
 

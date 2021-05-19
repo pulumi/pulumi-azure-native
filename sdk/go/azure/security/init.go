@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connector{}
 	case "azure-native:security:DeviceSecurityGroup":
 		r = &DeviceSecurityGroup{}
+	case "azure-native:security:IngestionSetting":
+		r = &IngestionSetting{}
 	case "azure-native:security:IotDefenderSetting":
 		r = &IotDefenderSetting{}
 	case "azure-native:security:IotSecuritySolution":

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly Outputs.PersonalComputeInstanceSettingsResponse? PersonalComputeInstanceSettings;
         /// <summary>
+        /// The list of schedules to be applied on the compute instance.
+        /// </summary>
+        public readonly Outputs.ComputeSchedulesResponse? Schedules;
+        /// <summary>
         /// Details of customized scripts to execute for setting up the cluster.
         /// </summary>
         public readonly Outputs.SetupScriptsResponse? SetupScripts;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 
             Outputs.PersonalComputeInstanceSettingsResponse? personalComputeInstanceSettings,
 
+            Outputs.ComputeSchedulesResponse? schedules,
+
             Outputs.SetupScriptsResponse? setupScripts,
 
             Outputs.ComputeInstanceSshSettingsResponse? sshSettings,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
             Errors = errors;
             LastOperation = lastOperation;
             PersonalComputeInstanceSettings = personalComputeInstanceSettings;
+            Schedules = schedules;
             SetupScripts = setupScripts;
             SshSettings = sshSettings;
             State = state;

@@ -179,6 +179,34 @@ func (e ComputeInstanceAuthorizationType) ToStringPtrOutputWithContext(ctx conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The compute power action.
+type ComputePowerAction pulumi.String
+
+const (
+	ComputePowerActionStart = ComputePowerAction("Start")
+	ComputePowerActionStop  = ComputePowerAction("Stop")
+)
+
+func (ComputePowerAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ComputePowerAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputePowerAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputePowerAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputePowerAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of compute
 type ComputeType pulumi.String
 
@@ -363,6 +391,83 @@ func (e DatasetType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e DatasetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DaysOfWeek pulumi.String
+
+const (
+	DaysOfWeekSunday    = DaysOfWeek("Sunday")
+	DaysOfWeekMonday    = DaysOfWeek("Monday")
+	DaysOfWeekTuesday   = DaysOfWeek("Tuesday")
+	DaysOfWeekWednesday = DaysOfWeek("Wednesday")
+	DaysOfWeekThursday  = DaysOfWeek("Thursday")
+	DaysOfWeekFriday    = DaysOfWeek("Friday")
+	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
+)
+
+func (DaysOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DaysOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaysOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaysOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DaysOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
+// You can construct a concrete instance of `DaysOfWeekArrayInput` via:
+//
+//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+type DaysOfWeekArrayInput interface {
+	pulumi.Input
+
+	ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput
+	ToDaysOfWeekArrayOutputWithContext(context.Context) DaysOfWeekArrayOutput
+}
+
+type DaysOfWeekArray []DaysOfWeek
+
+func (DaysOfWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return i.ToDaysOfWeekArrayOutputWithContext(context.Background())
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaysOfWeekArrayOutput)
+}
+
+type DaysOfWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (DaysOfWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]DaysOfWeek)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // Specifies the type of distribution framework.
@@ -821,6 +926,40 @@ func (e PrivateEndpointServiceConnectionStatus) ToStringPtrOutputWithContext(ctx
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The recurrence frequency.
+type RecurrenceFrequency pulumi.String
+
+const (
+	RecurrenceFrequencyNotSpecified = RecurrenceFrequency("NotSpecified")
+	RecurrenceFrequencySecond       = RecurrenceFrequency("Second")
+	RecurrenceFrequencyMinute       = RecurrenceFrequency("Minute")
+	RecurrenceFrequencyHour         = RecurrenceFrequency("Hour")
+	RecurrenceFrequencyDay          = RecurrenceFrequency("Day")
+	RecurrenceFrequencyWeek         = RecurrenceFrequency("Week")
+	RecurrenceFrequencyMonth        = RecurrenceFrequency("Month")
+	RecurrenceFrequencyYear         = RecurrenceFrequency("Year")
+)
+
+func (RecurrenceFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RecurrenceFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecurrenceFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecurrenceFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecurrenceFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Specifies the type of asset reference.
 type ReferenceType pulumi.String
 
@@ -995,6 +1134,34 @@ func (e ScaleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The schedule status.
+type ScheduleStatus pulumi.String
+
+const (
+	ScheduleStatusEnabled  = ScheduleStatus("Enabled")
+	ScheduleStatusDisabled = ScheduleStatus("Disabled")
+)
+
+func (ScheduleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ScheduleStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScheduleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScheduleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScheduleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Credential type used to authentication with storage.
 type SecretsType pulumi.String
 
@@ -1079,6 +1246,34 @@ func (e TextAnnotationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e TextAnnotationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The schedule trigger type.
+type TriggerType pulumi.String
+
+const (
+	TriggerTypeRecurrence = TriggerType("Recurrence")
+	TriggerTypeCron       = TriggerType("Cron")
+)
+
+func (TriggerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TriggerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

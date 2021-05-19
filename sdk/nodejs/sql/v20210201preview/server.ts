@@ -54,7 +54,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.v20210201preview.ResourceIdentityWithUserAssignedIdentitiesResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.sql.v20210201preview.ResourceIdentityResponse | undefined>;
     /**
      * A CMK URI of the key to use for encryption.
      */
@@ -201,7 +201,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20210201preview.ResourceIdentityWithUserAssignedIdentitiesArgs>;
+    readonly identity?: pulumi.Input<inputs.sql.v20210201preview.ResourceIdentityArgs>;
     /**
      * A CMK URI of the key to use for encryption.
      */

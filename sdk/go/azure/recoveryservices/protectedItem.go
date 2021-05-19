@@ -113,6 +113,12 @@ func NewProtectedItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ProtectedItem"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210401:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ProtectedItem"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectedItem

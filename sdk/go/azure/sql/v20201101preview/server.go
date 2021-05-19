@@ -22,7 +22,7 @@ type Server struct {
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput `pulumi:"identity"`
+	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -138,7 +138,7 @@ type serverState struct {
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -175,7 +175,7 @@ type ServerState struct {
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput
+	Identity ResourceIdentityResponsePtrInput
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrInput
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -216,7 +216,7 @@ type serverArgs struct {
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministrator `pulumi:"administrators"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityWithUserAssignedIdentities `pulumi:"identity"`
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Resource location.
@@ -246,7 +246,7 @@ type ServerArgs struct {
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityWithUserAssignedIdentitiesPtrInput
+	Identity ResourceIdentityPtrInput
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrInput
 	// Resource location.

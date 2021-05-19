@@ -81,7 +81,7 @@ class GetBlueprintResult:
 
     @property
     @pulumi.getter
-    def layout(self) -> Optional[Any]:
+    def layout(self) -> Any:
         """
         Layout view of the blueprint definition for UI reference.
         """

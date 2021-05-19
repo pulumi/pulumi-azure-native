@@ -1690,15 +1690,18 @@ _utilities.register(
   "classes": {
    "azure-native:avs:Addon": "Addon",
    "azure-native:avs:Authorization": "Authorization",
+   "azure-native:avs:CloudLink": "CloudLink",
    "azure-native:avs:Cluster": "Cluster",
    "azure-native:avs:Datastore": "Datastore",
    "azure-native:avs:GlobalReachConnection": "GlobalReachConnection",
    "azure-native:avs:HcxEnterpriseSite": "HcxEnterpriseSite",
    "azure-native:avs:PrivateCloud": "PrivateCloud",
+   "azure-native:avs:ScriptExecution": "ScriptExecution",
    "azure-native:avs:WorkloadNetworkDhcp": "WorkloadNetworkDhcp",
    "azure-native:avs:WorkloadNetworkDnsService": "WorkloadNetworkDnsService",
    "azure-native:avs:WorkloadNetworkDnsZone": "WorkloadNetworkDnsZone",
    "azure-native:avs:WorkloadNetworkPortMirroring": "WorkloadNetworkPortMirroring",
+   "azure-native:avs:WorkloadNetworkPublicIP": "WorkloadNetworkPublicIP",
    "azure-native:avs:WorkloadNetworkSegment": "WorkloadNetworkSegment",
    "azure-native:avs:WorkloadNetworkVMGroup": "WorkloadNetworkVMGroup"
   }
@@ -1751,6 +1754,29 @@ _utilities.register(
    "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring": "WorkloadNetworkPortMirroring",
    "azure-native:avs/v20210101preview:WorkloadNetworkSegment": "WorkloadNetworkSegment",
    "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup": "WorkloadNetworkVMGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "avs/v20210601",
+  "fqn": "pulumi_azure_native.avs.v20210601",
+  "classes": {
+   "azure-native:avs/v20210601:Addon": "Addon",
+   "azure-native:avs/v20210601:Authorization": "Authorization",
+   "azure-native:avs/v20210601:CloudLink": "CloudLink",
+   "azure-native:avs/v20210601:Cluster": "Cluster",
+   "azure-native:avs/v20210601:Datastore": "Datastore",
+   "azure-native:avs/v20210601:GlobalReachConnection": "GlobalReachConnection",
+   "azure-native:avs/v20210601:HcxEnterpriseSite": "HcxEnterpriseSite",
+   "azure-native:avs/v20210601:PrivateCloud": "PrivateCloud",
+   "azure-native:avs/v20210601:ScriptExecution": "ScriptExecution",
+   "azure-native:avs/v20210601:WorkloadNetworkDhcp": "WorkloadNetworkDhcp",
+   "azure-native:avs/v20210601:WorkloadNetworkDnsService": "WorkloadNetworkDnsService",
+   "azure-native:avs/v20210601:WorkloadNetworkDnsZone": "WorkloadNetworkDnsZone",
+   "azure-native:avs/v20210601:WorkloadNetworkPortMirroring": "WorkloadNetworkPortMirroring",
+   "azure-native:avs/v20210601:WorkloadNetworkPublicIP": "WorkloadNetworkPublicIP",
+   "azure-native:avs/v20210601:WorkloadNetworkSegment": "WorkloadNetworkSegment",
+   "azure-native:avs/v20210601:WorkloadNetworkVMGroup": "WorkloadNetworkVMGroup"
   }
  },
  {
@@ -6882,6 +6908,7 @@ _utilities.register(
   "mod": "keyvault/v20200401preview",
   "fqn": "pulumi_azure_native.keyvault.v20200401preview",
   "classes": {
+   "azure-native:keyvault/v20200401preview:Key": "Key",
    "azure-native:keyvault/v20200401preview:ManagedHsm": "ManagedHsm",
    "azure-native:keyvault/v20200401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:keyvault/v20200401preview:Secret": "Secret",
@@ -11256,6 +11283,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20210401",
+  "fqn": "pulumi_azure_native.recoveryservices.v20210401",
+  "classes": {
+   "azure-native:recoveryservices/v20210401:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20210401:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20210401:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20210401:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20210401:ProtectionPolicy": "ProtectionPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -11741,6 +11780,7 @@ _utilities.register(
    "azure-native:security:Automation": "Automation",
    "azure-native:security:Connector": "Connector",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
+   "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotDefenderSetting": "IotDefenderSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:IotSensor": "IotSensor",
@@ -11831,6 +11871,14 @@ _utilities.register(
    "azure-native:security/v20200806preview:IotSensor": "IotSensor",
    "azure-native:security/v20200806preview:IotSite": "IotSite",
    "azure-native:security/v20200806preview:OnPremiseIotSensor": "OnPremiseIotSensor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20210115preview",
+  "fqn": "pulumi_azure_native.security.v20210115preview",
+  "classes": {
+   "azure-native:security/v20210115preview:IngestionSetting": "IngestionSetting"
   }
  },
  {

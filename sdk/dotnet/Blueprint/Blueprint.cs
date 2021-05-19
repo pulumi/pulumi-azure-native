@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Blueprint
         /// Layout view of the blueprint definition for UI reference.
         /// </summary>
         [Output("layout")]
-        public Output<object?> Layout { get; private set; } = null!;
+        public Output<object> Layout { get; private set; } = null!;
 
         /// <summary>
         /// Name of this resource.
@@ -144,12 +144,6 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// Layout view of the blueprint definition for UI reference.
-        /// </summary>
-        [Input("layout")]
-        public Input<object>? Layout { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterDefinitionArgs>? _parameters;

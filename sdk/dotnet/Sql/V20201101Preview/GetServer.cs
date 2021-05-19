@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? Identity;
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// A CMK URI of the key to use for encryption.
         /// </summary>
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 
             string id,
 
-            Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? identity,
+            Outputs.ResourceIdentityResponse? identity,
 
             string? keyId,
 

@@ -46,7 +46,7 @@ export class Blueprint extends pulumi.CustomResource {
     /**
      * Layout view of the blueprint definition for UI reference.
      */
-    public readonly layout!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly layout!: pulumi.Output<any>;
     /**
      * Name of this resource.
      */
@@ -96,12 +96,12 @@ export class Blueprint extends pulumi.CustomResource {
             inputs["blueprintName"] = args ? args.blueprintName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["layout"] = args ? args.layout : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroups"] = args ? args.resourceGroups : undefined;
             inputs["resourceScope"] = args ? args.resourceScope : undefined;
             inputs["targetScope"] = args ? args.targetScope : undefined;
             inputs["versions"] = args ? args.versions : undefined;
+            inputs["layout"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -142,10 +142,6 @@ export interface BlueprintArgs {
      * One-liner string explain this resource.
      */
     readonly displayName?: pulumi.Input<string>;
-    /**
-     * Layout view of the blueprint definition for UI reference.
-     */
-    readonly layout?: any;
     /**
      * Parameters required by this blueprint definition.
      */

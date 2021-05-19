@@ -33,7 +33,7 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'ResourceIdentityWithUserAssignedIdentitiesResponse',
+    'ResourceIdentityResponse',
     'ServerExternalAdministratorResponse',
     'ServerInfoResponse',
     'ServerPrivateEndpointConnectionResponse',
@@ -1409,7 +1409,7 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
-class ResourceIdentityWithUserAssignedIdentitiesResponse(dict):
+class ResourceIdentityResponse(dict):
     """
     Azure Active Directory identity configuration for a resource.
     """
@@ -1424,14 +1424,14 @@ class ResourceIdentityWithUserAssignedIdentitiesResponse(dict):
             suggest = "user_assigned_identities"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityWithUserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceIdentityWithUserAssignedIdentitiesResponse.__key_warning(key)
+        ResourceIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceIdentityWithUserAssignedIdentitiesResponse.__key_warning(key)
+        ResourceIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

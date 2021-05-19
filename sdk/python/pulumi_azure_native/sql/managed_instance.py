@@ -22,7 +22,7 @@ class ManagedInstanceArgs:
                  administrators: Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
@@ -52,7 +52,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input['ManagedInstanceExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        :param pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs'] identity: The Azure Active Directory identity of the managed instance.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -214,14 +214,14 @@ class ManagedInstanceArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
         """
         The Azure Active Directory identity of the managed instance.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -496,7 +496,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrators: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
@@ -531,7 +531,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the server.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']] identity: The Azure Active Directory identity of the managed instance.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -594,7 +594,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrators: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
@@ -762,7 +762,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
         """
         The Azure Active Directory identity of the managed instance.
         """

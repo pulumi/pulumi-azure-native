@@ -21,7 +21,7 @@ class ServerArgs:
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input['ServerExternalAdministratorArgs']] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class ServerArgs:
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
-        :param pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs'] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
@@ -141,14 +141,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
         """
         The Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityWithUserAssignedIdentitiesArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -269,7 +269,7 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
@@ -290,7 +290,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']] administrators: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
@@ -330,7 +330,7 @@ class Server(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
@@ -456,7 +456,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
         """
         The Azure Active Directory identity of the server.
         """

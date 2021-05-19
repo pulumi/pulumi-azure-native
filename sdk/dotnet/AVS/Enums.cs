@@ -164,6 +164,38 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
+    /// The type of execution parameter
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptExecutionParameterType : IEquatable<ScriptExecutionParameterType>
+    {
+        private readonly string _value;
+
+        private ScriptExecutionParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptExecutionParameterType Value { get; } = new ScriptExecutionParameterType("Value");
+        public static ScriptExecutionParameterType SecureValue { get; } = new ScriptExecutionParameterType("SecureValue");
+        public static ScriptExecutionParameterType Credential { get; } = new ScriptExecutionParameterType("Credential");
+
+        public static bool operator ==(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => left.Equals(right);
+        public static bool operator !=(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptExecutionParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptExecutionParameterType other && Equals(other);
+        public bool Equals(ScriptExecutionParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Protect LDAP communication using SSL certificate (LDAPS)
     /// </summary>
     [EnumType]

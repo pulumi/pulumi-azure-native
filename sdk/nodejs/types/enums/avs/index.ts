@@ -5,11 +5,13 @@
 import * as v20200320 from "./v20200320";
 import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
+import * as v20210601 from "./v20210601";
 
 export {
     v20200320,
     v20200717preview,
     v20210101preview,
+    v20210601,
 };
 
 export const AddonType = {
@@ -62,6 +64,17 @@ export const PortMirroringDirectionEnum = {
  * Direction of port mirroring profile.
  */
 export type PortMirroringDirectionEnum = (typeof PortMirroringDirectionEnum)[keyof typeof PortMirroringDirectionEnum];
+
+export const ScriptExecutionParameterType = {
+    Value: "Value",
+    SecureValue: "SecureValue",
+    Credential: "Credential",
+} as const;
+
+/**
+ * The type of execution parameter
+ */
+export type ScriptExecutionParameterType = (typeof ScriptExecutionParameterType)[keyof typeof ScriptExecutionParameterType];
 
 export const SslEnum = {
     Enabled: "Enabled",

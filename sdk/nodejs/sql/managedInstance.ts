@@ -59,7 +59,7 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.ResourceIdentityWithUserAssignedIdentitiesResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
@@ -266,7 +266,7 @@ export interface ManagedInstanceArgs {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: pulumi.Input<inputs.sql.ResourceIdentityWithUserAssignedIdentitiesArgs>;
+    readonly identity?: pulumi.Input<inputs.sql.ResourceIdentityArgs>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */

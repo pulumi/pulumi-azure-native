@@ -14,7 +14,11 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class JustInTimeAccessPolicyResponse
     {
         /// <summary>
-        /// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+        /// The list of managedByTenant approvers for the eligible authorization.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EligibleApproverResponse> ManagedByTenantApprovers;
+        /// <summary>
+        /// Maximum access duration in ISO 8601 format.
         /// </summary>
         public readonly string? MaximumActivationDuration;
         /// <summary>
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 
         [OutputConstructor]
         private JustInTimeAccessPolicyResponse(
+            ImmutableArray<Outputs.EligibleApproverResponse> managedByTenantApprovers,
+
             string? maximumActivationDuration,
 
             string multiFactorAuthProvider)
         {
+            ManagedByTenantApprovers = managedByTenantApprovers;
             MaximumActivationDuration = maximumActivationDuration;
             MultiFactorAuthProvider = multiFactorAuthProvider;
         }

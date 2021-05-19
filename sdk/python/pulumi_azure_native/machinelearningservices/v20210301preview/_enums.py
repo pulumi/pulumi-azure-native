@@ -11,12 +11,14 @@ __all__ = [
     'ClusterPurpose',
     'ComputeEnvironmentType',
     'ComputeInstanceAuthorizationType',
+    'ComputePowerAction',
     'ComputeType',
     'ContainerType',
     'ContentsType',
     'CredentialsType',
     'DataBindingMode',
     'DatasetType',
+    'DaysOfWeek',
     'DistributionType',
     'DockerSpecificationType',
     'EarlyTerminationPolicyType',
@@ -33,15 +35,18 @@ __all__ = [
     'OriginType',
     'OsType',
     'PrivateEndpointServiceConnectionStatus',
+    'RecurrenceFrequency',
     'ReferenceType',
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityAssignment',
     'ResourceIdentityType',
     'SamplingAlgorithm',
     'ScaleType',
+    'ScheduleStatus',
     'SecretsType',
     'SshPublicAccess',
     'TextAnnotationType',
+    'TriggerType',
     'ValueFormat',
     'VmPriority',
 ]
@@ -94,6 +99,14 @@ class ComputeInstanceAuthorizationType(str, Enum):
     The Compute Instance Authorization type. Available values are personal (default).
     """
     PERSONAL = "personal"
+
+
+class ComputePowerAction(str, Enum):
+    """
+    The compute power action.
+    """
+    START = "Start"
+    STOP = "Stop"
 
 
 class ComputeType(str, Enum):
@@ -160,6 +173,16 @@ class DatasetType(str, Enum):
     """
     SIMPLE = "Simple"
     DATAFLOW = "Dataflow"
+
+
+class DaysOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class DistributionType(str, Enum):
@@ -298,6 +321,20 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     TIMEOUT = "Timeout"
 
 
+class RecurrenceFrequency(str, Enum):
+    """
+    The recurrence frequency.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SECOND = "Second"
+    MINUTE = "Minute"
+    HOUR = "Hour"
+    DAY = "Day"
+    WEEK = "Week"
+    MONTH = "Month"
+    YEAR = "Year"
+
+
 class ReferenceType(str, Enum):
     """
     Specifies the type of asset reference.
@@ -350,6 +387,14 @@ class ScaleType(str, Enum):
     MANUAL = "Manual"
 
 
+class ScheduleStatus(str, Enum):
+    """
+    The schedule status.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class SecretsType(str, Enum):
     """
     Credential type used to authentication with storage.
@@ -375,6 +420,14 @@ class TextAnnotationType(str, Enum):
     Annotation type of text labeling job.
     """
     CLASSIFICATION = "Classification"
+
+
+class TriggerType(str, Enum):
+    """
+    The schedule trigger type.
+    """
+    RECURRENCE = "Recurrence"
+    CRON = "Cron"
 
 
 class ValueFormat(str, Enum):

@@ -8,6 +8,28 @@ CHANGELOG
 - Do not count 429 (Too Many Requests) towards the limit of retry attempts, retry them indefinitely
   [#849](https://github.com/pulumi/pulumi-azure-native/issues/849)
 
+#### New Resources
+
+- `avs.CloudLink`
+- `avs.ScriptExecution`
+- `avs.WorkloadNetworkPublicIP`
+- `security.IngestionSetting`
+
+#### New Functions
+
+- `avs.getCloudLink`
+- `avs.getScriptExecution`
+- `avs.getScriptExecutionLogs`
+- `avs.getWorkloadNetworkPublicIP`
+- `security.getIngestionSetting`
+- `security.listIngestionSettingConnectionStrings`
+- `security.listIngestionSettingTokens`
+
+#### Breaking Changes published by Microsoft
+
+- `sql` resource provider renamed the type `ResourceIdentityWithUserAssignedIdentities` to `ResourceIdentity`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14439))
+
 ---
 
 ## 1.6.0 (2020-05-17)

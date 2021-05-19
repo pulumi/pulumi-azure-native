@@ -70,7 +70,7 @@ export interface GetManagedInstanceResult {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: outputs.sql.ResourceIdentityWithUserAssignedIdentitiesResponse;
+    readonly identity?: outputs.sql.ResourceIdentityResponse;
     /**
      * The Id of the instance pool this managed server belongs to.
      */

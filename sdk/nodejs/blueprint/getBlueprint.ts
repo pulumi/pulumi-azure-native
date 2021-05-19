@@ -53,7 +53,7 @@ export interface GetBlueprintResult {
     /**
      * Layout view of the blueprint definition for UI reference.
      */
-    readonly layout?: any;
+    readonly layout: any;
     /**
      * Name of this resource.
      */

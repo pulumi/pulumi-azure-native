@@ -133,7 +133,7 @@ class Authorization(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:Authorization"), pulumi.Alias(type_="azure-native:avs:Authorization"), pulumi.Alias(type_="azure-nextgen:avs:Authorization"), pulumi.Alias(type_="azure-native:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Authorization"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:Authorization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:Authorization"), pulumi.Alias(type_="azure-native:avs:Authorization"), pulumi.Alias(type_="azure-nextgen:avs:Authorization"), pulumi.Alias(type_="azure-native:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-nextgen:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Authorization"), pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210601:Authorization"), pulumi.Alias(type_="azure-nextgen:avs/v20210601:Authorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Authorization, __self__).__init__(
             'azure-native:avs/v20200717preview:Authorization',

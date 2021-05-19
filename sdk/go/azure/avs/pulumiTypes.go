@@ -1672,6 +1672,480 @@ func (o NetAppVolumeResponsePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// a powershell credential object
+type PSCredentialExecutionParameter struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// password for login
+	Password *string `pulumi:"password"`
+	// The type of execution parameter
+	// Expected value is 'Credential'.
+	Type string `pulumi:"type"`
+	// username for login
+	Username *string `pulumi:"username"`
+}
+
+// PSCredentialExecutionParameterInput is an input type that accepts PSCredentialExecutionParameterArgs and PSCredentialExecutionParameterOutput values.
+// You can construct a concrete instance of `PSCredentialExecutionParameterInput` via:
+//
+//          PSCredentialExecutionParameterArgs{...}
+type PSCredentialExecutionParameterInput interface {
+	pulumi.Input
+
+	ToPSCredentialExecutionParameterOutput() PSCredentialExecutionParameterOutput
+	ToPSCredentialExecutionParameterOutputWithContext(context.Context) PSCredentialExecutionParameterOutput
+}
+
+// a powershell credential object
+type PSCredentialExecutionParameterArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// password for login
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The type of execution parameter
+	// Expected value is 'Credential'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// username for login
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (PSCredentialExecutionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PSCredentialExecutionParameter)(nil)).Elem()
+}
+
+func (i PSCredentialExecutionParameterArgs) ToPSCredentialExecutionParameterOutput() PSCredentialExecutionParameterOutput {
+	return i.ToPSCredentialExecutionParameterOutputWithContext(context.Background())
+}
+
+func (i PSCredentialExecutionParameterArgs) ToPSCredentialExecutionParameterOutputWithContext(ctx context.Context) PSCredentialExecutionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PSCredentialExecutionParameterOutput)
+}
+
+// a powershell credential object
+type PSCredentialExecutionParameterOutput struct{ *pulumi.OutputState }
+
+func (PSCredentialExecutionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PSCredentialExecutionParameter)(nil)).Elem()
+}
+
+func (o PSCredentialExecutionParameterOutput) ToPSCredentialExecutionParameterOutput() PSCredentialExecutionParameterOutput {
+	return o
+}
+
+func (o PSCredentialExecutionParameterOutput) ToPSCredentialExecutionParameterOutputWithContext(ctx context.Context) PSCredentialExecutionParameterOutput {
+	return o
+}
+
+// The parameter name
+func (o PSCredentialExecutionParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// password for login
+func (o PSCredentialExecutionParameterOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameter) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'Credential'.
+func (o PSCredentialExecutionParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// username for login
+func (o PSCredentialExecutionParameterOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameter) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// a powershell credential object
+type PSCredentialExecutionParameterResponse struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// password for login
+	Password *string `pulumi:"password"`
+	// The type of execution parameter
+	// Expected value is 'Credential'.
+	Type string `pulumi:"type"`
+	// username for login
+	Username *string `pulumi:"username"`
+}
+
+// PSCredentialExecutionParameterResponseInput is an input type that accepts PSCredentialExecutionParameterResponseArgs and PSCredentialExecutionParameterResponseOutput values.
+// You can construct a concrete instance of `PSCredentialExecutionParameterResponseInput` via:
+//
+//          PSCredentialExecutionParameterResponseArgs{...}
+type PSCredentialExecutionParameterResponseInput interface {
+	pulumi.Input
+
+	ToPSCredentialExecutionParameterResponseOutput() PSCredentialExecutionParameterResponseOutput
+	ToPSCredentialExecutionParameterResponseOutputWithContext(context.Context) PSCredentialExecutionParameterResponseOutput
+}
+
+// a powershell credential object
+type PSCredentialExecutionParameterResponseArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// password for login
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The type of execution parameter
+	// Expected value is 'Credential'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// username for login
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (PSCredentialExecutionParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PSCredentialExecutionParameterResponse)(nil)).Elem()
+}
+
+func (i PSCredentialExecutionParameterResponseArgs) ToPSCredentialExecutionParameterResponseOutput() PSCredentialExecutionParameterResponseOutput {
+	return i.ToPSCredentialExecutionParameterResponseOutputWithContext(context.Background())
+}
+
+func (i PSCredentialExecutionParameterResponseArgs) ToPSCredentialExecutionParameterResponseOutputWithContext(ctx context.Context) PSCredentialExecutionParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PSCredentialExecutionParameterResponseOutput)
+}
+
+// a powershell credential object
+type PSCredentialExecutionParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (PSCredentialExecutionParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PSCredentialExecutionParameterResponse)(nil)).Elem()
+}
+
+func (o PSCredentialExecutionParameterResponseOutput) ToPSCredentialExecutionParameterResponseOutput() PSCredentialExecutionParameterResponseOutput {
+	return o
+}
+
+func (o PSCredentialExecutionParameterResponseOutput) ToPSCredentialExecutionParameterResponseOutputWithContext(ctx context.Context) PSCredentialExecutionParameterResponseOutput {
+	return o
+}
+
+// The parameter name
+func (o PSCredentialExecutionParameterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// password for login
+func (o PSCredentialExecutionParameterResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameterResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'Credential'.
+func (o PSCredentialExecutionParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// username for login
+func (o PSCredentialExecutionParameterResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PSCredentialExecutionParameterResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameter struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// A secure value for the passed parameter, not to be stored in logs
+	SecureValue *string `pulumi:"secureValue"`
+	// The type of execution parameter
+	// Expected value is 'SecureValue'.
+	Type string `pulumi:"type"`
+}
+
+// ScriptSecureStringExecutionParameterInput is an input type that accepts ScriptSecureStringExecutionParameterArgs and ScriptSecureStringExecutionParameterOutput values.
+// You can construct a concrete instance of `ScriptSecureStringExecutionParameterInput` via:
+//
+//          ScriptSecureStringExecutionParameterArgs{...}
+type ScriptSecureStringExecutionParameterInput interface {
+	pulumi.Input
+
+	ToScriptSecureStringExecutionParameterOutput() ScriptSecureStringExecutionParameterOutput
+	ToScriptSecureStringExecutionParameterOutputWithContext(context.Context) ScriptSecureStringExecutionParameterOutput
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameterArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// A secure value for the passed parameter, not to be stored in logs
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// The type of execution parameter
+	// Expected value is 'SecureValue'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ScriptSecureStringExecutionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptSecureStringExecutionParameter)(nil)).Elem()
+}
+
+func (i ScriptSecureStringExecutionParameterArgs) ToScriptSecureStringExecutionParameterOutput() ScriptSecureStringExecutionParameterOutput {
+	return i.ToScriptSecureStringExecutionParameterOutputWithContext(context.Background())
+}
+
+func (i ScriptSecureStringExecutionParameterArgs) ToScriptSecureStringExecutionParameterOutputWithContext(ctx context.Context) ScriptSecureStringExecutionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptSecureStringExecutionParameterOutput)
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameterOutput struct{ *pulumi.OutputState }
+
+func (ScriptSecureStringExecutionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptSecureStringExecutionParameter)(nil)).Elem()
+}
+
+func (o ScriptSecureStringExecutionParameterOutput) ToScriptSecureStringExecutionParameterOutput() ScriptSecureStringExecutionParameterOutput {
+	return o
+}
+
+func (o ScriptSecureStringExecutionParameterOutput) ToScriptSecureStringExecutionParameterOutputWithContext(ctx context.Context) ScriptSecureStringExecutionParameterOutput {
+	return o
+}
+
+// The parameter name
+func (o ScriptSecureStringExecutionParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A secure value for the passed parameter, not to be stored in logs
+func (o ScriptSecureStringExecutionParameterOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameter) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'SecureValue'.
+func (o ScriptSecureStringExecutionParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameterResponse struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// A secure value for the passed parameter, not to be stored in logs
+	SecureValue *string `pulumi:"secureValue"`
+	// The type of execution parameter
+	// Expected value is 'SecureValue'.
+	Type string `pulumi:"type"`
+}
+
+// ScriptSecureStringExecutionParameterResponseInput is an input type that accepts ScriptSecureStringExecutionParameterResponseArgs and ScriptSecureStringExecutionParameterResponseOutput values.
+// You can construct a concrete instance of `ScriptSecureStringExecutionParameterResponseInput` via:
+//
+//          ScriptSecureStringExecutionParameterResponseArgs{...}
+type ScriptSecureStringExecutionParameterResponseInput interface {
+	pulumi.Input
+
+	ToScriptSecureStringExecutionParameterResponseOutput() ScriptSecureStringExecutionParameterResponseOutput
+	ToScriptSecureStringExecutionParameterResponseOutputWithContext(context.Context) ScriptSecureStringExecutionParameterResponseOutput
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameterResponseArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// A secure value for the passed parameter, not to be stored in logs
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// The type of execution parameter
+	// Expected value is 'SecureValue'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ScriptSecureStringExecutionParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptSecureStringExecutionParameterResponse)(nil)).Elem()
+}
+
+func (i ScriptSecureStringExecutionParameterResponseArgs) ToScriptSecureStringExecutionParameterResponseOutput() ScriptSecureStringExecutionParameterResponseOutput {
+	return i.ToScriptSecureStringExecutionParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ScriptSecureStringExecutionParameterResponseArgs) ToScriptSecureStringExecutionParameterResponseOutputWithContext(ctx context.Context) ScriptSecureStringExecutionParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptSecureStringExecutionParameterResponseOutput)
+}
+
+// a plain text value execution parameter
+type ScriptSecureStringExecutionParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ScriptSecureStringExecutionParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptSecureStringExecutionParameterResponse)(nil)).Elem()
+}
+
+func (o ScriptSecureStringExecutionParameterResponseOutput) ToScriptSecureStringExecutionParameterResponseOutput() ScriptSecureStringExecutionParameterResponseOutput {
+	return o
+}
+
+func (o ScriptSecureStringExecutionParameterResponseOutput) ToScriptSecureStringExecutionParameterResponseOutputWithContext(ctx context.Context) ScriptSecureStringExecutionParameterResponseOutput {
+	return o
+}
+
+// The parameter name
+func (o ScriptSecureStringExecutionParameterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A secure value for the passed parameter, not to be stored in logs
+func (o ScriptSecureStringExecutionParameterResponseOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameterResponse) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'SecureValue'.
+func (o ScriptSecureStringExecutionParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptSecureStringExecutionParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameter struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// The type of execution parameter
+	// Expected value is 'Value'.
+	Type string `pulumi:"type"`
+	// The value for the passed parameter
+	Value *string `pulumi:"value"`
+}
+
+// ScriptStringExecutionParameterInput is an input type that accepts ScriptStringExecutionParameterArgs and ScriptStringExecutionParameterOutput values.
+// You can construct a concrete instance of `ScriptStringExecutionParameterInput` via:
+//
+//          ScriptStringExecutionParameterArgs{...}
+type ScriptStringExecutionParameterInput interface {
+	pulumi.Input
+
+	ToScriptStringExecutionParameterOutput() ScriptStringExecutionParameterOutput
+	ToScriptStringExecutionParameterOutputWithContext(context.Context) ScriptStringExecutionParameterOutput
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameterArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of execution parameter
+	// Expected value is 'Value'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the passed parameter
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ScriptStringExecutionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStringExecutionParameter)(nil)).Elem()
+}
+
+func (i ScriptStringExecutionParameterArgs) ToScriptStringExecutionParameterOutput() ScriptStringExecutionParameterOutput {
+	return i.ToScriptStringExecutionParameterOutputWithContext(context.Background())
+}
+
+func (i ScriptStringExecutionParameterArgs) ToScriptStringExecutionParameterOutputWithContext(ctx context.Context) ScriptStringExecutionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStringExecutionParameterOutput)
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameterOutput struct{ *pulumi.OutputState }
+
+func (ScriptStringExecutionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStringExecutionParameter)(nil)).Elem()
+}
+
+func (o ScriptStringExecutionParameterOutput) ToScriptStringExecutionParameterOutput() ScriptStringExecutionParameterOutput {
+	return o
+}
+
+func (o ScriptStringExecutionParameterOutput) ToScriptStringExecutionParameterOutputWithContext(ctx context.Context) ScriptStringExecutionParameterOutput {
+	return o
+}
+
+// The parameter name
+func (o ScriptStringExecutionParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'Value'.
+func (o ScriptStringExecutionParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the passed parameter
+func (o ScriptStringExecutionParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameterResponse struct {
+	// The parameter name
+	Name string `pulumi:"name"`
+	// The type of execution parameter
+	// Expected value is 'Value'.
+	Type string `pulumi:"type"`
+	// The value for the passed parameter
+	Value *string `pulumi:"value"`
+}
+
+// ScriptStringExecutionParameterResponseInput is an input type that accepts ScriptStringExecutionParameterResponseArgs and ScriptStringExecutionParameterResponseOutput values.
+// You can construct a concrete instance of `ScriptStringExecutionParameterResponseInput` via:
+//
+//          ScriptStringExecutionParameterResponseArgs{...}
+type ScriptStringExecutionParameterResponseInput interface {
+	pulumi.Input
+
+	ToScriptStringExecutionParameterResponseOutput() ScriptStringExecutionParameterResponseOutput
+	ToScriptStringExecutionParameterResponseOutputWithContext(context.Context) ScriptStringExecutionParameterResponseOutput
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameterResponseArgs struct {
+	// The parameter name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of execution parameter
+	// Expected value is 'Value'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the passed parameter
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ScriptStringExecutionParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStringExecutionParameterResponse)(nil)).Elem()
+}
+
+func (i ScriptStringExecutionParameterResponseArgs) ToScriptStringExecutionParameterResponseOutput() ScriptStringExecutionParameterResponseOutput {
+	return i.ToScriptStringExecutionParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ScriptStringExecutionParameterResponseArgs) ToScriptStringExecutionParameterResponseOutputWithContext(ctx context.Context) ScriptStringExecutionParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStringExecutionParameterResponseOutput)
+}
+
+// a plain text value execution parameter
+type ScriptStringExecutionParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ScriptStringExecutionParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStringExecutionParameterResponse)(nil)).Elem()
+}
+
+func (o ScriptStringExecutionParameterResponseOutput) ToScriptStringExecutionParameterResponseOutput() ScriptStringExecutionParameterResponseOutput {
+	return o
+}
+
+func (o ScriptStringExecutionParameterResponseOutput) ToScriptStringExecutionParameterResponseOutputWithContext(ctx context.Context) ScriptStringExecutionParameterResponseOutput {
+	return o
+}
+
+// The parameter name
+func (o ScriptStringExecutionParameterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of execution parameter
+// Expected value is 'Value'.
+func (o ScriptStringExecutionParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the passed parameter
+func (o ScriptStringExecutionParameterResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptStringExecutionParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 // The resource model definition representing SKU
 type Sku struct {
 	// The name of the SKU.
@@ -2367,6 +2841,12 @@ func init() {
 	pulumi.RegisterOutputType(NetAppVolumePtrOutput{})
 	pulumi.RegisterOutputType(NetAppVolumeResponseOutput{})
 	pulumi.RegisterOutputType(NetAppVolumeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PSCredentialExecutionParameterOutput{})
+	pulumi.RegisterOutputType(PSCredentialExecutionParameterResponseOutput{})
+	pulumi.RegisterOutputType(ScriptSecureStringExecutionParameterOutput{})
+	pulumi.RegisterOutputType(ScriptSecureStringExecutionParameterResponseOutput{})
+	pulumi.RegisterOutputType(ScriptStringExecutionParameterOutput{})
+	pulumi.RegisterOutputType(ScriptStringExecutionParameterResponseOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

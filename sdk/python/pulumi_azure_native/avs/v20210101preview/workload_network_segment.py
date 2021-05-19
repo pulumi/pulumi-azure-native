@@ -215,7 +215,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-nextgen:avs/v20210601:WorkloadNetworkSegment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkSegment, __self__).__init__(
             'azure-native:avs/v20210101preview:WorkloadNetworkSegment',

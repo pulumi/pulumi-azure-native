@@ -264,6 +264,224 @@ func (o AuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Authorization
 	}).(AuthorizationResponseOutput)
 }
 
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApprover struct {
+	// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
+}
+
+// EligibleApproverInput is an input type that accepts EligibleApproverArgs and EligibleApproverOutput values.
+// You can construct a concrete instance of `EligibleApproverInput` via:
+//
+//          EligibleApproverArgs{...}
+type EligibleApproverInput interface {
+	pulumi.Input
+
+	ToEligibleApproverOutput() EligibleApproverOutput
+	ToEligibleApproverOutputWithContext(context.Context) EligibleApproverOutput
+}
+
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApproverArgs struct {
+	// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
+}
+
+func (EligibleApproverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleApprover)(nil)).Elem()
+}
+
+func (i EligibleApproverArgs) ToEligibleApproverOutput() EligibleApproverOutput {
+	return i.ToEligibleApproverOutputWithContext(context.Background())
+}
+
+func (i EligibleApproverArgs) ToEligibleApproverOutputWithContext(ctx context.Context) EligibleApproverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverOutput)
+}
+
+// EligibleApproverArrayInput is an input type that accepts EligibleApproverArray and EligibleApproverArrayOutput values.
+// You can construct a concrete instance of `EligibleApproverArrayInput` via:
+//
+//          EligibleApproverArray{ EligibleApproverArgs{...} }
+type EligibleApproverArrayInput interface {
+	pulumi.Input
+
+	ToEligibleApproverArrayOutput() EligibleApproverArrayOutput
+	ToEligibleApproverArrayOutputWithContext(context.Context) EligibleApproverArrayOutput
+}
+
+type EligibleApproverArray []EligibleApproverInput
+
+func (EligibleApproverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleApprover)(nil)).Elem()
+}
+
+func (i EligibleApproverArray) ToEligibleApproverArrayOutput() EligibleApproverArrayOutput {
+	return i.ToEligibleApproverArrayOutputWithContext(context.Background())
+}
+
+func (i EligibleApproverArray) ToEligibleApproverArrayOutputWithContext(ctx context.Context) EligibleApproverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverArrayOutput)
+}
+
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApproverOutput struct{ *pulumi.OutputState }
+
+func (EligibleApproverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleApprover)(nil)).Elem()
+}
+
+func (o EligibleApproverOutput) ToEligibleApproverOutput() EligibleApproverOutput {
+	return o
+}
+
+func (o EligibleApproverOutput) ToEligibleApproverOutputWithContext(ctx context.Context) EligibleApproverOutput {
+	return o
+}
+
+// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+func (o EligibleApproverOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleApprover) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o EligibleApproverOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EligibleApprover) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
+}
+
+type EligibleApproverArrayOutput struct{ *pulumi.OutputState }
+
+func (EligibleApproverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleApprover)(nil)).Elem()
+}
+
+func (o EligibleApproverArrayOutput) ToEligibleApproverArrayOutput() EligibleApproverArrayOutput {
+	return o
+}
+
+func (o EligibleApproverArrayOutput) ToEligibleApproverArrayOutputWithContext(ctx context.Context) EligibleApproverArrayOutput {
+	return o
+}
+
+func (o EligibleApproverArrayOutput) Index(i pulumi.IntInput) EligibleApproverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EligibleApprover {
+		return vs[0].([]EligibleApprover)[vs[1].(int)]
+	}).(EligibleApproverOutput)
+}
+
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApproverResponse struct {
+	// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
+}
+
+// EligibleApproverResponseInput is an input type that accepts EligibleApproverResponseArgs and EligibleApproverResponseOutput values.
+// You can construct a concrete instance of `EligibleApproverResponseInput` via:
+//
+//          EligibleApproverResponseArgs{...}
+type EligibleApproverResponseInput interface {
+	pulumi.Input
+
+	ToEligibleApproverResponseOutput() EligibleApproverResponseOutput
+	ToEligibleApproverResponseOutputWithContext(context.Context) EligibleApproverResponseOutput
+}
+
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApproverResponseArgs struct {
+	// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
+}
+
+func (EligibleApproverResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleApproverResponse)(nil)).Elem()
+}
+
+func (i EligibleApproverResponseArgs) ToEligibleApproverResponseOutput() EligibleApproverResponseOutput {
+	return i.ToEligibleApproverResponseOutputWithContext(context.Background())
+}
+
+func (i EligibleApproverResponseArgs) ToEligibleApproverResponseOutputWithContext(ctx context.Context) EligibleApproverResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverResponseOutput)
+}
+
+// EligibleApproverResponseArrayInput is an input type that accepts EligibleApproverResponseArray and EligibleApproverResponseArrayOutput values.
+// You can construct a concrete instance of `EligibleApproverResponseArrayInput` via:
+//
+//          EligibleApproverResponseArray{ EligibleApproverResponseArgs{...} }
+type EligibleApproverResponseArrayInput interface {
+	pulumi.Input
+
+	ToEligibleApproverResponseArrayOutput() EligibleApproverResponseArrayOutput
+	ToEligibleApproverResponseArrayOutputWithContext(context.Context) EligibleApproverResponseArrayOutput
+}
+
+type EligibleApproverResponseArray []EligibleApproverResponseInput
+
+func (EligibleApproverResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleApproverResponse)(nil)).Elem()
+}
+
+func (i EligibleApproverResponseArray) ToEligibleApproverResponseArrayOutput() EligibleApproverResponseArrayOutput {
+	return i.ToEligibleApproverResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EligibleApproverResponseArray) ToEligibleApproverResponseArrayOutputWithContext(ctx context.Context) EligibleApproverResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleApproverResponseArrayOutput)
+}
+
+// A principal Id and user-friendly display name representing an eligible authorization approver.
+type EligibleApproverResponseOutput struct{ *pulumi.OutputState }
+
+func (EligibleApproverResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleApproverResponse)(nil)).Elem()
+}
+
+func (o EligibleApproverResponseOutput) ToEligibleApproverResponseOutput() EligibleApproverResponseOutput {
+	return o
+}
+
+func (o EligibleApproverResponseOutput) ToEligibleApproverResponseOutputWithContext(ctx context.Context) EligibleApproverResponseOutput {
+	return o
+}
+
+// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+func (o EligibleApproverResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleApproverResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o EligibleApproverResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EligibleApproverResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
+}
+
+type EligibleApproverResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EligibleApproverResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleApproverResponse)(nil)).Elem()
+}
+
+func (o EligibleApproverResponseArrayOutput) ToEligibleApproverResponseArrayOutput() EligibleApproverResponseArrayOutput {
+	return o
+}
+
+func (o EligibleApproverResponseArrayOutput) ToEligibleApproverResponseArrayOutputWithContext(ctx context.Context) EligibleApproverResponseArrayOutput {
+	return o
+}
+
+func (o EligibleApproverResponseArrayOutput) Index(i pulumi.IntInput) EligibleApproverResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EligibleApproverResponse {
+		return vs[0].([]EligibleApproverResponse)[vs[1].(int)]
+	}).(EligibleApproverResponseOutput)
+}
+
 // Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
 type EligibleAuthorization struct {
 	// Just-in-time access policy setting.
@@ -520,7 +738,9 @@ func (o EligibleAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Eligi
 
 // Just-in-time access policy setting.
 type JustInTimeAccessPolicy struct {
-	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	// The list of managedByTenant approvers for the eligible authorization.
+	ManagedByTenantApprovers []EligibleApprover `pulumi:"managedByTenantApprovers"`
+	// Maximum access duration in ISO 8601 format.
 	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
 	// MFA provider.
 	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
@@ -539,7 +759,9 @@ type JustInTimeAccessPolicyInput interface {
 
 // Just-in-time access policy setting.
 type JustInTimeAccessPolicyArgs struct {
-	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	// The list of managedByTenant approvers for the eligible authorization.
+	ManagedByTenantApprovers EligibleApproverArrayInput `pulumi:"managedByTenantApprovers"`
+	// Maximum access duration in ISO 8601 format.
 	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
 	// MFA provider.
 	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
@@ -623,7 +845,12 @@ func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutputWithConte
 	}).(JustInTimeAccessPolicyPtrOutput)
 }
 
-// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+// The list of managedByTenant approvers for the eligible authorization.
+func (o JustInTimeAccessPolicyOutput) ManagedByTenantApprovers() EligibleApproverArrayOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicy) []EligibleApprover { return v.ManagedByTenantApprovers }).(EligibleApproverArrayOutput)
+}
+
+// Maximum access duration in ISO 8601 format.
 func (o JustInTimeAccessPolicyOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicy) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
 }
@@ -651,7 +878,17 @@ func (o JustInTimeAccessPolicyPtrOutput) Elem() JustInTimeAccessPolicyOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy { return *v }).(JustInTimeAccessPolicyOutput)
 }
 
-// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+// The list of managedByTenant approvers for the eligible authorization.
+func (o JustInTimeAccessPolicyPtrOutput) ManagedByTenantApprovers() EligibleApproverArrayOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) []EligibleApprover {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantApprovers
+	}).(EligibleApproverArrayOutput)
+}
+
+// Maximum access duration in ISO 8601 format.
 func (o JustInTimeAccessPolicyPtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicy) *string {
 		if v == nil {
@@ -673,7 +910,9 @@ func (o JustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.String
 
 // Just-in-time access policy setting.
 type JustInTimeAccessPolicyResponse struct {
-	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	// The list of managedByTenant approvers for the eligible authorization.
+	ManagedByTenantApprovers []EligibleApproverResponse `pulumi:"managedByTenantApprovers"`
+	// Maximum access duration in ISO 8601 format.
 	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
 	// MFA provider.
 	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
@@ -692,7 +931,9 @@ type JustInTimeAccessPolicyResponseInput interface {
 
 // Just-in-time access policy setting.
 type JustInTimeAccessPolicyResponseArgs struct {
-	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	// The list of managedByTenant approvers for the eligible authorization.
+	ManagedByTenantApprovers EligibleApproverResponseArrayInput `pulumi:"managedByTenantApprovers"`
+	// Maximum access duration in ISO 8601 format.
 	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
 	// MFA provider.
 	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
@@ -776,7 +1017,12 @@ func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePt
 	}).(JustInTimeAccessPolicyResponsePtrOutput)
 }
 
-// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+// The list of managedByTenant approvers for the eligible authorization.
+func (o JustInTimeAccessPolicyResponseOutput) ManagedByTenantApprovers() EligibleApproverResponseArrayOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) []EligibleApproverResponse { return v.ManagedByTenantApprovers }).(EligibleApproverResponseArrayOutput)
+}
+
+// Maximum access duration in ISO 8601 format.
 func (o JustInTimeAccessPolicyResponseOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
 }
@@ -804,7 +1050,17 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) Elem() JustInTimeAccessPolicyRe
 	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse { return *v }).(JustInTimeAccessPolicyResponseOutput)
 }
 
-// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+// The list of managedByTenant approvers for the eligible authorization.
+func (o JustInTimeAccessPolicyResponsePtrOutput) ManagedByTenantApprovers() EligibleApproverResponseArrayOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) []EligibleApproverResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantApprovers
+	}).(EligibleApproverResponseArrayOutput)
+}
+
+// Maximum access duration in ISO 8601 format.
 func (o JustInTimeAccessPolicyResponsePtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) *string {
 		if v == nil {
@@ -2487,6 +2743,10 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(EligibleApproverOutput{})
+	pulumi.RegisterOutputType(EligibleApproverArrayOutput{})
+	pulumi.RegisterOutputType(EligibleApproverResponseOutput{})
+	pulumi.RegisterOutputType(EligibleApproverResponseArrayOutput{})
 	pulumi.RegisterOutputType(EligibleAuthorizationOutput{})
 	pulumi.RegisterOutputType(EligibleAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(EligibleAuthorizationResponseOutput{})

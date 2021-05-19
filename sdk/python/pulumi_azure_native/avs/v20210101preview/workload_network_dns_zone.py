@@ -251,7 +251,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-nextgen:avs:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDnsZone"), pulumi.Alias(type_="azure-nextgen:avs/v20210601:WorkloadNetworkDnsZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkDnsZone, __self__).__init__(
             'azure-native:avs/v20210101preview:WorkloadNetworkDnsZone',

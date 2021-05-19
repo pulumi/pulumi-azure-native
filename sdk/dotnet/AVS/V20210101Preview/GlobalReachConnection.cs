@@ -87,6 +87,8 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210601:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:GlobalReachConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

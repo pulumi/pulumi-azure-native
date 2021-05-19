@@ -39,7 +39,7 @@ type LookupServerResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
