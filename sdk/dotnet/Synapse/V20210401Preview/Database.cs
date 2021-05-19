@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// Class representing a Kusto database.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ReadWriteDatabase.")]
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:Database")]
     public partial class Database : Pulumi.CustomResource
     {

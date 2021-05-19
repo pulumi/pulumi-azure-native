@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
+    [Obsolete(@"Please use one of the variants: ScheduledSynchronizationSetting.")]
     public static class GetSynchronizationSetting
     {
         /// <summary>

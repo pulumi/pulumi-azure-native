@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.Resources.V20191001Preview
 {
     /// <summary>
+    /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+    /// </summary>
+    [EnumType]
+    public readonly struct CleanupOptions : IEquatable<CleanupOptions>
+    {
+        private readonly string _value;
+
+        private CleanupOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CleanupOptions Always { get; } = new CleanupOptions("Always");
+        public static CleanupOptions OnSuccess { get; } = new CleanupOptions("OnSuccess");
+        public static CleanupOptions OnExpiration { get; } = new CleanupOptions("OnExpiration");
+
+        public static bool operator ==(CleanupOptions left, CleanupOptions right) => left.Equals(right);
+        public static bool operator !=(CleanupOptions left, CleanupOptions right) => !left.Equals(right);
+
+        public static explicit operator string(CleanupOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CleanupOptions other && Equals(other);
+        public bool Equals(CleanupOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the managed identity.
     /// </summary>
     [EnumType]

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
     /// <summary>
     /// Trigger details.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20190701:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {

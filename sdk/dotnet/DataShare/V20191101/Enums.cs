@@ -88,6 +88,68 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     }
 
     /// <summary>
+    /// File output type
+    /// </summary>
+    [EnumType]
+    public readonly struct OutputType : IEquatable<OutputType>
+    {
+        private readonly string _value;
+
+        private OutputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutputType Csv { get; } = new OutputType("Csv");
+        public static OutputType Parquet { get; } = new OutputType("Parquet");
+
+        public static bool operator ==(OutputType left, OutputType right) => left.Equals(right);
+        public static bool operator !=(OutputType left, OutputType right) => !left.Equals(right);
+
+        public static explicit operator string(OutputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutputType other && Equals(other);
+        public bool Equals(OutputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Recurrence Interval
+    /// </summary>
+    [EnumType]
+    public readonly struct RecurrenceInterval : IEquatable<RecurrenceInterval>
+    {
+        private readonly string _value;
+
+        private RecurrenceInterval(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecurrenceInterval Hour { get; } = new RecurrenceInterval("Hour");
+        public static RecurrenceInterval Day { get; } = new RecurrenceInterval("Day");
+
+        public static bool operator ==(RecurrenceInterval left, RecurrenceInterval right) => left.Equals(right);
+        public static bool operator !=(RecurrenceInterval left, RecurrenceInterval right) => !left.Equals(right);
+
+        public static explicit operator string(RecurrenceInterval value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecurrenceInterval other && Equals(other);
+        public bool Equals(RecurrenceInterval other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Share kind.
     /// </summary>
     [EnumType]
@@ -111,6 +173,37 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ShareKind other && Equals(other);
         public bool Equals(ShareKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Synchronization mode
+    /// </summary>
+    [EnumType]
+    public readonly struct SynchronizationMode : IEquatable<SynchronizationMode>
+    {
+        private readonly string _value;
+
+        private SynchronizationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SynchronizationMode Incremental { get; } = new SynchronizationMode("Incremental");
+        public static SynchronizationMode FullSync { get; } = new SynchronizationMode("FullSync");
+
+        public static bool operator ==(SynchronizationMode left, SynchronizationMode right) => left.Equals(right);
+        public static bool operator !=(SynchronizationMode left, SynchronizationMode right) => !left.Equals(right);
+
+        public static explicit operator string(SynchronizationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SynchronizationMode other && Equals(other);
+        public bool Equals(SynchronizationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

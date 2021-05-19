@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
     /// <summary>
     /// Role Addon
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ArcAddon, IoTAddon.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {

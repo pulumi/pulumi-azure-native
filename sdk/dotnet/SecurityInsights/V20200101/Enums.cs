@@ -40,6 +40,92 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     }
 
     /// <summary>
+    /// The severity for alerts created by this alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertSeverity : IEquatable<AlertSeverity>
+    {
+        private readonly string _value;
+
+        private AlertSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// High severity
+        /// </summary>
+        public static AlertSeverity High { get; } = new AlertSeverity("High");
+        /// <summary>
+        /// Medium severity
+        /// </summary>
+        public static AlertSeverity Medium { get; } = new AlertSeverity("Medium");
+        /// <summary>
+        /// Low severity
+        /// </summary>
+        public static AlertSeverity Low { get; } = new AlertSeverity("Low");
+        /// <summary>
+        /// Informational severity
+        /// </summary>
+        public static AlertSeverity Informational { get; } = new AlertSeverity("Informational");
+
+        public static bool operator ==(AlertSeverity left, AlertSeverity right) => left.Equals(right);
+        public static bool operator !=(AlertSeverity left, AlertSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(AlertSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertSeverity other && Equals(other);
+        public bool Equals(AlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The severity for alerts created by this alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct AttackTactic : IEquatable<AttackTactic>
+    {
+        private readonly string _value;
+
+        private AttackTactic(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AttackTactic InitialAccess { get; } = new AttackTactic("InitialAccess");
+        public static AttackTactic Execution { get; } = new AttackTactic("Execution");
+        public static AttackTactic Persistence { get; } = new AttackTactic("Persistence");
+        public static AttackTactic PrivilegeEscalation { get; } = new AttackTactic("PrivilegeEscalation");
+        public static AttackTactic DefenseEvasion { get; } = new AttackTactic("DefenseEvasion");
+        public static AttackTactic CredentialAccess { get; } = new AttackTactic("CredentialAccess");
+        public static AttackTactic Discovery { get; } = new AttackTactic("Discovery");
+        public static AttackTactic LateralMovement { get; } = new AttackTactic("LateralMovement");
+        public static AttackTactic Collection { get; } = new AttackTactic("Collection");
+        public static AttackTactic Exfiltration { get; } = new AttackTactic("Exfiltration");
+        public static AttackTactic CommandAndControl { get; } = new AttackTactic("CommandAndControl");
+        public static AttackTactic Impact { get; } = new AttackTactic("Impact");
+
+        public static bool operator ==(AttackTactic left, AttackTactic right) => left.Equals(right);
+        public static bool operator !=(AttackTactic left, AttackTactic right) => !left.Equals(right);
+
+        public static explicit operator string(AttackTactic value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AttackTactic other && Equals(other);
+        public bool Equals(AttackTactic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The severity of the incident
     /// </summary>
     [EnumType]
@@ -118,6 +204,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataConnectorKind other && Equals(other);
         public bool Equals(DataConnectorKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describe whether this data type connection is enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataTypeState : IEquatable<DataTypeState>
+    {
+        private readonly string _value;
+
+        private DataTypeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTypeState Enabled { get; } = new DataTypeState("Enabled");
+        public static DataTypeState Disabled { get; } = new DataTypeState("Disabled");
+
+        public static bool operator ==(DataTypeState left, DataTypeState right) => left.Equals(right);
+        public static bool operator !=(DataTypeState left, DataTypeState right) => !left.Equals(right);
+
+        public static explicit operator string(DataTypeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTypeState other && Equals(other);
+        public bool Equals(DataTypeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -294,6 +411,73 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IncidentStatus other && Equals(other);
         public bool Equals(IncidentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The alerts' productName on which the cases will be generated
+    /// </summary>
+    [EnumType]
+    public readonly struct MicrosoftSecurityProductName : IEquatable<MicrosoftSecurityProductName>
+    {
+        private readonly string _value;
+
+        private MicrosoftSecurityProductName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrosoftSecurityProductName Microsoft_Cloud_App_Security { get; } = new MicrosoftSecurityProductName("Microsoft Cloud App Security");
+        public static MicrosoftSecurityProductName Azure_Security_Center { get; } = new MicrosoftSecurityProductName("Azure Security Center");
+        public static MicrosoftSecurityProductName Azure_Advanced_Threat_Protection { get; } = new MicrosoftSecurityProductName("Azure Advanced Threat Protection");
+        public static MicrosoftSecurityProductName Azure_Active_Directory_Identity_Protection { get; } = new MicrosoftSecurityProductName("Azure Active Directory Identity Protection");
+        public static MicrosoftSecurityProductName Azure_Security_Center_for_IoT { get; } = new MicrosoftSecurityProductName("Azure Security Center for IoT");
+
+        public static bool operator ==(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => left.Equals(right);
+        public static bool operator !=(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => !left.Equals(right);
+
+        public static explicit operator string(MicrosoftSecurityProductName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrosoftSecurityProductName other && Equals(other);
+        public bool Equals(MicrosoftSecurityProductName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operation against the threshold that triggers alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerOperator : IEquatable<TriggerOperator>
+    {
+        private readonly string _value;
+
+        private TriggerOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerOperator GreaterThan { get; } = new TriggerOperator("GreaterThan");
+        public static TriggerOperator LessThan { get; } = new TriggerOperator("LessThan");
+        public static TriggerOperator Equal { get; } = new TriggerOperator("Equal");
+        public static TriggerOperator NotEqual { get; } = new TriggerOperator("NotEqual");
+
+        public static bool operator ==(TriggerOperator left, TriggerOperator right) => left.Equals(right);
+        public static bool operator !=(TriggerOperator left, TriggerOperator right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerOperator other && Equals(other);
+        public bool Equals(TriggerOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

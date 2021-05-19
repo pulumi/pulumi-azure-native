@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     /// <summary>
     /// Data connector.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, TIDataConnector, TiTaxiiDataConnector.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:DataConnector")]
     public partial class DataConnector : Pulumi.CustomResource
     {

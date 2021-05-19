@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
     /// <summary>
     /// Deployment script object.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: AzureCliScript, AzurePowerShellScript.")]
     [AzureNativeResourceType("azure-native:resources/v20191001preview:DeploymentScript")]
     public partial class DeploymentScript : Pulumi.CustomResource
     {

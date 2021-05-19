@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201
 {
+    [Obsolete(@"Please use one of the variants: ArcAddon, IoTAddon.")]
     public static class GetAddon
     {
         /// <summary>

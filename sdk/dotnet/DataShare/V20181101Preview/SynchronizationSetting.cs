@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// A Synchronization Setting data transfer object.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ScheduledSynchronizationSetting.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:SynchronizationSetting")]
     public partial class SynchronizationSetting : Pulumi.CustomResource
     {

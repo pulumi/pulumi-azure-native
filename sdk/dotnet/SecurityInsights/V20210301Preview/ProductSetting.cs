@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     /// <summary>
     /// The Setting.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: EntityAnalytics, EyesOn, Ueba.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20210301preview:ProductSetting")]
     public partial class ProductSetting : Pulumi.CustomResource
     {

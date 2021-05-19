@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20190515
     /// <summary>
     /// Class representing an data connection.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     [AzureNativeResourceType("azure-native:kusto/v20190515:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {

@@ -80,6 +80,47 @@ namespace Pulumi.AzureNative.Kusto.V20190907
     }
 
     /// <summary>
+    /// The data format of the message. Optionally the data format can be added to each message.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataFormat : IEquatable<DataFormat>
+    {
+        private readonly string _value;
+
+        private DataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataFormat MULTIJSON { get; } = new DataFormat("MULTIJSON");
+        public static DataFormat JSON { get; } = new DataFormat("JSON");
+        public static DataFormat CSV { get; } = new DataFormat("CSV");
+        public static DataFormat TSV { get; } = new DataFormat("TSV");
+        public static DataFormat SCSV { get; } = new DataFormat("SCSV");
+        public static DataFormat SOHSV { get; } = new DataFormat("SOHSV");
+        public static DataFormat PSV { get; } = new DataFormat("PSV");
+        public static DataFormat TXT { get; } = new DataFormat("TXT");
+        public static DataFormat RAW { get; } = new DataFormat("RAW");
+        public static DataFormat SINGLEJSON { get; } = new DataFormat("SINGLEJSON");
+        public static DataFormat AVRO { get; } = new DataFormat("AVRO");
+        public static DataFormat TSVE { get; } = new DataFormat("TSVE");
+
+        public static bool operator ==(DataFormat left, DataFormat right) => left.Equals(right);
+        public static bool operator !=(DataFormat left, DataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataFormat other && Equals(other);
+        public bool Equals(DataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default principals modification kind
     /// </summary>
     [EnumType]

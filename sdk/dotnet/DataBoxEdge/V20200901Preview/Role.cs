@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
     /// <summary>
     /// Compute role.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:Role")]
     public partial class Role : Pulumi.CustomResource
     {
