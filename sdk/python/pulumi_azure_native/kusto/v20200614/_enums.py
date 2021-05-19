@@ -7,11 +7,16 @@ from enum import Enum
 __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
+    'BlobStorageEventType',
     'ClusterPrincipalRole',
+    'Compression',
     'DataConnectionKind',
     'DatabasePrincipalRole',
     'DefaultPrincipalsModificationKind',
+    'EventGridDataFormat',
+    'EventHubDataFormat',
     'IdentityType',
+    'IotHubDataFormat',
     'Kind',
     'PrincipalType',
 ]
@@ -52,12 +57,28 @@ class AzureSkuTier(str, Enum):
     STANDARD = "Standard"
 
 
+class BlobStorageEventType(str, Enum):
+    """
+    The name of blob storage event type to process.
+    """
+    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
+    MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
+
+
 class ClusterPrincipalRole(str, Enum):
     """
     Cluster principal role.
     """
     ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
     ALL_DATABASES_VIEWER = "AllDatabasesViewer"
+
+
+class Compression(str, Enum):
+    """
+    The event hub messages compression type
+    """
+    NONE = "None"
+    G_ZIP = "GZip"
 
 
 class DataConnectionKind(str, Enum):
@@ -90,12 +111,78 @@ class DefaultPrincipalsModificationKind(str, Enum):
     NONE = "None"
 
 
+class EventGridDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
+
+
+class EventHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
+
+
 class IdentityType(str, Enum):
     """
     The identity type.
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class IotHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
 
 
 class Kind(str, Enum):

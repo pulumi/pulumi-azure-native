@@ -96,7 +96,12 @@ class AddonArgs:
         pulumi.set(self, "addon_name", value)
 
 
+warnings.warn("""Please use one of the variants: ArcAddon, IoTAddon.""", DeprecationWarning)
+
+
 class Addon(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: ArcAddon, IoTAddon.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,6 +153,7 @@ class Addon(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Addon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

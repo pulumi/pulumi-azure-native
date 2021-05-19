@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'ActivityTimelineItemResponse',
+    'AlertsDataTypeOfDataConnectorResponse',
+    'AlertsDataTypeOfDataConnectorResponseAlerts',
     'AutomationRuleModifyPropertiesActionResponse',
     'AutomationRuleModifyPropertiesActionResponseActionConfiguration',
     'AutomationRulePropertyValuesConditionResponse',
@@ -19,19 +21,41 @@ __all__ = [
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleRunPlaybookActionResponseActionConfiguration',
     'AutomationRuleTriggeringLogicResponse',
+    'AwsCloudTrailDataConnectorDataTypesResponse',
+    'AwsCloudTrailDataConnectorDataTypesResponseLogs',
     'BookmarkTimelineItemResponse',
     'ClientInfoResponse',
+    'Dynamics365DataConnectorDataTypesResponse',
+    'Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities',
     'EntityInsightItemResponse',
     'EntityInsightItemResponseQueryTimeInterval',
+    'EventGroupingSettingsResponse',
     'GetInsightsErrorResponse',
     'GetInsightsResultsMetadataResponse',
+    'GroupingConfigurationResponse',
     'IncidentAdditionalDataResponse',
+    'IncidentConfigurationResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
     'InsightsTableResultResponse',
     'InsightsTableResultResponseColumns',
+    'MCASDataConnectorDataTypesResponse',
+    'MCASDataConnectorDataTypesResponseDiscoveryLogs',
+    'MSTIDataConnectorDataTypesResponse',
+    'MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL',
+    'MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed',
+    'MTPDataConnectorDataTypesResponse',
+    'MTPDataConnectorDataTypesResponseIncidents',
+    'OfficeDataConnectorDataTypesResponse',
+    'OfficeDataConnectorDataTypesResponseExchange',
+    'OfficeDataConnectorDataTypesResponseSharePoint',
+    'OfficeDataConnectorDataTypesResponseTeams',
     'SecurityAlertTimelineItemResponse',
+    'TIDataConnectorDataTypesResponse',
+    'TIDataConnectorDataTypesResponseIndicators',
+    'TiTaxiiDataConnectorDataTypesResponse',
+    'TiTaxiiDataConnectorDataTypesResponseTaxiiClient',
     'TimelineAggregationResponse',
     'TimelineErrorResponse',
     'TimelineResultsMetadataResponse',
@@ -138,6 +162,50 @@ class ActivityTimelineItemResponse(dict):
         The activity timeline title.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AlertsDataTypeOfDataConnectorResponse(dict):
+    """
+    Alerts data type for data connectors.
+    """
+    def __init__(__self__, *,
+                 alerts: 'outputs.AlertsDataTypeOfDataConnectorResponseAlerts'):
+        """
+        Alerts data type for data connectors.
+        :param 'AlertsDataTypeOfDataConnectorResponseAlerts' alerts: Alerts data type connection.
+        """
+        pulumi.set(__self__, "alerts", alerts)
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> 'outputs.AlertsDataTypeOfDataConnectorResponseAlerts':
+        """
+        Alerts data type connection.
+        """
+        return pulumi.get(self, "alerts")
+
+
+@pulumi.output_type
+class AlertsDataTypeOfDataConnectorResponseAlerts(dict):
+    """
+    Alerts data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Alerts data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -650,6 +718,50 @@ class AutomationRuleTriggeringLogicResponse(dict):
 
 
 @pulumi.output_type
+class AwsCloudTrailDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Amazon Web Services CloudTrail data connector.
+    """
+    def __init__(__self__, *,
+                 logs: 'outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs'):
+        """
+        The available data types for Amazon Web Services CloudTrail data connector.
+        :param 'AwsCloudTrailDataConnectorDataTypesResponseLogs' logs: Logs data type.
+        """
+        pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> 'outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs':
+        """
+        Logs data type.
+        """
+        return pulumi.get(self, "logs")
+
+
+@pulumi.output_type
+class AwsCloudTrailDataConnectorDataTypesResponseLogs(dict):
+    """
+    Logs data type.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Logs data type.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class BookmarkTimelineItemResponse(dict):
     """
     Represents bookmark timeline item.
@@ -847,6 +959,67 @@ class ClientInfoResponse(dict):
 
 
 @pulumi.output_type
+class Dynamics365DataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Dynamics365 data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamics365CdsActivities":
+            suggest = "dynamics365_cds_activities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Dynamics365DataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Dynamics365DataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamics365_cds_activities: 'outputs.Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities'):
+        """
+        The available data types for Dynamics365 data connector.
+        :param 'Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities' dynamics365_cds_activities: Common Data Service data type connection.
+        """
+        pulumi.set(__self__, "dynamics365_cds_activities", dynamics365_cds_activities)
+
+    @property
+    @pulumi.getter(name="dynamics365CdsActivities")
+    def dynamics365_cds_activities(self) -> 'outputs.Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities':
+        """
+        Common Data Service data type connection.
+        """
+        return pulumi.get(self, "dynamics365_cds_activities")
+
+
+@pulumi.output_type
+class Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities(dict):
+    """
+    Common Data Service data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Common Data Service data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class EntityInsightItemResponse(dict):
     """
     Entity insight Item.
@@ -941,6 +1114,46 @@ class EntityInsightItemResponseQueryTimeInterval(dict):
 
 
 @pulumi.output_type
+class EventGroupingSettingsResponse(dict):
+    """
+    Event grouping settings property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationKind":
+            suggest = "aggregation_kind"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventGroupingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventGroupingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventGroupingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation_kind: Optional[str] = None):
+        """
+        Event grouping settings property bag.
+        :param str aggregation_kind: The event grouping aggregation kinds
+        """
+        if aggregation_kind is not None:
+            pulumi.set(__self__, "aggregation_kind", aggregation_kind)
+
+    @property
+    @pulumi.getter(name="aggregationKind")
+    def aggregation_kind(self) -> Optional[str]:
+        """
+        The event grouping aggregation kinds
+        """
+        return pulumi.get(self, "aggregation_kind")
+
+
+@pulumi.output_type
 class GetInsightsErrorResponse(dict):
     """
     GetInsights Query Errors.
@@ -1017,6 +1230,96 @@ class GetInsightsResultsMetadataResponse(dict):
         information about the failed queries
         """
         return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class GroupingConfigurationResponse(dict):
+    """
+    Grouping configuration property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entitiesMatchingMethod":
+            suggest = "entities_matching_method"
+        elif key == "lookbackDuration":
+            suggest = "lookback_duration"
+        elif key == "reopenClosedIncident":
+            suggest = "reopen_closed_incident"
+        elif key == "groupByEntities":
+            suggest = "group_by_entities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupingConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupingConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 entities_matching_method: str,
+                 lookback_duration: str,
+                 reopen_closed_incident: bool,
+                 group_by_entities: Optional[Sequence[str]] = None):
+        """
+        Grouping configuration property bag.
+        :param bool enabled: Grouping enabled
+        :param str entities_matching_method: Grouping matching method
+        :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        :param bool reopen_closed_incident: Re-open closed matching incidents
+        :param Sequence[str] group_by_entities: A list of entity types to group by (when entitiesMatchingMethod is Custom)
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "entities_matching_method", entities_matching_method)
+        pulumi.set(__self__, "lookback_duration", lookback_duration)
+        pulumi.set(__self__, "reopen_closed_incident", reopen_closed_incident)
+        if group_by_entities is not None:
+            pulumi.set(__self__, "group_by_entities", group_by_entities)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Grouping enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="entitiesMatchingMethod")
+    def entities_matching_method(self) -> str:
+        """
+        Grouping matching method
+        """
+        return pulumi.get(self, "entities_matching_method")
+
+    @property
+    @pulumi.getter(name="lookbackDuration")
+    def lookback_duration(self) -> str:
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        """
+        return pulumi.get(self, "lookback_duration")
+
+    @property
+    @pulumi.getter(name="reopenClosedIncident")
+    def reopen_closed_incident(self) -> bool:
+        """
+        Re-open closed matching incidents
+        """
+        return pulumi.get(self, "reopen_closed_incident")
+
+    @property
+    @pulumi.getter(name="groupByEntities")
+    def group_by_entities(self) -> Optional[Sequence[str]]:
+        """
+        A list of entity types to group by (when entitiesMatchingMethod is Custom)
+        """
+        return pulumi.get(self, "group_by_entities")
 
 
 @pulumi.output_type
@@ -1106,6 +1409,59 @@ class IncidentAdditionalDataResponse(dict):
         The tactics associated with incident
         """
         return pulumi.get(self, "tactics")
+
+
+@pulumi.output_type
+class IncidentConfigurationResponse(dict):
+    """
+    Incident Configuration property bag.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createIncident":
+            suggest = "create_incident"
+        elif key == "groupingConfiguration":
+            suggest = "grouping_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_incident: bool,
+                 grouping_configuration: Optional['outputs.GroupingConfigurationResponse'] = None):
+        """
+        Incident Configuration property bag.
+        :param bool create_incident: Create incidents from alerts triggered by this analytics rule
+        :param 'GroupingConfigurationResponse' grouping_configuration: Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        pulumi.set(__self__, "create_incident", create_incident)
+        if grouping_configuration is not None:
+            pulumi.set(__self__, "grouping_configuration", grouping_configuration)
+
+    @property
+    @pulumi.getter(name="createIncident")
+    def create_incident(self) -> bool:
+        """
+        Create incidents from alerts triggered by this analytics rule
+        """
+        return pulumi.get(self, "create_incident")
+
+    @property
+    @pulumi.getter(name="groupingConfiguration")
+    def grouping_configuration(self) -> Optional['outputs.GroupingConfigurationResponse']:
+        """
+        Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        return pulumi.get(self, "grouping_configuration")
 
 
 @pulumi.output_type
@@ -1385,6 +1741,402 @@ class InsightsTableResultResponseColumns(dict):
 
 
 @pulumi.output_type
+class MCASDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for MCAS (Microsoft Cloud App Security) data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryLogs":
+            suggest = "discovery_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MCASDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MCASDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts: 'outputs.AlertsDataTypeOfDataConnectorResponseAlerts',
+                 discovery_logs: Optional['outputs.MCASDataConnectorDataTypesResponseDiscoveryLogs'] = None):
+        """
+        The available data types for MCAS (Microsoft Cloud App Security) data connector.
+        :param 'AlertsDataTypeOfDataConnectorResponseAlerts' alerts: Alerts data type connection.
+        :param 'MCASDataConnectorDataTypesResponseDiscoveryLogs' discovery_logs: Discovery log data type connection.
+        """
+        pulumi.set(__self__, "alerts", alerts)
+        if discovery_logs is not None:
+            pulumi.set(__self__, "discovery_logs", discovery_logs)
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> 'outputs.AlertsDataTypeOfDataConnectorResponseAlerts':
+        """
+        Alerts data type connection.
+        """
+        return pulumi.get(self, "alerts")
+
+    @property
+    @pulumi.getter(name="discoveryLogs")
+    def discovery_logs(self) -> Optional['outputs.MCASDataConnectorDataTypesResponseDiscoveryLogs']:
+        """
+        Discovery log data type connection.
+        """
+        return pulumi.get(self, "discovery_logs")
+
+
+@pulumi.output_type
+class MCASDataConnectorDataTypesResponseDiscoveryLogs(dict):
+    """
+    Discovery log data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Discovery log data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class MSTIDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Microsoft Threat Intelligence Platforms data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bingSafetyPhishingURL":
+            suggest = "bing_safety_phishing_url"
+        elif key == "microsoftEmergingThreatFeed":
+            suggest = "microsoft_emerging_threat_feed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MSTIDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MSTIDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bing_safety_phishing_url: 'outputs.MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL',
+                 microsoft_emerging_threat_feed: 'outputs.MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed'):
+        """
+        The available data types for Microsoft Threat Intelligence Platforms data connector.
+        :param 'MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL' bing_safety_phishing_url: Data type for Microsoft Threat Intelligence Platforms data connector.
+        :param 'MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed' microsoft_emerging_threat_feed: Data type for Microsoft Threat Intelligence Platforms data connector.
+        """
+        pulumi.set(__self__, "bing_safety_phishing_url", bing_safety_phishing_url)
+        pulumi.set(__self__, "microsoft_emerging_threat_feed", microsoft_emerging_threat_feed)
+
+    @property
+    @pulumi.getter(name="bingSafetyPhishingURL")
+    def bing_safety_phishing_url(self) -> 'outputs.MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL':
+        """
+        Data type for Microsoft Threat Intelligence Platforms data connector.
+        """
+        return pulumi.get(self, "bing_safety_phishing_url")
+
+    @property
+    @pulumi.getter(name="microsoftEmergingThreatFeed")
+    def microsoft_emerging_threat_feed(self) -> 'outputs.MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed':
+        """
+        Data type for Microsoft Threat Intelligence Platforms data connector.
+        """
+        return pulumi.get(self, "microsoft_emerging_threat_feed")
+
+
+@pulumi.output_type
+class MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL(dict):
+    """
+    Data type for Microsoft Threat Intelligence Platforms data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookbackPeriod":
+            suggest = "lookback_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookback_period: str,
+                 state: str):
+        """
+        Data type for Microsoft Threat Intelligence Platforms data connector.
+        :param str lookback_period: lookback period
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "lookback_period", lookback_period)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="lookbackPeriod")
+    def lookback_period(self) -> str:
+        """
+        lookback period
+        """
+        return pulumi.get(self, "lookback_period")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed(dict):
+    """
+    Data type for Microsoft Threat Intelligence Platforms data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookbackPeriod":
+            suggest = "lookback_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookback_period: str,
+                 state: str):
+        """
+        Data type for Microsoft Threat Intelligence Platforms data connector.
+        :param str lookback_period: lookback period
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "lookback_period", lookback_period)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="lookbackPeriod")
+    def lookback_period(self) -> str:
+        """
+        lookback period
+        """
+        return pulumi.get(self, "lookback_period")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class MTPDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Microsoft Threat Protection Platforms data connector.
+    """
+    def __init__(__self__, *,
+                 incidents: 'outputs.MTPDataConnectorDataTypesResponseIncidents'):
+        """
+        The available data types for Microsoft Threat Protection Platforms data connector.
+        :param 'MTPDataConnectorDataTypesResponseIncidents' incidents: Data type for Microsoft Threat Protection Platforms data connector.
+        """
+        pulumi.set(__self__, "incidents", incidents)
+
+    @property
+    @pulumi.getter
+    def incidents(self) -> 'outputs.MTPDataConnectorDataTypesResponseIncidents':
+        """
+        Data type for Microsoft Threat Protection Platforms data connector.
+        """
+        return pulumi.get(self, "incidents")
+
+
+@pulumi.output_type
+class MTPDataConnectorDataTypesResponseIncidents(dict):
+    """
+    Data type for Microsoft Threat Protection Platforms data connector.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Data type for Microsoft Threat Protection Platforms data connector.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for office data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sharePoint":
+            suggest = "share_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OfficeDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OfficeDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exchange: 'outputs.OfficeDataConnectorDataTypesResponseExchange',
+                 share_point: 'outputs.OfficeDataConnectorDataTypesResponseSharePoint',
+                 teams: 'outputs.OfficeDataConnectorDataTypesResponseTeams'):
+        """
+        The available data types for office data connector.
+        :param 'OfficeDataConnectorDataTypesResponseExchange' exchange: Exchange data type connection.
+        :param 'OfficeDataConnectorDataTypesResponseSharePoint' share_point: SharePoint data type connection.
+        :param 'OfficeDataConnectorDataTypesResponseTeams' teams: Teams data type connection.
+        """
+        pulumi.set(__self__, "exchange", exchange)
+        pulumi.set(__self__, "share_point", share_point)
+        pulumi.set(__self__, "teams", teams)
+
+    @property
+    @pulumi.getter
+    def exchange(self) -> 'outputs.OfficeDataConnectorDataTypesResponseExchange':
+        """
+        Exchange data type connection.
+        """
+        return pulumi.get(self, "exchange")
+
+    @property
+    @pulumi.getter(name="sharePoint")
+    def share_point(self) -> 'outputs.OfficeDataConnectorDataTypesResponseSharePoint':
+        """
+        SharePoint data type connection.
+        """
+        return pulumi.get(self, "share_point")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> 'outputs.OfficeDataConnectorDataTypesResponseTeams':
+        """
+        Teams data type connection.
+        """
+        return pulumi.get(self, "teams")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseExchange(dict):
+    """
+    Exchange data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Exchange data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseSharePoint(dict):
+    """
+    SharePoint data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        SharePoint data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseTeams(dict):
+    """
+    Teams data type connection.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Teams data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class SecurityAlertTimelineItemResponse(dict):
     """
     Represents security alert timeline item.
@@ -1507,6 +2259,111 @@ class SecurityAlertTimelineItemResponse(dict):
         The alert product name.
         """
         return pulumi.get(self, "product_name")
+
+
+@pulumi.output_type
+class TIDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Threat Intelligence Platforms data connector.
+    """
+    def __init__(__self__, *,
+                 indicators: 'outputs.TIDataConnectorDataTypesResponseIndicators'):
+        """
+        The available data types for Threat Intelligence Platforms data connector.
+        :param 'TIDataConnectorDataTypesResponseIndicators' indicators: Data type for Threat Intelligence Platforms data connector.
+        """
+        pulumi.set(__self__, "indicators", indicators)
+
+    @property
+    @pulumi.getter
+    def indicators(self) -> 'outputs.TIDataConnectorDataTypesResponseIndicators':
+        """
+        Data type for Threat Intelligence Platforms data connector.
+        """
+        return pulumi.get(self, "indicators")
+
+
+@pulumi.output_type
+class TIDataConnectorDataTypesResponseIndicators(dict):
+    """
+    Data type for Threat Intelligence Platforms data connector.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Data type for Threat Intelligence Platforms data connector.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TiTaxiiDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Threat Intelligence TAXII data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taxiiClient":
+            suggest = "taxii_client"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TiTaxiiDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TiTaxiiDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 taxii_client: 'outputs.TiTaxiiDataConnectorDataTypesResponseTaxiiClient'):
+        """
+        The available data types for Threat Intelligence TAXII data connector.
+        :param 'TiTaxiiDataConnectorDataTypesResponseTaxiiClient' taxii_client: Data type for TAXII connector.
+        """
+        pulumi.set(__self__, "taxii_client", taxii_client)
+
+    @property
+    @pulumi.getter(name="taxiiClient")
+    def taxii_client(self) -> 'outputs.TiTaxiiDataConnectorDataTypesResponseTaxiiClient':
+        """
+        Data type for TAXII connector.
+        """
+        return pulumi.get(self, "taxii_client")
+
+
+@pulumi.output_type
+class TiTaxiiDataConnectorDataTypesResponseTaxiiClient(dict):
+    """
+    Data type for TAXII connector.
+    """
+    def __init__(__self__, *,
+                 state: str):
+        """
+        Data type for TAXII connector.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

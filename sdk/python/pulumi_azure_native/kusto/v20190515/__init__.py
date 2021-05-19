@@ -9,9 +9,15 @@ from ._enums import *
 from .cluster import *
 from .data_connection import *
 from .database import *
+from .event_grid_data_connection import *
+from .event_hub_data_connection import *
 from .get_cluster import *
 from .get_data_connection import *
 from .get_database import *
+from .get_event_grid_data_connection import *
+from .get_event_hub_data_connection import *
+from .get_iot_hub_data_connection import *
+from .iot_hub_data_connection import *
 from .list_database_principals import *
 from ._inputs import *
 from . import outputs

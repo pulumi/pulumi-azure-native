@@ -96,7 +96,12 @@ class TriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+warnings.warn("""Please use one of the variants: ScheduledTrigger.""", DeprecationWarning)
+
+
 class Trigger(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: ScheduledTrigger.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class Trigger(pulumi.CustomResource):
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Trigger is deprecated: Please use one of the variants: ScheduledTrigger.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

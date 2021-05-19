@@ -14,6 +14,8 @@ __all__ = [
     'get_data_set_mapping',
 ]
 
+warnings.warn("""Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataSetMappingResult:
     """
@@ -92,6 +94,7 @@ def get_data_set_mapping(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
+    pulumi.log.warn("""get_data_set_mapping is deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetMappingName'] = data_set_mapping_name

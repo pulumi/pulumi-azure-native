@@ -12,6 +12,7 @@ __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
+    'VariantType',
     'VmPriority',
 ]
 
@@ -81,6 +82,14 @@ class ResourceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
     USER_ASSIGNED = "UserAssigned"
     NONE = "None"
+
+
+class VariantType(str, Enum):
+    """
+    The type of the variant.
+    """
+    CONTROL = "Control"
+    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):

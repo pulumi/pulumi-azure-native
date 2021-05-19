@@ -6,12 +6,16 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .azure_cli_script import *
+from .azure_power_shell_script import *
 from .deployment import *
 from .deployment_at_management_group_scope import *
 from .deployment_at_scope import *
 from .deployment_at_subscription_scope import *
 from .deployment_at_tenant_scope import *
 from .deployment_script import *
+from .get_azure_cli_script import *
+from .get_azure_power_shell_script import *
 from .get_deployment import *
 from .get_deployment_at_management_group_scope import *
 from .get_deployment_at_scope import *

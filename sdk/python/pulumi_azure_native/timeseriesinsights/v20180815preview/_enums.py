@@ -9,8 +9,10 @@ __all__ = [
     'DataStringComparisonBehavior',
     'Kind',
     'LocalTimestampFormat',
+    'PropertyType',
     'ReferenceDataKeyPropertyType',
     'SkuName',
+    'StorageLimitExceededBehavior',
 ]
 
 
@@ -45,6 +47,13 @@ class LocalTimestampFormat(str, Enum):
     EMBEDDED = "Embedded"
 
 
+class PropertyType(str, Enum):
+    """
+    The type of the property.
+    """
+    STRING = "String"
+
+
 class ReferenceDataKeyPropertyType(str, Enum):
     """
     The type of the key property.
@@ -63,3 +72,11 @@ class SkuName(str, Enum):
     S2 = "S2"
     P1 = "P1"
     L1 = "L1"
+
+
+class StorageLimitExceededBehavior(str, Enum):
+    """
+    The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+    """
+    PURGE_OLD_DATA = "PurgeOldData"
+    PAUSE_INGRESS = "PauseIngress"

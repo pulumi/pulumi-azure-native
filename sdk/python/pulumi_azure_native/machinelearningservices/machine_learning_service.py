@@ -178,7 +178,12 @@ class MachineLearningServiceArgs:
         pulumi.set(self, "service_name", value)
 
 
+warnings.warn("""Please use one of the variants: ACIService, AKSService, EndpointVariant.""", DeprecationWarning)
+
+
 class MachineLearningService(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: ACIService, AKSService, EndpointVariant.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class MachineLearningService(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""MachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

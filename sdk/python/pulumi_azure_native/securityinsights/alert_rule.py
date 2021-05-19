@@ -96,7 +96,12 @@ class AlertRuleArgs:
         pulumi.set(self, "rule_id", value)
 
 
+warnings.warn("""Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.""", DeprecationWarning)
+
+
 class AlertRule(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class AlertRule(pulumi.CustomResource):
                  rule_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AlertRule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

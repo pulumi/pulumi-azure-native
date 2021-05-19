@@ -7,19 +7,28 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'AddressResponse',
     'AsymmetricEncryptedSecretResponse',
+    'AuthenticationResponse',
     'AzureContainerInfoResponse',
     'ClientAccessRightResponse',
     'ContactDetailsResponse',
+    'FileSourceInfoResponse',
+    'ImageRepositoryCredentialResponse',
+    'IoTDeviceInfoResponse',
+    'IoTEdgeAgentInfoResponse',
     'MountPointMapResponse',
     'OrderStatusResponse',
+    'PeriodicTimerSourceInfoResponse',
     'RefreshDetailsResponse',
+    'RoleSinkInfoResponse',
     'ShareAccessRightResponse',
     'SkuResponse',
+    'SymmetricKeyResponse',
     'TrackingInfoResponse',
     'UserAccessRightResponse',
 ]
@@ -199,6 +208,46 @@ class AsymmetricEncryptedSecretResponse(dict):
         Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
         """
         return pulumi.get(self, "encryption_cert_thumbprint")
+
+
+@pulumi.output_type
+class AuthenticationResponse(dict):
+    """
+    Authentication mechanism for IoT devices.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "symmetricKey":
+            suggest = "symmetric_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
+        """
+        Authentication mechanism for IoT devices.
+        :param 'SymmetricKeyResponse' symmetric_key: Symmetric key for authentication.
+        """
+        if symmetric_key is not None:
+            pulumi.set(__self__, "symmetric_key", symmetric_key)
+
+    @property
+    @pulumi.getter(name="symmetricKey")
+    def symmetric_key(self) -> Optional['outputs.SymmetricKeyResponse']:
+        """
+        Symmetric key for authentication.
+        """
+        return pulumi.get(self, "symmetric_key")
 
 
 @pulumi.output_type
@@ -393,6 +442,251 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
+class FileSourceInfoResponse(dict):
+    """
+    File source details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareId":
+            suggest = "share_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_id: str):
+        """
+        File source details.
+        :param str share_id: File share ID.
+        """
+        pulumi.set(__self__, "share_id", share_id)
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> str:
+        """
+        File share ID.
+        """
+        return pulumi.get(self, "share_id")
+
+
+@pulumi.output_type
+class ImageRepositoryCredentialResponse(dict):
+    """
+    Image repository credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageRepositoryUrl":
+            suggest = "image_repository_url"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRepositoryCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRepositoryCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_repository_url: str,
+                 user_name: str,
+                 password: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        Image repository credential.
+        :param str image_repository_url: Image repository url (e.g.: mcr.microsoft.com).
+        :param str user_name: Repository user name.
+        :param 'AsymmetricEncryptedSecretResponse' password: Repository user password.
+        """
+        pulumi.set(__self__, "image_repository_url", image_repository_url)
+        pulumi.set(__self__, "user_name", user_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="imageRepositoryUrl")
+    def image_repository_url(self) -> str:
+        """
+        Image repository url (e.g.: mcr.microsoft.com).
+        """
+        return pulumi.get(self, "image_repository_url")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Repository user name.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Repository user password.
+        """
+        return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class IoTDeviceInfoResponse(dict):
+    """
+    Metadata of IoT device/IoT Edge device to be configured.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceId":
+            suggest = "device_id"
+        elif key == "ioTHostHub":
+            suggest = "io_t_host_hub"
+        elif key == "ioTHostHubId":
+            suggest = "io_t_host_hub_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTDeviceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTDeviceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTDeviceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_id: str,
+                 io_t_host_hub: str,
+                 authentication: Optional['outputs.AuthenticationResponse'] = None,
+                 io_t_host_hub_id: Optional[str] = None):
+        """
+        Metadata of IoT device/IoT Edge device to be configured.
+        :param str device_id: ID of the IoT device/edge device.
+        :param str io_t_host_hub: Host name for the IoT hub associated to the device.
+        :param 'AuthenticationResponse' authentication: Encrypted IoT device/IoT edge device connection string.
+        :param str io_t_host_hub_id: Id for the IoT hub associated to the device.
+        """
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if io_t_host_hub_id is not None:
+            pulumi.set(__self__, "io_t_host_hub_id", io_t_host_hub_id)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> str:
+        """
+        ID of the IoT device/edge device.
+        """
+        return pulumi.get(self, "device_id")
+
+    @property
+    @pulumi.getter(name="ioTHostHub")
+    def io_t_host_hub(self) -> str:
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "io_t_host_hub")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.AuthenticationResponse']:
+        """
+        Encrypted IoT device/IoT edge device connection string.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="ioTHostHubId")
+    def io_t_host_hub_id(self) -> Optional[str]:
+        """
+        Id for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "io_t_host_hub_id")
+
+
+@pulumi.output_type
+class IoTEdgeAgentInfoResponse(dict):
+    """
+    IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "imageRepository":
+            suggest = "image_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTEdgeAgentInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTEdgeAgentInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTEdgeAgentInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_name: str,
+                 tag: str,
+                 image_repository: Optional['outputs.ImageRepositoryCredentialResponse'] = None):
+        """
+        IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+        :param str image_name: Name of the IoT edge agent image.
+        :param str tag: Image Tag.
+        :param 'ImageRepositoryCredentialResponse' image_repository: Image repository details.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "tag", tag)
+        if image_repository is not None:
+            pulumi.set(__self__, "image_repository", image_repository)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        Name of the IoT edge agent image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        Image Tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter(name="imageRepository")
+    def image_repository(self) -> Optional['outputs.ImageRepositoryCredentialResponse']:
+        """
+        Image repository details.
+        """
+        return pulumi.get(self, "image_repository")
+
+
+@pulumi.output_type
 class MountPointMapResponse(dict):
     """
     The share mount point.
@@ -561,6 +855,68 @@ class OrderStatusResponse(dict):
 
 
 @pulumi.output_type
+class PeriodicTimerSourceInfoResponse(dict):
+    """
+    Periodic timer event source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PeriodicTimerSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PeriodicTimerSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule: str,
+                 start_time: str,
+                 topic: Optional[str] = None):
+        """
+        Periodic timer event source.
+        :param str schedule: Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        :param str start_time: The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        :param str topic: Topic where periodic events are published to IoT device.
+        """
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_time", start_time)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[str]:
+        """
+        Topic where periodic events are published to IoT device.
+        """
+        return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
 class RefreshDetailsResponse(dict):
     """
     Fields for tracking refresh job on the share or container.
@@ -640,6 +996,45 @@ class RefreshDetailsResponse(dict):
         Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
         """
         return pulumi.get(self, "last_job")
+
+
+@pulumi.output_type
+class RoleSinkInfoResponse(dict):
+    """
+    Compute role against which events will be raised.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleId":
+            suggest = "role_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleSinkInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleSinkInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleSinkInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_id: str):
+        """
+        Compute role against which events will be raised.
+        :param str role_id: Compute role ID.
+        """
+        pulumi.set(__self__, "role_id", role_id)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> str:
+        """
+        Compute role ID.
+        """
+        return pulumi.get(self, "role_id")
 
 
 @pulumi.output_type
@@ -727,6 +1122,46 @@ class SkuResponse(dict):
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SymmetricKeyResponse(dict):
+    """
+    Symmetric key for authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SymmetricKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SymmetricKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SymmetricKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        Symmetric key for authentication.
+        :param 'AsymmetricEncryptedSecretResponse' connection_string: Connection string based on the symmetric key.
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Connection string based on the symmetric key.
+        """
+        return pulumi.get(self, "connection_string")
 
 
 @pulumi.output_type

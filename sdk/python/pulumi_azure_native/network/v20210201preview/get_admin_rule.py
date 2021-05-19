@@ -15,6 +15,8 @@ __all__ = [
     'get_admin_rule',
 ]
 
+warnings.warn("""Please use one of the variants: AdminRule, DefaultAdminRule.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAdminRuleResult:
     """
@@ -119,6 +121,7 @@ def get_admin_rule(configuration_name: Optional[str] = None,
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_admin_rule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.""")
     __args__ = dict()
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name

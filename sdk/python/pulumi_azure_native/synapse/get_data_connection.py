@@ -15,6 +15,8 @@ __all__ = [
     'get_data_connection',
 ]
 
+warnings.warn("""Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataConnectionResult:
     """
@@ -120,6 +122,7 @@ def get_data_connection(data_connection_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_data_connection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.""")
     __args__ = dict()
     __args__['dataConnectionName'] = data_connection_name
     __args__['databaseName'] = database_name

@@ -7,16 +7,21 @@ from enum import Enum
 __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
+    'BlobStorageEventType',
     'ClusterPrincipalRole',
+    'Compression',
     'DataConnectionKind',
     'DataFlowComputeType',
     'DatabasePrincipalRole',
     'EngineType',
+    'EventGridDataFormat',
+    'EventHubDataFormat',
     'IntegrationRuntimeEdition',
     'IntegrationRuntimeEntityReferenceType',
     'IntegrationRuntimeLicenseType',
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
+    'IotHubDataFormat',
     'Kind',
     'NodeSize',
     'NodeSizeFamily',
@@ -68,12 +73,28 @@ class AzureSkuTier(str, Enum):
     STANDARD = "Standard"
 
 
+class BlobStorageEventType(str, Enum):
+    """
+    The name of blob storage event type to process.
+    """
+    MICROSOFT_STORAGE_BLOB_CREATED = "Microsoft.Storage.BlobCreated"
+    MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
+
+
 class ClusterPrincipalRole(str, Enum):
     """
     Cluster principal role.
     """
     ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
     ALL_DATABASES_VIEWER = "AllDatabasesViewer"
+
+
+class Compression(str, Enum):
+    """
+    The event hub messages compression type
+    """
+    NONE = "None"
+    G_ZIP = "GZip"
 
 
 class DataConnectionKind(str, Enum):
@@ -112,6 +133,50 @@ class EngineType(str, Enum):
     """
     V2 = "V2"
     V3 = "V3"
+
+
+class EventGridDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
+
+
+class EventHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
 
 
 class IntegrationRuntimeEdition(str, Enum):
@@ -154,6 +219,28 @@ class IntegrationRuntimeType(str, Enum):
     """
     MANAGED = "Managed"
     SELF_HOSTED = "SelfHosted"
+
+
+class IotHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+    APACHEAVRO = "APACHEAVRO"
+    W3_CLOGFILE = "W3CLOGFILE"
 
 
 class Kind(str, Enum):

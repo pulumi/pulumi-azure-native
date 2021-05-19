@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'CleanupOptions',
     'DeploymentMode',
     'ExpressionEvaluationOptionsScopeType',
     'ManagedServiceIdentityType',
@@ -12,6 +13,15 @@ __all__ = [
     'ResourceIdentityType',
     'ScriptType',
 ]
+
+
+class CleanupOptions(str, Enum):
+    """
+    The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+    """
+    ALWAYS = "Always"
+    ON_SUCCESS = "OnSuccess"
+    ON_EXPIRATION = "OnExpiration"
 
 
 class DeploymentMode(str, Enum):

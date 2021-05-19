@@ -17,9 +17,11 @@ __all__ = [
     'AliasResponse',
     'ApiProfileResponse',
     'BasicDependencyResponse',
+    'ContainerConfigurationResponse',
     'DebugSettingResponse',
     'DependencyResponse',
     'DeploymentPropertiesExtendedResponse',
+    'EnvironmentVariableResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
     'IdentityResponse',
@@ -34,7 +36,9 @@ __all__ = [
     'ProviderResponse',
     'ResourceGroupPropertiesResponse',
     'ResourceReferenceResponse',
+    'ScriptStatusResponse',
     'SkuResponse',
+    'StorageAccountConfigurationResponse',
     'SystemDataResponse',
     'TagsResponse',
     'TemplateLinkResponse',
@@ -411,6 +415,46 @@ class BasicDependencyResponse(dict):
 
 
 @pulumi.output_type
+class ContainerConfigurationResponse(dict):
+    """
+    Settings to customize ACI container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerGroupName":
+            suggest = "container_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_group_name: Optional[str] = None):
+        """
+        Settings to customize ACI container instance.
+        :param str container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+        """
+        if container_group_name is not None:
+            pulumi.set(__self__, "container_group_name", container_group_name)
+
+    @property
+    @pulumi.getter(name="containerGroupName")
+    def container_group_name(self) -> Optional[str]:
+        """
+        Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+        """
+        return pulumi.get(self, "container_group_name")
+
+
+@pulumi.output_type
 class DebugSettingResponse(dict):
     """
     The debug setting.
@@ -759,6 +803,69 @@ class DeploymentPropertiesExtendedResponse(dict):
         Array of validated resources.
         """
         return pulumi.get(self, "validated_resources")
+
+
+@pulumi.output_type
+class EnvironmentVariableResponse(dict):
+    """
+    The environment variable to pass to the script in the container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureValue":
+            suggest = "secure_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVariableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVariableResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secure_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The environment variable to pass to the script in the container instance.
+        :param str name: The name of the environment variable.
+        :param str secure_value: The value of the secure environment variable.
+        :param str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[str]:
+        """
+        The value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1661,6 +1768,109 @@ class ResourceReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ScriptStatusResponse(dict):
+    """
+    Generic object modeling results of script execution.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerInstanceId":
+            suggest = "container_instance_id"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "expirationTime":
+            suggest = "expiration_time"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_instance_id: str,
+                 end_time: str,
+                 expiration_time: str,
+                 start_time: str,
+                 storage_account_id: str,
+                 error: Optional['outputs.ErrorResponseResponse'] = None):
+        """
+        Generic object modeling results of script execution.
+        :param str container_instance_id: ACI resource Id.
+        :param str end_time: End time of the script execution.
+        :param str expiration_time: Time the deployment script resource will expire.
+        :param str start_time: Start time of the script execution.
+        :param str storage_account_id: Storage account resource Id.
+        :param 'ErrorResponseResponse' error: Error that is relayed from the script execution.
+        """
+        pulumi.set(__self__, "container_instance_id", container_instance_id)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "expiration_time", expiration_time)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter(name="containerInstanceId")
+    def container_instance_id(self) -> str:
+        """
+        ACI resource Id.
+        """
+        return pulumi.get(self, "container_instance_id")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        End time of the script execution.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> str:
+        """
+        Time the deployment script resource will expire.
+        """
+        return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the script execution.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Storage account resource Id.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+        """
+        Error that is relayed from the script execution.
+        """
+        return pulumi.get(self, "error")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     SKU for the resource.
@@ -1741,6 +1951,60 @@ class SkuResponse(dict):
         The SKU tier.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class StorageAccountConfigurationResponse(dict):
+    """
+    Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_key: Optional[str] = None,
+                 storage_account_name: Optional[str] = None):
+        """
+        Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+        :param str storage_account_key: The storage account access key.
+        :param str storage_account_name: The storage account name.
+        """
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[str]:
+        """
+        The storage account access key.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
 
 
 @pulumi.output_type

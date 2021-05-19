@@ -14,6 +14,8 @@ __all__ = [
     'get_trigger',
 ]
 
+warnings.warn("""Please use one of the variants: ScheduledTrigger.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTriggerResult:
     """
@@ -92,6 +94,7 @@ def get_trigger(account_name: Optional[str] = None,
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
+    pulumi.log.warn("""get_trigger is deprecated: Please use one of the variants: ScheduledTrigger.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

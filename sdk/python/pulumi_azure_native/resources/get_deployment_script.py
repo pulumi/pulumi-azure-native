@@ -15,6 +15,8 @@ __all__ = [
     'get_deployment_script',
 ]
 
+warnings.warn("""Please use one of the variants: AzureCliScript, AzurePowerShellScript.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentScriptResult:
     """
@@ -138,6 +140,7 @@ def get_deployment_script(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: Name of the deployment script.
     """
+    pulumi.log.warn("""get_deployment_script is deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scriptName'] = script_name

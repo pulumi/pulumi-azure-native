@@ -12,13 +12,20 @@ from ._enums import *
 __all__ = [
     'AddressArgs',
     'AsymmetricEncryptedSecretArgs',
+    'AuthenticationArgs',
     'AzureContainerInfoArgs',
     'ClientAccessRightArgs',
     'ContactDetailsArgs',
+    'FileSourceInfoArgs',
+    'IoTDeviceInfoArgs',
+    'MountPointMapArgs',
     'OrderStatusArgs',
+    'PeriodicTimerSourceInfoArgs',
     'RefreshDetailsArgs',
+    'RoleSinkInfoArgs',
     'ShareAccessRightArgs',
     'SkuArgs',
+    'SymmetricKeyArgs',
     'UserAccessRightArgs',
 ]
 
@@ -192,6 +199,30 @@ class AsymmetricEncryptedSecretArgs:
 
 
 @pulumi.input_type
+class AuthenticationArgs:
+    def __init__(__self__, *,
+                 symmetric_key: Optional[pulumi.Input['SymmetricKeyArgs']] = None):
+        """
+        Authentication mechanism for IoT devices.
+        :param pulumi.Input['SymmetricKeyArgs'] symmetric_key: Symmetric key for authentication.
+        """
+        if symmetric_key is not None:
+            pulumi.set(__self__, "symmetric_key", symmetric_key)
+
+    @property
+    @pulumi.getter(name="symmetricKey")
+    def symmetric_key(self) -> Optional[pulumi.Input['SymmetricKeyArgs']]:
+        """
+        Symmetric key for authentication.
+        """
+        return pulumi.get(self, "symmetric_key")
+
+    @symmetric_key.setter
+    def symmetric_key(self, value: Optional[pulumi.Input['SymmetricKeyArgs']]):
+        pulumi.set(self, "symmetric_key", value)
+
+
+@pulumi.input_type
 class AzureContainerInfoArgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
@@ -351,6 +382,106 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
+class FileSourceInfoArgs:
+    def __init__(__self__, *,
+                 share_id: pulumi.Input[str]):
+        """
+        File source details.
+        :param pulumi.Input[str] share_id: File share ID.
+        """
+        pulumi.set(__self__, "share_id", share_id)
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> pulumi.Input[str]:
+        """
+        File share ID.
+        """
+        return pulumi.get(self, "share_id")
+
+    @share_id.setter
+    def share_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_id", value)
+
+
+@pulumi.input_type
+class IoTDeviceInfoArgs:
+    def __init__(__self__, *,
+                 device_id: pulumi.Input[str],
+                 io_t_host_hub: pulumi.Input[str],
+                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None):
+        """
+        Metadata of IoT device/IoT Edge device to be configured.
+        :param pulumi.Input[str] device_id: ID of the IoT device/edge device.
+        :param pulumi.Input[str] io_t_host_hub: Host name for the IoT hub associated to the device.
+        :param pulumi.Input['AuthenticationArgs'] authentication: IoT device authentication info.
+        """
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> pulumi.Input[str]:
+        """
+        ID of the IoT device/edge device.
+        """
+        return pulumi.get(self, "device_id")
+
+    @device_id.setter
+    def device_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_id", value)
+
+    @property
+    @pulumi.getter(name="ioTHostHub")
+    def io_t_host_hub(self) -> pulumi.Input[str]:
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "io_t_host_hub")
+
+    @io_t_host_hub.setter
+    def io_t_host_hub(self, value: pulumi.Input[str]):
+        pulumi.set(self, "io_t_host_hub", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
+        """
+        IoT device authentication info.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+
+@pulumi.input_type
+class MountPointMapArgs:
+    def __init__(__self__, *,
+                 share_id: pulumi.Input[str]):
+        """
+        The share mount point.
+        :param pulumi.Input[str] share_id: ID of the share mounted to the role VM.
+        """
+        pulumi.set(__self__, "share_id", share_id)
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> pulumi.Input[str]:
+        """
+        ID of the share mounted to the role VM.
+        """
+        return pulumi.get(self, "share_id")
+
+    @share_id.setter
+    def share_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_id", value)
+
+
+@pulumi.input_type
 class OrderStatusArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[Union[str, 'OrderState']],
@@ -387,6 +518,60 @@ class OrderStatusArgs:
     @comments.setter
     def comments(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comments", value)
+
+
+@pulumi.input_type
+class PeriodicTimerSourceInfoArgs:
+    def __init__(__self__, *,
+                 schedule: pulumi.Input[str],
+                 start_time: pulumi.Input[str],
+                 topic: Optional[pulumi.Input[str]] = None):
+        """
+        Periodic timer event source.
+        :param pulumi.Input[str] schedule: Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        :param pulumi.Input[str] start_time: The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified up to seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        :param pulumi.Input[str] topic: Topic where periodic events are published to IoT device.
+        """
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_time", start_time)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[str]:
+        """
+        Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified up to seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input[str]]:
+        """
+        Topic where periodic events are published to IoT device.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topic", value)
 
 
 @pulumi.input_type
@@ -459,6 +644,29 @@ class RefreshDetailsArgs:
     @last_job.setter
     def last_job(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_job", value)
+
+
+@pulumi.input_type
+class RoleSinkInfoArgs:
+    def __init__(__self__, *,
+                 role_id: pulumi.Input[str]):
+        """
+        Compute role against which events will be raised.
+        :param pulumi.Input[str] role_id: Compute role ID.
+        """
+        pulumi.set(__self__, "role_id", role_id)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> pulumi.Input[str]:
+        """
+        Compute role ID.
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_id", value)
 
 
 @pulumi.input_type
@@ -537,6 +745,30 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SymmetricKeyArgs:
+    def __init__(__self__, *,
+                 connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
+        """
+        Symmetric key for authentication.
+        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] connection_string: Connection string based on the symmetric key.
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
+        """
+        Connection string based on the symmetric key.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
+        pulumi.set(self, "connection_string", value)
 
 
 @pulumi.input_type

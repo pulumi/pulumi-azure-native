@@ -18,6 +18,8 @@ from .connectivity_configuration import *
 from .custom_ip_prefix import *
 from .ddos_custom_policy import *
 from .ddos_protection_plan import *
+from .default_admin_rule import *
+from .default_user_rule import *
 from .dscp_configuration import *
 from .endpoint import *
 from .experiment import *
@@ -49,6 +51,8 @@ from .get_connectivity_configuration import *
 from .get_custom_ip_prefix import *
 from .get_ddos_custom_policy import *
 from .get_ddos_protection_plan import *
+from .get_default_admin_rule import *
+from .get_default_user_rule import *
 from .get_dns_resource_reference_by_tar_resources import *
 from .get_dscp_configuration import *
 from .get_endpoint import *

@@ -10,8 +10,14 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ACIServiceCreateRequestDataCollectionArgs',
+    'ACIServiceCreateRequestEncryptionPropertiesArgs',
+    'ACIServiceCreateRequestVnetConfigurationArgs',
     'AKSArgs',
     'AKSPropertiesArgs',
+    'AKSServiceCreateRequestAutoScalerArgs',
+    'AKSServiceCreateRequestDataCollectionArgs',
+    'AKSServiceCreateRequestLivenessProbeRequirementsArgs',
     'AksNetworkingConfigurationArgs',
     'AmlComputeArgs',
     'AmlComputePropertiesArgs',
@@ -59,6 +65,139 @@ __all__ = [
     'VirtualMachinePropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
 ]
+
+@pulumi.input_type
+class ACIServiceCreateRequestDataCollectionArgs:
+    def __init__(__self__, *,
+                 event_hub_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Details of the data collection options specified.
+        :param pulumi.Input[bool] event_hub_enabled: Option for enabling/disabling Event Hub.
+        :param pulumi.Input[bool] storage_enabled: Option for enabling/disabling storage.
+        """
+        if event_hub_enabled is not None:
+            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
+
+    @property
+    @pulumi.getter(name="eventHubEnabled")
+    def event_hub_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        return pulumi.get(self, "event_hub_enabled")
+
+    @event_hub_enabled.setter
+    def event_hub_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "event_hub_enabled", value)
+
+    @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Option for enabling/disabling storage.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    @storage_enabled.setter
+    def storage_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_enabled", value)
+
+
+@pulumi.input_type
+class ACIServiceCreateRequestEncryptionPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 key_version: pulumi.Input[str],
+                 vault_base_url: pulumi.Input[str]):
+        """
+        The encryption properties.
+        :param pulumi.Input[str] key_name: Encryption Key name
+        :param pulumi.Input[str] key_version: Encryption Key Version
+        :param pulumi.Input[str] vault_base_url: vault base Url
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_version", key_version)
+        pulumi.set(__self__, "vault_base_url", vault_base_url)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        Encryption Key name
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> pulumi.Input[str]:
+        """
+        Encryption Key Version
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_version", value)
+
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> pulumi.Input[str]:
+        """
+        vault base Url
+        """
+        return pulumi.get(self, "vault_base_url")
+
+    @vault_base_url.setter
+    def vault_base_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_base_url", value)
+
+
+@pulumi.input_type
+class ACIServiceCreateRequestVnetConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet_name: Optional[pulumi.Input[str]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None):
+        """
+        The virtual network configuration.
+        :param pulumi.Input[str] subnet_name: The name of the virtual network subnet.
+        :param pulumi.Input[str] vnet_name: The name of the virtual network.
+        """
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network subnet.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @subnet_name.setter
+    def subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_name", value)
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @vnet_name.setter
+    def vnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_name", value)
+
 
 @pulumi.input_type
 class AKSArgs:
@@ -235,6 +374,222 @@ class AKSPropertiesArgs:
     @ssl_configuration.setter
     def ssl_configuration(self, value: Optional[pulumi.Input['SslConfigurationArgs']]):
         pulumi.set(self, "ssl_configuration", value)
+
+
+@pulumi.input_type
+class AKSServiceCreateRequestAutoScalerArgs:
+    def __init__(__self__, *,
+                 autoscale_enabled: Optional[pulumi.Input[bool]] = None,
+                 max_replicas: Optional[pulumi.Input[int]] = None,
+                 min_replicas: Optional[pulumi.Input[int]] = None,
+                 refresh_period_in_seconds: Optional[pulumi.Input[int]] = None,
+                 target_utilization: Optional[pulumi.Input[int]] = None):
+        """
+        The auto scaler properties.
+        :param pulumi.Input[bool] autoscale_enabled: Option to enable/disable auto scaling.
+        :param pulumi.Input[int] max_replicas: The maximum number of replicas in the cluster.
+        :param pulumi.Input[int] min_replicas: The minimum number of replicas to scale down to.
+        :param pulumi.Input[int] refresh_period_in_seconds: The amount of seconds to wait between auto scale updates.
+        :param pulumi.Input[int] target_utilization: The target utilization percentage to use for determining whether to scale the cluster.
+        """
+        if autoscale_enabled is not None:
+            pulumi.set(__self__, "autoscale_enabled", autoscale_enabled)
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if refresh_period_in_seconds is not None:
+            pulumi.set(__self__, "refresh_period_in_seconds", refresh_period_in_seconds)
+        if target_utilization is not None:
+            pulumi.set(__self__, "target_utilization", target_utilization)
+
+    @property
+    @pulumi.getter(name="autoscaleEnabled")
+    def autoscale_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Option to enable/disable auto scaling.
+        """
+        return pulumi.get(self, "autoscale_enabled")
+
+    @autoscale_enabled.setter
+    def autoscale_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "autoscale_enabled", value)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of replicas in the cluster.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of replicas to scale down to.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_replicas", value)
+
+    @property
+    @pulumi.getter(name="refreshPeriodInSeconds")
+    def refresh_period_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of seconds to wait between auto scale updates.
+        """
+        return pulumi.get(self, "refresh_period_in_seconds")
+
+    @refresh_period_in_seconds.setter
+    def refresh_period_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_period_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="targetUtilization")
+    def target_utilization(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target utilization percentage to use for determining whether to scale the cluster.
+        """
+        return pulumi.get(self, "target_utilization")
+
+    @target_utilization.setter
+    def target_utilization(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_utilization", value)
+
+
+@pulumi.input_type
+class AKSServiceCreateRequestDataCollectionArgs:
+    def __init__(__self__, *,
+                 event_hub_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Details of the data collection options specified.
+        :param pulumi.Input[bool] event_hub_enabled: Option for enabling/disabling Event Hub.
+        :param pulumi.Input[bool] storage_enabled: Option for enabling/disabling storage.
+        """
+        if event_hub_enabled is not None:
+            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
+
+    @property
+    @pulumi.getter(name="eventHubEnabled")
+    def event_hub_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        return pulumi.get(self, "event_hub_enabled")
+
+    @event_hub_enabled.setter
+    def event_hub_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "event_hub_enabled", value)
+
+    @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Option for enabling/disabling storage.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    @storage_enabled.setter
+    def storage_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_enabled", value)
+
+
+@pulumi.input_type
+class AKSServiceCreateRequestLivenessProbeRequirementsArgs:
+    def __init__(__self__, *,
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        The liveness probe requirements.
+        :param pulumi.Input[int] failure_threshold: The number of failures to allow before returning an unhealthy status.
+        :param pulumi.Input[int] initial_delay_seconds: The delay before the first probe in seconds.
+        :param pulumi.Input[int] period_seconds: The length of time between probes in seconds.
+        :param pulumi.Input[int] success_threshold: The number of successful probes before returning a healthy status.
+        :param pulumi.Input[int] timeout_seconds: The probe timeout in seconds.
+        """
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The delay before the first probe in seconds.
+        """
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The length of time between probes in seconds.
+        """
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The probe timeout in seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
 
 
 @pulumi.input_type

@@ -81,7 +81,12 @@ class RoleArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""", DeprecationWarning)
+
+
 class Role(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class Role(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Role is deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

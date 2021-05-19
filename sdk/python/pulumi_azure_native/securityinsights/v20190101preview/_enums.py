@@ -6,22 +6,32 @@ from enum import Enum
 
 __all__ = [
     'AlertRuleKind',
+    'AlertSeverity',
+    'AttackTactic',
     'AutomationRuleActionType',
     'AutomationRuleConditionType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
     'CaseSeverity',
     'DataConnectorKind',
+    'DataTypeState',
+    'EntitiesMatchingMethod',
     'EntityTimelineKind',
+    'EventGroupingAggregationKind',
+    'GroupingEntityType',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
+    'MicrosoftSecurityProductName',
+    'PollingFrequency',
     'SettingKind',
     'Source',
     'ThreatIntelligenceResourceKind',
+    'TriggerOperator',
     'TriggersOn',
     'TriggersWhen',
+    'UebaDataSources',
 ]
 
 
@@ -34,6 +44,35 @@ class AlertRuleKind(str, Enum):
     FUSION = "Fusion"
     ML_BEHAVIOR_ANALYTICS = "MLBehaviorAnalytics"
     THREAT_INTELLIGENCE = "ThreatIntelligence"
+
+
+class AlertSeverity(str, Enum):
+    """
+    The severity for alerts created by this alert rule.
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+    INFORMATIONAL = "Informational"
+
+
+class AttackTactic(str, Enum):
+    """
+    The severity for alerts created by this alert rule.
+    """
+    INITIAL_ACCESS = "InitialAccess"
+    EXECUTION = "Execution"
+    PERSISTENCE = "Persistence"
+    PRIVILEGE_ESCALATION = "PrivilegeEscalation"
+    DEFENSE_EVASION = "DefenseEvasion"
+    CREDENTIAL_ACCESS = "CredentialAccess"
+    DISCOVERY = "Discovery"
+    LATERAL_MOVEMENT = "LateralMovement"
+    COLLECTION = "Collection"
+    EXFILTRATION = "Exfiltration"
+    COMMAND_AND_CONTROL = "CommandAndControl"
+    IMPACT = "Impact"
+    PRE_ATTACK = "PreAttack"
 
 
 class AutomationRuleActionType(str, Enum):
@@ -153,6 +192,23 @@ class DataConnectorKind(str, Enum):
     MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
 
 
+class DataTypeState(str, Enum):
+    """
+    Describe whether this data type connection is enabled or not.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class EntitiesMatchingMethod(str, Enum):
+    """
+    Grouping matching method
+    """
+    ALL = "All"
+    NONE = "None"
+    CUSTOM = "Custom"
+
+
 class EntityTimelineKind(str, Enum):
     """
     The entity query kind
@@ -160,6 +216,25 @@ class EntityTimelineKind(str, Enum):
     ACTIVITY = "Activity"
     BOOKMARK = "Bookmark"
     SECURITY_ALERT = "SecurityAlert"
+
+
+class EventGroupingAggregationKind(str, Enum):
+    """
+    The event grouping aggregation kinds
+    """
+    SINGLE_ALERT = "SingleAlert"
+    ALERT_PER_RESULT = "AlertPerResult"
+
+
+class GroupingEntityType(str, Enum):
+    """
+    Grouping entity type
+    """
+    ACCOUNT = "Account"
+    HOST = "Host"
+    IP = "Ip"
+    URL = "Url"
+    FILE_HASH = "FileHash"
 
 
 class IncidentClassification(str, Enum):
@@ -201,6 +276,28 @@ class IncidentStatus(str, Enum):
     CLOSED = "Closed"
 
 
+class MicrosoftSecurityProductName(str, Enum):
+    """
+    The alerts' productName on which the cases will be generated
+    """
+    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
+    AZURE_SECURITY_CENTER = "Azure Security Center"
+    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
+    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
+    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
+    OFFICE_365_ADVANCED_THREAT_PROTECTION = "Office 365 Advanced Threat Protection"
+    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "Microsoft Defender Advanced Threat Protection"
+
+
+class PollingFrequency(str, Enum):
+    """
+    The polling frequency for the TAXII server.
+    """
+    ONCE_A_MINUTE = "OnceAMinute"
+    ONCE_AN_HOUR = "OnceAnHour"
+    ONCE_A_DAY = "OnceADay"
+
+
 class SettingKind(str, Enum):
     """
     The kind of the setting
@@ -225,6 +322,16 @@ class ThreatIntelligenceResourceKind(str, Enum):
     INDICATOR = "indicator"
 
 
+class TriggerOperator(str, Enum):
+    """
+    The operation against the threshold that triggers alert rule.
+    """
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN = "LessThan"
+    EQUAL = "Equal"
+    NOT_EQUAL = "NotEqual"
+
+
 class TriggersOn(str, Enum):
     """
     The type of object the automation rule triggers on
@@ -237,3 +344,13 @@ class TriggersWhen(str, Enum):
     The type of event the automation rule triggers on
     """
     CREATED = "Created"
+
+
+class UebaDataSources(str, Enum):
+    """
+    The data source that enriched by ueba.
+    """
+    AUDIT_LOGS = "AuditLogs"
+    AZURE_ACTIVITY = "AzureActivity"
+    SECURITY_EVENT = "SecurityEvent"
+    SIGNIN_LOGS = "SigninLogs"

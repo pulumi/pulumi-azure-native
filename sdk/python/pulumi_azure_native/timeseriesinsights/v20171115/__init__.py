@@ -8,11 +8,15 @@ import typing
 from ._enums import *
 from .access_policy import *
 from .environment import *
+from .event_hub_event_source import *
 from .event_source import *
 from .get_access_policy import *
 from .get_environment import *
+from .get_event_hub_event_source import *
 from .get_event_source import *
+from .get_io_t_hub_event_source import *
 from .get_reference_data_set import *
+from .io_t_hub_event_source import *
 from .reference_data_set import *
 from ._inputs import *
 from . import outputs

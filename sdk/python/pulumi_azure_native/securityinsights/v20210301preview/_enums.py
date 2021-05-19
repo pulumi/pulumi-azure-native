@@ -5,10 +5,24 @@
 from enum import Enum
 
 __all__ = [
+    'ConnectivityType',
     'DataConnectorKind',
+    'DataTypeState',
+    'PermissionProviderScope',
+    'PollingFrequency',
+    'ProviderName',
     'SettingKind',
+    'SettingType',
     'Source',
+    'UebaDataSources',
 ]
+
+
+class ConnectivityType(str, Enum):
+    """
+    type of connectivity
+    """
+    IS_CONNECTED_QUERY = "IsConnectedQuery"
 
 
 class DataConnectorKind(str, Enum):
@@ -31,6 +45,44 @@ class DataConnectorKind(str, Enum):
     GENERIC_UI = "GenericUI"
 
 
+class DataTypeState(str, Enum):
+    """
+    Describe whether this data type connection is enabled or not.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class PermissionProviderScope(str, Enum):
+    """
+    Permission provider scope
+    """
+    RESOURCE_GROUP = "ResourceGroup"
+    SUBSCRIPTION = "Subscription"
+    WORKSPACE = "Workspace"
+
+
+class PollingFrequency(str, Enum):
+    """
+    The polling frequency for the TAXII server.
+    """
+    ONCE_A_MINUTE = "OnceAMinute"
+    ONCE_AN_HOUR = "OnceAnHour"
+    ONCE_A_DAY = "OnceADay"
+
+
+class ProviderName(str, Enum):
+    """
+    Provider name
+    """
+    MICROSOFT_OPERATIONAL_INSIGHTS_SOLUTIONS = "Microsoft.OperationalInsights/solutions"
+    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES = "Microsoft.OperationalInsights/workspaces"
+    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES_DATASOURCES = "Microsoft.OperationalInsights/workspaces/datasources"
+    MICROSOFT_AADIAM_DIAGNOSTIC_SETTINGS = "microsoft.aadiam/diagnosticSettings"
+    MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES_SHARED_KEYS = "Microsoft.OperationalInsights/workspaces/sharedKeys"
+    MICROSOFT_AUTHORIZATION_POLICY_ASSIGNMENTS = "Microsoft.Authorization/policyAssignments"
+
+
 class SettingKind(str, Enum):
     """
     The kind of the setting
@@ -40,9 +92,28 @@ class SettingKind(str, Enum):
     UEBA = "Ueba"
 
 
+class SettingType(str, Enum):
+    """
+    The kind of the setting
+    """
+    COPYABLE_LABEL = "CopyableLabel"
+    INSTRUCTION_STEPS_GROUP = "InstructionStepsGroup"
+    INFO_MESSAGE = "InfoMessage"
+
+
 class Source(str, Enum):
     """
     The source of the watchlist
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
+
+
+class UebaDataSources(str, Enum):
+    """
+    The data source that enriched by ueba.
+    """
+    AUDIT_LOGS = "AuditLogs"
+    AZURE_ACTIVITY = "AzureActivity"
+    SECURITY_EVENT = "SecurityEvent"
+    SIGNIN_LOGS = "SigninLogs"

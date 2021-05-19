@@ -82,6 +82,25 @@ class AddressPrefixItemResponse(dict):
     """
     Address prefix item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixType":
+            suggest = "address_prefix_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressPrefixItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressPrefixItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressPrefixItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefix: Optional[str] = None,
                  address_prefix_type: Optional[str] = None):
