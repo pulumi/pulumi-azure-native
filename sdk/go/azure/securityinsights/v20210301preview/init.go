@@ -21,12 +21,46 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:securityinsights/v20210301preview:AADDataConnector":
+		r = &AADDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:AATPDataConnector":
+		r = &AATPDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:ASCDataConnector":
+		r = &ASCDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
+		r = &AwsCloudTrailDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":
+		r = &CodelessUiDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:DataConnector":
 		r = &DataConnector{}
+	case "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector":
+		r = &Dynamics365DataConnector{}
+	case "azure-native:securityinsights/v20210301preview:EntityAnalytics":
+		r = &EntityAnalytics{}
+	case "azure-native:securityinsights/v20210301preview:EyesOn":
+		r = &EyesOn{}
+	case "azure-native:securityinsights/v20210301preview:MCASDataConnector":
+		r = &MCASDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:MDATPDataConnector":
+		r = &MDATPDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:MSTIDataConnector":
+		r = &MSTIDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:MTPDataConnector":
+		r = &MTPDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector":
+		r = &OfficeATPDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:OfficeDataConnector":
+		r = &OfficeDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:ProductSetting":
 		r = &ProductSetting{}
 	case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
+	case "azure-native:securityinsights/v20210301preview:TIDataConnector":
+		r = &TIDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector":
+		r = &TiTaxiiDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:Ueba":
+		r = &Ueba{}
 	case "azure-native:securityinsights/v20210301preview:Watchlist":
 		r = &Watchlist{}
 	case "azure-native:securityinsights/v20210301preview:WatchlistItem":

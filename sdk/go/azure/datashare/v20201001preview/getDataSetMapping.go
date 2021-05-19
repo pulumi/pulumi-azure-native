@@ -8,6 +8,8 @@ import (
 )
 
 // A data set mapping data transfer object.
+//
+// Deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, ADLSGen2StorageAccountDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, BlobStorageAccountDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:getDataSetMapping", args, &rv, opts...)

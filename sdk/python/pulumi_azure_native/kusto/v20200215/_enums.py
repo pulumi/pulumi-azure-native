@@ -8,9 +8,13 @@ __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
     'ClusterPrincipalRole',
+    'Compression',
     'DatabasePrincipalRole',
     'DefaultPrincipalsModificationKind',
+    'EventGridDataFormat',
+    'EventHubDataFormat',
     'IdentityType',
+    'IotHubDataFormat',
     'Kind',
     'LanguageExtensionName',
     'PrincipalType',
@@ -60,6 +64,14 @@ class ClusterPrincipalRole(str, Enum):
     ALL_DATABASES_VIEWER = "AllDatabasesViewer"
 
 
+class Compression(str, Enum):
+    """
+    The event hub messages compression type
+    """
+    NONE = "None"
+    G_ZIP = "GZip"
+
+
 class DatabasePrincipalRole(str, Enum):
     """
     Database principal role.
@@ -81,12 +93,72 @@ class DefaultPrincipalsModificationKind(str, Enum):
     NONE = "None"
 
 
+class EventGridDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+
+
+class EventHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
+
+
 class IdentityType(str, Enum):
     """
     The identity type.
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class IotHubDataFormat(str, Enum):
+    """
+    The data format of the message. Optionally the data format can be added to each message.
+    """
+    MULTIJSON = "MULTIJSON"
+    JSON = "JSON"
+    CSV = "CSV"
+    TSV = "TSV"
+    SCSV = "SCSV"
+    SOHSV = "SOHSV"
+    PSV = "PSV"
+    TXT = "TXT"
+    RAW = "RAW"
+    SINGLEJSON = "SINGLEJSON"
+    AVRO = "AVRO"
+    TSVE = "TSVE"
+    PARQUET = "PARQUET"
+    ORC = "ORC"
 
 
 class Kind(str, Enum):

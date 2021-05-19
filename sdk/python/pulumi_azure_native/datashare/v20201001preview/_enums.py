@@ -7,7 +7,10 @@ from enum import Enum
 __all__ = [
     'DataSetKind',
     'DataSetMappingKind',
+    'OutputType',
+    'RecurrenceInterval',
     'ShareKind',
+    'SynchronizationMode',
     'SynchronizationSettingKind',
     'TriggerKind',
     'Type',
@@ -54,12 +57,36 @@ class DataSetMappingKind(str, Enum):
     BLOB_STORAGE_ACCOUNT = "BlobStorageAccount"
 
 
+class OutputType(str, Enum):
+    """
+    File output type
+    """
+    CSV = "Csv"
+    PARQUET = "Parquet"
+
+
+class RecurrenceInterval(str, Enum):
+    """
+    Recurrence Interval
+    """
+    HOUR = "Hour"
+    DAY = "Day"
+
+
 class ShareKind(str, Enum):
     """
     Share kind.
     """
     COPY_BASED = "CopyBased"
     IN_PLACE = "InPlace"
+
+
+class SynchronizationMode(str, Enum):
+    """
+    Synchronization mode
+    """
+    INCREMENTAL = "Incremental"
+    FULL_SYNC = "FullSync"
 
 
 class SynchronizationSettingKind(str, Enum):

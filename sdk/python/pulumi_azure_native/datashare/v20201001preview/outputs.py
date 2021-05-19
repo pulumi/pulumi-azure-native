@@ -10,6 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ADLSGen2StorageAccountPathResponse',
+    'BlobStorageAccountPathResponse',
     'IdentityResponse',
     'ScheduledSourceSynchronizationSettingResponse',
     'ShareSubscriptionSynchronizationResponse',
@@ -17,6 +19,140 @@ __all__ = [
     'SynchronizationDetailsResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ADLSGen2StorageAccountPathResponse(dict):
+    """
+    Defines a single ADLS Gen2 storage account path.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "consumerPath":
+            suggest = "consumer_path"
+        elif key == "providerPath":
+            suggest = "provider_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ADLSGen2StorageAccountPathResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ADLSGen2StorageAccountPathResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ADLSGen2StorageAccountPathResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 consumer_path: Optional[str] = None,
+                 provider_path: Optional[str] = None):
+        """
+        Defines a single ADLS Gen2 storage account path.
+        :param str container_name: Gets or sets the container name to share.
+        :param str consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
+        :param str provider_path: Gets or sets the path to file/folder within the container.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        if consumer_path is not None:
+            pulumi.set(__self__, "consumer_path", consumer_path)
+        if provider_path is not None:
+            pulumi.set(__self__, "provider_path", provider_path)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Gets or sets the container name to share.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="consumerPath")
+    def consumer_path(self) -> Optional[str]:
+        """
+        Gets or sets the path on the consumer side where the dataset is to be mapped.
+        """
+        return pulumi.get(self, "consumer_path")
+
+    @property
+    @pulumi.getter(name="providerPath")
+    def provider_path(self) -> Optional[str]:
+        """
+        Gets or sets the path to file/folder within the container.
+        """
+        return pulumi.get(self, "provider_path")
+
+
+@pulumi.output_type
+class BlobStorageAccountPathResponse(dict):
+    """
+    Defines a single blob storage account path.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "consumerPath":
+            suggest = "consumer_path"
+        elif key == "providerPath":
+            suggest = "provider_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobStorageAccountPathResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobStorageAccountPathResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobStorageAccountPathResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 consumer_path: Optional[str] = None,
+                 provider_path: Optional[str] = None):
+        """
+        Defines a single blob storage account path.
+        :param str container_name: Gets or sets the container name to share.
+        :param str consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
+        :param str provider_path: Gets or sets the path to file/folder within the container.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        if consumer_path is not None:
+            pulumi.set(__self__, "consumer_path", consumer_path)
+        if provider_path is not None:
+            pulumi.set(__self__, "provider_path", provider_path)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Gets or sets the container name to share.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="consumerPath")
+    def consumer_path(self) -> Optional[str]:
+        """
+        Gets or sets the path on the consumer side where the dataset is to be mapped.
+        """
+        return pulumi.get(self, "consumer_path")
+
+    @property
+    @pulumi.getter(name="providerPath")
+    def provider_path(self) -> Optional[str]:
+        """
+        Gets or sets the path to file/folder within the container.
+        """
+        return pulumi.get(self, "provider_path")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):

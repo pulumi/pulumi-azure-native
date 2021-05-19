@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AddressPrefixType = {
+    IPPrefix: "IPPrefix",
+    ServiceTag: "ServiceTag",
+} as const;
+
+/**
+ * Address prefix type.
+ */
+export type AddressPrefixType = (typeof AddressPrefixType)[keyof typeof AddressPrefixType];
+
 export const AdminRuleKind = {
     Custom: "Custom",
     Default: "Default",
@@ -82,6 +92,41 @@ export const MemberType = {
  * Group member type.
  */
 export type MemberType = (typeof MemberType)[keyof typeof MemberType];
+
+export const SecurityConfigurationRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+    AlwaysAllow: "AlwaysAllow",
+} as const;
+
+/**
+ * Indicates the access allowed for this particular rule
+ */
+export type SecurityConfigurationRuleAccess = (typeof SecurityConfigurationRuleAccess)[keyof typeof SecurityConfigurationRuleAccess];
+
+export const SecurityConfigurationRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * Indicates if the traffic matched against the rule in inbound or outbound.
+ */
+export type SecurityConfigurationRuleDirection = (typeof SecurityConfigurationRuleDirection)[keyof typeof SecurityConfigurationRuleDirection];
+
+export const SecurityConfigurationRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Any: "Any",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityConfigurationRuleProtocol = (typeof SecurityConfigurationRuleProtocol)[keyof typeof SecurityConfigurationRuleProtocol];
 
 export const SecurityType = {
     AdminPolicy: "AdminPolicy",

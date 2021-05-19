@@ -12,6 +12,8 @@ import (
 )
 
 // Network base rule.
+//
+// Deprecated: Please use one of the variants: DefaultUserRule, UserRule.
 type UserRule struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
     /// <summary>
     /// Class representing a Kusto database.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")]
     [AzureNativeResourceType("azure-native:kusto/v20200614:Database")]
     public partial class Database : Pulumi.CustomResource
     {

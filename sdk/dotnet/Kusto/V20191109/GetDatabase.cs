@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kusto.V20191109
 {
+    [Obsolete(@"Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.")]
     public static class GetDatabase
     {
         /// <summary>

@@ -15,6 +15,8 @@ __all__ = [
     'get_machine_learning_service',
 ]
 
+warnings.warn("""Please use one of the variants: ACIService, AKSService, EndpointVariant.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineLearningServiceResult:
     """
@@ -153,6 +155,7 @@ def get_machine_learning_service(expand: Optional[bool] = None,
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_machine_learning_service is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

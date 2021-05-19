@@ -5,19 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./azureCliScript";
+export * from "./azurePowerShellScript";
 export * from "./deploymentScript";
+export * from "./getAzureCliScript";
+export * from "./getAzurePowerShellScript";
 export * from "./getDeploymentScript";
 
 // Export enums:
 export * from "../../types/enums/resources/v20191001preview";
 
 // Import resources to register:
+import { AzureCliScript } from "./azureCliScript";
+import { AzurePowerShellScript } from "./azurePowerShellScript";
 import { DeploymentScript } from "./deploymentScript";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:resources/v20191001preview:AzureCliScript":
+                return new AzureCliScript(name, <any>undefined, { urn })
+            case "azure-native:resources/v20191001preview:AzurePowerShellScript":
+                return new AzurePowerShellScript(name, <any>undefined, { urn })
             case "azure-native:resources/v20191001preview:DeploymentScript":
                 return new DeploymentScript(name, <any>undefined, { urn })
             default:

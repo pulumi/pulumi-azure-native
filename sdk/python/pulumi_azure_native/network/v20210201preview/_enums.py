@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AddressPrefixType',
     'AdminRuleKind',
     'ConfigurationType',
     'ConnectivityTopology',
@@ -13,10 +14,21 @@ __all__ = [
     'GroupConnectivity',
     'IsGlobal',
     'MemberType',
+    'SecurityConfigurationRuleAccess',
+    'SecurityConfigurationRuleDirection',
+    'SecurityConfigurationRuleProtocol',
     'SecurityType',
     'UseHubGateway',
     'UserRuleKind',
 ]
+
+
+class AddressPrefixType(str, Enum):
+    """
+    Address prefix type.
+    """
+    IP_PREFIX = "IPPrefix"
+    SERVICE_TAG = "ServiceTag"
 
 
 class AdminRuleKind(str, Enum):
@@ -82,6 +94,35 @@ class MemberType(str, Enum):
     """
     VIRTUAL_NETWORK = "VirtualNetwork"
     SUBNET = "Subnet"
+
+
+class SecurityConfigurationRuleAccess(str, Enum):
+    """
+    Indicates the access allowed for this particular rule
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+    ALWAYS_ALLOW = "AlwaysAllow"
+
+
+class SecurityConfigurationRuleDirection(str, Enum):
+    """
+    Indicates if the traffic matched against the rule in inbound or outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityConfigurationRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ANY = "Any"
+    AH = "Ah"
 
 
 class SecurityType(str, Enum):

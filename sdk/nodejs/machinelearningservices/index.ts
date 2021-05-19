@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./aciservice";
+export * from "./aksservice";
+export * from "./endpointVariant";
+export * from "./getACIService";
+export * from "./getAKSService";
+export * from "./getEndpointVariant";
 export * from "./getLabelingJob";
 export * from "./getLinkedService";
 export * from "./getLinkedWorkspace";
@@ -75,6 +81,9 @@ export {
 };
 
 // Import resources to register:
+import { ACIService } from "./aciservice";
+import { AKSService } from "./aksservice";
+import { EndpointVariant } from "./endpointVariant";
 import { LabelingJob } from "./labelingJob";
 import { LinkedService } from "./linkedService";
 import { LinkedWorkspace } from "./linkedWorkspace";
@@ -90,6 +99,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:machinelearningservices:ACIService":
+                return new ACIService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:AKSService":
+                return new AKSService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:EndpointVariant":
+                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LinkedService":

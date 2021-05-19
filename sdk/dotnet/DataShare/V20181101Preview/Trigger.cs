@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
     /// <summary>
     /// A Trigger data transfer object.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ScheduledTrigger.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {

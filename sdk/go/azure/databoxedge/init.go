@@ -23,16 +23,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:databoxedge:Addon":
 		r = &Addon{}
+	case "azure-native:databoxedge:ArcAddon":
+		r = &ArcAddon{}
 	case "azure-native:databoxedge:BandwidthSchedule":
 		r = &BandwidthSchedule{}
+	case "azure-native:databoxedge:CloudEdgeManagementRole":
+		r = &CloudEdgeManagementRole{}
 	case "azure-native:databoxedge:Container":
 		r = &Container{}
 	case "azure-native:databoxedge:Device":
 		r = &Device{}
+	case "azure-native:databoxedge:FileEventTrigger":
+		r = &FileEventTrigger{}
+	case "azure-native:databoxedge:IoTAddon":
+		r = &IoTAddon{}
+	case "azure-native:databoxedge:IoTRole":
+		r = &IoTRole{}
+	case "azure-native:databoxedge:KubernetesRole":
+		r = &KubernetesRole{}
+	case "azure-native:databoxedge:MECRole":
+		r = &MECRole{}
 	case "azure-native:databoxedge:MonitoringConfig":
 		r = &MonitoringConfig{}
 	case "azure-native:databoxedge:Order":
 		r = &Order{}
+	case "azure-native:databoxedge:PeriodicTimerEventTrigger":
+		r = &PeriodicTimerEventTrigger{}
 	case "azure-native:databoxedge:Role":
 		r = &Role{}
 	case "azure-native:databoxedge:Share":

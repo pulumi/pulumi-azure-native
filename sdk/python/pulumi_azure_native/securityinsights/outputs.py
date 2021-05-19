@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ActivityTimelineItemResponse',
+    'AlertsDataTypeOfDataConnectorResponse',
     'AutomationRuleModifyPropertiesActionResponse',
     'AutomationRuleModifyPropertiesActionResponseActionConfiguration',
     'AutomationRulePropertyValuesConditionResponse',
@@ -19,8 +20,11 @@ __all__ = [
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleRunPlaybookActionResponseActionConfiguration',
     'AutomationRuleTriggeringLogicResponse',
+    'AwsCloudTrailDataConnectorDataTypesResponse',
+    'AwsCloudTrailDataConnectorDataTypesResponseLogs',
     'BookmarkTimelineItemResponse',
     'ClientInfoResponse',
+    'DataConnectorDataTypeCommonResponse',
     'EntityInsightItemResponse',
     'EntityInsightItemResponseQueryTimeInterval',
     'GetInsightsErrorResponse',
@@ -31,8 +35,15 @@ __all__ = [
     'IncidentOwnerInfoResponse',
     'InsightsTableResultResponse',
     'InsightsTableResultResponseColumns',
+    'MCASDataConnectorDataTypesResponse',
+    'OfficeDataConnectorDataTypesResponse',
+    'OfficeDataConnectorDataTypesResponseExchange',
+    'OfficeDataConnectorDataTypesResponseSharePoint',
+    'OfficeDataConnectorDataTypesResponseTeams',
     'SecurityAlertTimelineItemResponse',
     'SystemDataResponse',
+    'TIDataConnectorDataTypesResponse',
+    'TIDataConnectorDataTypesResponseIndicators',
     'TimelineAggregationResponse',
     'TimelineErrorResponse',
     'TimelineResultsMetadataResponse',
@@ -139,6 +150,29 @@ class ActivityTimelineItemResponse(dict):
         The activity timeline title.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AlertsDataTypeOfDataConnectorResponse(dict):
+    """
+    Alerts data type for data connectors.
+    """
+    def __init__(__self__, *,
+                 alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
+        """
+        Alerts data type for data connectors.
+        :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
+        """
+        if alerts is not None:
+            pulumi.set(__self__, "alerts", alerts)
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> Optional['outputs.DataConnectorDataTypeCommonResponse']:
+        """
+        Alerts data type connection.
+        """
+        return pulumi.get(self, "alerts")
 
 
 @pulumi.output_type
@@ -651,6 +685,52 @@ class AutomationRuleTriggeringLogicResponse(dict):
 
 
 @pulumi.output_type
+class AwsCloudTrailDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for Amazon Web Services CloudTrail data connector.
+    """
+    def __init__(__self__, *,
+                 logs: Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs'] = None):
+        """
+        The available data types for Amazon Web Services CloudTrail data connector.
+        :param 'AwsCloudTrailDataConnectorDataTypesResponseLogs' logs: Logs data type.
+        """
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional['outputs.AwsCloudTrailDataConnectorDataTypesResponseLogs']:
+        """
+        Logs data type.
+        """
+        return pulumi.get(self, "logs")
+
+
+@pulumi.output_type
+class AwsCloudTrailDataConnectorDataTypesResponseLogs(dict):
+    """
+    Logs data type.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Logs data type.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class BookmarkTimelineItemResponse(dict):
     """
     Represents bookmark timeline item.
@@ -845,6 +925,29 @@ class ClientInfoResponse(dict):
         The user principal name of the client.
         """
         return pulumi.get(self, "user_principal_name")
+
+
+@pulumi.output_type
+class DataConnectorDataTypeCommonResponse(dict):
+    """
+    Common field for data type in data connectors.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Common field for data type in data connectors.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -1386,6 +1489,191 @@ class InsightsTableResultResponseColumns(dict):
 
 
 @pulumi.output_type
+class MCASDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for MCAS (Microsoft Cloud App Security) data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryLogs":
+            suggest = "discovery_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MCASDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MCASDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MCASDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None,
+                 discovery_logs: Optional['outputs.DataConnectorDataTypeCommonResponse'] = None):
+        """
+        The available data types for MCAS (Microsoft Cloud App Security) data connector.
+        :param 'DataConnectorDataTypeCommonResponse' alerts: Alerts data type connection.
+        :param 'DataConnectorDataTypeCommonResponse' discovery_logs: Discovery log data type connection.
+        """
+        if alerts is not None:
+            pulumi.set(__self__, "alerts", alerts)
+        if discovery_logs is not None:
+            pulumi.set(__self__, "discovery_logs", discovery_logs)
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> Optional['outputs.DataConnectorDataTypeCommonResponse']:
+        """
+        Alerts data type connection.
+        """
+        return pulumi.get(self, "alerts")
+
+    @property
+    @pulumi.getter(name="discoveryLogs")
+    def discovery_logs(self) -> Optional['outputs.DataConnectorDataTypeCommonResponse']:
+        """
+        Discovery log data type connection.
+        """
+        return pulumi.get(self, "discovery_logs")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for office data connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sharePoint":
+            suggest = "share_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OfficeDataConnectorDataTypesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OfficeDataConnectorDataTypesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OfficeDataConnectorDataTypesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exchange: Optional['outputs.OfficeDataConnectorDataTypesResponseExchange'] = None,
+                 share_point: Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint'] = None,
+                 teams: Optional['outputs.OfficeDataConnectorDataTypesResponseTeams'] = None):
+        """
+        The available data types for office data connector.
+        :param 'OfficeDataConnectorDataTypesResponseExchange' exchange: Exchange data type connection.
+        :param 'OfficeDataConnectorDataTypesResponseSharePoint' share_point: SharePoint data type connection.
+        :param 'OfficeDataConnectorDataTypesResponseTeams' teams: Teams data type connection.
+        """
+        if exchange is not None:
+            pulumi.set(__self__, "exchange", exchange)
+        if share_point is not None:
+            pulumi.set(__self__, "share_point", share_point)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+
+    @property
+    @pulumi.getter
+    def exchange(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseExchange']:
+        """
+        Exchange data type connection.
+        """
+        return pulumi.get(self, "exchange")
+
+    @property
+    @pulumi.getter(name="sharePoint")
+    def share_point(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseSharePoint']:
+        """
+        SharePoint data type connection.
+        """
+        return pulumi.get(self, "share_point")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional['outputs.OfficeDataConnectorDataTypesResponseTeams']:
+        """
+        Teams data type connection.
+        """
+        return pulumi.get(self, "teams")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseExchange(dict):
+    """
+    Exchange data type connection.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Exchange data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseSharePoint(dict):
+    """
+    SharePoint data type connection.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        SharePoint data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class OfficeDataConnectorDataTypesResponseTeams(dict):
+    """
+    Teams data type connection.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Teams data type connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class SecurityAlertTimelineItemResponse(dict):
     """
     Represents security alert timeline item.
@@ -1618,6 +1906,52 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TIDataConnectorDataTypesResponse(dict):
+    """
+    The available data types for TI (Threat Intelligence) data connector.
+    """
+    def __init__(__self__, *,
+                 indicators: Optional['outputs.TIDataConnectorDataTypesResponseIndicators'] = None):
+        """
+        The available data types for TI (Threat Intelligence) data connector.
+        :param 'TIDataConnectorDataTypesResponseIndicators' indicators: Data type for indicators connection.
+        """
+        if indicators is not None:
+            pulumi.set(__self__, "indicators", indicators)
+
+    @property
+    @pulumi.getter
+    def indicators(self) -> Optional['outputs.TIDataConnectorDataTypesResponseIndicators']:
+        """
+        Data type for indicators connection.
+        """
+        return pulumi.get(self, "indicators")
+
+
+@pulumi.output_type
+class TIDataConnectorDataTypesResponseIndicators(dict):
+    """
+    Data type for indicators connection.
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Data type for indicators connection.
+        :param str state: Describe whether this data type connection is enabled or not.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

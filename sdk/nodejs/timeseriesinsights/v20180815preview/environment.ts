@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ *
+ * @deprecated Please use one of the variants: LongTermEnvironment, StandardEnvironment.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Environment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Environment {
+        pulumi.log.warn("Environment is deprecated: Please use one of the variants: LongTermEnvironment, StandardEnvironment.")
         return new Environment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: LongTermEnvironment, StandardEnvironment. */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Environment is deprecated: Please use one of the variants: LongTermEnvironment, StandardEnvironment.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20200901
     /// <summary>
     /// A DataSet data transfer object.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.")]
     [AzureNativeResourceType("azure-native:datashare/v20200901:DataSet")]
     public partial class DataSet : Pulumi.CustomResource
     {

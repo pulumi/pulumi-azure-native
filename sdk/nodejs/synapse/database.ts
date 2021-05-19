@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Kusto database.
  * API Version: 2021-04-01-preview.
+ *
+ * @deprecated Please use one of the variants: ReadWriteDatabase.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
+        pulumi.log.warn("Database is deprecated: Please use one of the variants: ReadWriteDatabase.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: ReadWriteDatabase. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Database is deprecated: Please use one of the variants: ReadWriteDatabase.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -13,6 +13,8 @@ import (
 
 // A DataSet data transfer object.
 // API Version: 2020-09-01.
+//
+// Deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.
 type DataSet struct {
 	pulumi.CustomResourceState
 

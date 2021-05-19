@@ -29,8 +29,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
 		r = &DatabasePrincipalAssignment{}
+	case "azure-native:synapse/v20210401preview:EventGridDataConnection":
+		r = &EventGridDataConnection{}
+	case "azure-native:synapse/v20210401preview:EventHubDataConnection":
+		r = &EventHubDataConnection{}
 	case "azure-native:synapse/v20210401preview:IntegrationRuntime":
 		r = &IntegrationRuntime{}
+	case "azure-native:synapse/v20210401preview:IotHubDataConnection":
+		r = &IotHubDataConnection{}
 	case "azure-native:synapse/v20210401preview:IpFirewallRule":
 		r = &IpFirewallRule{}
 	case "azure-native:synapse/v20210401preview:Key":
@@ -41,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateEndpointConnection{}
 	case "azure-native:synapse/v20210401preview:PrivateLinkHub":
 		r = &PrivateLinkHub{}
+	case "azure-native:synapse/v20210401preview:ReadWriteDatabase":
+		r = &ReadWriteDatabase{}
 	case "azure-native:synapse/v20210401preview:SqlPool":
 		r = &SqlPool{}
 	case "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel":

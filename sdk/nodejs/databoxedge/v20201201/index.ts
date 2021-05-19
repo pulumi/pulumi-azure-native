@@ -6,25 +6,41 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./addon";
+export * from "./arcAddon";
 export * from "./bandwidthSchedule";
+export * from "./cloudEdgeManagementRole";
 export * from "./container";
 export * from "./device";
+export * from "./fileEventTrigger";
 export * from "./getAddon";
+export * from "./getArcAddon";
 export * from "./getBandwidthSchedule";
+export * from "./getCloudEdgeManagementRole";
 export * from "./getContainer";
 export * from "./getDevice";
 export * from "./getDeviceExtendedInformation";
+export * from "./getFileEventTrigger";
+export * from "./getIoTAddon";
+export * from "./getIoTRole";
+export * from "./getKubernetesRole";
+export * from "./getMECRole";
 export * from "./getMonitoringConfig";
 export * from "./getOrder";
+export * from "./getPeriodicTimerEventTrigger";
 export * from "./getRole";
 export * from "./getShare";
 export * from "./getStorageAccount";
 export * from "./getStorageAccountCredential";
 export * from "./getTrigger";
 export * from "./getUser";
+export * from "./ioTAddon";
+export * from "./ioTRole";
+export * from "./kubernetesRole";
 export * from "./listOrderDCAccessCode";
+export * from "./mecrole";
 export * from "./monitoringConfig";
 export * from "./order";
+export * from "./periodicTimerEventTrigger";
 export * from "./role";
 export * from "./share";
 export * from "./storageAccount";
@@ -37,11 +53,19 @@ export * from "../../types/enums/databoxedge/v20201201";
 
 // Import resources to register:
 import { Addon } from "./addon";
+import { ArcAddon } from "./arcAddon";
 import { BandwidthSchedule } from "./bandwidthSchedule";
+import { CloudEdgeManagementRole } from "./cloudEdgeManagementRole";
 import { Container } from "./container";
 import { Device } from "./device";
+import { FileEventTrigger } from "./fileEventTrigger";
+import { IoTAddon } from "./ioTAddon";
+import { IoTRole } from "./ioTRole";
+import { KubernetesRole } from "./kubernetesRole";
+import { MECRole } from "./mecrole";
 import { MonitoringConfig } from "./monitoringConfig";
 import { Order } from "./order";
+import { PeriodicTimerEventTrigger } from "./periodicTimerEventTrigger";
 import { Role } from "./role";
 import { Share } from "./share";
 import { StorageAccount } from "./storageAccount";
@@ -55,16 +79,32 @@ const _module = {
         switch (type) {
             case "azure-native:databoxedge/v20201201:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:ArcAddon":
+                return new ArcAddon(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:BandwidthSchedule":
                 return new BandwidthSchedule(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:CloudEdgeManagementRole":
+                return new CloudEdgeManagementRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Container":
                 return new Container(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Device":
                 return new Device(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:FileEventTrigger":
+                return new FileEventTrigger(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:IoTAddon":
+                return new IoTAddon(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:IoTRole":
+                return new IoTRole(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:KubernetesRole":
+                return new KubernetesRole(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:MECRole":
+                return new MECRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:MonitoringConfig":
                 return new MonitoringConfig(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Order":
                 return new Order(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger":
+                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Role":
                 return new Role(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20201201:Share":

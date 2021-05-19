@@ -46,6 +46,17 @@ export {
     v20210401,
 };
 
+export const CleanupOptions = {
+    Always: "Always",
+    OnSuccess: "OnSuccess",
+    OnExpiration: "OnExpiration",
+} as const;
+
+/**
+ * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+ */
+export type CleanupOptions = (typeof CleanupOptions)[keyof typeof CleanupOptions];
+
 export const DeploymentMode = {
     Incremental: "Incremental",
     Complete: "Complete",

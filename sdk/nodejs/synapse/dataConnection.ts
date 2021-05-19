@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Class representing a data connection.
  * API Version: 2021-04-01-preview.
+ *
+ * @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
  */
 export class DataConnection extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DataConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataConnection {
+        pulumi.log.warn("DataConnection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")
         return new DataConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class DataConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
     constructor(name: string, args: DataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DataConnection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

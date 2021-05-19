@@ -6,6 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .aci_service import *
+from .aks_service import *
 from .batch_deployment import *
 from .batch_endpoint import *
 from .code_container import *
@@ -14,8 +16,11 @@ from .compute import *
 from .data_container import *
 from .data_version import *
 from .datastore import *
+from .endpoint_variant import *
 from .environment_container import *
 from .environment_specification_version import *
+from .get_aci_service import *
+from .get_aks_service import *
 from .get_batch_deployment import *
 from .get_batch_endpoint import *
 from .get_code_container import *
@@ -24,6 +29,7 @@ from .get_compute import *
 from .get_data_container import *
 from .get_data_version import *
 from .get_datastore import *
+from .get_endpoint_variant import *
 from .get_environment_container import *
 from .get_environment_specification_version import *
 from .get_job import *

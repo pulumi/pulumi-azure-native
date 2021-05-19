@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Machine Learning service object wrapped into ARM resource envelope.
  * API Version: 2021-01-01.
+ *
+ * @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant.
  */
 export class MachineLearningService extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class MachineLearningService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineLearningService {
+        pulumi.log.warn("MachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.")
         return new MachineLearningService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,7 +79,9 @@ export class MachineLearningService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
     constructor(name: string, args: MachineLearningServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

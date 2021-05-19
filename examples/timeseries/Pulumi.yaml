@@ -1,0 +1,3 @@
+name: timeseries
+runtime: nodejs
+description: Azure Time Series Insights

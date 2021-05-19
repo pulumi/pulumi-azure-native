@@ -96,7 +96,12 @@ class SynchronizationSettingArgs:
         pulumi.set(self, "synchronization_setting_name", value)
 
 
+warnings.warn("""Please use one of the variants: ScheduledSynchronizationSetting.""", DeprecationWarning)
+
+
 class SynchronizationSetting(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: ScheduledSynchronizationSetting.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,6 +153,7 @@ class SynchronizationSetting(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

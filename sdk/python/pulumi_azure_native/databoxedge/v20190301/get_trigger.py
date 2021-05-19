@@ -14,6 +14,8 @@ __all__ = [
     'get_trigger',
 ]
 
+warnings.warn("""Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTriggerResult:
     """
@@ -90,6 +92,7 @@ def get_trigger(device_name: Optional[str] = None,
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_trigger is deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

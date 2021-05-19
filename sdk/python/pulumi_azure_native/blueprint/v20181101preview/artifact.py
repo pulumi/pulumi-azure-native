@@ -80,7 +80,12 @@ class ArtifactArgs:
         pulumi.set(self, "artifact_name", value)
 
 
+warnings.warn("""Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""", DeprecationWarning)
+
+
 class Artifact(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,6 +134,7 @@ class Artifact(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'ArtifactKind']]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

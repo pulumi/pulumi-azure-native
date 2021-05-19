@@ -9,6 +9,8 @@ import (
 
 // The Setting.
 // API Version: 2021-03-01-preview.
+//
+// Deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
 	err := ctx.Invoke("azure-native:securityinsights:getProductSetting", args, &rv, opts...)

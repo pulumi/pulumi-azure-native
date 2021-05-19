@@ -14,6 +14,8 @@ __all__ = [
     'get_alert_rule',
 ]
 
+warnings.warn("""Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAlertRuleResult:
     """
@@ -104,6 +106,7 @@ def get_alert_rule(operational_insights_resource_provider: Optional[str] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_alert_rule is deprecated: Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name

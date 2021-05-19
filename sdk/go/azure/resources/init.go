@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:resources:AzureCliScript":
+		r = &AzureCliScript{}
+	case "azure-native:resources:AzurePowerShellScript":
+		r = &AzurePowerShellScript{}
 	case "azure-native:resources:Deployment":
 		r = &Deployment{}
 	case "azure-native:resources:DeploymentAtManagementGroupScope":

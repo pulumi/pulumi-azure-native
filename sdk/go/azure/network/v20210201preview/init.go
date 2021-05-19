@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdminRuleCollection{}
 	case "azure-native:network/v20210201preview:ConnectivityConfiguration":
 		r = &ConnectivityConfiguration{}
+	case "azure-native:network/v20210201preview:DefaultAdminRule":
+		r = &DefaultAdminRule{}
+	case "azure-native:network/v20210201preview:DefaultUserRule":
+		r = &DefaultUserRule{}
 	case "azure-native:network/v20210201preview:NetworkGroup":
 		r = &NetworkGroup{}
 	case "azure-native:network/v20210201preview:NetworkManager":

@@ -21,18 +21,66 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:datashare/v20181101preview:ADLSGen1FileDataSet":
+		r = &ADLSGen1FileDataSet{}
+	case "azure-native:datashare/v20181101preview:ADLSGen1FolderDataSet":
+		r = &ADLSGen1FolderDataSet{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FileDataSet":
+		r = &ADLSGen2FileDataSet{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FileDataSetMapping":
+		r = &ADLSGen2FileDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSet":
+		r = &ADLSGen2FileSystemDataSet{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping":
+		r = &ADLSGen2FileSystemDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet":
+		r = &ADLSGen2FolderDataSet{}
+	case "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping":
+		r = &ADLSGen2FolderDataSetMapping{}
 	case "azure-native:datashare/v20181101preview:Account":
 		r = &Account{}
+	case "azure-native:datashare/v20181101preview:BlobContainerDataSet":
+		r = &BlobContainerDataSet{}
+	case "azure-native:datashare/v20181101preview:BlobContainerDataSetMapping":
+		r = &BlobContainerDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:BlobDataSet":
+		r = &BlobDataSet{}
+	case "azure-native:datashare/v20181101preview:BlobDataSetMapping":
+		r = &BlobDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:BlobFolderDataSet":
+		r = &BlobFolderDataSet{}
+	case "azure-native:datashare/v20181101preview:BlobFolderDataSetMapping":
+		r = &BlobFolderDataSetMapping{}
 	case "azure-native:datashare/v20181101preview:DataSet":
 		r = &DataSet{}
 	case "azure-native:datashare/v20181101preview:DataSetMapping":
 		r = &DataSetMapping{}
 	case "azure-native:datashare/v20181101preview:Invitation":
 		r = &Invitation{}
+	case "azure-native:datashare/v20181101preview:KustoClusterDataSet":
+		r = &KustoClusterDataSet{}
+	case "azure-native:datashare/v20181101preview:KustoClusterDataSetMapping":
+		r = &KustoClusterDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:KustoDatabaseDataSet":
+		r = &KustoDatabaseDataSet{}
+	case "azure-native:datashare/v20181101preview:KustoDatabaseDataSetMapping":
+		r = &KustoDatabaseDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting":
+		r = &ScheduledSynchronizationSetting{}
+	case "azure-native:datashare/v20181101preview:ScheduledTrigger":
+		r = &ScheduledTrigger{}
 	case "azure-native:datashare/v20181101preview:Share":
 		r = &Share{}
 	case "azure-native:datashare/v20181101preview:ShareSubscription":
 		r = &ShareSubscription{}
+	case "azure-native:datashare/v20181101preview:SqlDBTableDataSet":
+		r = &SqlDBTableDataSet{}
+	case "azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping":
+		r = &SqlDBTableDataSetMapping{}
+	case "azure-native:datashare/v20181101preview:SqlDWTableDataSet":
+		r = &SqlDWTableDataSet{}
+	case "azure-native:datashare/v20181101preview:SqlDWTableDataSetMapping":
+		r = &SqlDWTableDataSetMapping{}
 	case "azure-native:datashare/v20181101preview:SynchronizationSetting":
 		r = &SynchronizationSetting{}
 	case "azure-native:datashare/v20181101preview:Trigger":

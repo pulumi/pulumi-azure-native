@@ -111,7 +111,12 @@ class UserRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+warnings.warn("""Please use one of the variants: DefaultUserRule, UserRule.""", DeprecationWarning)
+
+
 class UserRule(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: DefaultUserRule, UserRule.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class UserRule(pulumi.CustomResource):
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -18,6 +18,7 @@ __all__ = [
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
     'SshPublicAccess',
+    'VariantType',
     'VmPriority',
 ]
 
@@ -135,6 +136,14 @@ class SshPublicAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class VariantType(str, Enum):
+    """
+    The type of the variant.
+    """
+    CONTROL = "Control"
+    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):

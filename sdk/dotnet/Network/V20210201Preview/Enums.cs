@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
+    /// Address prefix type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AddressPrefixType : IEquatable<AddressPrefixType>
+    {
+        private readonly string _value;
+
+        private AddressPrefixType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AddressPrefixType IPPrefix { get; } = new AddressPrefixType("IPPrefix");
+        public static AddressPrefixType ServiceTag { get; } = new AddressPrefixType("ServiceTag");
+
+        public static bool operator ==(AddressPrefixType left, AddressPrefixType right) => left.Equals(right);
+        public static bool operator !=(AddressPrefixType left, AddressPrefixType right) => !left.Equals(right);
+
+        public static explicit operator string(AddressPrefixType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AddressPrefixType other && Equals(other);
+        public bool Equals(AddressPrefixType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether the rule is custom or default.
     /// </summary>
     [EnumType]
@@ -249,6 +280,104 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MemberType other && Equals(other);
         public bool Equals(MemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the access allowed for this particular rule
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityConfigurationRuleAccess : IEquatable<SecurityConfigurationRuleAccess>
+    {
+        private readonly string _value;
+
+        private SecurityConfigurationRuleAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityConfigurationRuleAccess Allow { get; } = new SecurityConfigurationRuleAccess("Allow");
+        public static SecurityConfigurationRuleAccess Deny { get; } = new SecurityConfigurationRuleAccess("Deny");
+        public static SecurityConfigurationRuleAccess AlwaysAllow { get; } = new SecurityConfigurationRuleAccess("AlwaysAllow");
+
+        public static bool operator ==(SecurityConfigurationRuleAccess left, SecurityConfigurationRuleAccess right) => left.Equals(right);
+        public static bool operator !=(SecurityConfigurationRuleAccess left, SecurityConfigurationRuleAccess right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityConfigurationRuleAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleAccess other && Equals(other);
+        public bool Equals(SecurityConfigurationRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates if the traffic matched against the rule in inbound or outbound.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityConfigurationRuleDirection : IEquatable<SecurityConfigurationRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityConfigurationRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityConfigurationRuleDirection Inbound { get; } = new SecurityConfigurationRuleDirection("Inbound");
+        public static SecurityConfigurationRuleDirection Outbound { get; } = new SecurityConfigurationRuleDirection("Outbound");
+
+        public static bool operator ==(SecurityConfigurationRuleDirection left, SecurityConfigurationRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityConfigurationRuleDirection left, SecurityConfigurationRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityConfigurationRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleDirection other && Equals(other);
+        public bool Equals(SecurityConfigurationRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network protocol this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityConfigurationRuleProtocol : IEquatable<SecurityConfigurationRuleProtocol>
+    {
+        private readonly string _value;
+
+        private SecurityConfigurationRuleProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityConfigurationRuleProtocol Tcp { get; } = new SecurityConfigurationRuleProtocol("Tcp");
+        public static SecurityConfigurationRuleProtocol Udp { get; } = new SecurityConfigurationRuleProtocol("Udp");
+        public static SecurityConfigurationRuleProtocol Icmp { get; } = new SecurityConfigurationRuleProtocol("Icmp");
+        public static SecurityConfigurationRuleProtocol Esp { get; } = new SecurityConfigurationRuleProtocol("Esp");
+        public static SecurityConfigurationRuleProtocol Any { get; } = new SecurityConfigurationRuleProtocol("Any");
+        public static SecurityConfigurationRuleProtocol Ah { get; } = new SecurityConfigurationRuleProtocol("Ah");
+
+        public static bool operator ==(SecurityConfigurationRuleProtocol left, SecurityConfigurationRuleProtocol right) => left.Equals(right);
+        public static bool operator !=(SecurityConfigurationRuleProtocol left, SecurityConfigurationRuleProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityConfigurationRuleProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityConfigurationRuleProtocol other && Equals(other);
+        public bool Equals(SecurityConfigurationRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

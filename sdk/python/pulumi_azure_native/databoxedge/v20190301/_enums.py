@@ -14,6 +14,8 @@ __all__ = [
     'EncryptionAlgorithm',
     'MonitoringStatus',
     'OrderState',
+    'PlatformType',
+    'RoleStatus',
     'RoleTypes',
     'SSLStatus',
     'ShareAccessProtocol',
@@ -116,6 +118,22 @@ class OrderState(str, Enum):
     AWAITING_RETURN_SHIPMENT = "AwaitingReturnShipment"
     SHIPPED_BACK = "ShippedBack"
     COLLECTED_AT_MICROSOFT = "CollectedAtMicrosoft"
+
+
+class PlatformType(str, Enum):
+    """
+    Host OS supported by the IoT role.
+    """
+    WINDOWS = "Windows"
+    LINUX = "Linux"
+
+
+class RoleStatus(str, Enum):
+    """
+    Role status.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class RoleTypes(str, Enum):

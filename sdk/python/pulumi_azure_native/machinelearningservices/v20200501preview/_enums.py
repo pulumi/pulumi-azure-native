@@ -15,6 +15,7 @@ __all__ = [
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
     'SourceType',
+    'VariantType',
     'VmPriority',
 ]
 
@@ -117,6 +118,14 @@ class SourceType(str, Enum):
     DELIMITED_FILES = "delimited_files"
     JSON_LINES_FILES = "json_lines_files"
     PARQUET_FILES = "parquet_files"
+
+
+class VariantType(str, Enum):
+    """
+    The type of the variant.
+    """
+    CONTROL = "Control"
+    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):

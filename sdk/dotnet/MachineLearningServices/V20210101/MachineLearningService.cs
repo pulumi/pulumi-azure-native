@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ACIService, AKSService, EndpointVariant.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210101:MachineLearningService")]
     public partial class MachineLearningService : Pulumi.CustomResource
     {

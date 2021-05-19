@@ -8,6 +8,8 @@ import (
 )
 
 // A Trigger data transfer object.
+//
+// Deprecated: Please use one of the variants: ScheduledTrigger.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:datashare/v20200901:getTrigger", args, &rv, opts...)

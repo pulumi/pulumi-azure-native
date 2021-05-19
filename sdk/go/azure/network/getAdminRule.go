@@ -9,6 +9,8 @@ import (
 
 // Network base admin rule.
 // API Version: 2021-02-01-preview.
+//
+// Deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.
 func LookupAdminRule(ctx *pulumi.Context, args *LookupAdminRuleArgs, opts ...pulumi.InvokeOption) (*LookupAdminRuleResult, error) {
 	var rv LookupAdminRuleResult
 	err := ctx.Invoke("azure-native:network:getAdminRule", args, &rv, opts...)

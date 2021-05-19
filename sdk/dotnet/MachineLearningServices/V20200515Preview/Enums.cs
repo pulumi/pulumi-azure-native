@@ -236,6 +236,37 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
     }
 
     /// <summary>
+    /// The type of the variant.
+    /// </summary>
+    [EnumType]
+    public readonly struct VariantType : IEquatable<VariantType>
+    {
+        private readonly string _value;
+
+        private VariantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VariantType Control { get; } = new VariantType("Control");
+        public static VariantType Treatment { get; } = new VariantType("Treatment");
+
+        public static bool operator ==(VariantType left, VariantType right) => left.Equals(right);
+        public static bool operator !=(VariantType left, VariantType right) => !left.Equals(right);
+
+        public static explicit operator string(VariantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VariantType other && Equals(other);
+        public bool Equals(VariantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Virtual Machine priority
     /// </summary>
     [EnumType]

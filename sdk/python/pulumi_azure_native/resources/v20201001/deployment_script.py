@@ -115,7 +115,12 @@ class DeploymentScriptArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Please use one of the variants: AzureCliScript, AzurePowerShellScript.""", DeprecationWarning)
+
+
 class DeploymentScript(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: AzureCliScript, AzurePowerShellScript.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class DeploymentScript(pulumi.CustomResource):
                  script_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DeploymentScript is deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

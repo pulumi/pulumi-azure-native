@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Resources
 {
+    [Obsolete(@"Please use one of the variants: AzureCliScript, AzurePowerShellScript.")]
     public static class GetDeploymentScript
     {
         /// <summary>

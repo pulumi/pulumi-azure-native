@@ -13,6 +13,7 @@ namespace Pulumi.AzureNative.DataShare
     /// A data set mapping data transfer object.
     /// API Version: 2020-09-01.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.")]
     [AzureNativeResourceType("azure-native:datashare:DataSetMapping")]
     public partial class DataSetMapping : Pulumi.CustomResource
     {

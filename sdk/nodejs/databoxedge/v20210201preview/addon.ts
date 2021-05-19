@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Addon
+ *
+ * @deprecated Please use one of the variants: ArcAddon, IoTAddon.
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Addon extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Addon {
+        pulumi.log.warn("Addon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.")
         return new Addon(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class Addon extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */
     constructor(name: string, args: AddonArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Addon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

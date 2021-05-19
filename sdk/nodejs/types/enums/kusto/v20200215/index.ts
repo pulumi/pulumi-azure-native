@@ -51,6 +51,16 @@ export const ClusterPrincipalRole = {
  */
 export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
 
+export const Compression = {
+    None: "None",
+    GZip: "GZip",
+} as const;
+
+/**
+ * The event hub messages compression type
+ */
+export type Compression = (typeof Compression)[keyof typeof Compression];
+
 export const DatabasePrincipalRole = {
     Admin: "Admin",
     Ingestor: "Ingestor",
@@ -76,6 +86,50 @@ export const DefaultPrincipalsModificationKind = {
  */
 export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
 
+export const EventGridDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
+
+export const EventHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -85,6 +139,28 @@ export const IdentityType = {
  * The identity type.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const IotHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
 
 export const Kind = {
     ReadWrite: "ReadWrite",

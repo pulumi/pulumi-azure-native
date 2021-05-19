@@ -13,23 +13,43 @@ from ._enums import *
 __all__ = [
     'AddressResponse',
     'AsymmetricEncryptedSecretResponse',
+    'AuthenticationResponse',
     'AzureContainerInfoResponse',
     'ClientAccessRightResponse',
+    'CniConfigResponse',
+    'ComputeResourceResponse',
     'ContactDetailsResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
+    'EtcdInfoResponse',
+    'FileSourceInfoResponse',
+    'ImageRepositoryCredentialResponse',
+    'IoTDeviceInfoResponse',
+    'IoTEdgeAgentInfoResponse',
+    'KubernetesClusterInfoResponse',
+    'KubernetesIPConfigurationResponse',
+    'KubernetesRoleComputeResponse',
+    'KubernetesRoleNetworkResponse',
+    'KubernetesRoleResourcesResponse',
+    'KubernetesRoleStorageClassInfoResponse',
+    'KubernetesRoleStorageResponse',
+    'LoadBalancerConfigResponse',
     'MetricConfigurationResponse',
     'MetricCounterResponse',
     'MetricCounterSetResponse',
     'MetricDimensionResponse',
     'MountPointMapResponse',
+    'NodeInfoResponse',
     'OrderStatusResponse',
+    'PeriodicTimerSourceInfoResponse',
     'RefreshDetailsResponse',
     'ResourceIdentityResponse',
     'ResourceMoveDetailsResponse',
+    'RoleSinkInfoResponse',
     'ShareAccessRightResponse',
     'SkuResponse',
     'SubscriptionRegisteredFeaturesResponse',
+    'SymmetricKeyResponse',
     'SystemDataResponse',
     'TrackingInfoResponse',
     'UserAccessRightResponse',
@@ -217,6 +237,46 @@ class AsymmetricEncryptedSecretResponse(dict):
 
 
 @pulumi.output_type
+class AuthenticationResponse(dict):
+    """
+    Authentication mechanism for IoT devices.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "symmetricKey":
+            suggest = "symmetric_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
+        """
+        Authentication mechanism for IoT devices.
+        :param 'SymmetricKeyResponse' symmetric_key: Symmetric key for authentication.
+        """
+        if symmetric_key is not None:
+            pulumi.set(__self__, "symmetric_key", symmetric_key)
+
+    @property
+    @pulumi.getter(name="symmetricKey")
+    def symmetric_key(self) -> Optional['outputs.SymmetricKeyResponse']:
+        """
+        Symmetric key for authentication.
+        """
+        return pulumi.get(self, "symmetric_key")
+
+
+@pulumi.output_type
 class AzureContainerInfoResponse(dict):
     """
     Azure container mapping of the endpoint.
@@ -329,6 +389,132 @@ class ClientAccessRightResponse(dict):
         IP of the client.
         """
         return pulumi.get(self, "client")
+
+
+@pulumi.output_type
+class CniConfigResponse(dict):
+    """
+    Cni configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "podSubnet":
+            suggest = "pod_subnet"
+        elif key == "serviceSubnet":
+            suggest = "service_subnet"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CniConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CniConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CniConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pod_subnet: str,
+                 service_subnet: str,
+                 type: str,
+                 version: str):
+        """
+        Cni configuration
+        :param str pod_subnet: Pod Subnet
+        :param str service_subnet: Service subnet
+        :param str type: Cni type
+        :param str version: Cni version
+        """
+        pulumi.set(__self__, "pod_subnet", pod_subnet)
+        pulumi.set(__self__, "service_subnet", service_subnet)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="podSubnet")
+    def pod_subnet(self) -> str:
+        """
+        Pod Subnet
+        """
+        return pulumi.get(self, "pod_subnet")
+
+    @property
+    @pulumi.getter(name="serviceSubnet")
+    def service_subnet(self) -> str:
+        """
+        Service subnet
+        """
+        return pulumi.get(self, "service_subnet")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Cni type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Cni version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ComputeResourceResponse(dict):
+    """
+    Compute infrastructure Resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryInGB":
+            suggest = "memory_in_gb"
+        elif key == "processorCount":
+            suggest = "processor_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 memory_in_gb: float,
+                 processor_count: int):
+        """
+        Compute infrastructure Resource
+        :param float memory_in_gb: Memory in GB
+        :param int processor_count: Processor count
+        """
+        pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        pulumi.set(__self__, "processor_count", processor_count)
+
+    @property
+    @pulumi.getter(name="memoryInGB")
+    def memory_in_gb(self) -> float:
+        """
+        Memory in GB
+        """
+        return pulumi.get(self, "memory_in_gb")
+
+    @property
+    @pulumi.getter(name="processorCount")
+    def processor_count(self) -> int:
+        """
+        Processor count
+        """
+        return pulumi.get(self, "processor_count")
 
 
 @pulumi.output_type
@@ -558,6 +744,703 @@ class EdgeProfileSubscriptionResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class EtcdInfoResponse(dict):
+    """
+    Etcd configuration
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 version: str):
+        """
+        Etcd configuration
+        :param str type: Etcd type
+        :param str version: Etcd version
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Etcd type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Etcd version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FileSourceInfoResponse(dict):
+    """
+    File source details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareId":
+            suggest = "share_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_id: str):
+        """
+        File source details.
+        :param str share_id: File share ID.
+        """
+        pulumi.set(__self__, "share_id", share_id)
+
+    @property
+    @pulumi.getter(name="shareId")
+    def share_id(self) -> str:
+        """
+        File share ID.
+        """
+        return pulumi.get(self, "share_id")
+
+
+@pulumi.output_type
+class ImageRepositoryCredentialResponse(dict):
+    """
+    Image repository credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageRepositoryUrl":
+            suggest = "image_repository_url"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRepositoryCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRepositoryCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_repository_url: str,
+                 user_name: str,
+                 password: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        Image repository credential.
+        :param str image_repository_url: Image repository url (e.g.: mcr.microsoft.com).
+        :param str user_name: Repository user name.
+        :param 'AsymmetricEncryptedSecretResponse' password: Repository user password.
+        """
+        pulumi.set(__self__, "image_repository_url", image_repository_url)
+        pulumi.set(__self__, "user_name", user_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="imageRepositoryUrl")
+    def image_repository_url(self) -> str:
+        """
+        Image repository url (e.g.: mcr.microsoft.com).
+        """
+        return pulumi.get(self, "image_repository_url")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Repository user name.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Repository user password.
+        """
+        return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class IoTDeviceInfoResponse(dict):
+    """
+    Metadata of IoT device/IoT Edge device to be configured.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceId":
+            suggest = "device_id"
+        elif key == "ioTHostHub":
+            suggest = "io_t_host_hub"
+        elif key == "ioTHostHubId":
+            suggest = "io_t_host_hub_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTDeviceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTDeviceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTDeviceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_id: str,
+                 io_t_host_hub: str,
+                 authentication: Optional['outputs.AuthenticationResponse'] = None,
+                 io_t_host_hub_id: Optional[str] = None):
+        """
+        Metadata of IoT device/IoT Edge device to be configured.
+        :param str device_id: ID of the IoT device/edge device.
+        :param str io_t_host_hub: Host name for the IoT hub associated to the device.
+        :param 'AuthenticationResponse' authentication: Encrypted IoT device/IoT edge device connection string.
+        :param str io_t_host_hub_id: Id for the IoT hub associated to the device.
+        """
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if io_t_host_hub_id is not None:
+            pulumi.set(__self__, "io_t_host_hub_id", io_t_host_hub_id)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> str:
+        """
+        ID of the IoT device/edge device.
+        """
+        return pulumi.get(self, "device_id")
+
+    @property
+    @pulumi.getter(name="ioTHostHub")
+    def io_t_host_hub(self) -> str:
+        """
+        Host name for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "io_t_host_hub")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.AuthenticationResponse']:
+        """
+        Encrypted IoT device/IoT edge device connection string.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="ioTHostHubId")
+    def io_t_host_hub_id(self) -> Optional[str]:
+        """
+        Id for the IoT hub associated to the device.
+        """
+        return pulumi.get(self, "io_t_host_hub_id")
+
+
+@pulumi.output_type
+class IoTEdgeAgentInfoResponse(dict):
+    """
+    IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "imageRepository":
+            suggest = "image_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTEdgeAgentInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTEdgeAgentInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTEdgeAgentInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_name: str,
+                 tag: str,
+                 image_repository: Optional['outputs.ImageRepositoryCredentialResponse'] = None):
+        """
+        IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
+        :param str image_name: Name of the IoT edge agent image.
+        :param str tag: Image Tag.
+        :param 'ImageRepositoryCredentialResponse' image_repository: Image repository details.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "tag", tag)
+        if image_repository is not None:
+            pulumi.set(__self__, "image_repository", image_repository)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        Name of the IoT edge agent image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        Image Tag.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter(name="imageRepository")
+    def image_repository(self) -> Optional['outputs.ImageRepositoryCredentialResponse']:
+        """
+        Image repository details.
+        """
+        return pulumi.get(self, "image_repository")
+
+
+@pulumi.output_type
+class KubernetesClusterInfoResponse(dict):
+    """
+    Kubernetes cluster configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "etcdInfo":
+            suggest = "etcd_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etcd_info: 'outputs.EtcdInfoResponse',
+                 nodes: Sequence['outputs.NodeInfoResponse'],
+                 version: str):
+        """
+        Kubernetes cluster configuration
+        :param 'EtcdInfoResponse' etcd_info: Etcd configuration
+        :param Sequence['NodeInfoResponse'] nodes: Kubernetes cluster nodes
+        :param str version: Kubernetes cluster version
+        """
+        pulumi.set(__self__, "etcd_info", etcd_info)
+        pulumi.set(__self__, "nodes", nodes)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="etcdInfo")
+    def etcd_info(self) -> 'outputs.EtcdInfoResponse':
+        """
+        Etcd configuration
+        """
+        return pulumi.get(self, "etcd_info")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Sequence['outputs.NodeInfoResponse']:
+        """
+        Kubernetes cluster nodes
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Kubernetes cluster version
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class KubernetesIPConfigurationResponse(dict):
+    """
+    Kubernetes node IP configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: str,
+                 ip_address: Optional[str] = None):
+        """
+        Kubernetes node IP configuration
+        :param str port: Port of the Kubernetes node.
+        :param str ip_address: IP address of the Kubernetes node.
+        """
+        pulumi.set(__self__, "port", port)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter
+    def port(self) -> str:
+        """
+        Port of the Kubernetes node.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP address of the Kubernetes node.
+        """
+        return pulumi.get(self, "ip_address")
+
+
+@pulumi.output_type
+class KubernetesRoleComputeResponse(dict):
+    """
+    Kubernetes role compute resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryInBytes":
+            suggest = "memory_in_bytes"
+        elif key == "processorCount":
+            suggest = "processor_count"
+        elif key == "vmProfile":
+            suggest = "vm_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleComputeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesRoleComputeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesRoleComputeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 memory_in_bytes: float,
+                 processor_count: int,
+                 vm_profile: str):
+        """
+        Kubernetes role compute resource
+        :param float memory_in_bytes: Memory in bytes
+        :param int processor_count: Processor count
+        :param str vm_profile: VM profile
+        """
+        pulumi.set(__self__, "memory_in_bytes", memory_in_bytes)
+        pulumi.set(__self__, "processor_count", processor_count)
+        pulumi.set(__self__, "vm_profile", vm_profile)
+
+    @property
+    @pulumi.getter(name="memoryInBytes")
+    def memory_in_bytes(self) -> float:
+        """
+        Memory in bytes
+        """
+        return pulumi.get(self, "memory_in_bytes")
+
+    @property
+    @pulumi.getter(name="processorCount")
+    def processor_count(self) -> int:
+        """
+        Processor count
+        """
+        return pulumi.get(self, "processor_count")
+
+    @property
+    @pulumi.getter(name="vmProfile")
+    def vm_profile(self) -> str:
+        """
+        VM profile
+        """
+        return pulumi.get(self, "vm_profile")
+
+
+@pulumi.output_type
+class KubernetesRoleNetworkResponse(dict):
+    """
+    Kubernetes role network resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cniConfig":
+            suggest = "cni_config"
+        elif key == "loadBalancerConfig":
+            suggest = "load_balancer_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesRoleNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesRoleNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cni_config: 'outputs.CniConfigResponse',
+                 load_balancer_config: 'outputs.LoadBalancerConfigResponse'):
+        """
+        Kubernetes role network resource
+        :param 'CniConfigResponse' cni_config: Cni configuration
+        :param 'LoadBalancerConfigResponse' load_balancer_config: Load balancer configuration
+        """
+        pulumi.set(__self__, "cni_config", cni_config)
+        pulumi.set(__self__, "load_balancer_config", load_balancer_config)
+
+    @property
+    @pulumi.getter(name="cniConfig")
+    def cni_config(self) -> 'outputs.CniConfigResponse':
+        """
+        Cni configuration
+        """
+        return pulumi.get(self, "cni_config")
+
+    @property
+    @pulumi.getter(name="loadBalancerConfig")
+    def load_balancer_config(self) -> 'outputs.LoadBalancerConfigResponse':
+        """
+        Load balancer configuration
+        """
+        return pulumi.get(self, "load_balancer_config")
+
+
+@pulumi.output_type
+class KubernetesRoleResourcesResponse(dict):
+    """
+    Kubernetes role resources
+    """
+    def __init__(__self__, *,
+                 compute: 'outputs.KubernetesRoleComputeResponse',
+                 network: 'outputs.KubernetesRoleNetworkResponse',
+                 storage: Optional['outputs.KubernetesRoleStorageResponse'] = None):
+        """
+        Kubernetes role resources
+        :param 'KubernetesRoleComputeResponse' compute: Kubernetes role compute resource
+        :param 'KubernetesRoleNetworkResponse' network: Kubernetes role network resource
+        :param 'KubernetesRoleStorageResponse' storage: Kubernetes role storage resource
+        """
+        pulumi.set(__self__, "compute", compute)
+        pulumi.set(__self__, "network", network)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> 'outputs.KubernetesRoleComputeResponse':
+        """
+        Kubernetes role compute resource
+        """
+        return pulumi.get(self, "compute")
+
+    @property
+    @pulumi.getter
+    def network(self) -> 'outputs.KubernetesRoleNetworkResponse':
+        """
+        Kubernetes role network resource
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional['outputs.KubernetesRoleStorageResponse']:
+        """
+        Kubernetes role storage resource
+        """
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class KubernetesRoleStorageClassInfoResponse(dict):
+    """
+    Kubernetes storage class info.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "posixCompliant":
+            suggest = "posix_compliant"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageClassInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesRoleStorageClassInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 posix_compliant: str,
+                 type: str):
+        """
+        Kubernetes storage class info.
+        :param str name: Storage class name.
+        :param str posix_compliant: If provisioned storage is posix compliant.
+        :param str type: Storage class type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "posix_compliant", posix_compliant)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Storage class name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="posixCompliant")
+    def posix_compliant(self) -> str:
+        """
+        If provisioned storage is posix compliant.
+        """
+        return pulumi.get(self, "posix_compliant")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Storage class type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class KubernetesRoleStorageResponse(dict):
+    """
+    Kubernetes role storage resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClasses":
+            suggest = "storage_classes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesRoleStorageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesRoleStorageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesRoleStorageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_classes: Sequence['outputs.KubernetesRoleStorageClassInfoResponse'],
+                 endpoints: Optional[Sequence['outputs.MountPointMapResponse']] = None):
+        """
+        Kubernetes role storage resource
+        :param Sequence['KubernetesRoleStorageClassInfoResponse'] storage_classes: Kubernetes storage class info.
+        :param Sequence['MountPointMapResponse'] endpoints: Mount points of shares in role(s).
+        """
+        pulumi.set(__self__, "storage_classes", storage_classes)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+
+    @property
+    @pulumi.getter(name="storageClasses")
+    def storage_classes(self) -> Sequence['outputs.KubernetesRoleStorageClassInfoResponse']:
+        """
+        Kubernetes storage class info.
+        """
+        return pulumi.get(self, "storage_classes")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence['outputs.MountPointMapResponse']]:
+        """
+        Mount points of shares in role(s).
+        """
+        return pulumi.get(self, "endpoints")
+
+
+@pulumi.output_type
+class LoadBalancerConfigResponse(dict):
+    """
+    Load balancer configuration
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 version: str):
+        """
+        Load balancer configuration
+        :param str type: Load balancer type
+        :param str version: Load balancer version
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Load balancer type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Load balancer version
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -883,6 +1766,68 @@ class MountPointMapResponse(dict):
 
 
 @pulumi.output_type
+class NodeInfoResponse(dict):
+    """
+    Kubernetes node info
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfiguration":
+            suggest = "ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 ip_configuration: Optional[Sequence['outputs.KubernetesIPConfigurationResponse']] = None):
+        """
+        Kubernetes node info
+        :param str name: Node name.
+        :param str type: Node type - Master/Worker
+        :param Sequence['KubernetesIPConfigurationResponse'] ip_configuration: IP Configuration of the Kubernetes node.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if ip_configuration is not None:
+            pulumi.set(__self__, "ip_configuration", ip_configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Node name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Node type - Master/Worker
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> Optional[Sequence['outputs.KubernetesIPConfigurationResponse']]:
+        """
+        IP Configuration of the Kubernetes node.
+        """
+        return pulumi.get(self, "ip_configuration")
+
+
+@pulumi.output_type
 class OrderStatusResponse(dict):
     """
     Represents a single status change.
@@ -970,6 +1915,68 @@ class OrderStatusResponse(dict):
         Comments related to this status change.
         """
         return pulumi.get(self, "comments")
+
+
+@pulumi.output_type
+class PeriodicTimerSourceInfoResponse(dict):
+    """
+    Periodic timer event source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PeriodicTimerSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PeriodicTimerSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PeriodicTimerSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule: str,
+                 start_time: str,
+                 topic: Optional[str] = None):
+        """
+        Periodic timer event source.
+        :param str schedule: Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        :param str start_time: The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        :param str topic: Topic where periodic events are published to IoT device.
+        """
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_time", start_time)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[str]:
+        """
+        Topic where periodic events are published to IoT device.
+        """
+        return pulumi.get(self, "topic")
 
 
 @pulumi.output_type
@@ -1173,6 +2180,45 @@ class ResourceMoveDetailsResponse(dict):
 
 
 @pulumi.output_type
+class RoleSinkInfoResponse(dict):
+    """
+    Compute role against which events will be raised.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleId":
+            suggest = "role_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleSinkInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleSinkInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleSinkInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_id: str):
+        """
+        Compute role against which events will be raised.
+        :param str role_id: Compute role ID.
+        """
+        pulumi.set(__self__, "role_id", role_id)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> str:
+        """
+        Compute role ID.
+        """
+        return pulumi.get(self, "role_id")
+
+
+@pulumi.output_type
 class ShareAccessRightResponse(dict):
     """
     Specifies the mapping between this particular user and the type of access he has on shares on this device.
@@ -1278,6 +2324,46 @@ class SubscriptionRegisteredFeaturesResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class SymmetricKeyResponse(dict):
+    """
+    Symmetric key for authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SymmetricKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SymmetricKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SymmetricKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
+        """
+        Symmetric key for authentication.
+        :param 'AsymmetricEncryptedSecretResponse' connection_string: Connection string based on the symmetric key.
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+        """
+        Connection string based on the symmetric key.
+        """
+        return pulumi.get(self, "connection_string")
 
 
 @pulumi.output_type

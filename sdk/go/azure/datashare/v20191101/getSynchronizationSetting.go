@@ -8,6 +8,8 @@ import (
 )
 
 // A Synchronization Setting data transfer object.
+//
+// Deprecated: Please use one of the variants: ScheduledSynchronizationSetting.
 func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupSynchronizationSettingResult, error) {
 	var rv LookupSynchronizationSettingResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getSynchronizationSetting", args, &rv, opts...)

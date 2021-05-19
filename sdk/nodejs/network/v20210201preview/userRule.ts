@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Network base rule.
+ *
+ * @deprecated Please use one of the variants: DefaultUserRule, UserRule.
  */
 export class UserRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class UserRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserRule {
+        pulumi.log.warn("UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
         return new UserRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class UserRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
     constructor(name: string, args: UserRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

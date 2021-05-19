@@ -13,6 +13,8 @@ import (
 
 // A Synchronization Setting data transfer object.
 // API Version: 2020-09-01.
+//
+// Deprecated: Please use one of the variants: ScheduledSynchronizationSetting.
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 

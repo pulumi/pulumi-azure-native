@@ -27,8 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Assignment{}
 	case "azure-native:blueprint/v20181101preview:Blueprint":
 		r = &Blueprint{}
+	case "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact":
+		r = &PolicyAssignmentArtifact{}
 	case "azure-native:blueprint/v20181101preview:PublishedBlueprint":
 		r = &PublishedBlueprint{}
+	case "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact":
+		r = &RoleAssignmentArtifact{}
+	case "azure-native:blueprint/v20181101preview:TemplateArtifact":
+		r = &TemplateArtifact{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

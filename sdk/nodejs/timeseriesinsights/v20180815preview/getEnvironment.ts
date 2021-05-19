@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
  */
+/** @deprecated Please use one of the variants: LongTermEnvironment, StandardEnvironment. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
+    pulumi.log.warn("getEnvironment is deprecated: Please use one of the variants: LongTermEnvironment, StandardEnvironment.")
     if (!opts) {
         opts = {}
     }

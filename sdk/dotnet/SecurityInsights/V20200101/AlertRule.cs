@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
     /// <summary>
     /// Alert rule.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20200101:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {

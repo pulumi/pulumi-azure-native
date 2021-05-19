@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Network base admin rule.
+ *
+ * @deprecated Please use one of the variants: AdminRule, DefaultAdminRule.
  */
 export class AdminRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class AdminRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdminRule {
+        pulumi.log.warn("AdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
         return new AdminRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class AdminRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
     constructor(name: string, args: AdminRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
     /// <summary>
     /// Represents a blueprint artifact.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")]
     [AzureNativeResourceType("azure-native:blueprint/v20181101preview:Artifact")]
     public partial class Artifact : Pulumi.CustomResource
     {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
+    [Obsolete(@"Please use one of the variants: ACIService, AKSService, EndpointVariant.")]
     public static class GetMachineLearningService
     {
         /// <summary>

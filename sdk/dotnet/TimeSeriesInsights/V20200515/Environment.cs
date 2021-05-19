@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: Gen1Environment, Gen2Environment.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20200515:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {

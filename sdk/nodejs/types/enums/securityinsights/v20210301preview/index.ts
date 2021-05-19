@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConnectivityType = {
+    IsConnectedQuery: "IsConnectedQuery",
+} as const;
+
+/**
+ * type of connectivity
+ */
+export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
+
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",
@@ -24,6 +33,61 @@ export const DataConnectorKind = {
  */
 export type DataConnectorKind = (typeof DataConnectorKind)[keyof typeof DataConnectorKind];
 
+export const DataTypeState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Describe whether this data type connection is enabled or not.
+ */
+export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
+
+export const PermissionProviderScope = {
+    ResourceGroup: "ResourceGroup",
+    Subscription: "Subscription",
+    Workspace: "Workspace",
+} as const;
+
+/**
+ * Permission provider scope
+ */
+export type PermissionProviderScope = (typeof PermissionProviderScope)[keyof typeof PermissionProviderScope];
+
+export const PollingFrequency = {
+    /**
+     * Once a minute
+     */
+    OnceAMinute: "OnceAMinute",
+    /**
+     * Once an hour
+     */
+    OnceAnHour: "OnceAnHour",
+    /**
+     * Once a day
+     */
+    OnceADay: "OnceADay",
+} as const;
+
+/**
+ * The polling frequency for the TAXII server.
+ */
+export type PollingFrequency = (typeof PollingFrequency)[keyof typeof PollingFrequency];
+
+export const ProviderName = {
+    Microsoft_OperationalInsights_solutions: "Microsoft.OperationalInsights/solutions",
+    Microsoft_OperationalInsights_workspaces: "Microsoft.OperationalInsights/workspaces",
+    Microsoft_OperationalInsights_workspaces_datasources: "Microsoft.OperationalInsights/workspaces/datasources",
+    Microsoft_aadiam_diagnosticSettings: "microsoft.aadiam/diagnosticSettings",
+    Microsoft_OperationalInsights_workspaces_sharedKeys: "Microsoft.OperationalInsights/workspaces/sharedKeys",
+    Microsoft_Authorization_policyAssignments: "Microsoft.Authorization/policyAssignments",
+} as const;
+
+/**
+ * Provider name
+ */
+export type ProviderName = (typeof ProviderName)[keyof typeof ProviderName];
+
 export const SettingKind = {
     EyesOn: "EyesOn",
     EntityAnalytics: "EntityAnalytics",
@@ -35,6 +99,17 @@ export const SettingKind = {
  */
 export type SettingKind = (typeof SettingKind)[keyof typeof SettingKind];
 
+export const SettingType = {
+    CopyableLabel: "CopyableLabel",
+    InstructionStepsGroup: "InstructionStepsGroup",
+    InfoMessage: "InfoMessage",
+} as const;
+
+/**
+ * The kind of the setting
+ */
+export type SettingType = (typeof SettingType)[keyof typeof SettingType];
+
 export const Source = {
     Local_file: "Local file",
     Remote_storage: "Remote storage",
@@ -44,3 +119,15 @@ export const Source = {
  * The source of the watchlist
  */
 export type Source = (typeof Source)[keyof typeof Source];
+
+export const UebaDataSources = {
+    AuditLogs: "AuditLogs",
+    AzureActivity: "AzureActivity",
+    SecurityEvent: "SecurityEvent",
+    SigninLogs: "SigninLogs",
+} as const;
+
+/**
+ * The data source that enriched by ueba.
+ */
+export type UebaDataSources = (typeof UebaDataSources)[keyof typeof UebaDataSources];

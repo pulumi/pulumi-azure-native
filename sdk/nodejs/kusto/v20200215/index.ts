@@ -11,15 +11,25 @@ export * from "./clusterPrincipalAssignment";
 export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
+export * from "./eventGridDataConnection";
+export * from "./eventHubDataConnection";
 export * from "./getAttachedDatabaseConfiguration";
 export * from "./getCluster";
 export * from "./getClusterPrincipalAssignment";
 export * from "./getDataConnection";
 export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
+export * from "./getEventGridDataConnection";
+export * from "./getEventHubDataConnection";
+export * from "./getIotHubDataConnection";
+export * from "./getReadOnlyFollowingDatabase";
+export * from "./getReadWriteDatabase";
+export * from "./iotHubDataConnection";
 export * from "./listClusterFollowerDatabases";
 export * from "./listClusterLanguageExtensions";
 export * from "./listDatabasePrincipals";
+export * from "./readOnlyFollowingDatabase";
+export * from "./readWriteDatabase";
 
 // Export enums:
 export * from "../../types/enums/kusto/v20200215";
@@ -31,6 +41,11 @@ import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
+import { EventGridDataConnection } from "./eventGridDataConnection";
+import { EventHubDataConnection } from "./eventHubDataConnection";
+import { IotHubDataConnection } from "./iotHubDataConnection";
+import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
+import { ReadWriteDatabase } from "./readWriteDatabase";
 
 const _module = {
     version: utilities.getVersion(),
@@ -48,6 +63,16 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:kusto/v20200215:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20200215:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20200215:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20200215:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20200215:ReadWriteDatabase":
+                return new ReadWriteDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

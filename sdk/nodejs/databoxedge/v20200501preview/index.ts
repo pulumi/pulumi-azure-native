@@ -8,18 +8,24 @@ import * as utilities from "../../utilities";
 export * from "./bandwidthSchedule";
 export * from "./container";
 export * from "./device";
+export * from "./fileEventTrigger";
 export * from "./getBandwidthSchedule";
 export * from "./getContainer";
 export * from "./getDevice";
 export * from "./getDeviceExtendedInformation";
+export * from "./getFileEventTrigger";
+export * from "./getIoTRole";
 export * from "./getOrder";
+export * from "./getPeriodicTimerEventTrigger";
 export * from "./getRole";
 export * from "./getShare";
 export * from "./getStorageAccount";
 export * from "./getStorageAccountCredential";
 export * from "./getTrigger";
 export * from "./getUser";
+export * from "./ioTRole";
 export * from "./order";
+export * from "./periodicTimerEventTrigger";
 export * from "./role";
 export * from "./share";
 export * from "./storageAccount";
@@ -34,7 +40,10 @@ export * from "../../types/enums/databoxedge/v20200501preview";
 import { BandwidthSchedule } from "./bandwidthSchedule";
 import { Container } from "./container";
 import { Device } from "./device";
+import { FileEventTrigger } from "./fileEventTrigger";
+import { IoTRole } from "./ioTRole";
 import { Order } from "./order";
+import { PeriodicTimerEventTrigger } from "./periodicTimerEventTrigger";
 import { Role } from "./role";
 import { Share } from "./share";
 import { StorageAccount } from "./storageAccount";
@@ -52,8 +61,14 @@ const _module = {
                 return new Container(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Device":
                 return new Device(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20200501preview:FileEventTrigger":
+                return new FileEventTrigger(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20200501preview:IoTRole":
+                return new IoTRole(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Order":
                 return new Order(name, <any>undefined, { urn })
+            case "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger":
+                return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Role":
                 return new Role(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Share":

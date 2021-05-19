@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701
 {
+    [Obsolete(@"Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.")]
     public static class GetTrigger
     {
         /// <summary>

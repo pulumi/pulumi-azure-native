@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse
 {
+    [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     public static class GetDataConnection
     {
         /// <summary>

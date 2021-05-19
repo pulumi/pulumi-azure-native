@@ -33,8 +33,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "azure-native:kusto:DatabasePrincipalAssignment":
 		r = &DatabasePrincipalAssignment{}
+	case "azure-native:kusto:EventGridDataConnection":
+		r = &EventGridDataConnection{}
 	case "azure-native:kusto:EventHubConnection":
 		r = &EventHubConnection{}
+	case "azure-native:kusto:EventHubDataConnection":
+		r = &EventHubDataConnection{}
+	case "azure-native:kusto:IotHubDataConnection":
+		r = &IotHubDataConnection{}
+	case "azure-native:kusto:ReadOnlyFollowingDatabase":
+		r = &ReadOnlyFollowingDatabase{}
+	case "azure-native:kusto:ReadWriteDatabase":
+		r = &ReadWriteDatabase{}
 	case "azure-native:kusto:Script":
 		r = &Script{}
 	default:

@@ -12,6 +12,8 @@ import (
 )
 
 // Compute role.
+//
+// Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 type Role struct {
 	pulumi.CustomResourceState
 

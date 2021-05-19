@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20190801
 {
+    [Obsolete(@"Please use one of the variants: IoTRole.")]
     public static class GetRole
     {
         /// <summary>

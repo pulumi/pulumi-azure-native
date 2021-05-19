@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Data connector
  */
+/** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, TIDataConnector, TiTaxiiDataConnector. */
 export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectorResult> {
+    pulumi.log.warn("getDataConnector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, CodelessUiDataConnector, Dynamics365DataConnector, MCASDataConnector, MDATPDataConnector, MSTIDataConnector, MTPDataConnector, OfficeATPDataConnector, OfficeDataConnector, TIDataConnector, TiTaxiiDataConnector.")
     if (!opts) {
         opts = {}
     }

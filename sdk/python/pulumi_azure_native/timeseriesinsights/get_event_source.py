@@ -14,6 +14,8 @@ __all__ = [
     'get_event_source',
 ]
 
+warnings.warn("""Please use one of the variants: EventHubEventSource, IoTHubEventSource.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventSourceResult:
     """
@@ -115,6 +117,7 @@ def get_event_source(environment_name: Optional[str] = None,
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_event_source is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network
 {
+    [Obsolete(@"Please use one of the variants: AdminRule, DefaultAdminRule.")]
     public static class GetAdminRule
     {
         /// <summary>

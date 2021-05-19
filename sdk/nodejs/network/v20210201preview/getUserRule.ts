@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Network base rule.
  */
+/** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
+    pulumi.log.warn("getUserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
     if (!opts) {
         opts = {}
     }

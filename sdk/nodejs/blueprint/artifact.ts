@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a blueprint artifact.
  * API Version: 2018-11-01-preview.
+ *
+ * @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.
  */
 export class Artifact extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class Artifact extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Artifact {
+        pulumi.log.warn("Artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")
         return new Artifact(name, undefined as any, { ...opts, id: id });
     }
 
@@ -56,7 +59,9 @@ export class Artifact extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */
     constructor(name: string, args: ArtifactArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

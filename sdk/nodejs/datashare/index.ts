@@ -6,24 +6,76 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./adlsgen1FileDataSet";
+export * from "./adlsgen1FolderDataSet";
+export * from "./adlsgen2FileDataSet";
+export * from "./adlsgen2FileDataSetMapping";
+export * from "./adlsgen2FileSystemDataSet";
+export * from "./adlsgen2FileSystemDataSetMapping";
+export * from "./adlsgen2FolderDataSet";
+export * from "./adlsgen2FolderDataSetMapping";
+export * from "./blobContainerDataSet";
+export * from "./blobContainerDataSetMapping";
+export * from "./blobDataSet";
+export * from "./blobDataSetMapping";
+export * from "./blobFolderDataSet";
+export * from "./blobFolderDataSetMapping";
 export * from "./dataSet";
 export * from "./dataSetMapping";
+export * from "./getADLSGen1FileDataSet";
+export * from "./getADLSGen1FolderDataSet";
+export * from "./getADLSGen2FileDataSet";
+export * from "./getADLSGen2FileDataSetMapping";
+export * from "./getADLSGen2FileSystemDataSet";
+export * from "./getADLSGen2FileSystemDataSetMapping";
+export * from "./getADLSGen2FolderDataSet";
+export * from "./getADLSGen2FolderDataSetMapping";
 export * from "./getAccount";
+export * from "./getBlobContainerDataSet";
+export * from "./getBlobContainerDataSetMapping";
+export * from "./getBlobDataSet";
+export * from "./getBlobDataSetMapping";
+export * from "./getBlobFolderDataSet";
+export * from "./getBlobFolderDataSetMapping";
 export * from "./getDataSet";
 export * from "./getDataSetMapping";
 export * from "./getInvitation";
+export * from "./getKustoClusterDataSet";
+export * from "./getKustoClusterDataSetMapping";
+export * from "./getKustoDatabaseDataSet";
+export * from "./getKustoDatabaseDataSetMapping";
+export * from "./getScheduledSynchronizationSetting";
+export * from "./getScheduledTrigger";
 export * from "./getShare";
 export * from "./getShareSubscription";
+export * from "./getSqlDBTableDataSet";
+export * from "./getSqlDBTableDataSetMapping";
+export * from "./getSqlDWTableDataSet";
+export * from "./getSqlDWTableDataSetMapping";
+export * from "./getSynapseWorkspaceSqlPoolTableDataSet";
+export * from "./getSynapseWorkspaceSqlPoolTableDataSetMapping";
 export * from "./getSynchronizationSetting";
 export * from "./getTrigger";
 export * from "./invitation";
+export * from "./kustoClusterDataSet";
+export * from "./kustoClusterDataSetMapping";
+export * from "./kustoDatabaseDataSet";
+export * from "./kustoDatabaseDataSetMapping";
 export * from "./listShareSubscriptionSourceShareSynchronizationSettings";
 export * from "./listShareSubscriptionSynchronizationDetails";
 export * from "./listShareSubscriptionSynchronizations";
 export * from "./listShareSynchronizationDetails";
 export * from "./listShareSynchronizations";
+export * from "./scheduledSynchronizationSetting";
+export * from "./scheduledTrigger";
 export * from "./share";
 export * from "./shareSubscription";
+export * from "./sqlDBTableDataSet";
+export * from "./sqlDBTableDataSetMapping";
+export * from "./sqlDWTableDataSet";
+export * from "./sqlDWTableDataSetMapping";
+export * from "./synapseWorkspaceSqlPoolTableDataSet";
+export * from "./synapseWorkspaceSqlPoolTableDataSetMapping";
 export * from "./synchronizationSetting";
 export * from "./trigger";
 
@@ -44,12 +96,38 @@ export {
 };
 
 // Import resources to register:
+import { ADLSGen1FileDataSet } from "./adlsgen1FileDataSet";
+import { ADLSGen1FolderDataSet } from "./adlsgen1FolderDataSet";
+import { ADLSGen2FileDataSet } from "./adlsgen2FileDataSet";
+import { ADLSGen2FileDataSetMapping } from "./adlsgen2FileDataSetMapping";
+import { ADLSGen2FileSystemDataSet } from "./adlsgen2FileSystemDataSet";
+import { ADLSGen2FileSystemDataSetMapping } from "./adlsgen2FileSystemDataSetMapping";
+import { ADLSGen2FolderDataSet } from "./adlsgen2FolderDataSet";
+import { ADLSGen2FolderDataSetMapping } from "./adlsgen2FolderDataSetMapping";
 import { Account } from "./account";
+import { BlobContainerDataSet } from "./blobContainerDataSet";
+import { BlobContainerDataSetMapping } from "./blobContainerDataSetMapping";
+import { BlobDataSet } from "./blobDataSet";
+import { BlobDataSetMapping } from "./blobDataSetMapping";
+import { BlobFolderDataSet } from "./blobFolderDataSet";
+import { BlobFolderDataSetMapping } from "./blobFolderDataSetMapping";
 import { DataSet } from "./dataSet";
 import { DataSetMapping } from "./dataSetMapping";
 import { Invitation } from "./invitation";
+import { KustoClusterDataSet } from "./kustoClusterDataSet";
+import { KustoClusterDataSetMapping } from "./kustoClusterDataSetMapping";
+import { KustoDatabaseDataSet } from "./kustoDatabaseDataSet";
+import { KustoDatabaseDataSetMapping } from "./kustoDatabaseDataSetMapping";
+import { ScheduledSynchronizationSetting } from "./scheduledSynchronizationSetting";
+import { ScheduledTrigger } from "./scheduledTrigger";
 import { Share } from "./share";
 import { ShareSubscription } from "./shareSubscription";
+import { SqlDBTableDataSet } from "./sqlDBTableDataSet";
+import { SqlDBTableDataSetMapping } from "./sqlDBTableDataSetMapping";
+import { SqlDWTableDataSet } from "./sqlDWTableDataSet";
+import { SqlDWTableDataSetMapping } from "./sqlDWTableDataSetMapping";
+import { SynapseWorkspaceSqlPoolTableDataSet } from "./synapseWorkspaceSqlPoolTableDataSet";
+import { SynapseWorkspaceSqlPoolTableDataSetMapping } from "./synapseWorkspaceSqlPoolTableDataSetMapping";
 import { SynchronizationSetting } from "./synchronizationSetting";
 import { Trigger } from "./trigger";
 
@@ -57,18 +135,70 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:datashare:ADLSGen1FileDataSet":
+                return new ADLSGen1FileDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen1FolderDataSet":
+                return new ADLSGen1FolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FileDataSet":
+                return new ADLSGen2FileDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FileDataSetMapping":
+                return new ADLSGen2FileDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FileSystemDataSet":
+                return new ADLSGen2FileSystemDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FileSystemDataSetMapping":
+                return new ADLSGen2FileSystemDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FolderDataSet":
+                return new ADLSGen2FolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:ADLSGen2FolderDataSetMapping":
+                return new ADLSGen2FolderDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobContainerDataSet":
+                return new BlobContainerDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobContainerDataSetMapping":
+                return new BlobContainerDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobDataSet":
+                return new BlobDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobDataSetMapping":
+                return new BlobDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobFolderDataSet":
+                return new BlobFolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:BlobFolderDataSetMapping":
+                return new BlobFolderDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
             case "azure-native:datashare:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoClusterDataSet":
+                return new KustoClusterDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoClusterDataSetMapping":
+                return new KustoClusterDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoDatabaseDataSet":
+                return new KustoDatabaseDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoDatabaseDataSetMapping":
+                return new KustoDatabaseDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:ScheduledSynchronizationSetting":
+                return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
+            case "azure-native:datashare:ScheduledTrigger":
+                return new ScheduledTrigger(name, <any>undefined, { urn })
             case "azure-native:datashare:Share":
                 return new Share(name, <any>undefined, { urn })
             case "azure-native:datashare:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
+            case "azure-native:datashare:SqlDBTableDataSet":
+                return new SqlDBTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:SqlDBTableDataSetMapping":
+                return new SqlDBTableDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:SqlDWTableDataSet":
+                return new SqlDWTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:SqlDWTableDataSetMapping":
+                return new SqlDWTableDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet":
+                return new SynapseWorkspaceSqlPoolTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping":
+                return new SynapseWorkspaceSqlPoolTableDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
             case "azure-native:datashare:Trigger":

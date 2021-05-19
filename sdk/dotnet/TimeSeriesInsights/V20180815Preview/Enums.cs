@@ -131,6 +131,36 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
     }
 
     /// <summary>
+    /// The type of the property.
+    /// </summary>
+    [EnumType]
+    public readonly struct PropertyType : IEquatable<PropertyType>
+    {
+        private readonly string _value;
+
+        private PropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PropertyType String { get; } = new PropertyType("String");
+
+        public static bool operator ==(PropertyType left, PropertyType right) => left.Equals(right);
+        public static bool operator !=(PropertyType left, PropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(PropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PropertyType other && Equals(other);
+        public bool Equals(PropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the key property.
     /// </summary>
     [EnumType]
@@ -189,6 +219,37 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageLimitExceededBehavior : IEquatable<StorageLimitExceededBehavior>
+    {
+        private readonly string _value;
+
+        private StorageLimitExceededBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageLimitExceededBehavior PurgeOldData { get; } = new StorageLimitExceededBehavior("PurgeOldData");
+        public static StorageLimitExceededBehavior PauseIngress { get; } = new StorageLimitExceededBehavior("PauseIngress");
+
+        public static bool operator ==(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => left.Equals(right);
+        public static bool operator !=(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(StorageLimitExceededBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageLimitExceededBehavior other && Equals(other);
+        public bool Equals(StorageLimitExceededBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

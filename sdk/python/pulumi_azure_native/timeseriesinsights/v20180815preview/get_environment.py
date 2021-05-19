@@ -15,6 +15,8 @@ __all__ = [
     'get_environment',
 ]
 
+warnings.warn("""Please use one of the variants: LongTermEnvironment, StandardEnvironment.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentResult:
     """
@@ -127,6 +129,7 @@ def get_environment(environment_name: Optional[str] = None,
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_environment is deprecated: Please use one of the variants: LongTermEnvironment, StandardEnvironment.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['expand'] = expand

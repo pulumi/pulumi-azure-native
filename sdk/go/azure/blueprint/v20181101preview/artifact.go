@@ -12,6 +12,8 @@ import (
 )
 
 // Represents a blueprint artifact.
+//
+// Deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.
 type Artifact struct {
 	pulumi.CustomResourceState
 

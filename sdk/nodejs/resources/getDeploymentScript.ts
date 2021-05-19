@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
  * Deployment script object.
  * API Version: 2020-10-01.
  */
+/** @deprecated Please use one of the variants: AzureCliScript, AzurePowerShellScript. */
 export function getDeploymentScript(args: GetDeploymentScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentScriptResult> {
+    pulumi.log.warn("getDeploymentScript is deprecated: Please use one of the variants: AzureCliScript, AzurePowerShellScript.")
     if (!opts) {
         opts = {}
     }

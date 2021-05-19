@@ -6,24 +6,84 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./adlsgen1FileDataSet";
+export * from "./adlsgen1FolderDataSet";
+export * from "./adlsgen2FileDataSet";
+export * from "./adlsgen2FileDataSetMapping";
+export * from "./adlsgen2FileSystemDataSet";
+export * from "./adlsgen2FileSystemDataSetMapping";
+export * from "./adlsgen2FolderDataSet";
+export * from "./adlsgen2FolderDataSetMapping";
+export * from "./adlsgen2StorageAccountDataSet";
+export * from "./adlsgen2StorageAccountDataSetMapping";
+export * from "./blobContainerDataSet";
+export * from "./blobContainerDataSetMapping";
+export * from "./blobDataSet";
+export * from "./blobDataSetMapping";
+export * from "./blobFolderDataSet";
+export * from "./blobFolderDataSetMapping";
+export * from "./blobStorageAccountDataSet";
+export * from "./blobStorageAccountDataSetMapping";
 export * from "./dataSet";
 export * from "./dataSetMapping";
+export * from "./getADLSGen1FileDataSet";
+export * from "./getADLSGen1FolderDataSet";
+export * from "./getADLSGen2FileDataSet";
+export * from "./getADLSGen2FileDataSetMapping";
+export * from "./getADLSGen2FileSystemDataSet";
+export * from "./getADLSGen2FileSystemDataSetMapping";
+export * from "./getADLSGen2FolderDataSet";
+export * from "./getADLSGen2FolderDataSetMapping";
+export * from "./getADLSGen2StorageAccountDataSet";
+export * from "./getADLSGen2StorageAccountDataSetMapping";
 export * from "./getAccount";
+export * from "./getBlobContainerDataSet";
+export * from "./getBlobContainerDataSetMapping";
+export * from "./getBlobDataSet";
+export * from "./getBlobDataSetMapping";
+export * from "./getBlobFolderDataSet";
+export * from "./getBlobFolderDataSetMapping";
+export * from "./getBlobStorageAccountDataSet";
+export * from "./getBlobStorageAccountDataSetMapping";
 export * from "./getDataSet";
 export * from "./getDataSetMapping";
 export * from "./getInvitation";
+export * from "./getKustoClusterDataSet";
+export * from "./getKustoClusterDataSetMapping";
+export * from "./getKustoDatabaseDataSet";
+export * from "./getKustoDatabaseDataSetMapping";
+export * from "./getScheduledSynchronizationSetting";
+export * from "./getScheduledTrigger";
 export * from "./getShare";
 export * from "./getShareSubscription";
+export * from "./getSqlDBTableDataSet";
+export * from "./getSqlDBTableDataSetMapping";
+export * from "./getSqlDWTableDataSet";
+export * from "./getSqlDWTableDataSetMapping";
+export * from "./getSynapseWorkspaceSqlPoolTableDataSet";
+export * from "./getSynapseWorkspaceSqlPoolTableDataSetMapping";
 export * from "./getSynchronizationSetting";
 export * from "./getTrigger";
 export * from "./invitation";
+export * from "./kustoClusterDataSet";
+export * from "./kustoClusterDataSetMapping";
+export * from "./kustoDatabaseDataSet";
+export * from "./kustoDatabaseDataSetMapping";
 export * from "./listShareSubscriptionSourceShareSynchronizationSettings";
 export * from "./listShareSubscriptionSynchronizationDetails";
 export * from "./listShareSubscriptionSynchronizations";
 export * from "./listShareSynchronizationDetails";
 export * from "./listShareSynchronizations";
+export * from "./scheduledSynchronizationSetting";
+export * from "./scheduledTrigger";
 export * from "./share";
 export * from "./shareSubscription";
+export * from "./sqlDBTableDataSet";
+export * from "./sqlDBTableDataSetMapping";
+export * from "./sqlDWTableDataSet";
+export * from "./sqlDWTableDataSetMapping";
+export * from "./synapseWorkspaceSqlPoolTableDataSet";
+export * from "./synapseWorkspaceSqlPoolTableDataSetMapping";
 export * from "./synchronizationSetting";
 export * from "./trigger";
 
@@ -31,12 +91,42 @@ export * from "./trigger";
 export * from "../../types/enums/datashare/v20201001preview";
 
 // Import resources to register:
+import { ADLSGen1FileDataSet } from "./adlsgen1FileDataSet";
+import { ADLSGen1FolderDataSet } from "./adlsgen1FolderDataSet";
+import { ADLSGen2FileDataSet } from "./adlsgen2FileDataSet";
+import { ADLSGen2FileDataSetMapping } from "./adlsgen2FileDataSetMapping";
+import { ADLSGen2FileSystemDataSet } from "./adlsgen2FileSystemDataSet";
+import { ADLSGen2FileSystemDataSetMapping } from "./adlsgen2FileSystemDataSetMapping";
+import { ADLSGen2FolderDataSet } from "./adlsgen2FolderDataSet";
+import { ADLSGen2FolderDataSetMapping } from "./adlsgen2FolderDataSetMapping";
+import { ADLSGen2StorageAccountDataSet } from "./adlsgen2StorageAccountDataSet";
+import { ADLSGen2StorageAccountDataSetMapping } from "./adlsgen2StorageAccountDataSetMapping";
 import { Account } from "./account";
+import { BlobContainerDataSet } from "./blobContainerDataSet";
+import { BlobContainerDataSetMapping } from "./blobContainerDataSetMapping";
+import { BlobDataSet } from "./blobDataSet";
+import { BlobDataSetMapping } from "./blobDataSetMapping";
+import { BlobFolderDataSet } from "./blobFolderDataSet";
+import { BlobFolderDataSetMapping } from "./blobFolderDataSetMapping";
+import { BlobStorageAccountDataSet } from "./blobStorageAccountDataSet";
+import { BlobStorageAccountDataSetMapping } from "./blobStorageAccountDataSetMapping";
 import { DataSet } from "./dataSet";
 import { DataSetMapping } from "./dataSetMapping";
 import { Invitation } from "./invitation";
+import { KustoClusterDataSet } from "./kustoClusterDataSet";
+import { KustoClusterDataSetMapping } from "./kustoClusterDataSetMapping";
+import { KustoDatabaseDataSet } from "./kustoDatabaseDataSet";
+import { KustoDatabaseDataSetMapping } from "./kustoDatabaseDataSetMapping";
+import { ScheduledSynchronizationSetting } from "./scheduledSynchronizationSetting";
+import { ScheduledTrigger } from "./scheduledTrigger";
 import { Share } from "./share";
 import { ShareSubscription } from "./shareSubscription";
+import { SqlDBTableDataSet } from "./sqlDBTableDataSet";
+import { SqlDBTableDataSetMapping } from "./sqlDBTableDataSetMapping";
+import { SqlDWTableDataSet } from "./sqlDWTableDataSet";
+import { SqlDWTableDataSetMapping } from "./sqlDWTableDataSetMapping";
+import { SynapseWorkspaceSqlPoolTableDataSet } from "./synapseWorkspaceSqlPoolTableDataSet";
+import { SynapseWorkspaceSqlPoolTableDataSetMapping } from "./synapseWorkspaceSqlPoolTableDataSetMapping";
 import { SynchronizationSetting } from "./synchronizationSetting";
 import { Trigger } from "./trigger";
 
@@ -44,18 +134,78 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:datashare/v20201001preview:ADLSGen1FileDataSet":
+                return new ADLSGen1FileDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet":
+                return new ADLSGen1FolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSet":
+                return new ADLSGen2FileDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FileDataSetMapping":
+                return new ADLSGen2FileDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSet":
+                return new ADLSGen2FileSystemDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping":
+                return new ADLSGen2FileSystemDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet":
+                return new ADLSGen2FolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping":
+                return new ADLSGen2FolderDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet":
+                return new ADLSGen2StorageAccountDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping":
+                return new ADLSGen2StorageAccountDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobContainerDataSet":
+                return new BlobContainerDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobContainerDataSetMapping":
+                return new BlobContainerDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobDataSet":
+                return new BlobDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobDataSetMapping":
+                return new BlobDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobFolderDataSet":
+                return new BlobFolderDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobFolderDataSetMapping":
+                return new BlobFolderDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet":
+                return new BlobStorageAccountDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping":
+                return new BlobStorageAccountDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:KustoClusterDataSet":
+                return new KustoClusterDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping":
+                return new KustoClusterDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:KustoDatabaseDataSet":
+                return new KustoDatabaseDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping":
+                return new KustoDatabaseDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting":
+                return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:ScheduledTrigger":
+                return new ScheduledTrigger(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:Share":
                 return new Share(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SqlDBTableDataSet":
+                return new SqlDBTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping":
+                return new SqlDBTableDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SqlDWTableDataSet":
+                return new SqlDWTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping":
+                return new SqlDWTableDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet":
+                return new SynapseWorkspaceSqlPoolTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping":
+                return new SynapseWorkspaceSqlPoolTableDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:Trigger":

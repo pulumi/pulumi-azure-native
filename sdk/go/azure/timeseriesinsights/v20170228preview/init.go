@@ -25,8 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessPolicy{}
 	case "azure-native:timeseriesinsights/v20170228preview:Environment":
 		r = &Environment{}
+	case "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource":
+		r = &EventHubEventSource{}
 	case "azure-native:timeseriesinsights/v20170228preview:EventSource":
 		r = &EventSource{}
+	case "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource":
+		r = &IoTHubEventSource{}
 	case "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet":
 		r = &ReferenceDataSet{}
 	default:

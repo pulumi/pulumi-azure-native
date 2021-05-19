@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
+    [Obsolete(@"Please use one of the variants: ScheduledTrigger.")]
     public static class GetTrigger
     {
         /// <summary>

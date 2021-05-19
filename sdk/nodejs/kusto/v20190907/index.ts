@@ -9,12 +9,22 @@ export * from "./attachedDatabaseConfiguration";
 export * from "./cluster";
 export * from "./dataConnection";
 export * from "./database";
+export * from "./eventGridDataConnection";
+export * from "./eventHubDataConnection";
 export * from "./getAttachedDatabaseConfiguration";
 export * from "./getCluster";
 export * from "./getDataConnection";
 export * from "./getDatabase";
+export * from "./getEventGridDataConnection";
+export * from "./getEventHubDataConnection";
+export * from "./getIotHubDataConnection";
+export * from "./getReadOnlyFollowingDatabase";
+export * from "./getReadWriteDatabase";
+export * from "./iotHubDataConnection";
 export * from "./listClusterFollowerDatabases";
 export * from "./listDatabasePrincipals";
+export * from "./readOnlyFollowingDatabase";
+export * from "./readWriteDatabase";
 
 // Export enums:
 export * from "../../types/enums/kusto/v20190907";
@@ -24,6 +34,11 @@ import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
 import { Cluster } from "./cluster";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
+import { EventGridDataConnection } from "./eventGridDataConnection";
+import { EventHubDataConnection } from "./eventHubDataConnection";
+import { IotHubDataConnection } from "./iotHubDataConnection";
+import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
+import { ReadWriteDatabase } from "./readWriteDatabase";
 
 const _module = {
     version: utilities.getVersion(),
@@ -37,6 +52,16 @@ const _module = {
                 return new DataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto/v20190907:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190907:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190907:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190907:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190907:ReadWriteDatabase":
+                return new ReadWriteDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

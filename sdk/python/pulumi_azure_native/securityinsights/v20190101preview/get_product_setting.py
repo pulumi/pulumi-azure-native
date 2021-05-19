@@ -14,6 +14,8 @@ __all__ = [
     'get_product_setting',
 ]
 
+warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProductSettingResult:
     """
@@ -104,6 +106,7 @@ def get_product_setting(operational_insights_resource_provider: Optional[str] = 
     :param str settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_product_setting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name

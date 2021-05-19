@@ -14,6 +14,8 @@ __all__ = [
     'get_data_connector',
 ]
 
+warnings.warn("""Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataConnectorResult:
     """
@@ -102,6 +104,7 @@ def get_data_connector(data_connector_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_data_connector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.""")
     __args__ = dict()
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name

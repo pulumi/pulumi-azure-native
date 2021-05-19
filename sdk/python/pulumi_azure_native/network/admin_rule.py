@@ -111,7 +111,12 @@ class AdminRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+warnings.warn("""Please use one of the variants: AdminRule, DefaultAdminRule.""", DeprecationWarning)
+
+
 class AdminRule(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: AdminRule, DefaultAdminRule.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class AdminRule(pulumi.CustomResource):
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

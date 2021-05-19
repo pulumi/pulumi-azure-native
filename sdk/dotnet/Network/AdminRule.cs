@@ -13,6 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Network base admin rule.
     /// API Version: 2021-02-01-preview.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: AdminRule, DefaultAdminRule.")]
     [AzureNativeResourceType("azure-native:network:AdminRule")]
     public partial class AdminRule : Pulumi.CustomResource
     {

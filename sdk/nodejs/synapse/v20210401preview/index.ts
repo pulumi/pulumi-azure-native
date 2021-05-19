@@ -9,19 +9,25 @@ export * from "./bigDataPool";
 export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
+export * from "./eventGridDataConnection";
+export * from "./eventHubDataConnection";
 export * from "./getBigDataPool";
 export * from "./getDataConnection";
 export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
+export * from "./getEventGridDataConnection";
+export * from "./getEventHubDataConnection";
 export * from "./getIntegrationRuntime";
 export * from "./getIntegrationRuntimeConnectionInfo";
 export * from "./getIntegrationRuntimeObjectMetadatum";
 export * from "./getIntegrationRuntimeStatus";
+export * from "./getIotHubDataConnection";
 export * from "./getIpFirewallRule";
 export * from "./getKey";
 export * from "./getKustoPoolPrincipalAssignment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
+export * from "./getReadWriteDatabase";
 export * from "./getSqlPool";
 export * from "./getSqlPoolSensitivityLabel";
 export * from "./getSqlPoolTransparentDataEncryption";
@@ -35,6 +41,7 @@ export * from "./getWorkspaceManagedSqlServerVulnerabilityAssessment";
 export * from "./getWorkspaceSqlAadAdmin";
 export * from "./getkustoPool";
 export * from "./integrationRuntime";
+export * from "./iotHubDataConnection";
 export * from "./ipFirewallRule";
 export * from "./key";
 export * from "./kustoPool";
@@ -42,6 +49,7 @@ export * from "./kustoPoolPrincipalAssignment";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
+export * from "./readWriteDatabase";
 export * from "./sqlPool";
 export * from "./sqlPoolSensitivityLabel";
 export * from "./sqlPoolTransparentDataEncryption";
@@ -62,12 +70,16 @@ import { BigDataPool } from "./bigDataPool";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
+import { EventGridDataConnection } from "./eventGridDataConnection";
+import { EventHubDataConnection } from "./eventHubDataConnection";
 import { IntegrationRuntime } from "./integrationRuntime";
+import { IotHubDataConnection } from "./iotHubDataConnection";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
 import { KustoPoolPrincipalAssignment } from "./kustoPoolPrincipalAssignment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
+import { ReadWriteDatabase } from "./readWriteDatabase";
 import { SqlPool } from "./sqlPool";
 import { SqlPoolSensitivityLabel } from "./sqlPoolSensitivityLabel";
 import { SqlPoolTransparentDataEncryption } from "./sqlPoolTransparentDataEncryption";
@@ -93,8 +105,14 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:IpFirewallRule":
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:Key":
@@ -105,6 +123,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:ReadWriteDatabase":
+                return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel":

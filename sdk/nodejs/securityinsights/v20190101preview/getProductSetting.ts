@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Setting.
  */
+/** @deprecated Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba. */
 export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSettingResult> {
+    pulumi.log.warn("getProductSetting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.")
     if (!opts) {
         opts = {}
     }

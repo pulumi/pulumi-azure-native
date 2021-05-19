@@ -15,6 +15,8 @@ __all__ = [
     'EncryptionAlgorithm',
     'MonitoringStatus',
     'MsiIdentityType',
+    'PlatformType',
+    'RoleStatus',
     'RoleTypes',
     'SSLStatus',
     'ShareAccessProtocol',
@@ -118,6 +120,22 @@ class MsiIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class PlatformType(str, Enum):
+    """
+    Host OS supported by the Kubernetes role.
+    """
+    WINDOWS = "Windows"
+    LINUX = "Linux"
+
+
+class RoleStatus(str, Enum):
+    """
+    Role status.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class RoleTypes(str, Enum):

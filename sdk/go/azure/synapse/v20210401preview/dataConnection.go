@@ -12,6 +12,8 @@ import (
 )
 
 // Class representing a data connection.
+//
+// Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 type DataConnection struct {
 	pulumi.CustomResourceState
 

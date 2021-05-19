@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// Class representing a data connection.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")]
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
     {

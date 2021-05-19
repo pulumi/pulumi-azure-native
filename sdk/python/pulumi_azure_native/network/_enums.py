@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Access',
     'ActionType',
+    'AddressPrefixType',
     'AdminRuleKind',
     'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
@@ -135,6 +136,9 @@ __all__ = [
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
+    'SecurityConfigurationRuleAccess',
+    'SecurityConfigurationRuleDirection',
+    'SecurityConfigurationRuleProtocol',
     'SecurityProviderName',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
@@ -195,6 +199,14 @@ class ActionType(str, Enum):
     BLOCK = "Block"
     LOG = "Log"
     REDIRECT = "Redirect"
+
+
+class AddressPrefixType(str, Enum):
+    """
+    Address prefix type.
+    """
+    IP_PREFIX = "IPPrefix"
+    SERVICE_TAG = "ServiceTag"
 
 
 class AdminRuleKind(str, Enum):
@@ -1398,6 +1410,35 @@ class RulesEngineOperator(str, Enum):
     GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
     BEGINS_WITH = "BeginsWith"
     ENDS_WITH = "EndsWith"
+
+
+class SecurityConfigurationRuleAccess(str, Enum):
+    """
+    Indicates the access allowed for this particular rule
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+    ALWAYS_ALLOW = "AlwaysAllow"
+
+
+class SecurityConfigurationRuleDirection(str, Enum):
+    """
+    Indicates if the traffic matched against the rule in inbound or outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityConfigurationRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ANY = "Any"
+    AH = "Ah"
 
 
 class SecurityProviderName(str, Enum):

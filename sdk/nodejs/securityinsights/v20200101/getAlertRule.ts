@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Alert rule.
  */
+/** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
+    pulumi.log.warn("getAlertRule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,8 @@ import (
 )
 
 // Compute role.
+//
+// Deprecated: Please use one of the variants: IoTRole.
 type Role struct {
 	pulumi.CustomResourceState
 

@@ -129,6 +129,70 @@ func (o ActiveConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ActiveC
 }
 
 // Address prefix item.
+type AddressPrefixItem struct {
+	// Address prefix.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Address prefix type.
+	AddressPrefixType *string `pulumi:"addressPrefixType"`
+}
+
+// AddressPrefixItemInput is an input type that accepts AddressPrefixItemArgs and AddressPrefixItemOutput values.
+// You can construct a concrete instance of `AddressPrefixItemInput` via:
+//
+//          AddressPrefixItemArgs{...}
+type AddressPrefixItemInput interface {
+	pulumi.Input
+
+	ToAddressPrefixItemOutput() AddressPrefixItemOutput
+	ToAddressPrefixItemOutputWithContext(context.Context) AddressPrefixItemOutput
+}
+
+// Address prefix item.
+type AddressPrefixItemArgs struct {
+	// Address prefix.
+	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
+	// Address prefix type.
+	AddressPrefixType pulumi.StringPtrInput `pulumi:"addressPrefixType"`
+}
+
+func (AddressPrefixItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressPrefixItem)(nil)).Elem()
+}
+
+func (i AddressPrefixItemArgs) ToAddressPrefixItemOutput() AddressPrefixItemOutput {
+	return i.ToAddressPrefixItemOutputWithContext(context.Background())
+}
+
+func (i AddressPrefixItemArgs) ToAddressPrefixItemOutputWithContext(ctx context.Context) AddressPrefixItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressPrefixItemOutput)
+}
+
+// Address prefix item.
+type AddressPrefixItemOutput struct{ *pulumi.OutputState }
+
+func (AddressPrefixItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressPrefixItem)(nil)).Elem()
+}
+
+func (o AddressPrefixItemOutput) ToAddressPrefixItemOutput() AddressPrefixItemOutput {
+	return o
+}
+
+func (o AddressPrefixItemOutput) ToAddressPrefixItemOutputWithContext(ctx context.Context) AddressPrefixItemOutput {
+	return o
+}
+
+// Address prefix.
+func (o AddressPrefixItemOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressPrefixItem) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Address prefix type.
+func (o AddressPrefixItemOutput) AddressPrefixType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressPrefixItem) *string { return v.AddressPrefixType }).(pulumi.StringPtrOutput)
+}
+
+// Address prefix item.
 type AddressPrefixItemResponse struct {
 	// Address prefix.
 	AddressPrefix *string `pulumi:"addressPrefix"`
@@ -2942,6 +3006,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ActiveConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ActiveConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(AddressPrefixItemOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationGroupResponseOutput{})

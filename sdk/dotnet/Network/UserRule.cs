@@ -13,6 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Network base rule.
     /// API Version: 2021-02-01-preview.
     /// </summary>
+    [Obsolete(@"Please use one of the variants: DefaultUserRule, UserRule.")]
     [AzureNativeResourceType("azure-native:network:UserRule")]
     public partial class UserRule : Pulumi.CustomResource
     {

@@ -7,12 +7,20 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./accessPolicy";
 export * from "./environment";
+export * from "./eventHubEventSource";
 export * from "./eventSource";
 export * from "./getAccessPolicy";
 export * from "./getEnvironment";
+export * from "./getEventHubEventSource";
 export * from "./getEventSource";
+export * from "./getIoTHubEventSource";
+export * from "./getLongTermEnvironment";
 export * from "./getReferenceDataSet";
+export * from "./getStandardEnvironment";
+export * from "./ioTHubEventSource";
+export * from "./longTermEnvironment";
 export * from "./referenceDataSet";
+export * from "./standardEnvironment";
 
 // Export enums:
 export * from "../../types/enums/timeseriesinsights/v20180815preview";
@@ -20,8 +28,12 @@ export * from "../../types/enums/timeseriesinsights/v20180815preview";
 // Import resources to register:
 import { AccessPolicy } from "./accessPolicy";
 import { Environment } from "./environment";
+import { EventHubEventSource } from "./eventHubEventSource";
 import { EventSource } from "./eventSource";
+import { IoTHubEventSource } from "./ioTHubEventSource";
+import { LongTermEnvironment } from "./longTermEnvironment";
 import { ReferenceDataSet } from "./referenceDataSet";
+import { StandardEnvironment } from "./standardEnvironment";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,10 +43,18 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource":
+                return new EventHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:EventSource":
                 return new EventSource(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource":
+                return new IoTHubEventSource(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment":
+                return new LongTermEnvironment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20180815preview:StandardEnvironment":
+                return new StandardEnvironment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

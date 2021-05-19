@@ -309,6 +309,68 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
     }
 
     /// <summary>
+    /// Host OS supported by the IoT role.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlatformType : IEquatable<PlatformType>
+    {
+        private readonly string _value;
+
+        private PlatformType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlatformType Windows { get; } = new PlatformType("Windows");
+        public static PlatformType Linux { get; } = new PlatformType("Linux");
+
+        public static bool operator ==(PlatformType left, PlatformType right) => left.Equals(right);
+        public static bool operator !=(PlatformType left, PlatformType right) => !left.Equals(right);
+
+        public static explicit operator string(PlatformType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlatformType other && Equals(other);
+        public bool Equals(PlatformType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Role status.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoleStatus : IEquatable<RoleStatus>
+    {
+        private readonly string _value;
+
+        private RoleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoleStatus Enabled { get; } = new RoleStatus("Enabled");
+        public static RoleStatus Disabled { get; } = new RoleStatus("Disabled");
+
+        public static bool operator ==(RoleStatus left, RoleStatus right) => left.Equals(right);
+        public static bool operator !=(RoleStatus left, RoleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RoleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoleStatus other && Equals(other);
+        public bool Equals(RoleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Role type.
     /// </summary>
     [EnumType]

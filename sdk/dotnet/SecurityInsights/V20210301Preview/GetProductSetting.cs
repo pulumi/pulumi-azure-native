@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
+    [Obsolete(@"Please use one of the variants: EntityAnalytics, EyesOn, Ueba.")]
     public static class GetProductSetting
     {
         /// <summary>

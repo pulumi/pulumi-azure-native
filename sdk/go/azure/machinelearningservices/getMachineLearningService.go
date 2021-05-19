@@ -9,6 +9,8 @@ import (
 
 // Machine Learning service object wrapped into ARM resource envelope.
 // API Version: 2021-01-01.
+//
+// Deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.
 func LookupMachineLearningService(ctx *pulumi.Context, args *LookupMachineLearningServiceArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningServiceResult, error) {
 	var rv LookupMachineLearningServiceResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getMachineLearningService", args, &rv, opts...)

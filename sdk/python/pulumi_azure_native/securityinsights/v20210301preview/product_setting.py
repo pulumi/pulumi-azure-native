@@ -112,7 +112,12 @@ class ProductSettingArgs:
         pulumi.set(self, "settings_name", value)
 
 
+warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, Ueba.""", DeprecationWarning)
+
+
 class ProductSetting(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, Ueba.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class ProductSetting(pulumi.CustomResource):
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ProductSetting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

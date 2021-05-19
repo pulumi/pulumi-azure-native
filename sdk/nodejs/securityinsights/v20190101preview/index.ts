@@ -5,32 +5,76 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./aaddataConnector";
+export * from "./aatpdataConnector";
 export * from "./action";
 export * from "./alertRule";
+export * from "./ascdataConnector";
 export * from "./automationRule";
+export * from "./awsCloudTrailDataConnector";
 export * from "./bookmark";
 export * from "./bookmarkRelation";
 export * from "./dataConnector";
+export * from "./dynamics365DataConnector";
+export * from "./entityAnalytics";
+export * from "./eyesOn";
+export * from "./fusionAlertRule";
+export * from "./getAADDataConnector";
+export * from "./getAATPDataConnector";
+export * from "./getASCDataConnector";
 export * from "./getAction";
 export * from "./getAlertRule";
 export * from "./getAutomationRule";
+export * from "./getAwsCloudTrailDataConnector";
 export * from "./getBookmark";
 export * from "./getBookmarkRelation";
 export * from "./getDataConnector";
+export * from "./getDynamics365DataConnector";
 export * from "./getEntitiesGetTimeline";
+export * from "./getEntityAnalytics";
 export * from "./getEntityInsights";
+export * from "./getEyesOn";
+export * from "./getFusionAlertRule";
+export * from "./getIPSyncer";
 export * from "./getIncident";
 export * from "./getIncidentComment";
 export * from "./getIncidentRelation";
+export * from "./getMCASDataConnector";
+export * from "./getMDATPDataConnector";
+export * from "./getMLBehaviorAnalyticsAlertRule";
+export * from "./getMSTIDataConnector";
+export * from "./getMTPDataConnector";
+export * from "./getMicrosoftSecurityIncidentCreationAlertRule";
+export * from "./getOfficeATPDataConnector";
+export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
+export * from "./getScheduledAlertRule";
+export * from "./getTIDataConnector";
+export * from "./getThreatIntelligenceAlertRule";
 export * from "./getThreatIntelligenceIndicator";
+export * from "./getTiTaxiiDataConnector";
+export * from "./getUeba";
 export * from "./getWatchlist";
 export * from "./getWatchlistItem";
 export * from "./incident";
 export * from "./incidentComment";
 export * from "./incidentRelation";
+export * from "./ipsyncer";
+export * from "./mcasdataConnector";
+export * from "./mdatpdataConnector";
+export * from "./microsoftSecurityIncidentCreationAlertRule";
+export * from "./mlbehaviorAnalyticsAlertRule";
+export * from "./mstidataConnector";
+export * from "./mtpdataConnector";
+export * from "./officeATPDataConnector";
+export * from "./officeDataConnector";
 export * from "./productSetting";
+export * from "./scheduledAlertRule";
+export * from "./threatIntelligenceAlertRule";
 export * from "./threatIntelligenceIndicator";
+export * from "./tiTaxiiDataConnector";
+export * from "./tidataConnector";
+export * from "./ueba";
 export * from "./watchlist";
 export * from "./watchlistItem";
 
@@ -38,17 +82,39 @@ export * from "./watchlistItem";
 export * from "../../types/enums/securityinsights/v20190101preview";
 
 // Import resources to register:
+import { AADDataConnector } from "./aaddataConnector";
+import { AATPDataConnector } from "./aatpdataConnector";
+import { ASCDataConnector } from "./ascdataConnector";
 import { Action } from "./action";
 import { AlertRule } from "./alertRule";
 import { AutomationRule } from "./automationRule";
+import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { Bookmark } from "./bookmark";
 import { BookmarkRelation } from "./bookmarkRelation";
 import { DataConnector } from "./dataConnector";
+import { Dynamics365DataConnector } from "./dynamics365DataConnector";
+import { EntityAnalytics } from "./entityAnalytics";
+import { EyesOn } from "./eyesOn";
+import { FusionAlertRule } from "./fusionAlertRule";
+import { IPSyncer } from "./ipsyncer";
 import { Incident } from "./incident";
 import { IncidentComment } from "./incidentComment";
 import { IncidentRelation } from "./incidentRelation";
+import { MCASDataConnector } from "./mcasdataConnector";
+import { MDATPDataConnector } from "./mdatpdataConnector";
+import { MLBehaviorAnalyticsAlertRule } from "./mlbehaviorAnalyticsAlertRule";
+import { MSTIDataConnector } from "./mstidataConnector";
+import { MTPDataConnector } from "./mtpdataConnector";
+import { MicrosoftSecurityIncidentCreationAlertRule } from "./microsoftSecurityIncidentCreationAlertRule";
+import { OfficeATPDataConnector } from "./officeATPDataConnector";
+import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
+import { ScheduledAlertRule } from "./scheduledAlertRule";
+import { TIDataConnector } from "./tidataConnector";
+import { ThreatIntelligenceAlertRule } from "./threatIntelligenceAlertRule";
 import { ThreatIntelligenceIndicator } from "./threatIntelligenceIndicator";
+import { TiTaxiiDataConnector } from "./tiTaxiiDataConnector";
+import { Ueba } from "./ueba";
 import { Watchlist } from "./watchlist";
 import { WatchlistItem } from "./watchlistItem";
 
@@ -56,28 +122,72 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:securityinsights/v20190101preview:AADDataConnector":
+                return new AADDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:AATPDataConnector":
+                return new AATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:ASCDataConnector":
+                return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Action":
                 return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector":
+                return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:DataConnector":
                 return new DataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector":
+                return new Dynamics365DataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:EntityAnalytics":
+                return new EntityAnalytics(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:EyesOn":
+                return new EyesOn(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:FusionAlertRule":
+                return new FusionAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:IPSyncer":
+                return new IPSyncer(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Incident":
                 return new Incident(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:IncidentComment":
                 return new IncidentComment(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:IncidentRelation":
                 return new IncidentRelation(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MCASDataConnector":
+                return new MCASDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MDATPDataConnector":
+                return new MDATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule":
+                return new MLBehaviorAnalyticsAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MSTIDataConnector":
+                return new MSTIDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MTPDataConnector":
+                return new MTPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule":
+                return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:OfficeATPDataConnector":
+                return new OfficeATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:OfficeDataConnector":
+                return new OfficeDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:ScheduledAlertRule":
+                return new ScheduledAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:TIDataConnector":
+                return new TIDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule":
+                return new ThreatIntelligenceAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator":
                 return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector":
+                return new TiTaxiiDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:Ueba":
+                return new Ueba(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:WatchlistItem":

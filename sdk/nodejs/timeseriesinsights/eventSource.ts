@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
  * API Version: 2020-05-15.
+ *
+ * @deprecated Please use one of the variants: EventHubEventSource, IoTHubEventSource.
  */
 export class EventSource extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class EventSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventSource {
+        pulumi.log.warn("EventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.")
         return new EventSource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,7 +67,9 @@ export class EventSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: EventHubEventSource, IoTHubEventSource. */
     constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

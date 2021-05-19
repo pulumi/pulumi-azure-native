@@ -15,6 +15,8 @@ __all__ = [
     'get_role',
 ]
 
+warnings.warn("""Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleResult:
     """
@@ -103,6 +105,7 @@ def get_role(device_name: Optional[str] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_role is deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

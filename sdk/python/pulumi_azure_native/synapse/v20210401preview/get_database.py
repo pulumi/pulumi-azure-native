@@ -15,6 +15,8 @@ __all__ = [
     'get_database',
 ]
 
+warnings.warn("""Please use one of the variants: ReadWriteDatabase.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabaseResult:
     """
@@ -117,6 +119,7 @@ def get_database(database_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_database is deprecated: Please use one of the variants: ReadWriteDatabase.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['kustoPoolName'] = kusto_pool_name

@@ -25,10 +25,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessPolicy{}
 	case "azure-native:timeseriesinsights/v20180815preview:Environment":
 		r = &Environment{}
+	case "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource":
+		r = &EventHubEventSource{}
 	case "azure-native:timeseriesinsights/v20180815preview:EventSource":
 		r = &EventSource{}
+	case "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource":
+		r = &IoTHubEventSource{}
+	case "azure-native:timeseriesinsights/v20180815preview:LongTermEnvironment":
+		r = &LongTermEnvironment{}
 	case "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet":
 		r = &ReferenceDataSet{}
+	case "azure-native:timeseriesinsights/v20180815preview:StandardEnvironment":
+		r = &StandardEnvironment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

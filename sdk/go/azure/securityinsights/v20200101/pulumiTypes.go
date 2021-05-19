@@ -10,6 +10,1084 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnector struct {
+	// Alerts data type connection.
+	Alerts *DataConnectorDataTypeCommon `pulumi:"alerts"`
+}
+
+// AlertsDataTypeOfDataConnectorInput is an input type that accepts AlertsDataTypeOfDataConnectorArgs and AlertsDataTypeOfDataConnectorOutput values.
+// You can construct a concrete instance of `AlertsDataTypeOfDataConnectorInput` via:
+//
+//          AlertsDataTypeOfDataConnectorArgs{...}
+type AlertsDataTypeOfDataConnectorInput interface {
+	pulumi.Input
+
+	ToAlertsDataTypeOfDataConnectorOutput() AlertsDataTypeOfDataConnectorOutput
+	ToAlertsDataTypeOfDataConnectorOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorOutput
+}
+
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnectorArgs struct {
+	// Alerts data type connection.
+	Alerts DataConnectorDataTypeCommonPtrInput `pulumi:"alerts"`
+}
+
+func (AlertsDataTypeOfDataConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsDataTypeOfDataConnector)(nil)).Elem()
+}
+
+func (i AlertsDataTypeOfDataConnectorArgs) ToAlertsDataTypeOfDataConnectorOutput() AlertsDataTypeOfDataConnectorOutput {
+	return i.ToAlertsDataTypeOfDataConnectorOutputWithContext(context.Background())
+}
+
+func (i AlertsDataTypeOfDataConnectorArgs) ToAlertsDataTypeOfDataConnectorOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorOutput)
+}
+
+func (i AlertsDataTypeOfDataConnectorArgs) ToAlertsDataTypeOfDataConnectorPtrOutput() AlertsDataTypeOfDataConnectorPtrOutput {
+	return i.ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i AlertsDataTypeOfDataConnectorArgs) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorOutput).ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx)
+}
+
+// AlertsDataTypeOfDataConnectorPtrInput is an input type that accepts AlertsDataTypeOfDataConnectorArgs, AlertsDataTypeOfDataConnectorPtr and AlertsDataTypeOfDataConnectorPtrOutput values.
+// You can construct a concrete instance of `AlertsDataTypeOfDataConnectorPtrInput` via:
+//
+//          AlertsDataTypeOfDataConnectorArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertsDataTypeOfDataConnectorPtrInput interface {
+	pulumi.Input
+
+	ToAlertsDataTypeOfDataConnectorPtrOutput() AlertsDataTypeOfDataConnectorPtrOutput
+	ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorPtrOutput
+}
+
+type alertsDataTypeOfDataConnectorPtrType AlertsDataTypeOfDataConnectorArgs
+
+func AlertsDataTypeOfDataConnectorPtr(v *AlertsDataTypeOfDataConnectorArgs) AlertsDataTypeOfDataConnectorPtrInput {
+	return (*alertsDataTypeOfDataConnectorPtrType)(v)
+}
+
+func (*alertsDataTypeOfDataConnectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertsDataTypeOfDataConnector)(nil)).Elem()
+}
+
+func (i *alertsDataTypeOfDataConnectorPtrType) ToAlertsDataTypeOfDataConnectorPtrOutput() AlertsDataTypeOfDataConnectorPtrOutput {
+	return i.ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i *alertsDataTypeOfDataConnectorPtrType) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorPtrOutput)
+}
+
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnectorOutput struct{ *pulumi.OutputState }
+
+func (AlertsDataTypeOfDataConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsDataTypeOfDataConnector)(nil)).Elem()
+}
+
+func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorOutput() AlertsDataTypeOfDataConnectorOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrOutput() AlertsDataTypeOfDataConnectorPtrOutput {
+	return o.ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(context.Background())
+}
+
+func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) *AlertsDataTypeOfDataConnector {
+		return &v
+	}).(AlertsDataTypeOfDataConnectorPtrOutput)
+}
+
+// Alerts data type connection.
+func (o AlertsDataTypeOfDataConnectorOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) *DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+type AlertsDataTypeOfDataConnectorPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertsDataTypeOfDataConnectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertsDataTypeOfDataConnector)(nil)).Elem()
+}
+
+func (o AlertsDataTypeOfDataConnectorPtrOutput) ToAlertsDataTypeOfDataConnectorPtrOutput() AlertsDataTypeOfDataConnectorPtrOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorPtrOutput) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorPtrOutput) Elem() AlertsDataTypeOfDataConnectorOutput {
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) AlertsDataTypeOfDataConnector { return *v }).(AlertsDataTypeOfDataConnectorOutput)
+}
+
+// Alerts data type connection.
+func (o AlertsDataTypeOfDataConnectorPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) *DataConnectorDataTypeCommon {
+		if v == nil {
+			return nil
+		}
+		return v.Alerts
+	}).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnectorResponse struct {
+	// Alerts data type connection.
+	Alerts *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
+}
+
+// AlertsDataTypeOfDataConnectorResponseInput is an input type that accepts AlertsDataTypeOfDataConnectorResponseArgs and AlertsDataTypeOfDataConnectorResponseOutput values.
+// You can construct a concrete instance of `AlertsDataTypeOfDataConnectorResponseInput` via:
+//
+//          AlertsDataTypeOfDataConnectorResponseArgs{...}
+type AlertsDataTypeOfDataConnectorResponseInput interface {
+	pulumi.Input
+
+	ToAlertsDataTypeOfDataConnectorResponseOutput() AlertsDataTypeOfDataConnectorResponseOutput
+	ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorResponseOutput
+}
+
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnectorResponseArgs struct {
+	// Alerts data type connection.
+	Alerts DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
+}
+
+func (AlertsDataTypeOfDataConnectorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
+}
+
+func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponseOutput() AlertsDataTypeOfDataConnectorResponseOutput {
+	return i.ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(context.Background())
+}
+
+func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponseOutput)
+}
+
+func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return i.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AlertsDataTypeOfDataConnectorResponseArgs) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponseOutput).ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx)
+}
+
+// AlertsDataTypeOfDataConnectorResponsePtrInput is an input type that accepts AlertsDataTypeOfDataConnectorResponseArgs, AlertsDataTypeOfDataConnectorResponsePtr and AlertsDataTypeOfDataConnectorResponsePtrOutput values.
+// You can construct a concrete instance of `AlertsDataTypeOfDataConnectorResponsePtrInput` via:
+//
+//          AlertsDataTypeOfDataConnectorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertsDataTypeOfDataConnectorResponsePtrInput interface {
+	pulumi.Input
+
+	ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput
+	ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput
+}
+
+type alertsDataTypeOfDataConnectorResponsePtrType AlertsDataTypeOfDataConnectorResponseArgs
+
+func AlertsDataTypeOfDataConnectorResponsePtr(v *AlertsDataTypeOfDataConnectorResponseArgs) AlertsDataTypeOfDataConnectorResponsePtrInput {
+	return (*alertsDataTypeOfDataConnectorResponsePtrType)(v)
+}
+
+func (*alertsDataTypeOfDataConnectorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
+}
+
+func (i *alertsDataTypeOfDataConnectorResponsePtrType) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return i.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *alertsDataTypeOfDataConnectorResponsePtrType) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Alerts data type for data connectors.
+type AlertsDataTypeOfDataConnectorResponseOutput struct{ *pulumi.OutputState }
+
+func (AlertsDataTypeOfDataConnectorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
+}
+
+func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponseOutput() AlertsDataTypeOfDataConnectorResponseOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponseOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
+		return &v
+	}).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Alerts data type connection.
+func (o AlertsDataTypeOfDataConnectorResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) *DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+type AlertsDataTypeOfDataConnectorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertsDataTypeOfDataConnectorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertsDataTypeOfDataConnectorResponse)(nil)).Elem()
+}
+
+func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutput() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o
+}
+
+func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Elem() AlertsDataTypeOfDataConnectorResponseOutput {
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) AlertsDataTypeOfDataConnectorResponse { return *v }).(AlertsDataTypeOfDataConnectorResponseOutput)
+}
+
+// Alerts data type connection.
+func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) *DataConnectorDataTypeCommonResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Alerts
+	}).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypes struct {
+	// Logs data type.
+	Logs *AwsCloudTrailDataConnectorDataTypesLogs `pulumi:"logs"`
+}
+
+// AwsCloudTrailDataConnectorDataTypesInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesArgs and AwsCloudTrailDataConnectorDataTypesOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesArgs{...}
+type AwsCloudTrailDataConnectorDataTypesInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesOutput() AwsCloudTrailDataConnectorDataTypesOutput
+	ToAwsCloudTrailDataConnectorDataTypesOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesOutput
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypesArgs struct {
+	// Logs data type.
+	Logs AwsCloudTrailDataConnectorDataTypesLogsPtrInput `pulumi:"logs"`
+}
+
+func (AwsCloudTrailDataConnectorDataTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesArgs) ToAwsCloudTrailDataConnectorDataTypesOutput() AwsCloudTrailDataConnectorDataTypesOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesArgs) ToAwsCloudTrailDataConnectorDataTypesOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesOutput)
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesArgs) ToAwsCloudTrailDataConnectorDataTypesPtrOutput() AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesArgs) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesOutput).ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx)
+}
+
+// AwsCloudTrailDataConnectorDataTypesPtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesArgs, AwsCloudTrailDataConnectorDataTypesPtr and AwsCloudTrailDataConnectorDataTypesPtrOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesPtrInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesArgs{...}
+//
+//  or:
+//
+//          nil
+type AwsCloudTrailDataConnectorDataTypesPtrInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesPtrOutput() AwsCloudTrailDataConnectorDataTypesPtrOutput
+	ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput
+}
+
+type awsCloudTrailDataConnectorDataTypesPtrType AwsCloudTrailDataConnectorDataTypesArgs
+
+func AwsCloudTrailDataConnectorDataTypesPtr(v *AwsCloudTrailDataConnectorDataTypesArgs) AwsCloudTrailDataConnectorDataTypesPtrInput {
+	return (*awsCloudTrailDataConnectorDataTypesPtrType)(v)
+}
+
+func (*awsCloudTrailDataConnectorDataTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesPtrType) ToAwsCloudTrailDataConnectorDataTypesPtrOutput() AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesPtrType) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesOutput() AwsCloudTrailDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutput() AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return o.ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypes {
+		return &v
+	}).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
+}
+
+// Logs data type.
+func (o AwsCloudTrailDataConnectorDataTypesOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypesLogs { return v.Logs }).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
+}
+
+type AwsCloudTrailDataConnectorDataTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutput() AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypes { return *v }).(AwsCloudTrailDataConnectorDataTypesOutput)
+}
+
+// Logs data type.
+func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypesLogs {
+		if v == nil {
+			return nil
+		}
+		return v.Logs
+	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesLogs struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// AwsCloudTrailDataConnectorDataTypesLogsInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesLogsArgs and AwsCloudTrailDataConnectorDataTypesLogsOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesLogsInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
+type AwsCloudTrailDataConnectorDataTypesLogsInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesLogsOutput() AwsCloudTrailDataConnectorDataTypesLogsOutput
+	ToAwsCloudTrailDataConnectorDataTypesLogsOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesLogsOutput
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesLogsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (AwsCloudTrailDataConnectorDataTypesLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesLogs)(nil)).Elem()
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesLogsArgs) ToAwsCloudTrailDataConnectorDataTypesLogsOutput() AwsCloudTrailDataConnectorDataTypesLogsOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesLogsOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesLogsArgs) ToAwsCloudTrailDataConnectorDataTypesLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesLogsArgs) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesLogsArgs) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesLogsOutput).ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx)
+}
+
+// AwsCloudTrailDataConnectorDataTypesLogsPtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesLogsArgs, AwsCloudTrailDataConnectorDataTypesLogsPtr and AwsCloudTrailDataConnectorDataTypesLogsPtrOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesLogsPtrInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type AwsCloudTrailDataConnectorDataTypesLogsPtrInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput
+	ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput
+}
+
+type awsCloudTrailDataConnectorDataTypesLogsPtrType AwsCloudTrailDataConnectorDataTypesLogsArgs
+
+func AwsCloudTrailDataConnectorDataTypesLogsPtr(v *AwsCloudTrailDataConnectorDataTypesLogsArgs) AwsCloudTrailDataConnectorDataTypesLogsPtrInput {
+	return (*awsCloudTrailDataConnectorDataTypesLogsPtrType)(v)
+}
+
+func (*awsCloudTrailDataConnectorDataTypesLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesLogs)(nil)).Elem()
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesLogsOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesLogs)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsOutput() AwsCloudTrailDataConnectorDataTypesLogsOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o.ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(context.Background())
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) *AwsCloudTrailDataConnectorDataTypesLogs {
+		return &v
+	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type AwsCloudTrailDataConnectorDataTypesLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesLogs)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesLogsOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) AwsCloudTrailDataConnectorDataTypesLogs { return *v }).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypesResponse struct {
+	// Logs data type.
+	Logs *AwsCloudTrailDataConnectorDataTypesResponseLogs `pulumi:"logs"`
+}
+
+// AwsCloudTrailDataConnectorDataTypesResponseInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesResponseArgs and AwsCloudTrailDataConnectorDataTypesResponseOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesResponseInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesResponseArgs{...}
+type AwsCloudTrailDataConnectorDataTypesResponseInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesResponseOutput() AwsCloudTrailDataConnectorDataTypesResponseOutput
+	ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypesResponseArgs struct {
+	// Logs data type.
+	Logs AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput `pulumi:"logs"`
+}
+
+func (AwsCloudTrailDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponseOutput() AwsCloudTrailDataConnectorDataTypesResponseOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseArgs) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseOutput).ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
+}
+
+// AwsCloudTrailDataConnectorDataTypesResponsePtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesResponseArgs, AwsCloudTrailDataConnectorDataTypesResponsePtr and AwsCloudTrailDataConnectorDataTypesResponsePtrOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesResponsePtrInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AwsCloudTrailDataConnectorDataTypesResponsePtrInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput
+	ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput
+}
+
+type awsCloudTrailDataConnectorDataTypesResponsePtrType AwsCloudTrailDataConnectorDataTypesResponseArgs
+
+func AwsCloudTrailDataConnectorDataTypesResponsePtr(v *AwsCloudTrailDataConnectorDataTypesResponseArgs) AwsCloudTrailDataConnectorDataTypesResponsePtrInput {
+	return (*awsCloudTrailDataConnectorDataTypesResponsePtrType)(v)
+}
+
+func (*awsCloudTrailDataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesResponsePtrType) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesResponsePtrType) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
+}
+
+// The available data types for Amazon Web Services CloudTrail data connector.
+type AwsCloudTrailDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponseOutput() AwsCloudTrailDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return o.ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
+		return &v
+	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Logs data type.
+func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
+		return v.Logs
+	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
+}
+
+type AwsCloudTrailDataConnectorDataTypesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutput() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) AwsCloudTrailDataConnectorDataTypesResponse {
+		return *v
+	}).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
+}
+
+// Logs data type.
+func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
+		if v == nil {
+			return nil
+		}
+		return v.Logs
+	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesResponseLogs struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// AwsCloudTrailDataConnectorDataTypesResponseLogsInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesResponseLogsArgs and AwsCloudTrailDataConnectorDataTypesResponseLogsOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesResponseLogsInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesResponseLogsArgs{...}
+type AwsCloudTrailDataConnectorDataTypesResponseLogsInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput
+	ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesResponseLogsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
+}
+
+func (i AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput).ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx)
+}
+
+// AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput is an input type that accepts AwsCloudTrailDataConnectorDataTypesResponseLogsArgs, AwsCloudTrailDataConnectorDataTypesResponseLogsPtr and AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput values.
+// You can construct a concrete instance of `AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput` via:
+//
+//          AwsCloudTrailDataConnectorDataTypesResponseLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput interface {
+	pulumi.Input
+
+	ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput
+	ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput
+}
+
+type awsCloudTrailDataConnectorDataTypesResponseLogsPtrType AwsCloudTrailDataConnectorDataTypesResponseLogsArgs
+
+func AwsCloudTrailDataConnectorDataTypesResponseLogsPtr(v *AwsCloudTrailDataConnectorDataTypesResponseLogsArgs) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrInput {
+	return (*awsCloudTrailDataConnectorDataTypesResponseLogsPtrType)(v)
+}
+
+func (*awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return i.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
+}
+
+// Logs data type.
+type AwsCloudTrailDataConnectorDataTypesResponseLogsOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o.ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(context.Background())
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
+		return &v
+	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsCloudTrailDataConnectorDataTypesResponseLogs)(nil)).Elem()
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
+	return o
+}
+
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) AwsCloudTrailDataConnectorDataTypesResponseLogs {
+		return *v
+	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommon struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// DataConnectorDataTypeCommonInput is an input type that accepts DataConnectorDataTypeCommonArgs and DataConnectorDataTypeCommonOutput values.
+// You can construct a concrete instance of `DataConnectorDataTypeCommonInput` via:
+//
+//          DataConnectorDataTypeCommonArgs{...}
+type DataConnectorDataTypeCommonInput interface {
+	pulumi.Input
+
+	ToDataConnectorDataTypeCommonOutput() DataConnectorDataTypeCommonOutput
+	ToDataConnectorDataTypeCommonOutputWithContext(context.Context) DataConnectorDataTypeCommonOutput
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommonArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (DataConnectorDataTypeCommonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorDataTypeCommon)(nil)).Elem()
+}
+
+func (i DataConnectorDataTypeCommonArgs) ToDataConnectorDataTypeCommonOutput() DataConnectorDataTypeCommonOutput {
+	return i.ToDataConnectorDataTypeCommonOutputWithContext(context.Background())
+}
+
+func (i DataConnectorDataTypeCommonArgs) ToDataConnectorDataTypeCommonOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonOutput)
+}
+
+func (i DataConnectorDataTypeCommonArgs) ToDataConnectorDataTypeCommonPtrOutput() DataConnectorDataTypeCommonPtrOutput {
+	return i.ToDataConnectorDataTypeCommonPtrOutputWithContext(context.Background())
+}
+
+func (i DataConnectorDataTypeCommonArgs) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonOutput).ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx)
+}
+
+// DataConnectorDataTypeCommonPtrInput is an input type that accepts DataConnectorDataTypeCommonArgs, DataConnectorDataTypeCommonPtr and DataConnectorDataTypeCommonPtrOutput values.
+// You can construct a concrete instance of `DataConnectorDataTypeCommonPtrInput` via:
+//
+//          DataConnectorDataTypeCommonArgs{...}
+//
+//  or:
+//
+//          nil
+type DataConnectorDataTypeCommonPtrInput interface {
+	pulumi.Input
+
+	ToDataConnectorDataTypeCommonPtrOutput() DataConnectorDataTypeCommonPtrOutput
+	ToDataConnectorDataTypeCommonPtrOutputWithContext(context.Context) DataConnectorDataTypeCommonPtrOutput
+}
+
+type dataConnectorDataTypeCommonPtrType DataConnectorDataTypeCommonArgs
+
+func DataConnectorDataTypeCommonPtr(v *DataConnectorDataTypeCommonArgs) DataConnectorDataTypeCommonPtrInput {
+	return (*dataConnectorDataTypeCommonPtrType)(v)
+}
+
+func (*dataConnectorDataTypeCommonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataConnectorDataTypeCommon)(nil)).Elem()
+}
+
+func (i *dataConnectorDataTypeCommonPtrType) ToDataConnectorDataTypeCommonPtrOutput() DataConnectorDataTypeCommonPtrOutput {
+	return i.ToDataConnectorDataTypeCommonPtrOutputWithContext(context.Background())
+}
+
+func (i *dataConnectorDataTypeCommonPtrType) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommonOutput struct{ *pulumi.OutputState }
+
+func (DataConnectorDataTypeCommonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorDataTypeCommon)(nil)).Elem()
+}
+
+func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonOutput() DataConnectorDataTypeCommonOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutput() DataConnectorDataTypeCommonPtrOutput {
+	return o.ToDataConnectorDataTypeCommonPtrOutputWithContext(context.Background())
+}
+
+func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v DataConnectorDataTypeCommon) *DataConnectorDataTypeCommon {
+		return &v
+	}).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o DataConnectorDataTypeCommonOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataConnectorDataTypeCommon) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type DataConnectorDataTypeCommonPtrOutput struct{ *pulumi.OutputState }
+
+func (DataConnectorDataTypeCommonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataConnectorDataTypeCommon)(nil)).Elem()
+}
+
+func (o DataConnectorDataTypeCommonPtrOutput) ToDataConnectorDataTypeCommonPtrOutput() DataConnectorDataTypeCommonPtrOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonPtrOutput) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonPtrOutput) Elem() DataConnectorDataTypeCommonOutput {
+	return o.ApplyT(func(v *DataConnectorDataTypeCommon) DataConnectorDataTypeCommon { return *v }).(DataConnectorDataTypeCommonOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o DataConnectorDataTypeCommonPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataConnectorDataTypeCommon) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommonResponse struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// DataConnectorDataTypeCommonResponseInput is an input type that accepts DataConnectorDataTypeCommonResponseArgs and DataConnectorDataTypeCommonResponseOutput values.
+// You can construct a concrete instance of `DataConnectorDataTypeCommonResponseInput` via:
+//
+//          DataConnectorDataTypeCommonResponseArgs{...}
+type DataConnectorDataTypeCommonResponseInput interface {
+	pulumi.Input
+
+	ToDataConnectorDataTypeCommonResponseOutput() DataConnectorDataTypeCommonResponseOutput
+	ToDataConnectorDataTypeCommonResponseOutputWithContext(context.Context) DataConnectorDataTypeCommonResponseOutput
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommonResponseArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (DataConnectorDataTypeCommonResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorDataTypeCommonResponse)(nil)).Elem()
+}
+
+func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponseOutput() DataConnectorDataTypeCommonResponseOutput {
+	return i.ToDataConnectorDataTypeCommonResponseOutputWithContext(context.Background())
+}
+
+func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponseOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponseOutput)
+}
+
+func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
+	return i.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DataConnectorDataTypeCommonResponseArgs) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponseOutput).ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx)
+}
+
+// DataConnectorDataTypeCommonResponsePtrInput is an input type that accepts DataConnectorDataTypeCommonResponseArgs, DataConnectorDataTypeCommonResponsePtr and DataConnectorDataTypeCommonResponsePtrOutput values.
+// You can construct a concrete instance of `DataConnectorDataTypeCommonResponsePtrInput` via:
+//
+//          DataConnectorDataTypeCommonResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DataConnectorDataTypeCommonResponsePtrInput interface {
+	pulumi.Input
+
+	ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput
+	ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Context) DataConnectorDataTypeCommonResponsePtrOutput
+}
+
+type dataConnectorDataTypeCommonResponsePtrType DataConnectorDataTypeCommonResponseArgs
+
+func DataConnectorDataTypeCommonResponsePtr(v *DataConnectorDataTypeCommonResponseArgs) DataConnectorDataTypeCommonResponsePtrInput {
+	return (*dataConnectorDataTypeCommonResponsePtrType)(v)
+}
+
+func (*dataConnectorDataTypeCommonResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataConnectorDataTypeCommonResponse)(nil)).Elem()
+}
+
+func (i *dataConnectorDataTypeCommonResponsePtrType) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
+	return i.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dataConnectorDataTypeCommonResponsePtrType) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// Common field for data type in data connectors.
+type DataConnectorDataTypeCommonResponseOutput struct{ *pulumi.OutputState }
+
+func (DataConnectorDataTypeCommonResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorDataTypeCommonResponse)(nil)).Elem()
+}
+
+func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponseOutput() DataConnectorDataTypeCommonResponseOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponseOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponseOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
+		return &v
+	}).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o DataConnectorDataTypeCommonResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type DataConnectorDataTypeCommonResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DataConnectorDataTypeCommonResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataConnectorDataTypeCommonResponse)(nil)).Elem()
+}
+
+func (o DataConnectorDataTypeCommonResponsePtrOutput) ToDataConnectorDataTypeCommonResponsePtrOutput() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonResponsePtrOutput) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
+	return o
+}
+
+func (o DataConnectorDataTypeCommonResponsePtrOutput) Elem() DataConnectorDataTypeCommonResponseOutput {
+	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) DataConnectorDataTypeCommonResponse { return *v }).(DataConnectorDataTypeCommonResponseOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o DataConnectorDataTypeCommonResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 // Incident additional data property bag.
 type IncidentAdditionalDataResponse struct {
 	// List of product names of alerts in the incident
@@ -1193,6 +2271,2014 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypes struct {
+	// Alerts data type connection.
+	Alerts *DataConnectorDataTypeCommon `pulumi:"alerts"`
+	// Discovery log data type connection.
+	DiscoveryLogs *DataConnectorDataTypeCommon `pulumi:"discoveryLogs"`
+}
+
+// MCASDataConnectorDataTypesInput is an input type that accepts MCASDataConnectorDataTypesArgs and MCASDataConnectorDataTypesOutput values.
+// You can construct a concrete instance of `MCASDataConnectorDataTypesInput` via:
+//
+//          MCASDataConnectorDataTypesArgs{...}
+type MCASDataConnectorDataTypesInput interface {
+	pulumi.Input
+
+	ToMCASDataConnectorDataTypesOutput() MCASDataConnectorDataTypesOutput
+	ToMCASDataConnectorDataTypesOutputWithContext(context.Context) MCASDataConnectorDataTypesOutput
+}
+
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypesArgs struct {
+	// Alerts data type connection.
+	Alerts DataConnectorDataTypeCommonPtrInput `pulumi:"alerts"`
+	// Discovery log data type connection.
+	DiscoveryLogs DataConnectorDataTypeCommonPtrInput `pulumi:"discoveryLogs"`
+}
+
+func (MCASDataConnectorDataTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MCASDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i MCASDataConnectorDataTypesArgs) ToMCASDataConnectorDataTypesOutput() MCASDataConnectorDataTypesOutput {
+	return i.ToMCASDataConnectorDataTypesOutputWithContext(context.Background())
+}
+
+func (i MCASDataConnectorDataTypesArgs) ToMCASDataConnectorDataTypesOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesOutput)
+}
+
+func (i MCASDataConnectorDataTypesArgs) ToMCASDataConnectorDataTypesPtrOutput() MCASDataConnectorDataTypesPtrOutput {
+	return i.ToMCASDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i MCASDataConnectorDataTypesArgs) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesOutput).ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx)
+}
+
+// MCASDataConnectorDataTypesPtrInput is an input type that accepts MCASDataConnectorDataTypesArgs, MCASDataConnectorDataTypesPtr and MCASDataConnectorDataTypesPtrOutput values.
+// You can construct a concrete instance of `MCASDataConnectorDataTypesPtrInput` via:
+//
+//          MCASDataConnectorDataTypesArgs{...}
+//
+//  or:
+//
+//          nil
+type MCASDataConnectorDataTypesPtrInput interface {
+	pulumi.Input
+
+	ToMCASDataConnectorDataTypesPtrOutput() MCASDataConnectorDataTypesPtrOutput
+	ToMCASDataConnectorDataTypesPtrOutputWithContext(context.Context) MCASDataConnectorDataTypesPtrOutput
+}
+
+type mcasdataConnectorDataTypesPtrType MCASDataConnectorDataTypesArgs
+
+func MCASDataConnectorDataTypesPtr(v *MCASDataConnectorDataTypesArgs) MCASDataConnectorDataTypesPtrInput {
+	return (*mcasdataConnectorDataTypesPtrType)(v)
+}
+
+func (*mcasdataConnectorDataTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MCASDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i *mcasdataConnectorDataTypesPtrType) ToMCASDataConnectorDataTypesPtrOutput() MCASDataConnectorDataTypesPtrOutput {
+	return i.ToMCASDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *mcasdataConnectorDataTypesPtrType) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesPtrOutput)
+}
+
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
+
+func (MCASDataConnectorDataTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MCASDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesOutput() MCASDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutput() MCASDataConnectorDataTypesPtrOutput {
+	return o.ToMCASDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypes) *MCASDataConnectorDataTypes {
+		return &v
+	}).(MCASDataConnectorDataTypesPtrOutput)
+}
+
+// Alerts data type connection.
+func (o MCASDataConnectorDataTypesOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// Discovery log data type connection.
+func (o MCASDataConnectorDataTypesOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon { return v.DiscoveryLogs }).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+type MCASDataConnectorDataTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (MCASDataConnectorDataTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MCASDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o MCASDataConnectorDataTypesPtrOutput) ToMCASDataConnectorDataTypesPtrOutput() MCASDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesPtrOutput) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesPtrOutput) Elem() MCASDataConnectorDataTypesOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypes) MCASDataConnectorDataTypes { return *v }).(MCASDataConnectorDataTypesOutput)
+}
+
+// Alerts data type connection.
+func (o MCASDataConnectorDataTypesPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
+		if v == nil {
+			return nil
+		}
+		return v.Alerts
+	}).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// Discovery log data type connection.
+func (o MCASDataConnectorDataTypesPtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
+		if v == nil {
+			return nil
+		}
+		return v.DiscoveryLogs
+	}).(DataConnectorDataTypeCommonPtrOutput)
+}
+
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypesResponse struct {
+	// Alerts data type connection.
+	Alerts *DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
+	// Discovery log data type connection.
+	DiscoveryLogs *DataConnectorDataTypeCommonResponse `pulumi:"discoveryLogs"`
+}
+
+// MCASDataConnectorDataTypesResponseInput is an input type that accepts MCASDataConnectorDataTypesResponseArgs and MCASDataConnectorDataTypesResponseOutput values.
+// You can construct a concrete instance of `MCASDataConnectorDataTypesResponseInput` via:
+//
+//          MCASDataConnectorDataTypesResponseArgs{...}
+type MCASDataConnectorDataTypesResponseInput interface {
+	pulumi.Input
+
+	ToMCASDataConnectorDataTypesResponseOutput() MCASDataConnectorDataTypesResponseOutput
+	ToMCASDataConnectorDataTypesResponseOutputWithContext(context.Context) MCASDataConnectorDataTypesResponseOutput
+}
+
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypesResponseArgs struct {
+	// Alerts data type connection.
+	Alerts DataConnectorDataTypeCommonResponsePtrInput `pulumi:"alerts"`
+	// Discovery log data type connection.
+	DiscoveryLogs DataConnectorDataTypeCommonResponsePtrInput `pulumi:"discoveryLogs"`
+}
+
+func (MCASDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MCASDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponseOutput() MCASDataConnectorDataTypesResponseOutput {
+	return i.ToMCASDataConnectorDataTypesResponseOutputWithContext(context.Background())
+}
+
+func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponseOutput)
+}
+
+func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
+	return i.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MCASDataConnectorDataTypesResponseArgs) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponseOutput).ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
+}
+
+// MCASDataConnectorDataTypesResponsePtrInput is an input type that accepts MCASDataConnectorDataTypesResponseArgs, MCASDataConnectorDataTypesResponsePtr and MCASDataConnectorDataTypesResponsePtrOutput values.
+// You can construct a concrete instance of `MCASDataConnectorDataTypesResponsePtrInput` via:
+//
+//          MCASDataConnectorDataTypesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MCASDataConnectorDataTypesResponsePtrInput interface {
+	pulumi.Input
+
+	ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput
+	ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) MCASDataConnectorDataTypesResponsePtrOutput
+}
+
+type mcasdataConnectorDataTypesResponsePtrType MCASDataConnectorDataTypesResponseArgs
+
+func MCASDataConnectorDataTypesResponsePtr(v *MCASDataConnectorDataTypesResponseArgs) MCASDataConnectorDataTypesResponsePtrInput {
+	return (*mcasdataConnectorDataTypesResponsePtrType)(v)
+}
+
+func (*mcasdataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MCASDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i *mcasdataConnectorDataTypesResponsePtrType) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
+	return i.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mcasdataConnectorDataTypesResponsePtrType) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponsePtrOutput)
+}
+
+// The available data types for MCAS (Microsoft Cloud App Security) data connector.
+type MCASDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
+
+func (MCASDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MCASDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponseOutput() MCASDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
+	return o.ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
+		return &v
+	}).(MCASDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Alerts data type connection.
+func (o MCASDataConnectorDataTypesResponseOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// Discovery log data type connection.
+func (o MCASDataConnectorDataTypesResponseOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
+		return v.DiscoveryLogs
+	}).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+type MCASDataConnectorDataTypesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MCASDataConnectorDataTypesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MCASDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o MCASDataConnectorDataTypesResponsePtrOutput) ToMCASDataConnectorDataTypesResponsePtrOutput() MCASDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesResponsePtrOutput) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o MCASDataConnectorDataTypesResponsePtrOutput) Elem() MCASDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) MCASDataConnectorDataTypesResponse { return *v }).(MCASDataConnectorDataTypesResponseOutput)
+}
+
+// Alerts data type connection.
+func (o MCASDataConnectorDataTypesResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Alerts
+	}).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// Discovery log data type connection.
+func (o MCASDataConnectorDataTypesResponsePtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
+	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DiscoveryLogs
+	}).(DataConnectorDataTypeCommonResponsePtrOutput)
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypes struct {
+	// Exchange data type connection.
+	Exchange *OfficeDataConnectorDataTypesExchange `pulumi:"exchange"`
+	// SharePoint data type connection.
+	SharePoint *OfficeDataConnectorDataTypesSharePoint `pulumi:"sharePoint"`
+	// Teams data type connection.
+	Teams *OfficeDataConnectorDataTypesTeams `pulumi:"teams"`
+}
+
+// OfficeDataConnectorDataTypesInput is an input type that accepts OfficeDataConnectorDataTypesArgs and OfficeDataConnectorDataTypesOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesInput` via:
+//
+//          OfficeDataConnectorDataTypesArgs{...}
+type OfficeDataConnectorDataTypesInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesOutput() OfficeDataConnectorDataTypesOutput
+	ToOfficeDataConnectorDataTypesOutputWithContext(context.Context) OfficeDataConnectorDataTypesOutput
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypesArgs struct {
+	// Exchange data type connection.
+	Exchange OfficeDataConnectorDataTypesExchangePtrInput `pulumi:"exchange"`
+	// SharePoint data type connection.
+	SharePoint OfficeDataConnectorDataTypesSharePointPtrInput `pulumi:"sharePoint"`
+	// Teams data type connection.
+	Teams OfficeDataConnectorDataTypesTeamsPtrInput `pulumi:"teams"`
+}
+
+func (OfficeDataConnectorDataTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesArgs) ToOfficeDataConnectorDataTypesOutput() OfficeDataConnectorDataTypesOutput {
+	return i.ToOfficeDataConnectorDataTypesOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesArgs) ToOfficeDataConnectorDataTypesOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesOutput)
+}
+
+func (i OfficeDataConnectorDataTypesArgs) ToOfficeDataConnectorDataTypesPtrOutput() OfficeDataConnectorDataTypesPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesArgs) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesOutput).ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesPtrInput is an input type that accepts OfficeDataConnectorDataTypesArgs, OfficeDataConnectorDataTypesPtr and OfficeDataConnectorDataTypesPtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesPtrInput` via:
+//
+//          OfficeDataConnectorDataTypesArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesPtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesPtrOutput() OfficeDataConnectorDataTypesPtrOutput
+	ToOfficeDataConnectorDataTypesPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesPtrOutput
+}
+
+type officeDataConnectorDataTypesPtrType OfficeDataConnectorDataTypesArgs
+
+func OfficeDataConnectorDataTypesPtr(v *OfficeDataConnectorDataTypesArgs) OfficeDataConnectorDataTypesPtrInput {
+	return (*officeDataConnectorDataTypesPtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesPtrType) ToOfficeDataConnectorDataTypesPtrOutput() OfficeDataConnectorDataTypesPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesPtrType) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesPtrOutput)
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesOutput() OfficeDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOutput() OfficeDataConnectorDataTypesPtrOutput {
+	return o.ToOfficeDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypes {
+		return &v
+	}).(OfficeDataConnectorDataTypesPtrOutput)
+}
+
+// Exchange data type connection.
+func (o OfficeDataConnectorDataTypesOutput) Exchange() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesExchange { return v.Exchange }).(OfficeDataConnectorDataTypesExchangePtrOutput)
+}
+
+// SharePoint data type connection.
+func (o OfficeDataConnectorDataTypesOutput) SharePoint() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesSharePoint { return v.SharePoint }).(OfficeDataConnectorDataTypesSharePointPtrOutput)
+}
+
+// Teams data type connection.
+func (o OfficeDataConnectorDataTypesOutput) Teams() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesTeams { return v.Teams }).(OfficeDataConnectorDataTypesTeamsPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesPtrOutput) ToOfficeDataConnectorDataTypesPtrOutput() OfficeDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesPtrOutput) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesPtrOutput) Elem() OfficeDataConnectorDataTypesOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypes { return *v }).(OfficeDataConnectorDataTypesOutput)
+}
+
+// Exchange data type connection.
+func (o OfficeDataConnectorDataTypesPtrOutput) Exchange() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesExchange {
+		if v == nil {
+			return nil
+		}
+		return v.Exchange
+	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
+}
+
+// SharePoint data type connection.
+func (o OfficeDataConnectorDataTypesPtrOutput) SharePoint() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesSharePoint {
+		if v == nil {
+			return nil
+		}
+		return v.SharePoint
+	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
+}
+
+// Teams data type connection.
+func (o OfficeDataConnectorDataTypesPtrOutput) Teams() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesTeams {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesExchange struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesExchangeInput is an input type that accepts OfficeDataConnectorDataTypesExchangeArgs and OfficeDataConnectorDataTypesExchangeOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesExchangeInput` via:
+//
+//          OfficeDataConnectorDataTypesExchangeArgs{...}
+type OfficeDataConnectorDataTypesExchangeInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesExchangeOutput() OfficeDataConnectorDataTypesExchangeOutput
+	ToOfficeDataConnectorDataTypesExchangeOutputWithContext(context.Context) OfficeDataConnectorDataTypesExchangeOutput
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesExchangeArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesExchangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesExchange)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesExchangeArgs) ToOfficeDataConnectorDataTypesExchangeOutput() OfficeDataConnectorDataTypesExchangeOutput {
+	return i.ToOfficeDataConnectorDataTypesExchangeOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesExchangeArgs) ToOfficeDataConnectorDataTypesExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesExchangeOutput)
+}
+
+func (i OfficeDataConnectorDataTypesExchangeArgs) ToOfficeDataConnectorDataTypesExchangePtrOutput() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesExchangeArgs) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesExchangeOutput).ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesExchangePtrInput is an input type that accepts OfficeDataConnectorDataTypesExchangeArgs, OfficeDataConnectorDataTypesExchangePtr and OfficeDataConnectorDataTypesExchangePtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesExchangePtrInput` via:
+//
+//          OfficeDataConnectorDataTypesExchangeArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesExchangePtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesExchangePtrOutput() OfficeDataConnectorDataTypesExchangePtrOutput
+	ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesExchangePtrOutput
+}
+
+type officeDataConnectorDataTypesExchangePtrType OfficeDataConnectorDataTypesExchangeArgs
+
+func OfficeDataConnectorDataTypesExchangePtr(v *OfficeDataConnectorDataTypesExchangeArgs) OfficeDataConnectorDataTypesExchangePtrInput {
+	return (*officeDataConnectorDataTypesExchangePtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesExchangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesExchange)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesExchangePtrType) ToOfficeDataConnectorDataTypesExchangePtrOutput() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesExchangePtrType) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesExchangePtrOutput)
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesExchangeOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesExchangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesExchange)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangeOutput() OfficeDataConnectorDataTypesExchangeOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangeOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangePtrOutput() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o.ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) *OfficeDataConnectorDataTypesExchange {
+		return &v
+	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesExchangeOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesExchangePtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesExchangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesExchange)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesExchangePtrOutput) ToOfficeDataConnectorDataTypesExchangePtrOutput() OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesExchangePtrOutput) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesExchangePtrOutput) Elem() OfficeDataConnectorDataTypesExchangeOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) OfficeDataConnectorDataTypesExchange { return *v }).(OfficeDataConnectorDataTypesExchangeOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesExchangePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypesResponse struct {
+	// Exchange data type connection.
+	Exchange *OfficeDataConnectorDataTypesResponseExchange `pulumi:"exchange"`
+	// SharePoint data type connection.
+	SharePoint *OfficeDataConnectorDataTypesResponseSharePoint `pulumi:"sharePoint"`
+	// Teams data type connection.
+	Teams *OfficeDataConnectorDataTypesResponseTeams `pulumi:"teams"`
+}
+
+// OfficeDataConnectorDataTypesResponseInput is an input type that accepts OfficeDataConnectorDataTypesResponseArgs and OfficeDataConnectorDataTypesResponseOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseArgs{...}
+type OfficeDataConnectorDataTypesResponseInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseOutput() OfficeDataConnectorDataTypesResponseOutput
+	ToOfficeDataConnectorDataTypesResponseOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseOutput
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypesResponseArgs struct {
+	// Exchange data type connection.
+	Exchange OfficeDataConnectorDataTypesResponseExchangePtrInput `pulumi:"exchange"`
+	// SharePoint data type connection.
+	SharePoint OfficeDataConnectorDataTypesResponseSharePointPtrInput `pulumi:"sharePoint"`
+	// Teams data type connection.
+	Teams OfficeDataConnectorDataTypesResponseTeamsPtrInput `pulumi:"teams"`
+}
+
+func (OfficeDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponseOutput() OfficeDataConnectorDataTypesResponseOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseOutput)
+}
+
+func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseArgs) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseOutput).ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesResponsePtrInput is an input type that accepts OfficeDataConnectorDataTypesResponseArgs, OfficeDataConnectorDataTypesResponsePtr and OfficeDataConnectorDataTypesResponsePtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponsePtrInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesResponsePtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput
+	ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponsePtrOutput
+}
+
+type officeDataConnectorDataTypesResponsePtrType OfficeDataConnectorDataTypesResponseArgs
+
+func OfficeDataConnectorDataTypesResponsePtr(v *OfficeDataConnectorDataTypesResponseArgs) OfficeDataConnectorDataTypesResponsePtrInput {
+	return (*officeDataConnectorDataTypesResponsePtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesResponsePtrType) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesResponsePtrType) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponsePtrOutput)
+}
+
+// The available data types for office data connector.
+type OfficeDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponseOutput() OfficeDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
+	return o.ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
+		return &v
+	}).(OfficeDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Exchange data type connection.
+func (o OfficeDataConnectorDataTypesResponseOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseExchange {
+		return v.Exchange
+	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
+}
+
+// SharePoint data type connection.
+func (o OfficeDataConnectorDataTypesResponseOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseSharePoint {
+		return v.SharePoint
+	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
+}
+
+// Teams data type connection.
+func (o OfficeDataConnectorDataTypesResponseOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseTeams {
+		return v.Teams
+	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) ToOfficeDataConnectorDataTypesResponsePtrOutput() OfficeDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) Elem() OfficeDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponse { return *v }).(OfficeDataConnectorDataTypesResponseOutput)
+}
+
+// Exchange data type connection.
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseExchange {
+		if v == nil {
+			return nil
+		}
+		return v.Exchange
+	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
+}
+
+// SharePoint data type connection.
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseSharePoint {
+		if v == nil {
+			return nil
+		}
+		return v.SharePoint
+	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
+}
+
+// Teams data type connection.
+func (o OfficeDataConnectorDataTypesResponsePtrOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseTeams {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesResponseExchange struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesResponseExchangeInput is an input type that accepts OfficeDataConnectorDataTypesResponseExchangeArgs and OfficeDataConnectorDataTypesResponseExchangeOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseExchangeInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseExchangeArgs{...}
+type OfficeDataConnectorDataTypesResponseExchangeInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseExchangeOutput() OfficeDataConnectorDataTypesResponseExchangeOutput
+	ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesResponseExchangeArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesResponseExchangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangeOutput() OfficeDataConnectorDataTypesResponseExchangeOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangeOutput)
+}
+
+func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseExchangeArgs) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangeOutput).ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesResponseExchangePtrInput is an input type that accepts OfficeDataConnectorDataTypesResponseExchangeArgs, OfficeDataConnectorDataTypesResponseExchangePtr and OfficeDataConnectorDataTypesResponseExchangePtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseExchangePtrInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseExchangeArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesResponseExchangePtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput
+	ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput
+}
+
+type officeDataConnectorDataTypesResponseExchangePtrType OfficeDataConnectorDataTypesResponseExchangeArgs
+
+func OfficeDataConnectorDataTypesResponseExchangePtr(v *OfficeDataConnectorDataTypesResponseExchangeArgs) OfficeDataConnectorDataTypesResponseExchangePtrInput {
+	return (*officeDataConnectorDataTypesResponseExchangePtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesResponseExchangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesResponseExchangePtrType) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesResponseExchangePtrType) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
+}
+
+// Exchange data type connection.
+type OfficeDataConnectorDataTypesResponseExchangeOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseExchangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangeOutput() OfficeDataConnectorDataTypesResponseExchangeOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o.ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
+		return &v
+	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseExchangeOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesResponseExchangePtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseExchangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseExchange)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutput() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) Elem() OfficeDataConnectorDataTypesResponseExchangeOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) OfficeDataConnectorDataTypesResponseExchange {
+		return *v
+	}).(OfficeDataConnectorDataTypesResponseExchangeOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesResponseSharePoint struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesResponseSharePointInput is an input type that accepts OfficeDataConnectorDataTypesResponseSharePointArgs and OfficeDataConnectorDataTypesResponseSharePointOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseSharePointInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseSharePointArgs{...}
+type OfficeDataConnectorDataTypesResponseSharePointInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseSharePointOutput() OfficeDataConnectorDataTypesResponseSharePointOutput
+	ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesResponseSharePointArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesResponseSharePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointOutput() OfficeDataConnectorDataTypesResponseSharePointOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointOutput)
+}
+
+func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseSharePointArgs) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointOutput).ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesResponseSharePointPtrInput is an input type that accepts OfficeDataConnectorDataTypesResponseSharePointArgs, OfficeDataConnectorDataTypesResponseSharePointPtr and OfficeDataConnectorDataTypesResponseSharePointPtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseSharePointPtrInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseSharePointArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesResponseSharePointPtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput
+	ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput
+}
+
+type officeDataConnectorDataTypesResponseSharePointPtrType OfficeDataConnectorDataTypesResponseSharePointArgs
+
+func OfficeDataConnectorDataTypesResponseSharePointPtr(v *OfficeDataConnectorDataTypesResponseSharePointArgs) OfficeDataConnectorDataTypesResponseSharePointPtrInput {
+	return (*officeDataConnectorDataTypesResponseSharePointPtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesResponseSharePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesResponseSharePointPtrType) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesResponseSharePointPtrType) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesResponseSharePointOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseSharePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointOutput() OfficeDataConnectorDataTypesResponseSharePointOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o.ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
+		return &v
+	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseSharePointOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesResponseSharePointPtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseSharePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseSharePoint)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutput() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesResponseSharePointOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) OfficeDataConnectorDataTypesResponseSharePoint {
+		return *v
+	}).(OfficeDataConnectorDataTypesResponseSharePointOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesResponseTeams struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesResponseTeamsInput is an input type that accepts OfficeDataConnectorDataTypesResponseTeamsArgs and OfficeDataConnectorDataTypesResponseTeamsOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseTeamsInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseTeamsArgs{...}
+type OfficeDataConnectorDataTypesResponseTeamsInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseTeamsOutput() OfficeDataConnectorDataTypesResponseTeamsOutput
+	ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesResponseTeamsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesResponseTeamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsOutput() OfficeDataConnectorDataTypesResponseTeamsOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsOutput)
+}
+
+func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesResponseTeamsArgs) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsOutput).ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesResponseTeamsPtrInput is an input type that accepts OfficeDataConnectorDataTypesResponseTeamsArgs, OfficeDataConnectorDataTypesResponseTeamsPtr and OfficeDataConnectorDataTypesResponseTeamsPtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesResponseTeamsPtrInput` via:
+//
+//          OfficeDataConnectorDataTypesResponseTeamsArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesResponseTeamsPtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput
+	ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput
+}
+
+type officeDataConnectorDataTypesResponseTeamsPtrType OfficeDataConnectorDataTypesResponseTeamsArgs
+
+func OfficeDataConnectorDataTypesResponseTeamsPtr(v *OfficeDataConnectorDataTypesResponseTeamsArgs) OfficeDataConnectorDataTypesResponseTeamsPtrInput {
+	return (*officeDataConnectorDataTypesResponseTeamsPtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesResponseTeamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesResponseTeamsPtrType) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesResponseTeamsPtrType) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesResponseTeamsOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseTeamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsOutput() OfficeDataConnectorDataTypesResponseTeamsOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o.ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
+		return &v
+	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseTeamsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesResponseTeamsPtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesResponseTeamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesResponseTeams)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutput() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesResponseTeamsOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) OfficeDataConnectorDataTypesResponseTeams {
+		return *v
+	}).(OfficeDataConnectorDataTypesResponseTeamsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesSharePoint struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesSharePointInput is an input type that accepts OfficeDataConnectorDataTypesSharePointArgs and OfficeDataConnectorDataTypesSharePointOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesSharePointInput` via:
+//
+//          OfficeDataConnectorDataTypesSharePointArgs{...}
+type OfficeDataConnectorDataTypesSharePointInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesSharePointOutput() OfficeDataConnectorDataTypesSharePointOutput
+	ToOfficeDataConnectorDataTypesSharePointOutputWithContext(context.Context) OfficeDataConnectorDataTypesSharePointOutput
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesSharePointArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesSharePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesSharePoint)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesSharePointArgs) ToOfficeDataConnectorDataTypesSharePointOutput() OfficeDataConnectorDataTypesSharePointOutput {
+	return i.ToOfficeDataConnectorDataTypesSharePointOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesSharePointArgs) ToOfficeDataConnectorDataTypesSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesSharePointOutput)
+}
+
+func (i OfficeDataConnectorDataTypesSharePointArgs) ToOfficeDataConnectorDataTypesSharePointPtrOutput() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesSharePointArgs) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesSharePointOutput).ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesSharePointPtrInput is an input type that accepts OfficeDataConnectorDataTypesSharePointArgs, OfficeDataConnectorDataTypesSharePointPtr and OfficeDataConnectorDataTypesSharePointPtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesSharePointPtrInput` via:
+//
+//          OfficeDataConnectorDataTypesSharePointArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesSharePointPtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesSharePointPtrOutput() OfficeDataConnectorDataTypesSharePointPtrOutput
+	ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput
+}
+
+type officeDataConnectorDataTypesSharePointPtrType OfficeDataConnectorDataTypesSharePointArgs
+
+func OfficeDataConnectorDataTypesSharePointPtr(v *OfficeDataConnectorDataTypesSharePointArgs) OfficeDataConnectorDataTypesSharePointPtrInput {
+	return (*officeDataConnectorDataTypesSharePointPtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesSharePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesSharePoint)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesSharePointPtrType) ToOfficeDataConnectorDataTypesSharePointPtrOutput() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesSharePointPtrType) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesSharePointPtrOutput)
+}
+
+// SharePoint data type connection.
+type OfficeDataConnectorDataTypesSharePointOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesSharePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesSharePoint)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointOutput() OfficeDataConnectorDataTypesSharePointOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutput() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o.ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) *OfficeDataConnectorDataTypesSharePoint {
+		return &v
+	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesSharePointOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesSharePointPtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesSharePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesSharePoint)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesSharePointPtrOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutput() OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesSharePointPtrOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesSharePointOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) OfficeDataConnectorDataTypesSharePoint { return *v }).(OfficeDataConnectorDataTypesSharePointOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesSharePointPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesTeams struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// OfficeDataConnectorDataTypesTeamsInput is an input type that accepts OfficeDataConnectorDataTypesTeamsArgs and OfficeDataConnectorDataTypesTeamsOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesTeamsInput` via:
+//
+//          OfficeDataConnectorDataTypesTeamsArgs{...}
+type OfficeDataConnectorDataTypesTeamsInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesTeamsOutput() OfficeDataConnectorDataTypesTeamsOutput
+	ToOfficeDataConnectorDataTypesTeamsOutputWithContext(context.Context) OfficeDataConnectorDataTypesTeamsOutput
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesTeamsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (OfficeDataConnectorDataTypesTeamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesTeams)(nil)).Elem()
+}
+
+func (i OfficeDataConnectorDataTypesTeamsArgs) ToOfficeDataConnectorDataTypesTeamsOutput() OfficeDataConnectorDataTypesTeamsOutput {
+	return i.ToOfficeDataConnectorDataTypesTeamsOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesTeamsArgs) ToOfficeDataConnectorDataTypesTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesTeamsOutput)
+}
+
+func (i OfficeDataConnectorDataTypesTeamsArgs) ToOfficeDataConnectorDataTypesTeamsPtrOutput() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i OfficeDataConnectorDataTypesTeamsArgs) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesTeamsOutput).ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx)
+}
+
+// OfficeDataConnectorDataTypesTeamsPtrInput is an input type that accepts OfficeDataConnectorDataTypesTeamsArgs, OfficeDataConnectorDataTypesTeamsPtr and OfficeDataConnectorDataTypesTeamsPtrOutput values.
+// You can construct a concrete instance of `OfficeDataConnectorDataTypesTeamsPtrInput` via:
+//
+//          OfficeDataConnectorDataTypesTeamsArgs{...}
+//
+//  or:
+//
+//          nil
+type OfficeDataConnectorDataTypesTeamsPtrInput interface {
+	pulumi.Input
+
+	ToOfficeDataConnectorDataTypesTeamsPtrOutput() OfficeDataConnectorDataTypesTeamsPtrOutput
+	ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput
+}
+
+type officeDataConnectorDataTypesTeamsPtrType OfficeDataConnectorDataTypesTeamsArgs
+
+func OfficeDataConnectorDataTypesTeamsPtr(v *OfficeDataConnectorDataTypesTeamsArgs) OfficeDataConnectorDataTypesTeamsPtrInput {
+	return (*officeDataConnectorDataTypesTeamsPtrType)(v)
+}
+
+func (*officeDataConnectorDataTypesTeamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesTeams)(nil)).Elem()
+}
+
+func (i *officeDataConnectorDataTypesTeamsPtrType) ToOfficeDataConnectorDataTypesTeamsPtrOutput() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return i.ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(context.Background())
+}
+
+func (i *officeDataConnectorDataTypesTeamsPtrType) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesTeamsPtrOutput)
+}
+
+// Teams data type connection.
+type OfficeDataConnectorDataTypesTeamsOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesTeamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfficeDataConnectorDataTypesTeams)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsOutput() OfficeDataConnectorDataTypesTeamsOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutput() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o.ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(context.Background())
+}
+
+func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) *OfficeDataConnectorDataTypesTeams {
+		return &v
+	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesTeamsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type OfficeDataConnectorDataTypesTeamsPtrOutput struct{ *pulumi.OutputState }
+
+func (OfficeDataConnectorDataTypesTeamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfficeDataConnectorDataTypesTeams)(nil)).Elem()
+}
+
+func (o OfficeDataConnectorDataTypesTeamsPtrOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutput() OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesTeamsPtrOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
+	return o
+}
+
+func (o OfficeDataConnectorDataTypesTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesTeamsOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) OfficeDataConnectorDataTypesTeams { return *v }).(OfficeDataConnectorDataTypesTeamsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypes struct {
+	// Data type for indicators connection.
+	Indicators *TIDataConnectorDataTypesIndicators `pulumi:"indicators"`
+}
+
+// TIDataConnectorDataTypesInput is an input type that accepts TIDataConnectorDataTypesArgs and TIDataConnectorDataTypesOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesInput` via:
+//
+//          TIDataConnectorDataTypesArgs{...}
+type TIDataConnectorDataTypesInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesOutput() TIDataConnectorDataTypesOutput
+	ToTIDataConnectorDataTypesOutputWithContext(context.Context) TIDataConnectorDataTypesOutput
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypesArgs struct {
+	// Data type for indicators connection.
+	Indicators TIDataConnectorDataTypesIndicatorsPtrInput `pulumi:"indicators"`
+}
+
+func (TIDataConnectorDataTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i TIDataConnectorDataTypesArgs) ToTIDataConnectorDataTypesOutput() TIDataConnectorDataTypesOutput {
+	return i.ToTIDataConnectorDataTypesOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesArgs) ToTIDataConnectorDataTypesOutputWithContext(ctx context.Context) TIDataConnectorDataTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesOutput)
+}
+
+func (i TIDataConnectorDataTypesArgs) ToTIDataConnectorDataTypesPtrOutput() TIDataConnectorDataTypesPtrOutput {
+	return i.ToTIDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesArgs) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesOutput).ToTIDataConnectorDataTypesPtrOutputWithContext(ctx)
+}
+
+// TIDataConnectorDataTypesPtrInput is an input type that accepts TIDataConnectorDataTypesArgs, TIDataConnectorDataTypesPtr and TIDataConnectorDataTypesPtrOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesPtrInput` via:
+//
+//          TIDataConnectorDataTypesArgs{...}
+//
+//  or:
+//
+//          nil
+type TIDataConnectorDataTypesPtrInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesPtrOutput() TIDataConnectorDataTypesPtrOutput
+	ToTIDataConnectorDataTypesPtrOutputWithContext(context.Context) TIDataConnectorDataTypesPtrOutput
+}
+
+type tidataConnectorDataTypesPtrType TIDataConnectorDataTypesArgs
+
+func TIDataConnectorDataTypesPtr(v *TIDataConnectorDataTypesArgs) TIDataConnectorDataTypesPtrInput {
+	return (*tidataConnectorDataTypesPtrType)(v)
+}
+
+func (*tidataConnectorDataTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (i *tidataConnectorDataTypesPtrType) ToTIDataConnectorDataTypesPtrOutput() TIDataConnectorDataTypesPtrOutput {
+	return i.ToTIDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *tidataConnectorDataTypesPtrType) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesPtrOutput)
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesOutput() TIDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesOutputWithContext(ctx context.Context) TIDataConnectorDataTypesOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutput() TIDataConnectorDataTypesPtrOutput {
+	return o.ToTIDataConnectorDataTypesPtrOutputWithContext(context.Background())
+}
+
+func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypes) *TIDataConnectorDataTypes {
+		return &v
+	}).(TIDataConnectorDataTypesPtrOutput)
+}
+
+// Data type for indicators connection.
+func (o TIDataConnectorDataTypesOutput) Indicators() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypes) *TIDataConnectorDataTypesIndicators { return v.Indicators }).(TIDataConnectorDataTypesIndicatorsPtrOutput)
+}
+
+type TIDataConnectorDataTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypes)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesPtrOutput) ToTIDataConnectorDataTypesPtrOutput() TIDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesPtrOutput) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesPtrOutput) Elem() TIDataConnectorDataTypesOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypes) TIDataConnectorDataTypes { return *v }).(TIDataConnectorDataTypesOutput)
+}
+
+// Data type for indicators connection.
+func (o TIDataConnectorDataTypesPtrOutput) Indicators() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypes) *TIDataConnectorDataTypesIndicators {
+		if v == nil {
+			return nil
+		}
+		return v.Indicators
+	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesIndicators struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// TIDataConnectorDataTypesIndicatorsInput is an input type that accepts TIDataConnectorDataTypesIndicatorsArgs and TIDataConnectorDataTypesIndicatorsOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesIndicatorsInput` via:
+//
+//          TIDataConnectorDataTypesIndicatorsArgs{...}
+type TIDataConnectorDataTypesIndicatorsInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesIndicatorsOutput() TIDataConnectorDataTypesIndicatorsOutput
+	ToTIDataConnectorDataTypesIndicatorsOutputWithContext(context.Context) TIDataConnectorDataTypesIndicatorsOutput
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesIndicatorsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (TIDataConnectorDataTypesIndicatorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesIndicators)(nil)).Elem()
+}
+
+func (i TIDataConnectorDataTypesIndicatorsArgs) ToTIDataConnectorDataTypesIndicatorsOutput() TIDataConnectorDataTypesIndicatorsOutput {
+	return i.ToTIDataConnectorDataTypesIndicatorsOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesIndicatorsArgs) ToTIDataConnectorDataTypesIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesIndicatorsOutput)
+}
+
+func (i TIDataConnectorDataTypesIndicatorsArgs) ToTIDataConnectorDataTypesIndicatorsPtrOutput() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return i.ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesIndicatorsArgs) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesIndicatorsOutput).ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx)
+}
+
+// TIDataConnectorDataTypesIndicatorsPtrInput is an input type that accepts TIDataConnectorDataTypesIndicatorsArgs, TIDataConnectorDataTypesIndicatorsPtr and TIDataConnectorDataTypesIndicatorsPtrOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesIndicatorsPtrInput` via:
+//
+//          TIDataConnectorDataTypesIndicatorsArgs{...}
+//
+//  or:
+//
+//          nil
+type TIDataConnectorDataTypesIndicatorsPtrInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesIndicatorsPtrOutput() TIDataConnectorDataTypesIndicatorsPtrOutput
+	ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput
+}
+
+type tidataConnectorDataTypesIndicatorsPtrType TIDataConnectorDataTypesIndicatorsArgs
+
+func TIDataConnectorDataTypesIndicatorsPtr(v *TIDataConnectorDataTypesIndicatorsArgs) TIDataConnectorDataTypesIndicatorsPtrInput {
+	return (*tidataConnectorDataTypesIndicatorsPtrType)(v)
+}
+
+func (*tidataConnectorDataTypesIndicatorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesIndicators)(nil)).Elem()
+}
+
+func (i *tidataConnectorDataTypesIndicatorsPtrType) ToTIDataConnectorDataTypesIndicatorsPtrOutput() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return i.ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (i *tidataConnectorDataTypesIndicatorsPtrType) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesIndicatorsPtrOutput)
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesIndicatorsOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesIndicatorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesIndicators)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsOutput() TIDataConnectorDataTypesIndicatorsOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutput() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o.ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) *TIDataConnectorDataTypesIndicators {
+		return &v
+	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o TIDataConnectorDataTypesIndicatorsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type TIDataConnectorDataTypesIndicatorsPtrOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesIndicatorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesIndicators)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesIndicatorsPtrOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutput() TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesIndicatorsPtrOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesIndicatorsOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) TIDataConnectorDataTypesIndicators { return *v }).(TIDataConnectorDataTypesIndicatorsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o TIDataConnectorDataTypesIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypesResponse struct {
+	// Data type for indicators connection.
+	Indicators *TIDataConnectorDataTypesResponseIndicators `pulumi:"indicators"`
+}
+
+// TIDataConnectorDataTypesResponseInput is an input type that accepts TIDataConnectorDataTypesResponseArgs and TIDataConnectorDataTypesResponseOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesResponseInput` via:
+//
+//          TIDataConnectorDataTypesResponseArgs{...}
+type TIDataConnectorDataTypesResponseInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesResponseOutput() TIDataConnectorDataTypesResponseOutput
+	ToTIDataConnectorDataTypesResponseOutputWithContext(context.Context) TIDataConnectorDataTypesResponseOutput
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypesResponseArgs struct {
+	// Data type for indicators connection.
+	Indicators TIDataConnectorDataTypesResponseIndicatorsPtrInput `pulumi:"indicators"`
+}
+
+func (TIDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponseOutput() TIDataConnectorDataTypesResponseOutput {
+	return i.ToTIDataConnectorDataTypesResponseOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseOutput)
+}
+
+func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
+	return i.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesResponseArgs) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseOutput).ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx)
+}
+
+// TIDataConnectorDataTypesResponsePtrInput is an input type that accepts TIDataConnectorDataTypesResponseArgs, TIDataConnectorDataTypesResponsePtr and TIDataConnectorDataTypesResponsePtrOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesResponsePtrInput` via:
+//
+//          TIDataConnectorDataTypesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TIDataConnectorDataTypesResponsePtrInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput
+	ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Context) TIDataConnectorDataTypesResponsePtrOutput
+}
+
+type tidataConnectorDataTypesResponsePtrType TIDataConnectorDataTypesResponseArgs
+
+func TIDataConnectorDataTypesResponsePtr(v *TIDataConnectorDataTypesResponseArgs) TIDataConnectorDataTypesResponsePtrInput {
+	return (*tidataConnectorDataTypesResponsePtrType)(v)
+}
+
+func (*tidataConnectorDataTypesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (i *tidataConnectorDataTypesResponsePtrType) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
+	return i.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *tidataConnectorDataTypesResponsePtrType) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponsePtrOutput)
+}
+
+// The available data types for TI (Threat Intelligence) data connector.
+type TIDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponseOutput() TIDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponseOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
+	return o.ToTIDataConnectorDataTypesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
+		return &v
+	}).(TIDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Data type for indicators connection.
+func (o TIDataConnectorDataTypesResponseOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponseIndicators {
+		return v.Indicators
+	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
+}
+
+type TIDataConnectorDataTypesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesResponse)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesResponsePtrOutput) ToTIDataConnectorDataTypesResponsePtrOutput() TIDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponsePtrOutput) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponsePtrOutput) Elem() TIDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponse { return *v }).(TIDataConnectorDataTypesResponseOutput)
+}
+
+// Data type for indicators connection.
+func (o TIDataConnectorDataTypesResponsePtrOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponseIndicators {
+		if v == nil {
+			return nil
+		}
+		return v.Indicators
+	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesResponseIndicators struct {
+	// Describe whether this data type connection is enabled or not.
+	State *string `pulumi:"state"`
+}
+
+// TIDataConnectorDataTypesResponseIndicatorsInput is an input type that accepts TIDataConnectorDataTypesResponseIndicatorsArgs and TIDataConnectorDataTypesResponseIndicatorsOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesResponseIndicatorsInput` via:
+//
+//          TIDataConnectorDataTypesResponseIndicatorsArgs{...}
+type TIDataConnectorDataTypesResponseIndicatorsInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesResponseIndicatorsOutput() TIDataConnectorDataTypesResponseIndicatorsOutput
+	ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesResponseIndicatorsArgs struct {
+	// Describe whether this data type connection is enabled or not.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (TIDataConnectorDataTypesResponseIndicatorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
+}
+
+func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsOutput() TIDataConnectorDataTypesResponseIndicatorsOutput {
+	return i.ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsOutput)
+}
+
+func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return i.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (i TIDataConnectorDataTypesResponseIndicatorsArgs) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsOutput).ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx)
+}
+
+// TIDataConnectorDataTypesResponseIndicatorsPtrInput is an input type that accepts TIDataConnectorDataTypesResponseIndicatorsArgs, TIDataConnectorDataTypesResponseIndicatorsPtr and TIDataConnectorDataTypesResponseIndicatorsPtrOutput values.
+// You can construct a concrete instance of `TIDataConnectorDataTypesResponseIndicatorsPtrInput` via:
+//
+//          TIDataConnectorDataTypesResponseIndicatorsArgs{...}
+//
+//  or:
+//
+//          nil
+type TIDataConnectorDataTypesResponseIndicatorsPtrInput interface {
+	pulumi.Input
+
+	ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput
+	ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput
+}
+
+type tidataConnectorDataTypesResponseIndicatorsPtrType TIDataConnectorDataTypesResponseIndicatorsArgs
+
+func TIDataConnectorDataTypesResponseIndicatorsPtr(v *TIDataConnectorDataTypesResponseIndicatorsArgs) TIDataConnectorDataTypesResponseIndicatorsPtrInput {
+	return (*tidataConnectorDataTypesResponseIndicatorsPtrType)(v)
+}
+
+func (*tidataConnectorDataTypesResponseIndicatorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
+}
+
+func (i *tidataConnectorDataTypesResponseIndicatorsPtrType) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return i.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (i *tidataConnectorDataTypesResponseIndicatorsPtrType) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
+}
+
+// Data type for indicators connection.
+type TIDataConnectorDataTypesResponseIndicatorsOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesResponseIndicatorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsOutput() TIDataConnectorDataTypesResponseIndicatorsOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o.ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(context.Background())
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
+		return &v
+	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o TIDataConnectorDataTypesResponseIndicatorsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type TIDataConnectorDataTypesResponseIndicatorsPtrOutput struct{ *pulumi.OutputState }
+
+func (TIDataConnectorDataTypesResponseIndicatorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TIDataConnectorDataTypesResponseIndicators)(nil)).Elem()
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutput() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
+	return o
+}
+
+func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesResponseIndicatorsOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) TIDataConnectorDataTypesResponseIndicators {
+		return *v
+	}).(TIDataConnectorDataTypesResponseIndicatorsOutput)
+}
+
+// Describe whether this data type connection is enabled or not.
+func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 // User information that made some action
 type UserInfo struct {
 	// The object id of the user.
@@ -1500,6 +4586,22 @@ func (o UserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorOutput{})
+	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorPtrOutput{})
+	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorResponseOutput{})
+	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorResponsePtrOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesPtrOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesLogsOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponseOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput{})
+	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput{})
+	pulumi.RegisterOutputType(DataConnectorDataTypeCommonOutput{})
+	pulumi.RegisterOutputType(DataConnectorDataTypeCommonPtrOutput{})
+	pulumi.RegisterOutputType(DataConnectorDataTypeCommonResponseOutput{})
+	pulumi.RegisterOutputType(DataConnectorDataTypeCommonResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(IncidentInfoOutput{})
@@ -1514,6 +4616,34 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(MCASDataConnectorDataTypesOutput{})
+	pulumi.RegisterOutputType(MCASDataConnectorDataTypesPtrOutput{})
+	pulumi.RegisterOutputType(MCASDataConnectorDataTypesResponseOutput{})
+	pulumi.RegisterOutputType(MCASDataConnectorDataTypesResponsePtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesPtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesExchangeOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesExchangePtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponsePtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseExchangeOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseExchangePtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseSharePointOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseSharePointPtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseTeamsOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesResponseTeamsPtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesSharePointOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesSharePointPtrOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesTeamsOutput{})
+	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesTeamsPtrOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesPtrOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesIndicatorsOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesIndicatorsPtrOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponseOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponsePtrOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponseIndicatorsOutput{})
+	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponseIndicatorsPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})

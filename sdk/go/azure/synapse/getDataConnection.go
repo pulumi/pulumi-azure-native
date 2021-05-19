@@ -9,6 +9,8 @@ import (
 
 // Class representing a data connection.
 // API Version: 2021-04-01-preview.
+//
+// Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
 	err := ctx.Invoke("azure-native:synapse:getDataConnection", args, &rv, opts...)

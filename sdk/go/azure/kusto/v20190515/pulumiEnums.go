@@ -76,6 +76,44 @@ func (e AzureSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The data format of the message. Optionally the data format can be added to each message.
+type DataFormat pulumi.String
+
+const (
+	DataFormatMULTIJSON  = DataFormat("MULTIJSON")
+	DataFormatJSON       = DataFormat("JSON")
+	DataFormatCSV        = DataFormat("CSV")
+	DataFormatTSV        = DataFormat("TSV")
+	DataFormatSCSV       = DataFormat("SCSV")
+	DataFormatSOHSV      = DataFormat("SOHSV")
+	DataFormatPSV        = DataFormat("PSV")
+	DataFormatTXT        = DataFormat("TXT")
+	DataFormatRAW        = DataFormat("RAW")
+	DataFormatSINGLEJSON = DataFormat("SINGLEJSON")
+	DataFormatAVRO       = DataFormat("AVRO")
+	DataFormatTSVE       = DataFormat("TSVE")
+)
+
+func (DataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Kind of the endpoint for the data connection
 type Kind pulumi.String
 

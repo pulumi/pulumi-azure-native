@@ -8,6 +8,8 @@ import (
 )
 
 // Alert rule.
+//
+// Deprecated: Please use one of the variants: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getAlertRule", args, &rv, opts...)

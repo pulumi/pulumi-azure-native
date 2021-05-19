@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./aciservice";
+export * from "./aksservice";
 export * from "./batchDeployment";
 export * from "./batchEndpoint";
 export * from "./codeContainer";
@@ -13,8 +15,11 @@ export * from "./compute";
 export * from "./dataContainer";
 export * from "./dataVersion";
 export * from "./datastore";
+export * from "./endpointVariant";
 export * from "./environmentContainer";
 export * from "./environmentSpecificationVersion";
+export * from "./getACIService";
+export * from "./getAKSService";
 export * from "./getBatchDeployment";
 export * from "./getBatchEndpoint";
 export * from "./getCodeContainer";
@@ -23,6 +28,7 @@ export * from "./getCompute";
 export * from "./getDataContainer";
 export * from "./getDataVersion";
 export * from "./getDatastore";
+export * from "./getEndpointVariant";
 export * from "./getEnvironmentContainer";
 export * from "./getEnvironmentSpecificationVersion";
 export * from "./getJob";
@@ -60,6 +66,8 @@ export * from "./workspaceConnection";
 export * from "../../types/enums/machinelearningservices/v20210301preview";
 
 // Import resources to register:
+import { ACIService } from "./aciservice";
+import { AKSService } from "./aksservice";
 import { BatchDeployment } from "./batchDeployment";
 import { BatchEndpoint } from "./batchEndpoint";
 import { CodeContainer } from "./codeContainer";
@@ -68,6 +76,7 @@ import { Compute } from "./compute";
 import { DataContainer } from "./dataContainer";
 import { DataVersion } from "./dataVersion";
 import { Datastore } from "./datastore";
+import { EndpointVariant } from "./endpointVariant";
 import { EnvironmentContainer } from "./environmentContainer";
 import { EnvironmentSpecificationVersion } from "./environmentSpecificationVersion";
 import { Job } from "./job";
@@ -85,6 +94,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:machinelearningservices/v20210301preview:ACIService":
+                return new ACIService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20210301preview:AKSService":
+                return new AKSService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:BatchDeployment":
                 return new BatchDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:BatchEndpoint":
@@ -101,6 +114,8 @@ const _module = {
                 return new DataVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:Datastore":
                 return new Datastore(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20210301preview:EndpointVariant":
+                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:EnvironmentContainer":
                 return new EnvironmentContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion":

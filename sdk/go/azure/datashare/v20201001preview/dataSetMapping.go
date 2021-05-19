@@ -12,6 +12,8 @@ import (
 )
 
 // A data set mapping data transfer object.
+//
+// Deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, ADLSGen2StorageAccountDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, BlobStorageAccountDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.
 type DataSetMapping struct {
 	pulumi.CustomResourceState
 

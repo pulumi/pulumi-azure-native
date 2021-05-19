@@ -114,7 +114,12 @@ class EnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Please use one of the variants: Gen1Environment, Gen2Environment.""", DeprecationWarning)
+
+
 class Environment(pulumi.CustomResource):
+    warnings.warn("""Please use one of the variants: Gen1Environment, Gen2Environment.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,6 +176,7 @@ class Environment(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Environment is deprecated: Please use one of the variants: Gen1Environment, Gen2Environment.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

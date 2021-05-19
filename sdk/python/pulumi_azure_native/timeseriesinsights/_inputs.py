@@ -10,11 +10,52 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'Gen2StorageConfigurationInputArgs',
     'LocalTimestampArgs',
     'LocalTimestampTimeZoneOffsetArgs',
     'ReferenceDataSetKeyPropertyArgs',
     'SkuArgs',
+    'TimeSeriesIdPropertyArgs',
+    'WarmStoreConfigurationPropertiesArgs',
 ]
+
+@pulumi.input_type
+class Gen2StorageConfigurationInputArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 management_key: pulumi.Input[str]):
+        """
+        The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+        :param pulumi.Input[str] account_name: The name of the storage account that will hold the environment's Gen2 data.
+        :param pulumi.Input[str] management_key: The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "management_key", management_key)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage account that will hold the environment's Gen2 data.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="managementKey")
+    def management_key(self) -> pulumi.Input[str]:
+        """
+        The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+        """
+        return pulumi.get(self, "management_key")
+
+    @management_key.setter
+    def management_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_key", value)
+
 
 @pulumi.input_type
 class LocalTimestampArgs:
@@ -156,5 +197,68 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TimeSeriesIdPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'PropertyType']]] = None):
+        """
+        The structure of the property that a time series id can have. An environment can have multiple such properties.
+        :param pulumi.Input[str] name: The name of the property.
+        :param pulumi.Input[Union[str, 'PropertyType']] type: The type of the property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'PropertyType']]]:
+        """
+        The type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WarmStoreConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 data_retention: pulumi.Input[str]):
+        """
+        The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+        :param pulumi.Input[str] data_retention: ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+        """
+        pulumi.set(__self__, "data_retention", data_retention)
+
+    @property
+    @pulumi.getter(name="dataRetention")
+    def data_retention(self) -> pulumi.Input[str]:
+        """
+        ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+        """
+        return pulumi.get(self, "data_retention")
+
+    @data_retention.setter
+    def data_retention(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_retention", value)
 
 

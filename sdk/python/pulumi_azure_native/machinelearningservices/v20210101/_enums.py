@@ -17,6 +17,7 @@ __all__ = [
     'ResourceIdentityType',
     'SshPublicAccess',
     'ValueFormat',
+    'VariantType',
     'VmPriority',
 ]
 
@@ -126,6 +127,14 @@ class ValueFormat(str, Enum):
     format for the workspace connection value
     """
     JSON = "JSON"
+
+
+class VariantType(str, Enum):
+    """
+    The type of the variant.
+    """
+    CONTROL = "Control"
+    TREATMENT = "Treatment"
 
 
 class VmPriority(str, Enum):
