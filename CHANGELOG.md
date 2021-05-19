@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.7.0 (2020-05-19)
+
 #### Improvements
 
 - Do not count 429 (Too Many Requests) towards the limit of retry attempts, retry them indefinitely
@@ -197,8 +203,6 @@ The following resources are now deprecated in favor of their specialized variant
 
 - `sql` resource provider renamed the type `ResourceIdentityWithUserAssignedIdentities` to `ResourceIdentity`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14439))
-
----
 
 ## 1.6.0 (2020-05-17)
 
