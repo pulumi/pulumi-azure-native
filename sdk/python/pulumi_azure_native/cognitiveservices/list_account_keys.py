@@ -59,7 +59,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
     The access keys for the cognitive services account.
-    API Version: 2021-04-30.
+    API Version: 2017-04-18.
 
 
     :param str account_name: The name of Cognitive Services account.

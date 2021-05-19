@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     }
 
     /// <summary>
-    /// The identity type.
+    /// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         }
 
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);

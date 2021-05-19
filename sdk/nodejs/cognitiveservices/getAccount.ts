@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
- * API Version: 2021-04-30.
+ * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * API Version: 2017-04-18.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -35,19 +35,19 @@ export interface GetAccountArgs {
 }
 
 /**
- * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+ * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  */
 export interface GetAccountResult {
     /**
-     * Resource Etag.
+     * Entity Tag
      */
     readonly etag: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The id of the created account
      */
     readonly id: string;
     /**
-     * Identity for the resource.
+     * The identity of Cognitive Services account.
      */
     readonly identity?: outputs.cognitiveservices.IdentityResponse;
     /**
@@ -55,31 +55,27 @@ export interface GetAccountResult {
      */
     readonly kind?: string;
     /**
-     * The geo-location where the resource lives
+     * The location of the resource
      */
     readonly location?: string;
     /**
-     * The name of the resource
+     * The name of the created account
      */
     readonly name: string;
     /**
      * Properties of Cognitive Services account.
      */
-    readonly properties: outputs.cognitiveservices.AccountPropertiesResponse;
+    readonly properties: outputs.cognitiveservices.CognitiveServicesAccountPropertiesResponse;
     /**
-     * The resource model definition representing SKU
+     * The SKU of Cognitive Services account.
      */
     readonly sku?: outputs.cognitiveservices.SkuResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.cognitiveservices.SystemDataResponse;
-    /**
-     * Resource tags.
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type
      */
     readonly type: string;
 }

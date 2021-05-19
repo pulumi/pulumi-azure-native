@@ -13,19 +13,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     [OutputType]
     public sealed class UserOwnedStorageResponse
     {
-        public readonly string? IdentityClientId;
         /// <summary>
         /// Full resource id of a Microsoft.Storage resource.
         /// </summary>
         public readonly string? ResourceId;
 
         [OutputConstructor]
-        private UserOwnedStorageResponse(
-            string? identityClientId,
-
-            string? resourceId)
+        private UserOwnedStorageResponse(string? resourceId)
         {
-            IdentityClientId = identityClientId;
             ResourceId = resourceId;
         }
     }

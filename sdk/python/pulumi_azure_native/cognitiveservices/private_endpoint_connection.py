@@ -112,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-30.
+        API Version: 2017-04-18.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-30.
+        API Version: 2017-04-18.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +175,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cognitiveservices:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20210430:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/v20210430:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -205,7 +204,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -213,7 +211,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        Resource Etag.
+        Entity Tag
         """
         return pulumi.get(self, "etag")
 
@@ -240,14 +238,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Resource properties.
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

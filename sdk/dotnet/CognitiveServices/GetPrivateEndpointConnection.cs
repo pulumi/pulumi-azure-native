@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-04-30.
+        /// API Version: 2017-04-18.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:cognitiveservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Resource Etag.
+        /// Entity Tag
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -90,8 +86,6 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Etag = etag;
@@ -99,7 +93,6 @@ namespace Pulumi.AzureNative.CognitiveServices
             Location = location;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

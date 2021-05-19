@@ -48,9 +48,10 @@ export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
+    None: "None",
 } as const;
 
 /**
- * The identity type.
+ * The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

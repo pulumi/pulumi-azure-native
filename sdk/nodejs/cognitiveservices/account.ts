@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
- * API Version: 2021-04-30.
+ * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+ * API Version: 2017-04-18.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -37,11 +37,11 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * Resource Etag.
+     * Entity Tag
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Identity for the resource.
+     * The identity of Cognitive Services account.
      */
     public readonly identity!: pulumi.Output<outputs.cognitiveservices.IdentityResponse | undefined>;
     /**
@@ -49,31 +49,27 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The geo-location where the resource lives
+     * The location of the resource
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource
+     * The name of the created account
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of Cognitive Services account.
      */
-    public readonly properties!: pulumi.Output<outputs.cognitiveservices.AccountPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.cognitiveservices.CognitiveServicesAccountPropertiesResponse>;
     /**
-     * The resource model definition representing SKU
+     * The SKU of Cognitive Services account.
      */
     public readonly sku!: pulumi.Output<outputs.cognitiveservices.SkuResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
-    /**
-     * Resource tags.
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -101,7 +97,6 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -111,7 +106,6 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -133,7 +127,7 @@ export interface AccountArgs {
      */
     readonly accountName?: pulumi.Input<string>;
     /**
-     * Identity for the resource.
+     * The identity of Cognitive Services account.
      */
     readonly identity?: pulumi.Input<inputs.cognitiveservices.IdentityArgs>;
     /**
@@ -141,23 +135,23 @@ export interface AccountArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The geo-location where the resource lives
+     * The location of the resource
      */
     readonly location?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account.
      */
-    readonly properties?: pulumi.Input<inputs.cognitiveservices.AccountPropertiesArgs>;
+    readonly properties?: pulumi.Input<inputs.cognitiveservices.CognitiveServicesAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The resource model definition representing SKU
+     * The SKU of Cognitive Services account.
      */
     readonly sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
     /**
-     * Resource tags.
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

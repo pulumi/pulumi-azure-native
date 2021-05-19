@@ -10,13 +10,37 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConfigurationIdentityArgs',
     'ExtensionStatusArgs',
     'HelmOperatorPropertiesArgs',
-    'IdentityArgs',
     'ScopeArgs',
     'ScopeClusterArgs',
     'ScopeNamespaceArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        Identity for the managed cluster.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class ExtensionStatusArgs:
@@ -27,11 +51,11 @@ class ExtensionStatusArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
-        Status from the extension.
+        Status from this instance of the extension.
         :param pulumi.Input[str] code: Status code provided by the Extension
-        :param pulumi.Input[str] display_status: Short description of status of the extension.
+        :param pulumi.Input[str] display_status: Short description of status of this instance of the extension.
         :param pulumi.Input[Union[str, 'LevelType']] level: Level of the status.
-        :param pulumi.Input[str] message: Detailed message of the status from the Extension.
+        :param pulumi.Input[str] message: Detailed message of the status from the Extension instance.
         :param pulumi.Input[str] time: DateLiteral (per ISO8601) noting the time of installation status.
         """
         if code is not None:
@@ -63,7 +87,7 @@ class ExtensionStatusArgs:
     @pulumi.getter(name="displayStatus")
     def display_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Short description of status of the extension.
+        Short description of status of this instance of the extension.
         """
         return pulumi.get(self, "display_status")
 
@@ -87,7 +111,7 @@ class ExtensionStatusArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        Detailed message of the status from the Extension.
+        Detailed message of the status from the Extension instance.
         """
         return pulumi.get(self, "message")
 
@@ -149,38 +173,14 @@ class HelmOperatorPropertiesArgs:
 
 
 @pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
-        """
-        Identity for the resource.
-        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
                  cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
                  namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None):
         """
-        Scope of the extension. It can be either Cluster or Namespace; but not both.
-        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extension is Cluster
-        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extension is Namespace
+        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extensionInstance is Cluster
+        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extensionInstance is Namespace
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -191,7 +191,7 @@ class ScopeArgs:
     @pulumi.getter
     def cluster(self) -> Optional[pulumi.Input['ScopeClusterArgs']]:
         """
-        Specifies that the scope of the extension is Cluster
+        Specifies that the scope of the extensionInstance is Cluster
         """
         return pulumi.get(self, "cluster")
 
@@ -203,7 +203,7 @@ class ScopeArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input['ScopeNamespaceArgs']]:
         """
-        Specifies that the scope of the extension is Namespace
+        Specifies that the scope of the extensionInstance is Namespace
         """
         return pulumi.get(self, "namespace")
 
@@ -217,8 +217,8 @@ class ScopeClusterArgs:
     def __init__(__self__, *,
                  release_namespace: Optional[pulumi.Input[str]] = None):
         """
-        Specifies that the scope of the extension is Cluster
-        :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extensionInstance is Cluster
+        :param pulumi.Input[str] release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
         """
         if release_namespace is not None:
             pulumi.set(__self__, "release_namespace", release_namespace)
@@ -227,7 +227,7 @@ class ScopeClusterArgs:
     @pulumi.getter(name="releaseNamespace")
     def release_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "release_namespace")
 
@@ -241,8 +241,8 @@ class ScopeNamespaceArgs:
     def __init__(__self__, *,
                  target_namespace: Optional[pulumi.Input[str]] = None):
         """
-        Specifies that the scope of the extension is Namespace
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        Specifies that the scope of the extensionInstance is Namespace
+        :param pulumi.Input[str] target_namespace: Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
         """
         if target_namespace is not None:
             pulumi.set(__self__, "target_namespace", target_namespace)
@@ -251,7 +251,7 @@ class ScopeNamespaceArgs:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
         """
         return pulumi.get(self, "target_namespace")
 

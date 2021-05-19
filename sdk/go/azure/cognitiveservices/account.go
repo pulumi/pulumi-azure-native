@@ -11,30 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
-// API Version: 2021-04-30.
+// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+// API Version: 2017-04-18.
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Resource Etag.
+	// Entity Tag
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Identity for the resource.
+	// The identity of Cognitive Services account.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
+	// The location of the resource
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
+	// The name of the created account
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of Cognitive Services account.
-	Properties AccountPropertiesResponseOutput `pulumi:"properties"`
-	// The resource model definition representing SKU
+	Properties CognitiveServicesAccountPropertiesResponseOutput `pulumi:"properties"`
+	// The SKU of Cognitive Services account.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -94,48 +92,44 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// Resource Etag.
+	// Entity Tag
 	Etag *string `pulumi:"etag"`
-	// Identity for the resource.
+	// The identity of Cognitive Services account.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
+	// The location of the resource
 	Location *string `pulumi:"location"`
-	// The name of the resource
+	// The name of the created account
 	Name *string `pulumi:"name"`
 	// Properties of Cognitive Services account.
-	Properties *AccountPropertiesResponse `pulumi:"properties"`
-	// The resource model definition representing SKU
+	Properties *CognitiveServicesAccountPropertiesResponse `pulumi:"properties"`
+	// The SKU of Cognitive Services account.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
-	// Resource Etag.
+	// Entity Tag
 	Etag pulumi.StringPtrInput
-	// Identity for the resource.
+	// The identity of Cognitive Services account.
 	Identity IdentityResponsePtrInput
 	// The Kind of the resource.
 	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
+	// The location of the resource
 	Location pulumi.StringPtrInput
-	// The name of the resource
+	// The name of the created account
 	Name pulumi.StringPtrInput
 	// Properties of Cognitive Services account.
-	Properties AccountPropertiesResponsePtrInput
-	// The resource model definition representing SKU
+	Properties CognitiveServicesAccountPropertiesResponsePtrInput
+	// The SKU of Cognitive Services account.
 	Sku SkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Resource type
 	Type pulumi.StringPtrInput
 }
 
@@ -146,19 +140,19 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// The name of Cognitive Services account.
 	AccountName *string `pulumi:"accountName"`
-	// Identity for the resource.
+	// The identity of Cognitive Services account.
 	Identity *Identity `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
+	// The location of the resource
 	Location *string `pulumi:"location"`
 	// Properties of Cognitive Services account.
-	Properties *AccountProperties `pulumi:"properties"`
+	Properties *CognitiveServicesAccountProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource model definition representing SKU
+	// The SKU of Cognitive Services account.
 	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -166,19 +160,19 @@ type accountArgs struct {
 type AccountArgs struct {
 	// The name of Cognitive Services account.
 	AccountName pulumi.StringPtrInput
-	// Identity for the resource.
+	// The identity of Cognitive Services account.
 	Identity IdentityPtrInput
 	// The Kind of the resource.
 	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
+	// The location of the resource
 	Location pulumi.StringPtrInput
 	// Properties of Cognitive Services account.
-	Properties AccountPropertiesPtrInput
+	Properties CognitiveServicesAccountPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The resource model definition representing SKU
+	// The SKU of Cognitive Services account.
 	Sku SkuPtrInput
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags pulumi.StringMapInput
 }
 

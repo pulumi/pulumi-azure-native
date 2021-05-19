@@ -96,11 +96,13 @@ var ignoredProviderVersions = map[string][]string{
 var cutoffProviderVersions = map[string]string{
 	"alertsmanagement":        "v20200804preview",
 	"appconfiguration":        "v20200701preview",
+	"cognitiveservices":       "v20170418",
 	"costmanagement":          "v20200601",
 	"databox":                 "v20201101",
 	"devices":                 "v20200831",
 	"documentdb":              "v20210315",
 	"insights":                "v20201020",
+	"kubernetesconfiguration": "v20210301",
 	"machinelearningservices": "v20210101",
 	"management":              "v20200501",
 	"maps":                    "v20200201preview",

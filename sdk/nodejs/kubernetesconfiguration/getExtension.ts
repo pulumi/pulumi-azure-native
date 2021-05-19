@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * The Extension object.
- * API Version: 2021-05-01-preview.
+ * The Extension Instance object.
+ * API Version: 2020-07-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     if (!opts) {
@@ -21,7 +21,7 @@ export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,
         "clusterRp": args.clusterRp,
-        "extensionName": args.extensionName,
+        "extensionInstanceName": args.extensionInstanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -40,85 +40,89 @@ export interface GetExtensionArgs {
      */
     readonly clusterRp: string;
     /**
-     * Name of the Extension.
+     * Name of an instance of the Extension.
      */
-    readonly extensionName: string;
+    readonly extensionInstanceName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group.
      */
     readonly resourceGroupName: string;
 }
 
 /**
- * The Extension object.
+ * The Extension Instance object.
  */
 export interface GetExtensionResult {
     /**
-     * Flag to note if this extension participates in auto upgrade of minor version, or not.
+     * Flag to note if this instance participates in auto upgrade of minor version, or not.
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
-     * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+     * Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
      */
     readonly configurationProtectedSettings?: {[key: string]: string};
     /**
-     * Configuration settings, as name-value pairs for configuring this extension.
+     * Configuration settings, as name-value pairs for configuring this instance of the extension.
      */
     readonly configurationSettings?: {[key: string]: string};
     /**
-     * Custom Location settings properties.
+     * DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
      */
-    readonly customLocationSettings: {[key: string]: string};
+    readonly creationTime: string;
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    readonly errorInfo: outputs.kubernetesconfiguration.ErrorDetailResponse;
+    readonly errorInfo: outputs.kubernetesconfiguration.ErrorDefinitionResponse;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
     readonly extensionType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource Id
      */
     readonly id: string;
     /**
-     * Identity of the Extension resource
+     * The identity of the configuration.
      */
-    readonly identity?: outputs.kubernetesconfiguration.IdentityResponse;
+    readonly identity?: outputs.kubernetesconfiguration.ConfigurationIdentityResponse;
     /**
-     * The name of the resource
+     * Status of installation of this instance of the extension.
+     */
+    readonly installState: string;
+    /**
+     * DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
+     */
+    readonly lastModifiedTime: string;
+    /**
+     * DateLiteral (per ISO8601) noting the time of last status from the agent.
+     */
+    readonly lastStatusTime: string;
+    /**
+     * Resource name
      */
     readonly name: string;
     /**
-     * Uri of the Helm package
-     */
-    readonly packageUri: string;
-    /**
-     * Status of installation of this extension.
-     */
-    readonly provisioningState: string;
-    /**
-     * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+     * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
     readonly releaseTrain?: string;
     /**
-     * Scope at which the extension is installed.
+     * Scope at which the extension instance is installed.
      */
     readonly scope?: outputs.kubernetesconfiguration.ScopeResponse;
     /**
-     * Status from this extension.
+     * Status from this instance of the extension.
      */
     readonly statuses?: outputs.kubernetesconfiguration.ExtensionStatusResponse[];
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    readonly systemData: outputs.kubernetesconfiguration.SystemDataResponse;
+    readonly systemData?: outputs.kubernetesconfiguration.SystemDataResponse;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type
      */
     readonly type: string;
     /**
-     * Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+     * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
      */
     readonly version?: string;
 }

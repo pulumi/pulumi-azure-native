@@ -12,11 +12,11 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2021-04-30.
+// API Version: 2017-04-18.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Resource Etag.
+	// Entity Tag
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The location of the private endpoint connection
 	Location pulumi.StringPtrOutput `pulumi:"location"`
@@ -24,8 +24,6 @@ type PrivateEndpointConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource properties.
 	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -83,7 +81,7 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// Resource Etag.
+	// Entity Tag
 	Etag *string `pulumi:"etag"`
 	// The location of the private endpoint connection
 	Location *string `pulumi:"location"`
@@ -91,14 +89,12 @@ type privateEndpointConnectionState struct {
 	Name *string `pulumi:"name"`
 	// Resource properties.
 	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// Resource Etag.
+	// Entity Tag
 	Etag pulumi.StringPtrInput
 	// The location of the private endpoint connection
 	Location pulumi.StringPtrInput
@@ -106,8 +102,6 @@ type PrivateEndpointConnectionState struct {
 	Name pulumi.StringPtrInput
 	// Resource properties.
 	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

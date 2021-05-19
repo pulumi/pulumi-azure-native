@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public static class GetExtension
     {
         /// <summary>
-        /// The Extension object.
-        /// API Version: 2021-05-01-preview.
+        /// The Extension Instance object.
+        /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
@@ -41,13 +41,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public string ClusterRp { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Extension.
+        /// Name of an instance of the Extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public string ExtensionName { get; set; } = null!;
+        [Input("extensionInstanceName", required: true)]
+        public string ExtensionInstanceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,71 +62,75 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class GetExtensionResult
     {
         /// <summary>
-        /// Flag to note if this extension participates in auto upgrade of minor version, or not.
+        /// Flag to note if this instance participates in auto upgrade of minor version, or not.
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+        /// Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConfigurationProtectedSettings;
         /// <summary>
-        /// Configuration settings, as name-value pairs for configuring this extension.
+        /// Configuration settings, as name-value pairs for configuring this instance of the extension.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConfigurationSettings;
         /// <summary>
-        /// Custom Location settings properties.
+        /// DateLiteral (per ISO8601) noting the time the resource was created by the client (user).
         /// </summary>
-        public readonly ImmutableDictionary<string, string> CustomLocationSettings;
+        public readonly string CreationTime;
         /// <summary>
         /// Error information from the Agent - e.g. errors during installation.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse ErrorInfo;
+        public readonly Outputs.ErrorDefinitionResponse ErrorInfo;
         /// <summary>
         /// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
         /// </summary>
         public readonly string? ExtensionType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identity of the Extension resource
+        /// The identity of the configuration.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.ConfigurationIdentityResponse? Identity;
         /// <summary>
-        /// The name of the resource
+        /// Status of installation of this instance of the extension.
+        /// </summary>
+        public readonly string InstallState;
+        /// <summary>
+        /// DateLiteral (per ISO8601) noting the time the resource was modified by the client (user).
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
+        /// DateLiteral (per ISO8601) noting the time of last status from the agent.
+        /// </summary>
+        public readonly string LastStatusTime;
+        /// <summary>
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Uri of the Helm package
-        /// </summary>
-        public readonly string PackageUri;
-        /// <summary>
-        /// Status of installation of this extension.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+        /// ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
         /// </summary>
         public readonly string? ReleaseTrain;
         /// <summary>
-        /// Scope at which the extension is installed.
+        /// Scope at which the extension instance is installed.
         /// </summary>
         public readonly Outputs.ScopeResponse? Scope;
         /// <summary>
-        /// Status from this extension.
+        /// Status from this instance of the extension.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExtensionStatusResponse> Statuses;
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.SystemDataResponse? SystemData;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+        /// Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
         /// </summary>
         public readonly string? Version;
 
@@ -138,21 +142,23 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             ImmutableDictionary<string, string>? configurationSettings,
 
-            ImmutableDictionary<string, string> customLocationSettings,
+            string creationTime,
 
-            Outputs.ErrorDetailResponse errorInfo,
+            Outputs.ErrorDefinitionResponse errorInfo,
 
             string? extensionType,
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.ConfigurationIdentityResponse? identity,
+
+            string installState,
+
+            string lastModifiedTime,
+
+            string lastStatusTime,
 
             string name,
-
-            string packageUri,
-
-            string provisioningState,
 
             string? releaseTrain,
 
@@ -160,7 +166,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             ImmutableArray<Outputs.ExtensionStatusResponse> statuses,
 
-            Outputs.SystemDataResponse systemData,
+            Outputs.SystemDataResponse? systemData,
 
             string type,
 
@@ -169,14 +175,15 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             ConfigurationSettings = configurationSettings;
-            CustomLocationSettings = customLocationSettings;
+            CreationTime = creationTime;
             ErrorInfo = errorInfo;
             ExtensionType = extensionType;
             Id = id;
             Identity = identity;
+            InstallState = installState;
+            LastModifiedTime = lastModifiedTime;
+            LastStatusTime = lastStatusTime;
             Name = name;
-            PackageUri = packageUri;
-            ProvisioningState = provisioningState;
             ReleaseTrain = releaseTrain;
             Scope = scope;
             Statuses = statuses;

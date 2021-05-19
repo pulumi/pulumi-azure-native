@@ -11,9 +11,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccountPropertiesResponse',
-    'ApiPropertiesResponse',
-    'CallRateLimitResponse',
+    'CognitiveServicesAccountApiPropertiesResponse',
+    'CognitiveServicesAccountPropertiesResponse',
+    'CognitiveServicesAccountSkuChangeInfoResponse',
     'EncryptionResponse',
     'IdentityResponse',
     'IpRuleResponse',
@@ -23,309 +23,15 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'QuotaLimitResponse',
-    'RequestMatchPatternResponse',
     'SkuCapabilityResponse',
-    'SkuChangeInfoResponse',
     'SkuResponse',
-    'SystemDataResponse',
-    'ThrottlingRuleResponse',
     'UserAssignedIdentityResponse',
     'UserOwnedStorageResponse',
     'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
-class AccountPropertiesResponse(dict):
-    """
-    Properties of Cognitive Services account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "callRateLimit":
-            suggest = "call_rate_limit"
-        elif key == "dateCreated":
-            suggest = "date_created"
-        elif key == "internalId":
-            suggest = "internal_id"
-        elif key == "isMigrated":
-            suggest = "is_migrated"
-        elif key == "privateEndpointConnections":
-            suggest = "private_endpoint_connections"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "quotaLimit":
-            suggest = "quota_limit"
-        elif key == "skuChangeInfo":
-            suggest = "sku_change_info"
-        elif key == "allowedFqdnList":
-            suggest = "allowed_fqdn_list"
-        elif key == "apiProperties":
-            suggest = "api_properties"
-        elif key == "customSubDomainName":
-            suggest = "custom_sub_domain_name"
-        elif key == "disableLocalAuth":
-            suggest = "disable_local_auth"
-        elif key == "migrationToken":
-            suggest = "migration_token"
-        elif key == "networkAcls":
-            suggest = "network_acls"
-        elif key == "publicNetworkAccess":
-            suggest = "public_network_access"
-        elif key == "restrictOutboundNetworkAccess":
-            suggest = "restrict_outbound_network_access"
-        elif key == "userOwnedStorage":
-            suggest = "user_owned_storage"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AccountPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AccountPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 call_rate_limit: 'outputs.CallRateLimitResponse',
-                 capabilities: Sequence['outputs.SkuCapabilityResponse'],
-                 date_created: str,
-                 endpoint: str,
-                 endpoints: Mapping[str, str],
-                 internal_id: str,
-                 is_migrated: bool,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
-                 provisioning_state: str,
-                 quota_limit: 'outputs.QuotaLimitResponse',
-                 sku_change_info: 'outputs.SkuChangeInfoResponse',
-                 allowed_fqdn_list: Optional[Sequence[str]] = None,
-                 api_properties: Optional['outputs.ApiPropertiesResponse'] = None,
-                 custom_sub_domain_name: Optional[str] = None,
-                 disable_local_auth: Optional[bool] = None,
-                 encryption: Optional['outputs.EncryptionResponse'] = None,
-                 migration_token: Optional[str] = None,
-                 network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
-                 public_network_access: Optional[str] = None,
-                 restore: Optional[bool] = None,
-                 restrict_outbound_network_access: Optional[bool] = None,
-                 user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
-        """
-        Properties of Cognitive Services account.
-        :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
-        :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
-        :param str date_created: Gets the date of cognitive services account creation.
-        :param str endpoint: Endpoint of the created account.
-        :param str internal_id: The internal identifier (deprecated, do not use this property).
-        :param bool is_migrated: If the resource is migrated from an existing key.
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
-        :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
-        :param 'SkuChangeInfoResponse' sku_change_info: Sku change info of account.
-        :param 'ApiPropertiesResponse' api_properties: The api properties for special APIs.
-        :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
-        :param 'EncryptionResponse' encryption: The encryption properties for this resource.
-        :param str migration_token: Resource migration token.
-        :param 'NetworkRuleSetResponse' network_acls: A collection of rules governing the accessibility from specific network locations.
-        :param str public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
-        """
-        pulumi.set(__self__, "call_rate_limit", call_rate_limit)
-        pulumi.set(__self__, "capabilities", capabilities)
-        pulumi.set(__self__, "date_created", date_created)
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "is_migrated", is_migrated)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "quota_limit", quota_limit)
-        pulumi.set(__self__, "sku_change_info", sku_change_info)
-        if allowed_fqdn_list is not None:
-            pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
-        if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
-        if custom_sub_domain_name is not None:
-            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if migration_token is not None:
-            pulumi.set(__self__, "migration_token", migration_token)
-        if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if restore is not None:
-            pulumi.set(__self__, "restore", restore)
-        if restrict_outbound_network_access is not None:
-            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
-        if user_owned_storage is not None:
-            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
-
-    @property
-    @pulumi.getter(name="callRateLimit")
-    def call_rate_limit(self) -> 'outputs.CallRateLimitResponse':
-        """
-        The call rate limit Cognitive Services account.
-        """
-        return pulumi.get(self, "call_rate_limit")
-
-    @property
-    @pulumi.getter
-    def capabilities(self) -> Sequence['outputs.SkuCapabilityResponse']:
-        """
-        Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
-        """
-        return pulumi.get(self, "capabilities")
-
-    @property
-    @pulumi.getter(name="dateCreated")
-    def date_created(self) -> str:
-        """
-        Gets the date of cognitive services account creation.
-        """
-        return pulumi.get(self, "date_created")
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> str:
-        """
-        Endpoint of the created account.
-        """
-        return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter
-    def endpoints(self) -> Mapping[str, str]:
-        return pulumi.get(self, "endpoints")
-
-    @property
-    @pulumi.getter(name="internalId")
-    def internal_id(self) -> str:
-        """
-        The internal identifier (deprecated, do not use this property).
-        """
-        return pulumi.get(self, "internal_id")
-
-    @property
-    @pulumi.getter(name="isMigrated")
-    def is_migrated(self) -> bool:
-        """
-        If the resource is migrated from an existing key.
-        """
-        return pulumi.get(self, "is_migrated")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
-        """
-        The private endpoint connection associated with the Cognitive Services account.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Gets the status of the cognitive services account at the time the operation was called.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="quotaLimit")
-    def quota_limit(self) -> 'outputs.QuotaLimitResponse':
-        return pulumi.get(self, "quota_limit")
-
-    @property
-    @pulumi.getter(name="skuChangeInfo")
-    def sku_change_info(self) -> 'outputs.SkuChangeInfoResponse':
-        """
-        Sku change info of account.
-        """
-        return pulumi.get(self, "sku_change_info")
-
-    @property
-    @pulumi.getter(name="allowedFqdnList")
-    def allowed_fqdn_list(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "allowed_fqdn_list")
-
-    @property
-    @pulumi.getter(name="apiProperties")
-    def api_properties(self) -> Optional['outputs.ApiPropertiesResponse']:
-        """
-        The api properties for special APIs.
-        """
-        return pulumi.get(self, "api_properties")
-
-    @property
-    @pulumi.getter(name="customSubDomainName")
-    def custom_sub_domain_name(self) -> Optional[str]:
-        """
-        Optional subdomain name used for token-based authentication.
-        """
-        return pulumi.get(self, "custom_sub_domain_name")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[bool]:
-        return pulumi.get(self, "disable_local_auth")
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
-        """
-        The encryption properties for this resource.
-        """
-        return pulumi.get(self, "encryption")
-
-    @property
-    @pulumi.getter(name="migrationToken")
-    def migration_token(self) -> Optional[str]:
-        """
-        Resource migration token.
-        """
-        return pulumi.get(self, "migration_token")
-
-    @property
-    @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional['outputs.NetworkRuleSetResponse']:
-        """
-        A collection of rules governing the accessibility from specific network locations.
-        """
-        return pulumi.get(self, "network_acls")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter
-    def restore(self) -> Optional[bool]:
-        return pulumi.get(self, "restore")
-
-    @property
-    @pulumi.getter(name="restrictOutboundNetworkAccess")
-    def restrict_outbound_network_access(self) -> Optional[bool]:
-        return pulumi.get(self, "restrict_outbound_network_access")
-
-    @property
-    @pulumi.getter(name="userOwnedStorage")
-    def user_owned_storage(self) -> Optional[Sequence['outputs.UserOwnedStorageResponse']]:
-        """
-        The storage accounts for this resource.
-        """
-        return pulumi.get(self, "user_owned_storage")
-
-
-@pulumi.output_type
-class ApiPropertiesResponse(dict):
+class CognitiveServicesAccountApiPropertiesResponse(dict):
     """
     The api properties for special APIs.
     """
@@ -354,14 +60,14 @@ class ApiPropertiesResponse(dict):
             suggest = "website_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApiPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CognitiveServicesAccountApiPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApiPropertiesResponse.__key_warning(key)
+        CognitiveServicesAccountApiPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApiPropertiesResponse.__key_warning(key)
+        CognitiveServicesAccountApiPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -491,63 +197,277 @@ class ApiPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class CallRateLimitResponse(dict):
+class CognitiveServicesAccountPropertiesResponse(dict):
     """
-    The call rate limit Cognitive Services account.
+    Properties of Cognitive Services account.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "renewalPeriod":
-            suggest = "renewal_period"
+        if key == "dateCreated":
+            suggest = "date_created"
+        elif key == "internalId":
+            suggest = "internal_id"
+        elif key == "isMigrated":
+            suggest = "is_migrated"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "skuChangeInfo":
+            suggest = "sku_change_info"
+        elif key == "apiProperties":
+            suggest = "api_properties"
+        elif key == "customSubDomainName":
+            suggest = "custom_sub_domain_name"
+        elif key == "networkAcls":
+            suggest = "network_acls"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "userOwnedStorage":
+            suggest = "user_owned_storage"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CallRateLimitResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CognitiveServicesAccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CallRateLimitResponse.__key_warning(key)
+        CognitiveServicesAccountPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CallRateLimitResponse.__key_warning(key)
+        CognitiveServicesAccountPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 renewal_period: Optional[float] = None,
-                 rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
+                 capabilities: Sequence['outputs.SkuCapabilityResponse'],
+                 date_created: str,
+                 endpoint: str,
+                 internal_id: str,
+                 is_migrated: bool,
+                 provisioning_state: str,
+                 sku_change_info: 'outputs.CognitiveServicesAccountSkuChangeInfoResponse',
+                 api_properties: Optional['outputs.CognitiveServicesAccountApiPropertiesResponse'] = None,
+                 custom_sub_domain_name: Optional[str] = None,
+                 encryption: Optional['outputs.EncryptionResponse'] = None,
+                 network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
+                 private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
+                 public_network_access: Optional[str] = None,
+                 user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
-        The call rate limit Cognitive Services account.
-        :param float count: The count value of Call Rate Limit.
-        :param float renewal_period: The renewal period in seconds of Call Rate Limit.
+        Properties of Cognitive Services account.
+        :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
+        :param str date_created: Gets the date of cognitive services account creation.
+        :param str endpoint: Endpoint of the created account.
+        :param str internal_id: The internal identifier.
+        :param bool is_migrated: If the resource is migrated from an existing key.
+        :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
+        :param 'CognitiveServicesAccountSkuChangeInfoResponse' sku_change_info: Sku change info of account.
+        :param 'CognitiveServicesAccountApiPropertiesResponse' api_properties: The api properties for special APIs.
+        :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
+        :param 'EncryptionResponse' encryption: The encryption properties for this resource.
+        :param 'NetworkRuleSetResponse' network_acls: A collection of rules governing the accessibility from specific network locations.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
+        :param str public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
         """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if renewal_period is not None:
-            pulumi.set(__self__, "renewal_period", renewal_period)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "date_created", date_created)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "internal_id", internal_id)
+        pulumi.set(__self__, "is_migrated", is_migrated)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sku_change_info", sku_change_info)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
+        if custom_sub_domain_name is not None:
+            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if user_owned_storage is not None:
+            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def capabilities(self) -> Sequence['outputs.SkuCapabilityResponse']:
         """
-        The count value of Call Rate Limit.
+        Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
         """
-        return pulumi.get(self, "count")
+        return pulumi.get(self, "capabilities")
 
     @property
-    @pulumi.getter(name="renewalPeriod")
-    def renewal_period(self) -> Optional[float]:
+    @pulumi.getter(name="dateCreated")
+    def date_created(self) -> str:
         """
-        The renewal period in seconds of Call Rate Limit.
+        Gets the date of cognitive services account creation.
         """
-        return pulumi.get(self, "renewal_period")
+        return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
-        return pulumi.get(self, "rules")
+    def endpoint(self) -> str:
+        """
+        Endpoint of the created account.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="internalId")
+    def internal_id(self) -> str:
+        """
+        The internal identifier.
+        """
+        return pulumi.get(self, "internal_id")
+
+    @property
+    @pulumi.getter(name="isMigrated")
+    def is_migrated(self) -> bool:
+        """
+        If the resource is migrated from an existing key.
+        """
+        return pulumi.get(self, "is_migrated")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Gets the status of the cognitive services account at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="skuChangeInfo")
+    def sku_change_info(self) -> 'outputs.CognitiveServicesAccountSkuChangeInfoResponse':
+        """
+        Sku change info of account.
+        """
+        return pulumi.get(self, "sku_change_info")
+
+    @property
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional['outputs.CognitiveServicesAccountApiPropertiesResponse']:
+        """
+        The api properties for special APIs.
+        """
+        return pulumi.get(self, "api_properties")
+
+    @property
+    @pulumi.getter(name="customSubDomainName")
+    def custom_sub_domain_name(self) -> Optional[str]:
+        """
+        Optional subdomain name used for token-based authentication.
+        """
+        return pulumi.get(self, "custom_sub_domain_name")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        The encryption properties for this resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional['outputs.NetworkRuleSetResponse']:
+        """
+        A collection of rules governing the accessibility from specific network locations.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        The private endpoint connection associated with the Cognitive Services account.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="userOwnedStorage")
+    def user_owned_storage(self) -> Optional[Sequence['outputs.UserOwnedStorageResponse']]:
+        """
+        The storage accounts for this resource.
+        """
+        return pulumi.get(self, "user_owned_storage")
+
+
+@pulumi.output_type
+class CognitiveServicesAccountSkuChangeInfoResponse(dict):
+    """
+    Sku change info of account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countOfDowngrades":
+            suggest = "count_of_downgrades"
+        elif key == "countOfUpgradesAfterDowngrades":
+            suggest = "count_of_upgrades_after_downgrades"
+        elif key == "lastChangeDate":
+            suggest = "last_change_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CognitiveServicesAccountSkuChangeInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CognitiveServicesAccountSkuChangeInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CognitiveServicesAccountSkuChangeInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count_of_downgrades: float,
+                 count_of_upgrades_after_downgrades: float,
+                 last_change_date: str):
+        """
+        Sku change info of account.
+        :param float count_of_downgrades: Gets the count of downgrades.
+        :param float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
+        :param str last_change_date: Gets the last change date.
+        """
+        pulumi.set(__self__, "count_of_downgrades", count_of_downgrades)
+        pulumi.set(__self__, "count_of_upgrades_after_downgrades", count_of_upgrades_after_downgrades)
+        pulumi.set(__self__, "last_change_date", last_change_date)
+
+    @property
+    @pulumi.getter(name="countOfDowngrades")
+    def count_of_downgrades(self) -> float:
+        """
+        Gets the count of downgrades.
+        """
+        return pulumi.get(self, "count_of_downgrades")
+
+    @property
+    @pulumi.getter(name="countOfUpgradesAfterDowngrades")
+    def count_of_upgrades_after_downgrades(self) -> float:
+        """
+        Gets the count of upgrades after downgrades.
+        """
+        return pulumi.get(self, "count_of_upgrades_after_downgrades")
+
+    @property
+    @pulumi.getter(name="lastChangeDate")
+    def last_change_date(self) -> str:
+        """
+        Gets the last change date.
+        """
+        return pulumi.get(self, "last_change_date")
 
 
 @pulumi.output_type
@@ -609,7 +529,7 @@ class EncryptionResponse(dict):
 @pulumi.output_type
 class IdentityResponse(dict):
     """
-    Identity for the resource.
+    Managed service identity.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -638,10 +558,10 @@ class IdentityResponse(dict):
                  type: Optional[str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Identity for the resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
-        :param str type: The identity type.
+        Managed service identity.
+        :param str principal_id: Principal Id of managed service identity.
+        :param str tenant_id: Tenant of managed service identity.
+        :param str type: Type of managed service identity.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -655,7 +575,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of resource identity.
+        Principal Id of managed service identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -663,7 +583,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of resource.
+        Tenant of managed service identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -671,7 +591,7 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The identity type.
+        Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
@@ -714,9 +634,7 @@ class KeyVaultPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "identityClientId":
-            suggest = "identity_client_id"
-        elif key == "keyName":
+        if key == "keyName":
             suggest = "key_name"
         elif key == "keyVaultUri":
             suggest = "key_vault_uri"
@@ -735,7 +653,6 @@ class KeyVaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_client_id: Optional[str] = None,
                  key_name: Optional[str] = None,
                  key_vault_uri: Optional[str] = None,
                  key_version: Optional[str] = None):
@@ -745,19 +662,12 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: Uri of KeyVault
         :param str key_version: Version of the Key from KeyVault
         """
-        if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
-
-    @property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[str]:
-        return pulumi.get(self, "identity_client_id")
 
     @property
     @pulumi.getter(name="keyName")
@@ -862,8 +772,6 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         suggest = None
         if key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "groupIds":
             suggest = "group_ids"
         elif key == "privateEndpoint":
@@ -882,18 +790,15 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: str,
                  group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param Sequence[str] group_ids: The private link resource group ids.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
@@ -906,14 +811,6 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -937,37 +834,18 @@ class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "systemData":
-            suggest = "system_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  etag: str,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  location: Optional[str] = None,
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         The Private Endpoint Connection resource.
-        :param str etag: Resource Etag.
+        :param str etag: Entity Tag
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str location: The location of the private endpoint connection
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Resource properties.
@@ -975,7 +853,6 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -986,7 +863,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def etag(self) -> str:
         """
-        Resource Etag.
+        Entity Tag
         """
         return pulumi.get(self, "etag")
 
@@ -1005,14 +882,6 @@ class PrivateEndpointConnectionResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1126,73 +995,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class QuotaLimitResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "renewalPeriod":
-            suggest = "renewal_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in QuotaLimitResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        QuotaLimitResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        QuotaLimitResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 renewal_period: Optional[float] = None,
-                 rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if renewal_period is not None:
-            pulumi.set(__self__, "renewal_period", renewal_period)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[float]:
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="renewalPeriod")
-    def renewal_period(self) -> Optional[float]:
-        return pulumi.get(self, "renewal_period")
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
-        return pulumi.get(self, "rules")
-
-
-@pulumi.output_type
-class RequestMatchPatternResponse(dict):
-    def __init__(__self__, *,
-                 method: Optional[str] = None,
-                 path: Optional[str] = None):
-        if method is not None:
-            pulumi.set(__self__, "method", method)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @property
-    @pulumi.getter
-    def method(self) -> Optional[str]:
-        return pulumi.get(self, "method")
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[str]:
-        return pulumi.get(self, "path")
-
-
-@pulumi.output_type
 class SkuCapabilityResponse(dict):
     """
     SkuCapability indicates the capability of a certain feature.
@@ -1228,327 +1030,36 @@ class SkuCapabilityResponse(dict):
 
 
 @pulumi.output_type
-class SkuChangeInfoResponse(dict):
-    """
-    Sku change info of account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "countOfDowngrades":
-            suggest = "count_of_downgrades"
-        elif key == "countOfUpgradesAfterDowngrades":
-            suggest = "count_of_upgrades_after_downgrades"
-        elif key == "lastChangeDate":
-            suggest = "last_change_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkuChangeInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SkuChangeInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SkuChangeInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 count_of_downgrades: Optional[float] = None,
-                 count_of_upgrades_after_downgrades: Optional[float] = None,
-                 last_change_date: Optional[str] = None):
-        """
-        Sku change info of account.
-        :param float count_of_downgrades: Gets the count of downgrades.
-        :param float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
-        :param str last_change_date: Gets the last change date.
-        """
-        if count_of_downgrades is not None:
-            pulumi.set(__self__, "count_of_downgrades", count_of_downgrades)
-        if count_of_upgrades_after_downgrades is not None:
-            pulumi.set(__self__, "count_of_upgrades_after_downgrades", count_of_upgrades_after_downgrades)
-        if last_change_date is not None:
-            pulumi.set(__self__, "last_change_date", last_change_date)
-
-    @property
-    @pulumi.getter(name="countOfDowngrades")
-    def count_of_downgrades(self) -> Optional[float]:
-        """
-        Gets the count of downgrades.
-        """
-        return pulumi.get(self, "count_of_downgrades")
-
-    @property
-    @pulumi.getter(name="countOfUpgradesAfterDowngrades")
-    def count_of_upgrades_after_downgrades(self) -> Optional[float]:
-        """
-        Gets the count of upgrades after downgrades.
-        """
-        return pulumi.get(self, "count_of_upgrades_after_downgrades")
-
-    @property
-    @pulumi.getter(name="lastChangeDate")
-    def last_change_date(self) -> Optional[str]:
-        """
-        Gets the last change date.
-        """
-        return pulumi.get(self, "last_change_date")
-
-
-@pulumi.output_type
 class SkuResponse(dict):
     """
-    The resource model definition representing SKU
+    The SKU of the cognitive services account.
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[int] = None,
-                 family: Optional[str] = None,
-                 size: Optional[str] = None,
-                 tier: Optional[str] = None):
+                 tier: str):
         """
-        The resource model definition representing SKU
-        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
-        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        The SKU of the cognitive services account.
+        :param str name: Gets or sets the sku name. Required for account creation, optional for update.
+        :param str tier: Gets the sku tier. This is based on the SKU name.
         """
         pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        Gets or sets the sku name. Required for account creation, optional for update.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[int]:
+    def tier(self) -> str:
         """
-        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        """
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
-        """
-        return pulumi.get(self, "size")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        Gets the sku tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class ThrottlingRuleResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dynamicThrottlingEnabled":
-            suggest = "dynamic_throttling_enabled"
-        elif key == "matchPatterns":
-            suggest = "match_patterns"
-        elif key == "minCount":
-            suggest = "min_count"
-        elif key == "renewalPeriod":
-            suggest = "renewal_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ThrottlingRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ThrottlingRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ThrottlingRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 dynamic_throttling_enabled: Optional[bool] = None,
-                 key: Optional[str] = None,
-                 match_patterns: Optional[Sequence['outputs.RequestMatchPatternResponse']] = None,
-                 min_count: Optional[float] = None,
-                 renewal_period: Optional[float] = None):
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if dynamic_throttling_enabled is not None:
-            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if match_patterns is not None:
-            pulumi.set(__self__, "match_patterns", match_patterns)
-        if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
-        if renewal_period is not None:
-            pulumi.set(__self__, "renewal_period", renewal_period)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[float]:
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "dynamic_throttling_enabled")
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter(name="matchPatterns")
-    def match_patterns(self) -> Optional[Sequence['outputs.RequestMatchPatternResponse']]:
-        return pulumi.get(self, "match_patterns")
-
-    @property
-    @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
-        return pulumi.get(self, "min_count")
-
-    @property
-    @pulumi.getter(name="renewalPeriod")
-    def renewal_period(self) -> Optional[float]:
-        return pulumi.get(self, "renewal_period")
 
 
 @pulumi.output_type
@@ -1576,19 +1087,21 @@ class UserAssignedIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
+                 client_id: Optional[str] = None,
+                 principal_id: Optional[str] = None):
         """
         User-assigned managed identity.
         :param str client_id: Client App Id associated with this identity.
         :param str principal_id: Azure Active Directory principal ID associated with this Identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> Optional[str]:
         """
         Client App Id associated with this identity.
         """
@@ -1596,7 +1109,7 @@ class UserAssignedIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> Optional[str]:
         """
         Azure Active Directory principal ID associated with this Identity.
         """
@@ -1611,9 +1124,7 @@ class UserOwnedStorageResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "identityClientId":
-            suggest = "identity_client_id"
-        elif key == "resourceId":
+        if key == "resourceId":
             suggest = "resource_id"
 
         if suggest:
@@ -1628,21 +1139,13 @@ class UserOwnedStorageResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_client_id: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
         The user owned storage for Cognitive Services account.
         :param str resource_id: Full resource id of a Microsoft.Storage resource.
         """
-        if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[str]:
-        return pulumi.get(self, "identity_client_id")
 
     @property
     @pulumi.getter(name="resourceId")

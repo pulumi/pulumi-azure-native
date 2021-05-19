@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
     public sealed class ScopeResponse
     {
         /// <summary>
-        /// Specifies that the scope of the extension is Cluster
+        /// Specifies that the scope of the extensionInstance is Cluster
         /// </summary>
         public readonly Outputs.ScopeClusterResponse? Cluster;
         /// <summary>
-        /// Specifies that the scope of the extension is Namespace
+        /// Specifies that the scope of the extensionInstance is Namespace
         /// </summary>
         public readonly Outputs.ScopeNamespaceResponse? Namespace;
 

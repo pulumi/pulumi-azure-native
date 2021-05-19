@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// </summary>
         public readonly string? Code;
         /// <summary>
-        /// Short description of status of the extension.
+        /// Short description of status of this instance of the extension.
         /// </summary>
         public readonly string? DisplayStatus;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
         /// </summary>
         public readonly string? Level;
         /// <summary>
-        /// Detailed message of the status from the Extension.
+        /// Detailed message of the status from the Extension instance.
         /// </summary>
         public readonly string? Message;
         /// <summary>

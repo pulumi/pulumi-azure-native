@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-04-30.
+ * API Version: 2017-04-18.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Resource Etag.
+     * Entity Tag
      */
     readonly etag: string;
     /**
@@ -63,10 +63,6 @@ export interface GetPrivateEndpointConnectionResult {
      * Resource properties.
      */
     readonly properties: outputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.cognitiveservices.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

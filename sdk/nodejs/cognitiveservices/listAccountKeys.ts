@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The access keys for the cognitive services account.
- * API Version: 2021-04-30.
+ * API Version: 2017-04-18.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
     if (!opts) {

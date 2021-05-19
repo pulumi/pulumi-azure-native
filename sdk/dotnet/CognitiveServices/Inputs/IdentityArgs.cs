@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Managed service identity.
     /// </summary>
     public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity type.
+        /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNative.CognitiveServices.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.CognitiveServices.IdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

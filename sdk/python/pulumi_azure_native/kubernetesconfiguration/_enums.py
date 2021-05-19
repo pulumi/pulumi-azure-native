@@ -38,6 +38,7 @@ class OperatorType(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The identity type.
+    The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"

@@ -5,13 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'IdentityType',
     'KeySource',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
-    'ResourceIdentityType',
-    'SkuTier',
 ]
+
+
+class IdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class KeySource(str, Enum):
@@ -37,6 +45,7 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -45,24 +54,3 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-
-
-class SkuTier(str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
-    ENTERPRISE = "Enterprise"

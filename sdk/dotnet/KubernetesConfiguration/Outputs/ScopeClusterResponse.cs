@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
     public sealed class ScopeClusterResponse
     {
         /// <summary>
-        /// Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        /// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
         /// </summary>
         public readonly string? ReleaseNamespace;
 

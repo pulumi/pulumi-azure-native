@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-04-30.
+ * API Version: 2017-04-18.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Resource Etag.
+     * Entity Tag
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
@@ -52,10 +52,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * Resource properties.
      */
     public readonly properties!: pulumi.Output<outputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -85,14 +81,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
