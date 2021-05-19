@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Compute role.
  */
+/** @deprecated Please use one of the variants: IoTRole. */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
+    pulumi.log.warn("getRole is deprecated: Please use one of the variants: IoTRole.")
     if (!opts) {
         opts = {}
     }

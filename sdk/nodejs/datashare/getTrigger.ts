@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
  * A Trigger data transfer object.
  * API Version: 2020-09-01.
  */
+/** @deprecated Please use one of the variants: ScheduledTrigger. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
+    pulumi.log.warn("getTrigger is deprecated: Please use one of the variants: ScheduledTrigger.")
     if (!opts) {
         opts = {}
     }

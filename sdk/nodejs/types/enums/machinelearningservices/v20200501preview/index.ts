@@ -122,6 +122,16 @@ export const SourceType = {
  */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
+export const VariantType = {
+    Control: "Control",
+    Treatment: "Treatment",
+} as const;
+
+/**
+ * The type of the variant.
+ */
+export type VariantType = (typeof VariantType)[keyof typeof VariantType];
+
 export const VmPriority = {
     Dedicated: "Dedicated",
     LowPriority: "LowPriority",

@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Alert rule.
  * API Version: 2020-01-01.
+ *
+ * @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
  */
 export class AlertRule extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class AlertRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AlertRule {
+        pulumi.log.warn("AlertRule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")
         return new AlertRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class AlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule. */
     constructor(name: string, args: AlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AlertRule is deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

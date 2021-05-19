@@ -7,11 +7,15 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./accessPolicy";
 export * from "./environment";
+export * from "./eventHubEventSource";
 export * from "./eventSource";
 export * from "./getAccessPolicy";
 export * from "./getEnvironment";
+export * from "./getEventHubEventSource";
 export * from "./getEventSource";
+export * from "./getIoTHubEventSource";
 export * from "./getReferenceDataSet";
+export * from "./ioTHubEventSource";
 export * from "./referenceDataSet";
 
 // Export enums:
@@ -20,7 +24,9 @@ export * from "../../types/enums/timeseriesinsights/v20171115";
 // Import resources to register:
 import { AccessPolicy } from "./accessPolicy";
 import { Environment } from "./environment";
+import { EventHubEventSource } from "./eventHubEventSource";
 import { EventSource } from "./eventSource";
+import { IoTHubEventSource } from "./ioTHubEventSource";
 import { ReferenceDataSet } from "./referenceDataSet";
 
 const _module = {
@@ -31,8 +37,12 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20171115:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20171115:EventHubEventSource":
+                return new EventHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20171115:EventSource":
                 return new EventSource(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20171115:IoTHubEventSource":
+                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20171115:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:

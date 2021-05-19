@@ -5,41 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./aaddataConnector";
+export * from "./aatpdataConnector";
 export * from "./action";
 export * from "./alertRule";
+export * from "./ascdataConnector";
+export * from "./awsCloudTrailDataConnector";
 export * from "./bookmark";
 export * from "./dataConnector";
+export * from "./fusionAlertRule";
+export * from "./getAADDataConnector";
+export * from "./getAATPDataConnector";
+export * from "./getASCDataConnector";
 export * from "./getAction";
 export * from "./getAlertRule";
+export * from "./getAwsCloudTrailDataConnector";
 export * from "./getBookmark";
 export * from "./getDataConnector";
+export * from "./getFusionAlertRule";
 export * from "./getIncident";
+export * from "./getMCASDataConnector";
+export * from "./getMDATPDataConnector";
+export * from "./getMicrosoftSecurityIncidentCreationAlertRule";
+export * from "./getOfficeDataConnector";
+export * from "./getScheduledAlertRule";
+export * from "./getTIDataConnector";
 export * from "./incident";
+export * from "./mcasdataConnector";
+export * from "./mdatpdataConnector";
+export * from "./microsoftSecurityIncidentCreationAlertRule";
+export * from "./officeDataConnector";
+export * from "./scheduledAlertRule";
+export * from "./tidataConnector";
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20200101";
 
 // Import resources to register:
+import { AADDataConnector } from "./aaddataConnector";
+import { AATPDataConnector } from "./aatpdataConnector";
+import { ASCDataConnector } from "./ascdataConnector";
 import { Action } from "./action";
 import { AlertRule } from "./alertRule";
+import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { Bookmark } from "./bookmark";
 import { DataConnector } from "./dataConnector";
+import { FusionAlertRule } from "./fusionAlertRule";
 import { Incident } from "./incident";
+import { MCASDataConnector } from "./mcasdataConnector";
+import { MDATPDataConnector } from "./mdatpdataConnector";
+import { MicrosoftSecurityIncidentCreationAlertRule } from "./microsoftSecurityIncidentCreationAlertRule";
+import { OfficeDataConnector } from "./officeDataConnector";
+import { ScheduledAlertRule } from "./scheduledAlertRule";
+import { TIDataConnector } from "./tidataConnector";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:securityinsights/v20200101:AADDataConnector":
+                return new AADDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:AATPDataConnector":
+                return new AATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:ASCDataConnector":
+                return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Action":
                 return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector":
+                return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:DataConnector":
                 return new DataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:FusionAlertRule":
+                return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20200101:Incident":
                 return new Incident(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:MCASDataConnector":
+                return new MCASDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:MDATPDataConnector":
+                return new MDATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule":
+                return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:OfficeDataConnector":
+                return new OfficeDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:ScheduledAlertRule":
+                return new ScheduledAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20200101:TIDataConnector":
+                return new TIDataConnector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

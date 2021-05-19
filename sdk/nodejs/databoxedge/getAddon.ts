@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
  * Role Addon
  * API Version: 2020-12-01.
  */
+/** @deprecated Please use one of the variants: ArcAddon, IoTAddon. */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
+    pulumi.log.warn("getAddon is deprecated: Please use one of the variants: ArcAddon, IoTAddon.")
     if (!opts) {
         opts = {}
     }

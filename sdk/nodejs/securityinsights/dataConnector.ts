@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Data connector.
  * API Version: 2020-01-01.
+ *
+ * @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.
  */
 export class DataConnector extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class DataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataConnector {
+        pulumi.log.warn("DataConnector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.")
         return new DataConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class DataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector. */
     constructor(name: string, args: DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DataConnector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -42,6 +42,16 @@ export const AzureSkuTier = {
  */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
+export const BlobStorageEventType = {
+    Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
+    Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
+} as const;
+
+/**
+ * The name of blob storage event type to process.
+ */
+export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
+
 export const ClusterPrincipalRole = {
     AllDatabasesAdmin: "AllDatabasesAdmin",
     AllDatabasesViewer: "AllDatabasesViewer",
@@ -51,6 +61,16 @@ export const ClusterPrincipalRole = {
  * Cluster principal role.
  */
 export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
+
+export const Compression = {
+    None: "None",
+    GZip: "GZip",
+} as const;
+
+/**
+ * The event hub messages compression type
+ */
+export type Compression = (typeof Compression)[keyof typeof Compression];
 
 export const DataConnectionKind = {
     EventHub: "EventHub",
@@ -98,6 +118,54 @@ export const EngineType = {
  */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
+export const EventGridDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
+
+export const EventHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -109,6 +177,30 @@ export const IdentityType = {
  * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const IotHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
 
 export const Kind = {
     ReadWrite: "ReadWrite",

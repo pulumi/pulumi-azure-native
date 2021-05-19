@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Network base admin rule.
  */
+/** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
+    pulumi.log.warn("getAdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
     if (!opts) {
         opts = {}
     }

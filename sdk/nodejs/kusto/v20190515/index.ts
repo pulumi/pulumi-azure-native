@@ -8,9 +8,15 @@ import * as utilities from "../../utilities";
 export * from "./cluster";
 export * from "./dataConnection";
 export * from "./database";
+export * from "./eventGridDataConnection";
+export * from "./eventHubDataConnection";
 export * from "./getCluster";
 export * from "./getDataConnection";
 export * from "./getDatabase";
+export * from "./getEventGridDataConnection";
+export * from "./getEventHubDataConnection";
+export * from "./getIotHubDataConnection";
+export * from "./iotHubDataConnection";
 export * from "./listDatabasePrincipals";
 
 // Export enums:
@@ -20,6 +26,9 @@ export * from "../../types/enums/kusto/v20190515";
 import { Cluster } from "./cluster";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
+import { EventGridDataConnection } from "./eventGridDataConnection";
+import { EventHubDataConnection } from "./eventHubDataConnection";
+import { IotHubDataConnection } from "./iotHubDataConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +40,12 @@ const _module = {
                 return new DataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto/v20190515:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190515:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190515:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto/v20190515:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

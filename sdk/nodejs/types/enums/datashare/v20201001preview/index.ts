@@ -46,6 +46,26 @@ export const DataSetMappingKind = {
  */
 export type DataSetMappingKind = (typeof DataSetMappingKind)[keyof typeof DataSetMappingKind];
 
+export const OutputType = {
+    Csv: "Csv",
+    Parquet: "Parquet",
+} as const;
+
+/**
+ * File output type
+ */
+export type OutputType = (typeof OutputType)[keyof typeof OutputType];
+
+export const RecurrenceInterval = {
+    Hour: "Hour",
+    Day: "Day",
+} as const;
+
+/**
+ * Recurrence Interval
+ */
+export type RecurrenceInterval = (typeof RecurrenceInterval)[keyof typeof RecurrenceInterval];
+
 export const ShareKind = {
     CopyBased: "CopyBased",
     InPlace: "InPlace",
@@ -55,6 +75,16 @@ export const ShareKind = {
  * Share kind.
  */
 export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
+
+export const SynchronizationMode = {
+    Incremental: "Incremental",
+    FullSync: "FullSync",
+} as const;
+
+/**
+ * Synchronization mode
+ */
+export type SynchronizationMode = (typeof SynchronizationMode)[keyof typeof SynchronizationMode];
 
 export const SynchronizationSettingKind = {
     ScheduleBased: "ScheduleBased",

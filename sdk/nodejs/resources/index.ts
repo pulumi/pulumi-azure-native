@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./azureCliScript";
+export * from "./azurePowerShellScript";
 export * from "./deployment";
 export * from "./deploymentAtManagementGroupScope";
 export * from "./deploymentAtScope";
 export * from "./deploymentAtSubscriptionScope";
 export * from "./deploymentAtTenantScope";
 export * from "./deploymentScript";
+export * from "./getAzureCliScript";
+export * from "./getAzurePowerShellScript";
 export * from "./getDeployment";
 export * from "./getDeploymentAtManagementGroupScope";
 export * from "./getDeploymentAtScope";
@@ -81,6 +85,8 @@ export {
 };
 
 // Import resources to register:
+import { AzureCliScript } from "./azureCliScript";
+import { AzurePowerShellScript } from "./azurePowerShellScript";
 import { Deployment } from "./deployment";
 import { DeploymentAtManagementGroupScope } from "./deploymentAtManagementGroupScope";
 import { DeploymentAtScope } from "./deploymentAtScope";
@@ -97,6 +103,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:resources:AzureCliScript":
+                return new AzureCliScript(name, <any>undefined, { urn })
+            case "azure-native:resources:AzurePowerShellScript":
+                return new AzurePowerShellScript(name, <any>undefined, { urn })
             case "azure-native:resources:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:resources:DeploymentAtManagementGroupScope":

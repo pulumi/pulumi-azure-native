@@ -15,6 +15,51 @@ export const AlertRuleKind = {
  */
 export type AlertRuleKind = (typeof AlertRuleKind)[keyof typeof AlertRuleKind];
 
+export const AlertSeverity = {
+    /**
+     * High severity
+     */
+    High: "High",
+    /**
+     * Medium severity
+     */
+    Medium: "Medium",
+    /**
+     * Low severity
+     */
+    Low: "Low",
+    /**
+     * Informational severity
+     */
+    Informational: "Informational",
+} as const;
+
+/**
+ * The severity for alerts created by this alert rule.
+ */
+export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
+
+export const AttackTactic = {
+    InitialAccess: "InitialAccess",
+    Execution: "Execution",
+    Persistence: "Persistence",
+    PrivilegeEscalation: "PrivilegeEscalation",
+    DefenseEvasion: "DefenseEvasion",
+    CredentialAccess: "CredentialAccess",
+    Discovery: "Discovery",
+    LateralMovement: "LateralMovement",
+    Collection: "Collection",
+    Exfiltration: "Exfiltration",
+    CommandAndControl: "CommandAndControl",
+    Impact: "Impact",
+    PreAttack: "PreAttack",
+} as const;
+
+/**
+ * The severity for alerts created by this alert rule.
+ */
+export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
+
 export const AutomationRuleActionType = {
     /**
      * Modify an object's properties
@@ -348,6 +393,36 @@ export const DataConnectorKind = {
  */
 export type DataConnectorKind = (typeof DataConnectorKind)[keyof typeof DataConnectorKind];
 
+export const DataTypeState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Describe whether this data type connection is enabled or not.
+ */
+export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
+
+export const EntitiesMatchingMethod = {
+    /**
+     * Grouping alerts into a single incident if all the entities match
+     */
+    All: "All",
+    /**
+     * Grouping all alerts triggered by this rule into a single incident
+     */
+    None: "None",
+    /**
+     * Grouping alerts into a single incident if the selected entities match
+     */
+    Custom: "Custom",
+} as const;
+
+/**
+ * Grouping matching method
+ */
+export type EntitiesMatchingMethod = (typeof EntitiesMatchingMethod)[keyof typeof EntitiesMatchingMethod];
+
 export const EntityTimelineKind = {
     /**
      * activity
@@ -367,6 +442,44 @@ export const EntityTimelineKind = {
  * The entity query kind
  */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
+
+export const EventGroupingAggregationKind = {
+    SingleAlert: "SingleAlert",
+    AlertPerResult: "AlertPerResult",
+} as const;
+
+/**
+ * The event grouping aggregation kinds
+ */
+export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
+
+export const GroupingEntityType = {
+    /**
+     * Account entity
+     */
+    Account: "Account",
+    /**
+     * Host entity
+     */
+    Host: "Host",
+    /**
+     * Ip entity
+     */
+    Ip: "Ip",
+    /**
+     * Url entity
+     */
+    Url: "Url",
+    /**
+     * FileHash entity
+     */
+    FileHash: "FileHash",
+} as const;
+
+/**
+ * Grouping entity type
+ */
+export type GroupingEntityType = (typeof GroupingEntityType)[keyof typeof GroupingEntityType];
 
 export const IncidentClassification = {
     /**
@@ -460,6 +573,41 @@ export const IncidentStatus = {
  */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
+export const MicrosoftSecurityProductName = {
+    Microsoft_Cloud_App_Security: "Microsoft Cloud App Security",
+    Azure_Security_Center: "Azure Security Center",
+    Azure_Advanced_Threat_Protection: "Azure Advanced Threat Protection",
+    Azure_Active_Directory_Identity_Protection: "Azure Active Directory Identity Protection",
+    Azure_Security_Center_for_IoT: "Azure Security Center for IoT",
+    Office_365_Advanced_Threat_Protection: "Office 365 Advanced Threat Protection",
+    Microsoft_Defender_Advanced_Threat_Protection: "Microsoft Defender Advanced Threat Protection",
+} as const;
+
+/**
+ * The alerts' productName on which the cases will be generated
+ */
+export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
+
+export const PollingFrequency = {
+    /**
+     * Once a minute
+     */
+    OnceAMinute: "OnceAMinute",
+    /**
+     * Once an hour
+     */
+    OnceAnHour: "OnceAnHour",
+    /**
+     * Once a day
+     */
+    OnceADay: "OnceADay",
+} as const;
+
+/**
+ * The polling frequency for the TAXII server.
+ */
+export type PollingFrequency = (typeof PollingFrequency)[keyof typeof PollingFrequency];
+
 export const SettingKind = {
     EyesOn: "EyesOn",
     EntityAnalytics: "EntityAnalytics",
@@ -493,6 +641,18 @@ export const ThreatIntelligenceResourceKind = {
  */
 export type ThreatIntelligenceResourceKind = (typeof ThreatIntelligenceResourceKind)[keyof typeof ThreatIntelligenceResourceKind];
 
+export const TriggerOperator = {
+    GreaterThan: "GreaterThan",
+    LessThan: "LessThan",
+    Equal: "Equal",
+    NotEqual: "NotEqual",
+} as const;
+
+/**
+ * The operation against the threshold that triggers alert rule.
+ */
+export type TriggerOperator = (typeof TriggerOperator)[keyof typeof TriggerOperator];
+
 export const TriggersOn = {
     /**
      * Trigger on Incidents
@@ -516,3 +676,15 @@ export const TriggersWhen = {
  * The type of event the automation rule triggers on
  */
 export type TriggersWhen = (typeof TriggersWhen)[keyof typeof TriggersWhen];
+
+export const UebaDataSources = {
+    AuditLogs: "AuditLogs",
+    AzureActivity: "AzureActivity",
+    SecurityEvent: "SecurityEvent",
+    SigninLogs: "SigninLogs",
+} as const;
+
+/**
+ * The data source that enriched by ueba.
+ */
+export type UebaDataSources = (typeof UebaDataSources)[keyof typeof UebaDataSources];

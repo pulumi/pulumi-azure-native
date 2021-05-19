@@ -143,6 +143,16 @@ export const SshPublicAccess = {
  */
 export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
 
+export const VariantType = {
+    Control: "Control",
+    Treatment: "Treatment",
+} as const;
+
+/**
+ * The type of the variant.
+ */
+export type VariantType = (typeof VariantType)[keyof typeof VariantType];
+
 export const VmPriority = {
     Dedicated: "Dedicated",
     LowPriority: "LowPriority",

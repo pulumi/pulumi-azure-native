@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./aciservice";
+export * from "./aksservice";
+export * from "./endpointVariant";
+export * from "./getACIService";
+export * from "./getAKSService";
+export * from "./getEndpointVariant";
 export * from "./getLabelingJob";
 export * from "./getLinkedService";
 export * from "./getMachineLearningCompute";
@@ -28,6 +34,9 @@ export * from "./workspaceConnection";
 export * from "../../types/enums/machinelearningservices/v20200901preview";
 
 // Import resources to register:
+import { ACIService } from "./aciservice";
+import { AKSService } from "./aksservice";
+import { EndpointVariant } from "./endpointVariant";
 import { LabelingJob } from "./labelingJob";
 import { LinkedService } from "./linkedService";
 import { MachineLearningCompute } from "./machineLearningCompute";
@@ -40,6 +49,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:machinelearningservices/v20200901preview:ACIService":
+                return new ACIService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20200901preview:AKSService":
+                return new AKSService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20200901preview:EndpointVariant":
+                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200901preview:LinkedService":

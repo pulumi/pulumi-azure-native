@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Machine Learning service object wrapped into ARM resource envelope.
  */
+/** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
+    pulumi.log.warn("getMachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.")
     if (!opts) {
         opts = {}
     }

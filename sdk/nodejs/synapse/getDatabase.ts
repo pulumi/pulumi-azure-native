@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
  * Class representing a Kusto database.
  * API Version: 2021-04-01-preview.
  */
+/** @deprecated Please use one of the variants: ReadWriteDatabase. */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+    pulumi.log.warn("getDatabase is deprecated: Please use one of the variants: ReadWriteDatabase.")
     if (!opts) {
         opts = {}
     }

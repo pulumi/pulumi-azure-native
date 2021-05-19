@@ -7,11 +7,19 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./accessPolicy";
 export * from "./environment";
+export * from "./eventHubEventSource";
 export * from "./eventSource";
+export * from "./gen1Environment";
+export * from "./gen2Environment";
 export * from "./getAccessPolicy";
 export * from "./getEnvironment";
+export * from "./getEventHubEventSource";
 export * from "./getEventSource";
+export * from "./getGen1Environment";
+export * from "./getGen2Environment";
+export * from "./getIoTHubEventSource";
 export * from "./getReferenceDataSet";
+export * from "./ioTHubEventSource";
 export * from "./referenceDataSet";
 
 // Export enums:
@@ -20,7 +28,11 @@ export * from "../../types/enums/timeseriesinsights/v20200515";
 // Import resources to register:
 import { AccessPolicy } from "./accessPolicy";
 import { Environment } from "./environment";
+import { EventHubEventSource } from "./eventHubEventSource";
 import { EventSource } from "./eventSource";
+import { Gen1Environment } from "./gen1Environment";
+import { Gen2Environment } from "./gen2Environment";
+import { IoTHubEventSource } from "./ioTHubEventSource";
 import { ReferenceDataSet } from "./referenceDataSet";
 
 const _module = {
@@ -31,8 +43,16 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20200515:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20200515:EventHubEventSource":
+                return new EventHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20200515:EventSource":
                 return new EventSource(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20200515:Gen1Environment":
+                return new Gen1Environment(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20200515:Gen2Environment":
+                return new Gen2Environment(name, <any>undefined, { urn })
+            case "azure-native:timeseriesinsights/v20200515:IoTHubEventSource":
+                return new IoTHubEventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20200515:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:

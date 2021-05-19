@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./aciservice";
+export * from "./aksservice";
+export * from "./endpointVariant";
+export * from "./getACIService";
+export * from "./getAKSService";
+export * from "./getEndpointVariant";
 export * from "./getLinkedWorkspace";
 export * from "./getMachineLearningCompute";
 export * from "./getMachineLearningDataset";
@@ -27,6 +33,9 @@ export * from "./workspace";
 export * from "../../types/enums/machinelearningservices/v20200501preview";
 
 // Import resources to register:
+import { ACIService } from "./aciservice";
+import { AKSService } from "./aksservice";
+import { EndpointVariant } from "./endpointVariant";
 import { LinkedWorkspace } from "./linkedWorkspace";
 import { MachineLearningCompute } from "./machineLearningCompute";
 import { MachineLearningDataset } from "./machineLearningDataset";
@@ -39,6 +48,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:machinelearningservices/v20200501preview:ACIService":
+                return new ACIService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20200501preview:AKSService":
+                return new AKSService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20200501preview:EndpointVariant":
+                return new EndpointVariant(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace":
                 return new LinkedWorkspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20200501preview:MachineLearningCompute":

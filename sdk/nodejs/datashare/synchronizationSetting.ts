@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * A Synchronization Setting data transfer object.
  * API Version: 2020-09-01.
+ *
+ * @deprecated Please use one of the variants: ScheduledSynchronizationSetting.
  */
 export class SynchronizationSetting extends pulumi.CustomResource {
     /**
@@ -19,6 +21,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SynchronizationSetting {
+        pulumi.log.warn("SynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.")
         return new SynchronizationSetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +63,9 @@ export class SynchronizationSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
     constructor(name: string, args: SynchronizationSettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

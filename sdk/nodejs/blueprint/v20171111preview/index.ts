@@ -11,8 +11,14 @@ export * from "./blueprint";
 export * from "./getArtifact";
 export * from "./getAssignment";
 export * from "./getBlueprint";
+export * from "./getPolicyAssignmentArtifact";
 export * from "./getPublishedBlueprint";
+export * from "./getRoleAssignmentArtifact";
+export * from "./getTemplateArtifact";
+export * from "./policyAssignmentArtifact";
 export * from "./publishedBlueprint";
+export * from "./roleAssignmentArtifact";
+export * from "./templateArtifact";
 
 // Export enums:
 export * from "../../types/enums/blueprint/v20171111preview";
@@ -21,7 +27,10 @@ export * from "../../types/enums/blueprint/v20171111preview";
 import { Artifact } from "./artifact";
 import { Assignment } from "./assignment";
 import { Blueprint } from "./blueprint";
+import { PolicyAssignmentArtifact } from "./policyAssignmentArtifact";
 import { PublishedBlueprint } from "./publishedBlueprint";
+import { RoleAssignmentArtifact } from "./roleAssignmentArtifact";
+import { TemplateArtifact } from "./templateArtifact";
 
 const _module = {
     version: utilities.getVersion(),
@@ -33,8 +42,14 @@ const _module = {
                 return new Assignment(name, <any>undefined, { urn })
             case "azure-native:blueprint/v20171111preview:Blueprint":
                 return new Blueprint(name, <any>undefined, { urn })
+            case "azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact":
+                return new PolicyAssignmentArtifact(name, <any>undefined, { urn })
             case "azure-native:blueprint/v20171111preview:PublishedBlueprint":
                 return new PublishedBlueprint(name, <any>undefined, { urn })
+            case "azure-native:blueprint/v20171111preview:RoleAssignmentArtifact":
+                return new RoleAssignmentArtifact(name, <any>undefined, { urn })
+            case "azure-native:blueprint/v20171111preview:TemplateArtifact":
+                return new TemplateArtifact(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

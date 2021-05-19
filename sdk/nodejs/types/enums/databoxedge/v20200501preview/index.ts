@@ -114,6 +114,26 @@ export const OrderState = {
  */
 export type OrderState = (typeof OrderState)[keyof typeof OrderState];
 
+export const PlatformType = {
+    Windows: "Windows",
+    Linux: "Linux",
+} as const;
+
+/**
+ * Host OS supported by the IoT role.
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
+
+export const RoleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Role status.
+ */
+export type RoleStatus = (typeof RoleStatus)[keyof typeof RoleStatus];
+
 export const RoleTypes = {
     IOT: "IOT",
     ASA: "ASA",

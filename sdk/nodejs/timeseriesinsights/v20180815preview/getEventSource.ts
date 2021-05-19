@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
  */
+/** @deprecated Please use one of the variants: EventHubEventSource, IoTHubEventSource. */
 export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
+    pulumi.log.warn("getEventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.")
     if (!opts) {
         opts = {}
     }

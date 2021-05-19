@@ -8,9 +8,13 @@ import * as utilities from "../../utilities";
 export * from "./adminRule";
 export * from "./adminRuleCollection";
 export * from "./connectivityConfiguration";
+export * from "./defaultAdminRule";
+export * from "./defaultUserRule";
 export * from "./getAdminRule";
 export * from "./getAdminRuleCollection";
 export * from "./getConnectivityConfiguration";
+export * from "./getDefaultAdminRule";
+export * from "./getDefaultUserRule";
 export * from "./getNetworkGroup";
 export * from "./getNetworkManager";
 export * from "./getSecurityAdminConfiguration";
@@ -37,6 +41,8 @@ export * from "../../types/enums/network/v20210201preview";
 import { AdminRule } from "./adminRule";
 import { AdminRuleCollection } from "./adminRuleCollection";
 import { ConnectivityConfiguration } from "./connectivityConfiguration";
+import { DefaultAdminRule } from "./defaultAdminRule";
+import { DefaultUserRule } from "./defaultUserRule";
 import { NetworkGroup } from "./networkGroup";
 import { NetworkManager } from "./networkManager";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
@@ -54,6 +60,10 @@ const _module = {
                 return new AdminRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:ConnectivityConfiguration":
                 return new ConnectivityConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:DefaultAdminRule":
+                return new DefaultAdminRule(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:DefaultUserRule":
+                return new DefaultUserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkManager":

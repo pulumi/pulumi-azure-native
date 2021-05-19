@@ -11,18 +11,28 @@ export * from "./clusterPrincipalAssignment";
 export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
+export * from "./eventGridDataConnection";
 export * from "./eventHubConnection";
+export * from "./eventHubDataConnection";
 export * from "./getAttachedDatabaseConfiguration";
 export * from "./getCluster";
 export * from "./getClusterPrincipalAssignment";
 export * from "./getDataConnection";
 export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
+export * from "./getEventGridDataConnection";
 export * from "./getEventHubConnection";
+export * from "./getEventHubDataConnection";
+export * from "./getIotHubDataConnection";
+export * from "./getReadOnlyFollowingDatabase";
+export * from "./getReadWriteDatabase";
 export * from "./getScript";
+export * from "./iotHubDataConnection";
 export * from "./listClusterFollowerDatabases";
 export * from "./listClusterLanguageExtensions";
 export * from "./listDatabasePrincipals";
+export * from "./readOnlyFollowingDatabase";
+export * from "./readWriteDatabase";
 export * from "./script";
 
 // Export enums:
@@ -60,7 +70,12 @@ import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
+import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventHubConnection } from "./eventHubConnection";
+import { EventHubDataConnection } from "./eventHubDataConnection";
+import { IotHubDataConnection } from "./iotHubDataConnection";
+import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
+import { ReadWriteDatabase } from "./readWriteDatabase";
 import { Script } from "./script";
 
 const _module = {
@@ -79,8 +94,18 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:kusto:DatabasePrincipalAssignment":
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
+            case "azure-native:kusto:EventGridDataConnection":
+                return new EventGridDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:EventHubConnection":
                 return new EventHubConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:EventHubDataConnection":
+                return new EventHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:IotHubDataConnection":
+                return new IotHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
+            case "azure-native:kusto:ReadWriteDatabase":
+                return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:kusto:Script":
                 return new Script(name, <any>undefined, { urn })
             default:

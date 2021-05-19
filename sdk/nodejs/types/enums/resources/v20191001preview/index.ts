@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CleanupOptions = {
+    Always: "Always",
+    OnSuccess: "OnSuccess",
+    OnExpiration: "OnExpiration",
+} as const;
+
+/**
+ * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+ */
+export type CleanupOptions = (typeof CleanupOptions)[keyof typeof CleanupOptions];
+
 export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;

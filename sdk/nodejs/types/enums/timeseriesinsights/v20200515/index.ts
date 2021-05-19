@@ -51,6 +51,15 @@ export const LocalTimestampFormat = {
  */
 export type LocalTimestampFormat = (typeof LocalTimestampFormat)[keyof typeof LocalTimestampFormat];
 
+export const PropertyType = {
+    String: "String",
+} as const;
+
+/**
+ * The type of the property.
+ */
+export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
+
 export const ReferenceDataKeyPropertyType = {
     String: "String",
     Double: "Double",
@@ -74,3 +83,13 @@ export const SkuName = {
  * The name of this SKU.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StorageLimitExceededBehavior = {
+    PurgeOldData: "PurgeOldData",
+    PauseIngress: "PauseIngress",
+} as const;
+
+/**
+ * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+ */
+export type StorageLimitExceededBehavior = (typeof StorageLimitExceededBehavior)[keyof typeof StorageLimitExceededBehavior];

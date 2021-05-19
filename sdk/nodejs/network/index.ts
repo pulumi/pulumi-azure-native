@@ -17,6 +17,8 @@ export * from "./connectivityConfiguration";
 export * from "./customIPPrefix";
 export * from "./ddosCustomPolicy";
 export * from "./ddosProtectionPlan";
+export * from "./defaultAdminRule";
+export * from "./defaultUserRule";
 export * from "./dscpConfiguration";
 export * from "./endpoint";
 export * from "./experiment";
@@ -48,6 +50,8 @@ export * from "./getConnectivityConfiguration";
 export * from "./getCustomIPPrefix";
 export * from "./getDdosCustomPolicy";
 export * from "./getDdosProtectionPlan";
+export * from "./getDefaultAdminRule";
+export * from "./getDefaultUserRule";
 export * from "./getDnsResourceReferenceByTarResources";
 export * from "./getDscpConfiguration";
 export * from "./getEndpoint";
@@ -340,6 +344,8 @@ import { ConnectivityConfiguration } from "./connectivityConfiguration";
 import { CustomIPPrefix } from "./customIPPrefix";
 import { DdosCustomPolicy } from "./ddosCustomPolicy";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
+import { DefaultAdminRule } from "./defaultAdminRule";
+import { DefaultUserRule } from "./defaultUserRule";
 import { DscpConfiguration } from "./dscpConfiguration";
 import { Endpoint } from "./endpoint";
 import { Experiment } from "./experiment";
@@ -454,6 +460,10 @@ const _module = {
                 return new DdosCustomPolicy(name, <any>undefined, { urn })
             case "azure-native:network:DdosProtectionPlan":
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
+            case "azure-native:network:DefaultAdminRule":
+                return new DefaultAdminRule(name, <any>undefined, { urn })
+            case "azure-native:network:DefaultUserRule":
+                return new DefaultUserRule(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":
