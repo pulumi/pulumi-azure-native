@@ -25,8 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BandwidthSchedule{}
 	case "azure-native:databoxedge/v20190701:Device":
 		r = &Device{}
+	case "azure-native:databoxedge/v20190701:FileEventTrigger":
+		r = &FileEventTrigger{}
+	case "azure-native:databoxedge/v20190701:IoTRole":
+		r = &IoTRole{}
 	case "azure-native:databoxedge/v20190701:Order":
 		r = &Order{}
+	case "azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger":
+		r = &PeriodicTimerEventTrigger{}
 	case "azure-native:databoxedge/v20190701:Role":
 		r = &Role{}
 	case "azure-native:databoxedge/v20190701:Share":

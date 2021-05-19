@@ -8,6 +8,8 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+//
+// Deprecated: Please use one of the variants: LongTermEnvironment, StandardEnvironment.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("azure-native:timeseriesinsights/v20180815preview:getEnvironment", args, &rv, opts...)

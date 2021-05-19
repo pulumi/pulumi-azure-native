@@ -8,6 +8,8 @@ import (
 )
 
 // The Setting.
+//
+// Deprecated: Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
 	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getProductSetting", args, &rv, opts...)

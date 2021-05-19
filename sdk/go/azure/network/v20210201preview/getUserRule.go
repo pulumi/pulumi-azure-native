@@ -8,6 +8,8 @@ import (
 )
 
 // Network base rule.
+//
+// Deprecated: Please use one of the variants: DefaultUserRule, UserRule.
 func LookupUserRule(ctx *pulumi.Context, args *LookupUserRuleArgs, opts ...pulumi.InvokeOption) (*LookupUserRuleResult, error) {
 	var rv LookupUserRuleResult
 	err := ctx.Invoke("azure-native:network/v20210201preview:getUserRule", args, &rv, opts...)

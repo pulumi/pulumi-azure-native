@@ -13,6 +13,8 @@ import (
 
 // Data connector.
 // API Version: 2020-01-01.
+//
+// Deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.
 type DataConnector struct {
 	pulumi.CustomResourceState
 

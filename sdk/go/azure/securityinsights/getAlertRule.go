@@ -9,6 +9,8 @@ import (
 
 // Alert rule.
 // API Version: 2020-01-01.
+//
+// Deprecated: Please use one of the variants: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights:getAlertRule", args, &rv, opts...)

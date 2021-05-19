@@ -739,6 +739,274 @@ func (o BasicDependencyResponseArrayOutput) Index(i pulumi.IntInput) BasicDepend
 	}).(BasicDependencyResponseOutput)
 }
 
+// Settings to customize ACI container instance.
+type ContainerConfiguration struct {
+	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+	ContainerGroupName *string `pulumi:"containerGroupName"`
+}
+
+// ContainerConfigurationInput is an input type that accepts ContainerConfigurationArgs and ContainerConfigurationOutput values.
+// You can construct a concrete instance of `ContainerConfigurationInput` via:
+//
+//          ContainerConfigurationArgs{...}
+type ContainerConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerConfigurationOutput() ContainerConfigurationOutput
+	ToContainerConfigurationOutputWithContext(context.Context) ContainerConfigurationOutput
+}
+
+// Settings to customize ACI container instance.
+type ContainerConfigurationArgs struct {
+	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
+}
+
+func (ContainerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerConfiguration)(nil)).Elem()
+}
+
+func (i ContainerConfigurationArgs) ToContainerConfigurationOutput() ContainerConfigurationOutput {
+	return i.ToContainerConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerConfigurationArgs) ToContainerConfigurationOutputWithContext(ctx context.Context) ContainerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationOutput)
+}
+
+func (i ContainerConfigurationArgs) ToContainerConfigurationPtrOutput() ContainerConfigurationPtrOutput {
+	return i.ToContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerConfigurationArgs) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationOutput).ToContainerConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerConfigurationPtrInput is an input type that accepts ContainerConfigurationArgs, ContainerConfigurationPtr and ContainerConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerConfigurationPtrInput` via:
+//
+//          ContainerConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerConfigurationPtrOutput() ContainerConfigurationPtrOutput
+	ToContainerConfigurationPtrOutputWithContext(context.Context) ContainerConfigurationPtrOutput
+}
+
+type containerConfigurationPtrType ContainerConfigurationArgs
+
+func ContainerConfigurationPtr(v *ContainerConfigurationArgs) ContainerConfigurationPtrInput {
+	return (*containerConfigurationPtrType)(v)
+}
+
+func (*containerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerConfiguration)(nil)).Elem()
+}
+
+func (i *containerConfigurationPtrType) ToContainerConfigurationPtrOutput() ContainerConfigurationPtrOutput {
+	return i.ToContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerConfigurationPtrType) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationPtrOutput)
+}
+
+// Settings to customize ACI container instance.
+type ContainerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerConfiguration)(nil)).Elem()
+}
+
+func (o ContainerConfigurationOutput) ToContainerConfigurationOutput() ContainerConfigurationOutput {
+	return o
+}
+
+func (o ContainerConfigurationOutput) ToContainerConfigurationOutputWithContext(ctx context.Context) ContainerConfigurationOutput {
+	return o
+}
+
+func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutput() ContainerConfigurationPtrOutput {
+	return o.ToContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v ContainerConfiguration) *ContainerConfiguration {
+		return &v
+	}).(ContainerConfigurationPtrOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+func (o ContainerConfigurationOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerConfiguration) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerConfiguration)(nil)).Elem()
+}
+
+func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutput() ContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerConfigurationPtrOutput) Elem() ContainerConfigurationOutput {
+	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration { return *v }).(ContainerConfigurationOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+func (o ContainerConfigurationPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings to customize ACI container instance.
+type ContainerConfigurationResponse struct {
+	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+	ContainerGroupName *string `pulumi:"containerGroupName"`
+}
+
+// ContainerConfigurationResponseInput is an input type that accepts ContainerConfigurationResponseArgs and ContainerConfigurationResponseOutput values.
+// You can construct a concrete instance of `ContainerConfigurationResponseInput` via:
+//
+//          ContainerConfigurationResponseArgs{...}
+type ContainerConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToContainerConfigurationResponseOutput() ContainerConfigurationResponseOutput
+	ToContainerConfigurationResponseOutputWithContext(context.Context) ContainerConfigurationResponseOutput
+}
+
+// Settings to customize ACI container instance.
+type ContainerConfigurationResponseArgs struct {
+	// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
+}
+
+func (ContainerConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (i ContainerConfigurationResponseArgs) ToContainerConfigurationResponseOutput() ContainerConfigurationResponseOutput {
+	return i.ToContainerConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerConfigurationResponseArgs) ToContainerConfigurationResponseOutputWithContext(ctx context.Context) ContainerConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationResponseOutput)
+}
+
+func (i ContainerConfigurationResponseArgs) ToContainerConfigurationResponsePtrOutput() ContainerConfigurationResponsePtrOutput {
+	return i.ToContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerConfigurationResponseArgs) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationResponseOutput).ToContainerConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerConfigurationResponsePtrInput is an input type that accepts ContainerConfigurationResponseArgs, ContainerConfigurationResponsePtr and ContainerConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerConfigurationResponsePtrInput` via:
+//
+//          ContainerConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerConfigurationResponsePtrOutput() ContainerConfigurationResponsePtrOutput
+	ToContainerConfigurationResponsePtrOutputWithContext(context.Context) ContainerConfigurationResponsePtrOutput
+}
+
+type containerConfigurationResponsePtrType ContainerConfigurationResponseArgs
+
+func ContainerConfigurationResponsePtr(v *ContainerConfigurationResponseArgs) ContainerConfigurationResponsePtrInput {
+	return (*containerConfigurationResponsePtrType)(v)
+}
+
+func (*containerConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (i *containerConfigurationResponsePtrType) ToContainerConfigurationResponsePtrOutput() ContainerConfigurationResponsePtrOutput {
+	return i.ToContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerConfigurationResponsePtrType) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerConfigurationResponsePtrOutput)
+}
+
+// Settings to customize ACI container instance.
+type ContainerConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponseOutput() ContainerConfigurationResponseOutput {
+	return o
+}
+
+func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponseOutputWithContext(ctx context.Context) ContainerConfigurationResponseOutput {
+	return o
+}
+
+func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutput() ContainerConfigurationResponsePtrOutput {
+	return o.ToContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ContainerConfigurationResponse) *ContainerConfigurationResponse {
+		return &v
+	}).(ContainerConfigurationResponsePtrOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+func (o ContainerConfigurationResponseOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerConfigurationResponse) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationResponsePtrOutput() ContainerConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ContainerConfigurationResponsePtrOutput) Elem() ContainerConfigurationResponseOutput {
+	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse { return *v }).(ContainerConfigurationResponseOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+func (o ContainerConfigurationResponsePtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The debug setting.
 type DebugSetting struct {
 	// Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
@@ -1839,6 +2107,242 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ValidatedResources() Reso
 		}
 		return v.ValidatedResources
 	}).(ResourceReferenceResponseArrayOutput)
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariable struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// The value of the secure environment variable.
+	SecureValue *string `pulumi:"secureValue"`
+	// The value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// EnvironmentVariableInput is an input type that accepts EnvironmentVariableArgs and EnvironmentVariableOutput values.
+// You can construct a concrete instance of `EnvironmentVariableInput` via:
+//
+//          EnvironmentVariableArgs{...}
+type EnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableOutput() EnvironmentVariableOutput
+	ToEnvironmentVariableOutputWithContext(context.Context) EnvironmentVariableOutput
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariableArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the secure environment variable.
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// The value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariable)(nil)).Elem()
+}
+
+func (i EnvironmentVariableArgs) ToEnvironmentVariableOutput() EnvironmentVariableOutput {
+	return i.ToEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableArgs) ToEnvironmentVariableOutputWithContext(ctx context.Context) EnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableOutput)
+}
+
+// EnvironmentVariableArrayInput is an input type that accepts EnvironmentVariableArray and EnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `EnvironmentVariableArrayInput` via:
+//
+//          EnvironmentVariableArray{ EnvironmentVariableArgs{...} }
+type EnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableArrayOutput() EnvironmentVariableArrayOutput
+	ToEnvironmentVariableArrayOutputWithContext(context.Context) EnvironmentVariableArrayOutput
+}
+
+type EnvironmentVariableArray []EnvironmentVariableInput
+
+func (EnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariable)(nil)).Elem()
+}
+
+func (i EnvironmentVariableArray) ToEnvironmentVariableArrayOutput() EnvironmentVariableArrayOutput {
+	return i.ToEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableArray) ToEnvironmentVariableArrayOutputWithContext(ctx context.Context) EnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableArrayOutput)
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariable)(nil)).Elem()
+}
+
+func (o EnvironmentVariableOutput) ToEnvironmentVariableOutput() EnvironmentVariableOutput {
+	return o
+}
+
+func (o EnvironmentVariableOutput) ToEnvironmentVariableOutputWithContext(ctx context.Context) EnvironmentVariableOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o EnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the secure environment variable.
+func (o EnvironmentVariableOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVariable) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable.
+func (o EnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariable)(nil)).Elem()
+}
+
+func (o EnvironmentVariableArrayOutput) ToEnvironmentVariableArrayOutput() EnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableArrayOutput) ToEnvironmentVariableArrayOutputWithContext(ctx context.Context) EnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableArrayOutput) Index(i pulumi.IntInput) EnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentVariable {
+		return vs[0].([]EnvironmentVariable)[vs[1].(int)]
+	}).(EnvironmentVariableOutput)
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariableResponse struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// The value of the secure environment variable.
+	SecureValue *string `pulumi:"secureValue"`
+	// The value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// EnvironmentVariableResponseInput is an input type that accepts EnvironmentVariableResponseArgs and EnvironmentVariableResponseOutput values.
+// You can construct a concrete instance of `EnvironmentVariableResponseInput` via:
+//
+//          EnvironmentVariableResponseArgs{...}
+type EnvironmentVariableResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableResponseOutput() EnvironmentVariableResponseOutput
+	ToEnvironmentVariableResponseOutputWithContext(context.Context) EnvironmentVariableResponseOutput
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariableResponseArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the secure environment variable.
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// The value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EnvironmentVariableResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariableResponse)(nil)).Elem()
+}
+
+func (i EnvironmentVariableResponseArgs) ToEnvironmentVariableResponseOutput() EnvironmentVariableResponseOutput {
+	return i.ToEnvironmentVariableResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableResponseArgs) ToEnvironmentVariableResponseOutputWithContext(ctx context.Context) EnvironmentVariableResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableResponseOutput)
+}
+
+// EnvironmentVariableResponseArrayInput is an input type that accepts EnvironmentVariableResponseArray and EnvironmentVariableResponseArrayOutput values.
+// You can construct a concrete instance of `EnvironmentVariableResponseArrayInput` via:
+//
+//          EnvironmentVariableResponseArray{ EnvironmentVariableResponseArgs{...} }
+type EnvironmentVariableResponseArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableResponseArrayOutput() EnvironmentVariableResponseArrayOutput
+	ToEnvironmentVariableResponseArrayOutputWithContext(context.Context) EnvironmentVariableResponseArrayOutput
+}
+
+type EnvironmentVariableResponseArray []EnvironmentVariableResponseInput
+
+func (EnvironmentVariableResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariableResponse)(nil)).Elem()
+}
+
+func (i EnvironmentVariableResponseArray) ToEnvironmentVariableResponseArrayOutput() EnvironmentVariableResponseArrayOutput {
+	return i.ToEnvironmentVariableResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableResponseArray) ToEnvironmentVariableResponseArrayOutputWithContext(ctx context.Context) EnvironmentVariableResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableResponseArrayOutput)
+}
+
+// The environment variable to pass to the script in the container instance.
+type EnvironmentVariableResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariableResponse)(nil)).Elem()
+}
+
+func (o EnvironmentVariableResponseOutput) ToEnvironmentVariableResponseOutput() EnvironmentVariableResponseOutput {
+	return o
+}
+
+func (o EnvironmentVariableResponseOutput) ToEnvironmentVariableResponseOutputWithContext(ctx context.Context) EnvironmentVariableResponseOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o EnvironmentVariableResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentVariableResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the secure environment variable.
+func (o EnvironmentVariableResponseOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable.
+func (o EnvironmentVariableResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentVariableResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentVariableResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariableResponse)(nil)).Elem()
+}
+
+func (o EnvironmentVariableResponseArrayOutput) ToEnvironmentVariableResponseArrayOutput() EnvironmentVariableResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableResponseArrayOutput) ToEnvironmentVariableResponseArrayOutputWithContext(ctx context.Context) EnvironmentVariableResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableResponseArrayOutput) Index(i pulumi.IntInput) EnvironmentVariableResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentVariableResponse {
+		return vs[0].([]EnvironmentVariableResponse)[vs[1].(int)]
+	}).(EnvironmentVariableResponseOutput)
 }
 
 // The resource management error additional info.
@@ -5047,6 +5551,235 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
+// Generic object modeling results of script execution.
+type ScriptStatusResponse struct {
+	// ACI resource Id.
+	ContainerInstanceId string `pulumi:"containerInstanceId"`
+	// End time of the script execution.
+	EndTime string `pulumi:"endTime"`
+	// Error that is relayed from the script execution.
+	Error *ErrorResponseResponse `pulumi:"error"`
+	// Time the deployment script resource will expire.
+	ExpirationTime string `pulumi:"expirationTime"`
+	// Start time of the script execution.
+	StartTime string `pulumi:"startTime"`
+	// Storage account resource Id.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// ScriptStatusResponseInput is an input type that accepts ScriptStatusResponseArgs and ScriptStatusResponseOutput values.
+// You can construct a concrete instance of `ScriptStatusResponseInput` via:
+//
+//          ScriptStatusResponseArgs{...}
+type ScriptStatusResponseInput interface {
+	pulumi.Input
+
+	ToScriptStatusResponseOutput() ScriptStatusResponseOutput
+	ToScriptStatusResponseOutputWithContext(context.Context) ScriptStatusResponseOutput
+}
+
+// Generic object modeling results of script execution.
+type ScriptStatusResponseArgs struct {
+	// ACI resource Id.
+	ContainerInstanceId pulumi.StringInput `pulumi:"containerInstanceId"`
+	// End time of the script execution.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Error that is relayed from the script execution.
+	Error ErrorResponseResponsePtrInput `pulumi:"error"`
+	// Time the deployment script resource will expire.
+	ExpirationTime pulumi.StringInput `pulumi:"expirationTime"`
+	// Start time of the script execution.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Storage account resource Id.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (ScriptStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStatusResponse)(nil)).Elem()
+}
+
+func (i ScriptStatusResponseArgs) ToScriptStatusResponseOutput() ScriptStatusResponseOutput {
+	return i.ToScriptStatusResponseOutputWithContext(context.Background())
+}
+
+func (i ScriptStatusResponseArgs) ToScriptStatusResponseOutputWithContext(ctx context.Context) ScriptStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStatusResponseOutput)
+}
+
+func (i ScriptStatusResponseArgs) ToScriptStatusResponsePtrOutput() ScriptStatusResponsePtrOutput {
+	return i.ToScriptStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScriptStatusResponseArgs) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStatusResponseOutput).ToScriptStatusResponsePtrOutputWithContext(ctx)
+}
+
+// ScriptStatusResponsePtrInput is an input type that accepts ScriptStatusResponseArgs, ScriptStatusResponsePtr and ScriptStatusResponsePtrOutput values.
+// You can construct a concrete instance of `ScriptStatusResponsePtrInput` via:
+//
+//          ScriptStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToScriptStatusResponsePtrOutput() ScriptStatusResponsePtrOutput
+	ToScriptStatusResponsePtrOutputWithContext(context.Context) ScriptStatusResponsePtrOutput
+}
+
+type scriptStatusResponsePtrType ScriptStatusResponseArgs
+
+func ScriptStatusResponsePtr(v *ScriptStatusResponseArgs) ScriptStatusResponsePtrInput {
+	return (*scriptStatusResponsePtrType)(v)
+}
+
+func (*scriptStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptStatusResponse)(nil)).Elem()
+}
+
+func (i *scriptStatusResponsePtrType) ToScriptStatusResponsePtrOutput() ScriptStatusResponsePtrOutput {
+	return i.ToScriptStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scriptStatusResponsePtrType) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptStatusResponsePtrOutput)
+}
+
+// Generic object modeling results of script execution.
+type ScriptStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ScriptStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptStatusResponse)(nil)).Elem()
+}
+
+func (o ScriptStatusResponseOutput) ToScriptStatusResponseOutput() ScriptStatusResponseOutput {
+	return o
+}
+
+func (o ScriptStatusResponseOutput) ToScriptStatusResponseOutputWithContext(ctx context.Context) ScriptStatusResponseOutput {
+	return o
+}
+
+func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutput() ScriptStatusResponsePtrOutput {
+	return o.ToScriptStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) *ScriptStatusResponse {
+		return &v
+	}).(ScriptStatusResponsePtrOutput)
+}
+
+// ACI resource Id.
+func (o ScriptStatusResponseOutput) ContainerInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) string { return v.ContainerInstanceId }).(pulumi.StringOutput)
+}
+
+// End time of the script execution.
+func (o ScriptStatusResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// Error that is relayed from the script execution.
+func (o ScriptStatusResponseOutput) Error() ErrorResponseResponsePtrOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) *ErrorResponseResponse { return v.Error }).(ErrorResponseResponsePtrOutput)
+}
+
+// Time the deployment script resource will expire.
+func (o ScriptStatusResponseOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) string { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+// Start time of the script execution.
+func (o ScriptStatusResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Storage account resource Id.
+func (o ScriptStatusResponseOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptStatusResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type ScriptStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptStatusResponse)(nil)).Elem()
+}
+
+func (o ScriptStatusResponsePtrOutput) ToScriptStatusResponsePtrOutput() ScriptStatusResponsePtrOutput {
+	return o
+}
+
+func (o ScriptStatusResponsePtrOutput) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
+	return o
+}
+
+func (o ScriptStatusResponsePtrOutput) Elem() ScriptStatusResponseOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse { return *v }).(ScriptStatusResponseOutput)
+}
+
+// ACI resource Id.
+func (o ScriptStatusResponsePtrOutput) ContainerInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerInstanceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// End time of the script execution.
+func (o ScriptStatusResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error that is relayed from the script execution.
+func (o ScriptStatusResponsePtrOutput) Error() ErrorResponseResponsePtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *ErrorResponseResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(ErrorResponseResponsePtrOutput)
+}
+
+// Time the deployment script resource will expire.
+func (o ScriptStatusResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time of the script execution.
+func (o ScriptStatusResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Storage account resource Id.
+func (o ScriptStatusResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
 // SKU for the resource.
 type Sku struct {
 	// The SKU capacity.
@@ -5502,6 +6235,312 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfiguration struct {
+	// The storage account access key.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
+	// The storage account name.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// StorageAccountConfigurationInput is an input type that accepts StorageAccountConfigurationArgs and StorageAccountConfigurationOutput values.
+// You can construct a concrete instance of `StorageAccountConfigurationInput` via:
+//
+//          StorageAccountConfigurationArgs{...}
+type StorageAccountConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageAccountConfigurationOutput() StorageAccountConfigurationOutput
+	ToStorageAccountConfigurationOutputWithContext(context.Context) StorageAccountConfigurationOutput
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfigurationArgs struct {
+	// The storage account access key.
+	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
+	// The storage account name.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (StorageAccountConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountConfiguration)(nil)).Elem()
+}
+
+func (i StorageAccountConfigurationArgs) ToStorageAccountConfigurationOutput() StorageAccountConfigurationOutput {
+	return i.ToStorageAccountConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageAccountConfigurationArgs) ToStorageAccountConfigurationOutputWithContext(ctx context.Context) StorageAccountConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationOutput)
+}
+
+func (i StorageAccountConfigurationArgs) ToStorageAccountConfigurationPtrOutput() StorageAccountConfigurationPtrOutput {
+	return i.ToStorageAccountConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountConfigurationArgs) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationOutput).ToStorageAccountConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageAccountConfigurationPtrInput is an input type that accepts StorageAccountConfigurationArgs, StorageAccountConfigurationPtr and StorageAccountConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageAccountConfigurationPtrInput` via:
+//
+//          StorageAccountConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageAccountConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountConfigurationPtrOutput() StorageAccountConfigurationPtrOutput
+	ToStorageAccountConfigurationPtrOutputWithContext(context.Context) StorageAccountConfigurationPtrOutput
+}
+
+type storageAccountConfigurationPtrType StorageAccountConfigurationArgs
+
+func StorageAccountConfigurationPtr(v *StorageAccountConfigurationArgs) StorageAccountConfigurationPtrInput {
+	return (*storageAccountConfigurationPtrType)(v)
+}
+
+func (*storageAccountConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountConfiguration)(nil)).Elem()
+}
+
+func (i *storageAccountConfigurationPtrType) ToStorageAccountConfigurationPtrOutput() StorageAccountConfigurationPtrOutput {
+	return i.ToStorageAccountConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountConfigurationPtrType) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationPtrOutput)
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountConfiguration)(nil)).Elem()
+}
+
+func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationOutput() StorageAccountConfigurationOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationOutputWithContext(ctx context.Context) StorageAccountConfigurationOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutput() StorageAccountConfigurationPtrOutput {
+	return o.ToStorageAccountConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
+	return o.ApplyT(func(v StorageAccountConfiguration) *StorageAccountConfiguration {
+		return &v
+	}).(StorageAccountConfigurationPtrOutput)
+}
+
+// The storage account access key.
+func (o StorageAccountConfigurationOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountConfiguration) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The storage account name.
+func (o StorageAccountConfigurationOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountConfiguration) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountConfiguration)(nil)).Elem()
+}
+
+func (o StorageAccountConfigurationPtrOutput) ToStorageAccountConfigurationPtrOutput() StorageAccountConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationPtrOutput) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationPtrOutput) Elem() StorageAccountConfigurationOutput {
+	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration { return *v }).(StorageAccountConfigurationOutput)
+}
+
+// The storage account access key.
+func (o StorageAccountConfigurationPtrOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage account name.
+func (o StorageAccountConfigurationPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfigurationResponse struct {
+	// The storage account access key.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
+	// The storage account name.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// StorageAccountConfigurationResponseInput is an input type that accepts StorageAccountConfigurationResponseArgs and StorageAccountConfigurationResponseOutput values.
+// You can construct a concrete instance of `StorageAccountConfigurationResponseInput` via:
+//
+//          StorageAccountConfigurationResponseArgs{...}
+type StorageAccountConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountConfigurationResponseOutput() StorageAccountConfigurationResponseOutput
+	ToStorageAccountConfigurationResponseOutputWithContext(context.Context) StorageAccountConfigurationResponseOutput
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfigurationResponseArgs struct {
+	// The storage account access key.
+	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
+	// The storage account name.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (StorageAccountConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountConfigurationResponse)(nil)).Elem()
+}
+
+func (i StorageAccountConfigurationResponseArgs) ToStorageAccountConfigurationResponseOutput() StorageAccountConfigurationResponseOutput {
+	return i.ToStorageAccountConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountConfigurationResponseArgs) ToStorageAccountConfigurationResponseOutputWithContext(ctx context.Context) StorageAccountConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationResponseOutput)
+}
+
+func (i StorageAccountConfigurationResponseArgs) ToStorageAccountConfigurationResponsePtrOutput() StorageAccountConfigurationResponsePtrOutput {
+	return i.ToStorageAccountConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountConfigurationResponseArgs) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationResponseOutput).ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// StorageAccountConfigurationResponsePtrInput is an input type that accepts StorageAccountConfigurationResponseArgs, StorageAccountConfigurationResponsePtr and StorageAccountConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `StorageAccountConfigurationResponsePtrInput` via:
+//
+//          StorageAccountConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageAccountConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountConfigurationResponsePtrOutput() StorageAccountConfigurationResponsePtrOutput
+	ToStorageAccountConfigurationResponsePtrOutputWithContext(context.Context) StorageAccountConfigurationResponsePtrOutput
+}
+
+type storageAccountConfigurationResponsePtrType StorageAccountConfigurationResponseArgs
+
+func StorageAccountConfigurationResponsePtr(v *StorageAccountConfigurationResponseArgs) StorageAccountConfigurationResponsePtrInput {
+	return (*storageAccountConfigurationResponsePtrType)(v)
+}
+
+func (*storageAccountConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountConfigurationResponse)(nil)).Elem()
+}
+
+func (i *storageAccountConfigurationResponsePtrType) ToStorageAccountConfigurationResponsePtrOutput() StorageAccountConfigurationResponsePtrOutput {
+	return i.ToStorageAccountConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountConfigurationResponsePtrType) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountConfigurationResponsePtrOutput)
+}
+
+// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
+type StorageAccountConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountConfigurationResponse)(nil)).Elem()
+}
+
+func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponseOutput() StorageAccountConfigurationResponseOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponseOutputWithContext(ctx context.Context) StorageAccountConfigurationResponseOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponsePtrOutput() StorageAccountConfigurationResponsePtrOutput {
+	return o.ToStorageAccountConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
+		return &v
+	}).(StorageAccountConfigurationResponsePtrOutput)
+}
+
+// The storage account access key.
+func (o StorageAccountConfigurationResponseOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountConfigurationResponse) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The storage account name.
+func (o StorageAccountConfigurationResponseOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountConfigurationResponse) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountConfigurationResponse)(nil)).Elem()
+}
+
+func (o StorageAccountConfigurationResponsePtrOutput) ToStorageAccountConfigurationResponsePtrOutput() StorageAccountConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationResponsePtrOutput) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountConfigurationResponsePtrOutput) Elem() StorageAccountConfigurationResponseOutput {
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse { return *v }).(StorageAccountConfigurationResponseOutput)
+}
+
+// The storage account access key.
+func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage account name.
+func (o StorageAccountConfigurationResponsePtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6651,6 +7690,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContainerConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ContainerConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DebugSettingOutput{})
 	pulumi.RegisterOutputType(DebugSettingPtrOutput{})
 	pulumi.RegisterOutputType(DebugSettingResponseOutput{})
@@ -6661,6 +7704,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseOutput{})
 	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
@@ -6704,10 +7751,16 @@ func init() {
 	pulumi.RegisterOutputType(ResourceGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(ScriptStatusResponseOutput{})
+	pulumi.RegisterOutputType(ScriptStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageAccountConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagsOutput{})

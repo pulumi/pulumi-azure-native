@@ -12,6 +12,8 @@ import (
 )
 
 // Network base admin rule.
+//
+// Deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.
 type AdminRule struct {
 	pulumi.CustomResourceState
 

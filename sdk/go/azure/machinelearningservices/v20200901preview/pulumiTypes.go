@@ -10,6 +10,486 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Details of the data collection options specified.
+type ACIServiceCreateRequestDataCollection struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled *bool `pulumi:"storageEnabled"`
+}
+
+// ACIServiceCreateRequestDataCollectionInput is an input type that accepts ACIServiceCreateRequestDataCollectionArgs and ACIServiceCreateRequestDataCollectionOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestDataCollectionInput` via:
+//
+//          ACIServiceCreateRequestDataCollectionArgs{...}
+type ACIServiceCreateRequestDataCollectionInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput
+	ToACIServiceCreateRequestDataCollectionOutputWithContext(context.Context) ACIServiceCreateRequestDataCollectionOutput
+}
+
+// Details of the data collection options specified.
+type ACIServiceCreateRequestDataCollectionArgs struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled pulumi.BoolPtrInput `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled pulumi.BoolPtrInput `pulumi:"storageEnabled"`
+}
+
+func (ACIServiceCreateRequestDataCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput {
+	return i.ToACIServiceCreateRequestDataCollectionOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionOutput)
+}
+
+func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
+	return i.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestDataCollectionArgs) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionOutput).ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx)
+}
+
+// ACIServiceCreateRequestDataCollectionPtrInput is an input type that accepts ACIServiceCreateRequestDataCollectionArgs, ACIServiceCreateRequestDataCollectionPtr and ACIServiceCreateRequestDataCollectionPtrOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestDataCollectionPtrInput` via:
+//
+//          ACIServiceCreateRequestDataCollectionArgs{...}
+//
+//  or:
+//
+//          nil
+type ACIServiceCreateRequestDataCollectionPtrInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput
+	ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Context) ACIServiceCreateRequestDataCollectionPtrOutput
+}
+
+type aciserviceCreateRequestDataCollectionPtrType ACIServiceCreateRequestDataCollectionArgs
+
+func ACIServiceCreateRequestDataCollectionPtr(v *ACIServiceCreateRequestDataCollectionArgs) ACIServiceCreateRequestDataCollectionPtrInput {
+	return (*aciserviceCreateRequestDataCollectionPtrType)(v)
+}
+
+func (*aciserviceCreateRequestDataCollectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (i *aciserviceCreateRequestDataCollectionPtrType) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
+	return i.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i *aciserviceCreateRequestDataCollectionPtrType) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestDataCollectionPtrOutput)
+}
+
+// Details of the data collection options specified.
+type ACIServiceCreateRequestDataCollectionOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestDataCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionOutput() ACIServiceCreateRequestDataCollectionOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
+	return o.ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *ACIServiceCreateRequestDataCollection {
+		return &v
+	}).(ACIServiceCreateRequestDataCollectionPtrOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o ACIServiceCreateRequestDataCollectionOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *bool { return v.EventHubEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o ACIServiceCreateRequestDataCollectionOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *bool { return v.StorageEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ACIServiceCreateRequestDataCollectionPtrOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestDataCollectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestDataCollectionPtrOutput) ToACIServiceCreateRequestDataCollectionPtrOutput() ACIServiceCreateRequestDataCollectionPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestDataCollectionPtrOutput) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestDataCollectionPtrOutput) Elem() ACIServiceCreateRequestDataCollectionOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) ACIServiceCreateRequestDataCollection { return *v }).(ACIServiceCreateRequestDataCollectionOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o ACIServiceCreateRequestDataCollectionPtrOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o ACIServiceCreateRequestDataCollectionPtrOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encryption properties.
+type ACIServiceCreateRequestEncryptionProperties struct {
+	// Encryption Key name
+	KeyName string `pulumi:"keyName"`
+	// Encryption Key Version
+	KeyVersion string `pulumi:"keyVersion"`
+	// vault base Url
+	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
+}
+
+// ACIServiceCreateRequestEncryptionPropertiesInput is an input type that accepts ACIServiceCreateRequestEncryptionPropertiesArgs and ACIServiceCreateRequestEncryptionPropertiesOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestEncryptionPropertiesInput` via:
+//
+//          ACIServiceCreateRequestEncryptionPropertiesArgs{...}
+type ACIServiceCreateRequestEncryptionPropertiesInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput
+	ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput
+}
+
+// The encryption properties.
+type ACIServiceCreateRequestEncryptionPropertiesArgs struct {
+	// Encryption Key name
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// Encryption Key Version
+	KeyVersion pulumi.StringInput `pulumi:"keyVersion"`
+	// vault base Url
+	VaultBaseUrl pulumi.StringInput `pulumi:"vaultBaseUrl"`
+}
+
+func (ACIServiceCreateRequestEncryptionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
+}
+
+func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput {
+	return i.ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesOutput)
+}
+
+func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return i.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestEncryptionPropertiesArgs) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesOutput).ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx)
+}
+
+// ACIServiceCreateRequestEncryptionPropertiesPtrInput is an input type that accepts ACIServiceCreateRequestEncryptionPropertiesArgs, ACIServiceCreateRequestEncryptionPropertiesPtr and ACIServiceCreateRequestEncryptionPropertiesPtrOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestEncryptionPropertiesPtrInput` via:
+//
+//          ACIServiceCreateRequestEncryptionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ACIServiceCreateRequestEncryptionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput
+	ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput
+}
+
+type aciserviceCreateRequestEncryptionPropertiesPtrType ACIServiceCreateRequestEncryptionPropertiesArgs
+
+func ACIServiceCreateRequestEncryptionPropertiesPtr(v *ACIServiceCreateRequestEncryptionPropertiesArgs) ACIServiceCreateRequestEncryptionPropertiesPtrInput {
+	return (*aciserviceCreateRequestEncryptionPropertiesPtrType)(v)
+}
+
+func (*aciserviceCreateRequestEncryptionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
+}
+
+func (i *aciserviceCreateRequestEncryptionPropertiesPtrType) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return i.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *aciserviceCreateRequestEncryptionPropertiesPtrType) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestEncryptionPropertiesPtrOutput)
+}
+
+// The encryption properties.
+type ACIServiceCreateRequestEncryptionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestEncryptionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesOutput() ACIServiceCreateRequestEncryptionPropertiesOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return o.ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) *ACIServiceCreateRequestEncryptionProperties {
+		return &v
+	}).(ACIServiceCreateRequestEncryptionPropertiesPtrOutput)
+}
+
+// Encryption Key name
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Encryption Key Version
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) KeyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.KeyVersion }).(pulumi.StringOutput)
+}
+
+// vault base Url
+func (o ACIServiceCreateRequestEncryptionPropertiesOutput) VaultBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) string { return v.VaultBaseUrl }).(pulumi.StringOutput)
+}
+
+type ACIServiceCreateRequestEncryptionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestEncryptionProperties)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutput() ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) Elem() ACIServiceCreateRequestEncryptionPropertiesOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) ACIServiceCreateRequestEncryptionProperties {
+		return *v
+	}).(ACIServiceCreateRequestEncryptionPropertiesOutput)
+}
+
+// Encryption Key name
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption Key Version
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// vault base Url
+func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) VaultBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The virtual network configuration.
+type ACIServiceCreateRequestVnetConfiguration struct {
+	// The name of the virtual network subnet.
+	SubnetName *string `pulumi:"subnetName"`
+	// The name of the virtual network.
+	VnetName *string `pulumi:"vnetName"`
+}
+
+// ACIServiceCreateRequestVnetConfigurationInput is an input type that accepts ACIServiceCreateRequestVnetConfigurationArgs and ACIServiceCreateRequestVnetConfigurationOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestVnetConfigurationInput` via:
+//
+//          ACIServiceCreateRequestVnetConfigurationArgs{...}
+type ACIServiceCreateRequestVnetConfigurationInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput
+	ToACIServiceCreateRequestVnetConfigurationOutputWithContext(context.Context) ACIServiceCreateRequestVnetConfigurationOutput
+}
+
+// The virtual network configuration.
+type ACIServiceCreateRequestVnetConfigurationArgs struct {
+	// The name of the virtual network subnet.
+	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
+	// The name of the virtual network.
+	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+}
+
+func (ACIServiceCreateRequestVnetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
+}
+
+func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput {
+	return i.ToACIServiceCreateRequestVnetConfigurationOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationOutput)
+}
+
+func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return i.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ACIServiceCreateRequestVnetConfigurationArgs) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationOutput).ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx)
+}
+
+// ACIServiceCreateRequestVnetConfigurationPtrInput is an input type that accepts ACIServiceCreateRequestVnetConfigurationArgs, ACIServiceCreateRequestVnetConfigurationPtr and ACIServiceCreateRequestVnetConfigurationPtrOutput values.
+// You can construct a concrete instance of `ACIServiceCreateRequestVnetConfigurationPtrInput` via:
+//
+//          ACIServiceCreateRequestVnetConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ACIServiceCreateRequestVnetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput
+	ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput
+}
+
+type aciserviceCreateRequestVnetConfigurationPtrType ACIServiceCreateRequestVnetConfigurationArgs
+
+func ACIServiceCreateRequestVnetConfigurationPtr(v *ACIServiceCreateRequestVnetConfigurationArgs) ACIServiceCreateRequestVnetConfigurationPtrInput {
+	return (*aciserviceCreateRequestVnetConfigurationPtrType)(v)
+}
+
+func (*aciserviceCreateRequestVnetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
+}
+
+func (i *aciserviceCreateRequestVnetConfigurationPtrType) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return i.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aciserviceCreateRequestVnetConfigurationPtrType) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceCreateRequestVnetConfigurationPtrOutput)
+}
+
+// The virtual network configuration.
+type ACIServiceCreateRequestVnetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestVnetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationOutput() ACIServiceCreateRequestVnetConfigurationOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return o.ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *ACIServiceCreateRequestVnetConfiguration {
+		return &v
+	}).(ACIServiceCreateRequestVnetConfigurationPtrOutput)
+}
+
+// The name of the virtual network subnet.
+func (o ACIServiceCreateRequestVnetConfigurationOutput) SubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the virtual network.
+func (o ACIServiceCreateRequestVnetConfigurationOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+type ACIServiceCreateRequestVnetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ACIServiceCreateRequestVnetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ACIServiceCreateRequestVnetConfiguration)(nil)).Elem()
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutput() ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
+	return o
+}
+
+func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) Elem() ACIServiceCreateRequestVnetConfigurationOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) ACIServiceCreateRequestVnetConfiguration { return *v }).(ACIServiceCreateRequestVnetConfigurationOutput)
+}
+
+// The name of the virtual network subnet.
+func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) SubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the virtual network.
+func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VnetName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The response for an ACI service.
 type ACIServiceResponseResponse struct {
 	// Whether or not Application Insights is enabled.
@@ -1851,6 +2331,581 @@ func (o AKSResponsePropertiesPtrOutput) SystemServices() SystemServiceResponseAr
 		}
 		return v.SystemServices
 	}).(SystemServiceResponseArrayOutput)
+}
+
+// The auto scaler properties.
+type AKSServiceCreateRequestAutoScaler struct {
+	// Option to enable/disable auto scaling.
+	AutoscaleEnabled *bool `pulumi:"autoscaleEnabled"`
+	// The maximum number of replicas in the cluster.
+	MaxReplicas *int `pulumi:"maxReplicas"`
+	// The minimum number of replicas to scale down to.
+	MinReplicas *int `pulumi:"minReplicas"`
+	// The amount of seconds to wait between auto scale updates.
+	RefreshPeriodInSeconds *int `pulumi:"refreshPeriodInSeconds"`
+	// The target utilization percentage to use for determining whether to scale the cluster.
+	TargetUtilization *int `pulumi:"targetUtilization"`
+}
+
+// AKSServiceCreateRequestAutoScalerInput is an input type that accepts AKSServiceCreateRequestAutoScalerArgs and AKSServiceCreateRequestAutoScalerOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestAutoScalerInput` via:
+//
+//          AKSServiceCreateRequestAutoScalerArgs{...}
+type AKSServiceCreateRequestAutoScalerInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput
+	ToAKSServiceCreateRequestAutoScalerOutputWithContext(context.Context) AKSServiceCreateRequestAutoScalerOutput
+}
+
+// The auto scaler properties.
+type AKSServiceCreateRequestAutoScalerArgs struct {
+	// Option to enable/disable auto scaling.
+	AutoscaleEnabled pulumi.BoolPtrInput `pulumi:"autoscaleEnabled"`
+	// The maximum number of replicas in the cluster.
+	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
+	// The minimum number of replicas to scale down to.
+	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
+	// The amount of seconds to wait between auto scale updates.
+	RefreshPeriodInSeconds pulumi.IntPtrInput `pulumi:"refreshPeriodInSeconds"`
+	// The target utilization percentage to use for determining whether to scale the cluster.
+	TargetUtilization pulumi.IntPtrInput `pulumi:"targetUtilization"`
+}
+
+func (AKSServiceCreateRequestAutoScalerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestAutoScaler)(nil)).Elem()
+}
+
+func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput {
+	return i.ToAKSServiceCreateRequestAutoScalerOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerOutput)
+}
+
+func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
+	return i.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestAutoScalerArgs) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerOutput).ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx)
+}
+
+// AKSServiceCreateRequestAutoScalerPtrInput is an input type that accepts AKSServiceCreateRequestAutoScalerArgs, AKSServiceCreateRequestAutoScalerPtr and AKSServiceCreateRequestAutoScalerPtrOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestAutoScalerPtrInput` via:
+//
+//          AKSServiceCreateRequestAutoScalerArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceCreateRequestAutoScalerPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput
+	ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Context) AKSServiceCreateRequestAutoScalerPtrOutput
+}
+
+type aksserviceCreateRequestAutoScalerPtrType AKSServiceCreateRequestAutoScalerArgs
+
+func AKSServiceCreateRequestAutoScalerPtr(v *AKSServiceCreateRequestAutoScalerArgs) AKSServiceCreateRequestAutoScalerPtrInput {
+	return (*aksserviceCreateRequestAutoScalerPtrType)(v)
+}
+
+func (*aksserviceCreateRequestAutoScalerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestAutoScaler)(nil)).Elem()
+}
+
+func (i *aksserviceCreateRequestAutoScalerPtrType) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
+	return i.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceCreateRequestAutoScalerPtrType) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestAutoScalerPtrOutput)
+}
+
+// The auto scaler properties.
+type AKSServiceCreateRequestAutoScalerOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestAutoScalerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestAutoScaler)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerOutput() AKSServiceCreateRequestAutoScalerOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
+	return o.ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *AKSServiceCreateRequestAutoScaler {
+		return &v
+	}).(AKSServiceCreateRequestAutoScalerPtrOutput)
+}
+
+// Option to enable/disable auto scaling.
+func (o AKSServiceCreateRequestAutoScalerOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *bool { return v.AutoscaleEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of replicas in the cluster.
+func (o AKSServiceCreateRequestAutoScalerOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.MaxReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas to scale down to.
+func (o AKSServiceCreateRequestAutoScalerOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.MinReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The amount of seconds to wait between auto scale updates.
+func (o AKSServiceCreateRequestAutoScalerOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.RefreshPeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The target utilization percentage to use for determining whether to scale the cluster.
+func (o AKSServiceCreateRequestAutoScalerOutput) TargetUtilization() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *int { return v.TargetUtilization }).(pulumi.IntPtrOutput)
+}
+
+type AKSServiceCreateRequestAutoScalerPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestAutoScalerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestAutoScaler)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) ToAKSServiceCreateRequestAutoScalerPtrOutput() AKSServiceCreateRequestAutoScalerPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) Elem() AKSServiceCreateRequestAutoScalerOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) AKSServiceCreateRequestAutoScaler { return *v }).(AKSServiceCreateRequestAutoScalerOutput)
+}
+
+// Option to enable/disable auto scaling.
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) AutoscaleEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoscaleEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of replicas in the cluster.
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas to scale down to.
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of seconds to wait between auto scale updates.
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshPeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The target utilization percentage to use for determining whether to scale the cluster.
+func (o AKSServiceCreateRequestAutoScalerPtrOutput) TargetUtilization() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUtilization
+	}).(pulumi.IntPtrOutput)
+}
+
+// Details of the data collection options specified.
+type AKSServiceCreateRequestDataCollection struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled *bool `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled *bool `pulumi:"storageEnabled"`
+}
+
+// AKSServiceCreateRequestDataCollectionInput is an input type that accepts AKSServiceCreateRequestDataCollectionArgs and AKSServiceCreateRequestDataCollectionOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestDataCollectionInput` via:
+//
+//          AKSServiceCreateRequestDataCollectionArgs{...}
+type AKSServiceCreateRequestDataCollectionInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput
+	ToAKSServiceCreateRequestDataCollectionOutputWithContext(context.Context) AKSServiceCreateRequestDataCollectionOutput
+}
+
+// Details of the data collection options specified.
+type AKSServiceCreateRequestDataCollectionArgs struct {
+	// Option for enabling/disabling Event Hub.
+	EventHubEnabled pulumi.BoolPtrInput `pulumi:"eventHubEnabled"`
+	// Option for enabling/disabling storage.
+	StorageEnabled pulumi.BoolPtrInput `pulumi:"storageEnabled"`
+}
+
+func (AKSServiceCreateRequestDataCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput {
+	return i.ToAKSServiceCreateRequestDataCollectionOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionOutput)
+}
+
+func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
+	return i.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestDataCollectionArgs) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionOutput).ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx)
+}
+
+// AKSServiceCreateRequestDataCollectionPtrInput is an input type that accepts AKSServiceCreateRequestDataCollectionArgs, AKSServiceCreateRequestDataCollectionPtr and AKSServiceCreateRequestDataCollectionPtrOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestDataCollectionPtrInput` via:
+//
+//          AKSServiceCreateRequestDataCollectionArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceCreateRequestDataCollectionPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput
+	ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Context) AKSServiceCreateRequestDataCollectionPtrOutput
+}
+
+type aksserviceCreateRequestDataCollectionPtrType AKSServiceCreateRequestDataCollectionArgs
+
+func AKSServiceCreateRequestDataCollectionPtr(v *AKSServiceCreateRequestDataCollectionArgs) AKSServiceCreateRequestDataCollectionPtrInput {
+	return (*aksserviceCreateRequestDataCollectionPtrType)(v)
+}
+
+func (*aksserviceCreateRequestDataCollectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (i *aksserviceCreateRequestDataCollectionPtrType) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
+	return i.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceCreateRequestDataCollectionPtrType) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestDataCollectionPtrOutput)
+}
+
+// Details of the data collection options specified.
+type AKSServiceCreateRequestDataCollectionOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestDataCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionOutput() AKSServiceCreateRequestDataCollectionOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
+	return o.ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *AKSServiceCreateRequestDataCollection {
+		return &v
+	}).(AKSServiceCreateRequestDataCollectionPtrOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o AKSServiceCreateRequestDataCollectionOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *bool { return v.EventHubEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o AKSServiceCreateRequestDataCollectionOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *bool { return v.StorageEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type AKSServiceCreateRequestDataCollectionPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestDataCollectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestDataCollection)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestDataCollectionPtrOutput) ToAKSServiceCreateRequestDataCollectionPtrOutput() AKSServiceCreateRequestDataCollectionPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestDataCollectionPtrOutput) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestDataCollectionPtrOutput) Elem() AKSServiceCreateRequestDataCollectionOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) AKSServiceCreateRequestDataCollection { return *v }).(AKSServiceCreateRequestDataCollectionOutput)
+}
+
+// Option for enabling/disabling Event Hub.
+func (o AKSServiceCreateRequestDataCollectionPtrOutput) EventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Option for enabling/disabling storage.
+func (o AKSServiceCreateRequestDataCollectionPtrOutput) StorageEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The liveness probe requirements.
+type AKSServiceCreateRequestLivenessProbeRequirements struct {
+	// The number of failures to allow before returning an unhealthy status.
+	FailureThreshold *int `pulumi:"failureThreshold"`
+	// The delay before the first probe in seconds.
+	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	// The length of time between probes in seconds.
+	PeriodSeconds *int `pulumi:"periodSeconds"`
+	// The number of successful probes before returning a healthy status.
+	SuccessThreshold *int `pulumi:"successThreshold"`
+	// The probe timeout in seconds.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// AKSServiceCreateRequestLivenessProbeRequirementsInput is an input type that accepts AKSServiceCreateRequestLivenessProbeRequirementsArgs and AKSServiceCreateRequestLivenessProbeRequirementsOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestLivenessProbeRequirementsInput` via:
+//
+//          AKSServiceCreateRequestLivenessProbeRequirementsArgs{...}
+type AKSServiceCreateRequestLivenessProbeRequirementsInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput
+	ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput
+}
+
+// The liveness probe requirements.
+type AKSServiceCreateRequestLivenessProbeRequirementsArgs struct {
+	// The number of failures to allow before returning an unhealthy status.
+	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
+	// The delay before the first probe in seconds.
+	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
+	// The length of time between probes in seconds.
+	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
+	// The number of successful probes before returning a healthy status.
+	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
+	// The probe timeout in seconds.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (AKSServiceCreateRequestLivenessProbeRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
+	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsOutput)
+}
+
+func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i AKSServiceCreateRequestLivenessProbeRequirementsArgs) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsOutput).ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx)
+}
+
+// AKSServiceCreateRequestLivenessProbeRequirementsPtrInput is an input type that accepts AKSServiceCreateRequestLivenessProbeRequirementsArgs, AKSServiceCreateRequestLivenessProbeRequirementsPtr and AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput values.
+// You can construct a concrete instance of `AKSServiceCreateRequestLivenessProbeRequirementsPtrInput` via:
+//
+//          AKSServiceCreateRequestLivenessProbeRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type AKSServiceCreateRequestLivenessProbeRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput
+	ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput
+}
+
+type aksserviceCreateRequestLivenessProbeRequirementsPtrType AKSServiceCreateRequestLivenessProbeRequirementsArgs
+
+func AKSServiceCreateRequestLivenessProbeRequirementsPtr(v *AKSServiceCreateRequestLivenessProbeRequirementsArgs) AKSServiceCreateRequestLivenessProbeRequirementsPtrInput {
+	return (*aksserviceCreateRequestLivenessProbeRequirementsPtrType)(v)
+}
+
+func (*aksserviceCreateRequestLivenessProbeRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (i *aksserviceCreateRequestLivenessProbeRequirementsPtrType) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return i.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *aksserviceCreateRequestLivenessProbeRequirementsPtrType) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput)
+}
+
+// The liveness probe requirements.
+type AKSServiceCreateRequestLivenessProbeRequirementsOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestLivenessProbeRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsOutput() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return o.ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *AKSServiceCreateRequestLivenessProbeRequirements {
+		return &v
+	}).(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput)
+}
+
+// The number of failures to allow before returning an unhealthy status.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The delay before the first probe in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+// The length of time between probes in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of successful probes before returning a healthy status.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The probe timeout in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AKSServiceCreateRequestLivenessProbeRequirements)(nil)).Elem()
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutput() AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
+	return o
+}
+
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) Elem() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) AKSServiceCreateRequestLivenessProbeRequirements {
+		return *v
+	}).(AKSServiceCreateRequestLivenessProbeRequirementsOutput)
+}
+
+// The number of failures to allow before returning an unhealthy status.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The delay before the first probe in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The length of time between probes in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of successful probes before returning a healthy status.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The probe timeout in seconds.
+func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The response for an AKS service.
@@ -24374,6 +25429,12 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) Username() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterOutputType(ACIServiceCreateRequestDataCollectionOutput{})
+	pulumi.RegisterOutputType(ACIServiceCreateRequestDataCollectionPtrOutput{})
+	pulumi.RegisterOutputType(ACIServiceCreateRequestEncryptionPropertiesOutput{})
+	pulumi.RegisterOutputType(ACIServiceCreateRequestEncryptionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ACIServiceCreateRequestVnetConfigurationOutput{})
+	pulumi.RegisterOutputType(ACIServiceCreateRequestVnetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ACIServiceResponseResponseOutput{})
 	pulumi.RegisterOutputType(ACIServiceResponseResponseDataCollectionOutput{})
 	pulumi.RegisterOutputType(ACIServiceResponseResponseDataCollectionPtrOutput{})
@@ -24391,6 +25452,12 @@ func init() {
 	pulumi.RegisterOutputType(AKSResponseOutput{})
 	pulumi.RegisterOutputType(AKSResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AKSResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestAutoScalerOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestAutoScalerPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestDataCollectionOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestDataCollectionPtrOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsOutput{})
+	pulumi.RegisterOutputType(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(AKSServiceResponseResponseOutput{})
 	pulumi.RegisterOutputType(AKSServiceResponseResponseAutoScalerOutput{})
 	pulumi.RegisterOutputType(AKSServiceResponseResponseAutoScalerPtrOutput{})

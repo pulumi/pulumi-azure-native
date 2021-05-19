@@ -27,8 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Container{}
 	case "azure-native:databoxedge/v20200501preview:Device":
 		r = &Device{}
+	case "azure-native:databoxedge/v20200501preview:FileEventTrigger":
+		r = &FileEventTrigger{}
+	case "azure-native:databoxedge/v20200501preview:IoTRole":
+		r = &IoTRole{}
 	case "azure-native:databoxedge/v20200501preview:Order":
 		r = &Order{}
+	case "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger":
+		r = &PeriodicTimerEventTrigger{}
 	case "azure-native:databoxedge/v20200501preview:Role":
 		r = &Role{}
 	case "azure-native:databoxedge/v20200501preview:Share":

@@ -8,6 +8,8 @@ import (
 )
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+//
+// Deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.
 func LookupEventSource(ctx *pulumi.Context, args *LookupEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupEventSourceResult, error) {
 	var rv LookupEventSourceResult
 	err := ctx.Invoke("azure-native:timeseriesinsights/v20170228preview:getEventSource", args, &rv, opts...)

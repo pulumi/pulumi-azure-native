@@ -13,6 +13,8 @@ import (
 
 // The Setting.
 // API Version: 2021-03-01-preview.
+//
+// Deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.
 type ProductSetting struct {
 	pulumi.CustomResourceState
 

@@ -10,6 +10,478 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPath struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath *string `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName string `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath *string `pulumi:"providerPath"`
+}
+
+// ADLSGen2StorageAccountPathInput is an input type that accepts ADLSGen2StorageAccountPathArgs and ADLSGen2StorageAccountPathOutput values.
+// You can construct a concrete instance of `ADLSGen2StorageAccountPathInput` via:
+//
+//          ADLSGen2StorageAccountPathArgs{...}
+type ADLSGen2StorageAccountPathInput interface {
+	pulumi.Input
+
+	ToADLSGen2StorageAccountPathOutput() ADLSGen2StorageAccountPathOutput
+	ToADLSGen2StorageAccountPathOutputWithContext(context.Context) ADLSGen2StorageAccountPathOutput
+}
+
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPathArgs struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+}
+
+func (ADLSGen2StorageAccountPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADLSGen2StorageAccountPath)(nil)).Elem()
+}
+
+func (i ADLSGen2StorageAccountPathArgs) ToADLSGen2StorageAccountPathOutput() ADLSGen2StorageAccountPathOutput {
+	return i.ToADLSGen2StorageAccountPathOutputWithContext(context.Background())
+}
+
+func (i ADLSGen2StorageAccountPathArgs) ToADLSGen2StorageAccountPathOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathOutput)
+}
+
+// ADLSGen2StorageAccountPathArrayInput is an input type that accepts ADLSGen2StorageAccountPathArray and ADLSGen2StorageAccountPathArrayOutput values.
+// You can construct a concrete instance of `ADLSGen2StorageAccountPathArrayInput` via:
+//
+//          ADLSGen2StorageAccountPathArray{ ADLSGen2StorageAccountPathArgs{...} }
+type ADLSGen2StorageAccountPathArrayInput interface {
+	pulumi.Input
+
+	ToADLSGen2StorageAccountPathArrayOutput() ADLSGen2StorageAccountPathArrayOutput
+	ToADLSGen2StorageAccountPathArrayOutputWithContext(context.Context) ADLSGen2StorageAccountPathArrayOutput
+}
+
+type ADLSGen2StorageAccountPathArray []ADLSGen2StorageAccountPathInput
+
+func (ADLSGen2StorageAccountPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ADLSGen2StorageAccountPath)(nil)).Elem()
+}
+
+func (i ADLSGen2StorageAccountPathArray) ToADLSGen2StorageAccountPathArrayOutput() ADLSGen2StorageAccountPathArrayOutput {
+	return i.ToADLSGen2StorageAccountPathArrayOutputWithContext(context.Background())
+}
+
+func (i ADLSGen2StorageAccountPathArray) ToADLSGen2StorageAccountPathArrayOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathArrayOutput)
+}
+
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPathOutput struct{ *pulumi.OutputState }
+
+func (ADLSGen2StorageAccountPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADLSGen2StorageAccountPath)(nil)).Elem()
+}
+
+func (o ADLSGen2StorageAccountPathOutput) ToADLSGen2StorageAccountPathOutput() ADLSGen2StorageAccountPathOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathOutput) ToADLSGen2StorageAccountPathOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathOutput {
+	return o
+}
+
+// Gets or sets the path on the consumer side where the dataset is to be mapped.
+func (o ADLSGen2StorageAccountPathOutput) ConsumerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPath) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the container name to share.
+func (o ADLSGen2StorageAccountPathOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPath) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to file/folder within the container.
+func (o ADLSGen2StorageAccountPathOutput) ProviderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPath) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
+}
+
+type ADLSGen2StorageAccountPathArrayOutput struct{ *pulumi.OutputState }
+
+func (ADLSGen2StorageAccountPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ADLSGen2StorageAccountPath)(nil)).Elem()
+}
+
+func (o ADLSGen2StorageAccountPathArrayOutput) ToADLSGen2StorageAccountPathArrayOutput() ADLSGen2StorageAccountPathArrayOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathArrayOutput) ToADLSGen2StorageAccountPathArrayOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathArrayOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathArrayOutput) Index(i pulumi.IntInput) ADLSGen2StorageAccountPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ADLSGen2StorageAccountPath {
+		return vs[0].([]ADLSGen2StorageAccountPath)[vs[1].(int)]
+	}).(ADLSGen2StorageAccountPathOutput)
+}
+
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPathResponse struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath *string `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName string `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath *string `pulumi:"providerPath"`
+}
+
+// ADLSGen2StorageAccountPathResponseInput is an input type that accepts ADLSGen2StorageAccountPathResponseArgs and ADLSGen2StorageAccountPathResponseOutput values.
+// You can construct a concrete instance of `ADLSGen2StorageAccountPathResponseInput` via:
+//
+//          ADLSGen2StorageAccountPathResponseArgs{...}
+type ADLSGen2StorageAccountPathResponseInput interface {
+	pulumi.Input
+
+	ToADLSGen2StorageAccountPathResponseOutput() ADLSGen2StorageAccountPathResponseOutput
+	ToADLSGen2StorageAccountPathResponseOutputWithContext(context.Context) ADLSGen2StorageAccountPathResponseOutput
+}
+
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPathResponseArgs struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+}
+
+func (ADLSGen2StorageAccountPathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADLSGen2StorageAccountPathResponse)(nil)).Elem()
+}
+
+func (i ADLSGen2StorageAccountPathResponseArgs) ToADLSGen2StorageAccountPathResponseOutput() ADLSGen2StorageAccountPathResponseOutput {
+	return i.ToADLSGen2StorageAccountPathResponseOutputWithContext(context.Background())
+}
+
+func (i ADLSGen2StorageAccountPathResponseArgs) ToADLSGen2StorageAccountPathResponseOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathResponseOutput)
+}
+
+// ADLSGen2StorageAccountPathResponseArrayInput is an input type that accepts ADLSGen2StorageAccountPathResponseArray and ADLSGen2StorageAccountPathResponseArrayOutput values.
+// You can construct a concrete instance of `ADLSGen2StorageAccountPathResponseArrayInput` via:
+//
+//          ADLSGen2StorageAccountPathResponseArray{ ADLSGen2StorageAccountPathResponseArgs{...} }
+type ADLSGen2StorageAccountPathResponseArrayInput interface {
+	pulumi.Input
+
+	ToADLSGen2StorageAccountPathResponseArrayOutput() ADLSGen2StorageAccountPathResponseArrayOutput
+	ToADLSGen2StorageAccountPathResponseArrayOutputWithContext(context.Context) ADLSGen2StorageAccountPathResponseArrayOutput
+}
+
+type ADLSGen2StorageAccountPathResponseArray []ADLSGen2StorageAccountPathResponseInput
+
+func (ADLSGen2StorageAccountPathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ADLSGen2StorageAccountPathResponse)(nil)).Elem()
+}
+
+func (i ADLSGen2StorageAccountPathResponseArray) ToADLSGen2StorageAccountPathResponseArrayOutput() ADLSGen2StorageAccountPathResponseArrayOutput {
+	return i.ToADLSGen2StorageAccountPathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ADLSGen2StorageAccountPathResponseArray) ToADLSGen2StorageAccountPathResponseArrayOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountPathResponseArrayOutput)
+}
+
+// Defines a single ADLS Gen2 storage account path.
+type ADLSGen2StorageAccountPathResponseOutput struct{ *pulumi.OutputState }
+
+func (ADLSGen2StorageAccountPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ADLSGen2StorageAccountPathResponse)(nil)).Elem()
+}
+
+func (o ADLSGen2StorageAccountPathResponseOutput) ToADLSGen2StorageAccountPathResponseOutput() ADLSGen2StorageAccountPathResponseOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathResponseOutput) ToADLSGen2StorageAccountPathResponseOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathResponseOutput {
+	return o
+}
+
+// Gets or sets the path on the consumer side where the dataset is to be mapped.
+func (o ADLSGen2StorageAccountPathResponseOutput) ConsumerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the container name to share.
+func (o ADLSGen2StorageAccountPathResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to file/folder within the container.
+func (o ADLSGen2StorageAccountPathResponseOutput) ProviderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ADLSGen2StorageAccountPathResponse) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
+}
+
+type ADLSGen2StorageAccountPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ADLSGen2StorageAccountPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ADLSGen2StorageAccountPathResponse)(nil)).Elem()
+}
+
+func (o ADLSGen2StorageAccountPathResponseArrayOutput) ToADLSGen2StorageAccountPathResponseArrayOutput() ADLSGen2StorageAccountPathResponseArrayOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathResponseArrayOutput) ToADLSGen2StorageAccountPathResponseArrayOutputWithContext(ctx context.Context) ADLSGen2StorageAccountPathResponseArrayOutput {
+	return o
+}
+
+func (o ADLSGen2StorageAccountPathResponseArrayOutput) Index(i pulumi.IntInput) ADLSGen2StorageAccountPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ADLSGen2StorageAccountPathResponse {
+		return vs[0].([]ADLSGen2StorageAccountPathResponse)[vs[1].(int)]
+	}).(ADLSGen2StorageAccountPathResponseOutput)
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPath struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath *string `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName string `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath *string `pulumi:"providerPath"`
+}
+
+// BlobStorageAccountPathInput is an input type that accepts BlobStorageAccountPathArgs and BlobStorageAccountPathOutput values.
+// You can construct a concrete instance of `BlobStorageAccountPathInput` via:
+//
+//          BlobStorageAccountPathArgs{...}
+type BlobStorageAccountPathInput interface {
+	pulumi.Input
+
+	ToBlobStorageAccountPathOutput() BlobStorageAccountPathOutput
+	ToBlobStorageAccountPathOutputWithContext(context.Context) BlobStorageAccountPathOutput
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPathArgs struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+}
+
+func (BlobStorageAccountPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageAccountPath)(nil)).Elem()
+}
+
+func (i BlobStorageAccountPathArgs) ToBlobStorageAccountPathOutput() BlobStorageAccountPathOutput {
+	return i.ToBlobStorageAccountPathOutputWithContext(context.Background())
+}
+
+func (i BlobStorageAccountPathArgs) ToBlobStorageAccountPathOutputWithContext(ctx context.Context) BlobStorageAccountPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathOutput)
+}
+
+// BlobStorageAccountPathArrayInput is an input type that accepts BlobStorageAccountPathArray and BlobStorageAccountPathArrayOutput values.
+// You can construct a concrete instance of `BlobStorageAccountPathArrayInput` via:
+//
+//          BlobStorageAccountPathArray{ BlobStorageAccountPathArgs{...} }
+type BlobStorageAccountPathArrayInput interface {
+	pulumi.Input
+
+	ToBlobStorageAccountPathArrayOutput() BlobStorageAccountPathArrayOutput
+	ToBlobStorageAccountPathArrayOutputWithContext(context.Context) BlobStorageAccountPathArrayOutput
+}
+
+type BlobStorageAccountPathArray []BlobStorageAccountPathInput
+
+func (BlobStorageAccountPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobStorageAccountPath)(nil)).Elem()
+}
+
+func (i BlobStorageAccountPathArray) ToBlobStorageAccountPathArrayOutput() BlobStorageAccountPathArrayOutput {
+	return i.ToBlobStorageAccountPathArrayOutputWithContext(context.Background())
+}
+
+func (i BlobStorageAccountPathArray) ToBlobStorageAccountPathArrayOutputWithContext(ctx context.Context) BlobStorageAccountPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathArrayOutput)
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPathOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageAccountPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageAccountPath)(nil)).Elem()
+}
+
+func (o BlobStorageAccountPathOutput) ToBlobStorageAccountPathOutput() BlobStorageAccountPathOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathOutput) ToBlobStorageAccountPathOutputWithContext(ctx context.Context) BlobStorageAccountPathOutput {
+	return o
+}
+
+// Gets or sets the path on the consumer side where the dataset is to be mapped.
+func (o BlobStorageAccountPathOutput) ConsumerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStorageAccountPath) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the container name to share.
+func (o BlobStorageAccountPathOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobStorageAccountPath) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to file/folder within the container.
+func (o BlobStorageAccountPathOutput) ProviderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStorageAccountPath) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
+}
+
+type BlobStorageAccountPathArrayOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageAccountPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobStorageAccountPath)(nil)).Elem()
+}
+
+func (o BlobStorageAccountPathArrayOutput) ToBlobStorageAccountPathArrayOutput() BlobStorageAccountPathArrayOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathArrayOutput) ToBlobStorageAccountPathArrayOutputWithContext(ctx context.Context) BlobStorageAccountPathArrayOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathArrayOutput) Index(i pulumi.IntInput) BlobStorageAccountPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobStorageAccountPath {
+		return vs[0].([]BlobStorageAccountPath)[vs[1].(int)]
+	}).(BlobStorageAccountPathOutput)
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPathResponse struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath *string `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName string `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath *string `pulumi:"providerPath"`
+}
+
+// BlobStorageAccountPathResponseInput is an input type that accepts BlobStorageAccountPathResponseArgs and BlobStorageAccountPathResponseOutput values.
+// You can construct a concrete instance of `BlobStorageAccountPathResponseInput` via:
+//
+//          BlobStorageAccountPathResponseArgs{...}
+type BlobStorageAccountPathResponseInput interface {
+	pulumi.Input
+
+	ToBlobStorageAccountPathResponseOutput() BlobStorageAccountPathResponseOutput
+	ToBlobStorageAccountPathResponseOutputWithContext(context.Context) BlobStorageAccountPathResponseOutput
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPathResponseArgs struct {
+	// Gets or sets the path on the consumer side where the dataset is to be mapped.
+	ConsumerPath pulumi.StringPtrInput `pulumi:"consumerPath"`
+	// Gets or sets the container name to share.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Gets or sets the path to file/folder within the container.
+	ProviderPath pulumi.StringPtrInput `pulumi:"providerPath"`
+}
+
+func (BlobStorageAccountPathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageAccountPathResponse)(nil)).Elem()
+}
+
+func (i BlobStorageAccountPathResponseArgs) ToBlobStorageAccountPathResponseOutput() BlobStorageAccountPathResponseOutput {
+	return i.ToBlobStorageAccountPathResponseOutputWithContext(context.Background())
+}
+
+func (i BlobStorageAccountPathResponseArgs) ToBlobStorageAccountPathResponseOutputWithContext(ctx context.Context) BlobStorageAccountPathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathResponseOutput)
+}
+
+// BlobStorageAccountPathResponseArrayInput is an input type that accepts BlobStorageAccountPathResponseArray and BlobStorageAccountPathResponseArrayOutput values.
+// You can construct a concrete instance of `BlobStorageAccountPathResponseArrayInput` via:
+//
+//          BlobStorageAccountPathResponseArray{ BlobStorageAccountPathResponseArgs{...} }
+type BlobStorageAccountPathResponseArrayInput interface {
+	pulumi.Input
+
+	ToBlobStorageAccountPathResponseArrayOutput() BlobStorageAccountPathResponseArrayOutput
+	ToBlobStorageAccountPathResponseArrayOutputWithContext(context.Context) BlobStorageAccountPathResponseArrayOutput
+}
+
+type BlobStorageAccountPathResponseArray []BlobStorageAccountPathResponseInput
+
+func (BlobStorageAccountPathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobStorageAccountPathResponse)(nil)).Elem()
+}
+
+func (i BlobStorageAccountPathResponseArray) ToBlobStorageAccountPathResponseArrayOutput() BlobStorageAccountPathResponseArrayOutput {
+	return i.ToBlobStorageAccountPathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BlobStorageAccountPathResponseArray) ToBlobStorageAccountPathResponseArrayOutputWithContext(ctx context.Context) BlobStorageAccountPathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountPathResponseArrayOutput)
+}
+
+// Defines a single blob storage account path.
+type BlobStorageAccountPathResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageAccountPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageAccountPathResponse)(nil)).Elem()
+}
+
+func (o BlobStorageAccountPathResponseOutput) ToBlobStorageAccountPathResponseOutput() BlobStorageAccountPathResponseOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathResponseOutput) ToBlobStorageAccountPathResponseOutputWithContext(ctx context.Context) BlobStorageAccountPathResponseOutput {
+	return o
+}
+
+// Gets or sets the path on the consumer side where the dataset is to be mapped.
+func (o BlobStorageAccountPathResponseOutput) ConsumerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStorageAccountPathResponse) *string { return v.ConsumerPath }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the container name to share.
+func (o BlobStorageAccountPathResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobStorageAccountPathResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to file/folder within the container.
+func (o BlobStorageAccountPathResponseOutput) ProviderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStorageAccountPathResponse) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
+}
+
+type BlobStorageAccountPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageAccountPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobStorageAccountPathResponse)(nil)).Elem()
+}
+
+func (o BlobStorageAccountPathResponseArrayOutput) ToBlobStorageAccountPathResponseArrayOutput() BlobStorageAccountPathResponseArrayOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathResponseArrayOutput) ToBlobStorageAccountPathResponseArrayOutputWithContext(ctx context.Context) BlobStorageAccountPathResponseArrayOutput {
+	return o
+}
+
+func (o BlobStorageAccountPathResponseArrayOutput) Index(i pulumi.IntInput) BlobStorageAccountPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobStorageAccountPathResponse {
+		return vs[0].([]BlobStorageAccountPathResponse)[vs[1].(int)]
+	}).(BlobStorageAccountPathResponseOutput)
+}
+
 // Identity of resource
 type Identity struct {
 	// Identity Type
@@ -1228,6 +1700,14 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(ADLSGen2StorageAccountPathOutput{})
+	pulumi.RegisterOutputType(ADLSGen2StorageAccountPathArrayOutput{})
+	pulumi.RegisterOutputType(ADLSGen2StorageAccountPathResponseOutput{})
+	pulumi.RegisterOutputType(ADLSGen2StorageAccountPathResponseArrayOutput{})
+	pulumi.RegisterOutputType(BlobStorageAccountPathOutput{})
+	pulumi.RegisterOutputType(BlobStorageAccountPathArrayOutput{})
+	pulumi.RegisterOutputType(BlobStorageAccountPathResponseOutput{})
+	pulumi.RegisterOutputType(BlobStorageAccountPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

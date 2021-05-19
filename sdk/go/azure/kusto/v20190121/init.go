@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnection{}
 	case "azure-native:kusto/v20190121:Database":
 		r = &Database{}
+	case "azure-native:kusto/v20190121:EventGridDataConnection":
+		r = &EventGridDataConnection{}
+	case "azure-native:kusto/v20190121:EventHubDataConnection":
+		r = &EventHubDataConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

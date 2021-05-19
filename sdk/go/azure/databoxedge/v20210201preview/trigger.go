@@ -12,6 +12,8 @@ import (
 )
 
 // Trigger details.
+//
+// Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 type Trigger struct {
 	pulumi.CustomResourceState
 

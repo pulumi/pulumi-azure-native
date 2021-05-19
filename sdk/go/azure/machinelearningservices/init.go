@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:machinelearningservices:ACIService":
+		r = &ACIService{}
+	case "azure-native:machinelearningservices:AKSService":
+		r = &AKSService{}
+	case "azure-native:machinelearningservices:EndpointVariant":
+		r = &EndpointVariant{}
 	case "azure-native:machinelearningservices:LabelingJob":
 		r = &LabelingJob{}
 	case "azure-native:machinelearningservices:LinkedService":

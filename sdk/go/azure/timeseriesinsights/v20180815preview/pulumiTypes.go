@@ -10,6 +10,465 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object that contains the details about an environment's state.
+type EnvironmentStateDetailsResponse struct {
+	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+	Code *string `pulumi:"code"`
+	// A message that describes the state in detail.
+	Message *string `pulumi:"message"`
+}
+
+// EnvironmentStateDetailsResponseInput is an input type that accepts EnvironmentStateDetailsResponseArgs and EnvironmentStateDetailsResponseOutput values.
+// You can construct a concrete instance of `EnvironmentStateDetailsResponseInput` via:
+//
+//          EnvironmentStateDetailsResponseArgs{...}
+type EnvironmentStateDetailsResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput
+	ToEnvironmentStateDetailsResponseOutputWithContext(context.Context) EnvironmentStateDetailsResponseOutput
+}
+
+// An object that contains the details about an environment's state.
+type EnvironmentStateDetailsResponseArgs struct {
+	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// A message that describes the state in detail.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (EnvironmentStateDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStateDetailsResponse)(nil)).Elem()
+}
+
+func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput {
+	return i.ToEnvironmentStateDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput)
+}
+
+func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
+	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput).ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// EnvironmentStateDetailsResponsePtrInput is an input type that accepts EnvironmentStateDetailsResponseArgs, EnvironmentStateDetailsResponsePtr and EnvironmentStateDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `EnvironmentStateDetailsResponsePtrInput` via:
+//
+//          EnvironmentStateDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnvironmentStateDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput
+	ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Context) EnvironmentStateDetailsResponsePtrOutput
+}
+
+type environmentStateDetailsResponsePtrType EnvironmentStateDetailsResponseArgs
+
+func EnvironmentStateDetailsResponsePtr(v *EnvironmentStateDetailsResponseArgs) EnvironmentStateDetailsResponsePtrInput {
+	return (*environmentStateDetailsResponsePtrType)(v)
+}
+
+func (*environmentStateDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
+}
+
+func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
+	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponsePtrOutput)
+}
+
+// An object that contains the details about an environment's state.
+type EnvironmentStateDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStateDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStateDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput {
+	return o
+}
+
+func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponseOutput {
+	return o
+}
+
+func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
+	return o.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
+	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
+		return &v
+	}).(EnvironmentStateDetailsResponsePtrOutput)
+}
+
+// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+func (o EnvironmentStateDetailsResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// A message that describes the state in detail.
+func (o EnvironmentStateDetailsResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentStateDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStateDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
+	return o
+}
+
+func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse { return *v }).(EnvironmentStateDetailsResponseOutput)
+}
+
+// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message that describes the state in detail.
+func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusResponse struct {
+	// An object that represents the status of ingress on an environment.
+	Ingress IngressEnvironmentStatusResponse `pulumi:"ingress"`
+	// An object that represents the status of warm storage on an environment.
+	WarmStorage WarmStorageEnvironmentStatusResponse `pulumi:"warmStorage"`
+}
+
+// EnvironmentStatusResponseInput is an input type that accepts EnvironmentStatusResponseArgs and EnvironmentStatusResponseOutput values.
+// You can construct a concrete instance of `EnvironmentStatusResponseInput` via:
+//
+//          EnvironmentStatusResponseArgs{...}
+type EnvironmentStatusResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput
+	ToEnvironmentStatusResponseOutputWithContext(context.Context) EnvironmentStatusResponseOutput
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusResponseArgs struct {
+	// An object that represents the status of ingress on an environment.
+	Ingress IngressEnvironmentStatusResponseInput `pulumi:"ingress"`
+	// An object that represents the status of warm storage on an environment.
+	WarmStorage WarmStorageEnvironmentStatusResponseInput `pulumi:"warmStorage"`
+}
+
+func (EnvironmentStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput {
+	return i.ToEnvironmentStatusResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutputWithContext(ctx context.Context) EnvironmentStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput)
+}
+
+func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
+	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput).ToEnvironmentStatusResponsePtrOutputWithContext(ctx)
+}
+
+// EnvironmentStatusResponsePtrInput is an input type that accepts EnvironmentStatusResponseArgs, EnvironmentStatusResponsePtr and EnvironmentStatusResponsePtrOutput values.
+// You can construct a concrete instance of `EnvironmentStatusResponsePtrInput` via:
+//
+//          EnvironmentStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnvironmentStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput
+	ToEnvironmentStatusResponsePtrOutputWithContext(context.Context) EnvironmentStatusResponsePtrOutput
+}
+
+type environmentStatusResponsePtrType EnvironmentStatusResponseArgs
+
+func EnvironmentStatusResponsePtr(v *EnvironmentStatusResponseArgs) EnvironmentStatusResponsePtrInput {
+	return (*environmentStatusResponsePtrType)(v)
+}
+
+func (*environmentStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
+	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponseOutputWithContext(ctx context.Context) EnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
+	return o.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v EnvironmentStatusResponse) *EnvironmentStatusResponse {
+		return &v
+	}).(EnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v EnvironmentStatusResponse) IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponseOutput)
+}
+
+// An object that represents the status of warm storage on an environment.
+func (o EnvironmentStatusResponseOutput) WarmStorage() WarmStorageEnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v EnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse { return v.WarmStorage }).(WarmStorageEnvironmentStatusResponseOutput)
+}
+
+type EnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse { return *v }).(EnvironmentStatusResponseOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v *EnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Ingress
+	}).(IngressEnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of warm storage on an environment.
+func (o EnvironmentStatusResponsePtrOutput) WarmStorage() WarmStorageEnvironmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v *EnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.WarmStorage
+	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusResponse struct {
+	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+	State *string `pulumi:"state"`
+	// An object that contains the details about an environment's state.
+	StateDetails EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
+}
+
+// IngressEnvironmentStatusResponseInput is an input type that accepts IngressEnvironmentStatusResponseArgs and IngressEnvironmentStatusResponseOutput values.
+// You can construct a concrete instance of `IngressEnvironmentStatusResponseInput` via:
+//
+//          IngressEnvironmentStatusResponseArgs{...}
+type IngressEnvironmentStatusResponseInput interface {
+	pulumi.Input
+
+	ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput
+	ToIngressEnvironmentStatusResponseOutputWithContext(context.Context) IngressEnvironmentStatusResponseOutput
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusResponseArgs struct {
+	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// An object that contains the details about an environment's state.
+	StateDetails EnvironmentStateDetailsResponseInput `pulumi:"stateDetails"`
+}
+
+func (IngressEnvironmentStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput {
+	return i.ToIngressEnvironmentStatusResponseOutputWithContext(context.Background())
+}
+
+func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput)
+}
+
+func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
+	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput).ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx)
+}
+
+// IngressEnvironmentStatusResponsePtrInput is an input type that accepts IngressEnvironmentStatusResponseArgs, IngressEnvironmentStatusResponsePtr and IngressEnvironmentStatusResponsePtrOutput values.
+// You can construct a concrete instance of `IngressEnvironmentStatusResponsePtrInput` via:
+//
+//          IngressEnvironmentStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IngressEnvironmentStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput
+	ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Context) IngressEnvironmentStatusResponsePtrOutput
+}
+
+type ingressEnvironmentStatusResponsePtrType IngressEnvironmentStatusResponseArgs
+
+func IngressEnvironmentStatusResponsePtr(v *IngressEnvironmentStatusResponseArgs) IngressEnvironmentStatusResponsePtrInput {
+	return (*ingressEnvironmentStatusResponsePtrType)(v)
+}
+
+func (*ingressEnvironmentStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
+	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (IngressEnvironmentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
+	return o.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
+		return &v
+	}).(IngressEnvironmentStatusResponsePtrOutput)
+}
+
+// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// An object that contains the details about an environment's state.
+func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponseOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusResponse) EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponseOutput)
+}
+
+type IngressEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IngressEnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse { return *v }).(IngressEnvironmentStatusResponseOutput)
+}
+
+// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that contains the details about an environment's state.
+func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.StateDetails
+	}).(EnvironmentStateDetailsResponsePtrOutput)
+}
+
 // An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
 type LocalTimestamp struct {
 	// An enum that represents the format of the local timestamp property that needs to be set.
@@ -294,6 +753,295 @@ func (o LocalTimestampTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOu
 			return nil
 		}
 		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationInput struct {
+	// The name of the storage account that will hold the environment's long term data.
+	AccountName string `pulumi:"accountName"`
+	// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+	ManagementKey string `pulumi:"managementKey"`
+}
+
+// LongTermStorageConfigurationInputInput is an input type that accepts LongTermStorageConfigurationInputArgs and LongTermStorageConfigurationInputOutput values.
+// You can construct a concrete instance of `LongTermStorageConfigurationInputInput` via:
+//
+//          LongTermStorageConfigurationInputArgs{...}
+type LongTermStorageConfigurationInputInput interface {
+	pulumi.Input
+
+	ToLongTermStorageConfigurationInputOutput() LongTermStorageConfigurationInputOutput
+	ToLongTermStorageConfigurationInputOutputWithContext(context.Context) LongTermStorageConfigurationInputOutput
+}
+
+// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationInputArgs struct {
+	// The name of the storage account that will hold the environment's long term data.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+	ManagementKey pulumi.StringInput `pulumi:"managementKey"`
+}
+
+func (LongTermStorageConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermStorageConfigurationInput)(nil)).Elem()
+}
+
+func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputOutput() LongTermStorageConfigurationInputOutput {
+	return i.ToLongTermStorageConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputOutput)
+}
+
+func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
+	return i.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i LongTermStorageConfigurationInputArgs) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputOutput).ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// LongTermStorageConfigurationInputPtrInput is an input type that accepts LongTermStorageConfigurationInputArgs, LongTermStorageConfigurationInputPtr and LongTermStorageConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `LongTermStorageConfigurationInputPtrInput` via:
+//
+//          LongTermStorageConfigurationInputArgs{...}
+//
+//  or:
+//
+//          nil
+type LongTermStorageConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput
+	ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Context) LongTermStorageConfigurationInputPtrOutput
+}
+
+type longTermStorageConfigurationInputPtrType LongTermStorageConfigurationInputArgs
+
+func LongTermStorageConfigurationInputPtr(v *LongTermStorageConfigurationInputArgs) LongTermStorageConfigurationInputPtrInput {
+	return (*longTermStorageConfigurationInputPtrType)(v)
+}
+
+func (*longTermStorageConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LongTermStorageConfigurationInput)(nil)).Elem()
+}
+
+func (i *longTermStorageConfigurationInputPtrType) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
+	return i.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *longTermStorageConfigurationInputPtrType) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationInputPtrOutput)
+}
+
+// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (LongTermStorageConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermStorageConfigurationInput)(nil)).Elem()
+}
+
+func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputOutput() LongTermStorageConfigurationInputOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
+	return o.ToLongTermStorageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
+	return o.ApplyT(func(v LongTermStorageConfigurationInput) *LongTermStorageConfigurationInput {
+		return &v
+	}).(LongTermStorageConfigurationInputPtrOutput)
+}
+
+// The name of the storage account that will hold the environment's long term data.
+func (o LongTermStorageConfigurationInputOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LongTermStorageConfigurationInput) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+func (o LongTermStorageConfigurationInputOutput) ManagementKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LongTermStorageConfigurationInput) string { return v.ManagementKey }).(pulumi.StringOutput)
+}
+
+type LongTermStorageConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (LongTermStorageConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LongTermStorageConfigurationInput)(nil)).Elem()
+}
+
+func (o LongTermStorageConfigurationInputPtrOutput) ToLongTermStorageConfigurationInputPtrOutput() LongTermStorageConfigurationInputPtrOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationInputPtrOutput) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationInputPtrOutput) Elem() LongTermStorageConfigurationInputOutput {
+	return o.ApplyT(func(v *LongTermStorageConfigurationInput) LongTermStorageConfigurationInput { return *v }).(LongTermStorageConfigurationInputOutput)
+}
+
+// The name of the storage account that will hold the environment's long term data.
+func (o LongTermStorageConfigurationInputPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermStorageConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
+func (o LongTermStorageConfigurationInputPtrOutput) ManagementKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermStorageConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagementKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationOutputResponse struct {
+	// The name of the storage account that will hold the environment's long term data.
+	AccountName string `pulumi:"accountName"`
+}
+
+// LongTermStorageConfigurationOutputResponseInput is an input type that accepts LongTermStorageConfigurationOutputResponseArgs and LongTermStorageConfigurationOutputResponseOutput values.
+// You can construct a concrete instance of `LongTermStorageConfigurationOutputResponseInput` via:
+//
+//          LongTermStorageConfigurationOutputResponseArgs{...}
+type LongTermStorageConfigurationOutputResponseInput interface {
+	pulumi.Input
+
+	ToLongTermStorageConfigurationOutputResponseOutput() LongTermStorageConfigurationOutputResponseOutput
+	ToLongTermStorageConfigurationOutputResponseOutputWithContext(context.Context) LongTermStorageConfigurationOutputResponseOutput
+}
+
+// The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationOutputResponseArgs struct {
+	// The name of the storage account that will hold the environment's long term data.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+}
+
+func (LongTermStorageConfigurationOutputResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermStorageConfigurationOutputResponse)(nil)).Elem()
+}
+
+func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponseOutput() LongTermStorageConfigurationOutputResponseOutput {
+	return i.ToLongTermStorageConfigurationOutputResponseOutputWithContext(context.Background())
+}
+
+func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponseOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponseOutput)
+}
+
+func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
+	return i.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LongTermStorageConfigurationOutputResponseArgs) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponseOutput).ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx)
+}
+
+// LongTermStorageConfigurationOutputResponsePtrInput is an input type that accepts LongTermStorageConfigurationOutputResponseArgs, LongTermStorageConfigurationOutputResponsePtr and LongTermStorageConfigurationOutputResponsePtrOutput values.
+// You can construct a concrete instance of `LongTermStorageConfigurationOutputResponsePtrInput` via:
+//
+//          LongTermStorageConfigurationOutputResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LongTermStorageConfigurationOutputResponsePtrInput interface {
+	pulumi.Input
+
+	ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput
+	ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Context) LongTermStorageConfigurationOutputResponsePtrOutput
+}
+
+type longTermStorageConfigurationOutputResponsePtrType LongTermStorageConfigurationOutputResponseArgs
+
+func LongTermStorageConfigurationOutputResponsePtr(v *LongTermStorageConfigurationOutputResponseArgs) LongTermStorageConfigurationOutputResponsePtrInput {
+	return (*longTermStorageConfigurationOutputResponsePtrType)(v)
+}
+
+func (*longTermStorageConfigurationOutputResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LongTermStorageConfigurationOutputResponse)(nil)).Elem()
+}
+
+func (i *longTermStorageConfigurationOutputResponsePtrType) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
+	return i.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *longTermStorageConfigurationOutputResponsePtrType) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermStorageConfigurationOutputResponsePtrOutput)
+}
+
+// The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
+type LongTermStorageConfigurationOutputResponseOutput struct{ *pulumi.OutputState }
+
+func (LongTermStorageConfigurationOutputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermStorageConfigurationOutputResponse)(nil)).Elem()
+}
+
+func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponseOutput() LongTermStorageConfigurationOutputResponseOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponseOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponseOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
+	return o.ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
+	return o.ApplyT(func(v LongTermStorageConfigurationOutputResponse) *LongTermStorageConfigurationOutputResponse {
+		return &v
+	}).(LongTermStorageConfigurationOutputResponsePtrOutput)
+}
+
+// The name of the storage account that will hold the environment's long term data.
+func (o LongTermStorageConfigurationOutputResponseOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LongTermStorageConfigurationOutputResponse) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+type LongTermStorageConfigurationOutputResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LongTermStorageConfigurationOutputResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LongTermStorageConfigurationOutputResponse)(nil)).Elem()
+}
+
+func (o LongTermStorageConfigurationOutputResponsePtrOutput) ToLongTermStorageConfigurationOutputResponsePtrOutput() LongTermStorageConfigurationOutputResponsePtrOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationOutputResponsePtrOutput) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
+	return o
+}
+
+func (o LongTermStorageConfigurationOutputResponsePtrOutput) Elem() LongTermStorageConfigurationOutputResponseOutput {
+	return o.ApplyT(func(v *LongTermStorageConfigurationOutputResponse) LongTermStorageConfigurationOutputResponse {
+		return *v
+	}).(LongTermStorageConfigurationOutputResponseOutput)
+}
+
+// The name of the storage account that will hold the environment's long term data.
+func (o LongTermStorageConfigurationOutputResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermStorageConfigurationOutputResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -821,11 +1569,679 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdProperty struct {
+	// The name of the property.
+	Name *string `pulumi:"name"`
+	// The type of the property.
+	Type *string `pulumi:"type"`
+}
+
+// TimeSeriesIdPropertyInput is an input type that accepts TimeSeriesIdPropertyArgs and TimeSeriesIdPropertyOutput values.
+// You can construct a concrete instance of `TimeSeriesIdPropertyInput` via:
+//
+//          TimeSeriesIdPropertyArgs{...}
+type TimeSeriesIdPropertyInput interface {
+	pulumi.Input
+
+	ToTimeSeriesIdPropertyOutput() TimeSeriesIdPropertyOutput
+	ToTimeSeriesIdPropertyOutputWithContext(context.Context) TimeSeriesIdPropertyOutput
+}
+
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdPropertyArgs struct {
+	// The name of the property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TimeSeriesIdPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesIdProperty)(nil)).Elem()
+}
+
+func (i TimeSeriesIdPropertyArgs) ToTimeSeriesIdPropertyOutput() TimeSeriesIdPropertyOutput {
+	return i.ToTimeSeriesIdPropertyOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesIdPropertyArgs) ToTimeSeriesIdPropertyOutputWithContext(ctx context.Context) TimeSeriesIdPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyOutput)
+}
+
+// TimeSeriesIdPropertyArrayInput is an input type that accepts TimeSeriesIdPropertyArray and TimeSeriesIdPropertyArrayOutput values.
+// You can construct a concrete instance of `TimeSeriesIdPropertyArrayInput` via:
+//
+//          TimeSeriesIdPropertyArray{ TimeSeriesIdPropertyArgs{...} }
+type TimeSeriesIdPropertyArrayInput interface {
+	pulumi.Input
+
+	ToTimeSeriesIdPropertyArrayOutput() TimeSeriesIdPropertyArrayOutput
+	ToTimeSeriesIdPropertyArrayOutputWithContext(context.Context) TimeSeriesIdPropertyArrayOutput
+}
+
+type TimeSeriesIdPropertyArray []TimeSeriesIdPropertyInput
+
+func (TimeSeriesIdPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesIdProperty)(nil)).Elem()
+}
+
+func (i TimeSeriesIdPropertyArray) ToTimeSeriesIdPropertyArrayOutput() TimeSeriesIdPropertyArrayOutput {
+	return i.ToTimeSeriesIdPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesIdPropertyArray) ToTimeSeriesIdPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesIdPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyArrayOutput)
+}
+
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdPropertyOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesIdPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesIdProperty)(nil)).Elem()
+}
+
+func (o TimeSeriesIdPropertyOutput) ToTimeSeriesIdPropertyOutput() TimeSeriesIdPropertyOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyOutput) ToTimeSeriesIdPropertyOutputWithContext(ctx context.Context) TimeSeriesIdPropertyOutput {
+	return o
+}
+
+// The name of the property.
+func (o TimeSeriesIdPropertyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSeriesIdProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the property.
+func (o TimeSeriesIdPropertyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSeriesIdProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TimeSeriesIdPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesIdPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesIdProperty)(nil)).Elem()
+}
+
+func (o TimeSeriesIdPropertyArrayOutput) ToTimeSeriesIdPropertyArrayOutput() TimeSeriesIdPropertyArrayOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyArrayOutput) ToTimeSeriesIdPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesIdPropertyArrayOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyArrayOutput) Index(i pulumi.IntInput) TimeSeriesIdPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesIdProperty {
+		return vs[0].([]TimeSeriesIdProperty)[vs[1].(int)]
+	}).(TimeSeriesIdPropertyOutput)
+}
+
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdPropertyResponse struct {
+	// The name of the property.
+	Name *string `pulumi:"name"`
+	// The type of the property.
+	Type *string `pulumi:"type"`
+}
+
+// TimeSeriesIdPropertyResponseInput is an input type that accepts TimeSeriesIdPropertyResponseArgs and TimeSeriesIdPropertyResponseOutput values.
+// You can construct a concrete instance of `TimeSeriesIdPropertyResponseInput` via:
+//
+//          TimeSeriesIdPropertyResponseArgs{...}
+type TimeSeriesIdPropertyResponseInput interface {
+	pulumi.Input
+
+	ToTimeSeriesIdPropertyResponseOutput() TimeSeriesIdPropertyResponseOutput
+	ToTimeSeriesIdPropertyResponseOutputWithContext(context.Context) TimeSeriesIdPropertyResponseOutput
+}
+
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdPropertyResponseArgs struct {
+	// The name of the property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TimeSeriesIdPropertyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesIdPropertyResponse)(nil)).Elem()
+}
+
+func (i TimeSeriesIdPropertyResponseArgs) ToTimeSeriesIdPropertyResponseOutput() TimeSeriesIdPropertyResponseOutput {
+	return i.ToTimeSeriesIdPropertyResponseOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesIdPropertyResponseArgs) ToTimeSeriesIdPropertyResponseOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyResponseOutput)
+}
+
+// TimeSeriesIdPropertyResponseArrayInput is an input type that accepts TimeSeriesIdPropertyResponseArray and TimeSeriesIdPropertyResponseArrayOutput values.
+// You can construct a concrete instance of `TimeSeriesIdPropertyResponseArrayInput` via:
+//
+//          TimeSeriesIdPropertyResponseArray{ TimeSeriesIdPropertyResponseArgs{...} }
+type TimeSeriesIdPropertyResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimeSeriesIdPropertyResponseArrayOutput() TimeSeriesIdPropertyResponseArrayOutput
+	ToTimeSeriesIdPropertyResponseArrayOutputWithContext(context.Context) TimeSeriesIdPropertyResponseArrayOutput
+}
+
+type TimeSeriesIdPropertyResponseArray []TimeSeriesIdPropertyResponseInput
+
+func (TimeSeriesIdPropertyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesIdPropertyResponse)(nil)).Elem()
+}
+
+func (i TimeSeriesIdPropertyResponseArray) ToTimeSeriesIdPropertyResponseArrayOutput() TimeSeriesIdPropertyResponseArrayOutput {
+	return i.ToTimeSeriesIdPropertyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesIdPropertyResponseArray) ToTimeSeriesIdPropertyResponseArrayOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesIdPropertyResponseArrayOutput)
+}
+
+// The structure of the property that a time series id can have. An environment can have multiple such properties.
+type TimeSeriesIdPropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesIdPropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesIdPropertyResponse)(nil)).Elem()
+}
+
+func (o TimeSeriesIdPropertyResponseOutput) ToTimeSeriesIdPropertyResponseOutput() TimeSeriesIdPropertyResponseOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyResponseOutput) ToTimeSeriesIdPropertyResponseOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseOutput {
+	return o
+}
+
+// The name of the property.
+func (o TimeSeriesIdPropertyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSeriesIdPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the property.
+func (o TimeSeriesIdPropertyResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimeSeriesIdPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TimeSeriesIdPropertyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesIdPropertyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesIdPropertyResponse)(nil)).Elem()
+}
+
+func (o TimeSeriesIdPropertyResponseArrayOutput) ToTimeSeriesIdPropertyResponseArrayOutput() TimeSeriesIdPropertyResponseArrayOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyResponseArrayOutput) ToTimeSeriesIdPropertyResponseArrayOutputWithContext(ctx context.Context) TimeSeriesIdPropertyResponseArrayOutput {
+	return o
+}
+
+func (o TimeSeriesIdPropertyResponseArrayOutput) Index(i pulumi.IntInput) TimeSeriesIdPropertyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesIdPropertyResponse {
+		return vs[0].([]TimeSeriesIdPropertyResponse)[vs[1].(int)]
+	}).(TimeSeriesIdPropertyResponseOutput)
+}
+
+// An object that represents the status of warm storage on an environment.
+type WarmStorageEnvironmentStatusResponse struct {
+	// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
+	CurrentCount *int `pulumi:"currentCount"`
+	// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
+	MaxCount *int `pulumi:"maxCount"`
+	// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
+	State *string `pulumi:"state"`
+}
+
+// WarmStorageEnvironmentStatusResponseInput is an input type that accepts WarmStorageEnvironmentStatusResponseArgs and WarmStorageEnvironmentStatusResponseOutput values.
+// You can construct a concrete instance of `WarmStorageEnvironmentStatusResponseInput` via:
+//
+//          WarmStorageEnvironmentStatusResponseArgs{...}
+type WarmStorageEnvironmentStatusResponseInput interface {
+	pulumi.Input
+
+	ToWarmStorageEnvironmentStatusResponseOutput() WarmStorageEnvironmentStatusResponseOutput
+	ToWarmStorageEnvironmentStatusResponseOutputWithContext(context.Context) WarmStorageEnvironmentStatusResponseOutput
+}
+
+// An object that represents the status of warm storage on an environment.
+type WarmStorageEnvironmentStatusResponseArgs struct {
+	// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
+	CurrentCount pulumi.IntPtrInput `pulumi:"currentCount"`
+	// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
+	// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (WarmStorageEnvironmentStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStorageEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponseOutput() WarmStorageEnvironmentStatusResponseOutput {
+	return i.ToWarmStorageEnvironmentStatusResponseOutputWithContext(context.Background())
+}
+
+func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponseOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponseOutput)
+}
+
+func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
+	return i.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WarmStorageEnvironmentStatusResponseArgs) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponseOutput).ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx)
+}
+
+// WarmStorageEnvironmentStatusResponsePtrInput is an input type that accepts WarmStorageEnvironmentStatusResponseArgs, WarmStorageEnvironmentStatusResponsePtr and WarmStorageEnvironmentStatusResponsePtrOutput values.
+// You can construct a concrete instance of `WarmStorageEnvironmentStatusResponsePtrInput` via:
+//
+//          WarmStorageEnvironmentStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WarmStorageEnvironmentStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput
+	ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Context) WarmStorageEnvironmentStatusResponsePtrOutput
+}
+
+type warmStorageEnvironmentStatusResponsePtrType WarmStorageEnvironmentStatusResponseArgs
+
+func WarmStorageEnvironmentStatusResponsePtr(v *WarmStorageEnvironmentStatusResponseArgs) WarmStorageEnvironmentStatusResponsePtrInput {
+	return (*warmStorageEnvironmentStatusResponsePtrType)(v)
+}
+
+func (*warmStorageEnvironmentStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStorageEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (i *warmStorageEnvironmentStatusResponsePtrType) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
+	return i.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *warmStorageEnvironmentStatusResponsePtrType) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStorageEnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of warm storage on an environment.
+type WarmStorageEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (WarmStorageEnvironmentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStorageEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponseOutput() WarmStorageEnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponseOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponseOutput {
+	return o
+}
+
+func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
+	return o.ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
+		return &v
+	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
+}
+
+// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
+func (o WarmStorageEnvironmentStatusResponseOutput) CurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
+}
+
+// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
+func (o WarmStorageEnvironmentStatusResponseOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+}
+
+// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
+func (o WarmStorageEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type WarmStorageEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WarmStorageEnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStorageEnvironmentStatusResponse)(nil)).Elem()
+}
+
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) ToWarmStorageEnvironmentStatusResponsePtrOutput() WarmStorageEnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) Elem() WarmStorageEnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse { return *v }).(WarmStorageEnvironmentStatusResponseOutput)
+}
+
+// A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) CurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
+func (o WarmStorageEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationProperties struct {
+	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+	DataRetention string `pulumi:"dataRetention"`
+}
+
+// WarmStoreConfigurationPropertiesInput is an input type that accepts WarmStoreConfigurationPropertiesArgs and WarmStoreConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `WarmStoreConfigurationPropertiesInput` via:
+//
+//          WarmStoreConfigurationPropertiesArgs{...}
+type WarmStoreConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToWarmStoreConfigurationPropertiesOutput() WarmStoreConfigurationPropertiesOutput
+	ToWarmStoreConfigurationPropertiesOutputWithContext(context.Context) WarmStoreConfigurationPropertiesOutput
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationPropertiesArgs struct {
+	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+	DataRetention pulumi.StringInput `pulumi:"dataRetention"`
+}
+
+func (WarmStoreConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (i WarmStoreConfigurationPropertiesArgs) ToWarmStoreConfigurationPropertiesOutput() WarmStoreConfigurationPropertiesOutput {
+	return i.ToWarmStoreConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i WarmStoreConfigurationPropertiesArgs) ToWarmStoreConfigurationPropertiesOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesOutput)
+}
+
+func (i WarmStoreConfigurationPropertiesArgs) ToWarmStoreConfigurationPropertiesPtrOutput() WarmStoreConfigurationPropertiesPtrOutput {
+	return i.ToWarmStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WarmStoreConfigurationPropertiesArgs) ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesOutput).ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// WarmStoreConfigurationPropertiesPtrInput is an input type that accepts WarmStoreConfigurationPropertiesArgs, WarmStoreConfigurationPropertiesPtr and WarmStoreConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `WarmStoreConfigurationPropertiesPtrInput` via:
+//
+//          WarmStoreConfigurationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WarmStoreConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWarmStoreConfigurationPropertiesPtrOutput() WarmStoreConfigurationPropertiesPtrOutput
+	ToWarmStoreConfigurationPropertiesPtrOutputWithContext(context.Context) WarmStoreConfigurationPropertiesPtrOutput
+}
+
+type warmStoreConfigurationPropertiesPtrType WarmStoreConfigurationPropertiesArgs
+
+func WarmStoreConfigurationPropertiesPtr(v *WarmStoreConfigurationPropertiesArgs) WarmStoreConfigurationPropertiesPtrInput {
+	return (*warmStoreConfigurationPropertiesPtrType)(v)
+}
+
+func (*warmStoreConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (i *warmStoreConfigurationPropertiesPtrType) ToWarmStoreConfigurationPropertiesPtrOutput() WarmStoreConfigurationPropertiesPtrOutput {
+	return i.ToWarmStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *warmStoreConfigurationPropertiesPtrType) ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesPtrOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WarmStoreConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationPropertiesOutput() WarmStoreConfigurationPropertiesOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationPropertiesOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationPropertiesPtrOutput() WarmStoreConfigurationPropertiesPtrOutput {
+	return o.ToWarmStoreConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v WarmStoreConfigurationProperties) *WarmStoreConfigurationProperties {
+		return &v
+	}).(WarmStoreConfigurationPropertiesPtrOutput)
+}
+
+// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+func (o WarmStoreConfigurationPropertiesOutput) DataRetention() pulumi.StringOutput {
+	return o.ApplyT(func(v WarmStoreConfigurationProperties) string { return v.DataRetention }).(pulumi.StringOutput)
+}
+
+type WarmStoreConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WarmStoreConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStoreConfigurationProperties)(nil)).Elem()
+}
+
+func (o WarmStoreConfigurationPropertiesPtrOutput) ToWarmStoreConfigurationPropertiesPtrOutput() WarmStoreConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesPtrOutput) ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesPtrOutput) Elem() WarmStoreConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *WarmStoreConfigurationProperties) WarmStoreConfigurationProperties { return *v }).(WarmStoreConfigurationPropertiesOutput)
+}
+
+// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+func (o WarmStoreConfigurationPropertiesPtrOutput) DataRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarmStoreConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationPropertiesResponse struct {
+	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+	DataRetention string `pulumi:"dataRetention"`
+}
+
+// WarmStoreConfigurationPropertiesResponseInput is an input type that accepts WarmStoreConfigurationPropertiesResponseArgs and WarmStoreConfigurationPropertiesResponseOutput values.
+// You can construct a concrete instance of `WarmStoreConfigurationPropertiesResponseInput` via:
+//
+//          WarmStoreConfigurationPropertiesResponseArgs{...}
+type WarmStoreConfigurationPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToWarmStoreConfigurationPropertiesResponseOutput() WarmStoreConfigurationPropertiesResponseOutput
+	ToWarmStoreConfigurationPropertiesResponseOutputWithContext(context.Context) WarmStoreConfigurationPropertiesResponseOutput
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationPropertiesResponseArgs struct {
+	// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+	DataRetention pulumi.StringInput `pulumi:"dataRetention"`
+}
+
+func (WarmStoreConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
+}
+
+func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponseOutput() WarmStoreConfigurationPropertiesResponseOutput {
+	return i.ToWarmStoreConfigurationPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponseOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponseOutput)
+}
+
+func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return i.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WarmStoreConfigurationPropertiesResponseArgs) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponseOutput).ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// WarmStoreConfigurationPropertiesResponsePtrInput is an input type that accepts WarmStoreConfigurationPropertiesResponseArgs, WarmStoreConfigurationPropertiesResponsePtr and WarmStoreConfigurationPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `WarmStoreConfigurationPropertiesResponsePtrInput` via:
+//
+//          WarmStoreConfigurationPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WarmStoreConfigurationPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput
+	ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput
+}
+
+type warmStoreConfigurationPropertiesResponsePtrType WarmStoreConfigurationPropertiesResponseArgs
+
+func WarmStoreConfigurationPropertiesResponsePtr(v *WarmStoreConfigurationPropertiesResponseArgs) WarmStoreConfigurationPropertiesResponsePtrInput {
+	return (*warmStoreConfigurationPropertiesResponsePtrType)(v)
+}
+
+func (*warmStoreConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
+}
+
+func (i *warmStoreConfigurationPropertiesResponsePtrType) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return i.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *warmStoreConfigurationPropertiesResponsePtrType) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WarmStoreConfigurationPropertiesResponsePtrOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+type WarmStoreConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (WarmStoreConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
+}
+
+func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponseOutput() WarmStoreConfigurationPropertiesResponseOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponseOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponseOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o.ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v WarmStoreConfigurationPropertiesResponse) *WarmStoreConfigurationPropertiesResponse {
+		return &v
+	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
+}
+
+// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+func (o WarmStoreConfigurationPropertiesResponseOutput) DataRetention() pulumi.StringOutput {
+	return o.ApplyT(func(v WarmStoreConfigurationPropertiesResponse) string { return v.DataRetention }).(pulumi.StringOutput)
+}
+
+type WarmStoreConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WarmStoreConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WarmStoreConfigurationPropertiesResponse)(nil)).Elem()
+}
+
+func (o WarmStoreConfigurationPropertiesResponsePtrOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutput() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesResponsePtrOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WarmStoreConfigurationPropertiesResponsePtrOutput) Elem() WarmStoreConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v *WarmStoreConfigurationPropertiesResponse) WarmStoreConfigurationPropertiesResponse { return *v }).(WarmStoreConfigurationPropertiesResponseOutput)
+}
+
+// ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
+func (o WarmStoreConfigurationPropertiesResponsePtrOutput) DataRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarmStoreConfigurationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataRetention
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(EnvironmentStateDetailsResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentStateDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentStatusResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(IngressEnvironmentStatusResponseOutput{})
+	pulumi.RegisterOutputType(IngressEnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampOutput{})
 	pulumi.RegisterOutputType(LocalTimestampPtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetPtrOutput{})
+	pulumi.RegisterOutputType(LongTermStorageConfigurationInputOutput{})
+	pulumi.RegisterOutputType(LongTermStorageConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(LongTermStorageConfigurationOutputResponseOutput{})
+	pulumi.RegisterOutputType(LongTermStorageConfigurationOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})
@@ -834,4 +2250,14 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(TimeSeriesIdPropertyOutput{})
+	pulumi.RegisterOutputType(TimeSeriesIdPropertyArrayOutput{})
+	pulumi.RegisterOutputType(TimeSeriesIdPropertyResponseOutput{})
+	pulumi.RegisterOutputType(TimeSeriesIdPropertyResponseArrayOutput{})
+	pulumi.RegisterOutputType(WarmStorageEnvironmentStatusResponseOutput{})
+	pulumi.RegisterOutputType(WarmStorageEnvironmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(WarmStoreConfigurationPropertiesResponsePtrOutput{})
 }

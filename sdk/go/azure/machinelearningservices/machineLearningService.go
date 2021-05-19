@@ -13,6 +13,8 @@ import (
 
 // Machine Learning service object wrapped into ARM resource envelope.
 // API Version: 2021-01-01.
+//
+// Deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.
 type MachineLearningService struct {
 	pulumi.CustomResourceState
 

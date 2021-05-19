@@ -8,6 +8,8 @@ import (
 )
 
 // Role Addon
+//
+// Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:databoxedge/v20200901preview:getAddon", args, &rv, opts...)

@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Address prefix type.
+type AddressPrefixType pulumi.String
+
+const (
+	AddressPrefixTypeIPPrefix   = AddressPrefixType("IPPrefix")
+	AddressPrefixTypeServiceTag = AddressPrefixType("ServiceTag")
+)
+
+func (AddressPrefixType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AddressPrefixType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddressPrefixType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddressPrefixType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AddressPrefixType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Whether the rule is custom or default.
 type AdminRuleKind pulumi.String
 
@@ -232,6 +260,95 @@ func (e MemberType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e MemberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates the access allowed for this particular rule
+type SecurityConfigurationRuleAccess pulumi.String
+
+const (
+	SecurityConfigurationRuleAccessAllow       = SecurityConfigurationRuleAccess("Allow")
+	SecurityConfigurationRuleAccessDeny        = SecurityConfigurationRuleAccess("Deny")
+	SecurityConfigurationRuleAccessAlwaysAllow = SecurityConfigurationRuleAccess("AlwaysAllow")
+)
+
+func (SecurityConfigurationRuleAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+type SecurityConfigurationRuleDirection pulumi.String
+
+const (
+	SecurityConfigurationRuleDirectionInbound  = SecurityConfigurationRuleDirection("Inbound")
+	SecurityConfigurationRuleDirectionOutbound = SecurityConfigurationRuleDirection("Outbound")
+)
+
+func (SecurityConfigurationRuleDirection) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Network protocol this rule applies to.
+type SecurityConfigurationRuleProtocol pulumi.String
+
+const (
+	SecurityConfigurationRuleProtocolTcp  = SecurityConfigurationRuleProtocol("Tcp")
+	SecurityConfigurationRuleProtocolUdp  = SecurityConfigurationRuleProtocol("Udp")
+	SecurityConfigurationRuleProtocolIcmp = SecurityConfigurationRuleProtocol("Icmp")
+	SecurityConfigurationRuleProtocolEsp  = SecurityConfigurationRuleProtocol("Esp")
+	SecurityConfigurationRuleProtocolAny  = SecurityConfigurationRuleProtocol("Any")
+	SecurityConfigurationRuleProtocolAh   = SecurityConfigurationRuleProtocol("Ah")
+)
+
+func (SecurityConfigurationRuleProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

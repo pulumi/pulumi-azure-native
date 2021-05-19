@@ -8,6 +8,8 @@ import (
 )
 
 // Class representing an data connection.
+//
+// Deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.
 func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectionResult, error) {
 	var rv LookupDataConnectionResult
 	err := ctx.Invoke("azure-native:kusto/v20210101:getDataConnection", args, &rv, opts...)

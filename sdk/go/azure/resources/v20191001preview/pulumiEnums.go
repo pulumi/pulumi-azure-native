@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+type CleanupOptions pulumi.String
+
+const (
+	CleanupOptionsAlways       = CleanupOptions("Always")
+	CleanupOptionsOnSuccess    = CleanupOptions("OnSuccess")
+	CleanupOptionsOnExpiration = CleanupOptions("OnExpiration")
+)
+
+func (CleanupOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CleanupOptions) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CleanupOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CleanupOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CleanupOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Type of the managed identity.
 type ManagedServiceIdentityType pulumi.String
 

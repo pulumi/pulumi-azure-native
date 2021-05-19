@@ -104,6 +104,34 @@ func (e ClusterPrincipalRole) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The event hub messages compression type
+type Compression pulumi.String
+
+const (
+	CompressionNone = Compression("None")
+	CompressionGZip = Compression("GZip")
+)
+
+func (Compression) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Compression) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compression) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compression) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Compression) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Database principal role.
 type DatabasePrincipalRole pulumi.String
 
@@ -165,6 +193,86 @@ func (e DefaultPrincipalsModificationKind) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The data format of the message. Optionally the data format can be added to each message.
+type EventGridDataFormat pulumi.String
+
+const (
+	EventGridDataFormatMULTIJSON  = EventGridDataFormat("MULTIJSON")
+	EventGridDataFormatJSON       = EventGridDataFormat("JSON")
+	EventGridDataFormatCSV        = EventGridDataFormat("CSV")
+	EventGridDataFormatTSV        = EventGridDataFormat("TSV")
+	EventGridDataFormatSCSV       = EventGridDataFormat("SCSV")
+	EventGridDataFormatSOHSV      = EventGridDataFormat("SOHSV")
+	EventGridDataFormatPSV        = EventGridDataFormat("PSV")
+	EventGridDataFormatTXT        = EventGridDataFormat("TXT")
+	EventGridDataFormatRAW        = EventGridDataFormat("RAW")
+	EventGridDataFormatSINGLEJSON = EventGridDataFormat("SINGLEJSON")
+	EventGridDataFormatAVRO       = EventGridDataFormat("AVRO")
+	EventGridDataFormatTSVE       = EventGridDataFormat("TSVE")
+	EventGridDataFormatPARQUET    = EventGridDataFormat("PARQUET")
+	EventGridDataFormatORC        = EventGridDataFormat("ORC")
+)
+
+func (EventGridDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EventGridDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGridDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGridDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventGridDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+type EventHubDataFormat pulumi.String
+
+const (
+	EventHubDataFormatMULTIJSON  = EventHubDataFormat("MULTIJSON")
+	EventHubDataFormatJSON       = EventHubDataFormat("JSON")
+	EventHubDataFormatCSV        = EventHubDataFormat("CSV")
+	EventHubDataFormatTSV        = EventHubDataFormat("TSV")
+	EventHubDataFormatSCSV       = EventHubDataFormat("SCSV")
+	EventHubDataFormatSOHSV      = EventHubDataFormat("SOHSV")
+	EventHubDataFormatPSV        = EventHubDataFormat("PSV")
+	EventHubDataFormatTXT        = EventHubDataFormat("TXT")
+	EventHubDataFormatRAW        = EventHubDataFormat("RAW")
+	EventHubDataFormatSINGLEJSON = EventHubDataFormat("SINGLEJSON")
+	EventHubDataFormatAVRO       = EventHubDataFormat("AVRO")
+	EventHubDataFormatTSVE       = EventHubDataFormat("TSVE")
+	EventHubDataFormatPARQUET    = EventHubDataFormat("PARQUET")
+	EventHubDataFormatORC        = EventHubDataFormat("ORC")
+)
+
+func (EventHubDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EventHubDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventHubDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventHubDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventHubDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The identity type.
 type IdentityType pulumi.String
 
@@ -190,6 +298,46 @@ func (e IdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+type IotHubDataFormat pulumi.String
+
+const (
+	IotHubDataFormatMULTIJSON  = IotHubDataFormat("MULTIJSON")
+	IotHubDataFormatJSON       = IotHubDataFormat("JSON")
+	IotHubDataFormatCSV        = IotHubDataFormat("CSV")
+	IotHubDataFormatTSV        = IotHubDataFormat("TSV")
+	IotHubDataFormatSCSV       = IotHubDataFormat("SCSV")
+	IotHubDataFormatSOHSV      = IotHubDataFormat("SOHSV")
+	IotHubDataFormatPSV        = IotHubDataFormat("PSV")
+	IotHubDataFormatTXT        = IotHubDataFormat("TXT")
+	IotHubDataFormatRAW        = IotHubDataFormat("RAW")
+	IotHubDataFormatSINGLEJSON = IotHubDataFormat("SINGLEJSON")
+	IotHubDataFormatAVRO       = IotHubDataFormat("AVRO")
+	IotHubDataFormatTSVE       = IotHubDataFormat("TSVE")
+	IotHubDataFormatPARQUET    = IotHubDataFormat("PARQUET")
+	IotHubDataFormatORC        = IotHubDataFormat("ORC")
+)
+
+func (IotHubDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IotHubDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotHubDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotHubDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IotHubDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

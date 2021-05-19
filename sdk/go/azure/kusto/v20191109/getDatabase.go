@@ -8,6 +8,8 @@ import (
 )
 
 // Class representing a Kusto database.
+//
+// Deprecated: Please use one of the variants: ReadOnlyFollowingDatabase, ReadWriteDatabase.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:kusto/v20191109:getDatabase", args, &rv, opts...)

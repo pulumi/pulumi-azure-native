@@ -23,16 +23,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:databoxedge/v20210201preview:Addon":
 		r = &Addon{}
+	case "azure-native:databoxedge/v20210201preview:ArcAddon":
+		r = &ArcAddon{}
 	case "azure-native:databoxedge/v20210201preview:BandwidthSchedule":
 		r = &BandwidthSchedule{}
+	case "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole":
+		r = &CloudEdgeManagementRole{}
 	case "azure-native:databoxedge/v20210201preview:Container":
 		r = &Container{}
 	case "azure-native:databoxedge/v20210201preview:Device":
 		r = &Device{}
+	case "azure-native:databoxedge/v20210201preview:FileEventTrigger":
+		r = &FileEventTrigger{}
+	case "azure-native:databoxedge/v20210201preview:IoTAddon":
+		r = &IoTAddon{}
+	case "azure-native:databoxedge/v20210201preview:IoTRole":
+		r = &IoTRole{}
+	case "azure-native:databoxedge/v20210201preview:KubernetesRole":
+		r = &KubernetesRole{}
+	case "azure-native:databoxedge/v20210201preview:MECRole":
+		r = &MECRole{}
 	case "azure-native:databoxedge/v20210201preview:MonitoringConfig":
 		r = &MonitoringConfig{}
 	case "azure-native:databoxedge/v20210201preview:Order":
 		r = &Order{}
+	case "azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger":
+		r = &PeriodicTimerEventTrigger{}
 	case "azure-native:databoxedge/v20210201preview:Role":
 		r = &Role{}
 	case "azure-native:databoxedge/v20210201preview:Share":

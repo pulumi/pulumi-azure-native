@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// type of connectivity
+type ConnectivityType pulumi.String
+
+const (
+	ConnectivityTypeIsConnectedQuery = ConnectivityType("IsConnectedQuery")
+)
+
+func (ConnectivityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ConnectivityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectivityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectivityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectivityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The data connector kind
 type DataConnectorKind pulumi.String
 
@@ -50,6 +77,127 @@ func (e DataConnectorKind) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Describe whether this data type connection is enabled or not.
+type DataTypeState pulumi.String
+
+const (
+	DataTypeStateEnabled  = DataTypeState("Enabled")
+	DataTypeStateDisabled = DataTypeState("Disabled")
+)
+
+func (DataTypeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataTypeState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTypeState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTypeState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataTypeState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Permission provider scope
+type PermissionProviderScope pulumi.String
+
+const (
+	PermissionProviderScopeResourceGroup = PermissionProviderScope("ResourceGroup")
+	PermissionProviderScopeSubscription  = PermissionProviderScope("Subscription")
+	PermissionProviderScopeWorkspace     = PermissionProviderScope("Workspace")
+)
+
+func (PermissionProviderScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PermissionProviderScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionProviderScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PermissionProviderScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PermissionProviderScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The polling frequency for the TAXII server.
+type PollingFrequency pulumi.String
+
+const (
+	// Once a minute
+	PollingFrequencyOnceAMinute = PollingFrequency("OnceAMinute")
+	// Once an hour
+	PollingFrequencyOnceAnHour = PollingFrequency("OnceAnHour")
+	// Once a day
+	PollingFrequencyOnceADay = PollingFrequency("OnceADay")
+)
+
+func (PollingFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PollingFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PollingFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PollingFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PollingFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Provider name
+type ProviderName pulumi.String
+
+const (
+	ProviderName_Microsoft_OperationalInsights_solutions              = ProviderName("Microsoft.OperationalInsights/solutions")
+	ProviderName_Microsoft_OperationalInsights_workspaces             = ProviderName("Microsoft.OperationalInsights/workspaces")
+	ProviderName_Microsoft_OperationalInsights_workspaces_datasources = ProviderName("Microsoft.OperationalInsights/workspaces/datasources")
+	ProviderName_Microsoft_aadiam_diagnosticSettings                  = ProviderName("microsoft.aadiam/diagnosticSettings")
+	ProviderName_Microsoft_OperationalInsights_workspaces_sharedKeys  = ProviderName("Microsoft.OperationalInsights/workspaces/sharedKeys")
+	ProviderName_Microsoft_Authorization_policyAssignments            = ProviderName("Microsoft.Authorization/policyAssignments")
+)
+
+func (ProviderName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ProviderName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProviderName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProviderName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProviderName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The kind of the setting
 type SettingKind pulumi.String
 
@@ -79,6 +227,35 @@ func (e SettingKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The kind of the setting
+type SettingType pulumi.String
+
+const (
+	SettingTypeCopyableLabel         = SettingType("CopyableLabel")
+	SettingTypeInstructionStepsGroup = SettingType("InstructionStepsGroup")
+	SettingTypeInfoMessage           = SettingType("InfoMessage")
+)
+
+func (SettingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SettingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SettingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SettingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SettingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The source of the watchlist
 type Source pulumi.String
 
@@ -104,5 +281,35 @@ func (e Source) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e Source) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The data source that enriched by ueba.
+type UebaDataSources pulumi.String
+
+const (
+	UebaDataSourcesAuditLogs     = UebaDataSources("AuditLogs")
+	UebaDataSourcesAzureActivity = UebaDataSources("AzureActivity")
+	UebaDataSourcesSecurityEvent = UebaDataSources("SecurityEvent")
+	UebaDataSourcesSigninLogs    = UebaDataSources("SigninLogs")
+)
+
+func (UebaDataSources) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e UebaDataSources) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UebaDataSources) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UebaDataSources) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UebaDataSources) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

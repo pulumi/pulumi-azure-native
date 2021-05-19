@@ -508,6 +508,140 @@ func (o DatabasePrincipalResponseArrayOutput) Index(i pulumi.IntInput) DatabaseP
 	}).(DatabasePrincipalResponseOutput)
 }
 
+// A class that contains database statistics information.
+type DatabaseStatisticsResponse struct {
+	// The database size - the total size of compressed data and index in bytes.
+	Size *float64 `pulumi:"size"`
+}
+
+// DatabaseStatisticsResponseInput is an input type that accepts DatabaseStatisticsResponseArgs and DatabaseStatisticsResponseOutput values.
+// You can construct a concrete instance of `DatabaseStatisticsResponseInput` via:
+//
+//          DatabaseStatisticsResponseArgs{...}
+type DatabaseStatisticsResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseStatisticsResponseOutput() DatabaseStatisticsResponseOutput
+	ToDatabaseStatisticsResponseOutputWithContext(context.Context) DatabaseStatisticsResponseOutput
+}
+
+// A class that contains database statistics information.
+type DatabaseStatisticsResponseArgs struct {
+	// The database size - the total size of compressed data and index in bytes.
+	Size pulumi.Float64PtrInput `pulumi:"size"`
+}
+
+func (DatabaseStatisticsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseStatisticsResponse)(nil)).Elem()
+}
+
+func (i DatabaseStatisticsResponseArgs) ToDatabaseStatisticsResponseOutput() DatabaseStatisticsResponseOutput {
+	return i.ToDatabaseStatisticsResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseStatisticsResponseArgs) ToDatabaseStatisticsResponseOutputWithContext(ctx context.Context) DatabaseStatisticsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseStatisticsResponseOutput)
+}
+
+func (i DatabaseStatisticsResponseArgs) ToDatabaseStatisticsResponsePtrOutput() DatabaseStatisticsResponsePtrOutput {
+	return i.ToDatabaseStatisticsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseStatisticsResponseArgs) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseStatisticsResponseOutput).ToDatabaseStatisticsResponsePtrOutputWithContext(ctx)
+}
+
+// DatabaseStatisticsResponsePtrInput is an input type that accepts DatabaseStatisticsResponseArgs, DatabaseStatisticsResponsePtr and DatabaseStatisticsResponsePtrOutput values.
+// You can construct a concrete instance of `DatabaseStatisticsResponsePtrInput` via:
+//
+//          DatabaseStatisticsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseStatisticsResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatabaseStatisticsResponsePtrOutput() DatabaseStatisticsResponsePtrOutput
+	ToDatabaseStatisticsResponsePtrOutputWithContext(context.Context) DatabaseStatisticsResponsePtrOutput
+}
+
+type databaseStatisticsResponsePtrType DatabaseStatisticsResponseArgs
+
+func DatabaseStatisticsResponsePtr(v *DatabaseStatisticsResponseArgs) DatabaseStatisticsResponsePtrInput {
+	return (*databaseStatisticsResponsePtrType)(v)
+}
+
+func (*databaseStatisticsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseStatisticsResponse)(nil)).Elem()
+}
+
+func (i *databaseStatisticsResponsePtrType) ToDatabaseStatisticsResponsePtrOutput() DatabaseStatisticsResponsePtrOutput {
+	return i.ToDatabaseStatisticsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *databaseStatisticsResponsePtrType) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseStatisticsResponsePtrOutput)
+}
+
+// A class that contains database statistics information.
+type DatabaseStatisticsResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseStatisticsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseStatisticsResponse)(nil)).Elem()
+}
+
+func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponseOutput() DatabaseStatisticsResponseOutput {
+	return o
+}
+
+func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponseOutputWithContext(ctx context.Context) DatabaseStatisticsResponseOutput {
+	return o
+}
+
+func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutput() DatabaseStatisticsResponsePtrOutput {
+	return o.ToDatabaseStatisticsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
+	return o.ApplyT(func(v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
+		return &v
+	}).(DatabaseStatisticsResponsePtrOutput)
+}
+
+// The database size - the total size of compressed data and index in bytes.
+func (o DatabaseStatisticsResponseOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DatabaseStatisticsResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
+}
+
+type DatabaseStatisticsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseStatisticsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseStatisticsResponse)(nil)).Elem()
+}
+
+func (o DatabaseStatisticsResponsePtrOutput) ToDatabaseStatisticsResponsePtrOutput() DatabaseStatisticsResponsePtrOutput {
+	return o
+}
+
+func (o DatabaseStatisticsResponsePtrOutput) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
+	return o
+}
+
+func (o DatabaseStatisticsResponsePtrOutput) Elem() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse { return *v }).(DatabaseStatisticsResponseOutput)
+}
+
+// The database size - the total size of compressed data and index in bytes.
+func (o DatabaseStatisticsResponsePtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DatabaseStatisticsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.Float64PtrOutput)
+}
+
 // A class representing follower database request.
 type FollowerDatabaseDefinitionResponse struct {
 	// Resource name of the attached database configuration in the follower cluster.
@@ -2823,6 +2957,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalResponseOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseStatisticsResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseStatisticsResponsePtrOutput{})
 	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})

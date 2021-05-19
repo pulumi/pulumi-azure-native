@@ -8,6 +8,8 @@ import (
 )
 
 // Data connector.
+//
+// Deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.
 func LookupDataConnector(ctx *pulumi.Context, args *LookupDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectorResult, error) {
 	var rv LookupDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20200101:getDataConnector", args, &rv, opts...)

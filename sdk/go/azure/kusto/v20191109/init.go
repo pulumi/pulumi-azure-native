@@ -33,6 +33,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "azure-native:kusto/v20191109:DatabasePrincipalAssignment":
 		r = &DatabasePrincipalAssignment{}
+	case "azure-native:kusto/v20191109:EventGridDataConnection":
+		r = &EventGridDataConnection{}
+	case "azure-native:kusto/v20191109:EventHubDataConnection":
+		r = &EventHubDataConnection{}
+	case "azure-native:kusto/v20191109:IotHubDataConnection":
+		r = &IotHubDataConnection{}
+	case "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase":
+		r = &ReadOnlyFollowingDatabase{}
+	case "azure-native:kusto/v20191109:ReadWriteDatabase":
+		r = &ReadWriteDatabase{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

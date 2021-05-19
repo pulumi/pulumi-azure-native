@@ -8,6 +8,8 @@ import (
 )
 
 // Trigger details.
+//
+// Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge/v20200501preview:getTrigger", args, &rv, opts...)

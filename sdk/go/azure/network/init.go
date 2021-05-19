@@ -45,6 +45,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DdosCustomPolicy{}
 	case "azure-native:network:DdosProtectionPlan":
 		r = &DdosProtectionPlan{}
+	case "azure-native:network:DefaultAdminRule":
+		r = &DefaultAdminRule{}
+	case "azure-native:network:DefaultUserRule":
+		r = &DefaultUserRule{}
 	case "azure-native:network:DscpConfiguration":
 		r = &DscpConfiguration{}
 	case "azure-native:network:Endpoint":
