@@ -2616,6 +2616,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cognitiveservices/v20210430",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20210430",
+  "classes": {
+   "azure-native:cognitiveservices/v20210430:Account": "Account",
+   "azure-native:cognitiveservices/v20210430:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "communication",
   "fqn": "pulumi_azure_native.communication",
   "classes": {
@@ -6604,6 +6613,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcompute/v20210422preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20210422preview",
+  "classes": {
+   "azure-native:hybridcompute/v20210422preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20210422preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20210422preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybriddata",
   "fqn": "pulumi_azure_native.hybriddata",
   "classes": {
@@ -7190,6 +7210,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.kubernetesconfiguration.v20210301",
   "classes": {
    "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20210501preview",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20210501preview",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20210501preview:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {

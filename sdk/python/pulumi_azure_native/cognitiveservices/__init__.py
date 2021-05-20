@@ -18,7 +18,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.cognitiveservices.v20160201preview as v20160201preview
     import pulumi_azure_native.cognitiveservices.v20170418 as v20170418
+    import pulumi_azure_native.cognitiveservices.v20210430 as v20210430
 else:
     v20160201preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20160201preview')
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
+    v20210430 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20210430')
 
