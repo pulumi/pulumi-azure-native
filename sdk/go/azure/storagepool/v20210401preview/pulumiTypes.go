@@ -539,6 +539,8 @@ func (o IscsiLunArrayOutput) Index(i pulumi.IntInput) IscsiLunOutput {
 
 // LUN to expose the Azure Managed Disk.
 type IscsiLunResponse struct {
+	// Specifies the Logical Unit Number of the iSCSI LUN.
+	Lun int `pulumi:"lun"`
 	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId string `pulumi:"managedDiskAzureResourceId"`
 	// User defined name for iSCSI LUN; example: "lun0"
@@ -558,6 +560,8 @@ type IscsiLunResponseInput interface {
 
 // LUN to expose the Azure Managed Disk.
 type IscsiLunResponseArgs struct {
+	// Specifies the Logical Unit Number of the iSCSI LUN.
+	Lun pulumi.IntInput `pulumi:"lun"`
 	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
 	// User defined name for iSCSI LUN; example: "lun0"
@@ -614,6 +618,11 @@ func (o IscsiLunResponseOutput) ToIscsiLunResponseOutput() IscsiLunResponseOutpu
 
 func (o IscsiLunResponseOutput) ToIscsiLunResponseOutputWithContext(ctx context.Context) IscsiLunResponseOutput {
 	return o
+}
+
+// Specifies the Logical Unit Number of the iSCSI LUN.
+func (o IscsiLunResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v IscsiLunResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // Azure Resource ID of the Managed Disk.

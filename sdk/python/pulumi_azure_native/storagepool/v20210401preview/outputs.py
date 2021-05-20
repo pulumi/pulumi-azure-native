@@ -113,15 +113,26 @@ class IscsiLunResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 lun: int,
                  managed_disk_azure_resource_id: str,
                  name: str):
         """
         LUN to expose the Azure Managed Disk.
+        :param int lun: Specifies the Logical Unit Number of the iSCSI LUN.
         :param str managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param str name: User defined name for iSCSI LUN; example: "lun0"
         """
+        pulumi.set(__self__, "lun", lun)
         pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> int:
+        """
+        Specifies the Logical Unit Number of the iSCSI LUN.
+        """
+        return pulumi.get(self, "lun")
 
     @property
     @pulumi.getter(name="managedDiskAzureResourceId")
