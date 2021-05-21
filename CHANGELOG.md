@@ -3,7 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Functions
+
+- `logz.listMonitorUserRoles`
+- `logz.listMonitorVMHosts`
+- `logz.listSubAccountVMHosts`
 
 ---
 
