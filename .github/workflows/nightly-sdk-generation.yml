@@ -57,6 +57,8 @@ jobs:
         run: make codegen
       - name: Build Schema + SDKs
         run: make local_generate
+      - name: Build Go SDK
+        run: make build_go_nightly
       - name: Check Schema is Valid
         run: |
           echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
