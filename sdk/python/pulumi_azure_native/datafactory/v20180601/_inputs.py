@@ -308,6 +308,7 @@ __all__ = [
     'MarketoLinkedServiceArgs',
     'MarketoObjectDatasetArgs',
     'MarketoSourceArgs',
+    'MetadataItemArgs',
     'MicrosoftAccessLinkedServiceArgs',
     'MicrosoftAccessSinkArgs',
     'MicrosoftAccessSourceArgs',
@@ -1105,6 +1106,7 @@ class AmazonMWSSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -1115,6 +1117,7 @@ class AmazonMWSSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AmazonMWSSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -1124,6 +1127,8 @@ class AmazonMWSSourceArgs:
         pulumi.set(__self__, "type", 'AmazonMWSSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -1159,6 +1164,18 @@ class AmazonMWSSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -1409,6 +1426,7 @@ class AmazonRedshiftSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -1420,6 +1438,7 @@ class AmazonRedshiftSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AmazonRedshiftSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -1430,6 +1449,8 @@ class AmazonRedshiftSourceArgs:
         pulumi.set(__self__, "type", 'AmazonRedshiftSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -1467,6 +1488,18 @@ class AmazonRedshiftSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -1972,6 +2005,7 @@ class AmazonS3CompatibleReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -1987,6 +2021,7 @@ class AmazonS3CompatibleReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AmazonS3CompatibleReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -2001,6 +2036,8 @@ class AmazonS3CompatibleReadSettingsArgs:
         pulumi.set(__self__, "type", 'AmazonS3CompatibleReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -2046,6 +2083,18 @@ class AmazonS3CompatibleReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -2710,6 +2759,7 @@ class AmazonS3ReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -2725,6 +2775,7 @@ class AmazonS3ReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AmazonS3ReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -2739,6 +2790,8 @@ class AmazonS3ReadSettingsArgs:
         pulumi.set(__self__, "type", 'AmazonS3ReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -2784,6 +2837,18 @@ class AmazonS3ReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -3262,6 +3327,7 @@ class AvroFormatArgs:
 class AvroSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['AvroWriteSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -3273,6 +3339,7 @@ class AvroSinkArgs:
         A copy activity Avro sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AvroSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['AvroWriteSettingsArgs'] format_settings: Avro format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -3282,6 +3349,8 @@ class AvroSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AvroSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -3309,6 +3378,18 @@ class AvroSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -3400,6 +3481,7 @@ class AvroSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
@@ -3409,6 +3491,7 @@ class AvroSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AvroSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -3417,6 +3500,8 @@ class AvroSourceArgs:
         pulumi.set(__self__, "type", 'AvroSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -3450,6 +3535,18 @@ class AvroSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -4536,6 +4633,7 @@ class AzureBlobFSReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -4550,6 +4648,7 @@ class AzureBlobFSReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AzureBlobFSReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -4563,6 +4662,8 @@ class AzureBlobFSReadSettingsArgs:
         pulumi.set(__self__, "type", 'AzureBlobFSReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -4606,6 +4707,18 @@ class AzureBlobFSReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -4721,7 +4834,9 @@ class AzureBlobFSSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
                  write_batch_size: Optional[Any] = None,
@@ -4731,7 +4846,9 @@ class AzureBlobFSSinkArgs:
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureBlobFSSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -4740,8 +4857,12 @@ class AzureBlobFSSinkArgs:
         pulumi.set(__self__, "type", 'AzureBlobFSSink')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if sink_retry_count is not None:
             pulumi.set(__self__, "sink_retry_count", sink_retry_count)
         if sink_retry_wait is not None:
@@ -4777,6 +4898,18 @@ class AzureBlobFSSinkArgs:
         pulumi.set(self, "copy_behavior", value)
 
     @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
@@ -4787,6 +4920,18 @@ class AzureBlobFSSinkArgs:
     @max_concurrent_connections.setter
     def max_concurrent_connections(self, value: Optional[Any]):
         pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]]):
+        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="sinkRetryCount")
@@ -4841,6 +4986,7 @@ class AzureBlobFSSinkArgs:
 class AzureBlobFSSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
                  skip_header_line_count: Optional[Any] = None,
@@ -4851,6 +4997,7 @@ class AzureBlobFSSourceArgs:
         A copy activity Azure BlobFS source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureBlobFSSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any skip_header_line_count: Number of header lines to skip from each blob. Type: integer (or Expression with resultType integer).
@@ -4859,6 +5006,8 @@ class AzureBlobFSSourceArgs:
         :param Any treat_empty_as_null: Treat empty as null. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'AzureBlobFSSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if recursive is not None:
@@ -4884,6 +5033,18 @@ class AzureBlobFSSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -4964,6 +5125,7 @@ class AzureBlobFSWriteSettingsArgs:
                  type: pulumi.Input[str],
                  block_size_in_mb: Optional[Any] = None,
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None):
         """
         Azure blobFS write settings.
@@ -4971,6 +5133,7 @@ class AzureBlobFSWriteSettingsArgs:
                Expected value is 'AzureBlobFSWriteSettings'.
         :param Any block_size_in_mb: Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'AzureBlobFSWriteSettings')
@@ -4978,6 +5141,8 @@ class AzureBlobFSWriteSettingsArgs:
             pulumi.set(__self__, "block_size_in_mb", block_size_in_mb)
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
 
@@ -5017,6 +5182,18 @@ class AzureBlobFSWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -5374,6 +5551,7 @@ class AzureBlobStorageReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -5389,6 +5567,7 @@ class AzureBlobStorageReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AzureBlobStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -5403,6 +5582,8 @@ class AzureBlobStorageReadSettingsArgs:
         pulumi.set(__self__, "type", 'AzureBlobStorageReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -5448,6 +5629,18 @@ class AzureBlobStorageReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -5576,6 +5769,7 @@ class AzureBlobStorageWriteSettingsArgs:
                  type: pulumi.Input[str],
                  block_size_in_mb: Optional[Any] = None,
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None):
         """
         Azure blob write settings.
@@ -5583,6 +5777,7 @@ class AzureBlobStorageWriteSettingsArgs:
                Expected value is 'AzureBlobStorageWriteSettings'.
         :param Any block_size_in_mb: Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'AzureBlobStorageWriteSettings')
@@ -5590,6 +5785,8 @@ class AzureBlobStorageWriteSettingsArgs:
             pulumi.set(__self__, "block_size_in_mb", block_size_in_mb)
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
 
@@ -5629,6 +5826,18 @@ class AzureBlobStorageWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -5965,6 +6174,7 @@ class AzureDataExplorerLinkedServiceArgs:
 class AzureDataExplorerSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  flush_immediately: Optional[Any] = None,
                  ingestion_mapping_as_json: Optional[Any] = None,
                  ingestion_mapping_name: Optional[Any] = None,
@@ -5977,6 +6187,7 @@ class AzureDataExplorerSinkArgs:
         A copy activity Azure Data Explorer sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureDataExplorerSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any flush_immediately: If set to true, any aggregation will be skipped. Default is false. Type: boolean.
         :param Any ingestion_mapping_as_json: An explicit column mapping description provided in a json format. Type: string.
         :param Any ingestion_mapping_name: A name of a pre-created csv mapping that was defined on the target Kusto table. Type: string.
@@ -5987,6 +6198,8 @@ class AzureDataExplorerSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureDataExplorerSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if flush_immediately is not None:
             pulumi.set(__self__, "flush_immediately", flush_immediately)
         if ingestion_mapping_as_json is not None:
@@ -6016,6 +6229,18 @@ class AzureDataExplorerSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="flushImmediately")
@@ -6120,6 +6345,7 @@ class AzureDataExplorerSourceArgs:
                  query: Any,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  no_truncation: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -6131,6 +6357,7 @@ class AzureDataExplorerSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureDataExplorerSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any no_truncation: The name of the Boolean option that controls whether truncation is applied to result-sets that go beyond a certain row-count limit.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..
@@ -6141,6 +6368,8 @@ class AzureDataExplorerSourceArgs:
         pulumi.set(__self__, "type", 'AzureDataExplorerSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if no_truncation is not None:
@@ -6188,6 +6417,18 @@ class AzureDataExplorerSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -7111,6 +7352,7 @@ class AzureDataLakeStoreReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  list_after: Optional[Any] = None,
@@ -7127,6 +7369,7 @@ class AzureDataLakeStoreReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AzureDataLakeStoreReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any list_after: Lists files after the value (exclusive) based on file/folder names’ lexicographical order. Applies under the folderPath in data set, and filter files/sub-folders under the folderPath. Type: string (or Expression with resultType string).
@@ -7142,6 +7385,8 @@ class AzureDataLakeStoreReadSettingsArgs:
         pulumi.set(__self__, "type", 'AzureDataLakeStoreReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -7189,6 +7434,18 @@ class AzureDataLakeStoreReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -7328,6 +7585,7 @@ class AzureDataLakeStoreSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_adls_single_file_parallel: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -7339,6 +7597,7 @@ class AzureDataLakeStoreSinkArgs:
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureDataLakeStoreSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any enable_adls_single_file_parallel: Single File Parallel.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -7349,6 +7608,8 @@ class AzureDataLakeStoreSinkArgs:
         pulumi.set(__self__, "type", 'AzureDataLakeStoreSink')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_adls_single_file_parallel is not None:
             pulumi.set(__self__, "enable_adls_single_file_parallel", enable_adls_single_file_parallel)
         if max_concurrent_connections is not None:
@@ -7386,6 +7647,18 @@ class AzureDataLakeStoreSinkArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enableAdlsSingleFileParallel")
@@ -7464,6 +7737,7 @@ class AzureDataLakeStoreSinkArgs:
 class AzureDataLakeStoreSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -7472,12 +7746,15 @@ class AzureDataLakeStoreSourceArgs:
         A copy activity Azure Data Lake source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureDataLakeStoreSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureDataLakeStoreSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if recursive is not None:
@@ -7499,6 +7776,18 @@ class AzureDataLakeStoreSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -7554,6 +7843,7 @@ class AzureDataLakeStoreWriteSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  expiry_date_time: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None):
         """
@@ -7561,12 +7851,15 @@ class AzureDataLakeStoreWriteSettingsArgs:
         :param pulumi.Input[str] type: The write setting type.
                Expected value is 'AzureDataLakeStoreWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any expiry_date_time: Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: integer (or Expression with resultType integer).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'AzureDataLakeStoreWriteSettings')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if expiry_date_time is not None:
             pulumi.set(__self__, "expiry_date_time", expiry_date_time)
         if max_concurrent_connections is not None:
@@ -7596,6 +7889,18 @@ class AzureDataLakeStoreWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="expiryDateTime")
@@ -8060,6 +8365,7 @@ class AzureDatabricksDeltaLakeLinkedServiceArgs:
 class AzureDatabricksDeltaLakeSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  import_settings: Optional[pulumi.Input['AzureDatabricksDeltaLakeImportCommandArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
@@ -8071,6 +8377,7 @@ class AzureDatabricksDeltaLakeSinkArgs:
         A copy activity Azure Databricks Delta Lake sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureDatabricksDeltaLakeSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['AzureDatabricksDeltaLakeImportCommandArgs'] import_settings: Azure Databricks Delta Lake import settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
@@ -8080,6 +8387,8 @@ class AzureDatabricksDeltaLakeSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureDatabricksDeltaLakeSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if import_settings is not None:
             pulumi.set(__self__, "import_settings", import_settings)
         if max_concurrent_connections is not None:
@@ -8107,6 +8416,18 @@ class AzureDatabricksDeltaLakeSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="importSettings")
@@ -8197,6 +8518,7 @@ class AzureDatabricksDeltaLakeSinkArgs:
 class AzureDatabricksDeltaLakeSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  export_settings: Optional[pulumi.Input['AzureDatabricksDeltaLakeExportCommandArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -8206,6 +8528,7 @@ class AzureDatabricksDeltaLakeSourceArgs:
         A copy activity Azure Databricks Delta Lake source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureDatabricksDeltaLakeSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['AzureDatabricksDeltaLakeExportCommandArgs'] export_settings: Azure Databricks Delta Lake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Azure Databricks Delta Lake Sql query. Type: string (or Expression with resultType string).
@@ -8213,6 +8536,8 @@ class AzureDatabricksDeltaLakeSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureDatabricksDeltaLakeSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if export_settings is not None:
             pulumi.set(__self__, "export_settings", export_settings)
         if max_concurrent_connections is not None:
@@ -8236,6 +8561,18 @@ class AzureDatabricksDeltaLakeSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="exportSettings")
@@ -8985,6 +9322,7 @@ class AzureFileStorageReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -9000,6 +9338,7 @@ class AzureFileStorageReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'AzureFileStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -9014,6 +9353,8 @@ class AzureFileStorageReadSettingsArgs:
         pulumi.set(__self__, "type", 'AzureFileStorageReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -9059,6 +9400,18 @@ class AzureFileStorageReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -9186,17 +9539,21 @@ class AzureFileStorageWriteSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None):
         """
         Azure File Storage write settings.
         :param pulumi.Input[str] type: The write setting type.
                Expected value is 'AzureFileStorageWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'AzureFileStorageWriteSettings')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
 
@@ -9224,6 +9581,18 @@ class AzureFileStorageWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -10889,6 +11258,7 @@ class AzureMariaDBSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -10899,6 +11269,7 @@ class AzureMariaDBSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureMariaDBSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -10908,6 +11279,8 @@ class AzureMariaDBSourceArgs:
         pulumi.set(__self__, "type", 'AzureMariaDBSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -10943,6 +11316,18 @@ class AzureMariaDBSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -11297,6 +11682,7 @@ class AzureMySqlLinkedServiceArgs:
 class AzureMySqlSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -11307,6 +11693,7 @@ class AzureMySqlSinkArgs:
         A copy activity Azure MySql sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureMySqlSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -11315,6 +11702,8 @@ class AzureMySqlSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureMySqlSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -11340,6 +11729,18 @@ class AzureMySqlSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -11419,6 +11820,7 @@ class AzureMySqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -11429,6 +11831,7 @@ class AzureMySqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureMySqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -11438,6 +11841,8 @@ class AzureMySqlSourceArgs:
         pulumi.set(__self__, "type", 'AzureMySqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -11473,6 +11878,18 @@ class AzureMySqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -11844,6 +12261,7 @@ class AzurePostgreSqlLinkedServiceArgs:
 class AzurePostgreSqlSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -11854,6 +12272,7 @@ class AzurePostgreSqlSinkArgs:
         A copy activity Azure PostgreSQL sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzurePostgreSqlSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -11862,6 +12281,8 @@ class AzurePostgreSqlSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzurePostgreSqlSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -11887,6 +12308,18 @@ class AzurePostgreSqlSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -11966,6 +12399,7 @@ class AzurePostgreSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -11976,6 +12410,7 @@ class AzurePostgreSqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzurePostgreSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -11985,6 +12420,8 @@ class AzurePostgreSqlSourceArgs:
         pulumi.set(__self__, "type", 'AzurePostgreSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -12020,6 +12457,18 @@ class AzurePostgreSqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -12254,6 +12703,7 @@ class AzurePostgreSqlTableDatasetArgs:
 class AzureQueueSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -12263,6 +12713,7 @@ class AzureQueueSinkArgs:
         A copy activity Azure Queue sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureQueueSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -12270,6 +12721,8 @@ class AzureQueueSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureQueueSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -12293,6 +12746,18 @@ class AzureQueueSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -12510,6 +12975,7 @@ class AzureSearchIndexDatasetArgs:
 class AzureSearchIndexSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -12520,6 +12986,7 @@ class AzureSearchIndexSinkArgs:
         A copy activity Azure Search Index sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureSearchIndexSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -12528,6 +12995,8 @@ class AzureSearchIndexSinkArgs:
         :param pulumi.Input[Union[str, 'AzureSearchIndexWriteBehaviorType']] write_behavior: Specify the write behavior when upserting documents into Azure Search Index.
         """
         pulumi.set(__self__, "type", 'AzureSearchIndexSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -12553,6 +13022,18 @@ class AzureSearchIndexSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -13735,6 +14216,7 @@ class AzureSqlMITableDatasetArgs:
 class AzureSqlSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -13750,6 +14232,7 @@ class AzureSqlSinkArgs:
         A copy activity Azure SQL sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'AzureSqlSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -13763,6 +14246,8 @@ class AzureSqlSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'AzureSqlSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -13798,6 +14283,18 @@ class AzureSqlSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -13937,6 +14434,7 @@ class AzureSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['SqlPartitionSettingsArgs']] = None,
@@ -13952,6 +14450,7 @@ class AzureSqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param pulumi.Input['SqlPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -13966,6 +14465,8 @@ class AzureSqlSourceArgs:
         pulumi.set(__self__, "type", 'AzureSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -14011,6 +14512,18 @@ class AzureSqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -14629,6 +15142,7 @@ class AzureTableSinkArgs:
                  azure_table_insert_type: Optional[Any] = None,
                  azure_table_partition_key_name: Optional[Any] = None,
                  azure_table_row_key_name: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -14642,6 +15156,7 @@ class AzureTableSinkArgs:
         :param Any azure_table_insert_type: Azure Table insert type. Type: string (or Expression with resultType string).
         :param Any azure_table_partition_key_name: Azure Table partition key name. Type: string (or Expression with resultType string).
         :param Any azure_table_row_key_name: Azure Table row key name. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -14657,6 +15172,8 @@ class AzureTableSinkArgs:
             pulumi.set(__self__, "azure_table_partition_key_name", azure_table_partition_key_name)
         if azure_table_row_key_name is not None:
             pulumi.set(__self__, "azure_table_row_key_name", azure_table_row_key_name)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -14730,6 +15247,18 @@ class AzureTableSinkArgs:
         pulumi.set(self, "azure_table_row_key_name", value)
 
     @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
@@ -14797,6 +15326,7 @@ class AzureTableSourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  azure_table_source_ignore_table_not_found: Optional[Any] = None,
                  azure_table_source_query: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -14808,6 +15338,7 @@ class AzureTableSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any azure_table_source_ignore_table_not_found: Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
         :param Any azure_table_source_query: Azure Table source query. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -14820,6 +15351,8 @@ class AzureTableSourceArgs:
             pulumi.set(__self__, "azure_table_source_ignore_table_not_found", azure_table_source_ignore_table_not_found)
         if azure_table_source_query is not None:
             pulumi.set(__self__, "azure_table_source_query", azure_table_source_query)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query_timeout is not None:
@@ -14877,6 +15410,18 @@ class AzureTableSourceArgs:
     @azure_table_source_query.setter
     def azure_table_source_query(self, value: Optional[Any]):
         pulumi.set(self, "azure_table_source_query", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -15308,6 +15853,7 @@ class BinaryReadSettingsArgs:
 class BinarySinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -15318,6 +15864,7 @@ class BinarySinkArgs:
         A copy activity Binary sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'BinarySink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -15326,6 +15873,8 @@ class BinarySinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'BinarySink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -15351,6 +15900,18 @@ class BinarySinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -15429,6 +15990,7 @@ class BinarySinkArgs:
 class BinarySourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['BinaryReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -15438,6 +16000,7 @@ class BinarySourceArgs:
         A copy activity Binary source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'BinarySource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['BinaryReadSettingsArgs'] format_settings: Binary format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -15445,6 +16008,8 @@ class BinarySourceArgs:
         :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Binary store settings.
         """
         pulumi.set(__self__, "type", 'BinarySource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -15468,6 +16033,18 @@ class BinarySourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -15689,7 +16266,9 @@ class BlobSinkArgs:
                  blob_writer_date_time_format: Optional[Any] = None,
                  blob_writer_overwrite_files: Optional[Any] = None,
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
                  write_batch_size: Optional[Any] = None,
@@ -15702,7 +16281,9 @@ class BlobSinkArgs:
         :param Any blob_writer_date_time_format: Blob writer date time format. Type: string (or Expression with resultType string).
         :param Any blob_writer_overwrite_files: Blob writer overwrite files. Type: boolean (or Expression with resultType boolean).
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -15717,8 +16298,12 @@ class BlobSinkArgs:
             pulumi.set(__self__, "blob_writer_overwrite_files", blob_writer_overwrite_files)
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if sink_retry_count is not None:
             pulumi.set(__self__, "sink_retry_count", sink_retry_count)
         if sink_retry_wait is not None:
@@ -15790,6 +16375,18 @@ class BlobSinkArgs:
         pulumi.set(self, "copy_behavior", value)
 
     @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
@@ -15800,6 +16397,18 @@ class BlobSinkArgs:
     @max_concurrent_connections.setter
     def max_concurrent_connections(self, value: Optional[Any]):
         pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]]]):
+        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="sinkRetryCount")
@@ -15854,6 +16463,7 @@ class BlobSinkArgs:
 class BlobSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
                  skip_header_line_count: Optional[Any] = None,
@@ -15864,6 +16474,7 @@ class BlobSourceArgs:
         A copy activity Azure Blob source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'BlobSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any skip_header_line_count: Number of header lines to skip from each blob. Type: integer (or Expression with resultType integer).
@@ -15872,6 +16483,8 @@ class BlobSourceArgs:
         :param Any treat_empty_as_null: Treat empty as null. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'BlobSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if recursive is not None:
@@ -15897,6 +16510,18 @@ class BlobSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -16303,6 +16928,7 @@ class CassandraSourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  consistency_level: Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -16314,6 +16940,7 @@ class CassandraSourceArgs:
                Expected value is 'CassandraSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']] consistency_level: The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Should be a SQL-92 query expression or Cassandra Query Language (CQL) command. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -16325,6 +16952,8 @@ class CassandraSourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if consistency_level is not None:
             pulumi.set(__self__, "consistency_level", consistency_level)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -16372,6 +17001,18 @@ class CassandraSourceArgs:
     @consistency_level.setter
     def consistency_level(self, value: Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]]):
         pulumi.set(self, "consistency_level", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -17211,6 +17852,7 @@ class CommonDataServiceForAppsSinkArgs:
                  type: pulumi.Input[str],
                  write_behavior: pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']],
                  alternate_key_name: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -17223,6 +17865,7 @@ class CommonDataServiceForAppsSinkArgs:
                Expected value is 'CommonDataServiceForAppsSink'.
         :param pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']] write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -17234,6 +17877,8 @@ class CommonDataServiceForAppsSinkArgs:
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
             pulumi.set(__self__, "ignore_null_values", ignore_null_values)
         if max_concurrent_connections is not None:
@@ -17283,6 +17928,18 @@ class CommonDataServiceForAppsSinkArgs:
     @alternate_key_name.setter
     def alternate_key_name(self, value: Optional[Any]):
         pulumi.set(self, "alternate_key_name", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="ignoreNullValues")
@@ -17362,6 +18019,7 @@ class CommonDataServiceForAppsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -17371,6 +18029,7 @@ class CommonDataServiceForAppsSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CommonDataServiceForAppsSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Common Data Service for Apps (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -17379,6 +18038,8 @@ class CommonDataServiceForAppsSourceArgs:
         pulumi.set(__self__, "type", 'CommonDataServiceForAppsSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -17412,6 +18073,18 @@ class CommonDataServiceForAppsSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -17890,6 +18563,7 @@ class ConcurSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -17900,6 +18574,7 @@ class ConcurSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ConcurSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -17909,6 +18584,8 @@ class ConcurSourceArgs:
         pulumi.set(__self__, "type", 'ConcurSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -17944,6 +18621,18 @@ class ConcurSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -19063,6 +19752,7 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
 class CosmosDbMongoDbApiSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -19073,6 +19763,7 @@ class CosmosDbMongoDbApiSinkArgs:
         A copy activity sink for a CosmosDB (MongoDB API) database.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'CosmosDbMongoDbApiSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -19081,6 +19772,8 @@ class CosmosDbMongoDbApiSinkArgs:
         :param Any write_behavior: Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'CosmosDbMongoDbApiSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -19106,6 +19799,18 @@ class CosmosDbMongoDbApiSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -19187,6 +19892,7 @@ class CosmosDbMongoDbApiSourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  filter: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -19199,6 +19905,7 @@ class CosmosDbMongoDbApiSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -19212,6 +19919,8 @@ class CosmosDbMongoDbApiSourceArgs:
             pulumi.set(__self__, "batch_size", batch_size)
         if cursor_methods is not None:
             pulumi.set(__self__, "cursor_methods", cursor_methods)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if max_concurrent_connections is not None:
@@ -19271,6 +19980,18 @@ class CosmosDbMongoDbApiSourceArgs:
     @cursor_methods.setter
     def cursor_methods(self, value: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']]):
         pulumi.set(self, "cursor_methods", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter
@@ -19488,6 +20209,7 @@ class CosmosDbSqlApiCollectionDatasetArgs:
 class CosmosDbSqlApiSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -19498,6 +20220,7 @@ class CosmosDbSqlApiSinkArgs:
         A copy activity Azure CosmosDB (SQL API) Collection sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'CosmosDbSqlApiSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -19506,6 +20229,8 @@ class CosmosDbSqlApiSinkArgs:
         :param Any write_behavior: Describes how to write data to Azure Cosmos DB. Type: string (or Expression with resultType string). Allowed values: insert and upsert.
         """
         pulumi.set(__self__, "type", 'CosmosDbSqlApiSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -19531,6 +20256,18 @@ class CosmosDbSqlApiSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -19611,6 +20348,7 @@ class CosmosDbSqlApiSourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  detect_datetime: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  page_size: Optional[Any] = None,
                  preferred_regions: Optional[Any] = None,
@@ -19623,6 +20361,7 @@ class CosmosDbSqlApiSourceArgs:
                Expected value is 'CosmosDbSqlApiSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any detect_datetime: Whether detect primitive values as datetime values. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any page_size: Page size of the result. Type: integer (or Expression with resultType integer).
         :param Any preferred_regions: Preferred regions. Type: array of strings (or Expression with resultType array of strings).
@@ -19635,6 +20374,8 @@ class CosmosDbSqlApiSourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if detect_datetime is not None:
             pulumi.set(__self__, "detect_datetime", detect_datetime)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if page_size is not None:
@@ -19684,6 +20425,18 @@ class CosmosDbSqlApiSourceArgs:
     @detect_datetime.setter
     def detect_datetime(self, value: Optional[Any]):
         pulumi.set(self, "detect_datetime", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -19900,6 +20653,7 @@ class CouchbaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -19910,6 +20664,7 @@ class CouchbaseSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CouchbaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -19919,6 +20674,8 @@ class CouchbaseSourceArgs:
         pulumi.set(__self__, "type", 'CouchbaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -19954,6 +20711,18 @@ class CouchbaseSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -22432,6 +23201,7 @@ class Db2SourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -22442,6 +23212,7 @@ class Db2SourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'Db2Source'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -22451,6 +23222,8 @@ class Db2SourceArgs:
         pulumi.set(__self__, "type", 'Db2Source')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -22486,6 +23259,18 @@ class Db2SourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -23287,6 +24072,7 @@ class DelimitedTextReadSettingsArgs:
 class DelimitedTextSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['DelimitedTextWriteSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -23298,6 +24084,7 @@ class DelimitedTextSinkArgs:
         A copy activity DelimitedText sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'DelimitedTextSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DelimitedTextWriteSettingsArgs'] format_settings: DelimitedText format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -23307,6 +24094,8 @@ class DelimitedTextSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'DelimitedTextSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -23334,6 +24123,18 @@ class DelimitedTextSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -23425,6 +24226,7 @@ class DelimitedTextSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['DelimitedTextReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -23435,6 +24237,7 @@ class DelimitedTextSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DelimitedTextSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DelimitedTextReadSettingsArgs'] format_settings: DelimitedText format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -23444,6 +24247,8 @@ class DelimitedTextSourceArgs:
         pulumi.set(__self__, "type", 'DelimitedTextSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -23479,6 +24284,18 @@ class DelimitedTextSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -23838,6 +24655,7 @@ class DocumentDbCollectionDatasetArgs:
 class DocumentDbCollectionSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  nesting_separator: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -23849,6 +24667,7 @@ class DocumentDbCollectionSinkArgs:
         A copy activity Document Database Collection sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'DocumentDbCollectionSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any nesting_separator: Nested properties separator. Default is . (dot). Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -23858,6 +24677,8 @@ class DocumentDbCollectionSinkArgs:
         :param Any write_behavior: Describes how to write data to Azure Cosmos DB. Type: string (or Expression with resultType string). Allowed values: insert and upsert.
         """
         pulumi.set(__self__, "type", 'DocumentDbCollectionSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if nesting_separator is not None:
@@ -23885,6 +24706,18 @@ class DocumentDbCollectionSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -23976,6 +24809,7 @@ class DocumentDbCollectionSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  nesting_separator: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -23987,6 +24821,7 @@ class DocumentDbCollectionSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DocumentDbCollectionSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any nesting_separator: Nested properties separator. Type: string (or Expression with resultType string).
         :param Any query: Documents query. Type: string (or Expression with resultType string).
@@ -23997,6 +24832,8 @@ class DocumentDbCollectionSourceArgs:
         pulumi.set(__self__, "type", 'DocumentDbCollectionSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if nesting_separator is not None:
@@ -24034,6 +24871,18 @@ class DocumentDbCollectionSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -24250,6 +25099,7 @@ class DrillSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -24260,6 +25110,7 @@ class DrillSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DrillSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -24269,6 +25120,8 @@ class DrillSourceArgs:
         pulumi.set(__self__, "type", 'DrillSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -24304,6 +25157,18 @@ class DrillSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -24870,6 +25735,7 @@ class DynamicsAXSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -24881,6 +25747,7 @@ class DynamicsAXSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsAXSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -24891,6 +25758,8 @@ class DynamicsAXSourceArgs:
         pulumi.set(__self__, "type", 'DynamicsAXSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -24928,6 +25797,18 @@ class DynamicsAXSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -25439,6 +26320,7 @@ class DynamicsCrmSinkArgs:
                  type: pulumi.Input[str],
                  write_behavior: pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']],
                  alternate_key_name: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -25451,6 +26333,7 @@ class DynamicsCrmSinkArgs:
                Expected value is 'DynamicsCrmSink'.
         :param pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']] write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -25462,6 +26345,8 @@ class DynamicsCrmSinkArgs:
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
             pulumi.set(__self__, "ignore_null_values", ignore_null_values)
         if max_concurrent_connections is not None:
@@ -25511,6 +26396,18 @@ class DynamicsCrmSinkArgs:
     @alternate_key_name.setter
     def alternate_key_name(self, value: Optional[Any]):
         pulumi.set(self, "alternate_key_name", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="ignoreNullValues")
@@ -25590,6 +26487,7 @@ class DynamicsCrmSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -25599,6 +26497,7 @@ class DynamicsCrmSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsCrmSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics CRM (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -25607,6 +26506,8 @@ class DynamicsCrmSourceArgs:
         pulumi.set(__self__, "type", 'DynamicsCrmSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -25640,6 +26541,18 @@ class DynamicsCrmSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -26127,6 +27040,7 @@ class DynamicsSinkArgs:
                  type: pulumi.Input[str],
                  write_behavior: pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']],
                  alternate_key_name: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -26139,6 +27053,7 @@ class DynamicsSinkArgs:
                Expected value is 'DynamicsSink'.
         :param pulumi.Input[Union[str, 'DynamicsSinkWriteBehavior']] write_behavior: The write behavior for the operation.
         :param Any alternate_key_name: The logical name of the alternate key which will be used when upserting records. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any ignore_null_values: The flag indicating whether ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -26150,6 +27065,8 @@ class DynamicsSinkArgs:
         pulumi.set(__self__, "write_behavior", write_behavior)
         if alternate_key_name is not None:
             pulumi.set(__self__, "alternate_key_name", alternate_key_name)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if ignore_null_values is not None:
             pulumi.set(__self__, "ignore_null_values", ignore_null_values)
         if max_concurrent_connections is not None:
@@ -26199,6 +27116,18 @@ class DynamicsSinkArgs:
     @alternate_key_name.setter
     def alternate_key_name(self, value: Optional[Any]):
         pulumi.set(self, "alternate_key_name", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="ignoreNullValues")
@@ -26278,6 +27207,7 @@ class DynamicsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -26287,6 +27217,7 @@ class DynamicsSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics (online & on-premises). Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -26295,6 +27226,8 @@ class DynamicsSourceArgs:
         pulumi.set(__self__, "type", 'DynamicsSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -26328,6 +27261,18 @@ class DynamicsSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -26734,6 +27679,7 @@ class EloquaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -26744,6 +27690,7 @@ class EloquaSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'EloquaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -26753,6 +27700,8 @@ class EloquaSourceArgs:
         pulumi.set(__self__, "type", 'EloquaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -26788,6 +27737,18 @@ class EloquaSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -27267,6 +28228,7 @@ class ExcelSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
@@ -27276,6 +28238,7 @@ class ExcelSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ExcelSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -27284,6 +28247,8 @@ class ExcelSourceArgs:
         pulumi.set(__self__, "type", 'ExcelSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -27317,6 +28282,18 @@ class ExcelSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -28743,6 +29720,7 @@ class FileServerReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_filter: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
@@ -28758,6 +29736,7 @@ class FileServerReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'FileServerReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
@@ -28772,6 +29751,8 @@ class FileServerReadSettingsArgs:
         pulumi.set(__self__, "type", 'FileServerReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_filter is not None:
@@ -28817,6 +29798,18 @@ class FileServerReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -28944,17 +29937,21 @@ class FileServerWriteSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None):
         """
         File server write settings.
         :param pulumi.Input[str] type: The write setting type.
                Expected value is 'FileServerWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'FileServerWriteSettings')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
 
@@ -28982,6 +29979,18 @@ class FileServerWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -29249,6 +30258,7 @@ class FileSystemSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -29259,6 +30269,7 @@ class FileSystemSinkArgs:
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'FileSystemSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -29268,6 +30279,8 @@ class FileSystemSinkArgs:
         pulumi.set(__self__, "type", 'FileSystemSink')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -29303,6 +30316,18 @@ class FileSystemSinkArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -29370,6 +30395,7 @@ class FileSystemSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -29379,6 +30405,7 @@ class FileSystemSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'FileSystemSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -29387,6 +30414,8 @@ class FileSystemSourceArgs:
         pulumi.set(__self__, "type", 'FileSystemSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if recursive is not None:
@@ -29420,6 +30449,18 @@ class FileSystemSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -29743,6 +30784,7 @@ class FtpReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -29756,6 +30798,7 @@ class FtpReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'FtpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -29768,6 +30811,8 @@ class FtpReadSettingsArgs:
         pulumi.set(__self__, "type", 'FtpReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -29809,6 +30854,18 @@ class FtpReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -30820,6 +31877,7 @@ class GoogleAdWordsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -30830,6 +31888,7 @@ class GoogleAdWordsSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GoogleAdWordsSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -30839,6 +31898,8 @@ class GoogleAdWordsSourceArgs:
         pulumi.set(__self__, "type", 'GoogleAdWordsSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -30874,6 +31935,18 @@ class GoogleAdWordsSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -31404,6 +32477,7 @@ class GoogleBigQuerySourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -31414,6 +32488,7 @@ class GoogleBigQuerySourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GoogleBigQuerySource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -31423,6 +32498,8 @@ class GoogleBigQuerySourceArgs:
         pulumi.set(__self__, "type", 'GoogleBigQuerySource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -31458,6 +32535,18 @@ class GoogleBigQuerySourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -31767,6 +32856,7 @@ class GoogleCloudStorageReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -31782,6 +32872,7 @@ class GoogleCloudStorageReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'GoogleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -31796,6 +32887,8 @@ class GoogleCloudStorageReadSettingsArgs:
         pulumi.set(__self__, "type", 'GoogleCloudStorageReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -31841,6 +32934,18 @@ class GoogleCloudStorageReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -32105,6 +33210,7 @@ class GreenplumSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -32115,6 +33221,7 @@ class GreenplumSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GreenplumSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -32124,6 +33231,8 @@ class GreenplumSourceArgs:
         pulumi.set(__self__, "type", 'GreenplumSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -32159,6 +33268,18 @@ class GreenplumSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -32809,6 +33930,7 @@ class HBaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -32819,6 +33941,7 @@ class HBaseSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HBaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -32828,6 +33951,8 @@ class HBaseSourceArgs:
         pulumi.set(__self__, "type", 'HBaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -32863,6 +33988,18 @@ class HBaseSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -35244,6 +36381,7 @@ class HdfsReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  distcp_settings: Optional[pulumi.Input['DistcpSettingsArgs']] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
@@ -35259,6 +36397,7 @@ class HdfsReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'HdfsReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DistcpSettingsArgs'] distcp_settings: Specifies Distcp-related settings.
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
@@ -35273,6 +36412,8 @@ class HdfsReadSettingsArgs:
         pulumi.set(__self__, "type", 'HdfsReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if distcp_settings is not None:
             pulumi.set(__self__, "distcp_settings", distcp_settings)
         if enable_partition_discovery is not None:
@@ -35318,6 +36459,18 @@ class HdfsReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="distcpSettings")
@@ -35444,6 +36597,7 @@ class HdfsReadSettingsArgs:
 class HdfsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  distcp_settings: Optional[pulumi.Input['DistcpSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
@@ -35453,6 +36607,7 @@ class HdfsSourceArgs:
         A copy activity HDFS source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HdfsSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DistcpSettingsArgs'] distcp_settings: Specifies Distcp-related settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
@@ -35460,6 +36615,8 @@ class HdfsSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'HdfsSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if distcp_settings is not None:
             pulumi.set(__self__, "distcp_settings", distcp_settings)
         if max_concurrent_connections is not None:
@@ -35483,6 +36640,18 @@ class HdfsSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="distcpSettings")
@@ -36077,6 +37246,7 @@ class HiveSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -36087,6 +37257,7 @@ class HiveSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HiveSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -36096,6 +37267,8 @@ class HiveSourceArgs:
         pulumi.set(__self__, "type", 'HiveSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -36131,6 +37304,18 @@ class HiveSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -36666,6 +37851,7 @@ class HttpReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_headers: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_root_path: Optional[Any] = None,
@@ -36677,6 +37863,7 @@ class HttpReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'HttpReadSettings'.
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
@@ -36687,6 +37874,8 @@ class HttpReadSettingsArgs:
         pulumi.set(__self__, "type", 'HttpReadSettings')
         if additional_headers is not None:
             pulumi.set(__self__, "additional_headers", additional_headers)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if max_concurrent_connections is not None:
@@ -36724,6 +37913,18 @@ class HttpReadSettingsArgs:
     @additional_headers.setter
     def additional_headers(self, value: Optional[Any]):
         pulumi.set(self, "additional_headers", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -36875,6 +38076,7 @@ class HttpServerLocationArgs:
 class HttpSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -36883,12 +38085,15 @@ class HttpSourceArgs:
         A copy activity source for an HTTP file.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HttpSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'HttpSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -36910,6 +38115,18 @@ class HttpSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -37333,6 +38550,7 @@ class HubspotSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -37343,6 +38561,7 @@ class HubspotSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HubspotSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -37352,6 +38571,8 @@ class HubspotSourceArgs:
         pulumi.set(__self__, "type", 'HubspotSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -37387,6 +38608,18 @@ class HubspotSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -38020,6 +39253,7 @@ class ImpalaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -38030,6 +39264,7 @@ class ImpalaSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ImpalaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -38039,6 +39274,8 @@ class ImpalaSourceArgs:
         pulumi.set(__self__, "type", 'ImpalaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -38074,6 +39311,18 @@ class ImpalaSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -38324,6 +39573,7 @@ class InformixLinkedServiceArgs:
 class InformixSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -38334,6 +39584,7 @@ class InformixSinkArgs:
         A copy activity Informix sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'InformixSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -38342,6 +39593,8 @@ class InformixSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'InformixSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -38367,6 +39620,18 @@ class InformixSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -38446,6 +39711,7 @@ class InformixSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -38456,6 +39722,7 @@ class InformixSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'InformixSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -38465,6 +39732,8 @@ class InformixSourceArgs:
         pulumi.set(__self__, "type", 'InformixSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -38500,6 +39769,18 @@ class InformixSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -39676,6 +40957,7 @@ class JiraSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -39686,6 +40968,7 @@ class JiraSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'JiraSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -39695,6 +40978,8 @@ class JiraSourceArgs:
         pulumi.set(__self__, "type", 'JiraSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -39730,6 +41015,18 @@ class JiraSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -40157,6 +41454,7 @@ class JsonReadSettingsArgs:
 class JsonSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['JsonWriteSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -40168,6 +41466,7 @@ class JsonSinkArgs:
         A copy activity Json sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'JsonSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['JsonWriteSettingsArgs'] format_settings: Json format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -40177,6 +41476,8 @@ class JsonSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'JsonSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -40204,6 +41505,18 @@ class JsonSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -40295,6 +41608,7 @@ class JsonSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['JsonReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -40305,6 +41619,7 @@ class JsonSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'JsonSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['JsonReadSettingsArgs'] format_settings: Json format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -40314,6 +41629,8 @@ class JsonSourceArgs:
         pulumi.set(__self__, "type", 'JsonSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -40349,6 +41666,18 @@ class JsonSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -41258,6 +42587,7 @@ class MagentoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -41268,6 +42598,7 @@ class MagentoSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MagentoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -41277,6 +42608,8 @@ class MagentoSourceArgs:
         pulumi.set(__self__, "type", 'MagentoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -41312,6 +42645,18 @@ class MagentoSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -41837,6 +43182,7 @@ class MariaDBSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -41847,6 +43193,7 @@ class MariaDBSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MariaDBSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -41856,6 +43203,8 @@ class MariaDBSourceArgs:
         pulumi.set(__self__, "type", 'MariaDBSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -41891,6 +43240,18 @@ class MariaDBSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -42461,6 +43822,7 @@ class MarketoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -42471,6 +43833,7 @@ class MarketoSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MarketoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -42480,6 +43843,8 @@ class MarketoSourceArgs:
         pulumi.set(__self__, "type", 'MarketoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -42515,6 +43880,18 @@ class MarketoSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -42575,6 +43952,46 @@ class MarketoSourceArgs:
     @source_retry_wait.setter
     def source_retry_wait(self, value: Optional[Any]):
         pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class MetadataItemArgs:
+    def __init__(__self__, *,
+                 name: Optional[Any] = None,
+                 value: Optional[Any] = None):
+        """
+        Specify the name and value of custom metadata item.
+        :param Any name: Metadata item key name. Type: string (or Expression with resultType string).
+        :param Any value: Metadata item value. Type: string (or Expression with resultType string).
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[Any]:
+        """
+        Metadata item key name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[Any]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Metadata item value. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -42765,6 +44182,7 @@ class MicrosoftAccessLinkedServiceArgs:
 class MicrosoftAccessSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -42775,6 +44193,7 @@ class MicrosoftAccessSinkArgs:
         A copy activity Microsoft Access sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'MicrosoftAccessSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -42783,6 +44202,8 @@ class MicrosoftAccessSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'MicrosoftAccessSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -42808,6 +44229,18 @@ class MicrosoftAccessSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -42887,6 +44320,7 @@ class MicrosoftAccessSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -42896,6 +44330,7 @@ class MicrosoftAccessSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MicrosoftAccessSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -42904,6 +44339,8 @@ class MicrosoftAccessSourceArgs:
         pulumi.set(__self__, "type", 'MicrosoftAccessSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -42937,6 +44374,18 @@ class MicrosoftAccessSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -43413,6 +44862,7 @@ class MongoDbAtlasLinkedServiceArgs:
 class MongoDbAtlasSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -43423,6 +44873,7 @@ class MongoDbAtlasSinkArgs:
         A copy activity MongoDB Atlas sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'MongoDbAtlasSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -43431,6 +44882,8 @@ class MongoDbAtlasSinkArgs:
         :param Any write_behavior: Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'MongoDbAtlasSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -43456,6 +44909,18 @@ class MongoDbAtlasSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -43537,6 +45002,7 @@ class MongoDbAtlasSourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  filter: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -43549,6 +45015,7 @@ class MongoDbAtlasSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -43562,6 +45029,8 @@ class MongoDbAtlasSourceArgs:
             pulumi.set(__self__, "batch_size", batch_size)
         if cursor_methods is not None:
             pulumi.set(__self__, "cursor_methods", cursor_methods)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if max_concurrent_connections is not None:
@@ -43621,6 +45090,18 @@ class MongoDbAtlasSourceArgs:
     @cursor_methods.setter
     def cursor_methods(self, value: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']]):
         pulumi.set(self, "cursor_methods", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter
@@ -44158,6 +45639,7 @@ class MongoDbSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -44167,6 +45649,7 @@ class MongoDbSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MongoDbSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -44175,6 +45658,8 @@ class MongoDbSourceArgs:
         pulumi.set(__self__, "type", 'MongoDbSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -44208,6 +45693,18 @@ class MongoDbSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -44532,6 +46029,7 @@ class MongoDbV2LinkedServiceArgs:
 class MongoDbV2SinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
@@ -44542,6 +46040,7 @@ class MongoDbV2SinkArgs:
         A copy activity MongoDB sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'MongoDbV2Sink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -44550,6 +46049,8 @@ class MongoDbV2SinkArgs:
         :param Any write_behavior: Specifies whether the document with same key to be overwritten (upsert) rather than throw exception (insert). The default value is "insert". Type: string (or Expression with resultType string). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'MongoDbV2Sink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if sink_retry_count is not None:
@@ -44575,6 +46076,18 @@ class MongoDbV2SinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -44656,6 +46169,7 @@ class MongoDbV2SourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  filter: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -44668,6 +46182,7 @@ class MongoDbV2SourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any filter: Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -44681,6 +46196,8 @@ class MongoDbV2SourceArgs:
             pulumi.set(__self__, "batch_size", batch_size)
         if cursor_methods is not None:
             pulumi.set(__self__, "cursor_methods", cursor_methods)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if max_concurrent_connections is not None:
@@ -44740,6 +46257,18 @@ class MongoDbV2SourceArgs:
     @cursor_methods.setter
     def cursor_methods(self, value: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']]):
         pulumi.set(self, "cursor_methods", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter
@@ -45016,6 +46545,7 @@ class MySqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -45026,6 +46556,7 @@ class MySqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MySqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -45035,6 +46566,8 @@ class MySqlSourceArgs:
         pulumi.set(__self__, "type", 'MySqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -45070,6 +46603,18 @@ class MySqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -45482,6 +47027,7 @@ class NetezzaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['NetezzaPartitionSettingsArgs']] = None,
@@ -45494,6 +47040,7 @@ class NetezzaSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'NetezzaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Netezza read in parallel. Possible values include: "None", "DataSlice", "DynamicRange".
         :param pulumi.Input['NetezzaPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for Netezza source partitioning.
@@ -45505,6 +47052,8 @@ class NetezzaSourceArgs:
         pulumi.set(__self__, "type", 'NetezzaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -45544,6 +47093,18 @@ class NetezzaSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -46267,6 +47828,7 @@ class ODataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -46277,6 +47839,7 @@ class ODataSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ODataSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -46286,6 +47849,8 @@ class ODataSourceArgs:
         pulumi.set(__self__, "type", 'ODataSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -46321,6 +47886,18 @@ class ODataSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -46571,6 +48148,7 @@ class OdbcLinkedServiceArgs:
 class OdbcSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -46581,6 +48159,7 @@ class OdbcSinkArgs:
         A copy activity ODBC sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'OdbcSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: A query to execute before starting the copy. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -46589,6 +48168,8 @@ class OdbcSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'OdbcSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -46614,6 +48195,18 @@ class OdbcSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -46693,6 +48286,7 @@ class OdbcSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -46703,6 +48297,7 @@ class OdbcSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OdbcSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -46712,6 +48307,8 @@ class OdbcSourceArgs:
         pulumi.set(__self__, "type", 'OdbcSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -46747,6 +48344,18 @@ class OdbcSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -47299,6 +48908,7 @@ class Office365SourceArgs:
                  type: pulumi.Input[str],
                  allowed_groups: Optional[Any] = None,
                  date_filter_column: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  end_time: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  output_columns: Optional[Any] = None,
@@ -47312,6 +48922,7 @@ class Office365SourceArgs:
                Expected value is 'Office365Source'.
         :param Any allowed_groups: The groups containing all the users. Type: array of strings (or Expression with resultType array of strings).
         :param Any date_filter_column: The Column to apply the <paramref name="StartTime"/> and <paramref name="EndTime"/>. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any end_time: End time of the requested range for this dataset. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any output_columns: The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
@@ -47325,6 +48936,8 @@ class Office365SourceArgs:
             pulumi.set(__self__, "allowed_groups", allowed_groups)
         if date_filter_column is not None:
             pulumi.set(__self__, "date_filter_column", date_filter_column)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if max_concurrent_connections is not None:
@@ -47376,6 +48989,18 @@ class Office365SourceArgs:
     @date_filter_column.setter
     def date_filter_column(self, value: Optional[Any]):
         pulumi.set(self, "date_filter_column", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="endTime")
@@ -47709,6 +49334,7 @@ class OracleCloudStorageReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -47724,6 +49350,7 @@ class OracleCloudStorageReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'OracleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -47738,6 +49365,8 @@ class OracleCloudStorageReadSettingsArgs:
         pulumi.set(__self__, "type", 'OracleCloudStorageReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -47783,6 +49412,18 @@ class OracleCloudStorageReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -48468,6 +50109,7 @@ class OracleServiceCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -48478,6 +50120,7 @@ class OracleServiceCloudSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OracleServiceCloudSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -48487,6 +50130,8 @@ class OracleServiceCloudSourceArgs:
         pulumi.set(__self__, "type", 'OracleServiceCloudSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -48522,6 +50167,18 @@ class OracleServiceCloudSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -48588,6 +50245,7 @@ class OracleServiceCloudSourceArgs:
 class OracleSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -48598,6 +50256,7 @@ class OracleSinkArgs:
         A copy activity Oracle sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'OracleSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -48606,6 +50265,8 @@ class OracleSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'OracleSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -48631,6 +50292,18 @@ class OracleSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -48710,6 +50383,7 @@ class OracleSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  oracle_reader_query: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -48722,6 +50396,7 @@ class OracleSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OracleSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any oracle_reader_query: Oracle reader query. Type: string (or Expression with resultType string).
         :param Any partition_option: The partition mechanism that will be used for Oracle read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -48733,6 +50408,8 @@ class OracleSourceArgs:
         pulumi.set(__self__, "type", 'OracleSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if oracle_reader_query is not None:
@@ -48772,6 +50449,18 @@ class OracleSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -49250,6 +50939,7 @@ class OrcFormatArgs:
 class OrcSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['OrcWriteSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -49261,6 +50951,7 @@ class OrcSinkArgs:
         A copy activity ORC sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'OrcSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['OrcWriteSettingsArgs'] format_settings: ORC format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -49270,6 +50961,8 @@ class OrcSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'OrcSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -49297,6 +50990,18 @@ class OrcSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -49388,6 +51093,7 @@ class OrcSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
@@ -49397,6 +51103,7 @@ class OrcSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OrcSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -49405,6 +51112,8 @@ class OrcSourceArgs:
         pulumi.set(__self__, "type", 'OrcSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -49438,6 +51147,18 @@ class OrcSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -49850,6 +51571,7 @@ class ParquetFormatArgs:
 class ParquetSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['ParquetWriteSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -49861,6 +51583,7 @@ class ParquetSinkArgs:
         A copy activity Parquet sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'ParquetSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['ParquetWriteSettingsArgs'] format_settings: Parquet format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -49870,6 +51593,8 @@ class ParquetSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'ParquetSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -49897,6 +51622,18 @@ class ParquetSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -49988,6 +51725,7 @@ class ParquetSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
@@ -49997,6 +51735,7 @@ class ParquetSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ParquetSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -50005,6 +51744,8 @@ class ParquetSourceArgs:
         pulumi.set(__self__, "type", 'ParquetSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -50038,6 +51779,18 @@ class ParquetSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -50501,6 +52254,7 @@ class PaypalSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -50511,6 +52265,7 @@ class PaypalSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PaypalSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -50520,6 +52275,8 @@ class PaypalSourceArgs:
         pulumi.set(__self__, "type", 'PaypalSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -50555,6 +52312,18 @@ class PaypalSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -51069,6 +52838,7 @@ class PhoenixSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -51079,6 +52849,7 @@ class PhoenixSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PhoenixSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -51088,6 +52859,8 @@ class PhoenixSourceArgs:
         pulumi.set(__self__, "type", 'PhoenixSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -51123,6 +52896,18 @@ class PhoenixSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -51524,6 +53309,7 @@ class PostgreSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -51534,6 +53320,7 @@ class PostgreSqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PostgreSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -51543,6 +53330,8 @@ class PostgreSqlSourceArgs:
         pulumi.set(__self__, "type", 'PostgreSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -51578,6 +53367,18 @@ class PostgreSqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -52290,6 +54091,7 @@ class PrestoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -52300,6 +54102,7 @@ class PrestoSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PrestoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -52309,6 +54112,8 @@ class PrestoSourceArgs:
         pulumi.set(__self__, "type", 'PrestoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -52344,6 +54149,18 @@ class PrestoSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -52876,6 +54693,7 @@ class QuickBooksSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -52886,6 +54704,7 @@ class QuickBooksSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'QuickBooksSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -52895,6 +54714,8 @@ class QuickBooksSourceArgs:
         pulumi.set(__self__, "type", 'QuickBooksSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -52930,6 +54751,18 @@ class QuickBooksSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -53202,6 +55035,7 @@ class RelationalSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -53211,6 +55045,7 @@ class RelationalSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'RelationalSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -53219,6 +55054,8 @@ class RelationalSourceArgs:
         pulumi.set(__self__, "type", 'RelationalSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -53252,6 +55089,18 @@ class RelationalSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -53927,6 +55776,7 @@ class ResponsysSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -53937,6 +55787,7 @@ class ResponsysSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ResponsysSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -53946,6 +55797,8 @@ class ResponsysSourceArgs:
         pulumi.set(__self__, "type", 'ResponsysSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -53981,6 +55834,18 @@ class ResponsysSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -54543,6 +56408,7 @@ class RestSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_headers: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_compression_type: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -54557,6 +56423,7 @@ class RestSinkArgs:
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'RestSink'.
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_compression_type: Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -54570,6 +56437,8 @@ class RestSinkArgs:
         pulumi.set(__self__, "type", 'RestSink')
         if additional_headers is not None:
             pulumi.set(__self__, "additional_headers", additional_headers)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_compression_type is not None:
             pulumi.set(__self__, "http_compression_type", http_compression_type)
         if http_request_timeout is not None:
@@ -54613,6 +56482,18 @@ class RestSinkArgs:
     @additional_headers.setter
     def additional_headers(self, value: Optional[Any]):
         pulumi.set(self, "additional_headers", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpCompressionType")
@@ -54729,6 +56610,7 @@ class RestSourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  additional_headers: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pagination_rules: Optional[Any] = None,
@@ -54743,6 +56625,7 @@ class RestSourceArgs:
                Expected value is 'RestSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
@@ -54757,6 +56640,8 @@ class RestSourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if additional_headers is not None:
             pulumi.set(__self__, "additional_headers", additional_headers)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -54810,6 +56695,18 @@ class RestSourceArgs:
     @additional_headers.setter
     def additional_headers(self, value: Optional[Any]):
         pulumi.set(self, "additional_headers", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -55967,6 +57864,7 @@ class SalesforceMarketingCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -55977,6 +57875,7 @@ class SalesforceMarketingCloudSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceMarketingCloudSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -55986,6 +57885,8 @@ class SalesforceMarketingCloudSourceArgs:
         pulumi.set(__self__, "type", 'SalesforceMarketingCloudSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -56021,6 +57922,18 @@ class SalesforceMarketingCloudSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -56592,6 +58505,7 @@ class SalesforceServiceCloudObjectDatasetArgs:
 class SalesforceServiceCloudSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  external_id_field_name: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -56604,6 +58518,7 @@ class SalesforceServiceCloudSinkArgs:
         A copy activity Salesforce Service Cloud sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SalesforceServiceCloudSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any external_id_field_name: The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
         :param Any ignore_null_values: The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -56614,6 +58529,8 @@ class SalesforceServiceCloudSinkArgs:
         :param pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']] write_behavior: The write behavior for the operation. Default is Insert.
         """
         pulumi.set(__self__, "type", 'SalesforceServiceCloudSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if external_id_field_name is not None:
             pulumi.set(__self__, "external_id_field_name", external_id_field_name)
         if ignore_null_values is not None:
@@ -56643,6 +58560,18 @@ class SalesforceServiceCloudSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="externalIdFieldName")
@@ -56746,6 +58675,7 @@ class SalesforceServiceCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  read_behavior: Optional[pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']]] = None,
@@ -56756,6 +58686,7 @@ class SalesforceServiceCloudSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceServiceCloudSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union[str, 'SalesforceSourceReadBehavior']] read_behavior: The read behavior for the operation. Default is Query.
@@ -56765,6 +58696,8 @@ class SalesforceServiceCloudSourceArgs:
         pulumi.set(__self__, "type", 'SalesforceServiceCloudSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -56800,6 +58733,18 @@ class SalesforceServiceCloudSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -56866,6 +58811,7 @@ class SalesforceServiceCloudSourceArgs:
 class SalesforceSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  external_id_field_name: Optional[Any] = None,
                  ignore_null_values: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -56878,6 +58824,7 @@ class SalesforceSinkArgs:
         A copy activity Salesforce sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SalesforceSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any external_id_field_name: The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
         :param Any ignore_null_values: The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -56888,6 +58835,8 @@ class SalesforceSinkArgs:
         :param pulumi.Input[Union[str, 'SalesforceSinkWriteBehavior']] write_behavior: The write behavior for the operation. Default is Insert.
         """
         pulumi.set(__self__, "type", 'SalesforceSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if external_id_field_name is not None:
             pulumi.set(__self__, "external_id_field_name", external_id_field_name)
         if ignore_null_values is not None:
@@ -56917,6 +58866,18 @@ class SalesforceSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="externalIdFieldName")
@@ -57020,6 +58981,7 @@ class SalesforceSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -57031,6 +58993,7 @@ class SalesforceSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -57041,6 +59004,8 @@ class SalesforceSourceArgs:
         pulumi.set(__self__, "type", 'SalesforceSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -57078,6 +59043,18 @@ class SalesforceSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -57475,6 +59452,7 @@ class SapBwSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -57485,6 +59463,7 @@ class SapBwSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapBwSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: MDX query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -57494,6 +59473,8 @@ class SapBwSourceArgs:
         pulumi.set(__self__, "type", 'SapBwSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -57529,6 +59510,18 @@ class SapBwSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -57898,6 +59891,7 @@ class SapCloudForCustomerResourceDatasetArgs:
 class SapCloudForCustomerSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -57909,6 +59903,7 @@ class SapCloudForCustomerSinkArgs:
         A copy activity SAP Cloud for Customer sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SapCloudForCustomerSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -57918,6 +59913,8 @@ class SapCloudForCustomerSinkArgs:
         :param pulumi.Input[Union[str, 'SapCloudForCustomerSinkWriteBehavior']] write_behavior: The write behavior for the operation. Default is 'Insert'.
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomerSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -57945,6 +59942,18 @@ class SapCloudForCustomerSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -58036,6 +60045,7 @@ class SapCloudForCustomerSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -58047,6 +60057,7 @@ class SapCloudForCustomerSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapCloudForCustomerSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: SAP Cloud for Customer OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -58057,6 +60068,8 @@ class SapCloudForCustomerSourceArgs:
         pulumi.set(__self__, "type", 'SapCloudForCustomerSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -58094,6 +60107,18 @@ class SapCloudForCustomerSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -58476,6 +60501,7 @@ class SapEccSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -58487,6 +60513,7 @@ class SapEccSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapEccSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: SAP ECC OData query. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -58497,6 +60524,8 @@ class SapEccSourceArgs:
         pulumi.set(__self__, "type", 'SapEccSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -58534,6 +60563,18 @@ class SapEccSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -58822,6 +60863,7 @@ class SapHanaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  packet_size: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -58835,6 +60877,7 @@ class SapHanaSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapHanaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for SAP HANA read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "SapHanaDynamicRange". 
@@ -58847,6 +60890,8 @@ class SapHanaSourceArgs:
         pulumi.set(__self__, "type", 'SapHanaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if packet_size is not None:
@@ -58888,6 +60933,18 @@ class SapHanaSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -59410,6 +61467,7 @@ class SapOpenHubSourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  base_request_id: Optional[Any] = None,
                  custom_rfc_read_table_function_module: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  exclude_last_request: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -59423,6 +61481,7 @@ class SapOpenHubSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -59437,6 +61496,8 @@ class SapOpenHubSourceArgs:
             pulumi.set(__self__, "base_request_id", base_request_id)
         if custom_rfc_read_table_function_module is not None:
             pulumi.set(__self__, "custom_rfc_read_table_function_module", custom_rfc_read_table_function_module)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if exclude_last_request is not None:
             pulumi.set(__self__, "exclude_last_request", exclude_last_request)
         if max_concurrent_connections is not None:
@@ -59498,6 +61559,18 @@ class SapOpenHubSourceArgs:
     @custom_rfc_read_table_function_module.setter
     def custom_rfc_read_table_function_module(self, value: Optional[Any]):
         pulumi.set(self, "custom_rfc_read_table_function_module", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="excludeLastRequest")
@@ -60330,6 +62403,7 @@ class SapTableSourceArgs:
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
                  batch_size: Optional[Any] = None,
                  custom_rfc_read_table_function_module: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['SapTablePartitionSettingsArgs']] = None,
@@ -60348,6 +62422,7 @@ class SapTableSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for SAP table read in parallel. Possible values include: "None", "PartitionOnInt", "PartitionOnCalendarYear", "PartitionOnCalendarMonth", "PartitionOnCalendarDate", "PartitionOnTime".
         :param pulumi.Input['SapTablePartitionSettingsArgs'] partition_settings: The settings that will be leveraged for SAP table source partitioning.
@@ -60367,6 +62442,8 @@ class SapTableSourceArgs:
             pulumi.set(__self__, "batch_size", batch_size)
         if custom_rfc_read_table_function_module is not None:
             pulumi.set(__self__, "custom_rfc_read_table_function_module", custom_rfc_read_table_function_module)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -60438,6 +62515,18 @@ class SapTableSourceArgs:
     @custom_rfc_read_table_function_module.setter
     def custom_rfc_read_table_function_module(self, value: Optional[Any]):
         pulumi.set(self, "custom_rfc_read_table_function_module", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -61390,6 +63479,7 @@ class ServiceNowSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -61400,6 +63490,7 @@ class ServiceNowSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ServiceNowSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -61409,6 +63500,8 @@ class ServiceNowSourceArgs:
         pulumi.set(__self__, "type", 'ServiceNowSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -61444,6 +63537,18 @@ class ServiceNowSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -61688,6 +63793,7 @@ class SftpReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -61702,6 +63808,7 @@ class SftpReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'SftpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -61715,6 +63822,8 @@ class SftpReadSettingsArgs:
         pulumi.set(__self__, "type", 'SftpReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
             pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if file_list_path is not None:
@@ -61758,6 +63867,18 @@ class SftpReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
@@ -62137,6 +64258,7 @@ class SftpWriteSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  operation_timeout: Optional[Any] = None,
                  use_temp_file_rename: Optional[Any] = None):
@@ -62145,6 +64267,7 @@ class SftpWriteSettingsArgs:
         :param pulumi.Input[str] type: The write setting type.
                Expected value is 'SftpWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any operation_timeout: Specifies the timeout for writing each chunk to SFTP server. Default value: 01:00:00 (one hour). Type: string (or Expression with resultType string).
         :param Any use_temp_file_rename: Upload to temporary file(s) and rename. Disable this option if your SFTP server doesn't support rename operation. Type: boolean (or Expression with resultType boolean).
@@ -62152,6 +64275,8 @@ class SftpWriteSettingsArgs:
         pulumi.set(__self__, "type", 'SftpWriteSettings')
         if copy_behavior is not None:
             pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if operation_timeout is not None:
@@ -62183,6 +64308,18 @@ class SftpWriteSettingsArgs:
     @copy_behavior.setter
     def copy_behavior(self, value: Optional[Any]):
         pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -62542,6 +64679,7 @@ class SharePointOnlineListResourceDatasetArgs:
 class SharePointOnlineListSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -62551,6 +64689,7 @@ class SharePointOnlineListSourceArgs:
         A copy activity source for sharePoint online list source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SharePointOnlineListSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The wait time to get a response from SharePoint Online. Default value is 5 minutes (00:05:00). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: The OData query to filter the data in SharePoint Online list. For example, "$top=1". Type: string (or Expression with resultType string).
@@ -62558,6 +64697,8 @@ class SharePointOnlineListSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SharePointOnlineListSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if http_request_timeout is not None:
             pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if max_concurrent_connections is not None:
@@ -62581,6 +64722,18 @@ class SharePointOnlineListSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="httpRequestTimeout")
@@ -62984,6 +65137,7 @@ class ShopifySourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -62994,6 +65148,7 @@ class ShopifySourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ShopifySource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -63003,6 +65158,8 @@ class ShopifySourceArgs:
         pulumi.set(__self__, "type", 'ShopifySource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -63038,6 +65195,18 @@ class ShopifySourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -63546,6 +65715,7 @@ class SnowflakeLinkedServiceArgs:
 class SnowflakeSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  import_settings: Optional[pulumi.Input['SnowflakeImportCopyCommandArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
@@ -63557,6 +65727,7 @@ class SnowflakeSinkArgs:
         A copy activity snowflake sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SnowflakeSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['SnowflakeImportCopyCommandArgs'] import_settings: Snowflake import settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
@@ -63566,6 +65737,8 @@ class SnowflakeSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SnowflakeSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if import_settings is not None:
             pulumi.set(__self__, "import_settings", import_settings)
         if max_concurrent_connections is not None:
@@ -63593,6 +65766,18 @@ class SnowflakeSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="importSettings")
@@ -63683,6 +65868,7 @@ class SnowflakeSinkArgs:
 class SnowflakeSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  export_settings: Optional[pulumi.Input['SnowflakeExportCopyCommandArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -63692,6 +65878,7 @@ class SnowflakeSourceArgs:
         A copy activity snowflake source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SnowflakeSource'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['SnowflakeExportCopyCommandArgs'] export_settings: Snowflake export settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
@@ -63699,6 +65886,8 @@ class SnowflakeSourceArgs:
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SnowflakeSource')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if export_settings is not None:
             pulumi.set(__self__, "export_settings", export_settings)
         if max_concurrent_connections is not None:
@@ -63722,6 +65911,18 @@ class SnowflakeSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="exportSettings")
@@ -64267,6 +66468,7 @@ class SparkSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -64277,6 +66479,7 @@ class SparkSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SparkSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -64286,6 +66489,8 @@ class SparkSourceArgs:
         pulumi.set(__self__, "type", 'SparkSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -64321,6 +66526,18 @@ class SparkSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -64445,6 +66662,7 @@ class SqlDWSinkArgs:
                  allow_copy_command: Optional[Any] = None,
                  allow_poly_base: Optional[Any] = None,
                  copy_command_settings: Optional[pulumi.Input['DWCopyCommandSettingsArgs']] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  poly_base_settings: Optional[pulumi.Input['PolybaseSettingsArgs']] = None,
                  pre_copy_script: Optional[Any] = None,
@@ -64460,6 +66678,7 @@ class SqlDWSinkArgs:
         :param Any allow_copy_command: Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean).
         :param Any allow_poly_base: Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DWCopyCommandSettingsArgs'] copy_command_settings: Specifies Copy Command related settings when allowCopyCommand is true.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['PolybaseSettingsArgs'] poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
@@ -64476,6 +66695,8 @@ class SqlDWSinkArgs:
             pulumi.set(__self__, "allow_poly_base", allow_poly_base)
         if copy_command_settings is not None:
             pulumi.set(__self__, "copy_command_settings", copy_command_settings)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if poly_base_settings is not None:
@@ -64541,6 +66762,18 @@ class SqlDWSinkArgs:
     @copy_command_settings.setter
     def copy_command_settings(self, value: Optional[pulumi.Input['DWCopyCommandSettingsArgs']]):
         pulumi.set(self, "copy_command_settings", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -64644,6 +66877,7 @@ class SqlDWSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['SqlPartitionSettingsArgs']] = None,
@@ -64658,6 +66892,7 @@ class SqlDWSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlDWSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param pulumi.Input['SqlPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -64671,6 +66906,8 @@ class SqlDWSourceArgs:
         pulumi.set(__self__, "type", 'SqlDWSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -64714,6 +66951,18 @@ class SqlDWSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -64828,6 +67077,7 @@ class SqlDWSourceArgs:
 class SqlMISinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -64843,6 +67093,7 @@ class SqlMISinkArgs:
         A copy activity Azure SQL Managed Instance sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SqlMISink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -64856,6 +67107,8 @@ class SqlMISinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SqlMISink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -64891,6 +67144,18 @@ class SqlMISinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -65030,6 +67295,7 @@ class SqlMISourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['SqlPartitionSettingsArgs']] = None,
@@ -65045,6 +67311,7 @@ class SqlMISourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlMISource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param pulumi.Input['SqlPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -65059,6 +67326,8 @@ class SqlMISourceArgs:
         pulumi.set(__self__, "type", 'SqlMISource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -65104,6 +67373,18 @@ class SqlMISourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -65454,6 +67735,7 @@ class SqlServerLinkedServiceArgs:
 class SqlServerSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -65469,6 +67751,7 @@ class SqlServerSinkArgs:
         A copy activity SQL server sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SqlServerSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -65482,6 +67765,8 @@ class SqlServerSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SqlServerSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -65517,6 +67802,18 @@ class SqlServerSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -65656,6 +67953,7 @@ class SqlServerSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['SqlPartitionSettingsArgs']] = None,
@@ -65671,6 +67969,7 @@ class SqlServerSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlServerSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param pulumi.Input['SqlPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -65685,6 +67984,8 @@ class SqlServerSourceArgs:
         pulumi.set(__self__, "type", 'SqlServerSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -65730,6 +68031,18 @@ class SqlServerSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -66174,6 +68487,7 @@ class SqlServerTableDatasetArgs:
 class SqlSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
@@ -66189,6 +68503,7 @@ class SqlSinkArgs:
         A copy activity SQL sink.
         :param pulumi.Input[str] type: Copy sink type.
                Expected value is 'SqlSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
@@ -66202,6 +68517,8 @@ class SqlSinkArgs:
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "type", 'SqlSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if pre_copy_script is not None:
@@ -66237,6 +68554,18 @@ class SqlSinkArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -66376,6 +68705,7 @@ class SqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -66391,6 +68721,7 @@ class SqlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -66405,6 +68736,8 @@ class SqlSourceArgs:
         pulumi.set(__self__, "type", 'SqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if isolation_level is not None:
             pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
@@ -66450,6 +68783,18 @@ class SqlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="isolationLevel")
@@ -66962,6 +69307,7 @@ class SquareSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -66972,6 +69318,7 @@ class SquareSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SquareSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -66981,6 +69328,8 @@ class SquareSourceArgs:
         pulumi.set(__self__, "type", 'SquareSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -67016,6 +69365,18 @@ class SquareSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -67552,6 +69913,7 @@ class SybaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -67562,6 +69924,7 @@ class SybaseSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SybaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -67571,6 +69934,8 @@ class SybaseSourceArgs:
         pulumi.set(__self__, "type", 'SybaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -67606,6 +69971,18 @@ class SybaseSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -67825,6 +70202,7 @@ class TabularSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -67834,6 +70212,7 @@ class TabularSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'TabularSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -67842,6 +70221,8 @@ class TabularSourceArgs:
         pulumi.set(__self__, "type", 'TabularSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query_timeout is not None:
@@ -67875,6 +70256,18 @@ class TabularSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -68253,6 +70646,7 @@ class TeradataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional[pulumi.Input['TeradataPartitionSettingsArgs']] = None,
@@ -68265,6 +70659,7 @@ class TeradataSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'TeradataSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for teradata read in parallel. Possible values include: "None", "Hash", "DynamicRange".
         :param pulumi.Input['TeradataPartitionSettingsArgs'] partition_settings: The settings that will be leveraged for teradata source partitioning.
@@ -68276,6 +70671,8 @@ class TeradataSourceArgs:
         pulumi.set(__self__, "type", 'TeradataSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -68315,6 +70712,18 @@ class TeradataSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -69715,6 +72124,7 @@ class VerticaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -69725,6 +72135,7 @@ class VerticaSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'VerticaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -69734,6 +72145,8 @@ class VerticaSourceArgs:
         pulumi.set(__self__, "type", 'VerticaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -69769,6 +72182,18 @@ class VerticaSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -70938,6 +73363,7 @@ class WebSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
@@ -70946,6 +73372,7 @@ class WebSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'WebSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -70953,6 +73380,8 @@ class WebSourceArgs:
         pulumi.set(__self__, "type", 'WebSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -70984,6 +73413,18 @@ class WebSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -71565,6 +74006,7 @@ class XeroSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -71575,6 +74017,7 @@ class XeroSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'XeroSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -71584,6 +74027,8 @@ class XeroSourceArgs:
         pulumi.set(__self__, "type", 'XeroSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -71619,6 +74064,18 @@ class XeroSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -71990,6 +74447,7 @@ class XmlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['XmlReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -72000,6 +74458,7 @@ class XmlSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'XmlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['XmlReadSettingsArgs'] format_settings: Xml format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -72009,6 +74468,8 @@ class XmlSourceArgs:
         pulumi.set(__self__, "type", 'XmlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if format_settings is not None:
             pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
@@ -72044,6 +74505,18 @@ class XmlSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="formatSettings")
@@ -72505,6 +74978,7 @@ class ZohoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -72515,6 +74989,7 @@ class ZohoSourceArgs:
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ZohoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -72524,6 +74999,8 @@ class ZohoSourceArgs:
         pulumi.set(__self__, "type", 'ZohoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query is not None:
@@ -72559,6 +75036,18 @@ class ZohoSourceArgs:
     @additional_columns.setter
     def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
         pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")

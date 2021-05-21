@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.MongoDbCursorMethodsPropertiesResponse? CursorMethods;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Filter;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.MongoDbCursorMethodsPropertiesResponse? cursorMethods,
 
+            object? disableMetricsCollection,
+
             object? filter,
 
             object? maxConcurrentConnections,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AdditionalColumns = additionalColumns;
             BatchSize = batchSize;
             CursorMethods = cursorMethods;
+            DisableMetricsCollection = disableMetricsCollection;
             Filter = filter;
             MaxConcurrentConnections = maxConcurrentConnections;
             QueryTimeout = queryTimeout;

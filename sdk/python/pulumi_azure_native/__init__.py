@@ -396,6 +396,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "aad/v20210501",
+  "fqn": "pulumi_azure_native.aad.v20210501",
+  "classes": {
+   "azure-native:aad/v20210501:DomainService": "DomainService",
+   "azure-native:aad/v20210501:OuContainer": "OuContainer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "aadiam",
   "fqn": "pulumi_azure_native.aadiam",
   "classes": {
@@ -8196,6 +8205,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "maps/v20210701preview",
+  "fqn": "pulumi_azure_native.maps.v20210701preview",
+  "classes": {
+   "azure-native:maps/v20210701preview:Account": "Account",
+   "azure-native:maps/v20210701preview:Creator": "Creator"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "marketplace",
   "fqn": "pulumi_azure_native.marketplace",
   "classes": {
@@ -8713,6 +8731,20 @@ _utilities.register(
    "azure-native:netapp/v20210201:Snapshot": "Snapshot",
    "azure-native:netapp/v20210201:SnapshotPolicy": "SnapshotPolicy",
    "azure-native:netapp/v20210201:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20210401preview",
+  "fqn": "pulumi_azure_native.netapp.v20210401preview",
+  "classes": {
+   "azure-native:netapp/v20210401preview:Account": "Account",
+   "azure-native:netapp/v20210401preview:Backup": "Backup",
+   "azure-native:netapp/v20210401preview:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20210401preview:Pool": "Pool",
+   "azure-native:netapp/v20210401preview:Snapshot": "Snapshot",
+   "azure-native:netapp/v20210401preview:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20210401preview:Volume": "Volume"
   }
  },
  {

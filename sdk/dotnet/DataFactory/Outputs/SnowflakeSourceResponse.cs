@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SnowflakeSourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Snowflake export settings.
         /// </summary>
         public readonly Outputs.SnowflakeExportCopyCommandResponse? ExportSettings;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SnowflakeSourceResponse(
+            object? disableMetricsCollection,
+
             Outputs.SnowflakeExportCopyCommandResponse? exportSettings,
 
             object? maxConcurrentConnections,
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             ExportSettings = exportSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             Query = query;

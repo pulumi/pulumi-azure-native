@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? CopyBehavior;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private SftpWriteSettingsResponse(
             object? copyBehavior,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? operationTimeout,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             object? useTempFileRename)
         {
             CopyBehavior = copyBehavior;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             OperationTimeout = operationTimeout;
             Type = type;

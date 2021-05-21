@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class SnowflakeSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Snowflake import settings.
         /// </summary>
         [Input("importSettings")]

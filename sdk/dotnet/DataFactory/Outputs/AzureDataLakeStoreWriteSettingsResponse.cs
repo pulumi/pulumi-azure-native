@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? CopyBehavior;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? ExpiryDateTime;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private AzureDataLakeStoreWriteSettingsResponse(
             object? copyBehavior,
 
+            object? disableMetricsCollection,
+
             object? expiryDateTime,
 
             object? maxConcurrentConnections,
@@ -42,6 +48,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string type)
         {
             CopyBehavior = copyBehavior;
+            DisableMetricsCollection = disableMetricsCollection;
             ExpiryDateTime = expiryDateTime;
             MaxConcurrentConnections = maxConcurrentConnections;
             Type = type;

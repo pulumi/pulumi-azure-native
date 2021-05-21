@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? CustomRfcReadTableFunctionModule;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? ExcludeLastRequest;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? customRfcReadTableFunctionModule,
 
+            object? disableMetricsCollection,
+
             object? excludeLastRequest,
 
             object? maxConcurrentConnections,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             AdditionalColumns = additionalColumns;
             BaseRequestId = baseRequestId;
             CustomRfcReadTableFunctionModule = customRfcReadTableFunctionModule;
+            DisableMetricsCollection = disableMetricsCollection;
             ExcludeLastRequest = excludeLastRequest;
             MaxConcurrentConnections = maxConcurrentConnections;
             QueryTimeout = queryTimeout;

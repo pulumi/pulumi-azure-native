@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Json format settings.
         /// </summary>
         public readonly Outputs.JsonReadSettingsResponse? FormatSettings;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private JsonSourceResponse(
             ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
 
+            object? disableMetricsCollection,
+
             Outputs.JsonReadSettingsResponse? formatSettings,
 
             object? maxConcurrentConnections,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             string type)
         {
             AdditionalColumns = additionalColumns;
+            DisableMetricsCollection = disableMetricsCollection;
             FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SourceRetryCount = sourceRetryCount;

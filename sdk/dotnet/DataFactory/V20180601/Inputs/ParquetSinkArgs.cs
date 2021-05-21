@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class ParquetSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Parquet format settings.
         /// </summary>
         [Input("formatSettings")]

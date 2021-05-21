@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SnowflakeSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Snowflake import settings.
         /// </summary>
         public readonly Outputs.SnowflakeImportCopyCommandResponse? ImportSettings;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SnowflakeSinkResponse(
+            object? disableMetricsCollection,
+
             Outputs.SnowflakeImportCopyCommandResponse? importSettings,
 
             object? maxConcurrentConnections,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             ImportSettings = importSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             PreCopyScript = preCopyScript;

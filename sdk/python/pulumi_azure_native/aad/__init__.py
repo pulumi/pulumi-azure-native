@@ -19,9 +19,11 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.aad.v20170601 as v20170601
     import pulumi_azure_native.aad.v20200101 as v20200101
     import pulumi_azure_native.aad.v20210301 as v20210301
+    import pulumi_azure_native.aad.v20210501 as v20210501
 else:
     v20170101 = _utilities.lazy_import('pulumi_azure_native.aad.v20170101')
     v20170601 = _utilities.lazy_import('pulumi_azure_native.aad.v20170601')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.aad.v20200101')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.aad.v20210301')
+    v20210501 = _utilities.lazy_import('pulumi_azure_native.aad.v20210501')
 

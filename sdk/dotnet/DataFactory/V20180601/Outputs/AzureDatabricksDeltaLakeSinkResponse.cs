@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureDatabricksDeltaLakeSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Azure Databricks Delta Lake import settings.
         /// </summary>
         public readonly Outputs.AzureDatabricksDeltaLakeImportCommandResponse? ImportSettings;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private AzureDatabricksDeltaLakeSinkResponse(
+            object? disableMetricsCollection,
+
             Outputs.AzureDatabricksDeltaLakeImportCommandResponse? importSettings,
 
             object? maxConcurrentConnections,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             ImportSettings = importSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             PreCopyScript = preCopyScript;

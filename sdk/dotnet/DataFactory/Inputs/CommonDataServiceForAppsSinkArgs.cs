@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? AlternateKeyName { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("ignoreNullValues")]

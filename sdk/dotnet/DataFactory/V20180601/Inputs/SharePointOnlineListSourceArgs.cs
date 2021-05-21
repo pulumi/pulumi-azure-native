@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class SharePointOnlineListSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// The wait time to get a response from SharePoint Online. Default value is 5 minutes (00:05:00). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         [Input("httpRequestTimeout")]

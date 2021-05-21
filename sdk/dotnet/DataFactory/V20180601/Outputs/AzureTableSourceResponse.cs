@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? AzureTableSourceQuery;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? azureTableSourceQuery,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? queryTimeout,
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             AdditionalColumns = additionalColumns;
             AzureTableSourceIgnoreTableNotFound = azureTableSourceIgnoreTableNotFound;
             AzureTableSourceQuery = azureTableSourceQuery;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             QueryTimeout = queryTimeout;
             SourceRetryCount = sourceRetryCount;

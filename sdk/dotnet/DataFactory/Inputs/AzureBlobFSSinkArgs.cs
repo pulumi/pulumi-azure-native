@@ -22,10 +22,28 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? CopyBehavior { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]
         public Input<object>? MaxConcurrentConnections { get; set; }
+
+        [Input("metadata")]
+        private InputList<Inputs.MetadataItemArgs>? _metadata;
+
+        /// <summary>
+        /// Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        /// </summary>
+        public InputList<Inputs.MetadataItemArgs> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputList<Inputs.MetadataItemArgs>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// Sink retry count. Type: integer (or Expression with resultType integer).

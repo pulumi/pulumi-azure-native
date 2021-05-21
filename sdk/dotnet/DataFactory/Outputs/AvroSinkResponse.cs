@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class AvroSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Avro format settings.
         /// </summary>
         public readonly Outputs.AvroWriteSettingsResponse? FormatSettings;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private AvroSinkResponse(
+            object? disableMetricsCollection,
+
             Outputs.AvroWriteSettingsResponse? formatSettings,
 
             object? maxConcurrentConnections,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SinkRetryCount = sinkRetryCount;

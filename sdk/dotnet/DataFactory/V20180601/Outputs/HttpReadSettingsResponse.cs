@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? AdditionalHeaders;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Indicates whether to enable partition discovery.
         /// </summary>
         public readonly bool? EnablePartitionDiscovery;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private HttpReadSettingsResponse(
             object? additionalHeaders,
 
+            object? disableMetricsCollection,
+
             bool? enablePartitionDiscovery,
 
             object? maxConcurrentConnections,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             string type)
         {
             AdditionalHeaders = additionalHeaders;
+            DisableMetricsCollection = disableMetricsCollection;
             EnablePartitionDiscovery = enablePartitionDiscovery;
             MaxConcurrentConnections = maxConcurrentConnections;
             PartitionRootPath = partitionRootPath;

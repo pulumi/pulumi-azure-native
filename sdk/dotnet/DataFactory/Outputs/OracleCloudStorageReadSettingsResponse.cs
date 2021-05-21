@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? DeleteFilesAfterCompletion;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Indicates whether to enable partition discovery.
         /// </summary>
         public readonly bool? EnablePartitionDiscovery;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private OracleCloudStorageReadSettingsResponse(
             object? deleteFilesAfterCompletion,
 
+            object? disableMetricsCollection,
+
             bool? enablePartitionDiscovery,
 
             object? fileListPath,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             object? wildcardFolderPath)
         {
             DeleteFilesAfterCompletion = deleteFilesAfterCompletion;
+            DisableMetricsCollection = disableMetricsCollection;
             EnablePartitionDiscovery = enablePartitionDiscovery;
             FileListPath = fileListPath;
             MaxConcurrentConnections = maxConcurrentConnections;

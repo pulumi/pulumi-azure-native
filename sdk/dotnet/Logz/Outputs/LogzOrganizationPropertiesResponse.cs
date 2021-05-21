@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Logz.Outputs
         /// Id of the Logz organization.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The login URL specific to this Logz Organization.
+        /// </summary>
+        public readonly string? SingleSignOnUrl;
 
         [OutputConstructor]
         private LogzOrganizationPropertiesResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNative.Logz.Outputs
 
             string? enterpriseAppId,
 
-            string id)
+            string id,
+
+            string? singleSignOnUrl)
         {
             CompanyName = companyName;
             EnterpriseAppId = enterpriseAppId;
             Id = id;
+            SingleSignOnUrl = singleSignOnUrl;
         }
     }
 }

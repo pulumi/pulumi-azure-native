@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class HttpSourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies the timeout for a HTTP client to get HTTP response from HTTP server. The default value is equivalent to System.Net.HttpWebRequest.Timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? HttpRequestTimeout;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private HttpSourceResponse(
+            object? disableMetricsCollection,
+
             object? httpRequestTimeout,
 
             object? maxConcurrentConnections,
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             HttpRequestTimeout = httpRequestTimeout;
             MaxConcurrentConnections = maxConcurrentConnections;
             SourceRetryCount = sourceRetryCount;

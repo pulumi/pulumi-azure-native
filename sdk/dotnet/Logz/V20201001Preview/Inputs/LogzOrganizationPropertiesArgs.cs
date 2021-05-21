@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview.Inputs
         [Input("enterpriseAppId")]
         public Input<string>? EnterpriseAppId { get; set; }
 
+        /// <summary>
+        /// The login URL specific to this Logz Organization.
+        /// </summary>
+        [Input("singleSignOnUrl")]
+        public Input<string>? SingleSignOnUrl { get; set; }
+
         public LogzOrganizationPropertiesArgs()
         {
         }

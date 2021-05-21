@@ -21,9 +21,11 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.maps.v20180501 as v20180501
     import pulumi_azure_native.maps.v20200201preview as v20200201preview
     import pulumi_azure_native.maps.v20210201 as v20210201
+    import pulumi_azure_native.maps.v20210701preview as v20210701preview
 else:
     v20170101preview = _utilities.lazy_import('pulumi_azure_native.maps.v20170101preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20200201preview')
     v20210201 = _utilities.lazy_import('pulumi_azure_native.maps.v20210201')
+    v20210701preview = _utilities.lazy_import('pulumi_azure_native.maps.v20210701preview')
 

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.MongoDbCursorMethodsPropertiesArgs>? CursorMethods { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). Type: string (or Expression with resultType string).
         /// </summary>
         [Input("filter")]

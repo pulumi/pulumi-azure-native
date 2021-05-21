@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? AzureTableSourceQuery { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]

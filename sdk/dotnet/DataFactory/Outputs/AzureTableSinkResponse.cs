@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? AzureTableRowKeyName;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? azureTableRowKeyName,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? sinkRetryCount,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AzureTableInsertType = azureTableInsertType;
             AzureTablePartitionKeyName = azureTablePartitionKeyName;
             AzureTableRowKeyName = azureTableRowKeyName;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             SinkRetryCount = sinkRetryCount;
             SinkRetryWait = sinkRetryWait;

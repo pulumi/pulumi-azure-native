@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? AdditionalHeaders { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
         /// </summary>
         [Input("httpCompressionType")]

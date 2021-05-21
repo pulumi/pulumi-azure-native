@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class DocumentDbCollectionSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private DocumentDbCollectionSinkResponse(
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? nestingSeparator,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? writeBehavior)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             NestingSeparator = nestingSeparator;
             SinkRetryCount = sinkRetryCount;

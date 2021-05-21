@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? IsolationLevel;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private SqlSourceResponse(
             ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
 
+            object? disableMetricsCollection,
+
             object? isolationLevel,
 
             object? maxConcurrentConnections,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string type)
         {
             AdditionalColumns = additionalColumns;
+            DisableMetricsCollection = disableMetricsCollection;
             IsolationLevel = isolationLevel;
             MaxConcurrentConnections = maxConcurrentConnections;
             PartitionOption = partitionOption;

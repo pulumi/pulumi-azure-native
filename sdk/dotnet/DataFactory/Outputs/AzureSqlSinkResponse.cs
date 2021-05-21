@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class AzureSqlSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private AzureSqlSinkResponse(
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? preCopyScript,
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             PreCopyScript = preCopyScript;
             SinkRetryCount = sinkRetryCount;

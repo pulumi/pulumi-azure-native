@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class AzureDatabricksDeltaLakeSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Azure Databricks Delta Lake import settings.
         /// </summary>
         [Input("importSettings")]

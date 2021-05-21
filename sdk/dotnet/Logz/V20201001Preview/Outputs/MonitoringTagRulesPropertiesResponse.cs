@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview.Outputs
         /// </summary>
         public readonly Outputs.LogRulesResponse? LogRules;
         /// <summary>
+        /// Flag specifying if the resource provisioning state as tracked by ARM.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview.Outputs
         private MonitoringTagRulesPropertiesResponse(
             Outputs.LogRulesResponse? logRules,
 
+            string provisioningState,
+
             Outputs.SystemDataResponse systemData)
         {
             LogRules = logRules;
+            ProvisioningState = provisioningState;
             SystemData = systemData;
         }
     }

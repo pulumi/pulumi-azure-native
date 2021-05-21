@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class SalesforceServiceCloudSinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("externalIdFieldName")]

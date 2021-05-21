@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? AlternateKeyName;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The flag indicating whether to ignore null values from input dataset (except key fields) during write operation. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? IgnoreNullValues;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private DynamicsCrmSinkResponse(
             object? alternateKeyName,
 
+            object? disableMetricsCollection,
+
             object? ignoreNullValues,
 
             object? maxConcurrentConnections,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string writeBehavior)
         {
             AlternateKeyName = alternateKeyName;
+            DisableMetricsCollection = disableMetricsCollection;
             IgnoreNullValues = ignoreNullValues;
             MaxConcurrentConnections = maxConcurrentConnections;
             SinkRetryCount = sinkRetryCount;

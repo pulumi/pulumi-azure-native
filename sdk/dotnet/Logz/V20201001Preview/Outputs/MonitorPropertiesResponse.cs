@@ -28,6 +28,9 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview.Outputs
         /// </summary>
         public readonly string? MonitoringStatus;
         public readonly Outputs.PlanDataResponse? PlanData;
+        /// <summary>
+        /// Flag specifying if the resource provisioning state as tracked by ARM.
+        /// </summary>
         public readonly string ProvisioningState;
         public readonly Outputs.UserInfoResponse? UserInfo;
 

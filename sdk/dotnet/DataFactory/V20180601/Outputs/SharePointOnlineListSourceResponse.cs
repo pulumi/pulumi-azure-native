@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SharePointOnlineListSourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The wait time to get a response from SharePoint Online. Default value is 5 minutes (00:05:00). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? HttpRequestTimeout;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private SharePointOnlineListSourceResponse(
+            object? disableMetricsCollection,
+
             object? httpRequestTimeout,
 
             object? maxConcurrentConnections,
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             HttpRequestTimeout = httpRequestTimeout;
             MaxConcurrentConnections = maxConcurrentConnections;
             Query = query;

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureDataExplorerSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// If set to true, any aggregation will be skipped. Default is false. Type: boolean.
         /// </summary>
         public readonly object? FlushImmediately;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private AzureDataExplorerSinkResponse(
+            object? disableMetricsCollection,
+
             object? flushImmediately,
 
             object? ingestionMappingAsJson,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             FlushImmediately = flushImmediately;
             IngestionMappingAsJson = ingestionMappingAsJson;
             IngestionMappingName = ingestionMappingName;

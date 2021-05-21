@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? CustomRfcReadTableFunctionModule { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("excludeLastRequest")]

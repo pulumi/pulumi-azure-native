@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// DelimitedText format settings.
         /// </summary>
         public readonly Outputs.DelimitedTextReadSettingsResponse? FormatSettings;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private DelimitedTextSourceResponse(
             ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
 
+            object? disableMetricsCollection,
+
             Outputs.DelimitedTextReadSettingsResponse? formatSettings,
 
             object? maxConcurrentConnections,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string type)
         {
             AdditionalColumns = additionalColumns;
+            DisableMetricsCollection = disableMetricsCollection;
             FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SourceRetryCount = sourceRetryCount;

@@ -21,6 +21,8 @@ __all__ = [
     'PlanDataResponse',
     'SystemDataResponse',
     'UserInfoResponse',
+    'UserRoleResponseResponse',
+    'VMResourcesResponse',
 ]
 
 @pulumi.output_type
@@ -217,6 +219,8 @@ class LogzOrganizationPropertiesResponse(dict):
             suggest = "company_name"
         elif key == "enterpriseAppId":
             suggest = "enterprise_app_id"
+        elif key == "singleSignOnUrl":
+            suggest = "single_sign_on_url"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogzOrganizationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -232,17 +236,21 @@ class LogzOrganizationPropertiesResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  company_name: Optional[str] = None,
-                 enterprise_app_id: Optional[str] = None):
+                 enterprise_app_id: Optional[str] = None,
+                 single_sign_on_url: Optional[str] = None):
         """
         :param str id: Id of the Logz organization.
         :param str company_name: Name of the Logz organization.
         :param str enterprise_app_id: The Id of the Enterprise App used for Single sign on.
+        :param str single_sign_on_url: The login URL specific to this Logz Organization.
         """
         pulumi.set(__self__, "id", id)
         if company_name is not None:
             pulumi.set(__self__, "company_name", company_name)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+        if single_sign_on_url is not None:
+            pulumi.set(__self__, "single_sign_on_url", single_sign_on_url)
 
     @property
     @pulumi.getter
@@ -267,6 +275,14 @@ class LogzOrganizationPropertiesResponse(dict):
         The Id of the Enterprise App used for Single sign on.
         """
         return pulumi.get(self, "enterprise_app_id")
+
+    @property
+    @pulumi.getter(name="singleSignOnUrl")
+    def single_sign_on_url(self) -> Optional[str]:
+        """
+        The login URL specific to this Logz Organization.
+        """
+        return pulumi.get(self, "single_sign_on_url")
 
 
 @pulumi.output_type
@@ -317,6 +333,7 @@ class MonitorPropertiesResponse(dict):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
+        :param str provisioning_state: Flag specifying if the resource provisioning state as tracked by ARM.
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         """
@@ -350,6 +367,9 @@ class MonitorPropertiesResponse(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        Flag specifying if the resource provisioning state as tracked by ARM.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -474,7 +494,9 @@ class MonitoringTagRulesPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "systemData":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
             suggest = "system_data"
         elif key == "logRules":
             suggest = "log_rules"
@@ -491,16 +513,27 @@ class MonitoringTagRulesPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioning_state: str,
                  system_data: 'outputs.SystemDataResponse',
                  log_rules: Optional['outputs.LogRulesResponse'] = None):
         """
         Definition of the properties for a TagRules resource.
+        :param str provisioning_state: Flag specifying if the resource provisioning state as tracked by ARM.
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "system_data", system_data)
         if log_rules is not None:
             pulumi.set(__self__, "log_rules", log_rules)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Flag specifying if the resource provisioning state as tracked by ARM.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -783,5 +816,63 @@ class UserInfoResponse(dict):
         Phone number of the user used by Logz for contacting them if needed
         """
         return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class UserRoleResponseResponse(dict):
+    """
+    Response for checking user's role for Logz.io account.
+    """
+    def __init__(__self__, *,
+                 role: Optional[str] = None):
+        """
+        Response for checking user's role for Logz.io account.
+        :param str role: User roles on configured in Logz.io account.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        User roles on configured in Logz.io account.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class VMResourcesResponse(dict):
+    """
+    VM Resource Ids
+    """
+    def __init__(__self__, *,
+                 agent_version: Optional[str] = None,
+                 id: Optional[str] = None):
+        """
+        VM Resource Ids
+        :param str agent_version: Version of the Logz agent installed on the VM.
+        :param str id: Request of a list vm host update operation.
+        """
+        if agent_version is not None:
+            pulumi.set(__self__, "agent_version", agent_version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> Optional[str]:
+        """
+        Version of the Logz agent installed on the VM.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Request of a list vm host update operation.
+        """
+        return pulumi.get(self, "id")
 
 

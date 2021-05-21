@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? ConsistencyLevel;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? consistencyLevel,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? query,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             AdditionalColumns = additionalColumns;
             ConsistencyLevel = consistencyLevel;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             Query = query;
             QueryTimeout = queryTimeout;

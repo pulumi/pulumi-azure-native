@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? CopyBehavior;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Single File Parallel.
         /// </summary>
         public readonly object? EnableAdlsSingleFileParallel;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private AzureDataLakeStoreSinkResponse(
             object? copyBehavior,
 
+            object? disableMetricsCollection,
+
             object? enableAdlsSingleFileParallel,
 
             object? maxConcurrentConnections,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             object? writeBatchTimeout)
         {
             CopyBehavior = copyBehavior;
+            DisableMetricsCollection = disableMetricsCollection;
             EnableAdlsSingleFileParallel = enableAdlsSingleFileParallel;
             MaxConcurrentConnections = maxConcurrentConnections;
             SinkRetryCount = sinkRetryCount;

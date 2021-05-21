@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class ParquetSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Parquet format settings.
         /// </summary>
         public readonly Outputs.ParquetWriteSettingsResponse? FormatSettings;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private ParquetSinkResponse(
+            object? disableMetricsCollection,
+
             Outputs.ParquetWriteSettingsResponse? formatSettings,
 
             object? maxConcurrentConnections,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? writeBatchTimeout)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SinkRetryCount = sinkRetryCount;

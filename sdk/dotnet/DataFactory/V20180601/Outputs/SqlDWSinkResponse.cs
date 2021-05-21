@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.DWCopyCommandSettingsResponse? CopyCommandSettings;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.DWCopyCommandSettingsResponse? copyCommandSettings,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             Outputs.PolybaseSettingsResponse? polyBaseSettings,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             AllowCopyCommand = allowCopyCommand;
             AllowPolyBase = allowPolyBase;
             CopyCommandSettings = copyCommandSettings;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             PolyBaseSettings = polyBaseSettings;
             PreCopyScript = preCopyScript;

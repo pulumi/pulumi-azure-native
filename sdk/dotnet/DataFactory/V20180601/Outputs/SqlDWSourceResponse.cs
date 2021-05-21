@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private SqlDWSourceResponse(
             ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
 
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? partitionOption,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             string type)
         {
             AdditionalColumns = additionalColumns;
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             PartitionOption = partitionOption;
             PartitionSettings = partitionSettings;

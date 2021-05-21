@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class HdfsSourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies Distcp-related settings.
         /// </summary>
         public readonly Outputs.DistcpSettingsResponse? DistcpSettings;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private HdfsSourceResponse(
+            object? disableMetricsCollection,
+
             Outputs.DistcpSettingsResponse? distcpSettings,
 
             object? maxConcurrentConnections,
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             DistcpSettings = distcpSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             Recursive = recursive;

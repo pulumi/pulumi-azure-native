@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DateFilterColumn { get; set; }
 
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableMetricsCollection")]
+        public Input<object>? DisableMetricsCollection { get; set; }
+
+        /// <summary>
         /// End time of the requested range for this dataset. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("endTime")]

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class BlobSourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -45,6 +49,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private BlobSourceResponse(
+            object? disableMetricsCollection,
+
             object? maxConcurrentConnections,
 
             object? recursive,
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
             Recursive = recursive;
             SkipHeaderLineCount = skipHeaderLineCount;

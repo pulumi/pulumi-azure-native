@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? AdditionalHeaders;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
         /// </summary>
         public readonly object? HttpCompressionType;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private RestSinkResponse(
             object? additionalHeaders,
 
+            object? disableMetricsCollection,
+
             object? httpCompressionType,
 
             object? httpRequestTimeout,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             object? writeBatchTimeout)
         {
             AdditionalHeaders = additionalHeaders;
+            DisableMetricsCollection = disableMetricsCollection;
             HttpCompressionType = httpCompressionType;
             HttpRequestTimeout = httpRequestTimeout;
             MaxConcurrentConnections = maxConcurrentConnections;

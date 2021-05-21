@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SalesforceSinkResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ExternalIdFieldName;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SalesforceSinkResponse(
+            object? disableMetricsCollection,
+
             object? externalIdFieldName,
 
             object? ignoreNullValues,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? writeBehavior)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             ExternalIdFieldName = externalIdFieldName;
             IgnoreNullValues = ignoreNullValues;
             MaxConcurrentConnections = maxConcurrentConnections;

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? DateFilterColumn;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// End time of the requested range for this dataset. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? EndTime;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? dateFilterColumn,
 
+            object? disableMetricsCollection,
+
             object? endTime,
 
             object? maxConcurrentConnections,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             AllowedGroups = allowedGroups;
             DateFilterColumn = dateFilterColumn;
+            DisableMetricsCollection = disableMetricsCollection;
             EndTime = endTime;
             MaxConcurrentConnections = maxConcurrentConnections;
             OutputColumns = outputColumns;

@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? DeleteFilesAfterCompletion;
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Specifies Distcp-related settings.
         /// </summary>
         public readonly Outputs.DistcpSettingsResponse? DistcpSettings;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private HdfsReadSettingsResponse(
             object? deleteFilesAfterCompletion,
 
+            object? disableMetricsCollection,
+
             Outputs.DistcpSettingsResponse? distcpSettings,
 
             bool? enablePartitionDiscovery,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             object? wildcardFolderPath)
         {
             DeleteFilesAfterCompletion = deleteFilesAfterCompletion;
+            DisableMetricsCollection = disableMetricsCollection;
             DistcpSettings = distcpSettings;
             EnablePartitionDiscovery = enablePartitionDiscovery;
             FileListPath = fileListPath;

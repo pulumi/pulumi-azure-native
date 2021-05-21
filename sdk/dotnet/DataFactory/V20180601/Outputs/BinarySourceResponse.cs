@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class BinarySourceResponse
     {
         /// <summary>
+        /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableMetricsCollection;
+        /// <summary>
         /// Binary format settings.
         /// </summary>
         public readonly Outputs.BinaryReadSettingsResponse? FormatSettings;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private BinarySourceResponse(
+            object? disableMetricsCollection,
+
             Outputs.BinaryReadSettingsResponse? formatSettings,
 
             object? maxConcurrentConnections,
@@ -53,6 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type)
         {
+            DisableMetricsCollection = disableMetricsCollection;
             FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SourceRetryCount = sourceRetryCount;

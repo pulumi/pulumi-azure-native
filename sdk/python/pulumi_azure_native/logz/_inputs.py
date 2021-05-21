@@ -169,15 +169,19 @@ class LogRulesArgs:
 class LogzOrganizationPropertiesArgs:
     def __init__(__self__, *,
                  company_name: Optional[pulumi.Input[str]] = None,
-                 enterprise_app_id: Optional[pulumi.Input[str]] = None):
+                 enterprise_app_id: Optional[pulumi.Input[str]] = None,
+                 single_sign_on_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] company_name: Name of the Logz organization.
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
+        :param pulumi.Input[str] single_sign_on_url: The login URL specific to this Logz Organization.
         """
         if company_name is not None:
             pulumi.set(__self__, "company_name", company_name)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+        if single_sign_on_url is not None:
+            pulumi.set(__self__, "single_sign_on_url", single_sign_on_url)
 
     @property
     @pulumi.getter(name="companyName")
@@ -202,6 +206,18 @@ class LogzOrganizationPropertiesArgs:
     @enterprise_app_id.setter
     def enterprise_app_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "enterprise_app_id", value)
+
+    @property
+    @pulumi.getter(name="singleSignOnUrl")
+    def single_sign_on_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The login URL specific to this Logz Organization.
+        """
+        return pulumi.get(self, "single_sign_on_url")
+
+    @single_sign_on_url.setter
+    def single_sign_on_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "single_sign_on_url", value)
 
 
 @pulumi.input_type
