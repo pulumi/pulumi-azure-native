@@ -13970,6 +13970,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14026,6 +14027,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14084,6 +14086,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14136,6 +14139,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14211,6 +14215,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14267,6 +14272,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14317,6 +14323,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14367,6 +14374,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14417,6 +14425,7 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -43117,7 +43126,6 @@
         "defaultApiVersion": "2020-06-01-preview",
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43149,7 +43157,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "databaseAccounts"
@@ -43184,41 +43193,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "Australia Central",
-          "Australia East",
-          "Australia Southeast",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "Germany West Central",
-          "Japan East",
-          "Japan West",
-          "North Central US",
-          "North Europe",
-          "Norway East",
-          "South Africa North",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "Switzerland North",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2",
-          "UAE North",
-          "UK West",
-          "UK South",
-          "Brazil South",
-          "Korea South",
-          "Korea Central"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "databaseAccountNames"
       },
@@ -43252,41 +43227,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "Australia Central",
-          "Australia East",
-          "Australia Southeast",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "Germany West Central",
-          "Japan East",
-          "Japan West",
-          "North Central US",
-          "North Europe",
-          "Norway East",
-          "South Africa North",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "Switzerland North",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2",
-          "UAE North",
-          "UK West",
-          "UK South",
-          "Brazil South",
-          "Korea South",
-          "Korea Central"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "operations"
       },
@@ -43320,41 +43261,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "Australia Central",
-          "Australia East",
-          "Australia Southeast",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "Germany West Central",
-          "Japan East",
-          "Japan West",
-          "North Central US",
-          "North Europe",
-          "Norway East",
-          "South Africa North",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "Switzerland North",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2",
-          "UAE North",
-          "UK West",
-          "UK South",
-          "Brazil South",
-          "Korea South",
-          "Korea Central"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "operationResults"
       },
@@ -43388,8 +43295,41 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operationsStatus"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2015-04-08",
+            "profileVersion": "2018-06-01-profile"
+          }
+        ],
+        "apiVersions": [
+          "2021-04-15",
+          "2021-04-01-preview",
+          "2021-03-15",
+          "2021-03-01-preview",
+          "2021-01-15",
+          "2020-09-01",
+          "2020-06-01-preview",
+          "2020-04-01",
+          "2020-03-01",
+          "2019-12-12",
+          "2019-08-01-preview",
+          "2019-08-01",
+          "2016-03-31",
+          "2016-03-19",
+          "2015-11-06",
+          "2015-04-08",
+          "2014-04-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43421,7 +43361,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus"
@@ -43457,7 +43398,6 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43489,7 +43429,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -43519,41 +43460,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "Australia Central",
-          "Australia East",
-          "Australia Southeast",
-          "Canada Central",
-          "Canada East",
-          "Central India",
-          "Central US",
-          "East Asia",
-          "East US",
-          "East US 2",
-          "France Central",
-          "Germany West Central",
-          "Japan East",
-          "Japan West",
-          "North Central US",
-          "North Europe",
-          "Norway East",
-          "South Africa North",
-          "South Central US",
-          "South India",
-          "Southeast Asia",
-          "Switzerland North",
-          "West Central US",
-          "West Europe",
-          "West India",
-          "West US",
-          "West US 2",
-          "UAE North",
-          "UK West",
-          "UK South",
-          "Brazil South",
-          "Korea South",
-          "Korea Central"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "locations"
       },
@@ -43583,7 +43490,6 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43615,7 +43521,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnets"
@@ -43632,7 +43539,6 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43664,7 +43570,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "locations/restorableDatabaseAccounts"
@@ -43681,7 +43588,6 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43713,7 +43619,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "restorableDatabaseAccounts"
@@ -43729,7 +43636,6 @@
         "defaultApiVersion": "2021-03-01-preview",
         "locationMappings": null,
         "locations": [
-          "East US",
           "West Central US",
           "North Central US",
           "Central US",
@@ -43761,7 +43667,8 @@
           "South India",
           "West India",
           "West US",
-          "South Central US"
+          "South Central US",
+          "East US"
         ],
         "properties": null,
         "resourceType": "cassandraClusters"
@@ -51184,7 +51091,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "deviceSecurityGroups"
@@ -51233,7 +51142,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions"
@@ -51293,7 +51204,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSensors"
@@ -51353,7 +51266,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "devices"
@@ -51401,7 +51316,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSites"
@@ -51450,7 +51367,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/analyticsModels"
@@ -51511,7 +51430,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/iotAlertTypes"
@@ -51559,7 +51480,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotAlerts"
@@ -51607,7 +51530,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/iotAlerts"
@@ -51668,7 +51593,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/iotRecommendationTypes"
@@ -51715,7 +51642,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotRecommendations"
@@ -51763,7 +51692,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/iotRecommendations"
@@ -51812,7 +51743,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/analyticsModels/aggregatedAlerts"
@@ -51861,7 +51794,9 @@
           "UK South",
           "UK West",
           "France Central",
-          "France South"
+          "France South",
+          "Germany West Central",
+          "Germany North"
         ],
         "properties": null,
         "resourceType": "iotSecuritySolutions/analyticsModels/aggregatedRecommendations"
