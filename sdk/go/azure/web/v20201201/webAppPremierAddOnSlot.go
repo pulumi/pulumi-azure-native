@@ -111,6 +111,12 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOnSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210101:WebAppPremierAddOnSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPremierAddOnSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOnSlot

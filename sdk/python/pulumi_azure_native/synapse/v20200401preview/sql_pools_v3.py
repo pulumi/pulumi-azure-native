@@ -17,7 +17,10 @@ class SqlPoolsV3Args:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
+                 auto_pause_timer: Optional[pulumi.Input[int]] = None,
+                 auto_resume: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_service_objective_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,15 +28,24 @@ class SqlPoolsV3Args:
         The set of arguments for constructing a SqlPoolsV3 resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[int] auto_pause_timer: The period of inactivity in minutes before automatically pausing the sql pool.
+        :param pulumi.Input[bool] auto_resume: Indicates whether the sql pool can automatically resume when connection attempts are made.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] max_service_objective_name: The max service level objective name of the sql pool.
         :param pulumi.Input['SkuArgs'] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
         :param pulumi.Input[str] sql_pool_name: The name of the sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if auto_pause_timer is not None:
+            pulumi.set(__self__, "auto_pause_timer", auto_pause_timer)
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_service_objective_name is not None:
+            pulumi.set(__self__, "max_service_objective_name", max_service_objective_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if sql_pool_name is not None:
@@ -66,6 +78,30 @@ class SqlPoolsV3Args:
         pulumi.set(self, "workspace_name", value)
 
     @property
+    @pulumi.getter(name="autoPauseTimer")
+    def auto_pause_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of inactivity in minutes before automatically pausing the sql pool.
+        """
+        return pulumi.get(self, "auto_pause_timer")
+
+    @auto_pause_timer.setter
+    def auto_pause_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auto_pause_timer", value)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the sql pool can automatically resume when connection attempts are made.
+        """
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -76,6 +112,18 @@ class SqlPoolsV3Args:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxServiceObjectiveName")
+    def max_service_objective_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The max service level objective name of the sql pool.
+        """
+        return pulumi.get(self, "max_service_objective_name")
+
+    @max_service_objective_name.setter
+    def max_service_objective_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_service_objective_name", value)
 
     @property
     @pulumi.getter
@@ -119,7 +167,10 @@ class SqlPoolsV3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_pause_timer: Optional[pulumi.Input[int]] = None,
+                 auto_resume: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_service_objective_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +182,10 @@ class SqlPoolsV3(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] auto_pause_timer: The period of inactivity in minutes before automatically pausing the sql pool.
+        :param pulumi.Input[bool] auto_resume: Indicates whether the sql pool can automatically resume when connection attempts are made.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] max_service_objective_name: The max service level objective name of the sql pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
         :param pulumi.Input[str] sql_pool_name: The name of the sql pool.
@@ -162,7 +216,10 @@ class SqlPoolsV3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_pause_timer: Optional[pulumi.Input[int]] = None,
+                 auto_resume: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_service_objective_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
@@ -180,7 +237,10 @@ class SqlPoolsV3(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlPoolsV3Args.__new__(SqlPoolsV3Args)
 
+            __props__.__dict__["auto_pause_timer"] = auto_pause_timer
+            __props__.__dict__["auto_resume"] = auto_resume
             __props__.__dict__["location"] = location
+            __props__.__dict__["max_service_objective_name"] = max_service_objective_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -222,9 +282,12 @@ class SqlPoolsV3(pulumi.CustomResource):
 
         __props__ = SqlPoolsV3Args.__new__(SqlPoolsV3Args)
 
+        __props__.__dict__["auto_pause_timer"] = None
+        __props__.__dict__["auto_resume"] = None
         __props__.__dict__["current_service_objective_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["max_service_objective_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["requested_service_objective_name"] = None
         __props__.__dict__["sku"] = None
@@ -234,6 +297,22 @@ class SqlPoolsV3(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SqlPoolsV3(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoPauseTimer")
+    def auto_pause_timer(self) -> pulumi.Output[Optional[int]]:
+        """
+        The period of inactivity in minutes before automatically pausing the sql pool.
+        """
+        return pulumi.get(self, "auto_pause_timer")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the sql pool can automatically resume when connection attempts are made.
+        """
+        return pulumi.get(self, "auto_resume")
 
     @property
     @pulumi.getter(name="currentServiceObjectiveName")
@@ -258,6 +337,14 @@ class SqlPoolsV3(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxServiceObjectiveName")
+    def max_service_objective_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The max service level objective name of the sql pool.
+        """
+        return pulumi.get(self, "max_service_objective_name")
 
     @property
     @pulumi.getter

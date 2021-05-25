@@ -28,6 +28,10 @@ type LookupSqlPoolsV3Args struct {
 
 // A sql pool resource.
 type LookupSqlPoolsV3Result struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer *int `pulumi:"autoPauseTimer"`
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume *bool `pulumi:"autoResume"`
 	// The current service level objective name of the sql pool.
 	CurrentServiceObjectiveName string `pulumi:"currentServiceObjectiveName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -36,6 +40,8 @@ type LookupSqlPoolsV3Result struct {
 	Kind string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName *string `pulumi:"maxServiceObjectiveName"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The requested service level objective name of the sql pool.

@@ -36,6 +36,14 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
     }
 
     /**
+     * The period of inactivity in minutes before automatically pausing the sql pool.
+     */
+    public readonly autoPauseTimer!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether the sql pool can automatically resume when connection attempts are made.
+     */
+    public readonly autoResume!: pulumi.Output<boolean | undefined>;
+    /**
      * The current service level objective name of the sql pool.
      */
     public /*out*/ readonly currentServiceObjectiveName!: pulumi.Output<string>;
@@ -47,6 +55,10 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The max service level objective name of the sql pool.
+     */
+    public readonly maxServiceObjectiveName!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -97,7 +109,10 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["autoPauseTimer"] = args ? args.autoPauseTimer : undefined;
+            inputs["autoResume"] = args ? args.autoResume : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxServiceObjectiveName"] = args ? args.maxServiceObjectiveName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
@@ -112,9 +127,12 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["autoPauseTimer"] = undefined /*out*/;
+            inputs["autoResume"] = undefined /*out*/;
             inputs["currentServiceObjectiveName"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["maxServiceObjectiveName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["requestedServiceObjectiveName"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -138,9 +156,21 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
  */
 export interface SqlPoolsV3Args {
     /**
+     * The period of inactivity in minutes before automatically pausing the sql pool.
+     */
+    readonly autoPauseTimer?: pulumi.Input<number>;
+    /**
+     * Indicates whether the sql pool can automatically resume when connection attempts are made.
+     */
+    readonly autoResume?: pulumi.Input<boolean>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The max service level objective name of the sql pool.
+     */
+    readonly maxServiceObjectiveName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -100,7 +100,7 @@ export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-nextgen:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteUserProvidedFunctionAppForStaticSiteBuild.__pulumiType, name, inputs, opts);
     }

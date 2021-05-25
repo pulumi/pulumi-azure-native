@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:AppServicePlanRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

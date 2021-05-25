@@ -20,6 +20,7 @@ export * from "./getCertificate";
 export * from "./getConnection";
 export * from "./getConnectionGateway";
 export * from "./getCustomApi";
+export * from "./getKubeEnvironment";
 export * from "./getStaticSite";
 export * from "./getStaticSiteCustomDomain";
 export * from "./getStaticSitePrivateEndpointConnection";
@@ -55,6 +56,7 @@ export * from "./getWebAppSwiftVirtualNetworkConnection";
 export * from "./getWebAppSwiftVirtualNetworkConnectionSlot";
 export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
+export * from "./kubeEnvironment";
 export * from "./listAppServicePlanHybridConnectionKeys";
 export * from "./listConnectionConsentLinks";
 export * from "./listConnectionKeys";
@@ -166,6 +168,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
+import * as v20210101 from "./v20210101";
 
 export {
     v20150801,
@@ -181,6 +184,7 @@ export {
     v20200901,
     v20201001,
     v20201201,
+    v20210101,
 };
 
 // Import resources to register:
@@ -192,6 +196,7 @@ import { Certificate } from "./certificate";
 import { Connection } from "./connection";
 import { ConnectionGateway } from "./connectionGateway";
 import { CustomApi } from "./customApi";
+import { KubeEnvironment } from "./kubeEnvironment";
 import { StaticSite } from "./staticSite";
 import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
 import { StaticSitePrivateEndpointConnection } from "./staticSitePrivateEndpointConnection";
@@ -264,6 +269,8 @@ const _module = {
                 return new ConnectionGateway(name, <any>undefined, { urn })
             case "azure-native:web:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
+            case "azure-native:web:KubeEnvironment":
+                return new KubeEnvironment(name, <any>undefined, { urn })
             case "azure-native:web:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteCustomDomain":

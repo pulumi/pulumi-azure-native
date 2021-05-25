@@ -82,6 +82,10 @@ export interface GetNamespaceResult {
      */
     readonly sku?: outputs.servicebus.v20210101preview.SBSkuResponse;
     /**
+     * Status of the namespace.
+     */
+    readonly status: string;
+    /**
      * The system meta data relating to this resource.
      */
     readonly systemData: outputs.servicebus.v20210101preview.SystemDataResponse;

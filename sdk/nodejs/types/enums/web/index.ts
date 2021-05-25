@@ -14,6 +14,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
+import * as v20210101 from "./v20210101";
 
 export {
     v20150801,
@@ -28,6 +29,7 @@ export {
     v20200901,
     v20201001,
     v20201201,
+    v20210101,
 };
 
 export const ApiType = {
@@ -199,6 +201,13 @@ export const FrequencyUnit = {
  * The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
  */
 export type FrequencyUnit = (typeof FrequencyUnit)[keyof typeof FrequencyUnit];
+
+export const FrontEndServiceType = {
+    NodePort: "NodePort",
+    LoadBalancer: "LoadBalancer",
+} as const;
+
+export type FrontEndServiceType = (typeof FrontEndServiceType)[keyof typeof FrontEndServiceType];
 
 export const FtpsState = {
     AllAllowed: "AllAllowed",
@@ -385,6 +394,13 @@ export const StagingEnvironmentPolicy = {
  * State indicating whether staging environments are allowed or not allowed for a static web app.
  */
 export type StagingEnvironmentPolicy = (typeof StagingEnvironmentPolicy)[keyof typeof StagingEnvironmentPolicy];
+
+export const StorageType = {
+    LocalNode: "LocalNode",
+    NetworkFileSystem: "NetworkFileSystem",
+} as const;
+
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const SupportedTlsVersions = {
     SupportedTlsVersions_1_0: "1.0",

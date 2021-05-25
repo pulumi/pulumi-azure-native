@@ -255,6 +255,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_bus_endpoint"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
@@ -292,6 +293,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_bus_endpoint"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -378,6 +380,14 @@ class Namespace(pulumi.CustomResource):
         Properties of SKU
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Status of the namespace.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="systemData")

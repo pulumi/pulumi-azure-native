@@ -344,6 +344,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebApp"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

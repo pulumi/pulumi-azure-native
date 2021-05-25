@@ -160,6 +160,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:ServerFarm"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:ServerFarm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

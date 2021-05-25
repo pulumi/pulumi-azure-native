@@ -144,6 +144,12 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlan"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210101:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210101:AppServicePlan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlan

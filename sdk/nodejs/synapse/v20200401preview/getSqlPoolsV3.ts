@@ -43,6 +43,14 @@ export interface GetSqlPoolsV3Args {
  */
 export interface GetSqlPoolsV3Result {
     /**
+     * The period of inactivity in minutes before automatically pausing the sql pool.
+     */
+    readonly autoPauseTimer?: number;
+    /**
+     * Indicates whether the sql pool can automatically resume when connection attempts are made.
+     */
+    readonly autoResume?: boolean;
+    /**
      * The current service level objective name of the sql pool.
      */
     readonly currentServiceObjectiveName: string;
@@ -58,6 +66,10 @@ export interface GetSqlPoolsV3Result {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The max service level objective name of the sql pool.
+     */
+    readonly maxServiceObjectiveName?: string;
     /**
      * The name of the resource
      */

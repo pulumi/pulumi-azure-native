@@ -20,10 +20,12 @@ __all__ = [
     'ApiReferenceArgs',
     'ApiResourceBackendServiceArgs',
     'ApiResourceDefinitionsArgs',
+    'AppLogsConfigurationArgs',
     'AppRegistrationArgs',
     'AppleArgs',
     'AppleRegistrationArgs',
     'ApplicationLogsConfigArgs',
+    'ArcConfigurationArgs',
     'AuthPlatformArgs',
     'AutoHealActionsArgs',
     'AutoHealCustomActionArgs',
@@ -61,11 +63,13 @@ __all__ = [
     'DatabaseBackupSetting',
     'EnabledConfigArgs',
     'ExperimentsArgs',
+    'ExtendedLocationArgs',
     'FacebookArgs',
     'FileSystemApplicationLogsConfigArgs',
     'FileSystemHttpLogsConfigArgs',
     'FileSystemTokenStoreArgs',
     'ForwardProxyArgs',
+    'FrontEndConfigurationArgs',
     'GitHubArgs',
     'GitHubActionCodeConfigurationArgs',
     'GitHubActionConfigurationArgs',
@@ -83,6 +87,7 @@ __all__ = [
     'JwtClaimChecksArgs',
     'KubeEnvironmentProfileArgs',
     'LegacyMicrosoftAccountArgs',
+    'LogAnalyticsConfigurationArgs',
     'LoginArgs',
     'LoginRoutesArgs',
     'LoginScopesArgs',
@@ -763,6 +768,35 @@ class ApiResourceDefinitionsArgs:
 
 
 @pulumi.input_type
+class AppLogsConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None):
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if log_analytics_configuration is not None:
+            pulumi.set(__self__, "log_analytics_configuration", log_analytics_configuration)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsConfiguration")
+    def log_analytics_configuration(self) -> Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]:
+        return pulumi.get(self, "log_analytics_configuration")
+
+    @log_analytics_configuration.setter
+    def log_analytics_configuration(self, value: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]):
+        pulumi.set(self, "log_analytics_configuration", value)
+
+
+@pulumi.input_type
 class AppRegistrationArgs:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
@@ -1000,6 +1034,95 @@ class ApplicationLogsConfigArgs:
     @file_system.setter
     def file_system(self, value: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]):
         pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class ArcConfigurationArgs:
+    def __init__(__self__, *,
+                 artifact_storage_access_mode: Optional[pulumi.Input[str]] = None,
+                 artifact_storage_class_name: Optional[pulumi.Input[str]] = None,
+                 artifact_storage_mount_path: Optional[pulumi.Input[str]] = None,
+                 artifact_storage_node_name: Optional[pulumi.Input[str]] = None,
+                 artifacts_storage_type: Optional[pulumi.Input['StorageType']] = None,
+                 front_end_service_configuration: Optional[pulumi.Input['FrontEndConfigurationArgs']] = None,
+                 kube_config: Optional[pulumi.Input[str]] = None):
+        if artifact_storage_access_mode is not None:
+            pulumi.set(__self__, "artifact_storage_access_mode", artifact_storage_access_mode)
+        if artifact_storage_class_name is not None:
+            pulumi.set(__self__, "artifact_storage_class_name", artifact_storage_class_name)
+        if artifact_storage_mount_path is not None:
+            pulumi.set(__self__, "artifact_storage_mount_path", artifact_storage_mount_path)
+        if artifact_storage_node_name is not None:
+            pulumi.set(__self__, "artifact_storage_node_name", artifact_storage_node_name)
+        if artifacts_storage_type is not None:
+            pulumi.set(__self__, "artifacts_storage_type", artifacts_storage_type)
+        if front_end_service_configuration is not None:
+            pulumi.set(__self__, "front_end_service_configuration", front_end_service_configuration)
+        if kube_config is not None:
+            pulumi.set(__self__, "kube_config", kube_config)
+
+    @property
+    @pulumi.getter(name="artifactStorageAccessMode")
+    def artifact_storage_access_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact_storage_access_mode")
+
+    @artifact_storage_access_mode.setter
+    def artifact_storage_access_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_storage_access_mode", value)
+
+    @property
+    @pulumi.getter(name="artifactStorageClassName")
+    def artifact_storage_class_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact_storage_class_name")
+
+    @artifact_storage_class_name.setter
+    def artifact_storage_class_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_storage_class_name", value)
+
+    @property
+    @pulumi.getter(name="artifactStorageMountPath")
+    def artifact_storage_mount_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact_storage_mount_path")
+
+    @artifact_storage_mount_path.setter
+    def artifact_storage_mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_storage_mount_path", value)
+
+    @property
+    @pulumi.getter(name="artifactStorageNodeName")
+    def artifact_storage_node_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact_storage_node_name")
+
+    @artifact_storage_node_name.setter
+    def artifact_storage_node_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_storage_node_name", value)
+
+    @property
+    @pulumi.getter(name="artifactsStorageType")
+    def artifacts_storage_type(self) -> Optional[pulumi.Input['StorageType']]:
+        return pulumi.get(self, "artifacts_storage_type")
+
+    @artifacts_storage_type.setter
+    def artifacts_storage_type(self, value: Optional[pulumi.Input['StorageType']]):
+        pulumi.set(self, "artifacts_storage_type", value)
+
+    @property
+    @pulumi.getter(name="frontEndServiceConfiguration")
+    def front_end_service_configuration(self) -> Optional[pulumi.Input['FrontEndConfigurationArgs']]:
+        return pulumi.get(self, "front_end_service_configuration")
+
+    @front_end_service_configuration.setter
+    def front_end_service_configuration(self, value: Optional[pulumi.Input['FrontEndConfigurationArgs']]):
+        pulumi.set(self, "front_end_service_configuration", value)
+
+    @property
+    @pulumi.getter(name="kubeConfig")
+    def kube_config(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kube_config")
+
+    @kube_config.setter
+    def kube_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kube_config", value)
 
 
 @pulumi.input_type
@@ -3615,6 +3738,30 @@ class ExperimentsArgs:
 
 
 @pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Extended Location.
+        :param pulumi.Input[str] name: Name of extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class FacebookArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -3901,6 +4048,23 @@ class ForwardProxyArgs:
 
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class FrontEndConfigurationArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input['FrontEndServiceType']] = None):
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input['FrontEndServiceType']]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input['FrontEndServiceType']]):
         pulumi.set(self, "kind", value)
 
 
@@ -5233,6 +5397,35 @@ class LegacyMicrosoftAccountArgs:
     @validation.setter
     def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
         pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
+class LogAnalyticsConfigurationArgs:
+    def __init__(__self__, *,
+                 customer_id: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None):
+        if customer_id is not None:
+            pulumi.set(__self__, "customer_id", customer_id)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "customer_id")
+
+    @customer_id.setter
+    def customer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_id", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
 
 
 @pulumi.input_type

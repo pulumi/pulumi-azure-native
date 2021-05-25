@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppRelayServiceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

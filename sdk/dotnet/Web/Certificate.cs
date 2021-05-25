@@ -210,6 +210,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

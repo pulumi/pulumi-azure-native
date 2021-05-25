@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
         /// </summary>
         public readonly Outputs.SBSkuResponse? Sku;
         /// <summary>
+        /// Status of the namespace.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
 
             Outputs.SBSkuResponse? sku,
 
+            string status,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210101Preview
             ProvisioningState = provisioningState;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
             SystemData = systemData;
             Tags = tags;
             Type = type;

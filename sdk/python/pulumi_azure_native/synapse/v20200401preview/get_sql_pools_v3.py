@@ -20,7 +20,13 @@ class GetSqlPoolsV3Result:
     """
     A sql pool resource.
     """
-    def __init__(__self__, current_service_objective_name=None, id=None, kind=None, location=None, name=None, requested_service_objective_name=None, sku=None, sql_pool_guid=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_pause_timer=None, auto_resume=None, current_service_objective_name=None, id=None, kind=None, location=None, max_service_objective_name=None, name=None, requested_service_objective_name=None, sku=None, sql_pool_guid=None, status=None, system_data=None, tags=None, type=None):
+        if auto_pause_timer and not isinstance(auto_pause_timer, int):
+            raise TypeError("Expected argument 'auto_pause_timer' to be a int")
+        pulumi.set(__self__, "auto_pause_timer", auto_pause_timer)
+        if auto_resume and not isinstance(auto_resume, bool):
+            raise TypeError("Expected argument 'auto_resume' to be a bool")
+        pulumi.set(__self__, "auto_resume", auto_resume)
         if current_service_objective_name and not isinstance(current_service_objective_name, str):
             raise TypeError("Expected argument 'current_service_objective_name' to be a str")
         pulumi.set(__self__, "current_service_objective_name", current_service_objective_name)
@@ -33,6 +39,9 @@ class GetSqlPoolsV3Result:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if max_service_objective_name and not isinstance(max_service_objective_name, str):
+            raise TypeError("Expected argument 'max_service_objective_name' to be a str")
+        pulumi.set(__self__, "max_service_objective_name", max_service_objective_name)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +66,22 @@ class GetSqlPoolsV3Result:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="autoPauseTimer")
+    def auto_pause_timer(self) -> Optional[int]:
+        """
+        The period of inactivity in minutes before automatically pausing the sql pool.
+        """
+        return pulumi.get(self, "auto_pause_timer")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[bool]:
+        """
+        Indicates whether the sql pool can automatically resume when connection attempts are made.
+        """
+        return pulumi.get(self, "auto_resume")
 
     @property
     @pulumi.getter(name="currentServiceObjectiveName")
@@ -89,6 +114,14 @@ class GetSqlPoolsV3Result:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxServiceObjectiveName")
+    def max_service_objective_name(self) -> Optional[str]:
+        """
+        The max service level objective name of the sql pool.
+        """
+        return pulumi.get(self, "max_service_objective_name")
 
     @property
     @pulumi.getter
@@ -161,10 +194,13 @@ class AwaitableGetSqlPoolsV3Result(GetSqlPoolsV3Result):
         if False:
             yield self
         return GetSqlPoolsV3Result(
+            auto_pause_timer=self.auto_pause_timer,
+            auto_resume=self.auto_resume,
             current_service_objective_name=self.current_service_objective_name,
             id=self.id,
             kind=self.kind,
             location=self.location,
+            max_service_objective_name=self.max_service_objective_name,
             name=self.name,
             requested_service_objective_name=self.requested_service_objective_name,
             sku=self.sku,
@@ -198,10 +234,13 @@ def get_sql_pools_v3(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20200401preview:getSqlPoolsV3', __args__, opts=opts, typ=GetSqlPoolsV3Result).value
 
     return AwaitableGetSqlPoolsV3Result(
+        auto_pause_timer=__ret__.auto_pause_timer,
+        auto_resume=__ret__.auto_resume,
         current_service_objective_name=__ret__.current_service_objective_name,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
+        max_service_objective_name=__ret__.max_service_objective_name,
         name=__ret__.name,
         requested_service_objective_name=__ret__.requested_service_objective_name,
         sku=__ret__.sku,

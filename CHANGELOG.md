@@ -3,11 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `web.KubeEnvironment`
+
 #### New Functions
 
 - `logz.listMonitorUserRoles`
 - `logz.listMonitorVMHosts`
 - `logz.listSubAccountVMHosts`
+- `web.getKubeEnvironment`
 
 #### Updated API versions for top-level resources
 

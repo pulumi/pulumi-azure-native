@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConnectionGateway{}
 	case "azure-native:web:CustomApi":
 		r = &CustomApi{}
+	case "azure-native:web:KubeEnvironment":
+		r = &KubeEnvironment{}
 	case "azure-native:web:StaticSite":
 		r = &StaticSite{}
 	case "azure-native:web:StaticSiteCustomDomain":

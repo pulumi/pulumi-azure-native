@@ -46,6 +46,8 @@ type LookupNamespaceResult struct {
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of SKU
 	Sku *SBSkuResponse `pulumi:"sku"`
+	// Status of the namespace.
+	Status string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

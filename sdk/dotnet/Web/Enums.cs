@@ -471,6 +471,34 @@ namespace Pulumi.AzureNative.Web
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FrontEndServiceType : IEquatable<FrontEndServiceType>
+    {
+        private readonly string _value;
+
+        private FrontEndServiceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FrontEndServiceType NodePort { get; } = new FrontEndServiceType("NodePort");
+        public static FrontEndServiceType LoadBalancer { get; } = new FrontEndServiceType("LoadBalancer");
+
+        public static bool operator ==(FrontEndServiceType left, FrontEndServiceType right) => left.Equals(right);
+        public static bool operator !=(FrontEndServiceType left, FrontEndServiceType right) => !left.Equals(right);
+
+        public static explicit operator string(FrontEndServiceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FrontEndServiceType other && Equals(other);
+        public bool Equals(FrontEndServiceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// State of FTP / FTPS service
     /// </summary>
@@ -965,6 +993,34 @@ namespace Pulumi.AzureNative.Web
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StagingEnvironmentPolicy other && Equals(other);
         public bool Equals(StagingEnvironmentPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StorageType : IEquatable<StorageType>
+    {
+        private readonly string _value;
+
+        private StorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageType LocalNode { get; } = new StorageType("LocalNode");
+        public static StorageType NetworkFileSystem { get; } = new StorageType("NetworkFileSystem");
+
+        public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
+        public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageType other && Equals(other);
+        public bool Equals(StorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

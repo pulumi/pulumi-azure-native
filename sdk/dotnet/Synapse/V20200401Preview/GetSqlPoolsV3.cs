@@ -49,6 +49,14 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     public sealed class GetSqlPoolsV3Result
     {
         /// <summary>
+        /// The period of inactivity in minutes before automatically pausing the sql pool.
+        /// </summary>
+        public readonly int? AutoPauseTimer;
+        /// <summary>
+        /// Indicates whether the sql pool can automatically resume when connection attempts are made.
+        /// </summary>
+        public readonly bool? AutoResume;
+        /// <summary>
         /// The current service level objective name of the sql pool.
         /// </summary>
         public readonly string CurrentServiceObjectiveName;
@@ -64,6 +72,10 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The max service level objective name of the sql pool.
+        /// </summary>
+        public readonly string? MaxServiceObjectiveName;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -99,6 +111,10 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 
         [OutputConstructor]
         private GetSqlPoolsV3Result(
+            int? autoPauseTimer,
+
+            bool? autoResume,
+
             string currentServiceObjectiveName,
 
             string id,
@@ -106,6 +122,8 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
             string kind,
 
             string location,
+
+            string? maxServiceObjectiveName,
 
             string name,
 
@@ -123,10 +141,13 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 
             string type)
         {
+            AutoPauseTimer = autoPauseTimer;
+            AutoResume = autoResume;
             CurrentServiceObjectiveName = currentServiceObjectiveName;
             Id = id;
             Kind = kind;
             Location = location;
+            MaxServiceObjectiveName = maxServiceObjectiveName;
             Name = name;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;
             Sku = sku;

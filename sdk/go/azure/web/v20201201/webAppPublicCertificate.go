@@ -94,6 +94,12 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210101:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPublicCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificate

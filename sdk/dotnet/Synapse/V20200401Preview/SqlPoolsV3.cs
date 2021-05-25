@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     public partial class SqlPoolsV3 : Pulumi.CustomResource
     {
         /// <summary>
+        /// The period of inactivity in minutes before automatically pausing the sql pool.
+        /// </summary>
+        [Output("autoPauseTimer")]
+        public Output<int?> AutoPauseTimer { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the sql pool can automatically resume when connection attempts are made.
+        /// </summary>
+        [Output("autoResume")]
+        public Output<bool?> AutoResume { get; private set; } = null!;
+
+        /// <summary>
         /// The current service level objective name of the sql pool.
         /// </summary>
         [Output("currentServiceObjectiveName")]
@@ -32,6 +44,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The max service level objective name of the sql pool.
+        /// </summary>
+        [Output("maxServiceObjectiveName")]
+        public Output<string?> MaxServiceObjectiveName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -141,10 +159,28 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     public sealed class SqlPoolsV3Args : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The period of inactivity in minutes before automatically pausing the sql pool.
+        /// </summary>
+        [Input("autoPauseTimer")]
+        public Input<int>? AutoPauseTimer { get; set; }
+
+        /// <summary>
+        /// Indicates whether the sql pool can automatically resume when connection attempts are made.
+        /// </summary>
+        [Input("autoResume")]
+        public Input<bool>? AutoResume { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The max service level objective name of the sql pool.
+        /// </summary>
+        [Input("maxServiceObjectiveName")]
+        public Input<string>? MaxServiceObjectiveName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -99,6 +99,12 @@ func NewWebAppConnectionStringsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStringsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210101:WebAppConnectionStringsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppConnectionStringsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppConnectionStringsSlot

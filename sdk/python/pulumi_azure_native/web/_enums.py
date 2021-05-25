@@ -19,6 +19,7 @@ __all__ = [
     'DatabaseType',
     'ForwardProxyConvention',
     'FrequencyUnit',
+    'FrontEndServiceType',
     'FtpsState',
     'HostNameType',
     'HostType',
@@ -34,6 +35,7 @@ __all__ = [
     'SiteLoadBalancing',
     'SslState',
     'StagingEnvironmentPolicy',
+    'StorageType',
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
     'UnauthenticatedClientActionV2',
@@ -181,6 +183,11 @@ class FrequencyUnit(str, Enum):
     """
     DAY = "Day"
     HOUR = "Hour"
+
+
+class FrontEndServiceType(str, Enum):
+    NODE_PORT = "NodePort"
+    LOAD_BALANCER = "LoadBalancer"
 
 
 class FtpsState(str, Enum):
@@ -337,6 +344,11 @@ class StagingEnvironmentPolicy(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class StorageType(str, Enum):
+    LOCAL_NODE = "LocalNode"
+    NETWORK_FILE_SYSTEM = "NetworkFileSystem"
 
 
 class SupportedTlsVersions(str, Enum):

@@ -104,6 +104,12 @@ func NewWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppRelayServiceConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210101:WebAppRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppRelayServiceConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnectionSlot

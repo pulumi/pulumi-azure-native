@@ -78,6 +78,10 @@ export interface GetNamespaceResult {
      */
     readonly sku?: outputs.servicebus.v20180101preview.SBSkuResponse;
     /**
+     * Status of the namespace.
+     */
+    readonly status: string;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

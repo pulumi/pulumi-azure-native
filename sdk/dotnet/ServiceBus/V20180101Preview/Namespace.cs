@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         public Output<Outputs.SBSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]

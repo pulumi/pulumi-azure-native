@@ -3507,6 +3507,290 @@ func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type AppLogsConfiguration struct {
+	Destination               *string                    `pulumi:"destination"`
+	LogAnalyticsConfiguration *LogAnalyticsConfiguration `pulumi:"logAnalyticsConfiguration"`
+}
+
+// AppLogsConfigurationInput is an input type that accepts AppLogsConfigurationArgs and AppLogsConfigurationOutput values.
+// You can construct a concrete instance of `AppLogsConfigurationInput` via:
+//
+//          AppLogsConfigurationArgs{...}
+type AppLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToAppLogsConfigurationOutput() AppLogsConfigurationOutput
+	ToAppLogsConfigurationOutputWithContext(context.Context) AppLogsConfigurationOutput
+}
+
+type AppLogsConfigurationArgs struct {
+	Destination               pulumi.StringPtrInput             `pulumi:"destination"`
+	LogAnalyticsConfiguration LogAnalyticsConfigurationPtrInput `pulumi:"logAnalyticsConfiguration"`
+}
+
+func (AppLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppLogsConfiguration)(nil)).Elem()
+}
+
+func (i AppLogsConfigurationArgs) ToAppLogsConfigurationOutput() AppLogsConfigurationOutput {
+	return i.ToAppLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AppLogsConfigurationArgs) ToAppLogsConfigurationOutputWithContext(ctx context.Context) AppLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationOutput)
+}
+
+func (i AppLogsConfigurationArgs) ToAppLogsConfigurationPtrOutput() AppLogsConfigurationPtrOutput {
+	return i.ToAppLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AppLogsConfigurationArgs) ToAppLogsConfigurationPtrOutputWithContext(ctx context.Context) AppLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationOutput).ToAppLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AppLogsConfigurationPtrInput is an input type that accepts AppLogsConfigurationArgs, AppLogsConfigurationPtr and AppLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AppLogsConfigurationPtrInput` via:
+//
+//          AppLogsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type AppLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAppLogsConfigurationPtrOutput() AppLogsConfigurationPtrOutput
+	ToAppLogsConfigurationPtrOutputWithContext(context.Context) AppLogsConfigurationPtrOutput
+}
+
+type appLogsConfigurationPtrType AppLogsConfigurationArgs
+
+func AppLogsConfigurationPtr(v *AppLogsConfigurationArgs) AppLogsConfigurationPtrInput {
+	return (*appLogsConfigurationPtrType)(v)
+}
+
+func (*appLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppLogsConfiguration)(nil)).Elem()
+}
+
+func (i *appLogsConfigurationPtrType) ToAppLogsConfigurationPtrOutput() AppLogsConfigurationPtrOutput {
+	return i.ToAppLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *appLogsConfigurationPtrType) ToAppLogsConfigurationPtrOutputWithContext(ctx context.Context) AppLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationPtrOutput)
+}
+
+type AppLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AppLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppLogsConfiguration)(nil)).Elem()
+}
+
+func (o AppLogsConfigurationOutput) ToAppLogsConfigurationOutput() AppLogsConfigurationOutput {
+	return o
+}
+
+func (o AppLogsConfigurationOutput) ToAppLogsConfigurationOutputWithContext(ctx context.Context) AppLogsConfigurationOutput {
+	return o
+}
+
+func (o AppLogsConfigurationOutput) ToAppLogsConfigurationPtrOutput() AppLogsConfigurationPtrOutput {
+	return o.ToAppLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AppLogsConfigurationOutput) ToAppLogsConfigurationPtrOutputWithContext(ctx context.Context) AppLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v AppLogsConfiguration) *AppLogsConfiguration {
+		return &v
+	}).(AppLogsConfigurationPtrOutput)
+}
+func (o AppLogsConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppLogsConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+func (o AppLogsConfigurationOutput) LogAnalyticsConfiguration() LogAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v AppLogsConfiguration) *LogAnalyticsConfiguration { return v.LogAnalyticsConfiguration }).(LogAnalyticsConfigurationPtrOutput)
+}
+
+type AppLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AppLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppLogsConfiguration)(nil)).Elem()
+}
+
+func (o AppLogsConfigurationPtrOutput) ToAppLogsConfigurationPtrOutput() AppLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o AppLogsConfigurationPtrOutput) ToAppLogsConfigurationPtrOutputWithContext(ctx context.Context) AppLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o AppLogsConfigurationPtrOutput) Elem() AppLogsConfigurationOutput {
+	return o.ApplyT(func(v *AppLogsConfiguration) AppLogsConfiguration { return *v }).(AppLogsConfigurationOutput)
+}
+
+func (o AppLogsConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppLogsConfigurationPtrOutput) LogAnalyticsConfiguration() LogAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AppLogsConfiguration) *LogAnalyticsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalyticsConfiguration
+	}).(LogAnalyticsConfigurationPtrOutput)
+}
+
+type AppLogsConfigurationResponse struct {
+	Destination               *string                            `pulumi:"destination"`
+	LogAnalyticsConfiguration *LogAnalyticsConfigurationResponse `pulumi:"logAnalyticsConfiguration"`
+}
+
+// AppLogsConfigurationResponseInput is an input type that accepts AppLogsConfigurationResponseArgs and AppLogsConfigurationResponseOutput values.
+// You can construct a concrete instance of `AppLogsConfigurationResponseInput` via:
+//
+//          AppLogsConfigurationResponseArgs{...}
+type AppLogsConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToAppLogsConfigurationResponseOutput() AppLogsConfigurationResponseOutput
+	ToAppLogsConfigurationResponseOutputWithContext(context.Context) AppLogsConfigurationResponseOutput
+}
+
+type AppLogsConfigurationResponseArgs struct {
+	Destination               pulumi.StringPtrInput                     `pulumi:"destination"`
+	LogAnalyticsConfiguration LogAnalyticsConfigurationResponsePtrInput `pulumi:"logAnalyticsConfiguration"`
+}
+
+func (AppLogsConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppLogsConfigurationResponse)(nil)).Elem()
+}
+
+func (i AppLogsConfigurationResponseArgs) ToAppLogsConfigurationResponseOutput() AppLogsConfigurationResponseOutput {
+	return i.ToAppLogsConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i AppLogsConfigurationResponseArgs) ToAppLogsConfigurationResponseOutputWithContext(ctx context.Context) AppLogsConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationResponseOutput)
+}
+
+func (i AppLogsConfigurationResponseArgs) ToAppLogsConfigurationResponsePtrOutput() AppLogsConfigurationResponsePtrOutput {
+	return i.ToAppLogsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AppLogsConfigurationResponseArgs) ToAppLogsConfigurationResponsePtrOutputWithContext(ctx context.Context) AppLogsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationResponseOutput).ToAppLogsConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// AppLogsConfigurationResponsePtrInput is an input type that accepts AppLogsConfigurationResponseArgs, AppLogsConfigurationResponsePtr and AppLogsConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `AppLogsConfigurationResponsePtrInput` via:
+//
+//          AppLogsConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AppLogsConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToAppLogsConfigurationResponsePtrOutput() AppLogsConfigurationResponsePtrOutput
+	ToAppLogsConfigurationResponsePtrOutputWithContext(context.Context) AppLogsConfigurationResponsePtrOutput
+}
+
+type appLogsConfigurationResponsePtrType AppLogsConfigurationResponseArgs
+
+func AppLogsConfigurationResponsePtr(v *AppLogsConfigurationResponseArgs) AppLogsConfigurationResponsePtrInput {
+	return (*appLogsConfigurationResponsePtrType)(v)
+}
+
+func (*appLogsConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppLogsConfigurationResponse)(nil)).Elem()
+}
+
+func (i *appLogsConfigurationResponsePtrType) ToAppLogsConfigurationResponsePtrOutput() AppLogsConfigurationResponsePtrOutput {
+	return i.ToAppLogsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *appLogsConfigurationResponsePtrType) ToAppLogsConfigurationResponsePtrOutputWithContext(ctx context.Context) AppLogsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppLogsConfigurationResponsePtrOutput)
+}
+
+type AppLogsConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (AppLogsConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppLogsConfigurationResponse)(nil)).Elem()
+}
+
+func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponseOutput() AppLogsConfigurationResponseOutput {
+	return o
+}
+
+func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponseOutputWithContext(ctx context.Context) AppLogsConfigurationResponseOutput {
+	return o
+}
+
+func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponsePtrOutput() AppLogsConfigurationResponsePtrOutput {
+	return o.ToAppLogsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponsePtrOutputWithContext(ctx context.Context) AppLogsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v AppLogsConfigurationResponse) *AppLogsConfigurationResponse {
+		return &v
+	}).(AppLogsConfigurationResponsePtrOutput)
+}
+func (o AppLogsConfigurationResponseOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppLogsConfigurationResponse) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+func (o AppLogsConfigurationResponseOutput) LogAnalyticsConfiguration() LogAnalyticsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v AppLogsConfigurationResponse) *LogAnalyticsConfigurationResponse {
+		return v.LogAnalyticsConfiguration
+	}).(LogAnalyticsConfigurationResponsePtrOutput)
+}
+
+type AppLogsConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppLogsConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppLogsConfigurationResponse)(nil)).Elem()
+}
+
+func (o AppLogsConfigurationResponsePtrOutput) ToAppLogsConfigurationResponsePtrOutput() AppLogsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o AppLogsConfigurationResponsePtrOutput) ToAppLogsConfigurationResponsePtrOutputWithContext(ctx context.Context) AppLogsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o AppLogsConfigurationResponsePtrOutput) Elem() AppLogsConfigurationResponseOutput {
+	return o.ApplyT(func(v *AppLogsConfigurationResponse) AppLogsConfigurationResponse { return *v }).(AppLogsConfigurationResponseOutput)
+}
+
+func (o AppLogsConfigurationResponsePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppLogsConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppLogsConfigurationResponsePtrOutput) LogAnalyticsConfiguration() LogAnalyticsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AppLogsConfigurationResponse) *LogAnalyticsConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalyticsConfiguration
+	}).(LogAnalyticsConfigurationResponsePtrOutput)
+}
+
 // The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistration struct {
 	// The App ID of the app used for login.
@@ -5094,6 +5378,423 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 		}
 		return v.FileSystem
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
+}
+
+type ArcConfiguration struct {
+	ArtifactStorageAccessMode    *string                `pulumi:"artifactStorageAccessMode"`
+	ArtifactStorageClassName     *string                `pulumi:"artifactStorageClassName"`
+	ArtifactStorageMountPath     *string                `pulumi:"artifactStorageMountPath"`
+	ArtifactStorageNodeName      *string                `pulumi:"artifactStorageNodeName"`
+	ArtifactsStorageType         *string                `pulumi:"artifactsStorageType"`
+	FrontEndServiceConfiguration *FrontEndConfiguration `pulumi:"frontEndServiceConfiguration"`
+	KubeConfig                   *string                `pulumi:"kubeConfig"`
+}
+
+// ArcConfigurationInput is an input type that accepts ArcConfigurationArgs and ArcConfigurationOutput values.
+// You can construct a concrete instance of `ArcConfigurationInput` via:
+//
+//          ArcConfigurationArgs{...}
+type ArcConfigurationInput interface {
+	pulumi.Input
+
+	ToArcConfigurationOutput() ArcConfigurationOutput
+	ToArcConfigurationOutputWithContext(context.Context) ArcConfigurationOutput
+}
+
+type ArcConfigurationArgs struct {
+	ArtifactStorageAccessMode    pulumi.StringPtrInput         `pulumi:"artifactStorageAccessMode"`
+	ArtifactStorageClassName     pulumi.StringPtrInput         `pulumi:"artifactStorageClassName"`
+	ArtifactStorageMountPath     pulumi.StringPtrInput         `pulumi:"artifactStorageMountPath"`
+	ArtifactStorageNodeName      pulumi.StringPtrInput         `pulumi:"artifactStorageNodeName"`
+	ArtifactsStorageType         *StorageType                  `pulumi:"artifactsStorageType"`
+	FrontEndServiceConfiguration FrontEndConfigurationPtrInput `pulumi:"frontEndServiceConfiguration"`
+	KubeConfig                   pulumi.StringPtrInput         `pulumi:"kubeConfig"`
+}
+
+func (ArcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcConfiguration)(nil)).Elem()
+}
+
+func (i ArcConfigurationArgs) ToArcConfigurationOutput() ArcConfigurationOutput {
+	return i.ToArcConfigurationOutputWithContext(context.Background())
+}
+
+func (i ArcConfigurationArgs) ToArcConfigurationOutputWithContext(ctx context.Context) ArcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationOutput)
+}
+
+func (i ArcConfigurationArgs) ToArcConfigurationPtrOutput() ArcConfigurationPtrOutput {
+	return i.ToArcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ArcConfigurationArgs) ToArcConfigurationPtrOutputWithContext(ctx context.Context) ArcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationOutput).ToArcConfigurationPtrOutputWithContext(ctx)
+}
+
+// ArcConfigurationPtrInput is an input type that accepts ArcConfigurationArgs, ArcConfigurationPtr and ArcConfigurationPtrOutput values.
+// You can construct a concrete instance of `ArcConfigurationPtrInput` via:
+//
+//          ArcConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ArcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToArcConfigurationPtrOutput() ArcConfigurationPtrOutput
+	ToArcConfigurationPtrOutputWithContext(context.Context) ArcConfigurationPtrOutput
+}
+
+type arcConfigurationPtrType ArcConfigurationArgs
+
+func ArcConfigurationPtr(v *ArcConfigurationArgs) ArcConfigurationPtrInput {
+	return (*arcConfigurationPtrType)(v)
+}
+
+func (*arcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcConfiguration)(nil)).Elem()
+}
+
+func (i *arcConfigurationPtrType) ToArcConfigurationPtrOutput() ArcConfigurationPtrOutput {
+	return i.ToArcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *arcConfigurationPtrType) ToArcConfigurationPtrOutputWithContext(ctx context.Context) ArcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationPtrOutput)
+}
+
+type ArcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ArcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcConfiguration)(nil)).Elem()
+}
+
+func (o ArcConfigurationOutput) ToArcConfigurationOutput() ArcConfigurationOutput {
+	return o
+}
+
+func (o ArcConfigurationOutput) ToArcConfigurationOutputWithContext(ctx context.Context) ArcConfigurationOutput {
+	return o
+}
+
+func (o ArcConfigurationOutput) ToArcConfigurationPtrOutput() ArcConfigurationPtrOutput {
+	return o.ToArcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ArcConfigurationOutput) ToArcConfigurationPtrOutputWithContext(ctx context.Context) ArcConfigurationPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *ArcConfiguration {
+		return &v
+	}).(ArcConfigurationPtrOutput)
+}
+func (o ArcConfigurationOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageAccessMode }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationOutput) ArtifactStorageClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageClassName }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationOutput) ArtifactStorageMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageMountPath }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationOutput) ArtifactStorageNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageNodeName }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactsStorageType }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationOutput) FrontEndServiceConfiguration() FrontEndConfigurationPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *FrontEndConfiguration { return v.FrontEndServiceConfiguration }).(FrontEndConfigurationPtrOutput)
+}
+
+func (o ArcConfigurationOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+}
+
+type ArcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ArcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcConfiguration)(nil)).Elem()
+}
+
+func (o ArcConfigurationPtrOutput) ToArcConfigurationPtrOutput() ArcConfigurationPtrOutput {
+	return o
+}
+
+func (o ArcConfigurationPtrOutput) ToArcConfigurationPtrOutputWithContext(ctx context.Context) ArcConfigurationPtrOutput {
+	return o
+}
+
+func (o ArcConfigurationPtrOutput) Elem() ArcConfigurationOutput {
+	return o.ApplyT(func(v *ArcConfiguration) ArcConfiguration { return *v }).(ArcConfigurationOutput)
+}
+
+func (o ArcConfigurationPtrOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) ArtifactStorageClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageClassName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) ArtifactStorageMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageMountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) ArtifactStorageNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageNodeName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactsStorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) FrontEndServiceConfiguration() FrontEndConfigurationPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *FrontEndConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FrontEndServiceConfiguration
+	}).(FrontEndConfigurationPtrOutput)
+}
+
+func (o ArcConfigurationPtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubeConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+type ArcConfigurationResponse struct {
+	ArtifactStorageAccessMode    *string                        `pulumi:"artifactStorageAccessMode"`
+	ArtifactStorageClassName     *string                        `pulumi:"artifactStorageClassName"`
+	ArtifactStorageMountPath     *string                        `pulumi:"artifactStorageMountPath"`
+	ArtifactStorageNodeName      *string                        `pulumi:"artifactStorageNodeName"`
+	ArtifactsStorageType         *string                        `pulumi:"artifactsStorageType"`
+	FrontEndServiceConfiguration *FrontEndConfigurationResponse `pulumi:"frontEndServiceConfiguration"`
+}
+
+// ArcConfigurationResponseInput is an input type that accepts ArcConfigurationResponseArgs and ArcConfigurationResponseOutput values.
+// You can construct a concrete instance of `ArcConfigurationResponseInput` via:
+//
+//          ArcConfigurationResponseArgs{...}
+type ArcConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToArcConfigurationResponseOutput() ArcConfigurationResponseOutput
+	ToArcConfigurationResponseOutputWithContext(context.Context) ArcConfigurationResponseOutput
+}
+
+type ArcConfigurationResponseArgs struct {
+	ArtifactStorageAccessMode    pulumi.StringPtrInput                 `pulumi:"artifactStorageAccessMode"`
+	ArtifactStorageClassName     pulumi.StringPtrInput                 `pulumi:"artifactStorageClassName"`
+	ArtifactStorageMountPath     pulumi.StringPtrInput                 `pulumi:"artifactStorageMountPath"`
+	ArtifactStorageNodeName      pulumi.StringPtrInput                 `pulumi:"artifactStorageNodeName"`
+	ArtifactsStorageType         pulumi.StringPtrInput                 `pulumi:"artifactsStorageType"`
+	FrontEndServiceConfiguration FrontEndConfigurationResponsePtrInput `pulumi:"frontEndServiceConfiguration"`
+}
+
+func (ArcConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcConfigurationResponse)(nil)).Elem()
+}
+
+func (i ArcConfigurationResponseArgs) ToArcConfigurationResponseOutput() ArcConfigurationResponseOutput {
+	return i.ToArcConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i ArcConfigurationResponseArgs) ToArcConfigurationResponseOutputWithContext(ctx context.Context) ArcConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationResponseOutput)
+}
+
+func (i ArcConfigurationResponseArgs) ToArcConfigurationResponsePtrOutput() ArcConfigurationResponsePtrOutput {
+	return i.ToArcConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ArcConfigurationResponseArgs) ToArcConfigurationResponsePtrOutputWithContext(ctx context.Context) ArcConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationResponseOutput).ToArcConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// ArcConfigurationResponsePtrInput is an input type that accepts ArcConfigurationResponseArgs, ArcConfigurationResponsePtr and ArcConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `ArcConfigurationResponsePtrInput` via:
+//
+//          ArcConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ArcConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToArcConfigurationResponsePtrOutput() ArcConfigurationResponsePtrOutput
+	ToArcConfigurationResponsePtrOutputWithContext(context.Context) ArcConfigurationResponsePtrOutput
+}
+
+type arcConfigurationResponsePtrType ArcConfigurationResponseArgs
+
+func ArcConfigurationResponsePtr(v *ArcConfigurationResponseArgs) ArcConfigurationResponsePtrInput {
+	return (*arcConfigurationResponsePtrType)(v)
+}
+
+func (*arcConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcConfigurationResponse)(nil)).Elem()
+}
+
+func (i *arcConfigurationResponsePtrType) ToArcConfigurationResponsePtrOutput() ArcConfigurationResponsePtrOutput {
+	return i.ToArcConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *arcConfigurationResponsePtrType) ToArcConfigurationResponsePtrOutputWithContext(ctx context.Context) ArcConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcConfigurationResponsePtrOutput)
+}
+
+type ArcConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ArcConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcConfigurationResponse)(nil)).Elem()
+}
+
+func (o ArcConfigurationResponseOutput) ToArcConfigurationResponseOutput() ArcConfigurationResponseOutput {
+	return o
+}
+
+func (o ArcConfigurationResponseOutput) ToArcConfigurationResponseOutputWithContext(ctx context.Context) ArcConfigurationResponseOutput {
+	return o
+}
+
+func (o ArcConfigurationResponseOutput) ToArcConfigurationResponsePtrOutput() ArcConfigurationResponsePtrOutput {
+	return o.ToArcConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ArcConfigurationResponseOutput) ToArcConfigurationResponsePtrOutputWithContext(ctx context.Context) ArcConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *ArcConfigurationResponse {
+		return &v
+	}).(ArcConfigurationResponsePtrOutput)
+}
+func (o ArcConfigurationResponseOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactStorageAccessMode }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponseOutput) ArtifactStorageClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactStorageClassName }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponseOutput) ArtifactStorageMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactStorageMountPath }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponseOutput) ArtifactStorageNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactStorageNodeName }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponseOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactsStorageType }).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponseOutput) FrontEndServiceConfiguration() FrontEndConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ArcConfigurationResponse) *FrontEndConfigurationResponse { return v.FrontEndServiceConfiguration }).(FrontEndConfigurationResponsePtrOutput)
+}
+
+type ArcConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArcConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcConfigurationResponse)(nil)).Elem()
+}
+
+func (o ArcConfigurationResponsePtrOutput) ToArcConfigurationResponsePtrOutput() ArcConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ArcConfigurationResponsePtrOutput) ToArcConfigurationResponsePtrOutputWithContext(ctx context.Context) ArcConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ArcConfigurationResponsePtrOutput) Elem() ArcConfigurationResponseOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) ArcConfigurationResponse { return *v }).(ArcConfigurationResponseOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) ArtifactStorageClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageClassName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) ArtifactStorageMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageMountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) ArtifactStorageNodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactStorageNodeName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactsStorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ArcConfigurationResponsePtrOutput) FrontEndServiceConfiguration() FrontEndConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ArcConfigurationResponse) *FrontEndConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FrontEndServiceConfiguration
+	}).(FrontEndConfigurationResponsePtrOutput)
 }
 
 // A wrapper for an ARM resource id
@@ -18727,6 +19428,293 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 	}).(RampUpRuleResponseArrayOutput)
 }
 
+// Extended Location.
+type ExtendedLocation struct {
+	// Name of extended location.
+	Name *string `pulumi:"name"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// Extended Location.
+type ExtendedLocationArgs struct {
+	// Name of extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// Extended Location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// Name of extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+}
+
+// Name of extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extended Location.
+type ExtendedLocationResponse struct {
+	// Name of extended location.
+	Name *string `pulumi:"name"`
+	// Type of extended location.
+	Type string `pulumi:"type"`
+}
+
+// ExtendedLocationResponseInput is an input type that accepts ExtendedLocationResponseArgs and ExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponseInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+type ExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
+	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
+}
+
+// Extended Location.
+type ExtendedLocationResponseArgs struct {
+	// Name of extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of extended location.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationResponsePtrInput is an input type that accepts ExtendedLocationResponseArgs, ExtendedLocationResponsePtr and ExtendedLocationResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponsePtrInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
+	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
+}
+
+type extendedLocationResponsePtrType ExtendedLocationResponseArgs
+
+func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
+	return (*extendedLocationResponsePtrType)(v)
+}
+
+func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
+}
+
+// Extended Location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+		return &v
+	}).(ExtendedLocationResponsePtrOutput)
+}
+
+// Name of extended location.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of extended location.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+}
+
+// Name of extended location.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of extended location.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration settings of the Facebook provider.
 type Facebook struct {
 	// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -20647,6 +21635,258 @@ func (o ForwardProxyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontEndConfiguration struct {
+	Kind *string `pulumi:"kind"`
+}
+
+// FrontEndConfigurationInput is an input type that accepts FrontEndConfigurationArgs and FrontEndConfigurationOutput values.
+// You can construct a concrete instance of `FrontEndConfigurationInput` via:
+//
+//          FrontEndConfigurationArgs{...}
+type FrontEndConfigurationInput interface {
+	pulumi.Input
+
+	ToFrontEndConfigurationOutput() FrontEndConfigurationOutput
+	ToFrontEndConfigurationOutputWithContext(context.Context) FrontEndConfigurationOutput
+}
+
+type FrontEndConfigurationArgs struct {
+	Kind *FrontEndServiceType `pulumi:"kind"`
+}
+
+func (FrontEndConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontEndConfiguration)(nil)).Elem()
+}
+
+func (i FrontEndConfigurationArgs) ToFrontEndConfigurationOutput() FrontEndConfigurationOutput {
+	return i.ToFrontEndConfigurationOutputWithContext(context.Background())
+}
+
+func (i FrontEndConfigurationArgs) ToFrontEndConfigurationOutputWithContext(ctx context.Context) FrontEndConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationOutput)
+}
+
+func (i FrontEndConfigurationArgs) ToFrontEndConfigurationPtrOutput() FrontEndConfigurationPtrOutput {
+	return i.ToFrontEndConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FrontEndConfigurationArgs) ToFrontEndConfigurationPtrOutputWithContext(ctx context.Context) FrontEndConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationOutput).ToFrontEndConfigurationPtrOutputWithContext(ctx)
+}
+
+// FrontEndConfigurationPtrInput is an input type that accepts FrontEndConfigurationArgs, FrontEndConfigurationPtr and FrontEndConfigurationPtrOutput values.
+// You can construct a concrete instance of `FrontEndConfigurationPtrInput` via:
+//
+//          FrontEndConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FrontEndConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFrontEndConfigurationPtrOutput() FrontEndConfigurationPtrOutput
+	ToFrontEndConfigurationPtrOutputWithContext(context.Context) FrontEndConfigurationPtrOutput
+}
+
+type frontEndConfigurationPtrType FrontEndConfigurationArgs
+
+func FrontEndConfigurationPtr(v *FrontEndConfigurationArgs) FrontEndConfigurationPtrInput {
+	return (*frontEndConfigurationPtrType)(v)
+}
+
+func (*frontEndConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontEndConfiguration)(nil)).Elem()
+}
+
+func (i *frontEndConfigurationPtrType) ToFrontEndConfigurationPtrOutput() FrontEndConfigurationPtrOutput {
+	return i.ToFrontEndConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *frontEndConfigurationPtrType) ToFrontEndConfigurationPtrOutputWithContext(ctx context.Context) FrontEndConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationPtrOutput)
+}
+
+type FrontEndConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FrontEndConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontEndConfiguration)(nil)).Elem()
+}
+
+func (o FrontEndConfigurationOutput) ToFrontEndConfigurationOutput() FrontEndConfigurationOutput {
+	return o
+}
+
+func (o FrontEndConfigurationOutput) ToFrontEndConfigurationOutputWithContext(ctx context.Context) FrontEndConfigurationOutput {
+	return o
+}
+
+func (o FrontEndConfigurationOutput) ToFrontEndConfigurationPtrOutput() FrontEndConfigurationPtrOutput {
+	return o.ToFrontEndConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FrontEndConfigurationOutput) ToFrontEndConfigurationPtrOutputWithContext(ctx context.Context) FrontEndConfigurationPtrOutput {
+	return o.ApplyT(func(v FrontEndConfiguration) *FrontEndConfiguration {
+		return &v
+	}).(FrontEndConfigurationPtrOutput)
+}
+func (o FrontEndConfigurationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontEndConfiguration) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type FrontEndConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontEndConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontEndConfiguration)(nil)).Elem()
+}
+
+func (o FrontEndConfigurationPtrOutput) ToFrontEndConfigurationPtrOutput() FrontEndConfigurationPtrOutput {
+	return o
+}
+
+func (o FrontEndConfigurationPtrOutput) ToFrontEndConfigurationPtrOutputWithContext(ctx context.Context) FrontEndConfigurationPtrOutput {
+	return o
+}
+
+func (o FrontEndConfigurationPtrOutput) Elem() FrontEndConfigurationOutput {
+	return o.ApplyT(func(v *FrontEndConfiguration) FrontEndConfiguration { return *v }).(FrontEndConfigurationOutput)
+}
+
+func (o FrontEndConfigurationPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontEndConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontEndConfigurationResponse struct {
+	Kind *string `pulumi:"kind"`
+}
+
+// FrontEndConfigurationResponseInput is an input type that accepts FrontEndConfigurationResponseArgs and FrontEndConfigurationResponseOutput values.
+// You can construct a concrete instance of `FrontEndConfigurationResponseInput` via:
+//
+//          FrontEndConfigurationResponseArgs{...}
+type FrontEndConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToFrontEndConfigurationResponseOutput() FrontEndConfigurationResponseOutput
+	ToFrontEndConfigurationResponseOutputWithContext(context.Context) FrontEndConfigurationResponseOutput
+}
+
+type FrontEndConfigurationResponseArgs struct {
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (FrontEndConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontEndConfigurationResponse)(nil)).Elem()
+}
+
+func (i FrontEndConfigurationResponseArgs) ToFrontEndConfigurationResponseOutput() FrontEndConfigurationResponseOutput {
+	return i.ToFrontEndConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i FrontEndConfigurationResponseArgs) ToFrontEndConfigurationResponseOutputWithContext(ctx context.Context) FrontEndConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationResponseOutput)
+}
+
+func (i FrontEndConfigurationResponseArgs) ToFrontEndConfigurationResponsePtrOutput() FrontEndConfigurationResponsePtrOutput {
+	return i.ToFrontEndConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FrontEndConfigurationResponseArgs) ToFrontEndConfigurationResponsePtrOutputWithContext(ctx context.Context) FrontEndConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationResponseOutput).ToFrontEndConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// FrontEndConfigurationResponsePtrInput is an input type that accepts FrontEndConfigurationResponseArgs, FrontEndConfigurationResponsePtr and FrontEndConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `FrontEndConfigurationResponsePtrInput` via:
+//
+//          FrontEndConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FrontEndConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToFrontEndConfigurationResponsePtrOutput() FrontEndConfigurationResponsePtrOutput
+	ToFrontEndConfigurationResponsePtrOutputWithContext(context.Context) FrontEndConfigurationResponsePtrOutput
+}
+
+type frontEndConfigurationResponsePtrType FrontEndConfigurationResponseArgs
+
+func FrontEndConfigurationResponsePtr(v *FrontEndConfigurationResponseArgs) FrontEndConfigurationResponsePtrInput {
+	return (*frontEndConfigurationResponsePtrType)(v)
+}
+
+func (*frontEndConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontEndConfigurationResponse)(nil)).Elem()
+}
+
+func (i *frontEndConfigurationResponsePtrType) ToFrontEndConfigurationResponsePtrOutput() FrontEndConfigurationResponsePtrOutput {
+	return i.ToFrontEndConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *frontEndConfigurationResponsePtrType) ToFrontEndConfigurationResponsePtrOutputWithContext(ctx context.Context) FrontEndConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontEndConfigurationResponsePtrOutput)
+}
+
+type FrontEndConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FrontEndConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontEndConfigurationResponse)(nil)).Elem()
+}
+
+func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponseOutput() FrontEndConfigurationResponseOutput {
+	return o
+}
+
+func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponseOutputWithContext(ctx context.Context) FrontEndConfigurationResponseOutput {
+	return o
+}
+
+func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponsePtrOutput() FrontEndConfigurationResponsePtrOutput {
+	return o.ToFrontEndConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponsePtrOutputWithContext(ctx context.Context) FrontEndConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v FrontEndConfigurationResponse) *FrontEndConfigurationResponse {
+		return &v
+	}).(FrontEndConfigurationResponsePtrOutput)
+}
+func (o FrontEndConfigurationResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontEndConfigurationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type FrontEndConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontEndConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontEndConfigurationResponse)(nil)).Elem()
+}
+
+func (o FrontEndConfigurationResponsePtrOutput) ToFrontEndConfigurationResponsePtrOutput() FrontEndConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FrontEndConfigurationResponsePtrOutput) ToFrontEndConfigurationResponsePtrOutputWithContext(ctx context.Context) FrontEndConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FrontEndConfigurationResponsePtrOutput) Elem() FrontEndConfigurationResponseOutput {
+	return o.ApplyT(func(v *FrontEndConfigurationResponse) FrontEndConfigurationResponse { return *v }).(FrontEndConfigurationResponseOutput)
+}
+
+func (o FrontEndConfigurationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontEndConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -27566,6 +28806,273 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Validation() AllowedAudiencesVa
 		}
 		return v.Validation
 	}).(AllowedAudiencesValidationResponsePtrOutput)
+}
+
+type LogAnalyticsConfiguration struct {
+	CustomerId *string `pulumi:"customerId"`
+	SharedKey  *string `pulumi:"sharedKey"`
+}
+
+// LogAnalyticsConfigurationInput is an input type that accepts LogAnalyticsConfigurationArgs and LogAnalyticsConfigurationOutput values.
+// You can construct a concrete instance of `LogAnalyticsConfigurationInput` via:
+//
+//          LogAnalyticsConfigurationArgs{...}
+type LogAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsConfigurationOutput() LogAnalyticsConfigurationOutput
+	ToLogAnalyticsConfigurationOutputWithContext(context.Context) LogAnalyticsConfigurationOutput
+}
+
+type LogAnalyticsConfigurationArgs struct {
+	CustomerId pulumi.StringPtrInput `pulumi:"customerId"`
+	SharedKey  pulumi.StringPtrInput `pulumi:"sharedKey"`
+}
+
+func (LogAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i LogAnalyticsConfigurationArgs) ToLogAnalyticsConfigurationOutput() LogAnalyticsConfigurationOutput {
+	return i.ToLogAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsConfigurationArgs) ToLogAnalyticsConfigurationOutputWithContext(ctx context.Context) LogAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationOutput)
+}
+
+func (i LogAnalyticsConfigurationArgs) ToLogAnalyticsConfigurationPtrOutput() LogAnalyticsConfigurationPtrOutput {
+	return i.ToLogAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsConfigurationArgs) ToLogAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationOutput).ToLogAnalyticsConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogAnalyticsConfigurationPtrInput is an input type that accepts LogAnalyticsConfigurationArgs, LogAnalyticsConfigurationPtr and LogAnalyticsConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogAnalyticsConfigurationPtrInput` via:
+//
+//          LogAnalyticsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type LogAnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsConfigurationPtrOutput() LogAnalyticsConfigurationPtrOutput
+	ToLogAnalyticsConfigurationPtrOutputWithContext(context.Context) LogAnalyticsConfigurationPtrOutput
+}
+
+type logAnalyticsConfigurationPtrType LogAnalyticsConfigurationArgs
+
+func LogAnalyticsConfigurationPtr(v *LogAnalyticsConfigurationArgs) LogAnalyticsConfigurationPtrInput {
+	return (*logAnalyticsConfigurationPtrType)(v)
+}
+
+func (*logAnalyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i *logAnalyticsConfigurationPtrType) ToLogAnalyticsConfigurationPtrOutput() LogAnalyticsConfigurationPtrOutput {
+	return i.ToLogAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logAnalyticsConfigurationPtrType) ToLogAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationPtrOutput)
+}
+
+type LogAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationOutput() LogAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationOutputWithContext(ctx context.Context) LogAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationPtrOutput() LogAnalyticsConfigurationPtrOutput {
+	return o.ToLogAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsConfiguration) *LogAnalyticsConfiguration {
+		return &v
+	}).(LogAnalyticsConfigurationPtrOutput)
+}
+func (o LogAnalyticsConfigurationOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsConfiguration) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
+}
+
+func (o LogAnalyticsConfigurationOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsConfiguration) *string { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+type LogAnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o LogAnalyticsConfigurationPtrOutput) ToLogAnalyticsConfigurationPtrOutput() LogAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationPtrOutput) ToLogAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationPtrOutput) Elem() LogAnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *LogAnalyticsConfiguration) LogAnalyticsConfiguration { return *v }).(LogAnalyticsConfigurationOutput)
+}
+
+func (o LogAnalyticsConfigurationPtrOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LogAnalyticsConfigurationPtrOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SharedKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogAnalyticsConfigurationResponse struct {
+	CustomerId *string `pulumi:"customerId"`
+}
+
+// LogAnalyticsConfigurationResponseInput is an input type that accepts LogAnalyticsConfigurationResponseArgs and LogAnalyticsConfigurationResponseOutput values.
+// You can construct a concrete instance of `LogAnalyticsConfigurationResponseInput` via:
+//
+//          LogAnalyticsConfigurationResponseArgs{...}
+type LogAnalyticsConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsConfigurationResponseOutput() LogAnalyticsConfigurationResponseOutput
+	ToLogAnalyticsConfigurationResponseOutputWithContext(context.Context) LogAnalyticsConfigurationResponseOutput
+}
+
+type LogAnalyticsConfigurationResponseArgs struct {
+	CustomerId pulumi.StringPtrInput `pulumi:"customerId"`
+}
+
+func (LogAnalyticsConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsConfigurationResponse)(nil)).Elem()
+}
+
+func (i LogAnalyticsConfigurationResponseArgs) ToLogAnalyticsConfigurationResponseOutput() LogAnalyticsConfigurationResponseOutput {
+	return i.ToLogAnalyticsConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsConfigurationResponseArgs) ToLogAnalyticsConfigurationResponseOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationResponseOutput)
+}
+
+func (i LogAnalyticsConfigurationResponseArgs) ToLogAnalyticsConfigurationResponsePtrOutput() LogAnalyticsConfigurationResponsePtrOutput {
+	return i.ToLogAnalyticsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsConfigurationResponseArgs) ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationResponseOutput).ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// LogAnalyticsConfigurationResponsePtrInput is an input type that accepts LogAnalyticsConfigurationResponseArgs, LogAnalyticsConfigurationResponsePtr and LogAnalyticsConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `LogAnalyticsConfigurationResponsePtrInput` via:
+//
+//          LogAnalyticsConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LogAnalyticsConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsConfigurationResponsePtrOutput() LogAnalyticsConfigurationResponsePtrOutput
+	ToLogAnalyticsConfigurationResponsePtrOutputWithContext(context.Context) LogAnalyticsConfigurationResponsePtrOutput
+}
+
+type logAnalyticsConfigurationResponsePtrType LogAnalyticsConfigurationResponseArgs
+
+func LogAnalyticsConfigurationResponsePtr(v *LogAnalyticsConfigurationResponseArgs) LogAnalyticsConfigurationResponsePtrInput {
+	return (*logAnalyticsConfigurationResponsePtrType)(v)
+}
+
+func (*logAnalyticsConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsConfigurationResponse)(nil)).Elem()
+}
+
+func (i *logAnalyticsConfigurationResponsePtrType) ToLogAnalyticsConfigurationResponsePtrOutput() LogAnalyticsConfigurationResponsePtrOutput {
+	return i.ToLogAnalyticsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *logAnalyticsConfigurationResponsePtrType) ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsConfigurationResponsePtrOutput)
+}
+
+type LogAnalyticsConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsConfigurationResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResponseOutput() LogAnalyticsConfigurationResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResponseOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponseOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResponsePtrOutput() LogAnalyticsConfigurationResponsePtrOutput {
+	return o.ToLogAnalyticsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LogAnalyticsConfigurationResponse) *LogAnalyticsConfigurationResponse {
+		return &v
+	}).(LogAnalyticsConfigurationResponsePtrOutput)
+}
+func (o LogAnalyticsConfigurationResponseOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsConfigurationResponse) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
+}
+
+type LogAnalyticsConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsConfigurationResponse)(nil)).Elem()
+}
+
+func (o LogAnalyticsConfigurationResponsePtrOutput) ToLogAnalyticsConfigurationResponsePtrOutput() LogAnalyticsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationResponsePtrOutput) ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsConfigurationResponsePtrOutput) Elem() LogAnalyticsConfigurationResponseOutput {
+	return o.ApplyT(func(v *LogAnalyticsConfigurationResponse) LogAnalyticsConfigurationResponse { return *v }).(LogAnalyticsConfigurationResponseOutput)
+}
+
+func (o LogAnalyticsConfigurationResponsePtrOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogAnalyticsConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the login flow of users using App Service Authentication/Authorization.
@@ -43715,6 +45222,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiResourceDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(AppLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AppLogsConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(AppLogsConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(AppRegistrationOutput{})
 	pulumi.RegisterOutputType(AppRegistrationPtrOutput{})
 	pulumi.RegisterOutputType(AppRegistrationResponseOutput{})
@@ -43731,6 +45242,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArcConfigurationOutput{})
+	pulumi.RegisterOutputType(ArcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ArcConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ArcConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmPlanResponseOutput{})
@@ -43879,6 +45394,10 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(FacebookOutput{})
 	pulumi.RegisterOutputType(FacebookPtrOutput{})
 	pulumi.RegisterOutputType(FacebookResponseOutput{})
@@ -43899,6 +45418,10 @@ func init() {
 	pulumi.RegisterOutputType(ForwardProxyPtrOutput{})
 	pulumi.RegisterOutputType(ForwardProxyResponseOutput{})
 	pulumi.RegisterOutputType(ForwardProxyResponsePtrOutput{})
+	pulumi.RegisterOutputType(FrontEndConfigurationOutput{})
+	pulumi.RegisterOutputType(FrontEndConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FrontEndConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FrontEndConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GitHubOutput{})
 	pulumi.RegisterOutputType(GitHubPtrOutput{})
 	pulumi.RegisterOutputType(GitHubActionCodeConfigurationOutput{})
@@ -43969,6 +45492,10 @@ func init() {
 	pulumi.RegisterOutputType(LegacyMicrosoftAccountPtrOutput{})
 	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponseOutput{})
 	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoginOutput{})
 	pulumi.RegisterOutputType(LoginPtrOutput{})
 	pulumi.RegisterOutputType(LoginResponseOutput{})

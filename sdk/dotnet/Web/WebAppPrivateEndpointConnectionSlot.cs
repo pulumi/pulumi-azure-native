@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPrivateEndpointConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppPrivateEndpointConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

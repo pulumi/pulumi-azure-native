@@ -21,6 +21,7 @@ from .get_certificate import *
 from .get_connection import *
 from .get_connection_gateway import *
 from .get_custom_api import *
+from .get_kube_environment import *
 from .get_static_site import *
 from .get_static_site_custom_domain import *
 from .get_static_site_private_endpoint_connection import *
@@ -56,6 +57,7 @@ from .get_web_app_swift_virtual_network_connection import *
 from .get_web_app_swift_virtual_network_connection_slot import *
 from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
+from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
 from .list_connection_consent_links import *
 from .list_connection_keys import *
@@ -167,6 +169,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.web.v20200901 as v20200901
     import pulumi_azure_native.web.v20201001 as v20201001
     import pulumi_azure_native.web.v20201201 as v20201201
+    import pulumi_azure_native.web.v20210101 as v20210101
 else:
     v20150801 = _utilities.lazy_import('pulumi_azure_native.web.v20150801')
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')
@@ -181,4 +184,5 @@ else:
     v20200901 = _utilities.lazy_import('pulumi_azure_native.web.v20200901')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.web.v20201001')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.web.v20201201')
+    v20210101 = _utilities.lazy_import('pulumi_azure_native.web.v20210101')
 

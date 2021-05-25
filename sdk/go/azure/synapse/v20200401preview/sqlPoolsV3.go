@@ -15,12 +15,18 @@ import (
 type SqlPoolsV3 struct {
 	pulumi.CustomResourceState
 
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer pulumi.IntPtrOutput `pulumi:"autoPauseTimer"`
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume pulumi.BoolPtrOutput `pulumi:"autoResume"`
 	// The current service level objective name of the sql pool.
 	CurrentServiceObjectiveName pulumi.StringOutput `pulumi:"currentServiceObjectiveName"`
 	// Kind of SqlPool.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName pulumi.StringPtrOutput `pulumi:"maxServiceObjectiveName"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The requested service level objective name of the sql pool.
@@ -110,12 +116,18 @@ func GetSqlPoolsV3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolsV3 resources.
 type sqlPoolsV3State struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer *int `pulumi:"autoPauseTimer"`
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume *bool `pulumi:"autoResume"`
 	// The current service level objective name of the sql pool.
 	CurrentServiceObjectiveName *string `pulumi:"currentServiceObjectiveName"`
 	// Kind of SqlPool.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName *string `pulumi:"maxServiceObjectiveName"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The requested service level objective name of the sql pool.
@@ -135,12 +147,18 @@ type sqlPoolsV3State struct {
 }
 
 type SqlPoolsV3State struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer pulumi.IntPtrInput
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume pulumi.BoolPtrInput
 	// The current service level objective name of the sql pool.
 	CurrentServiceObjectiveName pulumi.StringPtrInput
 	// Kind of SqlPool.
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The requested service level objective name of the sql pool.
@@ -164,8 +182,14 @@ func (SqlPoolsV3State) ElementType() reflect.Type {
 }
 
 type sqlPoolsV3Args struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer *int `pulumi:"autoPauseTimer"`
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume *bool `pulumi:"autoResume"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName *string `pulumi:"maxServiceObjectiveName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
@@ -180,8 +204,14 @@ type sqlPoolsV3Args struct {
 
 // The set of arguments for constructing a SqlPoolsV3 resource.
 type SqlPoolsV3Args struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer pulumi.IntPtrInput
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
