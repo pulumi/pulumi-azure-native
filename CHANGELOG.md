@@ -9,6 +9,11 @@ CHANGELOG
 - `logz.listMonitorVMHosts`
 - `logz.listSubAccountVMHosts`
 
+#### Updated API versions for top-level resources
+
+- Azure now indicates that the version `2021-01-01-preview` of `servicebus.PrivateEndpointConnection`
+  isn't supported yet, so we switched it to the older supported version `2018-01-01-preview`
+
 ---
 
 ## 1.7.0 (2020-05-19)
