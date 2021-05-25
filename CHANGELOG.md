@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.8.0 (2020-05-25)
+
 #### New Resources
 
 - `web.KubeEnvironment`
@@ -18,8 +24,6 @@ CHANGELOG
 
 - Azure now indicates that the version `2021-01-01-preview` of `servicebus.PrivateEndpointConnection`
   isn't supported yet, so we switched it to the older supported version `2018-01-01-preview`
-
----
 
 ## 1.7.0 (2020-05-19)
 
