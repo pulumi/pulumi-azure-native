@@ -8,7 +8,7 @@ import (
 )
 
 // Properties of the PrivateEndpointConnection.
-// API Version: 2021-01-01-preview.
+// API Version: 2018-01-01-preview.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:servicebus:getPrivateEndpointConnection", args, &rv, opts...)
@@ -39,8 +39,6 @@ type LookupPrivateEndpointConnectionResult struct {
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

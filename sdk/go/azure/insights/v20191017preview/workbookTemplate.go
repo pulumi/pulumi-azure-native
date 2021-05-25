@@ -61,6 +61,12 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:WorkbookTemplate"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20201120:WorkbookTemplate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20201120:WorkbookTemplate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkbookTemplate

@@ -6957,6 +6957,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20201120",
+  "fqn": "pulumi_azure_native.insights.v20201120",
+  "classes": {
+   "azure-native:insights/v20201120:WorkbookTemplate": "WorkbookTemplate"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "insights/v20210201preview",
   "fqn": "pulumi_azure_native.insights.v20210201preview",
   "classes": {

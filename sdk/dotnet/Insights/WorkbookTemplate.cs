@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.Insights
                     new Pulumi.Alias { Type = "azure-nextgen:insights:WorkbookTemplate"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:WorkbookTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:WorkbookTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20201120:WorkbookTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201120:WorkbookTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
