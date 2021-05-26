@@ -169,61 +169,61 @@ export interface WatchlistItemArgs {
     /**
      * The time the watchlist item was created
      */
-    readonly created?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
     /**
      * Describes a user that created the watchlist item
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
+    createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
-    readonly entityMapping?: any;
+    entityMapping?: any;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A flag that indicates if the watchlist item is deleted or not
      */
-    readonly isDeleted?: pulumi.Input<boolean>;
+    isDeleted?: pulumi.Input<boolean>;
     /**
      * key-value pairs for a watchlist item
      */
-    readonly itemsKeyValue: any;
+    itemsKeyValue: any;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tenantId to which the watchlist item belongs to
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The last time the watchlist item was updated
      */
-    readonly updated?: pulumi.Input<string>;
+    updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the watchlist item
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
      * Watchlist Alias
      */
-    readonly watchlistAlias: pulumi.Input<string>;
+    watchlistAlias: pulumi.Input<string>;
     /**
      * The id (a Guid) of the watchlist item
      */
-    readonly watchlistItemId?: pulumi.Input<string>;
+    watchlistItemId?: pulumi.Input<string>;
     /**
      * The type of the watchlist item
      */
-    readonly watchlistItemType?: pulumi.Input<string>;
+    watchlistItemType?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

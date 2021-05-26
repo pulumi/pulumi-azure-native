@@ -26,11 +26,11 @@ export interface GetDataCollectionEndpointArgs {
     /**
      * The name of the data collection endpoint. The name is case insensitive.
      */
-    readonly dataCollectionEndpointName: string;
+    dataCollectionEndpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

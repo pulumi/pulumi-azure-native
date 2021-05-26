@@ -101,21 +101,21 @@ export interface DatastoreArgs {
     /**
      * Datastore name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Additional attributes of the entity.
      */
-    readonly properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.DatastorePropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.DatastorePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Flag to skip validation.
      */
-    readonly skipValidation?: pulumi.Input<boolean>;
+    skipValidation?: pulumi.Input<boolean>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

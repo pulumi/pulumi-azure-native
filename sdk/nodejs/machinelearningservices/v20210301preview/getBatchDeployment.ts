@@ -25,19 +25,19 @@ export interface GetBatchDeploymentArgs {
     /**
      * The identifier for the Batch deployments.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
     /**
      * Endpoint name
      */
-    readonly endpointName: string;
+    endpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 export interface GetBatchDeploymentResult {

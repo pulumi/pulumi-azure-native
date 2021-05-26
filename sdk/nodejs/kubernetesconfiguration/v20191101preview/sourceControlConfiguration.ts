@@ -160,53 +160,53 @@ export interface SourceControlConfigurationArgs {
     /**
      * The name of the kubernetes cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
      */
-    readonly clusterResourceName: pulumi.Input<string>;
+    clusterResourceName: pulumi.Input<string>;
     /**
      * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
      */
-    readonly clusterRp: pulumi.Input<string>;
+    clusterRp: pulumi.Input<string>;
     /**
      * Option to enable Helm Operator for this git configuration.
      */
-    readonly enableHelmOperator?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.EnableHelmOperator>;
+    enableHelmOperator?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.EnableHelmOperator>;
     /**
      * Properties for Helm operator.
      */
-    readonly helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesArgs>;
+    helmOperatorProperties?: pulumi.Input<inputs.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesArgs>;
     /**
      * Instance name of the operator - identifying the specific configuration.
      */
-    readonly operatorInstanceName?: pulumi.Input<string>;
+    operatorInstanceName?: pulumi.Input<string>;
     /**
      * The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
      */
-    readonly operatorNamespace?: pulumi.Input<string>;
+    operatorNamespace?: pulumi.Input<string>;
     /**
      * Any Parameters for the Operator instance in string format.
      */
-    readonly operatorParams?: pulumi.Input<string>;
+    operatorParams?: pulumi.Input<string>;
     /**
      * Scope at which the operator will be installed.
      */
-    readonly operatorScope?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorScope>;
+    operatorScope?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorScope>;
     /**
      * Type of the operator
      */
-    readonly operatorType?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorType>;
+    operatorType?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorType>;
     /**
      * Url of the SourceControl Repository.
      */
-    readonly repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Source Control Configuration.
      */
-    readonly sourceControlConfigurationName?: pulumi.Input<string>;
+    sourceControlConfigurationName?: pulumi.Input<string>;
 }

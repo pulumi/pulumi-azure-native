@@ -27,15 +27,15 @@ export interface GetGlobalUserEnvironmentArgs {
     /**
      * The resourceId of the environment
      */
-    readonly environmentId: string;
+    environmentId: string;
     /**
      * Specify the $expand query. Example: 'properties($expand=environment)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

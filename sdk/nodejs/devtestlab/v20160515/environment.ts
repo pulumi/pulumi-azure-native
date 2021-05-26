@@ -137,41 +137,41 @@ export interface EnvironmentArgs {
     /**
      * The display name of the Azure Resource Manager template that produced the environment.
      */
-    readonly armTemplateDisplayName?: pulumi.Input<string>;
+    armTemplateDisplayName?: pulumi.Input<string>;
     /**
      * The deployment properties of the environment.
      */
-    readonly deploymentProperties?: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentDeploymentPropertiesArgs>;
+    deploymentProperties?: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentDeploymentPropertiesArgs>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
     /**
      * The name of the user profile.
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

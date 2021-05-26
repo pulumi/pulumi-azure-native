@@ -22,7 +22,7 @@ export interface GetProviderRegistrationArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: string;
+    providerNamespace: string;
 }
 
 export interface GetProviderRegistrationResult {

@@ -93,14 +93,14 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionPropertiesArgs>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

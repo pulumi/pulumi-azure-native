@@ -154,37 +154,37 @@ export interface GatewayArgs {
     /**
      * User readable description of the gateway.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Network that the Application is using.
      */
-    readonly destinationNetwork: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkRefArgs>;
+    destinationNetwork: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkRefArgs>;
     /**
      * The identity of the gateway.
      */
-    readonly gatewayResourceName?: pulumi.Input<string>;
+    gatewayResourceName?: pulumi.Input<string>;
     /**
      * Configuration for http connectivity for this gateway.
      */
-    readonly http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.HttpConfigArgs>[]>;
+    http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.HttpConfigArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Network the gateway should listen on for requests.
      */
-    readonly sourceNetwork: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkRefArgs>;
+    sourceNetwork: pulumi.Input<inputs.servicefabricmesh.v20180901preview.NetworkRefArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration for tcp connectivity for this gateway.
      */
-    readonly tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.TcpConfigArgs>[]>;
+    tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180901preview.TcpConfigArgs>[]>;
 }

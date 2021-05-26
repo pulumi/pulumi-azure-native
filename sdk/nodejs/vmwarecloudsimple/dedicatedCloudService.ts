@@ -121,21 +121,21 @@ export interface DedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    readonly dedicatedCloudServiceName?: pulumi.Input<string>;
+    dedicatedCloudServiceName?: pulumi.Input<string>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
-    readonly gatewaySubnet: pulumi.Input<string>;
+    gatewaySubnet: pulumi.Input<string>;
     /**
      * Azure region
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The list of tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

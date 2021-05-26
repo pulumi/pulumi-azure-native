@@ -28,15 +28,15 @@ export interface GetInputArgs {
     /**
      * The name of the input.
      */
-    readonly inputName: string;
+    inputName: string;
     /**
      * The name of the streaming job.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

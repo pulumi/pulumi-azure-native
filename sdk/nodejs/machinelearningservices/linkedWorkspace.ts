@@ -93,21 +93,21 @@ export interface LinkedWorkspaceArgs {
     /**
      * Friendly name of the linked workspace
      */
-    readonly linkName?: pulumi.Input<string>;
+    linkName?: pulumi.Input<string>;
     /**
      * Friendly name of the linked workspace
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * LinkedWorkspace specific properties.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspacePropsArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.LinkedWorkspacePropsArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

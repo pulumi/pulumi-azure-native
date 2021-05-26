@@ -92,17 +92,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
      */
-    readonly properties?: pulumi.Input<inputs.search.v20200313.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.search.v20200313.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Cognitive Search service associated with the specified resource group.
      */
-    readonly searchServiceName: pulumi.Input<string>;
+    searchServiceName: pulumi.Input<string>;
 }

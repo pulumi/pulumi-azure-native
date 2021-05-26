@@ -27,11 +27,11 @@ export interface GetBlockchainMemberArgs {
     /**
      * Blockchain member name.
      */
-    readonly blockchainMemberName: string;
+    blockchainMemberName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

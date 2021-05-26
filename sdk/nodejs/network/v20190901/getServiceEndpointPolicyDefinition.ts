@@ -27,15 +27,15 @@ export interface GetServiceEndpointPolicyDefinitionArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the service endpoint policy definition name.
      */
-    readonly serviceEndpointPolicyDefinitionName: string;
+    serviceEndpointPolicyDefinitionName: string;
     /**
      * The name of the service endpoint policy name.
      */
-    readonly serviceEndpointPolicyName: string;
+    serviceEndpointPolicyName: string;
 }
 
 /**

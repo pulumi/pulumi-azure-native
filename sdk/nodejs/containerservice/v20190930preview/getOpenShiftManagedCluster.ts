@@ -26,11 +26,11 @@ export interface GetOpenShiftManagedClusterArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the OpenShift managed cluster resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

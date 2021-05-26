@@ -26,7 +26,7 @@ export interface GetAliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName: string;
+    aliasName: string;
 }
 
 /**

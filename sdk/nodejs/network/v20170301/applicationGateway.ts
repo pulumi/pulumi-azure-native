@@ -203,89 +203,89 @@ export interface ApplicationGatewayArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName?: pulumi.Input<string>;
+    applicationGatewayName?: pulumi.Input<string>;
     /**
      * Authentication certificates of the application gateway resource.
      */
-    readonly authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayAuthenticationCertificateArgs>[]>;
+    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayAuthenticationCertificateArgs>[]>;
     /**
      * Backend address pool of the application gateway resource.
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayBackendAddressPoolArgs>[]>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayBackendAddressPoolArgs>[]>;
     /**
      * Backend http settings of the application gateway resource.
      */
-    readonly backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayBackendHttpSettingsArgs>[]>;
+    backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayBackendHttpSettingsArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Frontend IP addresses of the application gateway resource.
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayFrontendIPConfigurationArgs>[]>;
+    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayFrontendIPConfigurationArgs>[]>;
     /**
      * Frontend ports of the application gateway resource.
      */
-    readonly frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayFrontendPortArgs>[]>;
+    frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayFrontendPortArgs>[]>;
     /**
      * Subnets of application the gateway resource.
      */
-    readonly gatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayIPConfigurationArgs>[]>;
+    gatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
      * Http listeners of the application gateway resource.
      */
-    readonly httpListeners?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayHttpListenerArgs>[]>;
+    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayHttpListenerArgs>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Probes of the application gateway resource.
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayProbeArgs>[]>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayProbeArgs>[]>;
     /**
      * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Request routing rules of the application gateway resource.
      */
-    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayRequestRoutingRuleArgs>[]>;
+    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayRequestRoutingRuleArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource GUID property of the application gateway resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * SKU of the application gateway resource.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20170301.ApplicationGatewaySkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20170301.ApplicationGatewaySkuArgs>;
     /**
      * SSL certificates of the application gateway resource.
      */
-    readonly sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewaySslCertificateArgs>[]>;
+    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewaySslCertificateArgs>[]>;
     /**
      * SSL policy of the application gateway resource.
      */
-    readonly sslPolicy?: pulumi.Input<inputs.network.v20170301.ApplicationGatewaySslPolicyArgs>;
+    sslPolicy?: pulumi.Input<inputs.network.v20170301.ApplicationGatewaySslPolicyArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * URL path map of the application gateway resource.
      */
-    readonly urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayUrlPathMapArgs>[]>;
+    urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.v20170301.ApplicationGatewayUrlPathMapArgs>[]>;
     /**
      * Web application firewall configuration.
      */
-    readonly webApplicationFirewallConfiguration?: pulumi.Input<inputs.network.v20170301.ApplicationGatewayWebApplicationFirewallConfigurationArgs>;
+    webApplicationFirewallConfiguration?: pulumi.Input<inputs.network.v20170301.ApplicationGatewayWebApplicationFirewallConfigurationArgs>;
 }

@@ -115,17 +115,17 @@ export interface RegisteredPrefixArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    peeringName: pulumi.Input<string>;
     /**
      * The customer's prefix from which traffic originates.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The name of the registered prefix.
      */
-    readonly registeredPrefixName?: pulumi.Input<string>;
+    registeredPrefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

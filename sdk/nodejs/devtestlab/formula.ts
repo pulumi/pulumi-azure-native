@@ -146,37 +146,37 @@ export interface FormulaArgs {
     /**
      * The description of the formula.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The content of the formula.
      */
-    readonly formulaContent?: pulumi.Input<inputs.devtestlab.LabVirtualMachineCreationParameterArgs>;
+    formulaContent?: pulumi.Input<inputs.devtestlab.LabVirtualMachineCreationParameterArgs>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the formula.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The OS type of the formula.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Information about a VM from which a formula is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.FormulaPropertiesFromVmArgs>;
+    vm?: pulumi.Input<inputs.devtestlab.FormulaPropertiesFromVmArgs>;
 }

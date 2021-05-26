@@ -117,29 +117,29 @@ export interface PolicySetDefinitionArgs {
     /**
      * The policy set definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy set definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy set definition metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: any;
+    parameters?: any;
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20170601preview.PolicyDefinitionReferenceArgs>[]>;
+    policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20170601preview.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */
-    readonly policySetDefinitionName?: pulumi.Input<string>;
+    policySetDefinitionName?: pulumi.Input<string>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string | enums.authorization.v20170601preview.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.v20170601preview.PolicyType>;
 }

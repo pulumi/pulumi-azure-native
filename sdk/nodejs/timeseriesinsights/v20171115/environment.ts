@@ -154,33 +154,33 @@ export interface EnvironmentArgs {
     /**
      * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
-    readonly dataRetentionTime: pulumi.Input<string>;
+    dataRetentionTime: pulumi.Input<string>;
     /**
      * Name of the environment
      */
-    readonly environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */
-    readonly partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.PartitionKeyPropertyArgs>[]>;
+    partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.PartitionKeyPropertyArgs>[]>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20171115.SkuArgs>;
+    sku: pulumi.Input<inputs.timeseriesinsights.v20171115.SkuArgs>;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    readonly storageLimitExceededBehavior?: pulumi.Input<enums.timeseriesinsights.v20171115.StorageLimitExceededBehavior>;
+    storageLimitExceededBehavior?: pulumi.Input<enums.timeseriesinsights.v20171115.StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

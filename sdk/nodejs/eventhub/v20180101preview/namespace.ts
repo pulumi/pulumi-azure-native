@@ -172,49 +172,49 @@ export interface NamespaceArgs {
     /**
      * Cluster ARM ID of the Namespace.
      */
-    readonly clusterArmId?: pulumi.Input<string>;
+    clusterArmId?: pulumi.Input<string>;
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.eventhub.v20180101preview.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.eventhub.v20180101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.eventhub.v20180101preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.eventhub.v20180101preview.IdentityArgs>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
-    readonly isAutoInflateEnabled?: pulumi.Input<boolean>;
+    isAutoInflateEnabled?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
-    readonly kafkaEnabled?: pulumi.Input<boolean>;
+    kafkaEnabled?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
      */
-    readonly maximumThroughputUnits?: pulumi.Input<number>;
+    maximumThroughputUnits?: pulumi.Input<number>;
     /**
      * The Namespace name
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Properties of sku resource
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.v20180101preview.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

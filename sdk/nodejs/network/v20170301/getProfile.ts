@@ -26,11 +26,11 @@ export interface GetProfileArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

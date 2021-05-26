@@ -165,41 +165,41 @@ export interface LabArgs {
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: pulumi.Input<string>;
+    labAccountName: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName?: pulumi.Input<string>;
+    labName?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of users allowed in the lab.
      */
-    readonly maxUsersInLab?: pulumi.Input<number>;
+    maxUsersInLab?: pulumi.Input<number>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
     /**
      * Maximum duration a user can use an environment for in the lab.
      */
-    readonly usageQuota?: pulumi.Input<string>;
+    usageQuota?: pulumi.Input<string>;
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    readonly userAccessMode?: pulumi.Input<string | enums.labservices.LabUserAccessMode>;
+    userAccessMode?: pulumi.Input<string | enums.labservices.LabUserAccessMode>;
 }

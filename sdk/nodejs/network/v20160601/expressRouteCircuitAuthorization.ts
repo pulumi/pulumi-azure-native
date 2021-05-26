@@ -105,37 +105,37 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * Gets or sets the authorization key
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The name of the authorization.
      */
-    readonly authorizationName?: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string>;
     /**
      * Gets or sets AuthorizationUseStatus
      */
-    readonly authorizationUseStatus?: pulumi.Input<string | enums.network.v20160601.AuthorizationUseStatus>;
+    authorizationUseStatus?: pulumi.Input<string | enums.network.v20160601.AuthorizationUseStatus>;
     /**
      * The name of the express route circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    circuitName: pulumi.Input<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

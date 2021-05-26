@@ -27,11 +27,11 @@ export interface GetAppArgs {
     /**
      * The name of the resource group that contains the IoT Central application.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The ARM resource name of the IoT Central application.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

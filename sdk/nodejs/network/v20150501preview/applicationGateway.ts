@@ -172,65 +172,65 @@ export interface ApplicationGatewayArgs {
     /**
      * The name of the ApplicationGateway.
      */
-    readonly applicationGatewayName?: pulumi.Input<string>;
+    applicationGatewayName?: pulumi.Input<string>;
     /**
      * Gets or sets backend address pool of application gateway resource
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayBackendAddressPoolArgs>[]>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayBackendAddressPoolArgs>[]>;
     /**
      * Gets or sets backend http settings of application gateway resource
      */
-    readonly backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayBackendHttpSettingsArgs>[]>;
+    backendHttpSettingsCollection?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayBackendHttpSettingsArgs>[]>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Gets or sets frontend IP addresses of application gateway resource
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayFrontendIPConfigurationArgs>[]>;
+    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayFrontendIPConfigurationArgs>[]>;
     /**
      * Gets or sets frontend ports of application gateway resource
      */
-    readonly frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayFrontendPortArgs>[]>;
+    frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayFrontendPortArgs>[]>;
     /**
      * Gets or sets subnets of application gateway resource
      */
-    readonly gatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayIPConfigurationArgs>[]>;
+    gatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
      * Gets or sets HTTP listeners of application gateway resource
      */
-    readonly httpListeners?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayHttpListenerArgs>[]>;
+    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayHttpListenerArgs>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Gets or sets request routing rules of application gateway resource
      */
-    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayRequestRoutingRuleArgs>[]>;
+    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewayRequestRoutingRuleArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets resource guid property of the ApplicationGateway resource
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Gets or sets sku of application gateway resource
      */
-    readonly sku?: pulumi.Input<inputs.network.v20150501preview.ApplicationGatewaySkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20150501preview.ApplicationGatewaySkuArgs>;
     /**
      * Gets or sets ssl certificates of application gateway resource
      */
-    readonly sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewaySslCertificateArgs>[]>;
+    sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ApplicationGatewaySslCertificateArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

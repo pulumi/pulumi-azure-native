@@ -30,23 +30,23 @@ export interface GetWorkloadClassifierArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * The name of the workload classifier.
      */
-    readonly workloadClassifierName: string;
+    workloadClassifierName: string;
     /**
      * The name of the workload group from which to receive the classifier from.
      */
-    readonly workloadGroupName: string;
+    workloadGroupName: string;
 }
 
 /**

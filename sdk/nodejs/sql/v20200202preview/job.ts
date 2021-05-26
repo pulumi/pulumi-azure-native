@@ -108,25 +108,25 @@ export interface JobArgs {
     /**
      * User-defined description of the job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the job agent.
      */
-    readonly jobAgentName: pulumi.Input<string>;
+    jobAgentName: pulumi.Input<string>;
     /**
      * The name of the job to get.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Schedule properties of the job.
      */
-    readonly schedule?: pulumi.Input<inputs.sql.v20200202preview.JobScheduleArgs>;
+    schedule?: pulumi.Input<inputs.sql.v20200202preview.JobScheduleArgs>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

@@ -107,25 +107,25 @@ export interface WebAppSlotConfigurationNamesArgs {
     /**
      * List of application settings names.
      */
-    readonly appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+    appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of external Azure storage account identifiers.
      */
-    readonly azureStorageConfigNames?: pulumi.Input<pulumi.Input<string>[]>;
+    azureStorageConfigNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of connection string names.
      */
-    readonly connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

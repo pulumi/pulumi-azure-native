@@ -128,33 +128,33 @@ export interface ScriptArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    readonly continueOnErrors?: pulumi.Input<boolean>;
+    continueOnErrors?: pulumi.Input<boolean>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * A unique string. If changed the script will be applied again.
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Kusto database script.
      */
-    readonly scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string>;
     /**
      * The url to the KQL script blob file.
      */
-    readonly scriptUrl: pulumi.Input<string>;
+    scriptUrl: pulumi.Input<string>;
     /**
      * The SaS token.
      */
-    readonly scriptUrlSasToken: pulumi.Input<string>;
+    scriptUrlSasToken: pulumi.Input<string>;
 }

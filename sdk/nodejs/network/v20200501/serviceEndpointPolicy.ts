@@ -125,25 +125,25 @@ export interface ServiceEndpointPolicyArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.v20200501.ServiceEndpointPolicyDefinitionArgs>[]>;
+    serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.v20200501.ServiceEndpointPolicyDefinitionArgs>[]>;
     /**
      * The name of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyName?: pulumi.Input<string>;
+    serviceEndpointPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

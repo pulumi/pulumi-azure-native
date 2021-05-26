@@ -150,41 +150,41 @@ export interface IntegrationAccountMapArgs {
     /**
      * The content.
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * The content type.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The integration account map name.
      */
-    readonly mapName?: pulumi.Input<string>;
+    mapName?: pulumi.Input<string>;
     /**
      * The map type.
      */
-    readonly mapType: pulumi.Input<string | enums.logic.MapType>;
+    mapType: pulumi.Input<string | enums.logic.MapType>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The parameters schema of integration account map.
      */
-    readonly parametersSchema?: pulumi.Input<inputs.logic.IntegrationAccountMapPropertiesParametersSchemaArgs>;
+    parametersSchema?: pulumi.Input<inputs.logic.IntegrationAccountMapPropertiesParametersSchemaArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

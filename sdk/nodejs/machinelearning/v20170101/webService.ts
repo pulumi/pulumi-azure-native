@@ -103,21 +103,21 @@ export interface WebServiceArgs {
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Contains the property payload that describes the web service.
      */
-    readonly properties: pulumi.Input<inputs.machinelearning.v20170101.WebServicePropertiesForGraphArgs>;
+    properties: pulumi.Input<inputs.machinelearning.v20170101.WebServicePropertiesForGraphArgs>;
     /**
      * Name of the resource group in which the web service is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the web service.
      */
-    readonly webServiceName?: pulumi.Input<string>;
+    webServiceName?: pulumi.Input<string>;
 }

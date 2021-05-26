@@ -28,15 +28,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

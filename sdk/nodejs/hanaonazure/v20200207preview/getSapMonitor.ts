@@ -26,11 +26,11 @@ export interface GetSapMonitorArgs {
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the SAP monitor resource.
      */
-    readonly sapMonitorName: string;
+    sapMonitorName: string;
 }
 
 /**

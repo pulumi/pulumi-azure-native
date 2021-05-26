@@ -28,15 +28,15 @@ export interface GetPrivateLinkServiceArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the private link service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

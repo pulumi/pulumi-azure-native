@@ -98,25 +98,25 @@ export interface WorkflowAccessKeyArgs {
     /**
      * The workflow access key name.
      */
-    readonly accessKeyName?: pulumi.Input<string>;
+    accessKeyName?: pulumi.Input<string>;
     /**
      * Gets or sets the resource id.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets or sets the not-after time.
      */
-    readonly notAfter?: pulumi.Input<string>;
+    notAfter?: pulumi.Input<string>;
     /**
      * Gets or sets the not-before time.
      */
-    readonly notBefore?: pulumi.Input<string>;
+    notBefore?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The workflow name.
      */
-    readonly workflowName: pulumi.Input<string>;
+    workflowName: pulumi.Input<string>;
 }

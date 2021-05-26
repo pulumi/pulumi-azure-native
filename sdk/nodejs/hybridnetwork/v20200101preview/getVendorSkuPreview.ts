@@ -27,15 +27,15 @@ export interface GetVendorSkuPreviewArgs {
     /**
      * Preview subscription ID.
      */
-    readonly previewSubscription: string;
+    previewSubscription: string;
     /**
      * The name of the vendor sku.
      */
-    readonly skuName: string;
+    skuName: string;
     /**
      * The name of the vendor.
      */
-    readonly vendorName: string;
+    vendorName: string;
 }
 
 /**

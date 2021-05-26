@@ -28,15 +28,15 @@ export interface GetPacketCaptureArgs {
     /**
      * The name of the network watcher.
      */
-    readonly networkWatcherName: string;
+    networkWatcherName: string;
     /**
      * The name of the packet capture session.
      */
-    readonly packetCaptureName: string;
+    packetCaptureName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -133,45 +133,45 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * The workload classifier context.
      */
-    readonly context?: pulumi.Input<string>;
+    context?: pulumi.Input<string>;
     /**
      * The workload classifier end time for classification.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The workload classifier importance.
      */
-    readonly importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string>;
     /**
      * The workload classifier label.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * The workload classifier member name.
      */
-    readonly memberName: pulumi.Input<string>;
+    memberName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: pulumi.Input<string>;
+    sqlPoolName: pulumi.Input<string>;
     /**
      * The workload classifier start time for classification.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * The name of the workload classifier.
      */
-    readonly workloadClassifierName?: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string>;
     /**
      * The name of the workload group.
      */
-    readonly workloadGroupName: pulumi.Input<string>;
+    workloadGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

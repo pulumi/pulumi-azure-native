@@ -27,15 +27,15 @@ export interface GetWorkloadNetworkDhcpArgs {
     /**
      * NSX DHCP identifier. Generally the same as the DHCP display name
      */
-    readonly dhcpId: string;
+    dhcpId: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -176,58 +176,58 @@ export interface EventHubEventSourceArgs {
     /**
      * The name of the event hub's consumer group that holds the partitions from which events will be read.
      */
-    readonly consumerGroupName: pulumi.Input<string>;
+    consumerGroupName: pulumi.Input<string>;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * The name of the event hub.
      */
-    readonly eventHubName: pulumi.Input<string>;
+    eventHubName: pulumi.Input<string>;
     /**
      * Name of the event source.
      */
-    readonly eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string>;
     /**
      * The resource id of the event source in Azure Resource Manager.
      */
-    readonly eventSourceResourceId: pulumi.Input<string>;
+    eventSourceResourceId: pulumi.Input<string>;
     /**
      * The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
      */
-    readonly keyName: pulumi.Input<string>;
+    keyName: pulumi.Input<string>;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.EventHub'.
      */
-    readonly kind: pulumi.Input<"Microsoft.EventHub">;
+    kind: pulumi.Input<"Microsoft.EventHub">;
     /**
      * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */
-    readonly localTimestamp?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LocalTimestampArgs>;
+    localTimestamp?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LocalTimestampArgs>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service bus that contains the event hub.
      */
-    readonly serviceBusNamespace: pulumi.Input<string>;
+    serviceBusNamespace: pulumi.Input<string>;
     /**
      * The value of the shared access key that grants the Time Series Insights service read access to the event hub. This property is not shown in event source responses.
      */
-    readonly sharedAccessKey: pulumi.Input<string>;
+    sharedAccessKey: pulumi.Input<string>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
      */
-    readonly timestampPropertyName?: pulumi.Input<string>;
+    timestampPropertyName?: pulumi.Input<string>;
 }

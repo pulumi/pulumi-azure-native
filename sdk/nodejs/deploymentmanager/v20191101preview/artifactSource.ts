@@ -118,29 +118,29 @@ export interface ArtifactSourceArgs {
     /**
      * The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
      */
-    readonly artifactRoot?: pulumi.Input<string>;
+    artifactRoot?: pulumi.Input<string>;
     /**
      * The name of the artifact source.
      */
-    readonly artifactSourceName?: pulumi.Input<string>;
+    artifactSourceName?: pulumi.Input<string>;
     /**
      * The authentication method to use to access the artifact source.
      */
-    readonly authentication: pulumi.Input<inputs.deploymentmanager.v20191101preview.SasAuthenticationArgs>;
+    authentication: pulumi.Input<inputs.deploymentmanager.v20191101preview.SasAuthenticationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The type of artifact source used.
      */
-    readonly sourceType: pulumi.Input<string>;
+    sourceType: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -124,43 +124,43 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
  * The set of arguments for constructing a SiteRelayServiceConnectionSlot resource.
  */
 export interface SiteRelayServiceConnectionSlotArgs {
-    readonly biztalkUri?: pulumi.Input<string>;
-    readonly entityConnectionString?: pulumi.Input<string>;
-    readonly entityName?: pulumi.Input<string>;
-    readonly hostname?: pulumi.Input<string>;
+    biztalkUri?: pulumi.Input<string>;
+    entityConnectionString?: pulumi.Input<string>;
+    entityName?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
-    readonly port?: pulumi.Input<number>;
-    readonly resourceConnectionString?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+    resourceConnectionString?: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly resourceType?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * The name of the slot for the web app.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

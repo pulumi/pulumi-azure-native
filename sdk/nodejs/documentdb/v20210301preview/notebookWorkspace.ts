@@ -97,13 +97,13 @@ export interface NotebookWorkspaceArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the notebook workspace resource.
      */
-    readonly notebookWorkspaceName?: pulumi.Input<string>;
+    notebookWorkspaceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

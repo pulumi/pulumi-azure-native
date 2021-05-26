@@ -111,21 +111,21 @@ export interface AddonArgs {
     /**
      * The addon name.
      */
-    readonly addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Addon type.
      */
-    readonly kind: pulumi.Input<string | enums.databoxedge.AddonType>;
+    kind: pulumi.Input<string | enums.databoxedge.AddonType>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The role name.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
 }

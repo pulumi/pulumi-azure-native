@@ -28,15 +28,15 @@ export interface GetGalleryApplicationArgs {
     /**
      * The name of the gallery Application Definition to be retrieved.
      */
-    readonly galleryApplicationName: string;
+    galleryApplicationName: string;
     /**
      * The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

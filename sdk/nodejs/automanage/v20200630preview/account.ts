@@ -100,21 +100,21 @@ export interface AccountArgs {
     /**
      * Name of the Automanage account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The identity of the Automanage account.
      */
-    readonly identity?: pulumi.Input<inputs.automanage.v20200630preview.AccountIdentityArgs>;
+    identity?: pulumi.Input<inputs.automanage.v20200630preview.AccountIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

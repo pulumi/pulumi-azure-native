@@ -27,11 +27,11 @@ export interface GetAssignmentArgs {
     /**
      * Name of the blueprint assignment.
      */
-    readonly assignmentName: string;
+    assignmentName: string;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: string;
+    resourceScope: string;
 }
 
 /**

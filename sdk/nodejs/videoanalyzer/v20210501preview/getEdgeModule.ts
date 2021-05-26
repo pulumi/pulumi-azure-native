@@ -27,15 +27,15 @@ export interface GetEdgeModuleArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the edge module to retrieve.
      */
-    readonly edgeModuleName: string;
+    edgeModuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

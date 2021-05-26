@@ -113,18 +113,18 @@ export interface WebAppPrivateEndpointConnectionArgs {
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the site.
      */
-    readonly name: pulumi.Input<string>;
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The state of a private link connection
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

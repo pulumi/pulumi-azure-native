@@ -102,25 +102,25 @@ export interface TaskArgs {
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20180331preview.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.v20180331preview.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.v20180331preview.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.v20180331preview.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.v20180331preview.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.v20180331preview.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.v20180331preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datamigration.v20180331preview.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.v20180331preview.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.v20180331preview.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.v20180331preview.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.v20180331preview.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.v20180331preview.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.v20180331preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Name of the Task
      */
-    readonly taskName?: pulumi.Input<string>;
+    taskName?: pulumi.Input<string>;
 }

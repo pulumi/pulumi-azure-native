@@ -134,25 +134,25 @@ export interface ShareArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Share description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Share kind.
      */
-    readonly shareKind?: pulumi.Input<string | enums.datashare.v20200901.ShareKind>;
+    shareKind?: pulumi.Input<string | enums.datashare.v20200901.ShareKind>;
     /**
      * The name of the share.
      */
-    readonly shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string>;
     /**
      * Share terms.
      */
-    readonly terms?: pulumi.Input<string>;
+    terms?: pulumi.Input<string>;
 }

@@ -44,83 +44,83 @@ export interface ListStorageAccountServiceSASArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The response header override for cache control.
      */
-    readonly cacheControl?: string;
+    cacheControl?: string;
     /**
      * The canonical path to the signed resource.
      */
-    readonly canonicalizedResource: string;
+    canonicalizedResource: string;
     /**
      * The response header override for content disposition.
      */
-    readonly contentDisposition?: string;
+    contentDisposition?: string;
     /**
      * The response header override for content encoding.
      */
-    readonly contentEncoding?: string;
+    contentEncoding?: string;
     /**
      * The response header override for content language.
      */
-    readonly contentLanguage?: string;
+    contentLanguage?: string;
     /**
      * The response header override for content type.
      */
-    readonly contentType?: string;
+    contentType?: string;
     /**
      * An IP address or a range of IP addresses from which to accept requests.
      */
-    readonly iPAddressOrRange?: string;
+    iPAddressOrRange?: string;
     /**
      * A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.
      */
-    readonly identifier?: string;
+    identifier?: string;
     /**
      * The key to sign the account SAS token with.
      */
-    readonly keyToSign?: string;
+    keyToSign?: string;
     /**
      * The end of partition key.
      */
-    readonly partitionKeyEnd?: string;
+    partitionKeyEnd?: string;
     /**
      * The start of partition key.
      */
-    readonly partitionKeyStart?: string;
+    partitionKeyStart?: string;
     /**
      * The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
      */
-    readonly permissions?: string | enums.storage.v20180301preview.Permissions;
+    permissions?: string | enums.storage.v20180301preview.Permissions;
     /**
      * The protocol permitted for a request made with the account SAS.
      */
-    readonly protocols?: enums.storage.v20180301preview.HttpProtocol;
+    protocols?: enums.storage.v20180301preview.HttpProtocol;
     /**
      * The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
      */
-    readonly resource?: string | enums.storage.v20180301preview.SignedResource;
+    resource?: string | enums.storage.v20180301preview.SignedResource;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The end of row key.
      */
-    readonly rowKeyEnd?: string;
+    rowKeyEnd?: string;
     /**
      * The start of row key.
      */
-    readonly rowKeyStart?: string;
+    rowKeyStart?: string;
     /**
      * The time at which the shared access signature becomes invalid.
      */
-    readonly sharedAccessExpiryTime?: string;
+    sharedAccessExpiryTime?: string;
     /**
      * The time at which the SAS becomes valid.
      */
-    readonly sharedAccessStartTime?: string;
+    sharedAccessStartTime?: string;
 }
 
 /**

@@ -114,33 +114,33 @@ export interface ProtectionContainerArgs {
     /**
      * Name of the container to be registered.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the container.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201001.AzureBackupServerContainerArgs | inputs.recoveryservices.v20201001.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.v20201001.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.v20201001.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.v20201001.AzureSqlContainerArgs | inputs.recoveryservices.v20201001.AzureStorageContainerArgs | inputs.recoveryservices.v20201001.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.v20201001.AzureWorkloadContainerArgs | inputs.recoveryservices.v20201001.DpmContainerArgs | inputs.recoveryservices.v20201001.GenericContainerArgs | inputs.recoveryservices.v20201001.IaaSVMContainerArgs | inputs.recoveryservices.v20201001.MabContainerArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20201001.AzureBackupServerContainerArgs | inputs.recoveryservices.v20201001.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.v20201001.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.v20201001.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.v20201001.AzureSqlContainerArgs | inputs.recoveryservices.v20201001.AzureStorageContainerArgs | inputs.recoveryservices.v20201001.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.v20201001.AzureWorkloadContainerArgs | inputs.recoveryservices.v20201001.DpmContainerArgs | inputs.recoveryservices.v20201001.GenericContainerArgs | inputs.recoveryservices.v20201001.IaaSVMContainerArgs | inputs.recoveryservices.v20201001.MabContainerArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

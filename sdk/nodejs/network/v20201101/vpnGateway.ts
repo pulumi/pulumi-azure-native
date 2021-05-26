@@ -149,45 +149,45 @@ export interface VpnGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20201101.BgpSettingsArgs>;
+    bgpSettings?: pulumi.Input<inputs.network.v20201101.BgpSettingsArgs>;
     /**
      * List of all vpn connections to the gateway.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VpnConnectionArgs>[]>;
+    connections?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VpnConnectionArgs>[]>;
     /**
      * The name of the gateway.
      */
-    readonly gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Enable Routing Preference property for the Public IP Interface of the VpnGateway.
      */
-    readonly isRoutingPreferenceInternet?: pulumi.Input<boolean>;
+    isRoutingPreferenceInternet?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of all the nat Rules associated with the gateway.
      */
-    readonly natRules?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VpnGatewayNatRuleArgs>[]>;
+    natRules?: pulumi.Input<pulumi.Input<inputs.network.v20201101.VpnGatewayNatRuleArgs>[]>;
     /**
      * The resource group name of the VpnGateway.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * The scale unit for this vpn gateway.
      */
-    readonly vpnGatewayScaleUnit?: pulumi.Input<number>;
+    vpnGatewayScaleUnit?: pulumi.Input<number>;
 }

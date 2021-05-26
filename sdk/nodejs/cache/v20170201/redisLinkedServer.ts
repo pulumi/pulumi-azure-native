@@ -118,25 +118,25 @@ export interface RedisLinkedServerArgs {
     /**
      * Fully qualified resourceId of the linked redis cache.
      */
-    readonly linkedRedisCacheId: pulumi.Input<string>;
+    linkedRedisCacheId: pulumi.Input<string>;
     /**
      * Location of the linked redis cache.
      */
-    readonly linkedRedisCacheLocation: pulumi.Input<string>;
+    linkedRedisCacheLocation: pulumi.Input<string>;
     /**
      * The name of the linked server that is being added to the Redis cache.
      */
-    readonly linkedServerName?: pulumi.Input<string>;
+    linkedServerName?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role of the linked server.
      */
-    readonly serverRole: pulumi.Input<enums.cache.v20170201.ReplicationRole>;
+    serverRole: pulumi.Input<enums.cache.v20170201.ReplicationRole>;
 }

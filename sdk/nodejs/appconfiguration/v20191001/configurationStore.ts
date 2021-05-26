@@ -127,25 +127,25 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName?: pulumi.Input<string>;
+    configStoreName?: pulumi.Input<string>;
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.appconfiguration.v20191001.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.appconfiguration.v20191001.ResourceIdentityArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the configuration store.
      */
-    readonly sku: pulumi.Input<inputs.appconfiguration.v20191001.SkuArgs>;
+    sku: pulumi.Input<inputs.appconfiguration.v20191001.SkuArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

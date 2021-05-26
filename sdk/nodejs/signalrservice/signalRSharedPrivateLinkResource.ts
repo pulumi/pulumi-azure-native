@@ -129,25 +129,25 @@ export interface SignalRSharedPrivateLinkResourceArgs {
     /**
      * The group id from the provider of resource the shared private link resource is for
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
     /**
      * The resource id of the resource the shared private link resource is for
      */
-    readonly privateLinkResourceId: pulumi.Input<string>;
+    privateLinkResourceId: pulumi.Input<string>;
     /**
      * The request message for requesting approval of the shared private link resource
      */
-    readonly requestMessage?: pulumi.Input<string>;
+    requestMessage?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * The name of the shared private link resource
      */
-    readonly sharedPrivateLinkResourceName?: pulumi.Input<string>;
+    sharedPrivateLinkResourceName?: pulumi.Input<string>;
 }

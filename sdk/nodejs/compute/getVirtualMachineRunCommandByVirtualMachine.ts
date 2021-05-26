@@ -29,19 +29,19 @@ export interface GetVirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual machine run command.
      */
-    readonly runCommandName: string;
+    runCommandName: string;
     /**
      * The name of the virtual machine containing the run command.
      */
-    readonly vmName: string;
+    vmName: string;
 }
 
 /**

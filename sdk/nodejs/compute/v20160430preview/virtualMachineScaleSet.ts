@@ -141,45 +141,45 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetIdentityArgs>;
+    identity?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetIdentityArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the VM scale set to create or update.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    readonly overProvision?: pulumi.Input<boolean>;
+    overProvision?: pulumi.Input<boolean>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: pulumi.Input<inputs.compute.v20160430preview.PlanArgs>;
+    plan?: pulumi.Input<inputs.compute.v20160430preview.PlanArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20160430preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20160430preview.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20160430preview.UpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.compute.v20160430preview.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileArgs>;
+    virtualMachineProfile?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileArgs>;
 }

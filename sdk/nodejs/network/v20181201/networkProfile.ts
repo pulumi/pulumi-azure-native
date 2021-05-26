@@ -125,33 +125,33 @@ export interface NetworkProfileArgs {
     /**
      * List of chid container network interface configurations.
      */
-    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceConfigurationArgs>[]>;
+    containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceConfigurationArgs>[]>;
     /**
      * List of child container network interfaces.
      */
-    readonly containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceArgs>[]>;
+    containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network profile.
      */
-    readonly networkProfileName?: pulumi.Input<string>;
+    networkProfileName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

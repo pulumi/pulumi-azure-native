@@ -104,21 +104,21 @@ export interface AccessPolicyArgs {
     /**
      * The name of the access policy to create or update.
      */
-    readonly accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string>;
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Authentication method to be used when validating client API access.
      */
-    readonly authentication?: pulumi.Input<inputs.videoanalyzer.v20210501preview.JwtAuthenticationArgs>;
+    authentication?: pulumi.Input<inputs.videoanalyzer.v20210501preview.JwtAuthenticationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Defines the access level granted by this policy.
      */
-    readonly role?: pulumi.Input<string | enums.videoanalyzer.v20210501preview.AccessPolicyRole>;
+    role?: pulumi.Input<string | enums.videoanalyzer.v20210501preview.AccessPolicyRole>;
 }

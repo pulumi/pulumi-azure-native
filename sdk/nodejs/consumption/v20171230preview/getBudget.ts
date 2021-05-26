@@ -25,7 +25,7 @@ export interface GetBudgetArgs {
     /**
      * Budget name.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

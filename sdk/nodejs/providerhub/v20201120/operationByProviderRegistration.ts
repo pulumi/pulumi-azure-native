@@ -100,9 +100,9 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a OperationByProviderRegistration resource.
  */
 export interface OperationByProviderRegistrationArgs {
-    readonly contents: pulumi.Input<pulumi.Input<inputs.providerhub.v20201120.OperationsDefinitionArgs>[]>;
+    contents: pulumi.Input<pulumi.Input<inputs.providerhub.v20201120.OperationsDefinitionArgs>[]>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: pulumi.Input<string>;
+    providerNamespace: pulumi.Input<string>;
 }

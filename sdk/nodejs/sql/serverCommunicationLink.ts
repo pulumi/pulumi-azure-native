@@ -113,17 +113,17 @@ export interface ServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    readonly communicationLinkName?: pulumi.Input<string>;
+    communicationLinkName?: pulumi.Input<string>;
     /**
      * The name of the partner server.
      */
-    readonly partnerServer: pulumi.Input<string>;
+    partnerServer: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

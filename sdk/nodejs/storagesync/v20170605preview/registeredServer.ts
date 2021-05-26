@@ -156,57 +156,57 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server Agent Version
      */
-    readonly agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string>;
     /**
      * Registered Server clusterId
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Registered Server clusterName
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Registered Server last heart beat
      */
-    readonly lastHeartBeat?: pulumi.Input<string>;
+    lastHeartBeat?: pulumi.Input<string>;
     /**
      * Registered Server lastWorkflowId
      */
-    readonly lastWorkflowId?: pulumi.Input<string>;
+    lastWorkflowId?: pulumi.Input<string>;
     /**
      * Registered Server Provisioning State
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Registered Server Certificate
      */
-    readonly serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string>;
     /**
      * Registered Server serverId
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * Registered Server Management Error Code
      */
-    readonly serverManagementtErrorCode?: pulumi.Input<number>;
+    serverManagementtErrorCode?: pulumi.Input<number>;
     /**
      * Registered Server OS Version
      */
-    readonly serverOSVersion?: pulumi.Input<string>;
+    serverOSVersion?: pulumi.Input<string>;
     /**
      * Registered Server serverRole
      */
-    readonly serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * Registered Server storageSyncServiceUid
      */
-    readonly storageSyncServiceUid?: pulumi.Input<string>;
+    storageSyncServiceUid?: pulumi.Input<string>;
 }

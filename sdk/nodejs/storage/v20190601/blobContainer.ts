@@ -188,29 +188,29 @@ export interface BlobContainerArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * Default the container to use specified encryption scope for all writes.
      */
-    readonly defaultEncryptionScope?: pulumi.Input<string>;
+    defaultEncryptionScope?: pulumi.Input<string>;
     /**
      * Block override of encryption scope from the container default.
      */
-    readonly denyEncryptionScopeOverride?: pulumi.Input<boolean>;
+    denyEncryptionScopeOverride?: pulumi.Input<boolean>;
     /**
      * A name-value pair to associate with the container as metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: pulumi.Input<enums.storage.v20190601.PublicAccess>;
+    publicAccess?: pulumi.Input<enums.storage.v20190601.PublicAccess>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

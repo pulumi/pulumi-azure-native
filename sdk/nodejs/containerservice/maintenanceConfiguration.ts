@@ -105,21 +105,21 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    readonly configName?: pulumi.Input<string>;
+    configName?: pulumi.Input<string>;
     /**
      * Time slots on which upgrade is not allowed.
      */
-    readonly notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeSpanArgs>[]>;
+    notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeSpanArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Weekday time slots allowed to upgrade.
      */
-    readonly timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeInWeekArgs>[]>;
+    timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeInWeekArgs>[]>;
 }

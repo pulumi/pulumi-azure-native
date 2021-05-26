@@ -151,40 +151,40 @@ export interface WorkspaceArgs {
     /**
      * List of applicationGroup resource Ids.
      */
-    readonly applicationGroupReferences?: pulumi.Input<pulumi.Input<string>[]>;
+    applicationGroupReferences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of Workspace.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name of Workspace.
      */
-    readonly friendlyName?: pulumi.Input<string>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    friendlyName?: pulumi.Input<string>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetPlanArgs>;
+    managedBy?: pulumi.Input<string>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetSkuArgs>;
+    resourceGroupName: pulumi.Input<string>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

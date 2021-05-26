@@ -113,21 +113,21 @@ export interface UserArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The password details.
      */
-    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
+    encryptedPassword?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
     /**
      * The user name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Type of the user.
      */
-    readonly userType: pulumi.Input<string | enums.databoxedge.UserType>;
+    userType: pulumi.Input<string | enums.databoxedge.UserType>;
 }

@@ -96,17 +96,17 @@ export interface TagByProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    readonly productId: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    readonly tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string>;
 }

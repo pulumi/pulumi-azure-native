@@ -28,15 +28,15 @@ export interface GetAuthorizationServerArgs {
     /**
      * Identifier of the authorization server.
      */
-    readonly authsid: string;
+    authsid: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

@@ -101,21 +101,21 @@ export interface CloudServiceArgs {
     /**
      * Name of the cloud service.
      */
-    readonly cloudServiceName?: pulumi.Input<string>;
+    cloudServiceName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Cloud service properties
      */
-    readonly properties?: pulumi.Input<inputs.compute.CloudServicePropertiesArgs>;
+    properties?: pulumi.Input<inputs.compute.CloudServicePropertiesArgs>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

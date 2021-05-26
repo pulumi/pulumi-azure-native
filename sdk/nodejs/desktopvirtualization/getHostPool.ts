@@ -27,11 +27,11 @@ export interface GetHostPoolArgs {
     /**
      * The name of the host pool within the specified resource group
      */
-    readonly hostPoolName: string;
+    hostPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

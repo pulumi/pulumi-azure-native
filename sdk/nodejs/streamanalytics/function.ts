@@ -93,21 +93,21 @@ export interface FunctionArgs {
     /**
      * The name of the function.
      */
-    readonly functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */
-    readonly jobName: pulumi.Input<string>;
+    jobName: pulumi.Input<string>;
     /**
      * Resource name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The properties that are associated with a function.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

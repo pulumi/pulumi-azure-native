@@ -29,19 +29,19 @@ export interface GetIntegrationRuntimeObjectMetadatumArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The integration runtime name.
      */
-    readonly integrationRuntimeName: string;
+    integrationRuntimeName: string;
     /**
      * Metadata path.
      */
-    readonly metadataPath?: string;
+    metadataPath?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetApiVersionSetArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    readonly versionSetId: string;
+    versionSetId: string;
 }
 
 /**

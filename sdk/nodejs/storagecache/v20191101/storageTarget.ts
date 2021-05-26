@@ -122,37 +122,37 @@ export interface StorageTargetArgs {
     /**
      * Name of Cache.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * Properties when targetType is clfs.
      */
-    readonly clfs?: pulumi.Input<inputs.storagecache.v20191101.ClfsTargetArgs>;
+    clfs?: pulumi.Input<inputs.storagecache.v20191101.ClfsTargetArgs>;
     /**
      * List of Cache namespace junctions to target for namespace associations.
      */
-    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20191101.NamespaceJunctionArgs>[]>;
+    junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20191101.NamespaceJunctionArgs>[]>;
     /**
      * Properties when targetType is nfs3.
      */
-    readonly nfs3?: pulumi.Input<inputs.storagecache.v20191101.Nfs3TargetArgs>;
+    nfs3?: pulumi.Input<inputs.storagecache.v20191101.Nfs3TargetArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string | enums.storagecache.v20191101.ProvisioningStateType>;
+    provisioningState?: pulumi.Input<string | enums.storagecache.v20191101.ProvisioningStateType>;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Storage Target.
      */
-    readonly storageTargetName?: pulumi.Input<string>;
+    storageTargetName?: pulumi.Input<string>;
     /**
      * Type of the Storage Target.
      */
-    readonly targetType?: pulumi.Input<string | enums.storagecache.v20191101.StorageTargetType>;
+    targetType?: pulumi.Input<string | enums.storagecache.v20191101.StorageTargetType>;
     /**
      * Properties when targetType is unknown.
      */
-    readonly unknown?: pulumi.Input<inputs.storagecache.v20191101.UnknownTargetArgs>;
+    unknown?: pulumi.Input<inputs.storagecache.v20191101.UnknownTargetArgs>;
 }

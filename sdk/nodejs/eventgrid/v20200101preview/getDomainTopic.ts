@@ -27,15 +27,15 @@ export interface GetDomainTopicArgs {
     /**
      * Name of the domain
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * Name of the topic
      */
-    readonly domainTopicName: string;
+    domainTopicName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

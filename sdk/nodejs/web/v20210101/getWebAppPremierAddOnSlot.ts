@@ -28,19 +28,19 @@ export interface GetWebAppPremierAddOnSlotArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Add-on name.
      */
-    readonly premierAddOnName: string;
+    premierAddOnName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

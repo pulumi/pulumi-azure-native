@@ -27,15 +27,15 @@ export interface GetTemplateSpecArgs {
     /**
      * Allows for expansion of additional Template Spec details in the response. Optional.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Template Spec.
      */
-    readonly templateSpecName: string;
+    templateSpecName: string;
 }
 
 /**

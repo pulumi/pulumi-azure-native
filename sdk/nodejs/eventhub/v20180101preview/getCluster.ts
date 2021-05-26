@@ -26,11 +26,11 @@ export interface GetClusterArgs {
     /**
      * The name of the Event Hubs Cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

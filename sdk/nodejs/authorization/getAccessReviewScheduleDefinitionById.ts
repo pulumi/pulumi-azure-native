@@ -26,7 +26,7 @@ export interface GetAccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    readonly scheduleDefinitionId: string;
+    scheduleDefinitionId: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface ListListUpgradableVersionPostArgs {
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The target code version.
      */
-    readonly targetVersion: string;
+    targetVersion: string;
 }
 
 /**

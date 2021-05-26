@@ -26,11 +26,11 @@ export interface GetUserSettingsWithLocationArgs {
     /**
      * The provider location
      */
-    readonly location: string;
+    location: string;
     /**
      * The name of the user settings
      */
-    readonly userSettingsName: string;
+    userSettingsName: string;
 }
 
 /**

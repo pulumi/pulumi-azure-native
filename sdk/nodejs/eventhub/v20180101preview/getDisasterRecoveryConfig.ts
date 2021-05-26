@@ -27,15 +27,15 @@ export interface GetDisasterRecoveryConfigArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    readonly alias: string;
+    alias: string;
     /**
      * The Namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

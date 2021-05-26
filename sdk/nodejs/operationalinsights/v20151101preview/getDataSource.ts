@@ -27,15 +27,15 @@ export interface GetDataSourceArgs {
     /**
      * Name of the datasource
      */
-    readonly dataSourceName: string;
+    dataSourceName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Log Analytics Workspace that contains the datasource.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

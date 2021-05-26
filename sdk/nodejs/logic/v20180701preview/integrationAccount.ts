@@ -100,21 +100,21 @@ export interface IntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountSkuArgs>;
+    sku?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountSkuArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -27,15 +27,15 @@ export interface GetTrustedIdProviderArgs {
     /**
      * The name of the Data Lake Store account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the trusted identity provider to retrieve.
      */
-    readonly trustedIdProviderName: string;
+    trustedIdProviderName: string;
 }
 
 /**

@@ -27,27 +27,27 @@ export interface GetOnlineDeploymentLogsArgs {
     /**
      * The type of container to retrieve logs from.
      */
-    readonly containerType?: string | enums.machinelearningservices.v20210301preview.ContainerType;
+    containerType?: string | enums.machinelearningservices.v20210301preview.ContainerType;
     /**
      * The name and identifier for the endpoint.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
     /**
      * Inference endpoint name.
      */
-    readonly endpointName: string;
+    endpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The maximum number of lines to tail.
      */
-    readonly tail?: number;
+    tail?: number;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 export interface GetOnlineDeploymentLogsResult {

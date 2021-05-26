@@ -108,29 +108,29 @@ export interface SuppressionArgs {
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the suppression.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The recommendation ID.
      */
-    readonly recommendationId: pulumi.Input<string>;
+    recommendationId: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
      */
-    readonly resourceUri: pulumi.Input<string>;
+    resourceUri: pulumi.Input<string>;
     /**
      * The GUID of the suppression.
      */
-    readonly suppressionId?: pulumi.Input<string>;
+    suppressionId?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The duration for which the suppression is valid.
      */
-    readonly ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string>;
 }

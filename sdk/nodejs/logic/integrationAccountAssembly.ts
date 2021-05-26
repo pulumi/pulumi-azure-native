@@ -108,25 +108,25 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The assembly artifact name.
      */
-    readonly assemblyArtifactName?: pulumi.Input<string>;
+    assemblyArtifactName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The assembly properties.
      */
-    readonly properties: pulumi.Input<inputs.logic.AssemblyPropertiesArgs>;
+    properties: pulumi.Input<inputs.logic.AssemblyPropertiesArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

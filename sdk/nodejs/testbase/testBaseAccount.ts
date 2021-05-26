@@ -129,25 +129,25 @@ export interface TestBaseAccountArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
      */
-    readonly restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean>;
     /**
      * The SKU of the Test Base Account.
      */
-    readonly sku: pulumi.Input<inputs.testbase.TestBaseAccountSKUArgs>;
+    sku: pulumi.Input<inputs.testbase.TestBaseAccountSKUArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName?: pulumi.Input<string>;
+    testBaseAccountName?: pulumi.Input<string>;
 }

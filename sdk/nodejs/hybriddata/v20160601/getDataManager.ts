@@ -26,11 +26,11 @@ export interface GetDataManagerArgs {
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly dataManagerName: string;
+    dataManagerName: string;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -167,53 +167,53 @@ export interface EndpointArgs {
     /**
      * List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
      */
-    readonly contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
+    contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the endpoint within the CDN profile.
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
      */
-    readonly isCompressionEnabled?: pulumi.Input<boolean>;
+    isCompressionEnabled?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
      */
-    readonly isHttpAllowed?: pulumi.Input<boolean>;
+    isHttpAllowed?: pulumi.Input<boolean>;
     /**
      * Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
      */
-    readonly isHttpsAllowed?: pulumi.Input<boolean>;
+    isHttpsAllowed?: pulumi.Input<boolean>;
     /**
      * Endpoint location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
      */
-    readonly originHostHeader?: pulumi.Input<string>;
+    originHostHeader?: pulumi.Input<string>;
     /**
      * The path used for origin requests.
      */
-    readonly originPath?: pulumi.Input<string>;
+    originPath?: pulumi.Input<string>;
     /**
      * The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20160402.DeepCreatedOriginArgs>[]>;
+    origins: pulumi.Input<pulumi.Input<inputs.cdn.v20160402.DeepCreatedOriginArgs>[]>;
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Defines the query string caching behavior.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.v20160402.QueryStringCachingBehavior>;
+    queryStringCachingBehavior?: pulumi.Input<enums.cdn.v20160402.QueryStringCachingBehavior>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Endpoint tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -96,17 +96,17 @@ export interface PrivateLinkScopedResourceArgs {
     /**
      * The resource id of the scoped Azure monitor resource.
      */
-    readonly linkedResourceId?: pulumi.Input<string>;
+    linkedResourceId?: pulumi.Input<string>;
     /**
      * The name of the scoped resource object.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName: pulumi.Input<string>;
+    scopeName: pulumi.Input<string>;
 }

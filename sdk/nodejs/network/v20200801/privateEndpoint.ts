@@ -143,41 +143,41 @@ export interface PrivateEndpointArgs {
     /**
      * An array of custom dns configurations.
      */
-    readonly customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.v20200801.CustomDnsConfigPropertiesFormatArgs>[]>;
+    customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.v20200801.CustomDnsConfigPropertiesFormatArgs>[]>;
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    readonly manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200801.PrivateLinkServiceConnectionArgs>[]>;
+    manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200801.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the private endpoint.
      */
-    readonly privateEndpointName?: pulumi.Input<string>;
+    privateEndpointName?: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    readonly privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200801.PrivateLinkServiceConnectionArgs>[]>;
+    privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200801.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20200801.SubnetArgs>;
+    subnet?: pulumi.Input<inputs.network.v20200801.SubnetArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

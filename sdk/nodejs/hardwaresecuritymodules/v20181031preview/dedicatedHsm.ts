@@ -132,33 +132,33 @@ export interface DedicatedHsmArgs {
     /**
      * The supported Azure location where the dedicated HSM should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the dedicated Hsm
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the network interfaces of the dedicated hsm.
      */
-    readonly networkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.v20181031preview.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.v20181031preview.NetworkProfileArgs>;
     /**
      * The name of the Resource Group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU details
      */
-    readonly sku: pulumi.Input<inputs.hardwaresecuritymodules.v20181031preview.SkuArgs>;
+    sku: pulumi.Input<inputs.hardwaresecuritymodules.v20181031preview.SkuArgs>;
     /**
      * This field will be used when RP does not support Availability zones.
      */
-    readonly stampId?: pulumi.Input<string>;
+    stampId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Dedicated Hsm zones.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

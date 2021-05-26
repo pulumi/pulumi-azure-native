@@ -161,46 +161,46 @@ export interface IoTRoleArgs {
     /**
      * Resource allocation
      */
-    readonly computeResource?: pulumi.Input<inputs.databoxedge.v20201201.ComputeResourceArgs>;
+    computeResource?: pulumi.Input<inputs.databoxedge.v20201201.ComputeResourceArgs>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Host OS supported by the IoT role.
      */
-    readonly hostPlatform: pulumi.Input<string | enums.databoxedge.v20201201.PlatformType>;
+    hostPlatform: pulumi.Input<string | enums.databoxedge.v20201201.PlatformType>;
     /**
      * IoT device metadata to which data box edge device needs to be connected.
      */
-    readonly ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
+    ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
     /**
      * Iot edge agent details to download the agent and bootstrap iot runtime.
      */
-    readonly ioTEdgeAgentInfo?: pulumi.Input<inputs.databoxedge.v20201201.IoTEdgeAgentInfoArgs>;
+    ioTEdgeAgentInfo?: pulumi.Input<inputs.databoxedge.v20201201.IoTEdgeAgentInfoArgs>;
     /**
      * IoT edge device to which the IoT role needs to be configured.
      */
-    readonly ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
+    ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
     /**
      * Role type.
      * Expected value is 'IOT'.
      */
-    readonly kind: pulumi.Input<"IOT">;
+    kind: pulumi.Input<"IOT">;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role status.
      */
-    readonly roleStatus: pulumi.Input<string | enums.databoxedge.v20201201.RoleStatus>;
+    roleStatus: pulumi.Input<string | enums.databoxedge.v20201201.RoleStatus>;
     /**
      * Mount points of shares in role(s).
      */
-    readonly shareMappings?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20201201.MountPointMapArgs>[]>;
+    shareMappings?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20201201.MountPointMapArgs>[]>;
 }

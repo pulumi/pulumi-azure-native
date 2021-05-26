@@ -94,13 +94,13 @@ export interface AssociationArgs {
     /**
      * The name of the association.
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * The REST resource instance of the target resource for this association.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }

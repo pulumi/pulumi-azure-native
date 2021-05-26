@@ -168,53 +168,53 @@ export interface LiveEventArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The flag indicates if auto start the Live Event.
      */
-    readonly autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean>;
     /**
      * The Live Event access policies.
      */
-    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180330preview.CrossSiteAccessPoliciesArgs>;
+    crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180330preview.CrossSiteAccessPoliciesArgs>;
     /**
      * The Live Event description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Live Event encoding.
      */
-    readonly encoding?: pulumi.Input<inputs.media.v20180330preview.LiveEventEncodingArgs>;
+    encoding?: pulumi.Input<inputs.media.v20180330preview.LiveEventEncodingArgs>;
     /**
      * The Live Event input.
      */
-    readonly input: pulumi.Input<inputs.media.v20180330preview.LiveEventInputArgs>;
+    input: pulumi.Input<inputs.media.v20180330preview.LiveEventInputArgs>;
     /**
      * The name of the Live Event.
      */
-    readonly liveEventName?: pulumi.Input<string>;
+    liveEventName?: pulumi.Input<string>;
     /**
      * The Azure Region of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Live Event preview.
      */
-    readonly preview?: pulumi.Input<inputs.media.v20180330preview.LiveEventPreviewArgs>;
+    preview?: pulumi.Input<inputs.media.v20180330preview.LiveEventPreviewArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The stream options.
      */
-    readonly streamOptions?: pulumi.Input<pulumi.Input<enums.media.v20180330preview.StreamOptionsFlag>[]>;
+    streamOptions?: pulumi.Input<pulumi.Input<enums.media.v20180330preview.StreamOptionsFlag>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Live Event vanity URL flag.
      */
-    readonly vanityUrl?: pulumi.Input<boolean>;
+    vanityUrl?: pulumi.Input<boolean>;
 }

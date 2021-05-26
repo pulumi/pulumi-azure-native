@@ -96,25 +96,25 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the policy definition to create.
      */
-    readonly policyDefinitionName?: pulumi.Input<string>;
+    policyDefinitionName?: pulumi.Input<string>;
     /**
      * The policy rule.
      */
-    readonly policyRule?: any;
+    policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string | enums.authorization.v20160401.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.v20160401.PolicyType>;
 }

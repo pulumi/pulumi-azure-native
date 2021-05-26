@@ -100,15 +100,15 @@ export interface WorkspaceCollectionArgs {
     /**
      * Azure location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.powerbi.AzureSkuArgs>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceGroupName: pulumi.Input<string>;
+    sku?: pulumi.Input<inputs.powerbi.AzureSkuArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Power BI Embedded Workspace Collection name
      */
-    readonly workspaceCollectionName?: pulumi.Input<string>;
+    workspaceCollectionName?: pulumi.Input<string>;
 }

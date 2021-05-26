@@ -28,15 +28,15 @@ export interface GetAppServiceEnvironmentPrivateEndpointConnectionArgs {
     /**
      * Name of the App Service Environment.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

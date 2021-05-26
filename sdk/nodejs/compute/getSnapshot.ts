@@ -27,11 +27,11 @@ export interface GetSnapshotArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */
-    readonly snapshotName: string;
+    snapshotName: string;
 }
 
 /**

@@ -211,85 +211,85 @@ export interface HostPoolArgs {
     /**
      * Custom rdp property of HostPool.
      */
-    readonly customRdpProperty?: pulumi.Input<string>;
+    customRdpProperty?: pulumi.Input<string>;
     /**
      * Description of HostPool.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name of HostPool.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The name of the host pool within the specified resource group
      */
-    readonly hostPoolName?: pulumi.Input<string>;
+    hostPoolName?: pulumi.Input<string>;
     /**
      * HostPool type for desktop.
      */
-    readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.HostPoolType>;
+    hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.HostPoolType>;
     /**
      * The type of the load balancer.
      */
-    readonly loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.LoadBalancerType>;
+    loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.LoadBalancerType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The max session limit of HostPool.
      */
-    readonly maxSessionLimit?: pulumi.Input<number>;
+    maxSessionLimit?: pulumi.Input<number>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PersonalDesktopAssignmentType>;
+    personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PersonalDesktopAssignmentType>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
-    readonly preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PreferredAppGroupType>;
+    preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PreferredAppGroupType>;
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20201019preview.RegistrationInfoArgs>;
+    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20201019preview.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ring number of HostPool.
      */
-    readonly ring?: pulumi.Input<number>;
+    ring?: pulumi.Input<number>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
-    readonly ssoClientId?: pulumi.Input<string>;
+    ssoClientId?: pulumi.Input<string>;
     /**
      * Path to Azure KeyVault storing the secret used for communication to ADFS.
      */
-    readonly ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
+    ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
     /**
      * Path to keyvault containing ssoContext secret.
      */
-    readonly ssoContext?: pulumi.Input<string>;
+    ssoContext?: pulumi.Input<string>;
     /**
      * The type of single sign on Secret Type.
      */
-    readonly ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.SSOSecretType>;
+    ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.SSOSecretType>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */
-    readonly ssoadfsAuthority?: pulumi.Input<string>;
+    ssoadfsAuthority?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is validation environment.
      */
-    readonly validationEnvironment?: pulumi.Input<boolean>;
+    validationEnvironment?: pulumi.Input<boolean>;
     /**
      * VM template for sessionhosts configuration within hostpool.
      */
-    readonly vmTemplate?: pulumi.Input<string>;
+    vmTemplate?: pulumi.Input<string>;
 }

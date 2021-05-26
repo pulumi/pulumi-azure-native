@@ -157,45 +157,45 @@ export interface FileShareArgs {
     /**
      * The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
      */
-    readonly adminUser: pulumi.Input<string>;
+    adminUser: pulumi.Input<string>;
     /**
      * The data policy
      */
-    readonly dataPolicy: pulumi.Input<enums.storsimple.v20161001.DataPolicy>;
+    dataPolicy: pulumi.Input<enums.storsimple.v20161001.DataPolicy>;
     /**
      * Description for file share
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The file server name.
      */
-    readonly fileServerName: pulumi.Input<string>;
+    fileServerName: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The monitoring status
      */
-    readonly monitoringStatus: pulumi.Input<enums.storsimple.v20161001.MonitoringStatus>;
+    monitoringStatus: pulumi.Input<enums.storsimple.v20161001.MonitoringStatus>;
     /**
      * The total provisioned capacity in Bytes
      */
-    readonly provisionedCapacityInBytes: pulumi.Input<number>;
+    provisionedCapacityInBytes: pulumi.Input<number>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The file share name.
      */
-    readonly shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string>;
     /**
      * The Share Status
      */
-    readonly shareStatus: pulumi.Input<enums.storsimple.v20161001.ShareStatus>;
+    shareStatus: pulumi.Input<enums.storsimple.v20161001.ShareStatus>;
 }

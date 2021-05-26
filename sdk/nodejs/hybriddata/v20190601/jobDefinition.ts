@@ -153,53 +153,53 @@ export interface JobDefinitionArgs {
     /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
-    readonly customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.CustomerSecretArgs>[]>;
+    customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.CustomerSecretArgs>[]>;
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly dataManagerName: pulumi.Input<string>;
+    dataManagerName: pulumi.Input<string>;
     /**
      * A generic json used differently by each data service type.
      */
-    readonly dataServiceInput?: any;
+    dataServiceInput?: any;
     /**
      * The data service type of the job definition.
      */
-    readonly dataServiceName: pulumi.Input<string>;
+    dataServiceName: pulumi.Input<string>;
     /**
      * Data Sink Id associated to the job definition.
      */
-    readonly dataSinkId: pulumi.Input<string>;
+    dataSinkId: pulumi.Input<string>;
     /**
      * Data Source Id associated to the job definition.
      */
-    readonly dataSourceId: pulumi.Input<string>;
+    dataSourceId: pulumi.Input<string>;
     /**
      * The job definition name to be created or updated.
      */
-    readonly jobDefinitionName?: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string>;
     /**
      * Last modified time of the job definition.
      */
-    readonly lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * This is the preferred geo location for the job to run.
      */
-    readonly runLocation?: pulumi.Input<enums.hybriddata.v20190601.RunLocation>;
+    runLocation?: pulumi.Input<enums.hybriddata.v20190601.RunLocation>;
     /**
      * Schedule for running the job definition
      */
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.ScheduleArgs>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.ScheduleArgs>[]>;
     /**
      * State of the job definition.
      */
-    readonly state: pulumi.Input<enums.hybriddata.v20190601.State>;
+    state: pulumi.Input<enums.hybriddata.v20190601.State>;
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    readonly userConfirmation?: pulumi.Input<enums.hybriddata.v20190601.UserConfirmation>;
+    userConfirmation?: pulumi.Input<enums.hybriddata.v20190601.UserConfirmation>;
 }

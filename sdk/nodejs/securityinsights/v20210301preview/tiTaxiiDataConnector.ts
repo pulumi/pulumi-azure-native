@@ -181,66 +181,66 @@ export interface TiTaxiiDataConnectorArgs {
     /**
      * The collection id of the TAXII server.
      */
-    readonly collectionId?: pulumi.Input<string>;
+    collectionId?: pulumi.Input<string>;
     /**
      * Connector ID
      */
-    readonly dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The available data types for Threat Intelligence TAXII data connector.
      */
-    readonly dataTypes: pulumi.Input<inputs.securityinsights.v20210301preview.TiTaxiiDataConnectorDataTypesArgs>;
+    dataTypes: pulumi.Input<inputs.securityinsights.v20210301preview.TiTaxiiDataConnectorDataTypesArgs>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The friendly name for the TAXII server.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'ThreatIntelligenceTaxii'.
      */
-    readonly kind: pulumi.Input<"ThreatIntelligenceTaxii">;
+    kind: pulumi.Input<"ThreatIntelligenceTaxii">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The password for the TAXII server.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The polling frequency for the TAXII server.
      */
-    readonly pollingFrequency: pulumi.Input<string | enums.securityinsights.v20210301preview.PollingFrequency>;
+    pollingFrequency: pulumi.Input<string | enums.securityinsights.v20210301preview.PollingFrequency>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The lookback period for the TAXII server.
      */
-    readonly taxiiLookbackPeriod?: pulumi.Input<string>;
+    taxiiLookbackPeriod?: pulumi.Input<string>;
     /**
      * The API root for the TAXII server.
      */
-    readonly taxiiServer?: pulumi.Input<string>;
+    taxiiServer?: pulumi.Input<string>;
     /**
      * The tenant id to connect to, and get the data from.
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
     /**
      * The userName for the TAXII server.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
     /**
      * The workspace id.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

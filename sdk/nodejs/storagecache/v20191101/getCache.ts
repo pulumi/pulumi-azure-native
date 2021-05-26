@@ -26,11 +26,11 @@ export interface GetCacheArgs {
     /**
      * Name of Cache.
      */
-    readonly cacheName: string;
+    cacheName: string;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

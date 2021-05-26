@@ -194,53 +194,53 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
     /**
      * DNS suffix of the App Service Environment.
      */
-    readonly dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string>;
     /**
      * Scale factor for front-ends.
      */
-    readonly frontEndScaleFactor?: pulumi.Input<number>;
+    frontEndScaleFactor?: pulumi.Input<number>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string | enums.web.LoadBalancingMode>;
+    internalLoadBalancingMode?: pulumi.Input<string | enums.web.LoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
-    readonly ipsslAddressCount?: pulumi.Input<number>;
+    ipsslAddressCount?: pulumi.Input<number>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Front-end VM size, e.g. "Medium", "Large".
      */
-    readonly multiSize?: pulumi.Input<string>;
+    multiSize?: pulumi.Input<string>;
     /**
      * Name of the App Service Environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * User added ip ranges to whitelist on ASE db
      */
-    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileArgs>;
+    virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileArgs>;
 }

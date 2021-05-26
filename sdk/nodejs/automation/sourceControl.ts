@@ -142,45 +142,45 @@ export interface SourceControlArgs {
     /**
      * The auto async of the source control. Default is false.
      */
-    readonly autoSync?: pulumi.Input<boolean>;
+    autoSync?: pulumi.Input<boolean>;
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The repo branch of the source control. Include branch as empty string for VsoTfvc.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * The user description of the source control.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The folder path of the source control. Path must be relative.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The auto publish of the source control. Default is true.
      */
-    readonly publishRunbook?: pulumi.Input<boolean>;
+    publishRunbook?: pulumi.Input<boolean>;
     /**
      * The repo url of the source control.
      */
-    readonly repoUrl?: pulumi.Input<string>;
+    repoUrl?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The authorization token for the repo of the source control.
      */
-    readonly securityToken?: pulumi.Input<inputs.automation.SourceControlSecurityTokenPropertiesArgs>;
+    securityToken?: pulumi.Input<inputs.automation.SourceControlSecurityTokenPropertiesArgs>;
     /**
      * The source control name.
      */
-    readonly sourceControlName?: pulumi.Input<string>;
+    sourceControlName?: pulumi.Input<string>;
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
      */
-    readonly sourceType?: pulumi.Input<string | enums.automation.SourceType>;
+    sourceType?: pulumi.Input<string | enums.automation.SourceType>;
 }

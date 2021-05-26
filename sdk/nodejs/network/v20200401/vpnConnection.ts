@@ -195,77 +195,77 @@ export interface VpnConnectionArgs {
     /**
      * Expected bandwidth in MBPS.
      */
-    readonly connectionBandwidth?: pulumi.Input<number>;
+    connectionBandwidth?: pulumi.Input<number>;
     /**
      * The name of the connection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * The dead peer detection timeout for a vpn connection in seconds.
      */
-    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * EnableBgp flag.
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * Enable internet security.
      */
-    readonly enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean>;
     /**
      * EnableBgp flag.
      */
-    readonly enableRateLimiting?: pulumi.Input<boolean>;
+    enableRateLimiting?: pulumi.Input<boolean>;
     /**
      * The name of the gateway.
      */
-    readonly gatewayName: pulumi.Input<string>;
+    gatewayName: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200401.IpsecPolicyArgs>[]>;
+    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200401.IpsecPolicyArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
+    remoteVpnSite?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
     /**
      * The resource group name of the VpnGateway.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200401.RoutingConfigurationArgs>;
+    routingConfiguration?: pulumi.Input<inputs.network.v20200401.RoutingConfigurationArgs>;
     /**
      * Routing weight for vpn connection.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * SharedKey for the vpn connection.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * Use local azure ip to initiate connection.
      */
-    readonly useLocalAzureIpAddress?: pulumi.Input<boolean>;
+    useLocalAzureIpAddress?: pulumi.Input<boolean>;
     /**
      * Enable policy-based traffic selectors.
      */
-    readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
      * Connection protocol used for this connection.
      */
-    readonly vpnConnectionProtocolType?: pulumi.Input<string | enums.network.v20200401.VirtualNetworkGatewayConnectionProtocol>;
+    vpnConnectionProtocolType?: pulumi.Input<string | enums.network.v20200401.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * List of all vpn site link connections to the gateway.
      */
-    readonly vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VpnSiteLinkConnectionArgs>[]>;
+    vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VpnSiteLinkConnectionArgs>[]>;
 }

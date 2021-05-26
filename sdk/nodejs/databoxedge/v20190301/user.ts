@@ -97,21 +97,21 @@ export interface UserArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The password details.
      */
-    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20190301.AsymmetricEncryptedSecretArgs>;
+    encryptedPassword?: pulumi.Input<inputs.databoxedge.v20190301.AsymmetricEncryptedSecretArgs>;
     /**
      * The user name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190301.ShareAccessRightArgs>[]>;
+    shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190301.ShareAccessRightArgs>[]>;
 }

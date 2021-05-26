@@ -28,15 +28,15 @@ export interface GetPipelineArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The pipeline name.
      */
-    readonly pipelineName: string;
+    pipelineName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

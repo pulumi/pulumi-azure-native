@@ -121,29 +121,29 @@ export interface NetworkArgs {
     /**
      * the address prefix for this network.
      */
-    readonly addressPrefix: pulumi.Input<string>;
+    addressPrefix: pulumi.Input<string>;
     /**
      * User readable description of the network.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Configuration for public connectivity for this network.
      */
-    readonly ingressConfig?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.IngressConfigArgs>;
+    ingressConfig?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.IngressConfigArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The identity of the network.
      */
-    readonly networkName?: pulumi.Input<string>;
+    networkName?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -122,37 +122,37 @@ export interface BotConnectionArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Entity Tag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string | enums.botservice.v20210301.Kind>;
+    kind?: pulumi.Input<string | enums.botservice.v20210301.Kind>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20210301.ConnectionSettingPropertiesArgs>;
+    properties?: pulumi.Input<inputs.botservice.v20210301.ConnectionSettingPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Bot resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20210301.SkuArgs>;
+    sku?: pulumi.Input<inputs.botservice.v20210301.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

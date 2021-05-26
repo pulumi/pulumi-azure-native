@@ -151,69 +151,69 @@ export interface EndpointArgs {
     /**
      * List of custom headers.
      */
-    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180301.EndpointPropertiesCustomHeadersArgs>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180301.EndpointPropertiesCustomHeadersArgs>[]>;
     /**
      * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
      */
-    readonly endpointLocation?: pulumi.Input<string>;
+    endpointLocation?: pulumi.Input<string>;
     /**
      * The monitoring status of the endpoint.
      */
-    readonly endpointMonitorStatus?: pulumi.Input<string | enums.network.v20180301.EndpointMonitorStatus>;
+    endpointMonitorStatus?: pulumi.Input<string | enums.network.v20180301.EndpointMonitorStatus>;
     /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    readonly endpointStatus?: pulumi.Input<string | enums.network.v20180301.EndpointStatus>;
+    endpointStatus?: pulumi.Input<string | enums.network.v20180301.EndpointStatus>;
     /**
      * The type of the Traffic Manager endpoint to be created or updated.
      */
-    readonly endpointType: pulumi.Input<string>;
+    endpointType: pulumi.Input<string>;
     /**
      * The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
      */
-    readonly geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+    geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    readonly minChildEndpoints?: pulumi.Input<number>;
+    minChildEndpoints?: pulumi.Input<number>;
     /**
      * The name of the resource
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Traffic Manager endpoint to be created or updated.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
      */
-    readonly target?: pulumi.Input<string>;
+    target?: pulumi.Input<string>;
     /**
      * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
      */
-    readonly weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number>;
 }

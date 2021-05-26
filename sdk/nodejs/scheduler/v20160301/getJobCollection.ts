@@ -23,11 +23,11 @@ export interface GetJobCollectionArgs {
     /**
      * The job collection name.
      */
-    readonly jobCollectionName: string;
+    jobCollectionName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetJobCollectionResult {

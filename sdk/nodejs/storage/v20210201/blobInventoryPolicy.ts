@@ -107,17 +107,17 @@ export interface BlobInventoryPolicyArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the storage account blob inventory policy. It should always be 'default'
      */
-    readonly blobInventoryPolicyName?: pulumi.Input<string>;
+    blobInventoryPolicyName?: pulumi.Input<string>;
     /**
      * The storage account blob inventory policy object. It is composed of policy rules.
      */
-    readonly policy: pulumi.Input<inputs.storage.v20210201.BlobInventoryPolicySchemaArgs>;
+    policy: pulumi.Input<inputs.storage.v20210201.BlobInventoryPolicySchemaArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

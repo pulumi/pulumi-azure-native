@@ -28,19 +28,19 @@ export interface GetViewArgs {
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The user ID. Use * to retrieve hub level view.
      */
-    readonly userId: string;
+    userId: string;
     /**
      * The name of the view.
      */
-    readonly viewName: string;
+    viewName: string;
 }
 
 /**

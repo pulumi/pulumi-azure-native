@@ -123,17 +123,17 @@ export interface RegistrationArgs {
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string | enums.azurestack.Location>;
+    location?: pulumi.Input<string | enums.azurestack.Location>;
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName?: pulumi.Input<string>;
+    registrationName?: pulumi.Input<string>;
     /**
      * The token identifying registered Azure Stack
      */
-    readonly registrationToken: pulumi.Input<string>;
+    registrationToken: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
 }

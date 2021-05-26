@@ -189,7 +189,7 @@ export interface SignalRArgs {
     /**
      * Cross-Origin Resource Sharing (CORS) settings.
      */
-    readonly cors?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRCorsSettingsArgs>;
+    cors?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRCorsSettingsArgs>;
     /**
      * List of SignalR featureFlags. e.g. ServiceMode.
      * 
@@ -198,45 +198,45 @@ export interface SignalRArgs {
      * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200701preview.SignalRFeatureArgs>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200701preview.SignalRFeatureArgs>[]>;
     /**
      * The managed identity response
      */
-    readonly identity?: pulumi.Input<inputs.signalrservice.v20200701preview.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.signalrservice.v20200701preview.ManagedIdentityArgs>;
     /**
      * The kind of the service - e.g. "SignalR" for "Microsoft.SignalRService/SignalR"
      */
-    readonly kind?: pulumi.Input<string | enums.signalrservice.v20200701preview.ServiceKind>;
+    kind?: pulumi.Input<string | enums.signalrservice.v20200701preview.ServiceKind>;
     /**
      * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Network ACLs
      */
-    readonly networkACLs?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRNetworkACLsArgs>;
+    networkACLs?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRNetworkACLsArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the SignalR resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    readonly sku?: pulumi.Input<inputs.signalrservice.v20200701preview.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.signalrservice.v20200701preview.ResourceSkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TLS settings.
      */
-    readonly tls?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRTlsSettingsArgs>;
+    tls?: pulumi.Input<inputs.signalrservice.v20200701preview.SignalRTlsSettingsArgs>;
     /**
      * Upstream settings when the Azure SignalR is in server-less mode.
      */
-    readonly upstream?: pulumi.Input<inputs.signalrservice.v20200701preview.ServerlessUpstreamSettingsArgs>;
+    upstream?: pulumi.Input<inputs.signalrservice.v20200701preview.ServerlessUpstreamSettingsArgs>;
 }

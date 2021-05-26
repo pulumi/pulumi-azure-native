@@ -276,103 +276,103 @@ export interface SiteSlotArgs {
     /**
      * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
      */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if the client certificate is enabled for the web app
      */
-    readonly clientCertEnabled?: pulumi.Input<boolean>;
+    clientCertEnabled?: pulumi.Input<boolean>;
     /**
      * This is only valid for web app creation. If specified, web app is cloned from 
      *             a source web app
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20150801.CloningInfoArgs>;
+    cloningInfo?: pulumi.Input<inputs.web.v20150801.CloningInfoArgs>;
     /**
      * Size of a function container
      */
-    readonly containerSize?: pulumi.Input<number>;
+    containerSize?: pulumi.Input<number>;
     /**
      * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * If true, web app hostname is force registered with DNS
      */
-    readonly forceDnsRegistration?: pulumi.Input<string>;
+    forceDnsRegistration?: pulumi.Input<string>;
     /**
      * Name of gateway app associated with web app
      */
-    readonly gatewaySiteName?: pulumi.Input<string>;
+    gatewaySiteName?: pulumi.Input<string>;
     /**
      * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20150801.HostNameSslStateArgs>[]>;
+    hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20150801.HostNameSslStateArgs>[]>;
     /**
      * Specifies if the public hostnames are disabled the web app.
      *             If set to true the app is only accessible via API Management process
      */
-    readonly hostNamesDisabled?: pulumi.Input<boolean>;
+    hostNamesDisabled?: pulumi.Input<boolean>;
     /**
      * Specification for the hosting environment (App Service Environment) to use for the web app
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of workers
      *             This only applies to function container
      */
-    readonly maxNumberOfWorkers?: pulumi.Input<number>;
-    readonly microService?: pulumi.Input<string>;
+    maxNumberOfWorkers?: pulumi.Input<number>;
+    microService?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
      */
-    readonly scmSiteAlsoStopped?: pulumi.Input<boolean>;
-    readonly serverFarmId?: pulumi.Input<string>;
+    scmSiteAlsoStopped?: pulumi.Input<boolean>;
+    serverFarmId?: pulumi.Input<string>;
     /**
      * Configuration of web app
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20150801.SiteConfigArgs>;
+    siteConfig?: pulumi.Input<inputs.web.v20150801.SiteConfigArgs>;
     /**
      * If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
      */
-    readonly skipCustomDomainVerification?: pulumi.Input<string>;
+    skipCustomDomainVerification?: pulumi.Input<string>;
     /**
      * If true web app hostname is not registered with DNS on creation. This parameter is
      *             only used for app creation
      */
-    readonly skipDnsRegistration?: pulumi.Input<string>;
+    skipDnsRegistration?: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot?: pulumi.Input<string>;
+    slot?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time to live in seconds for web app's default domain name
      */
-    readonly ttlInSeconds?: pulumi.Input<string>;
+    ttlInSeconds?: pulumi.Input<string>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

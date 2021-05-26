@@ -208,65 +208,65 @@ export interface ManagedClusterArgs {
     /**
      * client certificates for the cluster.
      */
-    readonly addonFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    addonFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * vm admin user password.
      */
-    readonly adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string>;
     /**
      * vm admin user name.
      */
-    readonly adminUserName: pulumi.Input<string>;
+    adminUserName: pulumi.Input<string>;
     /**
      * Azure active directory.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20200101preview.AzureActiveDirectoryArgs>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20200101preview.AzureActiveDirectoryArgs>;
     /**
      * The port used for client connections to the cluster.
      */
-    readonly clientConnectionPort?: pulumi.Input<number>;
+    clientConnectionPort?: pulumi.Input<number>;
     /**
      * client certificates for the cluster.
      */
-    readonly clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.ClientCertificateArgs>[]>;
+    clients?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.ClientCertificateArgs>[]>;
     /**
      * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
-    readonly clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The cluster dns name.
      */
-    readonly dnsName: pulumi.Input<string>;
+    dnsName: pulumi.Input<string>;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.SettingsSectionDescriptionArgs>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.SettingsSectionDescriptionArgs>[]>;
     /**
      * The port used for http connections to the cluster.
      */
-    readonly httpGatewayConnectionPort?: pulumi.Input<number>;
+    httpGatewayConnectionPort?: pulumi.Input<number>;
     /**
      * Describes load balancing rules.
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.LoadBalancingRuleArgs>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.LoadBalancingRuleArgs>[]>;
     /**
      * Azure resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the managed cluster
      */
-    readonly sku?: pulumi.Input<inputs.servicefabric.v20200101preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.servicefabric.v20200101preview.SkuArgs>;
     /**
      * Azure resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

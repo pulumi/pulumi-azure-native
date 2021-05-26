@@ -26,11 +26,11 @@ export interface GetVirtualWanArgs {
     /**
      * The resource group name of the VirtualWan.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VirtualWAN being retrieved.
      */
-    readonly virtualWANName: string;
+    virtualWANName: string;
 }
 
 /**

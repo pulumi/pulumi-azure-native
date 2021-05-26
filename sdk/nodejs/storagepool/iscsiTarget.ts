@@ -114,21 +114,21 @@ export interface IscsiTargetArgs {
     /**
      * The name of the Disk pool.
      */
-    readonly diskPoolName: pulumi.Input<string>;
+    diskPoolName: pulumi.Input<string>;
     /**
      * The name of the iSCSI target.
      */
-    readonly iscsiTargetName?: pulumi.Input<string>;
+    iscsiTargetName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
-    readonly targetIqn?: pulumi.Input<string>;
+    targetIqn?: pulumi.Input<string>;
     /**
      * List of iSCSI target portal groups. Can have 1 portal group at most.
      */
-    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.TargetPortalGroupCreateArgs>[]>;
+    tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.TargetPortalGroupCreateArgs>[]>;
 }

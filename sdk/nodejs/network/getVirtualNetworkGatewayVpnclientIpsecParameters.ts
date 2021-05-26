@@ -27,11 +27,11 @@ export interface GetVirtualNetworkGatewayVpnclientIpsecParametersArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The virtual network gateway name.
      */
-    readonly virtualNetworkGatewayName: string;
+    virtualNetworkGatewayName: string;
 }
 
 /**

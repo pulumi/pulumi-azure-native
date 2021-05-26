@@ -122,25 +122,25 @@ export interface TokenArgs {
     /**
      * The credentials that can be used for authenticating the token.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.v20201101preview.TokenCredentialsPropertiesArgs>;
+    credentials?: pulumi.Input<inputs.containerregistry.v20201101preview.TokenCredentialsPropertiesArgs>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource ID of the scope map to which the token will be associated with.
      */
-    readonly scopeMapId?: pulumi.Input<string>;
+    scopeMapId?: pulumi.Input<string>;
     /**
      * The status of the token example enabled or disabled.
      */
-    readonly status?: pulumi.Input<string | enums.containerregistry.v20201101preview.TokenStatus>;
+    status?: pulumi.Input<string | enums.containerregistry.v20201101preview.TokenStatus>;
     /**
      * The name of the token.
      */
-    readonly tokenName?: pulumi.Input<string>;
+    tokenName?: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetDeploymentArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

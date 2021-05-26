@@ -179,45 +179,45 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Action needs to be taken on rule execution.
      */
-    readonly action: pulumi.Input<inputs.insights.AlertingActionArgs | inputs.insights.LogToMetricActionArgs>;
+    action: pulumi.Input<inputs.insights.AlertingActionArgs | inputs.insights.LogToMetricActionArgs>;
     /**
      * The flag that indicates whether the alert should be automatically resolved or not. The default is false.
      */
-    readonly autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * The description of the Log Search rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the alert rule
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<string | enums.insights.Enabled>;
+    enabled?: pulumi.Input<string | enums.insights.Enabled>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */
-    readonly schedule?: pulumi.Input<inputs.insights.ScheduleArgs>;
+    schedule?: pulumi.Input<inputs.insights.ScheduleArgs>;
     /**
      * Data Source against which rule will Query Data
      */
-    readonly source: pulumi.Input<inputs.insights.SourceArgs>;
+    source: pulumi.Input<inputs.insights.SourceArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

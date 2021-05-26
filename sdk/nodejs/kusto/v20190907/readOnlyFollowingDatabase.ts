@@ -141,26 +141,26 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    readonly hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string>;
     /**
      * Kind of the database
      * Expected value is 'ReadOnlyFollowing'.
      */
-    readonly kind?: pulumi.Input<"ReadOnlyFollowing">;
+    kind?: pulumi.Input<"ReadOnlyFollowing">;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

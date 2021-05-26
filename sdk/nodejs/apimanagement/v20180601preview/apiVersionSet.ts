@@ -122,33 +122,33 @@ export interface ApiVersionSetArgs {
     /**
      * Description of API Version Set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of API Version Set
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
      */
-    readonly versionHeaderName?: pulumi.Input<string>;
+    versionHeaderName?: pulumi.Input<string>;
     /**
      * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
      */
-    readonly versionQueryName?: pulumi.Input<string>;
+    versionQueryName?: pulumi.Input<string>;
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    readonly versionSetId?: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string>;
     /**
      * An value that determines where the API Version identifier will be located in a HTTP request.
      */
-    readonly versioningScheme: pulumi.Input<string | enums.apimanagement.v20180601preview.VersioningScheme>;
+    versioningScheme: pulumi.Input<string | enums.apimanagement.v20180601preview.VersioningScheme>;
 }

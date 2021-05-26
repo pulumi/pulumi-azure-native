@@ -28,15 +28,15 @@ export interface GetWebAppPremierAddOnArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Add-on name.
      */
-    readonly premierAddOnName: string;
+    premierAddOnName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

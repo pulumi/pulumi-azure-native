@@ -29,19 +29,19 @@ export interface GetActionArgs {
     /**
      * Action ID
      */
-    readonly actionId: string;
+    actionId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Alert rule ID
      */
-    readonly ruleId: string;
+    ruleId: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

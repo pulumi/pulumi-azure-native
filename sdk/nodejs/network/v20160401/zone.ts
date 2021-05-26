@@ -130,33 +130,33 @@ export interface ZoneArgs {
     /**
      * The etag of the zone.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly maxNumberOfRecordSets?: pulumi.Input<number>;
+    maxNumberOfRecordSets?: pulumi.Input<number>;
     /**
      * The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly numberOfRecordSets?: pulumi.Input<number>;
+    numberOfRecordSets?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
     /**
      * The type of this DNS zone (Public or Private).
      */
-    readonly zoneType?: pulumi.Input<enums.network.v20160401.ZoneType>;
+    zoneType?: pulumi.Input<enums.network.v20160401.ZoneType>;
 }

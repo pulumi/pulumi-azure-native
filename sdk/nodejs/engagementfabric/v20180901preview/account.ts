@@ -103,21 +103,21 @@ export interface AccountArgs {
     /**
      * Account Name
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource
      */
-    readonly sku: pulumi.Input<inputs.engagementfabric.v20180901preview.SKUArgs>;
+    sku: pulumi.Input<inputs.engagementfabric.v20180901preview.SKUArgs>;
     /**
      * The tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

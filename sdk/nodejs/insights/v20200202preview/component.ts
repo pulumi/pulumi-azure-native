@@ -256,77 +256,77 @@ export interface ComponentArgs {
     /**
      * Type of application being monitored.
      */
-    readonly applicationType: pulumi.Input<string | enums.insights.v20200202preview.ApplicationType>;
+    applicationType: pulumi.Input<string | enums.insights.v20200202preview.ApplicationType>;
     /**
      * Disable IP masking.
      */
-    readonly disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean>;
     /**
      * Disable Non-AAD based Auth.
      */
-    readonly disableLocalAuth?: pulumi.Input<boolean>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Resource etag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    readonly flowType?: pulumi.Input<string | enums.insights.v20200202preview.FlowType>;
+    flowType?: pulumi.Input<string | enums.insights.v20200202preview.FlowType>;
     /**
      * Force users to create their own storage account for profiler and debugger.
      */
-    readonly forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
-    readonly hockeyAppId?: pulumi.Input<string>;
+    hockeyAppId?: pulumi.Input<string>;
     /**
      * Purge data immediately after 30 days.
      */
-    readonly immediatePurgeDataOn30Days?: pulumi.Input<boolean>;
+    immediatePurgeDataOn30Days?: pulumi.Input<boolean>;
     /**
      * Indicates the flow of the ingestion.
      */
-    readonly ingestionMode?: pulumi.Input<string | enums.insights.v20200202preview.IngestionMode>;
+    ingestionMode?: pulumi.Input<string | enums.insights.v20200202preview.IngestionMode>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
-    readonly kind: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The network access type for accessing Application Insights ingestion.
      */
-    readonly publicNetworkAccessForIngestion?: pulumi.Input<string | enums.insights.v20200202preview.PublicNetworkAccessType>;
+    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.insights.v20200202preview.PublicNetworkAccessType>;
     /**
      * The network access type for accessing Application Insights query.
      */
-    readonly publicNetworkAccessForQuery?: pulumi.Input<string | enums.insights.v20200202preview.PublicNetworkAccessType>;
+    publicNetworkAccessForQuery?: pulumi.Input<string | enums.insights.v20200202preview.PublicNetworkAccessType>;
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    readonly requestSource?: pulumi.Input<string | enums.insights.v20200202preview.RequestSource>;
+    requestSource?: pulumi.Input<string | enums.insights.v20200202preview.RequestSource>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
-    readonly samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
      */
-    readonly workspaceResourceId?: pulumi.Input<string>;
+    workspaceResourceId?: pulumi.Input<string>;
 }

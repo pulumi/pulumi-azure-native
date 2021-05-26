@@ -27,15 +27,15 @@ export interface GetVideoArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the video to retrieve.
      */
-    readonly videoName: string;
+    videoName: string;
 }
 
 /**

@@ -135,49 +135,49 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
      */
-    readonly allowForwardedTraffic?: pulumi.Input<boolean>;
+    allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
      * If gateway links can be used in remote virtual networking to link to this virtual network.
      */
-    readonly allowGatewayTransit?: pulumi.Input<boolean>;
+    allowGatewayTransit?: pulumi.Input<boolean>;
     /**
      * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
      */
-    readonly allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+    allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The status of the virtual network peering.
      */
-    readonly peeringState?: pulumi.Input<string | enums.network.v20200401.VirtualNetworkPeeringState>;
+    peeringState?: pulumi.Input<string | enums.network.v20200401.VirtualNetworkPeeringState>;
     /**
      * The reference to the remote virtual network address space.
      */
-    readonly remoteAddressSpace?: pulumi.Input<inputs.network.v20200401.AddressSpaceArgs>;
+    remoteAddressSpace?: pulumi.Input<inputs.network.v20200401.AddressSpaceArgs>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
-    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
+    remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */
-    readonly useRemoteGateways?: pulumi.Input<boolean>;
+    useRemoteGateways?: pulumi.Input<boolean>;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName: pulumi.Input<string>;
+    virtualNetworkName: pulumi.Input<string>;
     /**
      * The name of the peering.
      */
-    readonly virtualNetworkPeeringName?: pulumi.Input<string>;
+    virtualNetworkPeeringName?: pulumi.Input<string>;
 }

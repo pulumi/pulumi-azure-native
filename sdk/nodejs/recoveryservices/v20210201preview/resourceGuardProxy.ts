@@ -107,10 +107,10 @@ export interface ResourceGuardProxyArgs {
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly resourceGuardProxyName?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    resourceGuardProxyName?: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

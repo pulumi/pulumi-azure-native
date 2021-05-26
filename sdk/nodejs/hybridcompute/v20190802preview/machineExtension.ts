@@ -157,53 +157,53 @@ export interface MachineExtensionArgs {
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
-    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * The name of the machine extension.
      */
-    readonly extensionName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The machine extension instance view.
      */
-    readonly instanceView?: pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewArgs>;
+    instanceView?: pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the machine where the extension should be created or updated.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly protectedSettings?: any;
+    protectedSettings?: any;
     /**
      * The name of the extension handler publisher.
      */
-    readonly publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Json formatted public settings for the extension.
      */
-    readonly settings?: any;
+    settings?: any;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identity type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies the version of the script handler.
      */
-    readonly typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string>;
 }

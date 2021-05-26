@@ -26,11 +26,11 @@ export interface GetManagementConfigurationArgs {
     /**
      * User Management Configuration Name.
      */
-    readonly managementConfigurationName: string;
+    managementConfigurationName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

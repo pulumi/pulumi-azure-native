@@ -145,49 +145,49 @@ export interface VirtualNetworkArgs {
     /**
      * The allowed subnets of the virtual network.
      */
-    readonly allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetArgs>[]>;
+    allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetArgs>[]>;
     /**
      * The description of the virtual network.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Microsoft.Network resource identifier of the virtual network.
      */
-    readonly externalProviderResourceId?: pulumi.Input<string>;
+    externalProviderResourceId?: pulumi.Input<string>;
     /**
      * The external subnet properties.
      */
-    readonly externalSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ExternalSubnetArgs>[]>;
+    externalSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ExternalSubnetArgs>[]>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The subnet overrides of the virtual network.
      */
-    readonly subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetOverrideArgs>[]>;
+    subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetOverrideArgs>[]>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }

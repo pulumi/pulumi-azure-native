@@ -134,37 +134,37 @@ export interface ManagedNetworkGroupArgs {
     /**
      * Responsibility role under which this Managed Network Group will be created
      */
-    readonly kind?: pulumi.Input<string | enums.managednetwork.v20190601preview.Kind>;
+    kind?: pulumi.Input<string | enums.managednetwork.v20190601preview.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Managed Network Group.
      */
-    readonly managedNetworkGroupName?: pulumi.Input<string>;
+    managedNetworkGroupName?: pulumi.Input<string>;
     /**
      * The name of the Managed Network.
      */
-    readonly managedNetworkName: pulumi.Input<string>;
+    managedNetworkName: pulumi.Input<string>;
     /**
      * The collection of management groups covered by the Managed Network
      */
-    readonly managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
+    managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The collection of  subnets covered by the Managed Network
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
     /**
      * The collection of subscriptions covered by the Managed Network
      */
-    readonly subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
+    subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
     /**
      * The collection of virtual nets covered by the Managed Network
      */
-    readonly virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
+    virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.v20190601preview.ResourceIdArgs>[]>;
 }

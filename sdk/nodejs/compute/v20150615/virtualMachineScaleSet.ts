@@ -123,37 +123,37 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the VM scale set to create or update.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    readonly overProvision?: pulumi.Input<boolean>;
+    overProvision?: pulumi.Input<boolean>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20150615.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20150615.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20150615.UpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.compute.v20150615.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetVMProfileArgs>;
+    virtualMachineProfile?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetVMProfileArgs>;
 }

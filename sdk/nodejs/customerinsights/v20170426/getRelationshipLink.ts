@@ -27,15 +27,15 @@ export interface GetRelationshipLinkArgs {
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * The name of the relationship link.
      */
-    readonly relationshipLinkName: string;
+    relationshipLinkName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetAdaptiveApplicationControlArgs {
     /**
      * The location where ASC stores the data of the subscription. can be retrieved from Get locations
      */
-    readonly ascLocation: string;
+    ascLocation: string;
     /**
      * Name of an application control machine group
      */
-    readonly groupName: string;
+    groupName: string;
 }
 
 export interface GetAdaptiveApplicationControlResult {

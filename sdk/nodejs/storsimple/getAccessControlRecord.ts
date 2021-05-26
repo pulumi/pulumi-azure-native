@@ -28,15 +28,15 @@ export interface GetAccessControlRecordArgs {
     /**
      * Name of access control record to be fetched.
      */
-    readonly accessControlRecordName: string;
+    accessControlRecordName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

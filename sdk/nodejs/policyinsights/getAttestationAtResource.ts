@@ -27,11 +27,11 @@ export interface GetAttestationAtResourceArgs {
     /**
      * The name of the attestation.
      */
-    readonly attestationName: string;
+    attestationName: string;
     /**
      * Resource ID.
      */
-    readonly resourceId: string;
+    resourceId: string;
 }
 
 /**

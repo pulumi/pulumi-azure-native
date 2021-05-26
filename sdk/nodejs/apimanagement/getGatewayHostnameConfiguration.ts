@@ -29,19 +29,19 @@ export interface GetGatewayHostnameConfigurationArgs {
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    readonly gatewayId: string;
+    gatewayId: string;
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    readonly hcId: string;
+    hcId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface ListStaticSiteConfiguredRolesArgs {
     /**
      * Name of the static site.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

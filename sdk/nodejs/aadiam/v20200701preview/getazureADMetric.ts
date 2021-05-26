@@ -26,11 +26,11 @@ export interface GetazureADMetricArgs {
     /**
      * Name of the azureADMetrics instance.
      */
-    readonly azureADMetricsName: string;
+    azureADMetricsName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -143,45 +143,45 @@ export interface IpAllocationArgs {
     /**
      * IpAllocation tags.
      */
-    readonly allocationTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    allocationTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the IpAllocation.
      */
-    readonly ipAllocationName?: pulumi.Input<string>;
+    ipAllocationName?: pulumi.Input<string>;
     /**
      * The IPAM allocation ID.
      */
-    readonly ipamAllocationId?: pulumi.Input<string>;
+    ipamAllocationId?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The address prefix for the IpAllocation.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The address prefix length for the IpAllocation.
      */
-    readonly prefixLength?: pulumi.Input<number>;
+    prefixLength?: pulumi.Input<number>;
     /**
      * The address prefix Type for the IpAllocation.
      */
-    readonly prefixType?: pulumi.Input<string | enums.network.v20200501.IPVersion>;
+    prefixType?: pulumi.Input<string | enums.network.v20200501.IPVersion>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type for the IpAllocation.
      */
-    readonly type?: pulumi.Input<string | enums.network.v20200501.IpAllocationType>;
+    type?: pulumi.Input<string | enums.network.v20200501.IpAllocationType>;
 }

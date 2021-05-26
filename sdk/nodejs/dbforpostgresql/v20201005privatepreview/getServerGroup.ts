@@ -26,11 +26,11 @@ export interface GetServerGroupArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server group.
      */
-    readonly serverGroupName: string;
+    serverGroupName: string;
 }
 
 /**

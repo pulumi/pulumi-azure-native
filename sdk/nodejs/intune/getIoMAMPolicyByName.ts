@@ -28,15 +28,15 @@ export interface GetIoMAMPolicyByNameArgs {
     /**
      * Location hostName for the tenant
      */
-    readonly hostName: string;
+    hostName: string;
     /**
      * Unique name for the policy
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * select specific fields in entity.
      */
-    readonly select?: string;
+    select?: string;
 }
 
 /**

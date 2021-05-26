@@ -28,19 +28,19 @@ export interface GetCassandraResourceCassandraTableArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Cosmos DB keyspace name.
      */
-    readonly keyspaceName: string;
+    keyspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Cosmos DB table name.
      */
-    readonly tableName: string;
+    tableName: string;
 }
 
 /**

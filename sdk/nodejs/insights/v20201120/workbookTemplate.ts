@@ -130,37 +130,37 @@ export interface WorkbookTemplateArgs {
     /**
      * Information about the author of the workbook template.
      */
-    readonly author?: pulumi.Input<string>;
+    author?: pulumi.Input<string>;
     /**
      * Workbook galleries supported by the template.
      */
-    readonly galleries: pulumi.Input<pulumi.Input<inputs.insights.v20201120.WorkbookTemplateGalleryArgs>[]>;
+    galleries: pulumi.Input<pulumi.Input<inputs.insights.v20201120.WorkbookTemplateGalleryArgs>[]>;
     /**
      * Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    readonly localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.insights.v20201120.WorkbookTemplateLocalizedGalleryArgs>[]>}>;
+    localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.insights.v20201120.WorkbookTemplateLocalizedGalleryArgs>[]>}>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Valid JSON object containing workbook template payload.
      */
-    readonly templateData: any;
+    templateData: any;
 }

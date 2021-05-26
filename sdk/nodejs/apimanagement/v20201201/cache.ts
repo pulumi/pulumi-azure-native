@@ -115,29 +115,29 @@ export interface CacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    readonly cacheId?: pulumi.Input<string>;
+    cacheId?: pulumi.Input<string>;
     /**
      * Runtime connection string to cache
      */
-    readonly connectionString: pulumi.Input<string>;
+    connectionString: pulumi.Input<string>;
     /**
      * Cache description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Original uri of entity in external system cache points to
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
      */
-    readonly useFromLocation: pulumi.Input<string>;
+    useFromLocation: pulumi.Input<string>;
 }

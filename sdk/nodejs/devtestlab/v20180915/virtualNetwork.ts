@@ -145,37 +145,37 @@ export interface VirtualNetworkArgs {
     /**
      * The allowed subnets of the virtual network.
      */
-    readonly allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.SubnetArgs>[]>;
+    allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.SubnetArgs>[]>;
     /**
      * The description of the virtual network.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Microsoft.Network resource identifier of the virtual network.
      */
-    readonly externalProviderResourceId?: pulumi.Input<string>;
+    externalProviderResourceId?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The subnet overrides of the virtual network.
      */
-    readonly subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.SubnetOverrideArgs>[]>;
+    subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.SubnetOverrideArgs>[]>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

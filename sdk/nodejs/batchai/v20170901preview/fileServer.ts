@@ -145,33 +145,33 @@ export interface FileServerArgs {
     /**
      * Settings for the data disk which would be created for the File Server.
      */
-    readonly dataDisks: pulumi.Input<inputs.batchai.v20170901preview.DataDisksArgs>;
+    dataDisks: pulumi.Input<inputs.batchai.v20170901preview.DataDisksArgs>;
     /**
      * The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly fileServerName?: pulumi.Input<string>;
+    fileServerName?: pulumi.Input<string>;
     /**
      * The region in which to create the File Server.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SSH configuration settings for the VM
      */
-    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20170901preview.SshConfigurationArgs>;
+    sshConfiguration: pulumi.Input<inputs.batchai.v20170901preview.SshConfigurationArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
+    subnet?: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
     /**
      * The user specified tags associated with the File Server.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
      */
-    readonly vmSize: pulumi.Input<string>;
+    vmSize: pulumi.Input<string>;
 }

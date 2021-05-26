@@ -86,17 +86,17 @@ export interface ComponentCurrentBillingFeatureArgs {
     /**
      * Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
      */
-    readonly currentBillingFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    currentBillingFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An Application Insights component daily data volume cap
      */
-    readonly dataVolumeCap?: pulumi.Input<inputs.insights.ApplicationInsightsComponentDataVolumeCapArgs>;
+    dataVolumeCap?: pulumi.Input<inputs.insights.ApplicationInsightsComponentDataVolumeCapArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

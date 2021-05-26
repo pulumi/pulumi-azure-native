@@ -26,7 +26,7 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
     /**
      * The ID that uniquely identifies a billing account.
      */
-    readonly billingAccountName: string;
+    billingAccountName: string;
 }
 
 /**

@@ -91,13 +91,13 @@ export interface ConnectorArgs {
     /**
      * Settings for authentication management, these settings are relevant only for the cloud connector.
      */
-    readonly authenticationDetails?: pulumi.Input<inputs.security.AwAssumeRoleAuthenticationDetailsPropertiesArgs | inputs.security.AwsCredsAuthenticationDetailsPropertiesArgs | inputs.security.GcpCredentialsDetailsPropertiesArgs>;
+    authenticationDetails?: pulumi.Input<inputs.security.AwAssumeRoleAuthenticationDetailsPropertiesArgs | inputs.security.AwsCredsAuthenticationDetailsPropertiesArgs | inputs.security.GcpCredentialsDetailsPropertiesArgs>;
     /**
      * Name of the cloud account connector
      */
-    readonly connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string>;
     /**
      * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */
-    readonly hybridComputeSettings?: pulumi.Input<inputs.security.HybridComputeSettingsPropertiesArgs>;
+    hybridComputeSettings?: pulumi.Input<inputs.security.HybridComputeSettingsPropertiesArgs>;
 }

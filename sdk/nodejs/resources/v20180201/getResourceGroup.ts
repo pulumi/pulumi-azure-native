@@ -25,7 +25,7 @@ export interface GetResourceGroupArgs {
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

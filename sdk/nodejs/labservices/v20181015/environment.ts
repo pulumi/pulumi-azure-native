@@ -178,41 +178,41 @@ export interface EnvironmentArgs {
     /**
      * The name of the environment.
      */
-    readonly environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The name of the environment Setting.
      */
-    readonly environmentSettingName: pulumi.Input<string>;
+    environmentSettingName: pulumi.Input<string>;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: pulumi.Input<string>;
+    labAccountName: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The set of a VM and the setting id it was created for
      */
-    readonly resourceSets?: pulumi.Input<inputs.labservices.v20181015.ResourceSetArgs>;
+    resourceSets?: pulumi.Input<inputs.labservices.v20181015.ResourceSetArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }

@@ -98,17 +98,17 @@ export interface CertificateArgs {
     /**
      * The name of the certificate
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The description of an X509 CA Certificate.
      */
-    readonly properties?: pulumi.Input<inputs.devices.v20210303preview.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.devices.v20210303preview.CertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

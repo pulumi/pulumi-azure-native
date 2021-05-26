@@ -119,21 +119,21 @@ export interface ClusterArgs {
     /**
      * Name of the cluster in the private cloud
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The cluster size
      */
-    readonly clusterSize?: pulumi.Input<number>;
+    clusterSize?: pulumi.Input<number>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The cluster SKU
      */
-    readonly sku: pulumi.Input<inputs.avs.v20210101preview.SkuArgs>;
+    sku: pulumi.Input<inputs.avs.v20210101preview.SkuArgs>;
 }

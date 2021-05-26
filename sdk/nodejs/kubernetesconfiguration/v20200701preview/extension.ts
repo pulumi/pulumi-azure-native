@@ -184,57 +184,57 @@ export interface ExtensionArgs {
     /**
      * Flag to note if this instance participates in auto upgrade of minor version, or not.
      */
-    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * The name of the kubernetes cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
      */
-    readonly clusterResourceName: pulumi.Input<string>;
+    clusterResourceName: pulumi.Input<string>;
     /**
      * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
      */
-    readonly clusterRp: pulumi.Input<string>;
+    clusterRp: pulumi.Input<string>;
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this instance of the extension.
      */
-    readonly configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationProtectedSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration settings, as name-value pairs for configuring this instance of the extension.
      */
-    readonly configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    configurationSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an instance of the Extension.
      */
-    readonly extensionInstanceName?: pulumi.Input<string>;
+    extensionInstanceName?: pulumi.Input<string>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
-    readonly extensionType?: pulumi.Input<string>;
+    extensionType?: pulumi.Input<string>;
     /**
      * The identity of the configuration.
      */
-    readonly identity?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ConfigurationIdentityArgs>;
+    identity?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ConfigurationIdentityArgs>;
     /**
      * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
-    readonly releaseTrain?: pulumi.Input<string>;
+    releaseTrain?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Scope at which the extension instance is installed.
      */
-    readonly scope?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ScopeArgs>;
+    scope?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ScopeArgs>;
     /**
      * Status from this instance of the extension.
      */
-    readonly statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ExtensionStatusArgs>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ExtensionStatusArgs>[]>;
     /**
      * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

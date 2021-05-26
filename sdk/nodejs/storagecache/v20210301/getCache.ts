@@ -26,11 +26,11 @@ export interface GetCacheArgs {
     /**
      * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    readonly cacheName: string;
+    cacheName: string;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -28,19 +28,19 @@ export interface GetSqlPoolTransparentDataEncryptionArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: string;
+    sqlPoolName: string;
     /**
      * The name of the transparent data encryption configuration.
      */
-    readonly transparentDataEncryptionName: string;
+    transparentDataEncryptionName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

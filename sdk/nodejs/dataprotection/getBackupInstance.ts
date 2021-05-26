@@ -28,15 +28,15 @@ export interface GetBackupInstanceArgs {
     /**
      * The name of the backup instance
      */
-    readonly backupInstanceName: string;
+    backupInstanceName: string;
     /**
      * The name of the resource group where the backup vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the backup vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

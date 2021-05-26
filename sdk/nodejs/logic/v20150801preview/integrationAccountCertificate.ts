@@ -126,45 +126,45 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The resource id.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The key details in the key vault.
      */
-    readonly key?: pulumi.Input<inputs.logic.v20150801preview.KeyVaultKeyReferenceArgs>;
+    key?: pulumi.Input<inputs.logic.v20150801preview.KeyVaultKeyReferenceArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The resource name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The public certificate.
      */
-    readonly publicCertificate?: pulumi.Input<string>;
+    publicCertificate?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

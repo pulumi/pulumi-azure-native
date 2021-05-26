@@ -125,5 +125,5 @@ export interface PartnerArgs {
     /**
      * Id of the Partner
      */
-    readonly partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string>;
 }

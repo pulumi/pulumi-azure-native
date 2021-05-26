@@ -148,33 +148,33 @@ export interface DataCollectionEndpointArgs {
     /**
      * The name of the data collection endpoint. The name is case insensitive.
      */
-    readonly dataCollectionEndpointName?: pulumi.Input<string>;
+    dataCollectionEndpointName?: pulumi.Input<string>;
     /**
      * Description of the data collection endpoint.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
      */
-    readonly immutableId?: pulumi.Input<string>;
+    immutableId?: pulumi.Input<string>;
     /**
      * The kind of the resource.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20210401.KnownDataCollectionEndpointResourceKind>;
+    kind?: pulumi.Input<string | enums.insights.v20210401.KnownDataCollectionEndpointResourceKind>;
     /**
      * The geo-location where the resource lives.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Network access control rules for the endpoints.
      */
-    readonly networkAcls?: pulumi.Input<inputs.insights.v20210401.DataCollectionEndpointNetworkAclsArgs>;
+    networkAcls?: pulumi.Input<inputs.insights.v20210401.DataCollectionEndpointNetworkAclsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

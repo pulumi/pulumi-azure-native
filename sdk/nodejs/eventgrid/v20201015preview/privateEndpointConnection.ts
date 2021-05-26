@@ -111,33 +111,33 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * GroupIds from the private link service resource.
      */
-    readonly groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the parent resource (namely, either, the topic name or domain name).
      */
-    readonly parentName: pulumi.Input<string>;
+    parentName: pulumi.Input<string>;
     /**
      * The type of the parent resource. This can be either \'topics\' or \'domains\'.
      */
-    readonly parentType: pulumi.Input<string>;
+    parentType: pulumi.Input<string>;
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.eventgrid.v20201015preview.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.eventgrid.v20201015preview.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint connection connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.v20201015preview.ConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.v20201015preview.ConnectionStateArgs>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.eventgrid.v20201015preview.ResourceProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.eventgrid.v20201015preview.ResourceProvisioningState>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

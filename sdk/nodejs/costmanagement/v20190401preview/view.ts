@@ -162,53 +162,53 @@ export interface ViewArgs {
     /**
      * Show costs accumulated over time.
      */
-    readonly accumulated?: pulumi.Input<string | enums.costmanagement.v20190401preview.AccumulatedType>;
+    accumulated?: pulumi.Input<string | enums.costmanagement.v20190401preview.AccumulatedType>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    readonly chart?: pulumi.Input<string | enums.costmanagement.v20190401preview.ChartType>;
+    chart?: pulumi.Input<string | enums.costmanagement.v20190401preview.ChartType>;
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigDatasetArgs>;
+    dataset?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigDatasetArgs>;
     /**
      * User input name of the view. Required.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
-    readonly kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.KpiPropertiesArgs>[]>;
+    kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.KpiPropertiesArgs>[]>;
     /**
      * Metric to use when displaying costs.
      */
-    readonly metric?: pulumi.Input<string | enums.costmanagement.v20190401preview.MetricType>;
+    metric?: pulumi.Input<string | enums.costmanagement.v20190401preview.MetricType>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    readonly pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.PivotPropertiesArgs>[]>;
+    pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20190401preview.PivotPropertiesArgs>[]>;
     /**
      * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * Has time period for pulling data for the report.
      */
-    readonly timePeriod?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigTimePeriodArgs>;
+    timePeriod?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigTimePeriodArgs>;
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    readonly timeframe: pulumi.Input<string | enums.costmanagement.v20190401preview.TimeframeType>;
+    timeframe: pulumi.Input<string | enums.costmanagement.v20190401preview.TimeframeType>;
     /**
      * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
      */
-    readonly type: pulumi.Input<string | enums.costmanagement.v20190401preview.ReportType>;
+    type: pulumi.Input<string | enums.costmanagement.v20190401preview.ReportType>;
     /**
      * View name
      */
-    readonly viewName?: pulumi.Input<string>;
+    viewName?: pulumi.Input<string>;
 }

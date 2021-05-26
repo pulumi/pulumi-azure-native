@@ -219,112 +219,112 @@ export interface ApiArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
-    readonly apiRevision?: pulumi.Input<string>;
+    apiRevision?: pulumi.Input<string>;
     /**
      * Description of the API Revision.
      */
-    readonly apiRevisionDescription?: pulumi.Input<string>;
+    apiRevisionDescription?: pulumi.Input<string>;
     /**
      * Type of API.
      */
-    readonly apiType?: pulumi.Input<string | enums.apimanagement.v20210101preview.ApiType>;
+    apiType?: pulumi.Input<string | enums.apimanagement.v20210101preview.ApiType>;
     /**
      * Indicates the version identifier of the API if the API is versioned
      */
-    readonly apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string>;
     /**
      * Description of the API Version.
      */
-    readonly apiVersionDescription?: pulumi.Input<string>;
+    apiVersionDescription?: pulumi.Input<string>;
     /**
      * Version set details
      */
-    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiVersionSetContractDetailsArgs>;
+    apiVersionSet?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiVersionSetContractDetailsArgs>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
-    readonly apiVersionSetId?: pulumi.Input<string>;
+    apiVersionSetId?: pulumi.Input<string>;
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20210101preview.AuthenticationSettingsContractArgs>;
+    authenticationSettings?: pulumi.Input<inputs.apimanagement.v20210101preview.AuthenticationSettingsContractArgs>;
     /**
      * Contact information for the API.
      */
-    readonly contact?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiContactInformationArgs>;
+    contact?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiContactInformationArgs>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * API name. Must be 1 to 300 characters long.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Format of the Content in which the API is getting imported.
      */
-    readonly format?: pulumi.Input<string | enums.apimanagement.v20210101preview.ContentFormat>;
+    format?: pulumi.Input<string | enums.apimanagement.v20210101preview.ContentFormat>;
     /**
      * Indicates if API revision is current api revision.
      */
-    readonly isCurrent?: pulumi.Input<boolean>;
+    isCurrent?: pulumi.Input<boolean>;
     /**
      * License information for the API.
      */
-    readonly license?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiLicenseInformationArgs>;
+    license?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiLicenseInformationArgs>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    readonly path: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20210101preview.Protocol>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20210101preview.Protocol>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */
-    readonly serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string>;
     /**
      * Type of API to create. 
      *  * `http` creates a REST API 
      *  * `soap` creates a SOAP pass-through API  
      *  * `websocket` creates websocket API.
      */
-    readonly soapApiType?: pulumi.Input<string | enums.apimanagement.v20210101preview.SoapApiType>;
+    soapApiType?: pulumi.Input<string | enums.apimanagement.v20210101preview.SoapApiType>;
     /**
      * API identifier of the source API.
      */
-    readonly sourceApiId?: pulumi.Input<string>;
+    sourceApiId?: pulumi.Input<string>;
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20210101preview.SubscriptionKeyParameterNamesContractArgs>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20210101preview.SubscriptionKeyParameterNamesContractArgs>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
-    readonly subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean>;
     /**
      *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    readonly termsOfServiceUrl?: pulumi.Input<string>;
+    termsOfServiceUrl?: pulumi.Input<string>;
     /**
      * Content value when Importing an API.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
+    wsdlSelector?: pulumi.Input<inputs.apimanagement.v20210101preview.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
 }

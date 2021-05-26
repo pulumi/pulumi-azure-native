@@ -27,15 +27,15 @@ export interface GetConnectionMonitorArgs {
     /**
      * The name of the connection monitor.
      */
-    readonly connectionMonitorName: string;
+    connectionMonitorName: string;
     /**
      * The name of the Network Watcher resource.
      */
-    readonly networkWatcherName: string;
+    networkWatcherName: string;
     /**
      * The name of the resource group containing Network Watcher.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetOpenIdConnectProviderArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    readonly opid: string;
+    opid: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

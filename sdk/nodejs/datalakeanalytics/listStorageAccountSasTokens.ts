@@ -29,19 +29,19 @@ export interface ListStorageAccountSasTokensArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Azure storage container for which the SAS token is being requested.
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Azure storage account for which the SAS token is being requested.
      */
-    readonly storageAccountName: string;
+    storageAccountName: string;
 }
 
 /**

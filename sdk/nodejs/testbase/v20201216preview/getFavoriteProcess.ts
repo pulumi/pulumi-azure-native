@@ -28,19 +28,19 @@ export interface GetFavoriteProcessArgs {
     /**
      * The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
      */
-    readonly favoriteProcessResourceName: string;
+    favoriteProcessResourceName: string;
     /**
      * The resource name of the Test Base Package.
      */
-    readonly packageName: string;
+    packageName: string;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: string;
+    testBaseAccountName: string;
 }
 
 /**

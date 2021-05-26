@@ -26,11 +26,11 @@ export interface ListStorageAccountKeysArgs {
     /**
      * The name of the storage account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

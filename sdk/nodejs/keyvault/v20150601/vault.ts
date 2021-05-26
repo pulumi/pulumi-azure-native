@@ -103,21 +103,21 @@ export interface VaultArgs {
     /**
      * The supported Azure location where the key vault should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the vault
      */
-    readonly properties: pulumi.Input<inputs.keyvault.v20150601.VaultPropertiesArgs>;
+    properties: pulumi.Input<inputs.keyvault.v20150601.VaultPropertiesArgs>;
     /**
      * The name of the Resource Group to which the server belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags that will be assigned to the key vault. 
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the vault
      */
-    readonly vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string>;
 }

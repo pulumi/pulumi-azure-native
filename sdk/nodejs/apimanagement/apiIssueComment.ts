@@ -118,33 +118,33 @@ export interface ApiIssueCommentArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    readonly commentId?: pulumi.Input<string>;
+    commentId?: pulumi.Input<string>;
     /**
      * Date and time when the comment was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly issueId: pulumi.Input<string>;
+    issueId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Comment text.
      */
-    readonly text: pulumi.Input<string>;
+    text: pulumi.Input<string>;
     /**
      * A resource identifier for the user who left the comment.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

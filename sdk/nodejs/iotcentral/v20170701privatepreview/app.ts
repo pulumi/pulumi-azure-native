@@ -127,33 +127,33 @@ export interface AppArgs {
     /**
      * The display name of the application.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ARM resource name of the IoT Central application.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * A valid instance SKU.
      */
-    readonly sku: pulumi.Input<inputs.iotcentral.v20170701privatepreview.AppSkuInfoArgs>;
+    sku: pulumi.Input<inputs.iotcentral.v20170701privatepreview.AppSkuInfoArgs>;
     /**
      * The subdomain of the application.
      */
-    readonly subdomain?: pulumi.Input<string>;
+    subdomain?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
 }

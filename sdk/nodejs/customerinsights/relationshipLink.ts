@@ -165,41 +165,41 @@ export interface RelationshipLinkArgs {
     /**
      * Localized descriptions for the Relationship Link.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the Relationship Link.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The InteractionType associated with the Relationship Link.
      */
-    readonly interactionType: pulumi.Input<string>;
+    interactionType: pulumi.Input<string>;
     /**
      * The mappings between Interaction and Relationship fields.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipLinkFieldMappingArgs>[]>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipLinkFieldMappingArgs>[]>;
     /**
      * The property references for the Profile of the Relationship.
      */
-    readonly profilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
+    profilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
     /**
      * The property references for the Related Profile of the Relationship.
      */
-    readonly relatedProfilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
+    relatedProfilePropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantProfilePropertyReferenceArgs>[]>;
     /**
      * The name of the relationship link.
      */
-    readonly relationshipLinkName?: pulumi.Input<string>;
+    relationshipLinkName?: pulumi.Input<string>;
     /**
      * The Relationship associated with the Link.
      */
-    readonly relationshipName: pulumi.Input<string>;
+    relationshipName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -27,11 +27,11 @@ export interface GetIoTSpaceArgs {
     /**
      * The name of the resource group that contains the IoTSpaces instance.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the IoTSpaces instance.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

@@ -30,23 +30,23 @@ export interface GetMachineGroupArgs {
     /**
      * UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow
      */
-    readonly endTime?: string;
+    endTime?: string;
     /**
      * Machine Group resource name.
      */
-    readonly machineGroupName: string;
+    machineGroupName: string;
     /**
      * Resource group name within the specified subscriptionId.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
      */
-    readonly startTime?: string;
+    startTime?: string;
     /**
      * OMS workspace containing the resources of interest.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

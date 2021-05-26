@@ -26,11 +26,11 @@ export interface GetPartnerRegistrationArgs {
     /**
      * Name of the partner registration.
      */
-    readonly partnerRegistrationName: string;
+    partnerRegistrationName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

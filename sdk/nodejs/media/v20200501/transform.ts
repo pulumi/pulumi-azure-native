@@ -119,21 +119,21 @@ export interface TransformArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * An optional verbose description of the Transform.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * An array of one or more TransformOutputs that the Transform should generate.
      */
-    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20200501.TransformOutputArgs>[]>;
+    outputs: pulumi.Input<pulumi.Input<inputs.media.v20200501.TransformOutputArgs>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Transform name.
      */
-    readonly transformName?: pulumi.Input<string>;
+    transformName?: pulumi.Input<string>;
 }

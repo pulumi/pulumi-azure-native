@@ -27,15 +27,15 @@ export interface GetProductsArgs {
     /**
      * Name of the product.
      */
-    readonly productName: string;
+    productName: string;
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName: string;
+    registrationName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

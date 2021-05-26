@@ -167,65 +167,65 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * ActiveActive flag
      */
-    readonly activeActive?: pulumi.Input<boolean>;
+    activeActive?: pulumi.Input<boolean>;
     /**
      * Virtual network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20181101.BgpSettingsArgs>;
+    bgpSettings?: pulumi.Input<inputs.network.v20181101.BgpSettingsArgs>;
     /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
+    gatewayDefaultSite?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
     /**
      * The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
      */
-    readonly gatewayType?: pulumi.Input<string | enums.network.v20181101.VirtualNetworkGatewayType>;
+    gatewayType?: pulumi.Input<string | enums.network.v20181101.VirtualNetworkGatewayType>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * IP configurations for virtual network gateway.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181101.VirtualNetworkGatewayIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181101.VirtualNetworkGatewayIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the VirtualNetworkGateway resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20181101.VirtualNetworkGatewaySkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20181101.VirtualNetworkGatewaySkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual network gateway.
      */
-    readonly virtualNetworkGatewayName?: pulumi.Input<string>;
+    virtualNetworkGatewayName?: pulumi.Input<string>;
     /**
      * The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<inputs.network.v20181101.VpnClientConfigurationArgs>;
+    vpnClientConfiguration?: pulumi.Input<inputs.network.v20181101.VpnClientConfigurationArgs>;
     /**
      * The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
      */
-    readonly vpnType?: pulumi.Input<string | enums.network.v20181101.VpnType>;
+    vpnType?: pulumi.Input<string | enums.network.v20181101.VpnType>;
 }

@@ -63,49 +63,49 @@ export interface ProviderArgs {
     /**
      * Any additional Tenant IDs which should be used for authentication.
      */
-    readonly auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      */
-    readonly clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string>;
     /**
      * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      */
-    readonly clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string>;
     /**
      * The Client ID which should be used.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
      */
-    readonly disablePulumiPartnerId?: pulumi.Input<boolean>;
+    disablePulumiPartnerId?: pulumi.Input<boolean>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
      */
-    readonly environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
      */
-    readonly msiEndpoint?: pulumi.Input<string>;
+    msiEndpoint?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    readonly partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string>;
     /**
      * The Subscription ID which should be used.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The Tenant ID which should be used.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Allowed Managed Service Identity be used for Authentication.
      */
-    readonly useMsi?: pulumi.Input<boolean>;
+    useMsi?: pulumi.Input<boolean>;
 }

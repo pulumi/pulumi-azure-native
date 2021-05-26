@@ -174,49 +174,49 @@ export interface ServerEndpointArgs {
     /**
      * Cloud Tiering.
      */
-    readonly cloudTiering?: pulumi.Input<string>;
+    cloudTiering?: pulumi.Input<string>;
     /**
      * Friendly Name
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Offline data transfer
      */
-    readonly offlineDataTransfer?: pulumi.Input<string>;
+    offlineDataTransfer?: pulumi.Input<string>;
     /**
      * Offline data transfer share name
      */
-    readonly offlineDataTransferShareName?: pulumi.Input<string>;
+    offlineDataTransferShareName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Server Endpoint object.
      */
-    readonly serverEndpointName?: pulumi.Input<string>;
+    serverEndpointName?: pulumi.Input<string>;
     /**
      * Server Local path.
      */
-    readonly serverLocalPath?: pulumi.Input<string>;
+    serverLocalPath?: pulumi.Input<string>;
     /**
      * Server Resource Id.
      */
-    readonly serverResourceId?: pulumi.Input<string>;
+    serverResourceId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    syncGroupName: pulumi.Input<string>;
     /**
      * Tier files older than days.
      */
-    readonly tierFilesOlderThanDays?: pulumi.Input<number>;
+    tierFilesOlderThanDays?: pulumi.Input<number>;
     /**
      * Level of free space to be maintained by Cloud Tiering if it is enabled.
      */
-    readonly volumeFreeSpacePercent?: pulumi.Input<number>;
+    volumeFreeSpacePercent?: pulumi.Input<number>;
 }

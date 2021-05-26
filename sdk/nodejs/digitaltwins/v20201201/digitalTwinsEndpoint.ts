@@ -95,17 +95,17 @@ export interface DigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * DigitalTwinsInstance endpoint resource properties.
      */
-    readonly properties: pulumi.Input<inputs.digitaltwins.v20201201.EventGridArgs | inputs.digitaltwins.v20201201.EventHubArgs | inputs.digitaltwins.v20201201.ServiceBusArgs>;
+    properties: pulumi.Input<inputs.digitaltwins.v20201201.EventGridArgs | inputs.digitaltwins.v20201201.EventHubArgs | inputs.digitaltwins.v20201201.ServiceBusArgs>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

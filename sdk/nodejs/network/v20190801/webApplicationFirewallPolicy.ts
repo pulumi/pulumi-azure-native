@@ -140,37 +140,37 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.WebApplicationFirewallCustomRuleArgs>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.WebApplicationFirewallCustomRuleArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Describes the managedRules structure
      */
-    readonly managedRules: pulumi.Input<inputs.network.v20190801.ManagedRulesDefinitionArgs>;
+    managedRules: pulumi.Input<inputs.network.v20190801.ManagedRulesDefinitionArgs>;
     /**
      * The name of the policy.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Describes policySettings for policy.
      */
-    readonly policySettings?: pulumi.Input<inputs.network.v20190801.PolicySettingsArgs>;
+    policySettings?: pulumi.Input<inputs.network.v20190801.PolicySettingsArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

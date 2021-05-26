@@ -99,21 +99,21 @@ export interface JobTargetGroupArgs {
     /**
      * The name of the job agent.
      */
-    readonly jobAgentName: pulumi.Input<string>;
+    jobAgentName: pulumi.Input<string>;
     /**
      * Members of the target group.
      */
-    readonly members: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.JobTargetArgs>[]>;
+    members: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.JobTargetArgs>[]>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of the target group.
      */
-    readonly targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string>;
 }

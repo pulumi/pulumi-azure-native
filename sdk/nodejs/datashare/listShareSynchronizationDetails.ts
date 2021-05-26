@@ -40,63 +40,63 @@ export interface ListShareSynchronizationDetailsArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Email of the user who created the synchronization
      */
-    readonly consumerEmail?: string;
+    consumerEmail?: string;
     /**
      * Name of the user who created the synchronization
      */
-    readonly consumerName?: string;
+    consumerName?: string;
     /**
      * Tenant name of the consumer who created the synchronization
      */
-    readonly consumerTenantName?: string;
+    consumerTenantName?: string;
     /**
      * synchronization duration
      */
-    readonly durationMs?: number;
+    durationMs?: number;
     /**
      * End time of synchronization
      */
-    readonly endTime?: string;
+    endTime?: string;
     /**
      * Filters the results using OData syntax.
      */
-    readonly filter?: string;
+    filter?: string;
     /**
      * message of synchronization
      */
-    readonly message?: string;
+    message?: string;
     /**
      * Sorts the results using OData syntax.
      */
-    readonly orderby?: string;
+    orderby?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the share.
      */
-    readonly shareName: string;
+    shareName: string;
     /**
      * Continuation token
      */
-    readonly skipToken?: string;
+    skipToken?: string;
     /**
      * start time of synchronization
      */
-    readonly startTime?: string;
+    startTime?: string;
     /**
      * Raw Status
      */
-    readonly status?: string;
+    status?: string;
     /**
      * Synchronization id
      */
-    readonly synchronizationId?: string;
+    synchronizationId?: string;
 }
 
 /**

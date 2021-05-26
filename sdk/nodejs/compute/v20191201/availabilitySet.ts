@@ -130,37 +130,37 @@ export interface AvailabilitySetArgs {
     /**
      * The name of the availability set.
      */
-    readonly availabilitySetName?: pulumi.Input<string>;
+    availabilitySetName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Fault Domain count.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * Update Domain count.
      */
-    readonly platformUpdateDomainCount?: pulumi.Input<number>;
+    platformUpdateDomainCount?: pulumi.Input<number>;
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20191201.SubResourceArgs>;
+    proximityPlacementGroup?: pulumi.Input<inputs.compute.v20191201.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20191201.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20191201.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20191201.SubResourceArgs>[]>;
+    virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20191201.SubResourceArgs>[]>;
 }

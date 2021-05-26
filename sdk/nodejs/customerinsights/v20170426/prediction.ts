@@ -208,65 +208,65 @@ export interface PredictionArgs {
     /**
      * Whether do auto analyze.
      */
-    readonly autoAnalyze: pulumi.Input<boolean>;
+    autoAnalyze: pulumi.Input<boolean>;
     /**
      * Description of the prediction.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Display name of the prediction.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The prediction grades.
      */
-    readonly grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PredictionGradesArgs>[]>;
+    grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PredictionGradesArgs>[]>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * Interaction types involved in the prediction.
      */
-    readonly involvedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * KPI types involved in the prediction.
      */
-    readonly involvedKpiTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedKpiTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Relationships involved in the prediction.
      */
-    readonly involvedRelationships?: pulumi.Input<pulumi.Input<string>[]>;
+    involvedRelationships?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Definition of the link mapping of prediction.
      */
-    readonly mappings: pulumi.Input<inputs.customerinsights.v20170426.PredictionMappingsArgs>;
+    mappings: pulumi.Input<inputs.customerinsights.v20170426.PredictionMappingsArgs>;
     /**
      * Negative outcome expression.
      */
-    readonly negativeOutcomeExpression: pulumi.Input<string>;
+    negativeOutcomeExpression: pulumi.Input<string>;
     /**
      * Positive outcome expression.
      */
-    readonly positiveOutcomeExpression: pulumi.Input<string>;
+    positiveOutcomeExpression: pulumi.Input<string>;
     /**
      * Name of the prediction.
      */
-    readonly predictionName?: pulumi.Input<string>;
+    predictionName?: pulumi.Input<string>;
     /**
      * Primary profile type.
      */
-    readonly primaryProfileType: pulumi.Input<string>;
+    primaryProfileType: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Scope expression.
      */
-    readonly scopeExpression: pulumi.Input<string>;
+    scopeExpression: pulumi.Input<string>;
     /**
      * Score label.
      */
-    readonly scoreLabel: pulumi.Input<string>;
+    scoreLabel: pulumi.Input<string>;
 }

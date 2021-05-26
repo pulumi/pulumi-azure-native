@@ -130,25 +130,25 @@ export interface DataMaskingPolicyArgs {
     /**
      * The name of the database for which the data masking rule applies.
      */
-    readonly dataMaskingPolicyName?: pulumi.Input<string>;
+    dataMaskingPolicyName?: pulumi.Input<string>;
     /**
      * The state of the data masking policy.
      */
-    readonly dataMaskingState: pulumi.Input<enums.sql.DataMaskingState>;
+    dataMaskingState: pulumi.Input<enums.sql.DataMaskingState>;
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
      */
-    readonly exemptPrincipals?: pulumi.Input<string>;
+    exemptPrincipals?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

@@ -164,45 +164,45 @@ export interface OperationalizationClusterArgs {
     /**
      * AppInsights configuration.
      */
-    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.AppInsightsPropertiesArgs>;
+    appInsights?: pulumi.Input<inputs.machinelearningcompute.AppInsightsPropertiesArgs>;
     /**
      * The name of the cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The cluster type.
      */
-    readonly clusterType: pulumi.Input<string | enums.machinelearningcompute.ClusterType>;
+    clusterType: pulumi.Input<string | enums.machinelearningcompute.ClusterType>;
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.ContainerRegistryPropertiesArgs>;
+    containerRegistry?: pulumi.Input<inputs.machinelearningcompute.ContainerRegistryPropertiesArgs>;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService?: pulumi.Input<inputs.machinelearningcompute.AcsClusterPropertiesArgs>;
+    containerService?: pulumi.Input<inputs.machinelearningcompute.AcsClusterPropertiesArgs>;
     /**
      * The description of the cluster.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.GlobalServiceConfigurationArgs>;
+    globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.GlobalServiceConfigurationArgs>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource group in which the cluster is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.StorageAccountPropertiesArgs>;
+    storageAccount?: pulumi.Input<inputs.machinelearningcompute.StorageAccountPropertiesArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

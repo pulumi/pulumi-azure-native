@@ -131,37 +131,37 @@ export interface SavedSearchArgs {
     /**
      * The category of the saved search. This helps the user to find a saved search faster. 
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * Saved search display name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The ETag of the saved search.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The Resource Group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The id of the saved search.
      */
-    readonly savedSearchId?: pulumi.Input<string>;
+    savedSearchId?: pulumi.Input<string>;
     /**
      * The tags attached to the saved search.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.TagArgs>[]>;
     /**
      * The version number of the query language. The current version is 2 and is the default.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
     /**
      * The Log Analytics Workspace name.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

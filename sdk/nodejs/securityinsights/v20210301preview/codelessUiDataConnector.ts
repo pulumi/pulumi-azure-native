@@ -118,30 +118,30 @@ export interface CodelessUiDataConnectorArgs {
     /**
      * Config to describe the instructions blade
      */
-    readonly connectorUiConfig?: pulumi.Input<inputs.securityinsights.v20210301preview.CodelessUiConnectorConfigPropertiesArgs>;
+    connectorUiConfig?: pulumi.Input<inputs.securityinsights.v20210301preview.CodelessUiConnectorConfigPropertiesArgs>;
     /**
      * Connector ID
      */
-    readonly dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'GenericUI'.
      */
-    readonly kind: pulumi.Input<"GenericUI">;
+    kind: pulumi.Input<"GenericUI">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

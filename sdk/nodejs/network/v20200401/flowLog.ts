@@ -159,49 +159,49 @@ export interface FlowLogArgs {
     /**
      * Flag to enable/disable flow logging.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Parameters that define the configuration of traffic analytics.
      */
-    readonly flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20200401.TrafficAnalyticsPropertiesArgs>;
+    flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20200401.TrafficAnalyticsPropertiesArgs>;
     /**
      * The name of the flow log.
      */
-    readonly flowLogName?: pulumi.Input<string>;
+    flowLogName?: pulumi.Input<string>;
     /**
      * Parameters that define the flow log format.
      */
-    readonly format?: pulumi.Input<inputs.network.v20200401.FlowLogFormatParametersArgs>;
+    format?: pulumi.Input<inputs.network.v20200401.FlowLogFormatParametersArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network watcher.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    networkWatcherName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Parameters that define the retention policy for flow log.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.network.v20200401.RetentionPolicyParametersArgs>;
+    retentionPolicy?: pulumi.Input<inputs.network.v20200401.RetentionPolicyParametersArgs>;
     /**
      * ID of the storage account which is used to store the flow log.
      */
-    readonly storageId: pulumi.Input<string>;
+    storageId: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of network security group to which flow log will be applied.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

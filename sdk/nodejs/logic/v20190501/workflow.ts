@@ -172,45 +172,45 @@ export interface WorkflowArgs {
     /**
      * The access control configuration.
      */
-    readonly accessControl?: pulumi.Input<inputs.logic.v20190501.FlowAccessControlConfigurationArgs>;
+    accessControl?: pulumi.Input<inputs.logic.v20190501.FlowAccessControlConfigurationArgs>;
     /**
      * The definition.
      */
-    readonly definition?: any;
+    definition?: any;
     /**
      * The endpoints configuration.
      */
-    readonly endpointsConfiguration?: pulumi.Input<inputs.logic.v20190501.FlowEndpointsConfigurationArgs>;
+    endpointsConfiguration?: pulumi.Input<inputs.logic.v20190501.FlowEndpointsConfigurationArgs>;
     /**
      * The integration account.
      */
-    readonly integrationAccount?: pulumi.Input<inputs.logic.v20190501.ResourceReferenceArgs>;
+    integrationAccount?: pulumi.Input<inputs.logic.v20190501.ResourceReferenceArgs>;
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.ResourceReferenceArgs>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.ResourceReferenceArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20190501.WorkflowParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20190501.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The state.
      */
-    readonly state?: pulumi.Input<string | enums.logic.v20190501.WorkflowState>;
+    state?: pulumi.Input<string | enums.logic.v20190501.WorkflowState>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The workflow name.
      */
-    readonly workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string>;
 }

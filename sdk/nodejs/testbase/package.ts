@@ -201,45 +201,45 @@ export interface PackageArgs {
     /**
      * Application name
      */
-    readonly applicationName: pulumi.Input<string>;
+    applicationName: pulumi.Input<string>;
     /**
      * The file path of the package.
      */
-    readonly blobPath: pulumi.Input<string>;
+    blobPath: pulumi.Input<string>;
     /**
      * The flighting ring for feature update.
      */
-    readonly flightingRing: pulumi.Input<string>;
+    flightingRing: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource name of the Test Base Package.
      */
-    readonly packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    readonly targetOSList: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
+    targetOSList: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: pulumi.Input<string>;
+    testBaseAccountName: pulumi.Input<string>;
     /**
      * The detailed test information.
      */
-    readonly tests: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
+    tests: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
     /**
      * Application version
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

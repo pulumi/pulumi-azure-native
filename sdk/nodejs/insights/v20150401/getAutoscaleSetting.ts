@@ -26,11 +26,11 @@ export interface GetAutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    readonly autoscaleSettingName: string;
+    autoscaleSettingName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

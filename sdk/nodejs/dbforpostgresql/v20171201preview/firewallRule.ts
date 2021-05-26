@@ -103,21 +103,21 @@ export interface FirewallRuleArgs {
     /**
      * The end IP address of the server firewall rule. Must be IPv4 format.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * The name of the server firewall rule.
      */
-    readonly firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The start IP address of the server firewall rule. Must be IPv4 format.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
 }

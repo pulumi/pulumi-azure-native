@@ -143,29 +143,29 @@ export interface IscsiTargetArgs {
     /**
      * Mode for Target connectivity.
      */
-    readonly aclMode: pulumi.Input<string | enums.storagepool.v20210401preview.IscsiTargetAclMode>;
+    aclMode: pulumi.Input<string | enums.storagepool.v20210401preview.IscsiTargetAclMode>;
     /**
      * The name of the Disk Pool.
      */
-    readonly diskPoolName: pulumi.Input<string>;
+    diskPoolName: pulumi.Input<string>;
     /**
      * The name of the iSCSI Target.
      */
-    readonly iscsiTargetName?: pulumi.Input<string>;
+    iscsiTargetName?: pulumi.Input<string>;
     /**
      * List of LUNs to be exposed through iSCSI Target.
      */
-    readonly luns?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.IscsiLunArgs>[]>;
+    luns?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.IscsiLunArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
      */
-    readonly staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.AclArgs>[]>;
+    staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.AclArgs>[]>;
     /**
      * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
-    readonly targetIqn?: pulumi.Input<string>;
+    targetIqn?: pulumi.Input<string>;
 }

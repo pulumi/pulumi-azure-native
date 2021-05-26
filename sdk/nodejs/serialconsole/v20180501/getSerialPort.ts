@@ -29,23 +29,23 @@ export interface GetSerialPortArgs {
     /**
      * The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
      */
-    readonly parentResource: string;
+    parentResource: string;
     /**
      * The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
      */
-    readonly parentResourceType: string;
+    parentResourceType: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The namespace of the resource provider.
      */
-    readonly resourceProviderNamespace: string;
+    resourceProviderNamespace: string;
     /**
      * The name of the serial port to connect to.
      */
-    readonly serialPort: string;
+    serialPort: string;
 }
 
 /**

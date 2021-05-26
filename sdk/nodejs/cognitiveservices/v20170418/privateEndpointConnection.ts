@@ -104,21 +104,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of Cognitive Services account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The location of the private endpoint connection
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Cognitive Services Account
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.cognitiveservices.v20170418.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.v20170418.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -210,81 +210,81 @@ export interface PublicIPAddressArgs {
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    readonly ddosSettings?: pulumi.Input<inputs.network.DdosSettingsArgs>;
+    ddosSettings?: pulumi.Input<inputs.network.DdosSettingsArgs>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.PublicIPAddressDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.PublicIPAddressDnsSettingsArgs>;
     /**
      * The extended location of the public ip address.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The idle timeout of the public IP address.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The IP address associated with the public IP address resource.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The list of tags associated with the public IP address.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[]>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[]>;
     /**
      * The linked public IP address of the public IP address resource.
      */
-    readonly linkedPublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
+    linkedPublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Migration phase of Public IP Address.
      */
-    readonly migrationPhase?: pulumi.Input<string | enums.network.PublicIPAddressMigrationPhase>;
+    migrationPhase?: pulumi.Input<string | enums.network.PublicIPAddressMigrationPhase>;
     /**
      * The NatGateway for the Public IP address.
      */
-    readonly natGateway?: pulumi.Input<inputs.network.NatGatewayArgs>;
+    natGateway?: pulumi.Input<inputs.network.NatGatewayArgs>;
     /**
      * The public IP address version.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion>;
+    publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion>;
     /**
      * The public IP address allocation method.
      */
-    readonly publicIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod>;
+    publicIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod>;
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    readonly publicIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs>;
+    publicIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The name of the public IP address.
      */
-    readonly publicIpAddressName?: pulumi.Input<string>;
+    publicIpAddressName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service public IP address of the public IP address resource.
      */
-    readonly servicePublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
+    servicePublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
     /**
      * The public IP address SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.PublicIPAddressSkuArgs>;
+    sku?: pulumi.Input<inputs.network.PublicIPAddressSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

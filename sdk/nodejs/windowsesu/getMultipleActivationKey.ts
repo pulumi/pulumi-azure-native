@@ -27,11 +27,11 @@ export interface GetMultipleActivationKeyArgs {
     /**
      * The name of the MAK key.
      */
-    readonly multipleActivationKeyName: string;
+    multipleActivationKeyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

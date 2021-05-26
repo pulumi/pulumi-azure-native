@@ -27,15 +27,15 @@ export interface GetSmartDetectorAlertRuleArgs {
     /**
      * The name of the alert rule.
      */
-    readonly alertRuleName: string;
+    alertRuleName: string;
     /**
      * Indicates if Smart Detector should be expanded.
      */
-    readonly expandDetector?: boolean;
+    expandDetector?: boolean;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

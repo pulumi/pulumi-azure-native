@@ -28,19 +28,19 @@ export interface GetMDATPDataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId: string;
+    dataConnectorId: string;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: string;
+    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

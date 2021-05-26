@@ -27,11 +27,11 @@ export interface GetReportByBillingAccountArgs {
     /**
      * BillingAccount ID
      */
-    readonly billingAccountId: string;
+    billingAccountId: string;
     /**
      * Report Name.
      */
-    readonly reportName: string;
+    reportName: string;
 }
 
 /**

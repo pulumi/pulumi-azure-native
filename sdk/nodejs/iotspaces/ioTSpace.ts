@@ -110,25 +110,25 @@ export interface IoTSpaceArgs {
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The common properties of a IoTSpaces service.
      */
-    readonly properties?: pulumi.Input<inputs.iotspaces.IoTSpacesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotspaces.IoTSpacesPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoTSpaces instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoTSpaces instance.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * A valid instance SKU.
      */
-    readonly sku: pulumi.Input<inputs.iotspaces.IoTSpacesSkuInfoArgs>;
+    sku: pulumi.Input<inputs.iotspaces.IoTSpacesSkuInfoArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

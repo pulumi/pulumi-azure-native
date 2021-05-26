@@ -27,11 +27,11 @@ export interface ListDomainSharedAccessKeysArgs {
     /**
      * Name of the domain.
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

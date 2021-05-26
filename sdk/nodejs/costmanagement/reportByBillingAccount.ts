@@ -119,25 +119,25 @@ export interface ReportByBillingAccountArgs {
     /**
      * BillingAccount ID
      */
-    readonly billingAccountId: pulumi.Input<string>;
+    billingAccountId: pulumi.Input<string>;
     /**
      * Has definition for the report.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.ReportDefinitionArgs>;
+    definition: pulumi.Input<inputs.costmanagement.ReportDefinitionArgs>;
     /**
      * Has delivery information for the report.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.ReportDeliveryInfoArgs>;
+    deliveryInfo: pulumi.Input<inputs.costmanagement.ReportDeliveryInfoArgs>;
     /**
      * The format of the report being delivered.
      */
-    readonly format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.FormatType>;
     /**
      * Report Name.
      */
-    readonly reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string>;
     /**
      * Has schedule information for the report.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs>;
 }

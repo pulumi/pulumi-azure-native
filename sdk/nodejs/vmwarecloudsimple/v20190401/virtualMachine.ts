@@ -235,65 +235,65 @@ export interface VirtualMachineArgs {
     /**
      * The amount of memory
      */
-    readonly amountOfRam: pulumi.Input<number>;
+    amountOfRam: pulumi.Input<number>;
     /**
      * Virtual machine properties
      */
-    readonly customization?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.GuestOSCustomizationArgs>;
+    customization?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.GuestOSCustomizationArgs>;
     /**
      * The list of Virtual Disks
      */
-    readonly disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualDiskArgs>[]>;
+    disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualDiskArgs>[]>;
     /**
      * Expose Guest OS or not
      */
-    readonly exposeToGuestVM?: pulumi.Input<boolean>;
+    exposeToGuestVM?: pulumi.Input<boolean>;
     /**
      * Azure region
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of Virtual NICs
      */
-    readonly nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNicArgs>[]>;
+    nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNicArgs>[]>;
     /**
      * The number of CPU cores
      */
-    readonly numberOfCores: pulumi.Input<number>;
+    numberOfCores: pulumi.Input<number>;
     /**
      * Password for login. Deprecated - use customization property
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Private Cloud Id
      */
-    readonly privateCloudId: pulumi.Input<string>;
+    privateCloudId: pulumi.Input<string>;
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Virtual Machines Resource Pool
      */
-    readonly resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.ResourcePoolArgs>;
+    resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.ResourcePoolArgs>;
     /**
      * The list of tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual Machine Template Id
      */
-    readonly templateId?: pulumi.Input<string>;
+    templateId?: pulumi.Input<string>;
     /**
      * Username for login. Deprecated - use customization property
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
     /**
      * The list of Virtual VSphere Networks
      */
-    readonly vSphereNetworks?: pulumi.Input<pulumi.Input<string>[]>;
+    vSphereNetworks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * virtual machine name
      */
-    readonly virtualMachineName?: pulumi.Input<string>;
+    virtualMachineName?: pulumi.Input<string>;
 }

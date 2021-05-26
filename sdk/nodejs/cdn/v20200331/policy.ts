@@ -148,41 +148,41 @@ export interface PolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    readonly customRules?: pulumi.Input<inputs.cdn.v20200331.CustomRuleListArgs>;
+    customRules?: pulumi.Input<inputs.cdn.v20200331.CustomRuleListArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Describes managed rules inside the policy.
      */
-    readonly managedRules?: pulumi.Input<inputs.cdn.v20200331.ManagedRuleSetListArgs>;
+    managedRules?: pulumi.Input<inputs.cdn.v20200331.ManagedRuleSetListArgs>;
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Describes  policySettings for policy
      */
-    readonly policySettings?: pulumi.Input<inputs.cdn.v20200331.PolicySettingsArgs>;
+    policySettings?: pulumi.Input<inputs.cdn.v20200331.PolicySettingsArgs>;
     /**
      * Describes rate limit rules inside the policy.
      */
-    readonly rateLimitRules?: pulumi.Input<inputs.cdn.v20200331.RateLimitRuleListArgs>;
+    rateLimitRules?: pulumi.Input<inputs.cdn.v20200331.RateLimitRuleListArgs>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
-    readonly sku: pulumi.Input<inputs.cdn.v20200331.SkuArgs>;
+    sku: pulumi.Input<inputs.cdn.v20200331.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

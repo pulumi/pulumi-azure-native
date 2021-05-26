@@ -27,15 +27,15 @@ export interface GetNamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Rule name.
      */
-    readonly ipFilterRuleName: string;
+    ipFilterRuleName: string;
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetTriggerEventSubscriptionStatusArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The trigger name.
      */
-    readonly triggerName: string;
+    triggerName: string;
 }
 
 /**

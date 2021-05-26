@@ -26,11 +26,11 @@ export interface GetPatchScheduleArgs {
     /**
      * The name of the redis cache.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

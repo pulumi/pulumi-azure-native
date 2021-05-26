@@ -24,15 +24,15 @@ export interface ListMediaServiceEdgePoliciesArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Unique identifier of the edge device.
      */
-    readonly deviceId?: string;
+    deviceId?: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface ListMediaServiceEdgePoliciesResult {

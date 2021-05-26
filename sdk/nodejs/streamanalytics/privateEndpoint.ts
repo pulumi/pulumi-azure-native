@@ -99,17 +99,17 @@ export interface PrivateEndpointArgs {
     /**
      * The name of the cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the private endpoint.
      */
-    readonly privateEndpointName?: pulumi.Input<string>;
+    privateEndpointName?: pulumi.Input<string>;
     /**
      * The properties associated with a private endpoint.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.PrivateEndpointPropertiesArgs>;
+    properties?: pulumi.Input<inputs.streamanalytics.PrivateEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

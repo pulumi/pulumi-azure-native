@@ -107,17 +107,17 @@ export interface SecurityPolicyArgs {
     /**
      * object which contains security policy parameters
      */
-    readonly parameters?: pulumi.Input<inputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersArgs>;
+    parameters?: pulumi.Input<inputs.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersArgs>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the security policy under the profile.
      */
-    readonly securityPolicyName?: pulumi.Input<string>;
+    securityPolicyName?: pulumi.Input<string>;
 }

@@ -31,23 +31,23 @@ export interface GetUserRuleArgs {
     /**
      * The name of the network manager security Configuration.
      */
-    readonly configurationName: string;
+    configurationName: string;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    readonly ruleCollectionName: string;
+    ruleCollectionName: string;
     /**
      * The name of the rule.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

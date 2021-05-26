@@ -27,11 +27,11 @@ export interface GetNotificationRegistrationArgs {
     /**
      * The notification registration.
      */
-    readonly notificationRegistrationName: string;
+    notificationRegistrationName: string;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: string;
+    providerNamespace: string;
 }
 
 /**

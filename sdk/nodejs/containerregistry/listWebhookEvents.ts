@@ -28,15 +28,15 @@ export interface ListWebhookEventsArgs {
     /**
      * The name of the container registry.
      */
-    readonly registryName: string;
+    registryName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the webhook.
      */
-    readonly webhookName: string;
+    webhookName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetPublicIpAddressArgs {
     /**
      * The name of the subnet.
      */
-    readonly publicIpAddressName: string;
+    publicIpAddressName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -152,33 +152,33 @@ export interface BackupArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the backup
      */
-    readonly backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string>;
     /**
      * Label for backup
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
-    readonly poolName: pulumi.Input<string>;
+    poolName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
      */
-    readonly useExistingSnapshot?: pulumi.Input<boolean>;
+    useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the volume
      */
-    readonly volumeName: pulumi.Input<string>;
+    volumeName: pulumi.Input<string>;
 }

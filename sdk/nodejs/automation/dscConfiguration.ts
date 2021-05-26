@@ -169,45 +169,45 @@ export interface DscConfigurationArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The create or update parameters for configuration.
      */
-    readonly configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Gets or sets the description of the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets progress log option.
      */
-    readonly logProgress?: pulumi.Input<boolean>;
+    logProgress?: pulumi.Input<boolean>;
     /**
      * Gets or sets verbose log option.
      */
-    readonly logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean>;
     /**
      * Gets or sets name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the configuration parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.DscConfigurationParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.DscConfigurationParameterArgs>}>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the source.
      */
-    readonly source: pulumi.Input<inputs.automation.ContentSourceArgs>;
+    source: pulumi.Input<inputs.automation.ContentSourceArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

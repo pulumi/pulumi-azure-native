@@ -26,11 +26,11 @@ export interface GetAccountArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

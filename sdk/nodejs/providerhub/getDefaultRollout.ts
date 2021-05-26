@@ -27,11 +27,11 @@ export interface GetDefaultRolloutArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: string;
+    providerNamespace: string;
     /**
      * The rollout name.
      */
-    readonly rolloutName: string;
+    rolloutName: string;
 }
 
 /**

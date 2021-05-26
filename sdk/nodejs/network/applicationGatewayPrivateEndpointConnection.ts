@@ -118,25 +118,25 @@ export interface ApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName: pulumi.Input<string>;
+    applicationGatewayName: pulumi.Input<string>;
     /**
      * The name of the application gateway private endpoint connection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection on an application gateway.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.network.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.network.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

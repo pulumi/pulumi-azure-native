@@ -28,19 +28,19 @@ export interface GetServiceUnitArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the service resource.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * The name of the service topology .
      */
-    readonly serviceTopologyName: string;
+    serviceTopologyName: string;
     /**
      * The name of the service unit resource.
      */
-    readonly serviceUnitName: string;
+    serviceUnitName: string;
 }
 
 /**

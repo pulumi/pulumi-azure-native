@@ -30,27 +30,27 @@ export interface ListCustomApiWsdlInterfacesArgs {
     /**
      * The WSDL content
      */
-    readonly content?: string;
+    content?: string;
     /**
      * The WSDL import method
      */
-    readonly importMethod?: string | enums.web.v20160601.WsdlImportMethod;
+    importMethod?: string | enums.web.v20160601.WsdlImportMethod;
     /**
      * The location
      */
-    readonly location: string;
+    location: string;
     /**
      * The service with name and endpoint names
      */
-    readonly service?: inputs.web.v20160601.WsdlService;
+    service?: inputs.web.v20160601.WsdlService;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
     /**
      * The WSDL URL
      */
-    readonly url?: string;
+    url?: string;
 }
 
 /**

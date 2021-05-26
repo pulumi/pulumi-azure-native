@@ -134,29 +134,29 @@ export interface WCFRelayArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The relay name.
      */
-    readonly relayName?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string>;
     /**
      * WCF relay type.
      */
-    readonly relayType?: pulumi.Input<enums.relay.v20170401.Relaytype>;
+    relayType?: pulumi.Input<enums.relay.v20170401.Relaytype>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */
-    readonly requiresClientAuthorization?: pulumi.Input<boolean>;
+    requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
      * Returns true if transport security is needed for this relay; otherwise, false.
      */
-    readonly requiresTransportSecurity?: pulumi.Input<boolean>;
+    requiresTransportSecurity?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }

@@ -104,21 +104,21 @@ export interface ServerTrustGroupArgs {
     /**
      * Group members information for the server trust group.
      */
-    readonly groupMembers: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ServerInfoArgs>[]>;
+    groupMembers: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ServerInfoArgs>[]>;
     /**
      * The name of the region where the resource is located.
      */
-    readonly locationName: pulumi.Input<string>;
+    locationName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server trust group.
      */
-    readonly serverTrustGroupName?: pulumi.Input<string>;
+    serverTrustGroupName?: pulumi.Input<string>;
     /**
      * Trust scope of the server trust group.
      */
-    readonly trustScopes: pulumi.Input<pulumi.Input<string>[]>;
+    trustScopes: pulumi.Input<pulumi.Input<string>[]>;
 }

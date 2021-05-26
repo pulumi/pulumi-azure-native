@@ -27,15 +27,15 @@ export interface GetIntegrationRuntimeStatusArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The integration runtime name.
      */
-    readonly integrationRuntimeName: string;
+    integrationRuntimeName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

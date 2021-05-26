@@ -145,49 +145,49 @@ export interface WebAppHostNameBindingArgs {
     /**
      * Azure resource name.
      */
-    readonly azureResourceName?: pulumi.Input<string>;
+    azureResourceName?: pulumi.Input<string>;
     /**
      * Azure resource type.
      */
-    readonly azureResourceType?: pulumi.Input<enums.web.v20181101.AzureResourceType>;
+    azureResourceType?: pulumi.Input<enums.web.v20181101.AzureResourceType>;
     /**
      * Custom DNS record type.
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<enums.web.v20181101.CustomHostNameDnsRecordType>;
+    customHostNameDnsRecordType?: pulumi.Input<enums.web.v20181101.CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI.
      */
-    readonly domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
     /**
      * Hostname in the hostname binding.
      */
-    readonly hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     /**
      * Hostname type.
      */
-    readonly hostNameType?: pulumi.Input<enums.web.v20181101.HostNameType>;
+    hostNameType?: pulumi.Input<enums.web.v20181101.HostNameType>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * App Service app name.
      */
-    readonly siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string>;
     /**
      * SSL type
      */
-    readonly sslState?: pulumi.Input<enums.web.v20181101.SslState>;
+    sslState?: pulumi.Input<enums.web.v20181101.SslState>;
     /**
      * SSL certificate thumbprint
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }

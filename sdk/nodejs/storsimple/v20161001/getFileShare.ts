@@ -29,23 +29,23 @@ export interface GetFileShareArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The file server name.
      */
-    readonly fileServerName: string;
+    fileServerName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The file share name.
      */
-    readonly shareName: string;
+    shareName: string;
 }
 
 /**

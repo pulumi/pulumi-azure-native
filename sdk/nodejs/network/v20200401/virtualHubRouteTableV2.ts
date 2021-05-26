@@ -105,29 +105,29 @@ export interface VirtualHubRouteTableV2Args {
     /**
      * List of all connections attached to this route table v2.
      */
-    readonly attachedConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    attachedConnections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the VirtualHubRouteTableV2.
      */
-    readonly routeTableName?: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string>;
     /**
      * List of all routes.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VirtualHubRouteV2Args>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VirtualHubRouteV2Args>[]>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: pulumi.Input<string>;
+    virtualHubName: pulumi.Input<string>;
 }

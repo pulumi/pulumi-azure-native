@@ -198,7 +198,7 @@ export interface WebPubSubArgs {
     /**
      * The settings for event handler in webpubsub service.
      */
-    readonly eventHandler?: pulumi.Input<inputs.webpubsub.EventHandlerSettingsArgs>;
+    eventHandler?: pulumi.Input<inputs.webpubsub.EventHandlerSettingsArgs>;
     /**
      * List of the featureFlags.
      * 
@@ -207,43 +207,43 @@ export interface WebPubSubArgs {
      * When a featureFlag is not explicitly set, its globally default value will be used
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.webpubsub.WebPubSubFeatureArgs>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.webpubsub.WebPubSubFeatureArgs>[]>;
     /**
      * The managed identity response
      */
-    readonly identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs>;
     /**
      * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Network ACLs
      */
-    readonly networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLsArgs>;
+    networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLsArgs>;
     /**
      * Enable or disable public network access. Default to "Enabled".
      * When it's Enabled, network ACLs still apply.
      * When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    readonly sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * TLS settings.
      */
-    readonly tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettingsArgs>;
+    tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettingsArgs>;
 }

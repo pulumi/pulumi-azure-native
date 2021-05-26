@@ -104,21 +104,21 @@ export interface IpFirewallRuleArgs {
     /**
      * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
      */
-    readonly endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The IP firewall rule name
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * The start IP address of the firewall rule. Must be IPv4 format
      */
-    readonly startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -30,23 +30,23 @@ export interface GetIncidentRelationArgs {
     /**
      * Incident ID
      */
-    readonly incidentId: string;
+    incidentId: string;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: string;
+    operationalInsightsResourceProvider: string;
     /**
      * Relation Name
      */
-    readonly relationName: string;
+    relationName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

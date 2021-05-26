@@ -112,21 +112,21 @@ export interface JobArgs {
     /**
      * The name of the import/export job.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the job should be created
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the job properties
      */
-    readonly properties?: pulumi.Input<inputs.importexport.v20210101.JobDetailsArgs>;
+    properties?: pulumi.Input<inputs.importexport.v20210101.JobDetailsArgs>;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the tags that will be assigned to the job.
      */
-    readonly tags?: any;
+    tags?: any;
 }

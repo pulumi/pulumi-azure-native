@@ -26,11 +26,11 @@ export interface GetManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock name.
      */
-    readonly lockName: string;
+    lockName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

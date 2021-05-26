@@ -142,25 +142,25 @@ export interface BackupPolicyArgs {
     /**
      * The name of the backup policy to be created/updated.
      */
-    readonly backupPolicyName?: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string>;
     /**
      * The device name
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.Kind>;
+    kind?: pulumi.Input<enums.storsimple.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The path IDs of the volumes which are part of the backup policy.
      */
-    readonly volumeIds: pulumi.Input<pulumi.Input<string>[]>;
+    volumeIds: pulumi.Input<pulumi.Input<string>[]>;
 }

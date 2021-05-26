@@ -174,45 +174,45 @@ export interface RedisArgs {
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
-    readonly enableNonSslPort?: pulumi.Input<boolean>;
+    enableNonSslPort?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    readonly redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
-    readonly shardCount?: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number>;
     /**
      * The SKU of the Redis cache to deploy.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20160401.SkuArgs>;
+    sku: pulumi.Input<inputs.cache.v20160401.SkuArgs>;
     /**
      * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */
-    readonly staticIP?: pulumi.Input<string>;
+    staticIP?: pulumi.Input<string>;
     /**
      * The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * tenantSettings
      */
-    readonly tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

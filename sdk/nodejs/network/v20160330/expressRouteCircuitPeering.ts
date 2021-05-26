@@ -165,77 +165,77 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets or sets the azure ASN
      */
-    readonly azureASN?: pulumi.Input<number>;
+    azureASN?: pulumi.Input<number>;
     /**
      * The name of the express route circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    circuitName: pulumi.Input<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets or sets the Microsoft peering config
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitPeeringConfigArgs>;
+    microsoftPeeringConfig?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the peer ASN
      */
-    readonly peerASN?: pulumi.Input<number>;
+    peerASN?: pulumi.Input<number>;
     /**
      * The name of the peering.
      */
-    readonly peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string>;
     /**
      * Gets or sets PeeringType
      */
-    readonly peeringType?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringType>;
+    peeringType?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringType>;
     /**
      * Gets or sets the primary port
      */
-    readonly primaryAzurePort?: pulumi.Input<string>;
+    primaryAzurePort?: pulumi.Input<string>;
     /**
      * Gets or sets the primary address prefix
      */
-    readonly primaryPeerAddressPrefix?: pulumi.Input<string>;
+    primaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the secondary port
      */
-    readonly secondaryAzurePort?: pulumi.Input<string>;
+    secondaryAzurePort?: pulumi.Input<string>;
     /**
      * Gets or sets the secondary address prefix
      */
-    readonly secondaryPeerAddressPrefix?: pulumi.Input<string>;
+    secondaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * Gets or sets the shared key
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * Gets or sets state of Peering
      */
-    readonly state?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringState>;
+    state?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringState>;
     /**
      * Gets or peering stats
      */
-    readonly stats?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitStatsArgs>;
+    stats?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitStatsArgs>;
     /**
      * Gets or sets the vlan id
      */
-    readonly vlanId?: pulumi.Input<number>;
+    vlanId?: pulumi.Input<number>;
 }

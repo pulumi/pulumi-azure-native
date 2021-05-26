@@ -131,29 +131,29 @@ export interface StorageAccountArgs {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy: pulumi.Input<string | enums.databoxedge.v20200901.DataPolicy>;
+    dataPolicy: pulumi.Input<string | enums.databoxedge.v20200901.DataPolicy>;
     /**
      * Description for the storage Account.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Storage Account Credential Id
      */
-    readonly storageAccountCredentialId?: pulumi.Input<string>;
+    storageAccountCredentialId?: pulumi.Input<string>;
     /**
      * The StorageAccount name.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * Current status of the storage account
      */
-    readonly storageAccountStatus?: pulumi.Input<string | enums.databoxedge.v20200901.StorageAccountStatus>;
+    storageAccountStatus?: pulumi.Input<string | enums.databoxedge.v20200901.StorageAccountStatus>;
 }

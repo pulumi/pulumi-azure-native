@@ -133,29 +133,29 @@ export interface AssetArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The alternate ID of the Asset.
      */
-    readonly alternateId?: pulumi.Input<string>;
+    alternateId?: pulumi.Input<string>;
     /**
      * The Asset name.
      */
-    readonly assetName?: pulumi.Input<string>;
+    assetName?: pulumi.Input<string>;
     /**
      * The name of the asset blob container.
      */
-    readonly container?: pulumi.Input<string>;
+    container?: pulumi.Input<string>;
     /**
      * The Asset description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the storage account.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }

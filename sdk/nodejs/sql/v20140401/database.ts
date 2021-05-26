@@ -252,7 +252,7 @@ export interface DatabaseArgs {
     /**
      * The collation of the database. If createMode is not Default, this value is ignored.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
      *
@@ -272,11 +272,11 @@ export interface DatabaseArgs {
      *
      * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string | enums.sql.v20140401.CreateMode>;
+    createMode?: pulumi.Input<string | enums.sql.v20140401.CreateMode>;
     /**
      * The name of the database to be operated on (updated or created).
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
      * 
@@ -290,33 +290,33 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly edition?: pulumi.Input<string | enums.sql.v20140401.DatabaseEdition>;
+    edition?: pulumi.Input<string | enums.sql.v20140401.DatabaseEdition>;
     /**
      * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
      */
-    readonly maxSizeBytes?: pulumi.Input<string>;
+    maxSizeBytes?: pulumi.Input<string>;
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
-    readonly readScale?: pulumi.Input<string | enums.sql.v20140401.ReadScale>;
+    readScale?: pulumi.Input<string | enums.sql.v20140401.ReadScale>;
     /**
      * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
      */
-    readonly recoveryServicesRecoveryPointResourceId?: pulumi.Input<string>;
+    recoveryServicesRecoveryPointResourceId?: pulumi.Input<string>;
     /**
      * The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
      * 
      * The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
      */
-    readonly requestedServiceObjectiveId?: pulumi.Input<string>;
+    requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
      * The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
      * 
@@ -330,37 +330,37 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string | enums.sql.v20140401.ServiceObjectiveName>;
+    requestedServiceObjectiveName?: pulumi.Input<string | enums.sql.v20140401.ServiceObjectiveName>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
      */
-    readonly sampleName?: pulumi.Input<string | enums.sql.v20140401.SampleName>;
+    sampleName?: pulumi.Input<string | enums.sql.v20140401.SampleName>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
      */
-    readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

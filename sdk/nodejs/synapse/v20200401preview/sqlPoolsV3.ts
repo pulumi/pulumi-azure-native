@@ -158,37 +158,37 @@ export interface SqlPoolsV3Args {
     /**
      * The period of inactivity in minutes before automatically pausing the sql pool.
      */
-    readonly autoPauseTimer?: pulumi.Input<number>;
+    autoPauseTimer?: pulumi.Input<number>;
     /**
      * Indicates whether the sql pool can automatically resume when connection attempts are made.
      */
-    readonly autoResume?: pulumi.Input<boolean>;
+    autoResume?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The max service level objective name of the sql pool.
      */
-    readonly maxServiceObjectiveName?: pulumi.Input<string>;
+    maxServiceObjectiveName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    readonly sku?: pulumi.Input<inputs.synapse.v20200401preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.synapse.v20200401preview.SkuArgs>;
     /**
      * The name of the sql pool.
      */
-    readonly sqlPoolName?: pulumi.Input<string>;
+    sqlPoolName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

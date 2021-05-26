@@ -157,54 +157,54 @@ export interface IotHubDataConnectionArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The iot hub consumer group.
      */
-    readonly consumerGroup: pulumi.Input<string>;
+    consumerGroup: pulumi.Input<string>;
     /**
      * The name of the data connection.
      */
-    readonly dataConnectionName?: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    readonly dataFormat?: pulumi.Input<string | enums.kusto.v20200215.IotHubDataFormat>;
+    dataFormat?: pulumi.Input<string | enums.kusto.v20200215.IotHubDataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * System properties of the iot hub
      */
-    readonly eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the Iot hub to be used to create a data connection.
      */
-    readonly iotHubResourceId: pulumi.Input<string>;
+    iotHubResourceId: pulumi.Input<string>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'IotHub'.
      */
-    readonly kind: pulumi.Input<"IotHub">;
+    kind: pulumi.Input<"IotHub">;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    readonly mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share access policy
      */
-    readonly sharedAccessPolicyName: pulumi.Input<string>;
+    sharedAccessPolicyName: pulumi.Input<string>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

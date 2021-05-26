@@ -28,19 +28,19 @@ export interface GetEndpointArgs {
     /**
      * The name of the Traffic Manager endpoint.
      */
-    readonly endpointName: string;
+    endpointName: string;
     /**
      * The type of the Traffic Manager endpoint.
      */
-    readonly endpointType: string;
+    endpointType: string;
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * The name of the resource group containing the Traffic Manager endpoint.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

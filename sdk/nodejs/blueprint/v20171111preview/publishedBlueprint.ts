@@ -133,13 +133,13 @@ export interface PublishedBlueprintArgs {
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: pulumi.Input<string>;
+    managementGroupName: pulumi.Input<string>;
     /**
      * version of the published blueprint.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }

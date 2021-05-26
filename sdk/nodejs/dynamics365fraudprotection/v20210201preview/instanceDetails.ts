@@ -112,21 +112,21 @@ export interface InstanceDetailsArgs {
     /**
      * A collection of DFP instance administrators
      */
-    readonly administration?: pulumi.Input<inputs.dynamics365fraudprotection.v20210201preview.DFPInstanceAdministratorsArgs>;
+    administration?: pulumi.Input<inputs.dynamics365fraudprotection.v20210201preview.DFPInstanceAdministratorsArgs>;
     /**
      * The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * Location of the DFP resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given DFP instance is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

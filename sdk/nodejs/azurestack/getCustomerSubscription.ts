@@ -28,15 +28,15 @@ export interface GetCustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    readonly customerSubscriptionName: string;
+    customerSubscriptionName: string;
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName: string;
+    registrationName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

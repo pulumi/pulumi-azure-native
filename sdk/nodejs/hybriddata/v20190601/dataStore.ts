@@ -122,33 +122,33 @@ export interface DataStoreArgs {
     /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
-    readonly customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.CustomerSecretArgs>[]>;
+    customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20190601.CustomerSecretArgs>[]>;
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly dataManagerName: pulumi.Input<string>;
+    dataManagerName: pulumi.Input<string>;
     /**
      * The data store/repository name to be created or updated.
      */
-    readonly dataStoreName?: pulumi.Input<string>;
+    dataStoreName?: pulumi.Input<string>;
     /**
      * The arm id of the data store type.
      */
-    readonly dataStoreTypeId: pulumi.Input<string>;
+    dataStoreTypeId: pulumi.Input<string>;
     /**
      * A generic json used differently by each data source type.
      */
-    readonly extendedProperties?: any;
+    extendedProperties?: any;
     /**
      * Arm Id for the manager resource to which the data source is associated. This is optional.
      */
-    readonly repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * State of the data source.
      */
-    readonly state: pulumi.Input<enums.hybriddata.v20190601.State>;
+    state: pulumi.Input<enums.hybriddata.v20190601.State>;
 }

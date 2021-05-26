@@ -28,15 +28,15 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the firewall rule to retrieve.
      */
-    readonly firewallRuleName: string;
+    firewallRuleName: string;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

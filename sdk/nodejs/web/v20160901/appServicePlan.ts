@@ -202,62 +202,62 @@ export interface AppServicePlanArgs {
     /**
      * App Service plan administration site.
      */
-    readonly adminSiteName?: pulumi.Input<string>;
+    adminSiteName?: pulumi.Input<string>;
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160901.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160901.HostingEnvironmentProfileArgs>;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
-    readonly isSpot?: pulumi.Input<boolean>;
+    isSpot?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name for the App Service plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
-    readonly perSiteScaling?: pulumi.Input<boolean>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20160901.SkuDescriptionArgs>;
+    sku?: pulumi.Input<inputs.web.v20160901.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
-    readonly spotExpirationTime?: pulumi.Input<string>;
+    spotExpirationTime?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Scaling worker count.
      */
-    readonly targetWorkerCount?: pulumi.Input<number>;
+    targetWorkerCount?: pulumi.Input<number>;
     /**
      * Scaling worker size ID.
      */
-    readonly targetWorkerSizeId?: pulumi.Input<number>;
+    targetWorkerSizeId?: pulumi.Input<number>;
     /**
      * Target worker tier assigned to the App Service plan.
      */
-    readonly workerTierName?: pulumi.Input<string>;
+    workerTierName?: pulumi.Input<string>;
 }

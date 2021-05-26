@@ -26,11 +26,11 @@ export interface GetWorkspaceArgs {
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

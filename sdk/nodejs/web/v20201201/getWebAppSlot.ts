@@ -27,15 +27,15 @@ export interface GetWebAppSlotArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the deployment slot. By default, this API returns the production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

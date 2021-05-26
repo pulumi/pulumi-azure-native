@@ -116,21 +116,21 @@ export interface PipelineRunArgs {
     /**
      * How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The name of the pipeline run.
      */
-    readonly pipelineRunName?: pulumi.Input<string>;
+    pipelineRunName?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The request parameters for a pipeline run.
      */
-    readonly request?: pulumi.Input<inputs.containerregistry.v20201101preview.PipelineRunRequestArgs>;
+    request?: pulumi.Input<inputs.containerregistry.v20201101preview.PipelineRunRequestArgs>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

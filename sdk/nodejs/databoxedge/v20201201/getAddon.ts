@@ -30,19 +30,19 @@ export interface GetAddonArgs {
     /**
      * The addon name.
      */
-    readonly addonName: string;
+    addonName: string;
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The role name.
      */
-    readonly roleName: string;
+    roleName: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetEnterpriseKnowledgeGraphArgs {
     /**
      * The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the EnterpriseKnowledgeGraph resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

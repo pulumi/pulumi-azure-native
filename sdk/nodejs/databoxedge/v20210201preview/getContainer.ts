@@ -28,19 +28,19 @@ export interface GetContainerArgs {
     /**
      * The container Name
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Storage Account Name
      */
-    readonly storageAccountName: string;
+    storageAccountName: string;
 }
 
 /**

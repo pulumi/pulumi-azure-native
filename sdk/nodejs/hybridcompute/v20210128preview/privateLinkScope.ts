@@ -106,21 +106,21 @@ export interface PrivateLinkScopeArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties that define a Azure Arc PrivateLinkScope resource.
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210128preview.HybridComputePrivateLinkScopePropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcompute.v20210128preview.HybridComputePrivateLinkScopePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName?: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

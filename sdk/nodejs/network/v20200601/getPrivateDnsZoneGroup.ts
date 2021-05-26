@@ -27,15 +27,15 @@ export interface GetPrivateDnsZoneGroupArgs {
     /**
      * The name of the private dns zone group.
      */
-    readonly privateDnsZoneGroupName: string;
+    privateDnsZoneGroupName: string;
     /**
      * The name of the private endpoint.
      */
-    readonly privateEndpointName: string;
+    privateEndpointName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

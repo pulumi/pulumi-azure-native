@@ -78,5 +78,5 @@ export interface IngestionSettingArgs {
     /**
      * Name of the ingestion setting
      */
-    readonly ingestionSettingName?: pulumi.Input<string>;
+    ingestionSettingName?: pulumi.Input<string>;
 }

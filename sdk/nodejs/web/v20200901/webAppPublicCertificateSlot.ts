@@ -119,29 +119,29 @@ export interface WebAppPublicCertificateSlotArgs {
     /**
      * Public Certificate byte array
      */
-    readonly blob?: pulumi.Input<string>;
+    blob?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Public Certificate Location
      */
-    readonly publicCertificateLocation?: pulumi.Input<enums.web.v20200901.PublicCertificateLocation>;
+    publicCertificateLocation?: pulumi.Input<enums.web.v20200901.PublicCertificateLocation>;
     /**
      * Public certificate name.
      */
-    readonly publicCertificateName?: pulumi.Input<string>;
+    publicCertificateName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

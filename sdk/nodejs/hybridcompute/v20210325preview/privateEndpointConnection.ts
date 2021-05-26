@@ -98,17 +98,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.PrivateEndpointConnectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName: pulumi.Input<string>;
+    scopeName: pulumi.Input<string>;
 }

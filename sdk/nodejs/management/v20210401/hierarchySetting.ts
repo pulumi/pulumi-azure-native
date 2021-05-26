@@ -98,13 +98,13 @@ export interface HierarchySettingArgs {
     /**
      * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
      */
-    readonly defaultManagementGroup?: pulumi.Input<string>;
+    defaultManagementGroup?: pulumi.Input<string>;
     /**
      * Management Group ID.
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
     /**
      * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
-    readonly requireAuthorizationForGroupCreation?: pulumi.Input<boolean>;
+    requireAuthorizationForGroupCreation?: pulumi.Input<boolean>;
 }

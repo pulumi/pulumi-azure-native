@@ -104,13 +104,13 @@ export interface AuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
-    readonly authorizationName?: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

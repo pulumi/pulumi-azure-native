@@ -27,15 +27,15 @@ export interface GetDatasetArgs {
     /**
      * The dataset name.
      */
-    readonly datasetName: string;
+    datasetName: string;
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

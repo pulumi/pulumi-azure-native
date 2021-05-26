@@ -27,11 +27,11 @@ export interface GetFrontDoorArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName: string;
+    frontDoorName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

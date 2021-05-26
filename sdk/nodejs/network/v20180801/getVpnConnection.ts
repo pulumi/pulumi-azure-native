@@ -27,15 +27,15 @@ export interface GetVpnConnectionArgs {
     /**
      * The name of the vpn connection.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The name of the gateway.
      */
-    readonly gatewayName: string;
+    gatewayName: string;
     /**
      * The resource group name of the VpnGateway.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

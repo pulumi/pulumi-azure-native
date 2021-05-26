@@ -179,69 +179,69 @@ export interface SqlVirtualMachineArgs {
     /**
      * Auto backup settings for SQL Server.
      */
-    readonly autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettingsArgs>;
+    autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettingsArgs>;
     /**
      * Auto patching settings for applying critical security updates to SQL virtual machine.
      */
-    readonly autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettingsArgs>;
+    autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettingsArgs>;
     /**
      * Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentityArgs>;
     /**
      * Key vault credential settings.
      */
-    readonly keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettingsArgs>;
+    keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettingsArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SQL Server configuration management settings.
      */
-    readonly serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs>;
+    serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs>;
     /**
      * SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
      */
-    readonly sqlImageOffer?: pulumi.Input<string>;
+    sqlImageOffer?: pulumi.Input<string>;
     /**
      * SQL Server edition type.
      */
-    readonly sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlImageSku>;
+    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlImageSku>;
     /**
      * SQL Server Management type.
      */
-    readonly sqlManagement?: pulumi.Input<string | enums.sqlvirtualmachine.SqlManagementMode>;
+    sqlManagement?: pulumi.Input<string | enums.sqlvirtualmachine.SqlManagementMode>;
     /**
      * SQL Server license type.
      */
-    readonly sqlServerLicenseType?: pulumi.Input<string | enums.sqlvirtualmachine.SqlServerLicenseType>;
+    sqlServerLicenseType?: pulumi.Input<string | enums.sqlvirtualmachine.SqlServerLicenseType>;
     /**
      * ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
      */
-    readonly sqlVirtualMachineGroupResourceId?: pulumi.Input<string>;
+    sqlVirtualMachineGroupResourceId?: pulumi.Input<string>;
     /**
      * Name of the SQL virtual machine.
      */
-    readonly sqlVirtualMachineName?: pulumi.Input<string>;
+    sqlVirtualMachineName?: pulumi.Input<string>;
     /**
      * Storage Configuration Settings.
      */
-    readonly storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettingsArgs>;
+    storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettingsArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARM Resource id of underlying virtual machine created from SQL marketplace image.
      */
-    readonly virtualMachineResourceId?: pulumi.Input<string>;
+    virtualMachineResourceId?: pulumi.Input<string>;
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    readonly wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs>;
+    wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs>;
 }

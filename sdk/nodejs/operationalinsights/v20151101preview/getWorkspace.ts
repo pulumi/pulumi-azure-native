@@ -26,11 +26,11 @@ export interface GetWorkspaceArgs {
     /**
      * The resource group name of the workspace.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Log Analytics Workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -116,37 +116,37 @@ export interface WorkspaceConnectionArgs {
     /**
      * Authorization type of the workspace connection.
      */
-    readonly authType?: pulumi.Input<string>;
+    authType?: pulumi.Input<string>;
     /**
      * Category of the workspace connection.
      */
-    readonly category?: pulumi.Input<string>;
+    category?: pulumi.Input<string>;
     /**
      * Friendly name of the workspace connection
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Friendly name of the workspace connection
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Target of the workspace connection.
      */
-    readonly target?: pulumi.Input<string>;
+    target?: pulumi.Input<string>;
     /**
      * Value details of the workspace connection.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * format for the workspace connection value
      */
-    readonly valueFormat?: pulumi.Input<string | enums.machinelearningservices.v20210101.ValueFormat>;
+    valueFormat?: pulumi.Input<string | enums.machinelearningservices.v20210101.ValueFormat>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

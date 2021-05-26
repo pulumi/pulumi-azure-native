@@ -27,11 +27,11 @@ export interface GetGlobalUserOperationStatusArgs {
     /**
      * The operation url of long running operation
      */
-    readonly operationUrl: string;
+    operationUrl: string;
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

@@ -104,21 +104,21 @@ export interface FirewallRuleArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * The name of the firewall rule to create or update.
      */
-    readonly firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
 }

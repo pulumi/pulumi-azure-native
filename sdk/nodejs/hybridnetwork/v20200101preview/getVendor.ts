@@ -25,7 +25,7 @@ export interface GetVendorArgs {
     /**
      * The name of the vendor.
      */
-    readonly vendorName: string;
+    vendorName: string;
 }
 
 /**

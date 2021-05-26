@@ -28,15 +28,15 @@ export interface GetIntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    readonly apiName: string;
+    apiName: string;
     /**
      * The integration service environment name.
      */
-    readonly integrationServiceEnvironmentName: string;
+    integrationServiceEnvironmentName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

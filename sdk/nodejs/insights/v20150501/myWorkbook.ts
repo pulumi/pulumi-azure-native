@@ -152,53 +152,53 @@ export interface MyWorkbookArgs {
     /**
      * Workbook category, as defined by the user at creation time.
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * The user-defined name of the private workbook.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Azure resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
+    kind?: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular private workbook. Configuration data is a string containing valid JSON
      */
-    readonly serializedData: pulumi.Input<string>;
+    serializedData: pulumi.Input<string>;
     /**
      * Optional resourceId for a source resource.
      */
-    readonly sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked private workbook.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

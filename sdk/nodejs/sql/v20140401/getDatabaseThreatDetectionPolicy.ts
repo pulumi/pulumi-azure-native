@@ -28,19 +28,19 @@ export interface GetDatabaseThreatDetectionPolicyArgs {
     /**
      * The name of the database for which database Threat Detection policy is defined.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the security alert policy.
      */
-    readonly securityAlertPolicyName: string;
+    securityAlertPolicyName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

@@ -28,15 +28,15 @@ export interface GetNetworkVirtualApplianceArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName: string;
+    networkVirtualApplianceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

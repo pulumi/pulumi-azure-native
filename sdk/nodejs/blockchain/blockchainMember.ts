@@ -185,53 +185,53 @@ export interface BlockchainMemberArgs {
     /**
      * Blockchain member name.
      */
-    readonly blockchainMemberName?: pulumi.Input<string>;
+    blockchainMemberName?: pulumi.Input<string>;
     /**
      * Gets or sets the consortium for the blockchain member.
      */
-    readonly consortium?: pulumi.Input<string>;
+    consortium?: pulumi.Input<string>;
     /**
      * Sets the managed consortium management account password.
      */
-    readonly consortiumManagementAccountPassword?: pulumi.Input<string>;
+    consortiumManagementAccountPassword?: pulumi.Input<string>;
     /**
      * Gets the display name of the member in the consortium.
      */
-    readonly consortiumMemberDisplayName?: pulumi.Input<string>;
+    consortiumMemberDisplayName?: pulumi.Input<string>;
     /**
      * Gets the role of the member in the consortium.
      */
-    readonly consortiumRole?: pulumi.Input<string>;
+    consortiumRole?: pulumi.Input<string>;
     /**
      * Gets or sets firewall rules
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.FirewallRuleArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.FirewallRuleArgs>[]>;
     /**
      * The GEO location of the blockchain service.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Sets the basic auth password of the blockchain member.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Gets or sets the blockchain protocol.
      */
-    readonly protocol?: pulumi.Input<string | enums.blockchain.BlockchainProtocol>;
+    protocol?: pulumi.Input<string | enums.blockchain.BlockchainProtocol>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the blockchain member Sku.
      */
-    readonly sku?: pulumi.Input<inputs.blockchain.SkuArgs>;
+    sku?: pulumi.Input<inputs.blockchain.SkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describes the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets the blockchain validator nodes Sku.
      */
-    readonly validatorNodesSku?: pulumi.Input<inputs.blockchain.BlockchainMemberNodesSkuArgs>;
+    validatorNodesSku?: pulumi.Input<inputs.blockchain.BlockchainMemberNodesSkuArgs>;
 }

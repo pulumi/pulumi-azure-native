@@ -116,29 +116,29 @@ export interface DataSourceArgs {
     /**
      * The name of the datasource resource.
      */
-    readonly dataSourceName?: pulumi.Input<string>;
+    dataSourceName?: pulumi.Input<string>;
     /**
      * The ETag of the data source.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * The kind of the DataSource.
      */
-    readonly kind: pulumi.Input<string | enums.operationalinsights.v20151101preview.DataSourceKind>;
+    kind: pulumi.Input<string | enums.operationalinsights.v20151101preview.DataSourceKind>;
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
-    readonly properties: any;
+    properties: any;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Log Analytics Workspace that will contain the datasource
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetHanaInstanceArgs {
     /**
      * Name of the SAP HANA on Azure instance.
      */
-    readonly hanaInstanceName: string;
+    hanaInstanceName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

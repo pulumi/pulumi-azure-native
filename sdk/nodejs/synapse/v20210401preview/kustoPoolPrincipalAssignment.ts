@@ -147,33 +147,33 @@ export interface KustoPoolPrincipalAssignmentArgs {
     /**
      * The name of the Kusto pool.
      */
-    readonly kustoPoolName: pulumi.Input<string>;
+    kustoPoolName: pulumi.Input<string>;
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly principalAssignmentName?: pulumi.Input<string>;
+    principalAssignmentName?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * Principal type.
      */
-    readonly principalType: pulumi.Input<string | enums.synapse.v20210401preview.PrincipalType>;
+    principalType: pulumi.Input<string | enums.synapse.v20210401preview.PrincipalType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Cluster principal role.
      */
-    readonly role: pulumi.Input<string | enums.synapse.v20210401preview.ClusterPrincipalRole>;
+    role: pulumi.Input<string | enums.synapse.v20210401preview.ClusterPrincipalRole>;
     /**
      * The tenant id of the principal
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

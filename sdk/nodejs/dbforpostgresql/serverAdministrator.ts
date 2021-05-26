@@ -122,25 +122,25 @@ export interface ServerAdministratorArgs {
     /**
      * The type of administrator.
      */
-    readonly administratorType: pulumi.Input<string | enums.dbforpostgresql.AdministratorType>;
+    administratorType: pulumi.Input<string | enums.dbforpostgresql.AdministratorType>;
     /**
      * The server administrator login account name.
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The server administrator Sid (Secure ID).
      */
-    readonly sid: pulumi.Input<string>;
+    sid: pulumi.Input<string>;
     /**
      * The server Active Directory Administrator tenant id.
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
 }

@@ -103,25 +103,25 @@ export interface JobCredentialArgs {
     /**
      * The name of the credential.
      */
-    readonly credentialName?: pulumi.Input<string>;
+    credentialName?: pulumi.Input<string>;
     /**
      * The name of the job agent.
      */
-    readonly jobAgentName: pulumi.Input<string>;
+    jobAgentName: pulumi.Input<string>;
     /**
      * The credential password.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The credential user name.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

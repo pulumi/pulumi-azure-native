@@ -119,33 +119,33 @@ export interface ConsumerGroupArgs {
     /**
      * The consumer group name
      */
-    readonly consumerGroupName?: pulumi.Input<string>;
+    consumerGroupName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */
-    readonly eventHubName: pulumi.Input<string>;
+    eventHubName: pulumi.Input<string>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the consumer group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * ARM type of the Namespace.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The user metadata.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }

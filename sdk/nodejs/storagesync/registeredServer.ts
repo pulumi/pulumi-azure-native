@@ -205,45 +205,45 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server Agent Version
      */
-    readonly agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string>;
     /**
      * Registered Server clusterId
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Registered Server clusterName
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Friendly Name
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Registered Server last heart beat
      */
-    readonly lastHeartBeat?: pulumi.Input<string>;
+    lastHeartBeat?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Registered Server Certificate
      */
-    readonly serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string>;
     /**
      * Registered Server serverId
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * Registered Server OS Version
      */
-    readonly serverOSVersion?: pulumi.Input<string>;
+    serverOSVersion?: pulumi.Input<string>;
     /**
      * Registered Server serverRole
      */
-    readonly serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
 }

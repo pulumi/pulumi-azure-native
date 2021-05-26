@@ -179,45 +179,45 @@ export interface ScriptExecutionArgs {
     /**
      * Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
      */
-    readonly failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string>;
     /**
      * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
      */
-    readonly hiddenParameters?: pulumi.Input<pulumi.Input<inputs.avs.v20210601.PSCredentialExecutionParameterArgs | inputs.avs.v20210601.ScriptSecureStringExecutionParameterArgs | inputs.avs.v20210601.ScriptStringExecutionParameterArgs>[]>;
+    hiddenParameters?: pulumi.Input<pulumi.Input<inputs.avs.v20210601.PSCredentialExecutionParameterArgs | inputs.avs.v20210601.ScriptSecureStringExecutionParameterArgs | inputs.avs.v20210601.ScriptStringExecutionParameterArgs>[]>;
     /**
      * User-defined dictionary.
      */
-    readonly namedOutputs?: pulumi.Input<{[key: string]: any}>;
+    namedOutputs?: pulumi.Input<{[key: string]: any}>;
     /**
      * Standard output stream from the powershell execution
      */
-    readonly output?: pulumi.Input<pulumi.Input<string>[]>;
+    output?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Parameters the script will accept
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.avs.v20210601.PSCredentialExecutionParameterArgs | inputs.avs.v20210601.ScriptSecureStringExecutionParameterArgs | inputs.avs.v20210601.ScriptStringExecutionParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.avs.v20210601.PSCredentialExecutionParameterArgs | inputs.avs.v20210601.ScriptSecureStringExecutionParameterArgs | inputs.avs.v20210601.ScriptStringExecutionParameterArgs>[]>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Time to live for the resource. If not provided, will be available for 60 days
      */
-    readonly retention?: pulumi.Input<string>;
+    retention?: pulumi.Input<string>;
     /**
      * A reference to the script cmdlet resource if user is running a AVS script
      */
-    readonly scriptCmdletId?: pulumi.Input<string>;
+    scriptCmdletId?: pulumi.Input<string>;
     /**
      * Name of the user-invoked script execution resource
      */
-    readonly scriptExecutionName?: pulumi.Input<string>;
+    scriptExecutionName?: pulumi.Input<string>;
     /**
      * Time limit for execution
      */
-    readonly timeout: pulumi.Input<string>;
+    timeout: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetSecretValueArgs {
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the secret resource.
      */
-    readonly secretResourceName: string;
+    secretResourceName: string;
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    readonly secretValueResourceName: string;
+    secretValueResourceName: string;
 }
 
 /**

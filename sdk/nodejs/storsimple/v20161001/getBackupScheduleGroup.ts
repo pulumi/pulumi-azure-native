@@ -28,19 +28,19 @@ export interface GetBackupScheduleGroupArgs {
     /**
      * The name of the device.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the schedule group.
      */
-    readonly scheduleGroupName: string;
+    scheduleGroupName: string;
 }
 
 /**

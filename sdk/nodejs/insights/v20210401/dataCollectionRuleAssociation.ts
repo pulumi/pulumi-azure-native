@@ -118,21 +118,21 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection endpoint that is to be associated.
      */
-    readonly dataCollectionEndpointId?: pulumi.Input<string>;
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    readonly dataCollectionRuleId?: pulumi.Input<string>;
+    dataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Description of the association.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */
-    readonly resourceUri: pulumi.Input<string>;
+    resourceUri: pulumi.Input<string>;
 }

@@ -138,37 +138,37 @@ export interface NetworkManagerArgs {
     /**
      * A description of the network manager.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name for the network manager.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName?: pulumi.Input<string>;
+    networkManagerName?: pulumi.Input<string>;
     /**
      * Scope Access.
      */
-    readonly networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
     /**
      * Scope of Network Manager.
      */
-    readonly networkManagerScopes?: pulumi.Input<inputs.network.NetworkManagerPropertiesNetworkManagerScopesArgs>;
+    networkManagerScopes?: pulumi.Input<inputs.network.NetworkManagerPropertiesNetworkManagerScopesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

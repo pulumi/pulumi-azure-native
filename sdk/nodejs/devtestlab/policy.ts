@@ -156,49 +156,49 @@ export interface PolicyArgs {
     /**
      * The description of the policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
      */
-    readonly evaluatorType?: pulumi.Input<string | enums.devtestlab.PolicyEvaluatorType>;
+    evaluatorType?: pulumi.Input<string | enums.devtestlab.PolicyEvaluatorType>;
     /**
      * The fact data of the policy.
      */
-    readonly factData?: pulumi.Input<string>;
+    factData?: pulumi.Input<string>;
     /**
      * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
      */
-    readonly factName?: pulumi.Input<string | enums.devtestlab.PolicyFactName>;
+    factName?: pulumi.Input<string | enums.devtestlab.PolicyFactName>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the policy set.
      */
-    readonly policySetName: pulumi.Input<string>;
+    policySetName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The status of the policy.
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.PolicyStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.PolicyStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
      */
-    readonly threshold?: pulumi.Input<string>;
+    threshold?: pulumi.Input<string>;
 }

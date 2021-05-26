@@ -99,29 +99,29 @@ export interface PolicyAssignmentArgs {
     /**
      * The display name of the policy assignment.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The ID of the policy assignment.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the policy assignment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the policy assignment.
      */
-    readonly policyAssignmentName?: pulumi.Input<string>;
+    policyAssignmentName?: pulumi.Input<string>;
     /**
      * The ID of the policy definition.
      */
-    readonly policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionId?: pulumi.Input<string>;
     /**
      * The scope for the policy assignment.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * The type of the policy assignment.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

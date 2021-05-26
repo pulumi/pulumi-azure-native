@@ -106,21 +106,21 @@ export interface VirtualNetworkRuleArgs {
     /**
      * Create firewall rule before the virtual network has vnet service endpoint enabled.
      */
-    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+    ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of the virtual network rule.
      */
-    readonly virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string>;
     /**
      * The ARM resource id of the virtual network subnet.
      */
-    readonly virtualNetworkSubnetId: pulumi.Input<string>;
+    virtualNetworkSubnetId: pulumi.Input<string>;
 }

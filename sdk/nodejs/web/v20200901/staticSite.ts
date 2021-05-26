@@ -147,41 +147,41 @@ export interface StaticSiteArgs {
     /**
      * The target branch in the repository.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Build properties to configure on the repository.
      */
-    readonly buildProperties?: pulumi.Input<inputs.web.v20200901.StaticSiteBuildPropertiesArgs>;
+    buildProperties?: pulumi.Input<inputs.web.v20200901.StaticSiteBuildPropertiesArgs>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the static site to create or update.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
-    readonly repositoryToken?: pulumi.Input<string>;
+    repositoryToken?: pulumi.Input<string>;
     /**
      * URL for the repository of the static site.
      */
-    readonly repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20200901.SkuDescriptionArgs>;
+    sku?: pulumi.Input<inputs.web.v20200901.SkuDescriptionArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

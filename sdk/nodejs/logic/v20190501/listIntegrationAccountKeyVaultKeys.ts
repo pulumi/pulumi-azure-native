@@ -28,19 +28,19 @@ export interface ListIntegrationAccountKeyVaultKeysArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The key vault reference.
      */
-    readonly keyVault: inputs.logic.v20190501.KeyVaultReference;
+    keyVault: inputs.logic.v20190501.KeyVaultReference;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The skip token.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
 }
 
 /**

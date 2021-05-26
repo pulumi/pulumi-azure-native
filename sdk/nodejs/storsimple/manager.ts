@@ -119,33 +119,33 @@ export interface ManagerArgs {
     /**
      * Represents the type of StorSimple Manager.
      */
-    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.ManagerIntrinsicSettingsArgs>;
+    cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.ManagerIntrinsicSettingsArgs>;
     /**
      * The etag of the manager.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The geo location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName?: pulumi.Input<string>;
+    managerName?: pulumi.Input<string>;
     /**
      * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the Sku.
      */
-    readonly sku?: pulumi.Input<inputs.storsimple.ManagerSkuArgs>;
+    sku?: pulumi.Input<inputs.storsimple.ManagerSkuArgs>;
     /**
      * The tags attached to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

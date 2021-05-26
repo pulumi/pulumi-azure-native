@@ -26,11 +26,11 @@ export interface ListGlobalUserEnvironmentsArgs {
     /**
      * The resource Id of the lab
      */
-    readonly labId?: string;
+    labId?: string;
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

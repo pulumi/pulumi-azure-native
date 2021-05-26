@@ -162,41 +162,41 @@ export interface ClusterArgs {
     /**
      * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
      */
-    readonly billingType?: pulumi.Input<string | enums.operationalinsights.BillingType>;
+    billingType?: pulumi.Input<string | enums.operationalinsights.BillingType>;
     /**
      * The name of the Log Analytics cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
+    identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
-    readonly isAvailabilityZonesEnabled?: pulumi.Input<boolean>;
+    isAvailabilityZonesEnabled?: pulumi.Input<boolean>;
     /**
      * Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
      */
-    readonly isDoubleEncryptionEnabled?: pulumi.Input<boolean>;
+    isDoubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The associated key properties.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultPropertiesArgs>;
+    keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku properties.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.ClusterSkuArgs>;
+    sku?: pulumi.Input<inputs.operationalinsights.ClusterSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

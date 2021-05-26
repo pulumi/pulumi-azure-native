@@ -27,15 +27,15 @@ export interface GetMachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    readonly extensionName: string;
+    extensionName: string;
     /**
      * The name of the machine containing the extension.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

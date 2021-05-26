@@ -28,19 +28,19 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the private end point connection.
      */
-    readonly peConnectionName: string;
+    peConnectionName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the private link service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

@@ -26,7 +26,7 @@ export interface GetAlertsSuppressionRuleArgs {
     /**
      * The unique name of the suppression alert rule
      */
-    readonly alertsSuppressionRuleName: string;
+    alertsSuppressionRuleName: string;
 }
 
 /**

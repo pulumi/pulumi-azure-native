@@ -106,25 +106,25 @@ export interface ReplicationProtectedItemArgs {
     /**
      * Name of the fabric.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Enable protection input properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.EnableProtectionInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20160810.EnableProtectionInputPropertiesArgs>;
     /**
      * Protection container name.
      */
-    readonly protectionContainerName: pulumi.Input<string>;
+    protectionContainerName: pulumi.Input<string>;
     /**
      * A name for the replication protected item.
      */
-    readonly replicatedProtectedItemName?: pulumi.Input<string>;
+    replicatedProtectedItemName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

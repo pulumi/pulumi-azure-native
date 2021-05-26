@@ -128,29 +128,29 @@ export interface BandwidthScheduleArgs {
     /**
      * The days of the week when this schedule is applicable.
      */
-    readonly days: pulumi.Input<pulumi.Input<string | enums.databoxedge.DayOfWeek>[]>;
+    days: pulumi.Input<pulumi.Input<string | enums.databoxedge.DayOfWeek>[]>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The bandwidth schedule name which needs to be added/updated.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The bandwidth rate in Mbps.
      */
-    readonly rateInMbps: pulumi.Input<number>;
+    rateInMbps: pulumi.Input<number>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The start time of the schedule in UTC.
      */
-    readonly start: pulumi.Input<string>;
+    start: pulumi.Input<string>;
     /**
      * The stop time of the schedule in UTC.
      */
-    readonly stop: pulumi.Input<string>;
+    stop: pulumi.Input<string>;
 }

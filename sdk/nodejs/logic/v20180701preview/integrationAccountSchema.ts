@@ -161,49 +161,49 @@ export interface IntegrationAccountSchemaArgs {
     /**
      * The content.
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * The content type.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * The document name.
      */
-    readonly documentName?: pulumi.Input<string>;
+    documentName?: pulumi.Input<string>;
     /**
      * The file name.
      */
-    readonly fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The integration account schema name.
      */
-    readonly schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * The schema type.
      */
-    readonly schemaType: pulumi.Input<string | enums.logic.v20180701preview.SchemaType>;
+    schemaType: pulumi.Input<string | enums.logic.v20180701preview.SchemaType>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target namespace of the schema.
      */
-    readonly targetNamespace?: pulumi.Input<string>;
+    targetNamespace?: pulumi.Input<string>;
 }

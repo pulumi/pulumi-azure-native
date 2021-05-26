@@ -27,15 +27,15 @@ export interface GetSubAccountArgs {
     /**
      * Monitor resource name
      */
-    readonly monitorName: string;
+    monitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Sub Account resource name
      */
-    readonly subAccountName: string;
+    subAccountName: string;
 }
 
 export interface GetSubAccountResult {

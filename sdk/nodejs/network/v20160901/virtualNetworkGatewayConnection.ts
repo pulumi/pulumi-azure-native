@@ -197,65 +197,65 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The authorizationKey.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
      */
-    readonly connectionType: pulumi.Input<string | enums.network.v20160901.VirtualNetworkGatewayConnectionType>;
+    connectionType: pulumi.Input<string | enums.network.v20160901.VirtualNetworkGatewayConnectionType>;
     /**
      * EnableBgp flag
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A common class for general resource information
      */
-    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20160901.LocalNetworkGatewayArgs>;
+    localNetworkGateway2?: pulumi.Input<inputs.network.v20160901.LocalNetworkGatewayArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: pulumi.Input<inputs.network.v20160901.SubResourceArgs>;
+    peer?: pulumi.Input<inputs.network.v20160901.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the VirtualNetworkGatewayConnection resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The routing weight.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * The IPSec shared key.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20160901.VirtualNetworkGatewayArgs>;
+    virtualNetworkGateway1: pulumi.Input<inputs.network.v20160901.VirtualNetworkGatewayArgs>;
     /**
      * A common class for general resource information
      */
-    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20160901.VirtualNetworkGatewayArgs>;
+    virtualNetworkGateway2?: pulumi.Input<inputs.network.v20160901.VirtualNetworkGatewayArgs>;
     /**
      * The name of the virtual network gateway connection.
      */
-    readonly virtualNetworkGatewayConnectionName?: pulumi.Input<string>;
+    virtualNetworkGatewayConnectionName?: pulumi.Input<string>;
 }

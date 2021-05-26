@@ -163,41 +163,41 @@ export interface AccountArgs {
     /**
      * The name of the machine learning team account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The description of this workspace.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The fully qualified arm id of the user key vault.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The no of users/seats who can access this team account. This property defines the charge on the team account.
      */
-    readonly seats?: pulumi.Input<string>;
+    seats?: pulumi.Input<string>;
     /**
      * The properties of the storage account for the machine learning team account.
      */
-    readonly storageAccount: pulumi.Input<inputs.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesArgs>;
+    storageAccount: pulumi.Input<inputs.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The fully qualified arm id of the vso account to be used for this team account.
      */
-    readonly vsoAccountId: pulumi.Input<string>;
+    vsoAccountId: pulumi.Input<string>;
 }

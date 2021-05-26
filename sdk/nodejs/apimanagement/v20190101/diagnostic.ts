@@ -137,45 +137,45 @@ export interface DiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: pulumi.Input<string | enums.apimanagement.v20190101.AlwaysLog>;
+    alwaysLog?: pulumi.Input<string | enums.apimanagement.v20190101.AlwaysLog>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    readonly backend?: pulumi.Input<inputs.apimanagement.v20190101.PipelineDiagnosticSettingsArgs>;
+    backend?: pulumi.Input<inputs.apimanagement.v20190101.PipelineDiagnosticSettingsArgs>;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly diagnosticId?: pulumi.Input<string>;
+    diagnosticId?: pulumi.Input<string>;
     /**
      * Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
      */
-    readonly enableHttpCorrelationHeaders?: pulumi.Input<boolean>;
+    enableHttpCorrelationHeaders?: pulumi.Input<boolean>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    readonly frontend?: pulumi.Input<inputs.apimanagement.v20190101.PipelineDiagnosticSettingsArgs>;
+    frontend?: pulumi.Input<inputs.apimanagement.v20190101.PipelineDiagnosticSettingsArgs>;
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    readonly httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.v20190101.HttpCorrelationProtocol>;
+    httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.v20190101.HttpCorrelationProtocol>;
     /**
      * Resource Id of a target logger.
      */
-    readonly loggerId: pulumi.Input<string>;
+    loggerId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sampling settings for Diagnostic.
      */
-    readonly sampling?: pulumi.Input<inputs.apimanagement.v20190101.SamplingSettingsArgs>;
+    sampling?: pulumi.Input<inputs.apimanagement.v20190101.SamplingSettingsArgs>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    readonly verbosity?: pulumi.Input<string | enums.apimanagement.v20190101.Verbosity>;
+    verbosity?: pulumi.Input<string | enums.apimanagement.v20190101.Verbosity>;
 }

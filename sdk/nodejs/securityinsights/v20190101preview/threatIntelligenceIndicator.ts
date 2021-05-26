@@ -132,137 +132,137 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Confidence of threat intelligence entity
      */
-    readonly confidence?: pulumi.Input<number>;
+    confidence?: pulumi.Input<number>;
     /**
      * Created by
      */
-    readonly created?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
     /**
      * Created by reference of threat intelligence entity
      */
-    readonly createdByRef?: pulumi.Input<string>;
+    createdByRef?: pulumi.Input<string>;
     /**
      * Is threat intelligence entity defanged
      */
-    readonly defanged?: pulumi.Input<boolean>;
+    defanged?: pulumi.Input<boolean>;
     /**
      * Description of a threat intelligence entity
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Display name of a threat intelligence entity
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Extensions map
      */
-    readonly extensions?: any;
+    extensions?: any;
     /**
      * External ID of threat intelligence entity
      */
-    readonly externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string>;
     /**
      * External last updated time in UTC
      */
-    readonly externalLastUpdatedTimeUtc?: pulumi.Input<string>;
+    externalLastUpdatedTimeUtc?: pulumi.Input<string>;
     /**
      * External References
      */
-    readonly externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceExternalReferenceArgs>[]>;
+    externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceExternalReferenceArgs>[]>;
     /**
      * Granular Markings
      */
-    readonly granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceGranularMarkingModelArgs>[]>;
+    granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceGranularMarkingModelArgs>[]>;
     /**
      * Indicator types of threat intelligence entities
      */
-    readonly indicatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    indicatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kill chain phases
      */
-    readonly killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceKillChainPhaseArgs>[]>;
+    killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceKillChainPhaseArgs>[]>;
     /**
      * The kind of the entity.
      */
-    readonly kind: pulumi.Input<string | enums.securityinsights.v20190101preview.ThreatIntelligenceResourceKind>;
+    kind: pulumi.Input<string | enums.securityinsights.v20190101preview.ThreatIntelligenceResourceKind>;
     /**
      * Labels  of threat intelligence entity
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Language of threat intelligence entity
      */
-    readonly language?: pulumi.Input<string>;
+    language?: pulumi.Input<string>;
     /**
      * Last updated time in UTC
      */
-    readonly lastUpdatedTimeUtc?: pulumi.Input<string>;
+    lastUpdatedTimeUtc?: pulumi.Input<string>;
     /**
      * Modified by
      */
-    readonly modified?: pulumi.Input<string>;
+    modified?: pulumi.Input<string>;
     /**
      * Threat intelligence indicator name field.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Threat intelligence entity object marking references
      */
-    readonly objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[]>;
+    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * Parsed patterns
      */
-    readonly parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceParsedPatternArgs>[]>;
+    parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.ThreatIntelligenceParsedPatternArgs>[]>;
     /**
      * Pattern of a threat intelligence entity
      */
-    readonly pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
     /**
      * Pattern type of a threat intelligence entity
      */
-    readonly patternType?: pulumi.Input<string>;
+    patternType?: pulumi.Input<string>;
     /**
      * Pattern version of a threat intelligence entity
      */
-    readonly patternVersion?: pulumi.Input<string>;
+    patternVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Is threat intelligence entity revoked
      */
-    readonly revoked?: pulumi.Input<boolean>;
+    revoked?: pulumi.Input<boolean>;
     /**
      * Source of a threat intelligence entity
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * List of tags
      */
-    readonly threatIntelligenceTags?: pulumi.Input<pulumi.Input<string>[]>;
+    threatIntelligenceTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Threat types
      */
-    readonly threatTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    threatTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Valid from
      */
-    readonly validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string>;
     /**
      * Valid until
      */
-    readonly validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

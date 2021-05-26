@@ -104,21 +104,21 @@ export interface StepArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The properties that define the step.
      */
-    readonly properties: pulumi.Input<inputs.deploymentmanager.HealthCheckStepPropertiesArgs | inputs.deploymentmanager.WaitStepPropertiesArgs>;
+    properties: pulumi.Input<inputs.deploymentmanager.HealthCheckStepPropertiesArgs | inputs.deploymentmanager.WaitStepPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the deployment step.
      */
-    readonly stepName?: pulumi.Input<string>;
+    stepName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

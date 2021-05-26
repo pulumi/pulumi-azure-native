@@ -30,19 +30,19 @@ export interface GetMachineLearningServiceArgs {
     /**
      * Set to True to include Model details.
      */
-    readonly expand?: boolean;
+    expand?: boolean;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

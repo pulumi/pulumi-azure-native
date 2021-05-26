@@ -112,25 +112,25 @@ export interface CommitmentPlanArgs {
     /**
      * The Azure ML commitment plan name.
      */
-    readonly commitmentPlanName?: pulumi.Input<string>;
+    commitmentPlanName?: pulumi.Input<string>;
     /**
      * An entity tag used to enforce optimistic concurrency.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The commitment plan SKU.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearning.v20160501preview.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearning.v20160501preview.ResourceSkuArgs>;
     /**
      * User-defined tags for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

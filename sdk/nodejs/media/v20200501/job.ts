@@ -162,37 +162,37 @@ export interface JobArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
      */
-    readonly correlationData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    correlationData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Optional customer supplied description of the Job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The inputs for the Job.
      */
-    readonly input: pulumi.Input<inputs.media.v20200501.JobInputAssetArgs | inputs.media.v20200501.JobInputClipArgs | inputs.media.v20200501.JobInputHttpArgs | inputs.media.v20200501.JobInputSequenceArgs | inputs.media.v20200501.JobInputsArgs>;
+    input: pulumi.Input<inputs.media.v20200501.JobInputAssetArgs | inputs.media.v20200501.JobInputClipArgs | inputs.media.v20200501.JobInputHttpArgs | inputs.media.v20200501.JobInputSequenceArgs | inputs.media.v20200501.JobInputsArgs>;
     /**
      * The Job name.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * The outputs for the Job.
      */
-    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20200501.JobOutputAssetArgs>[]>;
+    outputs: pulumi.Input<pulumi.Input<inputs.media.v20200501.JobOutputAssetArgs>[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
-    readonly priority?: pulumi.Input<string | enums.media.v20200501.Priority>;
+    priority?: pulumi.Input<string | enums.media.v20200501.Priority>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Transform name.
      */
-    readonly transformName: pulumi.Input<string>;
+    transformName: pulumi.Input<string>;
 }

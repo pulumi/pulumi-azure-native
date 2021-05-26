@@ -104,21 +104,21 @@ export interface EnvironmentSpecificationVersionArgs {
     /**
      * Name of EnvironmentSpecificationVersion.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Additional attributes of the entity.
      */
-    readonly properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.EnvironmentSpecificationVersionArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.EnvironmentSpecificationVersionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Version of EnvironmentSpecificationVersion.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -160,49 +160,49 @@ export interface GlobalScheduleArgs {
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.DayDetailsArgs>;
+    dailyRecurrence?: pulumi.Input<inputs.devtestlab.DayDetailsArgs>;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the schedule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Notification settings.
      */
-    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs>;
+    notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.EnableStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.EnableStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource ID to which the schedule belongs
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
     /**
      * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
      */
-    readonly taskType?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string>;
     /**
      * The time zone ID (e.g. Pacific Standard time).
      */
-    readonly timeZoneId?: pulumi.Input<string>;
+    timeZoneId?: pulumi.Input<string>;
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.WeekDetailsArgs>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtestlab.WeekDetailsArgs>;
 }

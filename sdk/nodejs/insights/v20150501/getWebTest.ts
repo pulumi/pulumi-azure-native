@@ -26,11 +26,11 @@ export interface GetWebTestArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Application Insights webtest resource.
      */
-    readonly webTestName: string;
+    webTestName: string;
 }
 
 /**

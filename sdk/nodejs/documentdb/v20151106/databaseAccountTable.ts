@@ -106,21 +106,21 @@ export interface DatabaseAccountTableArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The standard JSON format of a Table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20151106.TableResourceArgs>;
+    resource: pulumi.Input<inputs.documentdb.v20151106.TableResourceArgs>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Cosmos DB table name.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

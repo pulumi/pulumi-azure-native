@@ -101,17 +101,17 @@ export interface DataFlowArgs {
     /**
      * The data flow name.
      */
-    readonly dataFlowName?: pulumi.Input<string>;
+    dataFlowName?: pulumi.Input<string>;
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * Data flow properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.MappingDataFlowArgs>;
+    properties: pulumi.Input<inputs.datafactory.v20180601.MappingDataFlowArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

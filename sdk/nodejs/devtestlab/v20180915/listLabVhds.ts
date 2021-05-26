@@ -26,11 +26,11 @@ export interface ListLabVhdsArgs {
     /**
      * The name of the lab.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

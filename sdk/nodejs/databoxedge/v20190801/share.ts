@@ -154,49 +154,49 @@ export interface ShareArgs {
     /**
      * Access protocol to be used by the share.
      */
-    readonly accessProtocol: pulumi.Input<string | enums.databoxedge.v20190801.ShareAccessProtocol>;
+    accessProtocol: pulumi.Input<string | enums.databoxedge.v20190801.ShareAccessProtocol>;
     /**
      * Azure container mapping for the share.
      */
-    readonly azureContainerInfo?: pulumi.Input<inputs.databoxedge.v20190801.AzureContainerInfoArgs>;
+    azureContainerInfo?: pulumi.Input<inputs.databoxedge.v20190801.AzureContainerInfoArgs>;
     /**
      * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
      */
-    readonly clientAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.ClientAccessRightArgs>[]>;
+    clientAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.ClientAccessRightArgs>[]>;
     /**
      * Data policy of the share.
      */
-    readonly dataPolicy?: pulumi.Input<string | enums.databoxedge.v20190801.DataPolicy>;
+    dataPolicy?: pulumi.Input<string | enums.databoxedge.v20190801.DataPolicy>;
     /**
      * Description for the share.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Current monitoring status of the share.
      */
-    readonly monitoringStatus: pulumi.Input<string | enums.databoxedge.v20190801.MonitoringStatus>;
+    monitoringStatus: pulumi.Input<string | enums.databoxedge.v20190801.MonitoringStatus>;
     /**
      * The share name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Details of the refresh job on this share.
      */
-    readonly refreshDetails?: pulumi.Input<inputs.databoxedge.v20190801.RefreshDetailsArgs>;
+    refreshDetails?: pulumi.Input<inputs.databoxedge.v20190801.RefreshDetailsArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Current status of the share.
      */
-    readonly shareStatus: pulumi.Input<string | enums.databoxedge.v20190801.ShareStatus>;
+    shareStatus: pulumi.Input<string | enums.databoxedge.v20190801.ShareStatus>;
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */
-    readonly userAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.UserAccessRightArgs>[]>;
+    userAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.UserAccessRightArgs>[]>;
 }

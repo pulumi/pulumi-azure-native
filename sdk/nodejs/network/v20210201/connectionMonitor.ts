@@ -183,61 +183,61 @@ export interface ConnectionMonitorArgs {
     /**
      * Determines if the connection monitor will start automatically once created.
      */
-    readonly autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean>;
     /**
      * The name of the connection monitor.
      */
-    readonly connectionMonitorName?: pulumi.Input<string>;
+    connectionMonitorName?: pulumi.Input<string>;
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination?: pulumi.Input<inputs.network.v20210201.ConnectionMonitorDestinationArgs>;
+    destination?: pulumi.Input<inputs.network.v20210201.ConnectionMonitorDestinationArgs>;
     /**
      * List of connection monitor endpoints.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorEndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorEndpointArgs>[]>;
     /**
      * Connection monitor location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Value indicating whether connection monitor V1 should be migrated to V2 format.
      */
-    readonly migrate?: pulumi.Input<string>;
+    migrate?: pulumi.Input<string>;
     /**
      * Monitoring interval in seconds.
      */
-    readonly monitoringIntervalInSeconds?: pulumi.Input<number>;
+    monitoringIntervalInSeconds?: pulumi.Input<number>;
     /**
      * The name of the Network Watcher resource.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    networkWatcherName: pulumi.Input<string>;
     /**
      * Optional notes to be associated with the connection monitor.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * List of connection monitor outputs.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorOutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorOutputArgs>[]>;
     /**
      * The name of the resource group containing Network Watcher.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Describes the source of connection monitor.
      */
-    readonly source?: pulumi.Input<inputs.network.v20210201.ConnectionMonitorSourceArgs>;
+    source?: pulumi.Input<inputs.network.v20210201.ConnectionMonitorSourceArgs>;
     /**
      * Connection monitor tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of connection monitor test configurations.
      */
-    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorTestConfigurationArgs>[]>;
+    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorTestConfigurationArgs>[]>;
     /**
      * List of connection monitor test groups.
      */
-    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorTestGroupArgs>[]>;
+    testGroups?: pulumi.Input<pulumi.Input<inputs.network.v20210201.ConnectionMonitorTestGroupArgs>[]>;
 }

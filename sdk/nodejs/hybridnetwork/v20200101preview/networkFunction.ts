@@ -160,41 +160,41 @@ export interface NetworkFunctionArgs {
     /**
      * The reference to the device resource.
      */
-    readonly device?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResourceArgs>;
+    device?: pulumi.Input<inputs.hybridnetwork.v20200101preview.SubResourceArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The parameters for the managed application.
      */
-    readonly managedApplicationParameters?: any;
+    managedApplicationParameters?: any;
     /**
      * Resource name for the network function resource.
      */
-    readonly networkFunctionName?: pulumi.Input<string>;
+    networkFunctionName?: pulumi.Input<string>;
     /**
      * The network function configurations from the user.
      */
-    readonly networkFunctionUserConfigurations?: pulumi.Input<pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfigurationArgs>[]>;
+    networkFunctionUserConfigurations?: pulumi.Input<pulumi.Input<inputs.hybridnetwork.v20200101preview.NetworkFunctionUserConfigurationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku name for the network function.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The vendor name for the network function.
      */
-    readonly vendorName?: pulumi.Input<string>;
+    vendorName?: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetSiteArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Site name.
      */
-    readonly siteName: string;
+    siteName: string;
 }
 
 /**

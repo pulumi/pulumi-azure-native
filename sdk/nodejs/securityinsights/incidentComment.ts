@@ -128,29 +128,29 @@ export interface IncidentCommentArgs {
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Incident comment ID
      */
-    readonly incidentCommentId?: pulumi.Input<string>;
+    incidentCommentId?: pulumi.Input<string>;
     /**
      * Incident ID
      */
-    readonly incidentId: pulumi.Input<string>;
+    incidentId: pulumi.Input<string>;
     /**
      * The comment message
      */
-    readonly message: pulumi.Input<string>;
+    message: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

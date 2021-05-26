@@ -114,21 +114,21 @@ export interface ConsumerGroupArgs {
     /**
      * The consumer group name
      */
-    readonly consumerGroupName?: pulumi.Input<string>;
+    consumerGroupName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */
-    readonly eventHubName: pulumi.Input<string>;
+    eventHubName: pulumi.Input<string>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }

@@ -30,27 +30,27 @@ export interface GetServiceFabricScheduleArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=status)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the schedule.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the service fabric.
      */
-    readonly serviceFabricName: string;
+    serviceFabricName: string;
     /**
      * The name of the user profile.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

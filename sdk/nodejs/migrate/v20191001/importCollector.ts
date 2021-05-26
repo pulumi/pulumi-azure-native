@@ -80,18 +80,18 @@ export class ImportCollector extends pulumi.CustomResource {
  * The set of arguments for constructing a ImportCollector resource.
  */
 export interface ImportCollectorArgs {
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a Import collector within a project.
      */
-    readonly importCollectorName?: pulumi.Input<string>;
+    importCollectorName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.migrate.v20191001.ImportCollectorPropertiesArgs>;
+    projectName: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.migrate.v20191001.ImportCollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

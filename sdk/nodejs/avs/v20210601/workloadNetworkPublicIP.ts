@@ -109,21 +109,21 @@ export interface WorkloadNetworkPublicIPArgs {
     /**
      * Display name of the Public IP Block.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Number of Public IPs requested.
      */
-    readonly numberOfPublicIPs?: pulumi.Input<number>;
+    numberOfPublicIPs?: pulumi.Input<number>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
      */
-    readonly publicIPId?: pulumi.Input<string>;
+    publicIPId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetRoleManagementPolicyAssignmentArgs {
     /**
      * The name of format {guid_guid} the role management policy assignment to get.
      */
-    readonly roleManagementPolicyAssignmentName: string;
+    roleManagementPolicyAssignmentName: string;
     /**
      * The scope of the role management policy.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

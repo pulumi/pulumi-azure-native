@@ -27,11 +27,11 @@ export interface GetExpressRoutePortArgs {
     /**
      * The name of ExpressRoutePort.
      */
-    readonly expressRoutePortName: string;
+    expressRoutePortName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

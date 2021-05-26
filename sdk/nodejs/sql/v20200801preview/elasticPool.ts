@@ -158,35 +158,35 @@ export interface ElasticPoolArgs {
     /**
      * The name of the elastic pool.
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string>;
     /**
      * The license type to apply for this elastic pool.
      */
-    readonly licenseType?: pulumi.Input<string | enums.sql.v20200801preview.ElasticPoolLicenseType>;
+    licenseType?: pulumi.Input<string | enums.sql.v20200801preview.ElasticPoolLicenseType>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
-    readonly maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * The storage limit for the database elastic pool in bytes.
      */
-    readonly maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * The per database settings for the elastic pool.
      */
-    readonly perDatabaseSettings?: pulumi.Input<inputs.sql.v20200801preview.ElasticPoolPerDatabaseSettingsArgs>;
+    perDatabaseSettings?: pulumi.Input<inputs.sql.v20200801preview.ElasticPoolPerDatabaseSettingsArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The elastic pool SKU.
      * 
@@ -196,13 +196,13 @@ export interface ElasticPoolArgs {
      * az sql elastic-pool list-editions -l <location> -o table
      * ````
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20200801preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.v20200801preview.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

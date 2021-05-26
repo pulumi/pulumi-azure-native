@@ -94,17 +94,17 @@ export interface ServerAzureADOnlyAuthenticationArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    readonly authenticationName?: pulumi.Input<string>;
+    authenticationName?: pulumi.Input<string>;
     /**
      * Azure Active Directory only Authentication enabled.
      */
-    readonly azureADOnlyAuthentication: pulumi.Input<boolean>;
+    azureADOnlyAuthentication: pulumi.Input<boolean>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

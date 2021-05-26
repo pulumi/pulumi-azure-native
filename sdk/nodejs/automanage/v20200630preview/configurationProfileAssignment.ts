@@ -92,17 +92,17 @@ export interface ConfigurationProfileAssignmentArgs {
     /**
      * Name of the configuration profile assignment. Only default is supported.
      */
-    readonly configurationProfileAssignmentName?: pulumi.Input<string>;
+    configurationProfileAssignmentName?: pulumi.Input<string>;
     /**
      * Properties of the configuration profile assignment.
      */
-    readonly properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfileAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfileAssignmentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the virtual machine.
      */
-    readonly vmName: pulumi.Input<string>;
+    vmName: pulumi.Input<string>;
 }

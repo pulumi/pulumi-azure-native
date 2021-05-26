@@ -28,15 +28,15 @@ export interface GetHcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site in the private cloud
      */
-    readonly hcxEnterpriseSiteName: string;
+    hcxEnterpriseSiteName: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

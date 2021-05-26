@@ -27,15 +27,15 @@ export interface GetWorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -133,37 +133,37 @@ export interface ServiceArgs {
     /**
      * HTTP strong entity tag value. Ignored if submitted
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * The resource kind. Only 'vm' (the default) is supported.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The public key of the service, used to encrypt secrets sent to the service
      */
-    readonly publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string>;
     /**
      * Name of the service
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Service SKU
      */
-    readonly sku?: pulumi.Input<inputs.datamigration.v20180419.ServiceSkuArgs>;
+    sku?: pulumi.Input<inputs.datamigration.v20180419.ServiceSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
-    readonly virtualSubnetId: pulumi.Input<string>;
+    virtualSubnetId: pulumi.Input<string>;
 }

@@ -202,49 +202,49 @@ export interface ClusterArgs {
     /**
      * App id of cluster AAD identity.
      */
-    readonly aadClientId: pulumi.Input<string>;
+    aadClientId: pulumi.Input<string>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    readonly aadTenantId: pulumi.Input<string>;
+    aadTenantId: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The timestamp of resource creation (UTC).
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * The identity that created the resource.
      */
-    readonly createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string>;
     /**
      * The type of identity that created the resource.
      */
-    readonly createdByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
+    createdByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
     /**
      * The timestamp of resource last modification (UTC)
      */
-    readonly lastModifiedAt?: pulumi.Input<string>;
+    lastModifiedAt?: pulumi.Input<string>;
     /**
      * The identity that last modified the resource.
      */
-    readonly lastModifiedBy?: pulumi.Input<string>;
+    lastModifiedBy?: pulumi.Input<string>;
     /**
      * The type of identity that last modified the resource.
      */
-    readonly lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
+    lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -25,7 +25,7 @@ export interface GetConnectorArgs {
     /**
      * Name of the cloud account connector
      */
-    readonly connectorName: string;
+    connectorName: string;
 }
 
 /**

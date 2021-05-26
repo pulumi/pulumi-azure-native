@@ -27,11 +27,11 @@ export interface GetAttestationProviderArgs {
     /**
      * Name of the attestation provider.
      */
-    readonly providerName: string;
+    providerName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -107,25 +107,25 @@ export interface IntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment name.
      */
-    readonly integrationServiceEnvironmentName?: pulumi.Input<string>;
+    integrationServiceEnvironmentName?: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The integration service environment properties.
      */
-    readonly properties?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentPropertiesArgs>;
     /**
      * The resource group.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentSkuArgs>;
+    sku?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentSkuArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -26,11 +26,11 @@ export interface GetCloudConnectorArgs {
     /**
      * Connector Name.
      */
-    readonly connectorName: string;
+    connectorName: string;
     /**
      * May be used to expand the collectionInfo property. By default, collectionInfo is not included.
      */
-    readonly expand?: string;
+    expand?: string;
 }
 
 /**

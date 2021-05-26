@@ -161,49 +161,49 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * BootStrapConfigurationBlobs storage URLs.
      */
-    readonly bootStrapConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
+    bootStrapConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * CloudInitConfiguration string in plain text.
      */
-    readonly cloudInitConfiguration?: pulumi.Input<string>;
+    cloudInitConfiguration?: pulumi.Input<string>;
     /**
      * CloudInitConfigurationBlob storage URLs.
      */
-    readonly cloudInitConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudInitConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20200501.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.v20200501.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName?: pulumi.Input<string>;
+    networkVirtualApplianceName?: pulumi.Input<string>;
     /**
      * Network Virtual Appliance SKU.
      */
-    readonly nvaSku?: pulumi.Input<inputs.network.v20200501.VirtualApplianceSkuPropertiesArgs>;
+    nvaSku?: pulumi.Input<inputs.network.v20200501.VirtualApplianceSkuPropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VirtualAppliance ASN.
      */
-    readonly virtualApplianceAsn?: pulumi.Input<number>;
+    virtualApplianceAsn?: pulumi.Input<number>;
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20200501.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.v20200501.SubResourceArgs>;
 }

@@ -27,15 +27,15 @@ export interface GetDatastoreArgs {
     /**
      * Datastore name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

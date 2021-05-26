@@ -131,37 +131,37 @@ export interface AzureFirewallArgs {
     /**
      * Collection of application rule collections used by Azure Firewall.
      */
-    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallApplicationRuleCollectionArgs>[]>;
+    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallApplicationRuleCollectionArgs>[]>;
     /**
      * The name of the Azure Firewall.
      */
-    readonly azureFirewallName?: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNatRuleCollectionArgs>[]>;
+    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNatRuleCollectionArgs>[]>;
     /**
      * Collection of network rule collections used by Azure Firewall.
      */
-    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNetworkRuleCollectionArgs>[]>;
+    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNetworkRuleCollectionArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

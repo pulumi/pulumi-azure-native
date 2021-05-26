@@ -31,27 +31,27 @@ export interface GetApiOperationPolicyArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * Policy Export Format.
      */
-    readonly format?: string;
+    format?: string;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly operationId: string;
+    operationId: string;
     /**
      * The identifier of the Policy.
      */
-    readonly policyId: string;
+    policyId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

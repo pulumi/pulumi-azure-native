@@ -124,33 +124,33 @@ export interface LoggerArgs {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    readonly credentials: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    credentials: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Logger description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether records are buffered in the logger before publishing. Default is assumed to be true.
      */
-    readonly isBuffered?: pulumi.Input<boolean>;
+    isBuffered?: pulumi.Input<boolean>;
     /**
      * Logger type.
      */
-    readonly loggerType: pulumi.Input<string | enums.apimanagement.v20170301.LoggerType>;
+    loggerType: pulumi.Input<string | enums.apimanagement.v20170301.LoggerType>;
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly loggerid?: pulumi.Input<string>;
+    loggerid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sampling settings for an ApplicationInsights logger.
      */
-    readonly sampling?: pulumi.Input<inputs.apimanagement.v20170301.LoggerSamplingContractArgs>;
+    sampling?: pulumi.Input<inputs.apimanagement.v20170301.LoggerSamplingContractArgs>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

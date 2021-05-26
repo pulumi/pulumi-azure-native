@@ -109,25 +109,25 @@ export interface SecretValueArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the secret resource.
      */
-    readonly secretResourceName: pulumi.Input<string>;
+    secretResourceName: pulumi.Input<string>;
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    readonly secretValueResourceName?: pulumi.Input<string>;
+    secretValueResourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The actual value of the secret.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

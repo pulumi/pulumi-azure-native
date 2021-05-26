@@ -101,17 +101,17 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime name
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.synapse.v20201201.ManagedIntegrationRuntimeArgs | inputs.synapse.v20201201.SelfHostedIntegrationRuntimeArgs>;
+    properties: pulumi.Input<inputs.synapse.v20201201.ManagedIntegrationRuntimeArgs | inputs.synapse.v20201201.SelfHostedIntegrationRuntimeArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

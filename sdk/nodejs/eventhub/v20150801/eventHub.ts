@@ -128,37 +128,37 @@ export interface EventHubArgs {
     /**
      * The Event Hub name
      */
-    readonly eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Number of days to retain the events for this Event Hub.
      */
-    readonly messageRetentionInDays?: pulumi.Input<number>;
+    messageRetentionInDays?: pulumi.Input<number>;
     /**
      * Name of the Event Hub.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Number of partitions created for the Event Hub.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    readonly status?: pulumi.Input<enums.eventhub.v20150801.EntityStatus>;
+    status?: pulumi.Input<enums.eventhub.v20150801.EntityStatus>;
     /**
      * ARM type of the Namespace.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

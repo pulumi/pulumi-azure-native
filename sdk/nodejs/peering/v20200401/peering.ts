@@ -136,37 +136,37 @@ export interface PeeringArgs {
     /**
      * The properties that define a direct peering.
      */
-    readonly direct?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesDirectArgs>;
+    direct?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesDirectArgs>;
     /**
      * The properties that define an exchange peering.
      */
-    readonly exchange?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesExchangeArgs>;
+    exchange?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesExchangeArgs>;
     /**
      * The kind of the peering.
      */
-    readonly kind: pulumi.Input<string | enums.peering.v20200401.Kind>;
+    kind: pulumi.Input<string | enums.peering.v20200401.Kind>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The location of the peering.
      */
-    readonly peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the peering.
      */
-    readonly peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU that defines the tier and kind of the peering.
      */
-    readonly sku: pulumi.Input<inputs.peering.v20200401.PeeringSkuArgs>;
+    sku: pulumi.Input<inputs.peering.v20200401.PeeringSkuArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

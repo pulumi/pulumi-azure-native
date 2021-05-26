@@ -106,21 +106,21 @@ export interface MediaServiceArgs {
     /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Media Service.
      */
-    readonly mediaServiceName?: pulumi.Input<string>;
+    mediaServiceName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20151001.StorageAccountArgs>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20151001.StorageAccountArgs>[]>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -27,11 +27,11 @@ export interface GetLedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    readonly ledgerName: string;
+    ledgerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

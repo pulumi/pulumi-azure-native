@@ -153,38 +153,38 @@ export interface ADLSGen1FileDataSetArgs {
     /**
      * The ADLS account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * The file name in the ADLS account.
      */
-    readonly fileName: pulumi.Input<string>;
+    fileName: pulumi.Input<string>;
     /**
      * The folder path within the ADLS account.
      */
-    readonly folderPath: pulumi.Input<string>;
+    folderPath: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'AdlsGen1File'.
      */
-    readonly kind: pulumi.Input<"AdlsGen1File">;
+    kind: pulumi.Input<"AdlsGen1File">;
     /**
      * Resource group of ADLS account.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * Subscription id of ADLS account.
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

@@ -130,29 +130,29 @@ export interface AssessmentArgs {
     /**
      * Additional data regarding the assessment
      */
-    readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Describes properties of an assessment metadata.
      */
-    readonly metadata?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataPropertiesArgs>;
+    metadata?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataPropertiesArgs>;
     /**
      * Data regarding 3rd party partner integration
      */
-    readonly partnersData?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentPartnerDataArgs>;
+    partnersData?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentPartnerDataArgs>;
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: pulumi.Input<inputs.security.v20200101.AzureResourceDetailsArgs | inputs.security.v20200101.OnPremiseResourceDetailsArgs | inputs.security.v20200101.OnPremiseSqlResourceDetailsArgs>;
+    resourceDetails: pulumi.Input<inputs.security.v20200101.AzureResourceDetailsArgs | inputs.security.v20200101.OnPremiseResourceDetailsArgs | inputs.security.v20200101.OnPremiseSqlResourceDetailsArgs>;
     /**
      * The identifier of the resource.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * The result of the assessment
      */
-    readonly status: pulumi.Input<inputs.security.v20200101.AssessmentStatusArgs>;
+    status: pulumi.Input<inputs.security.v20200101.AssessmentStatusArgs>;
 }

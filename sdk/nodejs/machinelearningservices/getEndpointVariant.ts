@@ -29,19 +29,19 @@ export interface GetEndpointVariantArgs {
     /**
      * Set to True to include Model details.
      */
-    readonly expand?: boolean;
+    expand?: boolean;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -28,15 +28,15 @@ export interface GetFirewallPolicyRuleCollectionGroupArgs {
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName: string;
+    firewallPolicyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the FirewallPolicyRuleCollectionGroup.
      */
-    readonly ruleCollectionGroupName: string;
+    ruleCollectionGroupName: string;
 }
 
 /**

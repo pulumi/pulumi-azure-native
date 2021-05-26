@@ -181,65 +181,65 @@ export interface RouteArgs {
     /**
      * compression settings.
      */
-    readonly compressionSettings?: pulumi.Input<pulumi.Input<inputs.cdn.CompressionSettingsArgs>[]>;
+    compressionSettings?: pulumi.Input<pulumi.Input<inputs.cdn.CompressionSettingsArgs>[]>;
     /**
      * Domains referenced by this endpoint.
      */
-    readonly customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
+    customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
+    enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    readonly endpointName: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
-    readonly forwardingProtocol?: pulumi.Input<string | enums.cdn.ForwardingProtocol>;
+    forwardingProtocol?: pulumi.Input<string | enums.cdn.ForwardingProtocol>;
     /**
      * Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
      */
-    readonly httpsRedirect?: pulumi.Input<string | enums.cdn.HttpsRedirect>;
+    httpsRedirect?: pulumi.Input<string | enums.cdn.HttpsRedirect>;
     /**
      * whether this route will be linked to the default endpoint domain.
      */
-    readonly linkToDefaultDomain?: pulumi.Input<string | enums.cdn.LinkToDefaultDomain>;
+    linkToDefaultDomain?: pulumi.Input<string | enums.cdn.LinkToDefaultDomain>;
     /**
      * A reference to the origin group.
      */
-    readonly originGroup: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
+    originGroup: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
-    readonly originPath?: pulumi.Input<string>;
+    originPath?: pulumi.Input<string>;
     /**
      * The route patterns of the rule.
      */
-    readonly patternsToMatch?: pulumi.Input<pulumi.Input<string>[]>;
+    patternsToMatch?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.AfdQueryStringCachingBehavior>;
+    queryStringCachingBehavior?: pulumi.Input<enums.cdn.AfdQueryStringCachingBehavior>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the routing rule.
      */
-    readonly routeName?: pulumi.Input<string>;
+    routeName?: pulumi.Input<string>;
     /**
      * rule sets referenced by this endpoint.
      */
-    readonly ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
+    ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * List of supported protocols for this route.
      */
-    readonly supportedProtocols?: pulumi.Input<pulumi.Input<string | enums.cdn.AFDEndpointProtocols>[]>;
+    supportedProtocols?: pulumi.Input<pulumi.Input<string | enums.cdn.AFDEndpointProtocols>[]>;
 }

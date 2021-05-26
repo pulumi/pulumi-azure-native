@@ -139,42 +139,42 @@ export interface TemplateArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    readonly artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string>;
     /**
      * Name of the blueprint definition.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    readonly dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
+    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the kind of blueprint artifact.
      * Expected value is 'template'.
      */
-    readonly kind: pulumi.Input<"template">;
+    kind: pulumi.Input<"template">;
     /**
      * Resource Manager template blueprint artifact parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValueArgs>}>;
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValueArgs>}>;
     /**
      * If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: pulumi.Input<string>;
+    resourceScope: pulumi.Input<string>;
     /**
      * The Resource Manager template blueprint artifact body.
      */
-    readonly template: any;
+    template: any;
 }

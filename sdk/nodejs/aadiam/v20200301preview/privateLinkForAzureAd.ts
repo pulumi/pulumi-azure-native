@@ -123,41 +123,41 @@ export interface PrivateLinkForAzureAdArgs {
     /**
      * Flag indicating whether all tenants are allowed
      */
-    readonly allTenants?: pulumi.Input<boolean>;
+    allTenants?: pulumi.Input<boolean>;
     /**
      * Name of this resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Guid of the owner tenant
      */
-    readonly ownerTenantId?: pulumi.Input<string>;
+    ownerTenantId?: pulumi.Input<string>;
     /**
      * The name of the private link policy in Azure AD.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the private link policy resource
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Subscription Identifier
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of tenantIds.
      */
-    readonly tenants?: pulumi.Input<pulumi.Input<string>[]>;
+    tenants?: pulumi.Input<pulumi.Input<string>[]>;
 }

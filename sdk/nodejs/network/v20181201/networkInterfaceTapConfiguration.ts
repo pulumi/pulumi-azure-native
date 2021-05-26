@@ -105,29 +105,29 @@ export interface NetworkInterfaceTapConfigurationArgs {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName: pulumi.Input<string>;
+    networkInterfaceName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the tap configuration.
      */
-    readonly tapConfigurationName?: pulumi.Input<string>;
+    tapConfigurationName?: pulumi.Input<string>;
     /**
      * The reference of the Virtual Network Tap resource.
      */
-    readonly virtualNetworkTap?: pulumi.Input<inputs.network.v20181201.VirtualNetworkTapArgs>;
+    virtualNetworkTap?: pulumi.Input<inputs.network.v20181201.VirtualNetworkTapArgs>;
 }

@@ -26,7 +26,7 @@ export interface GetWorkspaceSettingArgs {
     /**
      * Name of the security setting
      */
-    readonly workspaceSettingName: string;
+    workspaceSettingName: string;
 }
 
 /**

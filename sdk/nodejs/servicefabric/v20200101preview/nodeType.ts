@@ -191,73 +191,73 @@ export interface NodeTypeArgs {
     /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
-    readonly applicationPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
+    applicationPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
     /**
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
-    readonly capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Disk size for each vm in the node type in GBs.
      */
-    readonly dataDiskSizeGB: pulumi.Input<number>;
+    dataDiskSizeGB: pulumi.Input<number>;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
-    readonly ephemeralPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
+    ephemeralPorts?: pulumi.Input<inputs.servicefabric.v20200101preview.EndpointRangeDescriptionArgs>;
     /**
      * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
      */
-    readonly isPrimary: pulumi.Input<boolean>;
+    isPrimary: pulumi.Input<boolean>;
     /**
      * The name of the node type.
      */
-    readonly nodeTypeName?: pulumi.Input<string>;
+    nodeTypeName?: pulumi.Input<string>;
     /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */
-    readonly placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Azure resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
-    readonly vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VMSSExtensionArgs>[]>;
+    vmExtensions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VMSSExtensionArgs>[]>;
     /**
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
-    readonly vmImageOffer?: pulumi.Input<string>;
+    vmImageOffer?: pulumi.Input<string>;
     /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */
-    readonly vmImagePublisher?: pulumi.Input<string>;
+    vmImagePublisher?: pulumi.Input<string>;
     /**
      * The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
      */
-    readonly vmImageSku?: pulumi.Input<string>;
+    vmImageSku?: pulumi.Input<string>;
     /**
      * The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
      */
-    readonly vmImageVersion?: pulumi.Input<string>;
+    vmImageVersion?: pulumi.Input<string>;
     /**
      * The number of nodes in the node type.
      */
-    readonly vmInstanceCount: pulumi.Input<number>;
+    vmInstanceCount: pulumi.Input<number>;
     /**
      * The secrets to install in the virtual machines.
      */
-    readonly vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VaultSecretGroupArgs>[]>;
+    vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20200101preview.VaultSecretGroupArgs>[]>;
     /**
      * The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string>;
 }

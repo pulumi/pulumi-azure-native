@@ -135,53 +135,53 @@ export interface InboundNatRuleArgs {
     /**
      * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
      */
-    readonly backendPort?: pulumi.Input<number>;
+    backendPort?: pulumi.Input<number>;
     /**
      * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
      */
-    readonly enableFloatingIP?: pulumi.Input<boolean>;
+    enableFloatingIP?: pulumi.Input<boolean>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A reference to frontend IP addresses.
      */
-    readonly frontendIPConfiguration?: pulumi.Input<inputs.network.v20180601.SubResourceArgs>;
+    frontendIPConfiguration?: pulumi.Input<inputs.network.v20180601.SubResourceArgs>;
     /**
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */
-    readonly frontendPort?: pulumi.Input<number>;
+    frontendPort?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The name of the inbound nat rule.
      */
-    readonly inboundNatRuleName?: pulumi.Input<string>;
+    inboundNatRuleName?: pulumi.Input<string>;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
      */
-    readonly protocol?: pulumi.Input<string | enums.network.v20180601.TransportProtocol>;
+    protocol?: pulumi.Input<string | enums.network.v20180601.TransportProtocol>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

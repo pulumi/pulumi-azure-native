@@ -28,15 +28,15 @@ export interface ListChannelWithKeysArgs {
     /**
      * The name of the Channel resource.
      */
-    readonly channelName: string;
+    channelName: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Bot resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

@@ -111,25 +111,25 @@ export interface ManagedHsmArgs {
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the managed HSM Pool
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Properties of the managed HSM
      */
-    readonly properties?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmPropertiesArgs>;
+    properties?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmPropertiesArgs>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU details
      */
-    readonly sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSkuArgs>;
+    sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

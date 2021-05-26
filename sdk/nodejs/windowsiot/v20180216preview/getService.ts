@@ -26,11 +26,11 @@ export interface GetServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

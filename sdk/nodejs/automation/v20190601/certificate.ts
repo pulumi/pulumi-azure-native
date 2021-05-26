@@ -128,33 +128,33 @@ export interface CertificateArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the base64 encoded value of the certificate.
      */
-    readonly base64Value: pulumi.Input<string>;
+    base64Value: pulumi.Input<string>;
     /**
      * The parameters supplied to the create or update certificate operation.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Gets or sets the description of the certificate.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the is exportable flag of the certificate.
      */
-    readonly isExportable?: pulumi.Input<boolean>;
+    isExportable?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the certificate.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the thumbprint of the certificate.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }

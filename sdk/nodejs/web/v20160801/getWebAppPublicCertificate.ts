@@ -27,15 +27,15 @@ export interface GetWebAppPublicCertificateArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Public certificate name.
      */
-    readonly publicCertificateName: string;
+    publicCertificateName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

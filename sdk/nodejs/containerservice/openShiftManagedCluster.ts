@@ -164,45 +164,45 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.OpenShiftManagedClusterAgentPoolProfileArgs>[]>;
+    agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.OpenShiftManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: pulumi.Input<inputs.containerservice.OpenShiftManagedClusterAuthProfileArgs>;
+    authProfile?: pulumi.Input<inputs.containerservice.OpenShiftManagedClusterAuthProfileArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.OpenShiftManagedClusterMasterPoolProfileArgs>;
+    masterPoolProfile?: pulumi.Input<inputs.containerservice.OpenShiftManagedClusterMasterPoolProfileArgs>;
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.containerservice.NetworkProfileArgs>;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
-    readonly openShiftVersion: pulumi.Input<string>;
+    openShiftVersion: pulumi.Input<string>;
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: pulumi.Input<inputs.containerservice.PurchasePlanArgs>;
+    plan?: pulumi.Input<inputs.containerservice.PurchasePlanArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the OpenShift managed cluster resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.OpenShiftRouterProfileArgs>[]>;
+    routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.OpenShiftRouterProfileArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

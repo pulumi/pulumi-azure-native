@@ -164,29 +164,29 @@ export interface ConnectedRegistryArgs {
     /**
      * The list of the ACR token resource IDs used to authenticate clients to the connected registry.
      */
-    readonly clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
+    clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connected registry.
      */
-    readonly connectedRegistryName?: pulumi.Input<string>;
+    connectedRegistryName?: pulumi.Input<string>;
     /**
      * The logging properties of the connected registry.
      */
-    readonly logging?: pulumi.Input<inputs.containerregistry.v20201101preview.LoggingPropertiesArgs>;
+    logging?: pulumi.Input<inputs.containerregistry.v20201101preview.LoggingPropertiesArgs>;
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
-    readonly mode: pulumi.Input<string | enums.containerregistry.v20201101preview.ConnectedRegistryMode>;
+    mode: pulumi.Input<string | enums.containerregistry.v20201101preview.ConnectedRegistryMode>;
     /**
      * The parent of the connected registry.
      */
-    readonly parent: pulumi.Input<inputs.containerregistry.v20201101preview.ParentPropertiesArgs>;
+    parent: pulumi.Input<inputs.containerregistry.v20201101preview.ParentPropertiesArgs>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

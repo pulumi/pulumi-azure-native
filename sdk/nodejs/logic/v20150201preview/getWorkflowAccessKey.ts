@@ -24,15 +24,15 @@ export interface GetWorkflowAccessKeyArgs {
     /**
      * The workflow access key name.
      */
-    readonly accessKeyName: string;
+    accessKeyName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The workflow name.
      */
-    readonly workflowName: string;
+    workflowName: string;
 }
 
 export interface GetWorkflowAccessKeyResult {

@@ -27,15 +27,15 @@ export interface GetSchemaArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The integration account schema name.
      */
-    readonly schemaName: string;
+    schemaName: string;
 }
 
 /**

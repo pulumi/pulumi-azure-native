@@ -28,19 +28,19 @@ export interface GetCloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    readonly cloudEndpointName: string;
+    cloudEndpointName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: string;
+    storageSyncServiceName: string;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: string;
+    syncGroupName: string;
 }
 
 /**

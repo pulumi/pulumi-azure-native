@@ -139,37 +139,37 @@ export interface HealthAlertArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.alertsmanagement.v20200804preview.HealthAlertActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.alertsmanagement.v20200804preview.HealthAlertActionArgs>[]>;
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: pulumi.Input<inputs.alertsmanagement.v20200804preview.HealthAlertCriteriaArgs>;
+    criteria: pulumi.Input<inputs.alertsmanagement.v20200804preview.HealthAlertCriteriaArgs>;
     /**
      * the description of the health alert that will be included in the alert email.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * the flag that indicates whether the health alert is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * the list of resource id's that this health alert is scoped to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

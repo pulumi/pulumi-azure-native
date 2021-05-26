@@ -161,21 +161,21 @@ export interface LinkedSubscriptionArgs {
     /**
      * The identifier associated with the device subscription.
      */
-    readonly linkedSubscriptionId: pulumi.Input<string>;
+    linkedSubscriptionId: pulumi.Input<string>;
     /**
      * Name of the Linked Subscription resource.
      */
-    readonly linkedSubscriptionName?: pulumi.Input<string>;
+    linkedSubscriptionName?: pulumi.Input<string>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string | enums.azurestack.Location>;
+    location?: pulumi.Input<string | enums.azurestack.Location>;
     /**
      * The identifier associated with the device registration.
      */
-    readonly registrationResourceId: pulumi.Input<string>;
+    registrationResourceId: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface ListServerGatewayStatusArgs {
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Analysis Services server.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

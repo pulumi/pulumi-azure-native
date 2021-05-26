@@ -94,21 +94,21 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock level of the management lock.
      */
-    readonly level?: pulumi.Input<string | enums.authorization.v20150101.LockLevel>;
+    level?: pulumi.Input<string | enums.authorization.v20150101.LockLevel>;
     /**
      * The lock name.
      */
-    readonly lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string>;
     /**
      * The name of the lock.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The notes of the management lock.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

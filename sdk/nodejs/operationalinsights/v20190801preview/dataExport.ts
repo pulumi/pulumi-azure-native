@@ -133,41 +133,41 @@ export interface DataExportArgs {
     /**
      * The latest data export rule modification time.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The data export rule ID.
      */
-    readonly dataExportId?: pulumi.Input<string>;
+    dataExportId?: pulumi.Input<string>;
     /**
      * The data export rule name.
      */
-    readonly dataExportName?: pulumi.Input<string>;
+    dataExportName?: pulumi.Input<string>;
     /**
      * Active when enabled.
      */
-    readonly enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
     /**
      * Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
      */
-    readonly eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string>;
     /**
      * Date and time when the export was last modified.
      */
-    readonly lastModifiedDate?: pulumi.Input<string>;
+    lastModifiedDate?: pulumi.Input<string>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
      */
-    readonly tableNames: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Log Analytics workspace name.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

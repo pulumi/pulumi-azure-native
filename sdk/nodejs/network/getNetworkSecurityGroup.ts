@@ -28,15 +28,15 @@ export interface GetNetworkSecurityGroupArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the network security group.
      */
-    readonly networkSecurityGroupName: string;
+    networkSecurityGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

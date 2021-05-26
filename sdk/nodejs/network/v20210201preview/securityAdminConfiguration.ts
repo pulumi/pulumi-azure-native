@@ -128,29 +128,29 @@ export interface SecurityAdminConfigurationArgs {
     /**
      * The name of the network manager security Configuration.
      */
-    readonly configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Flag if need to delete existing network security groups.
      */
-    readonly deleteExistingNSGs?: pulumi.Input<string | enums.network.v20210201preview.DeleteExistingNSGs>;
+    deleteExistingNSGs?: pulumi.Input<string | enums.network.v20210201preview.DeleteExistingNSGs>;
     /**
      * A description of the security configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A display name of the security configuration.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: pulumi.Input<string>;
+    networkManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Security Type.
      */
-    readonly securityType?: pulumi.Input<string | enums.network.v20210201preview.SecurityType>;
+    securityType?: pulumi.Input<string | enums.network.v20210201preview.SecurityType>;
 }

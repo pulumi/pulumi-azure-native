@@ -136,30 +136,30 @@ export interface ScheduledSynchronizationSettingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Kind of synchronization setting.
      * Expected value is 'ScheduleBased'.
      */
-    readonly kind: pulumi.Input<"ScheduleBased">;
+    kind: pulumi.Input<"ScheduleBased">;
     /**
      * Recurrence Interval
      */
-    readonly recurrenceInterval: pulumi.Input<string | enums.datashare.v20191101.RecurrenceInterval>;
+    recurrenceInterval: pulumi.Input<string | enums.datashare.v20191101.RecurrenceInterval>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the synchronization setting to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * The name of the synchronizationSetting.
      */
-    readonly synchronizationSettingName?: pulumi.Input<string>;
+    synchronizationSettingName?: pulumi.Input<string>;
     /**
      * Synchronization time
      */
-    readonly synchronizationTime: pulumi.Input<string>;
+    synchronizationTime: pulumi.Input<string>;
 }

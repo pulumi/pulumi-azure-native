@@ -122,25 +122,25 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
-    readonly destinationAccount: pulumi.Input<string>;
+    destinationAccount: pulumi.Input<string>;
     /**
      * The ID of object replication policy or 'default' if the policy ID is unknown.
      */
-    readonly objectReplicationPolicyId?: pulumi.Input<string>;
+    objectReplicationPolicyId?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage account object replication rules.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.v20210401.ObjectReplicationPolicyRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.v20210401.ObjectReplicationPolicyRuleArgs>[]>;
     /**
      * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
-    readonly sourceAccount: pulumi.Input<string>;
+    sourceAccount: pulumi.Input<string>;
 }

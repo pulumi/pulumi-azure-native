@@ -157,49 +157,49 @@ export interface IotSecuritySolutionArgs {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.DataSource>[]>;
+    disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.DataSource>[]>;
     /**
      * Resource display name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * List of additional export to workspace data options
      */
-    readonly export?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.ExportData>[]>;
+    export?: pulumi.Input<pulumi.Input<string | enums.security.v20170801preview.ExportData>[]>;
     /**
      * IoT Hub resource IDs
      */
-    readonly iotHubs: pulumi.Input<pulumi.Input<string>[]>;
+    iotHubs: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of recommendation configuration
      */
-    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.RecommendationConfigurationPropertiesArgs>[]>;
+    recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20170801preview.RecommendationConfigurationPropertiesArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The solution manager name
      */
-    readonly solutionName?: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string>;
     /**
      * Security solution status
      */
-    readonly status?: pulumi.Input<string | enums.security.v20170801preview.SecuritySolutionStatus>;
+    status?: pulumi.Input<string | enums.security.v20170801preview.SecuritySolutionStatus>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Properties of the solution's user defined resources.
      */
-    readonly userDefinedResources?: pulumi.Input<inputs.security.v20170801preview.UserDefinedResourcesPropertiesArgs>;
+    userDefinedResources?: pulumi.Input<inputs.security.v20170801preview.UserDefinedResourcesPropertiesArgs>;
     /**
      * Workspace resource ID
      */
-    readonly workspace: pulumi.Input<string>;
+    workspace: pulumi.Input<string>;
 }

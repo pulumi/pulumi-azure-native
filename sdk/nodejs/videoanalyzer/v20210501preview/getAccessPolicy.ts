@@ -27,15 +27,15 @@ export interface GetAccessPolicyArgs {
     /**
      * The name of the access policy to retrieve.
      */
-    readonly accessPolicyName: string;
+    accessPolicyName: string;
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

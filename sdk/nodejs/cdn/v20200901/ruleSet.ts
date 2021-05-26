@@ -101,13 +101,13 @@ export interface RuleSetArgs {
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile which is unique globally
      */
-    readonly ruleSetName?: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string>;
 }

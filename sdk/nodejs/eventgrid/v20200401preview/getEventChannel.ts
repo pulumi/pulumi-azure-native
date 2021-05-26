@@ -27,15 +27,15 @@ export interface GetEventChannelArgs {
     /**
      * Name of the event channel.
      */
-    readonly eventChannelName: string;
+    eventChannelName: string;
     /**
      * Name of the partner namespace.
      */
-    readonly partnerNamespaceName: string;
+    partnerNamespaceName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -135,33 +135,33 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.v20200901.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.v20200901.OriginGroupOverrideActionArgs | inputs.cdn.v20200901.UrlRedirectActionArgs | inputs.cdn.v20200901.UrlRewriteActionArgs | inputs.cdn.v20200901.UrlSigningActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.v20200901.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.v20200901.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.v20200901.OriginGroupOverrideActionArgs | inputs.cdn.v20200901.UrlRedirectActionArgs | inputs.cdn.v20200901.UrlRewriteActionArgs | inputs.cdn.v20200901.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.DeliveryRuleCookiesConditionArgs | inputs.cdn.v20200901.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.v20200901.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.v20200901.DeliveryRulePostArgsConditionArgs | inputs.cdn.v20200901.DeliveryRuleQueryStringConditionArgs | inputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestUriConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlPathConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.DeliveryRuleCookiesConditionArgs | inputs.cdn.v20200901.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.v20200901.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.v20200901.DeliveryRulePostArgsConditionArgs | inputs.cdn.v20200901.DeliveryRuleQueryStringConditionArgs | inputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.v20200901.DeliveryRuleRequestUriConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.v20200901.DeliveryRuleUrlPathConditionArgs>[]>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
-    readonly matchProcessingBehavior?: pulumi.Input<string | enums.cdn.v20200901.MatchProcessingBehavior>;
+    matchProcessingBehavior?: pulumi.Input<string | enums.cdn.v20200901.MatchProcessingBehavior>;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    readonly order: pulumi.Input<number>;
+    order: pulumi.Input<number>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile.
      */
-    readonly ruleSetName: pulumi.Input<string>;
+    ruleSetName: pulumi.Input<string>;
 }

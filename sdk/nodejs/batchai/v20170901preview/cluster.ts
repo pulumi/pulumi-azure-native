@@ -178,45 +178,45 @@ export interface ClusterArgs {
     /**
      * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The region in which to create the cluster.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
-    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20170901preview.NodeSetupArgs>;
+    nodeSetup?: pulumi.Input<inputs.batchai.v20170901preview.NodeSetupArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
      */
-    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20170901preview.ScaleSettingsArgs>;
+    scaleSettings?: pulumi.Input<inputs.batchai.v20170901preview.ScaleSettingsArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
+    subnet?: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
     /**
      * The user specified tags associated with the Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Settings for user account that gets created on each on the nodes of a cluster.
      */
-    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20170901preview.UserAccountSettingsArgs>;
+    userAccountSettings: pulumi.Input<inputs.batchai.v20170901preview.UserAccountSettingsArgs>;
     /**
      * Settings for OS image.
      */
-    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20170901preview.VirtualMachineConfigurationArgs>;
+    virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20170901preview.VirtualMachineConfigurationArgs>;
     /**
      * Default is dedicated.
      */
-    readonly vmPriority?: pulumi.Input<enums.batchai.v20170901preview.VmPriority>;
+    vmPriority?: pulumi.Input<enums.batchai.v20170901preview.VmPriority>;
     /**
      * All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */
-    readonly vmSize: pulumi.Input<string>;
+    vmSize: pulumi.Input<string>;
 }

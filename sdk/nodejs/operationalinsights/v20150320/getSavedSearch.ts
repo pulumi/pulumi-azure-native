@@ -27,15 +27,15 @@ export interface GetSavedSearchArgs {
     /**
      * The Resource Group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The id of the saved search.
      */
-    readonly savedSearchId: string;
+    savedSearchId: string;
     /**
      * The Log Analytics Workspace name.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

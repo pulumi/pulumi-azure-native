@@ -26,7 +26,7 @@ export interface GetPeerAsnArgs {
     /**
      * The peer ASN name.
      */
-    readonly peerAsnName: string;
+    peerAsnName: string;
 }
 
 /**

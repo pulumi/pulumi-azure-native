@@ -239,85 +239,85 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The authorizationKey.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * Connection protocol used for this connection.
      */
-    readonly connectionProtocol?: pulumi.Input<string | enums.network.v20200601.VirtualNetworkGatewayConnectionProtocol>;
+    connectionProtocol?: pulumi.Input<string | enums.network.v20200601.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * Gateway connection type.
      */
-    readonly connectionType: pulumi.Input<string | enums.network.v20200601.VirtualNetworkGatewayConnectionType>;
+    connectionType: pulumi.Input<string | enums.network.v20200601.VirtualNetworkGatewayConnectionType>;
     /**
      * The dead peer detection timeout of this connection in seconds.
      */
-    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * EnableBgp flag.
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */
-    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200601.IpsecPolicyArgs>[]>;
+    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200601.IpsecPolicyArgs>[]>;
     /**
      * The reference to local network gateway resource.
      */
-    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20200601.LocalNetworkGatewayArgs>;
+    localNetworkGateway2?: pulumi.Input<inputs.network.v20200601.LocalNetworkGatewayArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The reference to peerings resource.
      */
-    readonly peer?: pulumi.Input<inputs.network.v20200601.SubResourceArgs>;
+    peer?: pulumi.Input<inputs.network.v20200601.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The routing weight.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * The IPSec shared key.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200601.TrafficSelectorPolicyArgs>[]>;
+    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200601.TrafficSelectorPolicyArgs>[]>;
     /**
      * Use private local Azure IP for the connection.
      */
-    readonly useLocalAzureIpAddress?: pulumi.Input<boolean>;
+    useLocalAzureIpAddress?: pulumi.Input<boolean>;
     /**
      * Enable policy-based traffic selectors.
      */
-    readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20200601.VirtualNetworkGatewayArgs>;
+    virtualNetworkGateway1: pulumi.Input<inputs.network.v20200601.VirtualNetworkGatewayArgs>;
     /**
      * The reference to virtual network gateway resource.
      */
-    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20200601.VirtualNetworkGatewayArgs>;
+    virtualNetworkGateway2?: pulumi.Input<inputs.network.v20200601.VirtualNetworkGatewayArgs>;
     /**
      * The name of the virtual network gateway connection.
      */
-    readonly virtualNetworkGatewayConnectionName?: pulumi.Input<string>;
+    virtualNetworkGatewayConnectionName?: pulumi.Input<string>;
 }

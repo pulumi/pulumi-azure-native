@@ -26,11 +26,11 @@ export interface GetManagedHostingEnvironmentArgs {
     /**
      * Name of managed hosting environment
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -29,23 +29,23 @@ export interface GetPolicyArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=description)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the policy.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the policy set.
      */
-    readonly policySetName: string;
+    policySetName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

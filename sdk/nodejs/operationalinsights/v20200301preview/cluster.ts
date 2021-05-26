@@ -130,33 +130,33 @@ export interface ClusterArgs {
     /**
      * The name of the Log Analytics cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.operationalinsights.v20200301preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.operationalinsights.v20200301preview.IdentityArgs>;
     /**
      * The associated key properties.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.operationalinsights.v20200301preview.KeyVaultPropertiesArgs>;
+    keyVaultProperties?: pulumi.Input<inputs.operationalinsights.v20200301preview.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The link used to get the next page of recommendations.
      */
-    readonly nextLink?: pulumi.Input<string>;
+    nextLink?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku properties.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.v20200301preview.ClusterSkuArgs>;
+    sku?: pulumi.Input<inputs.operationalinsights.v20200301preview.ClusterSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

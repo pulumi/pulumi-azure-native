@@ -105,17 +105,17 @@ export interface RoleManagementPolicyAssignmentArgs {
     /**
      * The policy id role management policy assignment.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * The role definition of management policy assignment.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The name of format {guid_guid} the role management policy assignment to upsert.
      */
-    readonly roleManagementPolicyAssignmentName?: pulumi.Input<string>;
+    roleManagementPolicyAssignmentName?: pulumi.Input<string>;
     /**
      * The role management policy scope.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

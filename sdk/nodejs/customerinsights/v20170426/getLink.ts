@@ -27,15 +27,15 @@ export interface GetLinkArgs {
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * The name of the link.
      */
-    readonly linkName: string;
+    linkName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

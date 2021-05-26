@@ -28,15 +28,15 @@ export interface GetGuestConfigurationAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    readonly guestConfigurationAssignmentName: string;
+    guestConfigurationAssignmentName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual machine.
      */
-    readonly vmName: string;
+    vmName: string;
 }
 
 /**

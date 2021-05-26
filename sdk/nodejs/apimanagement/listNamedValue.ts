@@ -28,15 +28,15 @@ export interface ListNamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    readonly namedValueId: string;
+    namedValueId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

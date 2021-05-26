@@ -158,53 +158,53 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the definition.
      */
-    readonly definition?: any;
+    definition?: any;
     /**
      * Gets or sets the link to definition.
      */
-    readonly definitionLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
+    definitionLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
     /**
      * Gets or sets the resource id.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets or sets the resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets the resource name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20150201preview.WorkflowParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20150201preview.WorkflowParameterArgs>}>;
     /**
      * Gets or sets the link to parameters.
      */
-    readonly parametersLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
+    parametersLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20150201preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.logic.v20150201preview.SkuArgs>;
     /**
      * Gets or sets the state.
      */
-    readonly state?: pulumi.Input<enums.logic.v20150201preview.WorkflowState>;
+    state?: pulumi.Input<enums.logic.v20150201preview.WorkflowState>;
     /**
      * Gets or sets the resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets the resource type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The workflow name.
      */
-    readonly workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetConfigurationProfileAssignmentArgs {
     /**
      * The configuration profile assignment name.
      */
-    readonly configurationProfileAssignmentName: string;
+    configurationProfileAssignmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual machine.
      */
-    readonly vmName: string;
+    vmName: string;
 }
 
 /**

@@ -95,17 +95,17 @@ export class BackupPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupPolicy resource.
  */
 export interface BackupPolicyArgs {
-    readonly backupPolicyName?: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string>;
     /**
      * BaseBackupPolicyResource properties
      */
-    readonly properties?: pulumi.Input<inputs.dataprotection.v20210101.BackupPolicyArgs>;
+    properties?: pulumi.Input<inputs.dataprotection.v20210101.BackupPolicyArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the backup vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

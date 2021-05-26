@@ -156,37 +156,37 @@ export interface DedicatedHostArgs {
     /**
      * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
      */
-    readonly autoReplaceOnFailure?: pulumi.Input<boolean>;
+    autoReplaceOnFailure?: pulumi.Input<boolean>;
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName: pulumi.Input<string>;
+    hostGroupName: pulumi.Input<string>;
     /**
      * The name of the dedicated host .
      */
-    readonly hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     /**
      * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
      */
-    readonly licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes>;
+    licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Fault domain of the dedicated host within a dedicated host group.
      */
-    readonly platformFaultDomain?: pulumi.Input<number>;
+    platformFaultDomain?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
      */
-    readonly sku: pulumi.Input<inputs.compute.SkuArgs>;
+    sku: pulumi.Input<inputs.compute.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

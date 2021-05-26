@@ -27,15 +27,15 @@ export interface GetApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName: string;
+    applicationGatewayName: string;
     /**
      * The name of the application gateway private endpoint connection.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

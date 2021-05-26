@@ -137,42 +137,42 @@ export interface RoleAssignmentArtifactArgs {
     /**
      * name of the artifact.
      */
-    readonly artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string>;
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    readonly dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
+    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'roleAssignment'.
      */
-    readonly kind: pulumi.Input<"roleAssignment">;
+    kind: pulumi.Input<"roleAssignment">;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: pulumi.Input<string>;
+    managementGroupName: pulumi.Input<string>;
     /**
      * Array of user or group identities in Azure Active Directory. The roleDefinition will apply to these identity.
      */
-    readonly principalIds: any;
+    principalIds: any;
     /**
      * RoleAssignment will be scope to this resourceGroup, if left empty, it would scope to the subscription.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * Azure resource ID of the RoleDefinition.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId: pulumi.Input<string>;
 }

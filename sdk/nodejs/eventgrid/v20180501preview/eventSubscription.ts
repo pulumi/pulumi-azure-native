@@ -130,33 +130,33 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestinationArgs>;
+    deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestinationArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestinationArgs>;
     /**
      * The event delivery schema for the event subscription.
      */
-    readonly eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.v20180501preview.EventDeliverySchema>;
+    eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.v20180501preview.EventDeliverySchema>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */
-    readonly eventSubscriptionName?: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string>;
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20180501preview.EventSubscriptionFilterArgs>;
+    filter?: pulumi.Input<inputs.eventgrid.v20180501preview.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20180501preview.RetryPolicyArgs>;
+    retryPolicy?: pulumi.Input<inputs.eventgrid.v20180501preview.RetryPolicyArgs>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

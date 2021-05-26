@@ -118,25 +118,25 @@ export interface DomainArgs {
     /**
      * Name of the domain
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.v20190201preview.InputSchema>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.v20190201preview.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20190201preview.JsonInputSchemaMappingArgs>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20190201preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

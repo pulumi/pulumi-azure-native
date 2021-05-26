@@ -26,11 +26,11 @@ export interface GetVirtualNetworkArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName: string;
+    virtualNetworkName: string;
 }
 
 /**

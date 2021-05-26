@@ -136,37 +136,37 @@ export interface RolloutArgs {
     /**
      * The reference to the artifact source resource Id where the payload is located.
      */
-    readonly artifactSourceId?: pulumi.Input<string>;
+    artifactSourceId?: pulumi.Input<string>;
     /**
      * The version of the build being deployed.
      */
-    readonly buildVersion: pulumi.Input<string>;
+    buildVersion: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */
-    readonly identity: pulumi.Input<inputs.deploymentmanager.v20180901preview.IdentityArgs>;
+    identity: pulumi.Input<inputs.deploymentmanager.v20180901preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rollout name.
      */
-    readonly rolloutName?: pulumi.Input<string>;
+    rolloutName?: pulumi.Input<string>;
     /**
      * The list of step groups that define the orchestration.
      */
-    readonly stepGroups: pulumi.Input<pulumi.Input<inputs.deploymentmanager.v20180901preview.StepArgs>[]>;
+    stepGroups: pulumi.Input<pulumi.Input<inputs.deploymentmanager.v20180901preview.StepArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
      */
-    readonly targetServiceTopologyId: pulumi.Input<string>;
+    targetServiceTopologyId: pulumi.Input<string>;
 }

@@ -122,29 +122,29 @@ export interface StorageAccountCredentialArgs {
     /**
      * The details of the storage account password.
      */
-    readonly accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
+    accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
     /**
      * The storage endpoint
      */
-    readonly endPoint: pulumi.Input<string>;
+    endPoint: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
+    kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<enums.storsimple.v20170601.SslStatus>;
+    sslStatus: pulumi.Input<enums.storsimple.v20170601.SslStatus>;
     /**
      * The storage account credential name.
      */
-    readonly storageAccountCredentialName?: pulumi.Input<string>;
+    storageAccountCredentialName?: pulumi.Input<string>;
 }

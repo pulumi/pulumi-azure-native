@@ -185,69 +185,69 @@ export interface GalleryImageArgs {
     /**
      * The description of this gallery Image Definition resource. This property is updatable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Describes the disallowed disk types.
      */
-    readonly disallowed?: pulumi.Input<inputs.compute.v20191201.DisallowedArgs>;
+    disallowed?: pulumi.Input<inputs.compute.v20191201.DisallowedArgs>;
     /**
      * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    readonly endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string>;
     /**
      * The Eula agreement for the gallery Image Definition.
      */
-    readonly eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string>;
     /**
      * The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryImageName?: pulumi.Input<string>;
+    galleryImageName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery in which the Image Definition is to be created.
      */
-    readonly galleryName: pulumi.Input<string>;
+    galleryName: pulumi.Input<string>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20191201.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.v20191201.HyperVGeneration>;
     /**
      * This is the gallery Image Definition identifier.
      */
-    readonly identifier: pulumi.Input<inputs.compute.v20191201.GalleryImageIdentifierArgs>;
+    identifier: pulumi.Input<inputs.compute.v20191201.GalleryImageIdentifierArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly osState: pulumi.Input<enums.compute.v20191201.OperatingSystemStateTypes>;
+    osState: pulumi.Input<enums.compute.v20191201.OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: pulumi.Input<enums.compute.v20191201.OperatingSystemTypes>;
+    osType: pulumi.Input<enums.compute.v20191201.OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */
-    readonly privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string>;
     /**
      * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20191201.ImagePurchasePlanArgs>;
+    purchasePlan?: pulumi.Input<inputs.compute.v20191201.ImagePurchasePlanArgs>;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    readonly recommended?: pulumi.Input<inputs.compute.v20191201.RecommendedMachineConfigurationArgs>;
+    recommended?: pulumi.Input<inputs.compute.v20191201.RecommendedMachineConfigurationArgs>;
     /**
      * The release note uri.
      */
-    readonly releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

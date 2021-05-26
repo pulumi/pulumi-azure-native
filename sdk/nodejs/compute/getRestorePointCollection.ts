@@ -28,15 +28,15 @@ export interface GetRestorePointCollectionArgs {
     /**
      * The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the restore point collection.
      */
-    readonly restorePointCollectionName: string;
+    restorePointCollectionName: string;
 }
 
 /**

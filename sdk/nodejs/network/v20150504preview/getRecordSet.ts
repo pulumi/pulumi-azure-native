@@ -28,19 +28,19 @@ export interface GetRecordSetArgs {
     /**
      * The type of DNS record.
      */
-    readonly recordType: string;
+    recordType: string;
     /**
      * The name of the RecordSet, relative to the name of the zone.
      */
-    readonly relativeRecordSetName: string;
+    relativeRecordSetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the zone without a terminating dot.
      */
-    readonly zoneName: string;
+    zoneName: string;
 }
 
 /**

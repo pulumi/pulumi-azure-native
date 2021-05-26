@@ -26,11 +26,11 @@ export interface GetApplianceDefinitionArgs {
     /**
      * The name of the appliance definition.
      */
-    readonly applianceDefinitionName: string;
+    applianceDefinitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

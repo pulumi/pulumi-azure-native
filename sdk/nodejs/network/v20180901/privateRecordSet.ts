@@ -168,61 +168,61 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.ARecordArgs>[]>;
+    aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.AaaaRecordArgs>[]>;
+    aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.AaaaRecordArgs>[]>;
     /**
      * The CNAME record in the record set.
      */
-    readonly cnameRecord?: pulumi.Input<inputs.network.v20180901.CnameRecordArgs>;
+    cnameRecord?: pulumi.Input<inputs.network.v20180901.CnameRecordArgs>;
     /**
      * The ETag of the record set.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The metadata attached to the record set.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.MxRecordArgs>[]>;
+    mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.MxRecordArgs>[]>;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly privateZoneName: pulumi.Input<string>;
+    privateZoneName: pulumi.Input<string>;
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.PtrRecordArgs>[]>;
+    ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
      */
-    readonly recordType: pulumi.Input<string>;
+    recordType: pulumi.Input<string>;
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    readonly relativeRecordSetName?: pulumi.Input<string>;
+    relativeRecordSetName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: pulumi.Input<inputs.network.v20180901.SoaRecordArgs>;
+    soaRecord?: pulumi.Input<inputs.network.v20180901.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.SrvRecordArgs>[]>;
+    srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.SrvRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.TxtRecordArgs>[]>;
+    txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.TxtRecordArgs>[]>;
 }

@@ -136,33 +136,33 @@ export interface CacheArgs {
     /**
      * Name of Cache.
      */
-    readonly cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string>;
     /**
      * The size of this Cache, in GB.
      */
-    readonly cacheSizeGB?: pulumi.Input<number>;
+    cacheSizeGB?: pulumi.Input<number>;
     /**
      * Region name string.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string | enums.storagecache.v20191101.ProvisioningStateType>;
+    provisioningState?: pulumi.Input<string | enums.storagecache.v20191101.ProvisioningStateType>;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU for the Cache.
      */
-    readonly sku?: pulumi.Input<inputs.storagecache.v20191101.CacheSkuArgs>;
+    sku?: pulumi.Input<inputs.storagecache.v20191101.CacheSkuArgs>;
     /**
      * Subnet used for the Cache.
      */
-    readonly subnet?: pulumi.Input<string>;
+    subnet?: pulumi.Input<string>;
     /**
      * ARM tags as name/value pairs.
      */
-    readonly tags?: any;
+    tags?: any;
 }

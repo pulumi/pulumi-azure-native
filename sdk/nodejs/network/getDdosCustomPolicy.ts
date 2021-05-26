@@ -27,11 +27,11 @@ export interface GetDdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    readonly ddosCustomPolicyName: string;
+    ddosCustomPolicyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

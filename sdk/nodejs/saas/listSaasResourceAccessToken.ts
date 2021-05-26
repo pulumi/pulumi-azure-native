@@ -26,7 +26,7 @@ export interface ListSaasResourceAccessTokenArgs {
     /**
      * The Saas resource ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
      */
-    readonly resourceId: string;
+    resourceId: string;
 }
 
 /**

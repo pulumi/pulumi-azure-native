@@ -26,11 +26,11 @@ export interface GetGuestDiagnosticsSettingsAssociationArgs {
     /**
      * The name of the diagnostic settings association.
      */
-    readonly associationName: string;
+    associationName: string;
     /**
      * The fully qualified ID of the resource, including the resource name and resource type.
      */
-    readonly resourceUri: string;
+    resourceUri: string;
 }
 
 /**

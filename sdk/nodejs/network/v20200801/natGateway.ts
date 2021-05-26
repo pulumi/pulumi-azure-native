@@ -149,41 +149,41 @@ export interface NatGatewayArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The idle timeout of the nat gateway.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the nat gateway.
      */
-    readonly natGatewayName?: pulumi.Input<string>;
+    natGatewayName?: pulumi.Input<string>;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */
-    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200801.SubResourceArgs>[]>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200801.SubResourceArgs>[]>;
     /**
      * An array of public ip prefixes associated with the nat gateway resource.
      */
-    readonly publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.v20200801.SubResourceArgs>[]>;
+    publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.v20200801.SubResourceArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The nat gateway SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200801.NatGatewaySkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20200801.NatGatewaySkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

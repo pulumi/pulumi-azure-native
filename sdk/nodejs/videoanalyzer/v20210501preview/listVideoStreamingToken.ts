@@ -27,15 +27,15 @@ export interface ListVideoStreamingTokenArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the video to generate a token for playback.
      */
-    readonly videoName: string;
+    videoName: string;
 }
 
 /**

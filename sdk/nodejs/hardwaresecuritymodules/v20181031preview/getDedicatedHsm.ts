@@ -26,11 +26,11 @@ export interface GetDedicatedHsmArgs {
     /**
      * The name of the dedicated HSM.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group to which the dedicated hsm belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

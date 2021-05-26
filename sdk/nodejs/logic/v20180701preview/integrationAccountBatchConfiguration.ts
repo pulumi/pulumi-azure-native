@@ -107,25 +107,25 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration name.
      */
-    readonly batchConfigurationName?: pulumi.Input<string>;
+    batchConfigurationName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The batch configuration properties.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20180701preview.BatchConfigurationPropertiesArgs>;
+    properties: pulumi.Input<inputs.logic.v20180701preview.BatchConfigurationPropertiesArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

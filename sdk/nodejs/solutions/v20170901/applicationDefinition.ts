@@ -172,65 +172,65 @@ export interface ApplicationDefinitionArgs {
     /**
      * The name of the managed application definition.
      */
-    readonly applicationDefinitionName?: pulumi.Input<string>;
+    applicationDefinitionName?: pulumi.Input<string>;
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationArtifactArgs>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationArtifactArgs>[]>;
     /**
      * The managed application provider authorizations.
      */
-    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationProviderAuthorizationArgs>[]>;
+    authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationProviderAuthorizationArgs>[]>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    readonly createUiDefinition?: any;
+    createUiDefinition?: any;
     /**
      * The managed application definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The managed application definition display name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20170901.IdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.v20170901.IdentityArgs>;
     /**
      * A value indicating whether the package is enabled or not.
      */
-    readonly isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The managed application lock level.
      */
-    readonly lockLevel: pulumi.Input<enums.solutions.v20170901.ApplicationLockLevel>;
+    lockLevel: pulumi.Input<enums.solutions.v20170901.ApplicationLockLevel>;
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    readonly mainTemplate?: any;
+    mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The managed application definition package file Uri. Use this element
      */
-    readonly packageFileUri?: pulumi.Input<string>;
+    packageFileUri?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20170901.SkuArgs>;
+    sku?: pulumi.Input<inputs.solutions.v20170901.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

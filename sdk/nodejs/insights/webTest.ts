@@ -175,57 +175,57 @@ export interface WebTestArgs {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly configuration?: pulumi.Input<inputs.insights.WebTestPropertiesConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.insights.WebTestPropertiesConfigurationArgs>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Is the test actively being monitored.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
-    readonly frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number>;
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
-    readonly kind?: pulumi.Input<enums.insights.WebTestKind>;
+    kind?: pulumi.Input<enums.insights.WebTestKind>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.insights.WebTestGeolocationArgs>[]>;
+    locations: pulumi.Input<pulumi.Input<inputs.insights.WebTestGeolocationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    readonly retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean>;
     /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
-    readonly syntheticMonitorId: pulumi.Input<string>;
+    syntheticMonitorId: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default value is 30.
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The kind of web test this is, valid choices are ping and multistep.
      */
-    readonly webTestKind: pulumi.Input<enums.insights.WebTestKind>;
+    webTestKind: pulumi.Input<enums.insights.WebTestKind>;
     /**
      * User defined name if this WebTest.
      */
-    readonly webTestName?: pulumi.Input<string>;
+    webTestName?: pulumi.Input<string>;
 }

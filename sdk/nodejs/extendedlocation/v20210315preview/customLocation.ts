@@ -142,45 +142,45 @@ export interface CustomLocationArgs {
     /**
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
-    readonly authentication?: pulumi.Input<inputs.extendedlocation.v20210315preview.CustomLocationPropertiesAuthenticationArgs>;
+    authentication?: pulumi.Input<inputs.extendedlocation.v20210315preview.CustomLocationPropertiesAuthenticationArgs>;
     /**
      * Contains the reference to the add-on that contains charts to deploy CRDs and operators.
      */
-    readonly clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name for the Custom Locations location.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
      */
-    readonly hostResourceId?: pulumi.Input<string>;
+    hostResourceId?: pulumi.Input<string>;
     /**
      * Type of host the Custom Locations is referencing (Kubernetes, etc...).
      */
-    readonly hostType?: pulumi.Input<string | enums.extendedlocation.v20210315preview.HostType>;
+    hostType?: pulumi.Input<string | enums.extendedlocation.v20210315preview.HostType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Kubernetes namespace that will be created on the specified cluster.
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * Provisioning State for the Custom Location.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Custom Locations name.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

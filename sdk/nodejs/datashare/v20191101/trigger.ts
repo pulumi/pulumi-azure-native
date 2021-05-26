@@ -104,21 +104,21 @@ export interface TriggerArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Kind of synchronization on trigger.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20191101.TriggerKind>;
+    kind: pulumi.Input<string | enums.datashare.v20191101.TriggerKind>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * The name of the trigger.
      */
-    readonly triggerName?: pulumi.Input<string>;
+    triggerName?: pulumi.Input<string>;
 }

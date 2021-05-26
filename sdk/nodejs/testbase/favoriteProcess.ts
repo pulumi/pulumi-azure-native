@@ -106,21 +106,21 @@ export interface FavoriteProcessArgs {
     /**
      * The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
      */
-    readonly actualProcessName: pulumi.Input<string>;
+    actualProcessName: pulumi.Input<string>;
     /**
      * The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
      */
-    readonly favoriteProcessResourceName?: pulumi.Input<string>;
+    favoriteProcessResourceName?: pulumi.Input<string>;
     /**
      * The resource name of the Test Base Package.
      */
-    readonly packageName: pulumi.Input<string>;
+    packageName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: pulumi.Input<string>;
+    testBaseAccountName: pulumi.Input<string>;
 }

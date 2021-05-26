@@ -27,15 +27,15 @@ export interface GetDataSourceArgs {
     /**
      * Name of the datasource
      */
-    readonly dataSourceName: string;
+    dataSourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

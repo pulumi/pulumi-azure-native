@@ -29,23 +29,23 @@ export interface GetResourceArgs {
     /**
      * Resource identity.
      */
-    readonly parentResourcePath: string;
+    parentResourcePath: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource identity.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * Resource identity.
      */
-    readonly resourceProviderNamespace: string;
+    resourceProviderNamespace: string;
     /**
      * Resource identity.
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 /**

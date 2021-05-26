@@ -25,7 +25,7 @@ export interface GetReportConfigArgs {
     /**
      * Report Config Name.
      */
-    readonly reportConfigName: string;
+    reportConfigName: string;
 }
 
 /**

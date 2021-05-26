@@ -112,21 +112,21 @@ export interface PrivateLinkScopeArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.v20200815preview.PublicNetworkAccessType>;
+    publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.v20200815preview.PublicNetworkAccessType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName?: pulumi.Input<string>;
+    scopeName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

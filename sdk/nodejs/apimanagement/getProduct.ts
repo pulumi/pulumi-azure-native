@@ -28,15 +28,15 @@ export interface GetProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    readonly productId: string;
+    productId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

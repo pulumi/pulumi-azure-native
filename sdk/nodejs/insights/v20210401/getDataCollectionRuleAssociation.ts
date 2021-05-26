@@ -26,11 +26,11 @@ export interface GetDataCollectionRuleAssociationArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    readonly associationName: string;
+    associationName: string;
     /**
      * The identifier of the resource.
      */
-    readonly resourceUri: string;
+    resourceUri: string;
 }
 
 /**

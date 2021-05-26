@@ -27,15 +27,15 @@ export interface GetImportCollectorArgs {
     /**
      * Unique name of a Import collector within a project.
      */
-    readonly importCollectorName: string;
+    importCollectorName: string;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetImportCollectorResult {

@@ -113,33 +113,33 @@ export interface StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs {
     /**
      * The stage site identifier.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * Name of the function app to register with the static site build.
      */
-    readonly functionAppName?: pulumi.Input<string>;
+    functionAppName?: pulumi.Input<string>;
     /**
      * The region of the function app registered with the static site
      */
-    readonly functionAppRegion?: pulumi.Input<string>;
+    functionAppRegion?: pulumi.Input<string>;
     /**
      * The resource id of the function app registered with the static site
      */
-    readonly functionAppResourceId?: pulumi.Input<string>;
+    functionAppResourceId?: pulumi.Input<string>;
     /**
      * Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
      */
-    readonly isForced?: pulumi.Input<boolean>;
+    isForced?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the static site.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

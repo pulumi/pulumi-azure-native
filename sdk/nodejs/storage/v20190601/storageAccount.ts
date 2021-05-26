@@ -268,77 +268,77 @@ export interface StorageAccountArgs {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier?: pulumi.Input<enums.storage.v20190601.AccessTier>;
+    accessTier?: pulumi.Input<enums.storage.v20190601.AccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
-    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
+    allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
      */
-    readonly allowSharedKeyAccess?: pulumi.Input<boolean>;
+    allowSharedKeyAccess?: pulumi.Input<boolean>;
     /**
      * Provides the identity based authentication settings for Azure Files.
      */
-    readonly azureFilesIdentityBasedAuthentication?: pulumi.Input<inputs.storage.v20190601.AzureFilesIdentityBasedAuthenticationArgs>;
+    azureFilesIdentityBasedAuthentication?: pulumi.Input<inputs.storage.v20190601.AzureFilesIdentityBasedAuthenticationArgs>;
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.v20190601.CustomDomainArgs>;
+    customDomain?: pulumi.Input<inputs.storage.v20190601.CustomDomainArgs>;
     /**
      * Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
      */
-    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
      */
-    readonly encryption?: pulumi.Input<inputs.storage.v20190601.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.storage.v20190601.EncryptionArgs>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.storage.v20190601.IdentityArgs>;
+    identity?: pulumi.Input<inputs.storage.v20190601.IdentityArgs>;
     /**
      * Account HierarchicalNamespace enabled if sets to true.
      */
-    readonly isHnsEnabled?: pulumi.Input<boolean>;
+    isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Required. Indicates the type of storage account.
      */
-    readonly kind: pulumi.Input<string | enums.storage.v20190601.Kind>;
+    kind: pulumi.Input<string | enums.storage.v20190601.Kind>;
     /**
      * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
      */
-    readonly largeFileSharesState?: pulumi.Input<string | enums.storage.v20190601.LargeFileSharesState>;
+    largeFileSharesState?: pulumi.Input<string | enums.storage.v20190601.LargeFileSharesState>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
-    readonly minimumTlsVersion?: pulumi.Input<string | enums.storage.v20190601.MinimumTlsVersion>;
+    minimumTlsVersion?: pulumi.Input<string | enums.storage.v20190601.MinimumTlsVersion>;
     /**
      * Network rule set
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20190601.NetworkRuleSetArgs>;
+    networkRuleSet?: pulumi.Input<inputs.storage.v20190601.NetworkRuleSetArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Maintains information about the network routing choice opted by the user for data transfer
      */
-    readonly routingPreference?: pulumi.Input<inputs.storage.v20190601.RoutingPreferenceArgs>;
+    routingPreference?: pulumi.Input<inputs.storage.v20190601.RoutingPreferenceArgs>;
     /**
      * Required. Gets or sets the SKU name.
      */
-    readonly sku: pulumi.Input<inputs.storage.v20190601.SkuArgs>;
+    sku: pulumi.Input<inputs.storage.v20190601.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

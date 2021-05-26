@@ -124,37 +124,37 @@ export interface ProfileArgs {
     /**
      * The DNS settings of the Traffic Manager profile.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.network.v20170501.DnsConfigArgs>;
+    dnsConfig?: pulumi.Input<inputs.network.v20170501.DnsConfigArgs>;
     /**
      * The list of endpoints in the Traffic Manager profile.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20170501.EndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20170501.EndpointArgs>[]>;
     /**
      * The Azure Region where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The endpoint monitoring settings of the Traffic Manager profile.
      */
-    readonly monitorConfig?: pulumi.Input<inputs.network.v20170501.MonitorConfigArgs>;
+    monitorConfig?: pulumi.Input<inputs.network.v20170501.MonitorConfigArgs>;
     /**
      * The name of the Traffic Manager profile.
      */
-    readonly profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string>;
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: pulumi.Input<string | enums.network.v20170501.ProfileStatus>;
+    profileStatus?: pulumi.Input<string | enums.network.v20170501.ProfileStatus>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string | enums.network.v20170501.TrafficRoutingMethod>;
+    trafficRoutingMethod?: pulumi.Input<string | enums.network.v20170501.TrafficRoutingMethod>;
 }

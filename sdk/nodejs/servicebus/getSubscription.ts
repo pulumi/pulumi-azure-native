@@ -29,19 +29,19 @@ export interface GetSubscriptionArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The subscription name.
      */
-    readonly subscriptionName: string;
+    subscriptionName: string;
     /**
      * The topic name.
      */
-    readonly topicName: string;
+    topicName: string;
 }
 
 /**

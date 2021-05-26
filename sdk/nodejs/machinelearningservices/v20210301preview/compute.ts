@@ -122,33 +122,33 @@ export interface ComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    readonly computeName?: pulumi.Input<string>;
+    computeName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20210301preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.v20210301preview.IdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20210301preview.AKSArgs | inputs.machinelearningservices.v20210301preview.AmlComputeArgs | inputs.machinelearningservices.v20210301preview.ComputeInstanceArgs | inputs.machinelearningservices.v20210301preview.DataFactoryArgs | inputs.machinelearningservices.v20210301preview.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20210301preview.DatabricksArgs | inputs.machinelearningservices.v20210301preview.HDInsightArgs | inputs.machinelearningservices.v20210301preview.SynapseSparkArgs | inputs.machinelearningservices.v20210301preview.VirtualMachineArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.v20210301preview.AKSArgs | inputs.machinelearningservices.v20210301preview.AmlComputeArgs | inputs.machinelearningservices.v20210301preview.ComputeInstanceArgs | inputs.machinelearningservices.v20210301preview.DataFactoryArgs | inputs.machinelearningservices.v20210301preview.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20210301preview.DatabricksArgs | inputs.machinelearningservices.v20210301preview.HDInsightArgs | inputs.machinelearningservices.v20210301preview.SynapseSparkArgs | inputs.machinelearningservices.v20210301preview.VirtualMachineArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20210301preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.v20210301preview.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

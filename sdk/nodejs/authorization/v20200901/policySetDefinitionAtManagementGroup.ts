@@ -127,37 +127,37 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy set definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The ID of the management group.
      */
-    readonly managementGroupId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterDefinitionsValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterDefinitionsValueArgs>}>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionGroupArgs>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionGroupArgs>[]>;
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionReferenceArgs>[]>;
+    policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */
-    readonly policySetDefinitionName?: pulumi.Input<string>;
+    policySetDefinitionName?: pulumi.Input<string>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    readonly policyType?: pulumi.Input<string | enums.authorization.v20200901.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.v20200901.PolicyType>;
 }

@@ -163,17 +163,17 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Authorization Rule Name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Properties of the Namespace AuthorizationRules.
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>;
+    properties: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

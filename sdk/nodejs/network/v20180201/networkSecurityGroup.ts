@@ -137,41 +137,41 @@ export interface NetworkSecurityGroupArgs {
     /**
      * The default security rules of network security group.
      */
-    readonly defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20180201.SecurityRuleArgs>[]>;
+    defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20180201.SecurityRuleArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network security group.
      */
-    readonly networkSecurityGroupName?: pulumi.Input<string>;
+    networkSecurityGroupName?: pulumi.Input<string>;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the network security group resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20180201.SecurityRuleArgs>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20180201.SecurityRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

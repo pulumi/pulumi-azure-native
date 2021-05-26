@@ -236,79 +236,79 @@ export interface JobArgs {
     /**
      * Specifies the settings for Caffe2 job.
      */
-    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20170901preview.Caffe2SettingsArgs>;
+    caffe2Settings?: pulumi.Input<inputs.batchai.v20170901preview.Caffe2SettingsArgs>;
     /**
      * Specifies the settings for Caffe job.
      */
-    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20170901preview.CaffeSettingsArgs>;
+    caffeSettings?: pulumi.Input<inputs.batchai.v20170901preview.CaffeSettingsArgs>;
     /**
      * Specifies the settings for Chainer job.
      */
-    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20170901preview.ChainerSettingsArgs>;
+    chainerSettings?: pulumi.Input<inputs.batchai.v20170901preview.ChainerSettingsArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly cluster: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
+    cluster: pulumi.Input<inputs.batchai.v20170901preview.ResourceIdArgs>;
     /**
      * Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
      */
-    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20170901preview.CNTKsettingsArgs>;
+    cntkSettings?: pulumi.Input<inputs.batchai.v20170901preview.CNTKsettingsArgs>;
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.v20170901preview.JobBasePropertiesConstraintsArgs>;
+    constraints?: pulumi.Input<inputs.batchai.v20170901preview.JobBasePropertiesConstraintsArgs>;
     /**
      * If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
      */
-    readonly containerSettings?: pulumi.Input<inputs.batchai.v20170901preview.ContainerSettingsArgs>;
+    containerSettings?: pulumi.Input<inputs.batchai.v20170901preview.ContainerSettingsArgs>;
     /**
      * Specifies the settings for a custom tool kit job.
      */
-    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20170901preview.CustomToolkitSettingsArgs>;
+    customToolkitSettings?: pulumi.Input<inputs.batchai.v20170901preview.CustomToolkitSettingsArgs>;
     /**
      * Batch AI service sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE. For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS
      */
-    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.EnvironmentSettingArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.EnvironmentSettingArgs>[]>;
     /**
      * Describe the experiment information of the job
      */
-    readonly experimentName?: pulumi.Input<string>;
-    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.InputDirectoryArgs>[]>;
+    experimentName?: pulumi.Input<string>;
+    inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.InputDirectoryArgs>[]>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * The specified actions will run on all the nodes that are part of the job
      */
-    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20170901preview.JobPreparationArgs>;
+    jobPreparation?: pulumi.Input<inputs.batchai.v20170901preview.JobPreparationArgs>;
     /**
      * The region in which to create the job.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The job will be gang scheduled on that many compute nodes
      */
-    readonly nodeCount: pulumi.Input<number>;
-    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.OutputDirectoryArgs>[]>;
+    nodeCount: pulumi.Input<number>;
+    outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20170901preview.OutputDirectoryArgs>[]>;
     /**
      * Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The path where the Batch AI service will upload stdout and stderror of the job.
      */
-    readonly stdOutErrPathPrefix: pulumi.Input<string>;
+    stdOutErrPathPrefix: pulumi.Input<string>;
     /**
      * The user specified tags associated with the job.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the settings for TensorFlow job.
      */
-    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20170901preview.TensorFlowSettingsArgs>;
+    tensorFlowSettings?: pulumi.Input<inputs.batchai.v20170901preview.TensorFlowSettingsArgs>;
 }

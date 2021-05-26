@@ -28,19 +28,19 @@ export interface ListAppServicePlanHybridConnectionKeysArgs {
     /**
      * Name of the App Service plan.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Service Bus namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the Service Bus relay.
      */
-    readonly relayName: string;
+    relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

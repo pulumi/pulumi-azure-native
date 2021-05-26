@@ -134,37 +134,37 @@ export interface ApiIssueArgs {
     /**
      * A resource identifier for the API the issue was created for.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Date and time when the issue was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * Text describing the issue.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly issueId?: pulumi.Input<string>;
+    issueId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Status of the issue.
      */
-    readonly state?: pulumi.Input<string | enums.apimanagement.v20170301.State>;
+    state?: pulumi.Input<string | enums.apimanagement.v20170301.State>;
     /**
      * The issue title.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * A resource identifier for the user created the issue.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

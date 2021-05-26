@@ -27,15 +27,15 @@ export interface GetExtensionArgs {
     /**
      * Id of extension resource.
      */
-    readonly extensionId: string;
+    extensionId: string;
     /**
      * FarmBeats resource name.
      */
-    readonly farmBeatsResourceName: string;
+    farmBeatsResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

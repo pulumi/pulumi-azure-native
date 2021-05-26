@@ -211,69 +211,69 @@ export interface SnapshotArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20201201.CreationDataArgs>;
+    creationData: pulumi.Input<inputs.compute.v20201201.CreationDataArgs>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
-    readonly diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    readonly diskSizeGB?: pulumi.Input<number>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.v20201201.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.compute.v20201201.EncryptionArgs>;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20201201.EncryptionSettingsCollectionArgs>;
+    encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20201201.EncryptionSettingsCollectionArgs>;
     /**
      * The extended location where the snapshot will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.compute.v20201201.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.compute.v20201201.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20201201.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.v20201201.HyperVGeneration>;
     /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */
-    readonly incremental?: pulumi.Input<boolean>;
+    incremental?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network.
      */
-    readonly networkAccessPolicy?: pulumi.Input<string | enums.compute.v20201201.NetworkAccessPolicy>;
+    networkAccessPolicy?: pulumi.Input<string | enums.compute.v20201201.NetworkAccessPolicy>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<enums.compute.v20201201.OperatingSystemTypes>;
+    osType?: pulumi.Input<enums.compute.v20201201.OperatingSystemTypes>;
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20201201.PurchasePlanArgs>;
+    purchasePlan?: pulumi.Input<inputs.compute.v20201201.PurchasePlanArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20201201.SnapshotSkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20201201.SnapshotSkuArgs>;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */
-    readonly supportsHibernation?: pulumi.Input<boolean>;
+    supportsHibernation?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

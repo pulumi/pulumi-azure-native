@@ -27,15 +27,15 @@ export interface ListStaticSiteBuildFunctionAppSettingsArgs {
     /**
      * Name of the static site.
      */
-    readonly name: string;
+    name: string;
     /**
      * The stage site identifier.
      */
-    readonly prId: string;
+    prId: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

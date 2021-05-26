@@ -27,15 +27,15 @@ export interface GetSystemTopicEventSubscriptionFullUrlArgs {
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
      */
-    readonly eventSubscriptionName: string;
+    eventSubscriptionName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the system topic.
      */
-    readonly systemTopicName: string;
+    systemTopicName: string;
 }
 
 /**

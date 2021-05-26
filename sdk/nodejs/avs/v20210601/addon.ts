@@ -92,17 +92,17 @@ export interface AddonArgs {
     /**
      * Name of the addon for the private cloud
      */
-    readonly addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The properties of an addon resource
      */
-    readonly properties?: pulumi.Input<inputs.avs.v20210601.AddonHcxPropertiesArgs | inputs.avs.v20210601.AddonSrmPropertiesArgs | inputs.avs.v20210601.AddonVrPropertiesArgs>;
+    properties?: pulumi.Input<inputs.avs.v20210601.AddonHcxPropertiesArgs | inputs.avs.v20210601.AddonSrmPropertiesArgs | inputs.avs.v20210601.AddonVrPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

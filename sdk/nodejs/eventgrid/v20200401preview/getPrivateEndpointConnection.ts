@@ -25,19 +25,19 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the parent resource (namely, either, the topic name or domain name).
      */
-    readonly parentName: string;
+    parentName: string;
     /**
      * The type of the parent resource. This can be either \'topics\' or \'domains\'.
      */
-    readonly parentType: string;
+    parentType: string;
     /**
      * The name of the private endpoint connection connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetPrivateEndpointConnectionResult {

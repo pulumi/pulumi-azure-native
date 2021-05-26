@@ -27,11 +27,11 @@ export interface GetClusterGatewaySettingsArgs {
     /**
      * The name of the cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -158,45 +158,45 @@ export interface AssignmentArgs {
     /**
      * Name of the blueprint assignment.
      */
-    readonly assignmentName?: pulumi.Input<string>;
+    assignmentName?: pulumi.Input<string>;
     /**
      * ID of the published version of a blueprint definition.
      */
-    readonly blueprintId?: pulumi.Input<string>;
+    blueprintId?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Managed identity for this blueprint assignment.
      */
-    readonly identity: pulumi.Input<inputs.blueprint.ManagedServiceIdentityArgs>;
+    identity: pulumi.Input<inputs.blueprint.ManagedServiceIdentityArgs>;
     /**
      * The location of this blueprint assignment.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */
-    readonly locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettingsArgs>;
+    locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettingsArgs>;
     /**
      * Blueprint assignment parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValueArgs>}>;
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ParameterValueArgs>}>;
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ResourceGroupValueArgs>}>;
+    resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.ResourceGroupValueArgs>}>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: pulumi.Input<string>;
+    resourceScope: pulumi.Input<string>;
     /**
      * The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
 }

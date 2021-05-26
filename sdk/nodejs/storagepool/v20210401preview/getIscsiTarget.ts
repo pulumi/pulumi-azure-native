@@ -27,15 +27,15 @@ export interface GetIscsiTargetArgs {
     /**
      * The name of the Disk Pool.
      */
-    readonly diskPoolName: string;
+    diskPoolName: string;
     /**
      * The name of the iSCSI Target.
      */
-    readonly iscsiTargetName: string;
+    iscsiTargetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetManagementGroupArgs {
     /**
      * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Management Group ID.
      */
-    readonly groupId: string;
+    groupId: string;
     /**
      * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload.
      */
-    readonly recurse?: boolean;
+    recurse?: boolean;
 }
 
 /**

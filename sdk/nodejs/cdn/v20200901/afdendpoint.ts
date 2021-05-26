@@ -131,29 +131,29 @@ export interface AFDEndpointArgs {
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
+    enabledState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */
-    readonly originResponseTimeoutSeconds?: pulumi.Input<number>;
+    originResponseTimeoutSeconds?: pulumi.Input<number>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

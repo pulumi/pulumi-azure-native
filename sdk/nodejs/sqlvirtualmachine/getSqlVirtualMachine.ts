@@ -28,15 +28,15 @@ export interface GetSqlVirtualMachineArgs {
     /**
      * The child resources to include in the response.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the SQL virtual machine.
      */
-    readonly sqlVirtualMachineName: string;
+    sqlVirtualMachineName: string;
 }
 
 /**

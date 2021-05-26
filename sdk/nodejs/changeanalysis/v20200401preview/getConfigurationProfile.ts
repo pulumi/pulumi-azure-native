@@ -25,7 +25,7 @@ export interface GetConfigurationProfileArgs {
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
-    readonly profileName: string;
+    profileName: string;
 }
 
 /**

@@ -29,23 +29,23 @@ export interface GetIscsiDiskArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The disk name.
      */
-    readonly diskName: string;
+    diskName: string;
     /**
      * The iSCSI server name.
      */
-    readonly iscsiServerName: string;
+    iscsiServerName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

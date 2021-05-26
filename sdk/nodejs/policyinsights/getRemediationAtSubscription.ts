@@ -26,7 +26,7 @@ export interface GetRemediationAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
 }
 
 /**

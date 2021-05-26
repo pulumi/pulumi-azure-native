@@ -135,33 +135,33 @@ export interface OriginGroupArgs {
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    readonly endpointName: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParametersArgs>;
+    healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParametersArgs>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName?: pulumi.Input<string>;
+    originGroupName?: pulumi.Input<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.ResourceReferenceArgs>[]>;
+    origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200901.ResourceReferenceArgs>[]>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs>;
+    responseBasedOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
-    readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
+    trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
 }

@@ -112,25 +112,25 @@ export interface MachineArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.hybridcompute.v20210422preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridcompute.v20210422preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */
-    readonly machineName?: pulumi.Input<string>;
+    machineName?: pulumi.Input<string>;
     /**
      * Hybrid Compute Machine properties
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210422preview.MachinePropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcompute.v20210422preview.MachinePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

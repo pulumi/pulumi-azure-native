@@ -27,11 +27,11 @@ export interface GetContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    readonly containerGroupName: string;
+    containerGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

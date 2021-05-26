@@ -198,53 +198,53 @@ export interface RunbookArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the description of the runbook.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the draft runbook properties.
      */
-    readonly draft?: pulumi.Input<inputs.automation.RunbookDraftArgs>;
+    draft?: pulumi.Input<inputs.automation.RunbookDraftArgs>;
     /**
      * Gets or sets the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the activity-level tracing options of the runbook.
      */
-    readonly logActivityTrace?: pulumi.Input<number>;
+    logActivityTrace?: pulumi.Input<number>;
     /**
      * Gets or sets progress log option.
      */
-    readonly logProgress?: pulumi.Input<boolean>;
+    logProgress?: pulumi.Input<boolean>;
     /**
      * Gets or sets verbose log option.
      */
-    readonly logVerbose?: pulumi.Input<boolean>;
+    logVerbose?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the published runbook content link.
      */
-    readonly publishContentLink?: pulumi.Input<inputs.automation.ContentLinkArgs>;
+    publishContentLink?: pulumi.Input<inputs.automation.ContentLinkArgs>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The runbook name.
      */
-    readonly runbookName?: pulumi.Input<string>;
+    runbookName?: pulumi.Input<string>;
     /**
      * Gets or sets the type of the runbook.
      */
-    readonly runbookType: pulumi.Input<string | enums.automation.RunbookTypeEnum>;
+    runbookType: pulumi.Input<string | enums.automation.RunbookTypeEnum>;
     /**
      * Gets or sets the tags attached to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

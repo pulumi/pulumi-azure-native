@@ -105,17 +105,17 @@ export interface StorageSyncServiceArgs {
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName?: pulumi.Input<string>;
+    storageSyncServiceName?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: any;
+    tags?: any;
 }

@@ -118,29 +118,29 @@ export interface VaultArgs {
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.recoveryservices.v20160601.IdentityDataArgs>;
+    identity?: pulumi.Input<inputs.recoveryservices.v20160601.IdentityDataArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
-    readonly sku?: pulumi.Input<inputs.recoveryservices.v20160601.SkuArgs>;
+    sku?: pulumi.Input<inputs.recoveryservices.v20160601.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string>;
 }

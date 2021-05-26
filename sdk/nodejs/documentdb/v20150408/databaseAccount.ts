@@ -197,65 +197,65 @@ export interface DatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.CapabilityArgs>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.CapabilityArgs>[]>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    readonly connectorOffer?: pulumi.Input<string | enums.documentdb.v20150408.ConnectorOffer>;
+    connectorOffer?: pulumi.Input<string | enums.documentdb.v20150408.ConnectorOffer>;
     /**
      * The consistency policy for the Cosmos DB account.
      */
-    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20150408.ConsistencyPolicyArgs>;
+    consistencyPolicy?: pulumi.Input<inputs.documentdb.v20150408.ConsistencyPolicyArgs>;
     /**
      * The offer type for the database
      */
-    readonly databaseAccountOfferType: pulumi.Input<enums.documentdb.v20150408.DatabaseAccountOfferType>;
+    databaseAccountOfferType: pulumi.Input<enums.documentdb.v20150408.DatabaseAccountOfferType>;
     /**
      * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
      */
-    readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
-    readonly enableCassandraConnector?: pulumi.Input<boolean>;
+    enableCassandraConnector?: pulumi.Input<boolean>;
     /**
      * Enables the account to write in multiple locations
      */
-    readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
+    enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
      * Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
-    readonly ipRangeFilter?: pulumi.Input<string>;
+    ipRangeFilter?: pulumi.Input<string>;
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
-    readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
+    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string | enums.documentdb.v20150408.DatabaseAccountKind>;
+    kind?: pulumi.Input<string | enums.documentdb.v20150408.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.LocationArgs>[]>;
+    locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.LocationArgs>[]>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.VirtualNetworkRuleArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20150408.VirtualNetworkRuleArgs>[]>;
 }

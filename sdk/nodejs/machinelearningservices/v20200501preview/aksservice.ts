@@ -139,106 +139,106 @@ export interface AKSServiceArgs {
     /**
      * Whether or not AAD authentication is enabled.
      */
-    readonly aadAuthEnabled?: pulumi.Input<boolean>;
+    aadAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not Application Insights is enabled.
      */
-    readonly appInsightsEnabled?: pulumi.Input<boolean>;
+    appInsightsEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not authentication is enabled.
      */
-    readonly authEnabled?: pulumi.Input<boolean>;
+    authEnabled?: pulumi.Input<boolean>;
     /**
      * The auto scaler properties.
      */
-    readonly autoScaler?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestAutoScalerArgs>;
+    autoScaler?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestAutoScalerArgs>;
     /**
      * The name of the compute resource.
      */
-    readonly computeName?: pulumi.Input<string>;
+    computeName?: pulumi.Input<string>;
     /**
      * The compute environment type for the service.
      * Expected value is 'AKS'.
      */
-    readonly computeType: pulumi.Input<"AKS">;
+    computeType: pulumi.Input<"AKS">;
     /**
      * The container resource requirements.
      */
-    readonly containerResourceRequirements?: pulumi.Input<inputs.machinelearningservices.v20200501preview.ContainerResourceRequirementsArgs>;
+    containerResourceRequirements?: pulumi.Input<inputs.machinelearningservices.v20200501preview.ContainerResourceRequirementsArgs>;
     /**
      * Details of the data collection options specified.
      */
-    readonly dataCollection?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestDataCollectionArgs>;
+    dataCollection?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestDataCollectionArgs>;
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Environment, models and assets needed for inferencing.
      */
-    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20200501preview.CreateServiceRequestEnvironmentImageRequestArgs>;
+    environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20200501preview.CreateServiceRequestEnvironmentImageRequestArgs>;
     /**
      * Is this the default variant.
      */
-    readonly isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
     /**
      * The authentication keys.
      */
-    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20200501preview.CreateServiceRequestKeysArgs>;
+    keys?: pulumi.Input<inputs.machinelearningservices.v20200501preview.CreateServiceRequestKeysArgs>;
     /**
      * The service tag dictionary. Tags are mutable.
      */
-    readonly kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The liveness probe requirements.
      */
-    readonly livenessProbeRequirements?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestLivenessProbeRequirementsArgs>;
+    livenessProbeRequirements?: pulumi.Input<inputs.machinelearningservices.v20200501preview.AKSServiceCreateRequestLivenessProbeRequirementsArgs>;
     /**
      * The name of the Azure location/region.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum number of concurrent requests per container.
      */
-    readonly maxConcurrentRequestsPerContainer?: pulumi.Input<number>;
+    maxConcurrentRequestsPerContainer?: pulumi.Input<number>;
     /**
      * Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
      */
-    readonly maxQueueWaitMs?: pulumi.Input<number>;
+    maxQueueWaitMs?: pulumi.Input<number>;
     /**
      * Kubernetes namespace for the service.
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * The number of replicas on the cluster.
      */
-    readonly numReplicas?: pulumi.Input<number>;
+    numReplicas?: pulumi.Input<number>;
     /**
      * The service properties dictionary. Properties are immutable.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The scoring timeout in milliseconds.
      */
-    readonly scoringTimeoutMs?: pulumi.Input<number>;
+    scoringTimeoutMs?: pulumi.Input<number>;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The amount of traffic variant receives.
      */
-    readonly trafficPercentile?: pulumi.Input<number>;
+    trafficPercentile?: pulumi.Input<number>;
     /**
      * The type of the variant.
      */
-    readonly type?: pulumi.Input<string | enums.machinelearningservices.v20200501preview.VariantType>;
+    type?: pulumi.Input<string | enums.machinelearningservices.v20200501preview.VariantType>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

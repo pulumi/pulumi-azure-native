@@ -96,17 +96,17 @@ export interface LinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    readonly dataSourceType?: pulumi.Input<string>;
+    dataSourceType?: pulumi.Input<string>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Linked storage accounts resources ids.
      */
-    readonly storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Log Analytics Workspace that will contain the resource.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

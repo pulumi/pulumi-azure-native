@@ -28,19 +28,19 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs {
     /**
      * The name of the P2SVpnGateway.
      */
-    readonly gatewayName: string;
+    gatewayName: string;
     /**
      * The sas-url to download the P2S Vpn connection health detail.
      */
-    readonly outputBlobSasUrl?: string;
+    outputBlobSasUrl?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
      */
-    readonly vpnUserNamesFilter?: string[];
+    vpnUserNamesFilter?: string[];
 }
 
 /**

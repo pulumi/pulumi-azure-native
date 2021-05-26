@@ -107,21 +107,21 @@ export interface AccessControlRecordArgs {
     /**
      * The name of the access control record.
      */
-    readonly accessControlRecordName?: pulumi.Input<string>;
+    accessControlRecordName?: pulumi.Input<string>;
     /**
      * The iSCSI initiator name (IQN).
      */
-    readonly initiatorName: pulumi.Input<string>;
+    initiatorName: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
+    kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

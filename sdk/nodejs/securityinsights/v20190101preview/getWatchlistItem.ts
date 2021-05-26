@@ -29,23 +29,23 @@ export interface GetWatchlistItemArgs {
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: string;
+    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Watchlist Alias
      */
-    readonly watchlistAlias: string;
+    watchlistAlias: string;
     /**
      * Watchlist Item Id (GUID)
      */
-    readonly watchlistItemId: string;
+    watchlistItemId: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

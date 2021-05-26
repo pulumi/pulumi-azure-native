@@ -26,11 +26,11 @@ export interface ListRemediationDeploymentsAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
     /**
      * Maximum number of records to return.
      */
-    readonly top?: number;
+    top?: number;
 }
 
 /**

@@ -137,33 +137,33 @@ export interface VirtualNetworkTapArgs {
     /**
      * The reference to the private IP address on the internal Load Balancer that will receive the tap.
      */
-    readonly destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.v20191201.FrontendIPConfigurationArgs>;
+    destinationLoadBalancerFrontEndIPConfiguration?: pulumi.Input<inputs.network.v20191201.FrontendIPConfigurationArgs>;
     /**
      * The reference to the private IP Address of the collector nic that will receive the tap.
      */
-    readonly destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.v20191201.NetworkInterfaceIPConfigurationArgs>;
+    destinationNetworkInterfaceIPConfiguration?: pulumi.Input<inputs.network.v20191201.NetworkInterfaceIPConfigurationArgs>;
     /**
      * The VXLAN destination port that will receive the tapped traffic.
      */
-    readonly destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual network tap.
      */
-    readonly tapName?: pulumi.Input<string>;
+    tapName?: pulumi.Input<string>;
 }

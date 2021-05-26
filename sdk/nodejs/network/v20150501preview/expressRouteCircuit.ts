@@ -157,57 +157,57 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets list of authorizations
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitAuthorizationArgs>[]>;
     /**
      * The name of the circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    circuitName: pulumi.Input<string>;
     /**
      * Gets or sets CircuitProvisioningState state of the resource 
      */
-    readonly circuitProvisioningState?: pulumi.Input<string>;
+    circuitProvisioningState?: pulumi.Input<string>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets list of peerings
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitPeeringArgs>[]>;
+    peerings?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets ServiceKey
      */
-    readonly serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string>;
     /**
      * Gets or sets ServiceProviderNotes
      */
-    readonly serviceProviderNotes?: pulumi.Input<string>;
+    serviceProviderNotes?: pulumi.Input<string>;
     /**
      * Gets or sets ServiceProviderProperties
      */
-    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitServiceProviderPropertiesArgs>;
+    serviceProviderProperties?: pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitServiceProviderPropertiesArgs>;
     /**
      * Gets or sets ServiceProviderProvisioningState state of the resource 
      */
-    readonly serviceProviderProvisioningState?: pulumi.Input<string | enums.network.v20150501preview.ServiceProviderProvisioningState>;
+    serviceProviderProvisioningState?: pulumi.Input<string | enums.network.v20150501preview.ServiceProviderProvisioningState>;
     /**
      * Gets or sets sku
      */
-    readonly sku?: pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitSkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20150501preview.ExpressRouteCircuitSkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

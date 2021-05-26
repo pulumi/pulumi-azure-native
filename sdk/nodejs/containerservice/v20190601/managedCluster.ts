@@ -196,73 +196,73 @@ export interface ManagedClusterArgs {
     /**
      * Profile of Azure Active Directory configuration.
      */
-    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAADProfileArgs>;
+    aadProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAADProfileArgs>;
     /**
      * Profile of managed cluster add-on.
      */
-    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAddonProfileArgs>}>;
+    addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAddonProfileArgs>}>;
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAgentPoolProfileArgs>[]>;
+    agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20190601.ManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * (PREVIEW) Authorized IP Ranges to kubernetes API server.
      */
-    readonly apiServerAuthorizedIPRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    apiServerAuthorizedIPRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
-    readonly dnsPrefix?: pulumi.Input<string>;
+    dnsPrefix?: pulumi.Input<string>;
     /**
      * (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
      */
-    readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
+    enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * Whether to enable Kubernetes Role-Based Access Control.
      */
-    readonly enableRBAC?: pulumi.Input<boolean>;
+    enableRBAC?: pulumi.Input<boolean>;
     /**
      * The identity of the managed cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterIdentityArgs>;
+    identity?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterIdentityArgs>;
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */
-    readonly kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string>;
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20190601.ContainerServiceLinuxProfileArgs>;
+    linuxProfile?: pulumi.Input<inputs.containerservice.v20190601.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Profile of network configuration.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20190601.ContainerServiceNetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.containerservice.v20190601.ContainerServiceNetworkProfileArgs>;
     /**
      * Name of the resource group containing agent pool nodes.
      */
-    readonly nodeResourceGroup?: pulumi.Input<string>;
+    nodeResourceGroup?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterServicePrincipalProfileArgs>;
+    servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterServicePrincipalProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Profile for Windows VMs in the container service cluster.
      */
-    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterWindowsProfileArgs>;
+    windowsProfile?: pulumi.Input<inputs.containerservice.v20190601.ManagedClusterWindowsProfileArgs>;
 }

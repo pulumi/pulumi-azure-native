@@ -220,53 +220,53 @@ export interface CertificateArgs {
     /**
      * CNAME of the certificate to be issued via free certificate
      */
-    readonly canonicalName?: pulumi.Input<string>;
+    canonicalName?: pulumi.Input<string>;
     /**
      * Method of domain validation for free cert
      */
-    readonly domainValidationMethod?: pulumi.Input<string>;
+    domainValidationMethod?: pulumi.Input<string>;
     /**
      * Host names the certificate applies to.
      */
-    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key Vault Csm resource Id.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Key Vault secret name.
      */
-    readonly keyVaultSecretName?: pulumi.Input<string>;
+    keyVaultSecretName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the certificate.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Certificate password.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Pfx blob.
      */
-    readonly pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
      */
-    readonly serverFarmId?: pulumi.Input<string>;
+    serverFarmId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -142,33 +142,33 @@ export interface NamespaceArgs {
     /**
      * Indicates whether to create an ACS namespace.
      */
-    readonly createACSNamespace?: pulumi.Input<boolean>;
+    createACSNamespace?: pulumi.Input<boolean>;
     /**
      * Specifies whether this instance is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Namespace location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU of the namespace.
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20140901.SkuArgs>;
+    sku?: pulumi.Input<inputs.servicebus.v20140901.SkuArgs>;
     /**
      * State of the namespace.
      */
-    readonly status?: pulumi.Input<enums.servicebus.v20140901.NamespaceState>;
+    status?: pulumi.Input<enums.servicebus.v20140901.NamespaceState>;
     /**
      * Namespace tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

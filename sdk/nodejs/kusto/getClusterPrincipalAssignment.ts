@@ -28,15 +28,15 @@ export interface GetClusterPrincipalAssignmentArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly principalAssignmentName: string;
+    principalAssignmentName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

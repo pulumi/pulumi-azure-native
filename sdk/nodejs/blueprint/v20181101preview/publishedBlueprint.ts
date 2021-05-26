@@ -133,37 +133,37 @@ export interface PublishedBlueprintArgs {
     /**
      * Name of the published blueprint definition.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Version-specific change notes.
      */
-    readonly changeNotes?: pulumi.Input<string>;
+    changeNotes?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Parameters required by this blueprint definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ParameterDefinitionArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ParameterDefinitionArgs>}>;
     /**
      * Resource group placeholders defined by this blueprint definition.
      */
-    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ResourceGroupDefinitionArgs>}>;
+    resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ResourceGroupDefinitionArgs>}>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: pulumi.Input<string>;
+    resourceScope: pulumi.Input<string>;
     /**
      * The scope where this blueprint definition can be assigned.
      */
-    readonly targetScope?: pulumi.Input<string | enums.blueprint.v20181101preview.BlueprintTargetScope>;
+    targetScope?: pulumi.Input<string | enums.blueprint.v20181101preview.BlueprintTargetScope>;
     /**
      * Version of the published blueprint definition.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface ListWorkspaceCollectionAccessKeysArgs {
     /**
      * Azure resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Power BI Embedded Workspace Collection name
      */
-    readonly workspaceCollectionName: string;
+    workspaceCollectionName: string;
 }
 
 export interface ListWorkspaceCollectionAccessKeysResult {

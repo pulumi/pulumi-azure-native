@@ -27,15 +27,15 @@ export interface GetWorkloadNetworkDnsServiceArgs {
     /**
      * NSX DNS Service identifier. Generally the same as the DNS Service's display name
      */
-    readonly dnsServiceId: string;
+    dnsServiceId: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

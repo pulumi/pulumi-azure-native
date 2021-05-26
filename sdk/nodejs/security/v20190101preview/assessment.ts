@@ -118,21 +118,21 @@ export interface AssessmentArgs {
     /**
      * Additional data regarding the assessment
      */
-    readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseSqlResourceDetailsArgs>;
+    resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseSqlResourceDetailsArgs>;
     /**
      * The identifier of the resource.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * The result of the assessment
      */
-    readonly status: pulumi.Input<inputs.security.v20190101preview.AssessmentStatusArgs>;
+    status: pulumi.Input<inputs.security.v20190101preview.AssessmentStatusArgs>;
 }

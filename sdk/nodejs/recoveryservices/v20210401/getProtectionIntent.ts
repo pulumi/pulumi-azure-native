@@ -28,19 +28,19 @@ export interface GetProtectionIntentArgs {
     /**
      * Fabric name associated with the backed up item.
      */
-    readonly fabricName: string;
+    fabricName: string;
     /**
      * Backed up item name whose details are to be fetched.
      */
-    readonly intentObjectName: string;
+    intentObjectName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

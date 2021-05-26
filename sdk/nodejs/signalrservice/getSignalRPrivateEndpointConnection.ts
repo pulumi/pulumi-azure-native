@@ -28,15 +28,15 @@ export interface GetSignalRPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the SignalR resource.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the SignalR resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

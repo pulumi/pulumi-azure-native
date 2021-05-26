@@ -28,15 +28,15 @@ export interface GetPrivateAtlaseArgs {
     /**
      * The name of the Maps Account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Private Atlas instance.
      */
-    readonly privateAtlasName: string;
+    privateAtlasName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetReportByDepartmentArgs {
     /**
      * Department ID
      */
-    readonly departmentId: string;
+    departmentId: string;
     /**
      * Report Name.
      */
-    readonly reportName: string;
+    reportName: string;
 }
 
 /**

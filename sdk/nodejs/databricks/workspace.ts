@@ -170,37 +170,37 @@ export interface WorkspaceArgs {
     /**
      * The workspace provider authorizations.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceProviderAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.WorkspaceProviderAuthorizationArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The managed resource group Id.
      */
-    readonly managedResourceGroupId: pulumi.Input<string>;
+    managedResourceGroupId: pulumi.Input<string>;
     /**
      * The workspace's custom parameters.
      */
-    readonly parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParametersArgs>;
+    parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParametersArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.databricks.SkuArgs>;
+    sku?: pulumi.Input<inputs.databricks.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The blob URI where the UI definition file is located.
      */
-    readonly uiDefinitionUri?: pulumi.Input<string>;
+    uiDefinitionUri?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

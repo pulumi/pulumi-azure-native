@@ -154,33 +154,33 @@ export interface ApplicationArgs {
     /**
      * The identity of the application.
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * Internal use.
      */
-    readonly debugParams?: pulumi.Input<string>;
+    debugParams?: pulumi.Input<string>;
     /**
      * User readable description of the application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    readonly diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionArgs>;
+    diagnostics?: pulumi.Input<inputs.servicefabricmesh.v20180701preview.DiagnosticsDescriptionArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * describes the services in the application.
      */
-    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionArgs>[]>;
+    services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.v20180701preview.ServiceResourceDescriptionArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

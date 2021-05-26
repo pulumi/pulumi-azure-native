@@ -161,49 +161,49 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule actions.
      */
-    readonly actionGroups: pulumi.Input<inputs.alertsmanagement.ActionGroupsInformationArgs>;
+    actionGroups: pulumi.Input<inputs.alertsmanagement.ActionGroupsInformationArgs>;
     /**
      * The name of the alert rule.
      */
-    readonly alertRuleName?: pulumi.Input<string>;
+    alertRuleName?: pulumi.Input<string>;
     /**
      * The alert rule description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The alert rule's detector.
      */
-    readonly detector: pulumi.Input<inputs.alertsmanagement.DetectorArgs>;
+    detector: pulumi.Input<inputs.alertsmanagement.DetectorArgs>;
     /**
      * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
-    readonly frequency: pulumi.Input<string>;
+    frequency: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The alert rule resources scope.
      */
-    readonly scope: pulumi.Input<pulumi.Input<string>[]>;
+    scope: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert rule severity.
      */
-    readonly severity: pulumi.Input<string | enums.alertsmanagement.Severity>;
+    severity: pulumi.Input<string | enums.alertsmanagement.Severity>;
     /**
      * The alert rule state.
      */
-    readonly state: pulumi.Input<string | enums.alertsmanagement.AlertRuleState>;
+    state: pulumi.Input<string | enums.alertsmanagement.AlertRuleState>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The alert rule throttling information.
      */
-    readonly throttling?: pulumi.Input<inputs.alertsmanagement.ThrottlingInformationArgs>;
+    throttling?: pulumi.Input<inputs.alertsmanagement.ThrottlingInformationArgs>;
 }

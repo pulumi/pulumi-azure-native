@@ -26,11 +26,11 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment to get.
      */
-    readonly roleAssignmentName: string;
+    roleAssignmentName: string;
     /**
      * The scope of the role assignment.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

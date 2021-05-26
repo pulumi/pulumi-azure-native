@@ -122,29 +122,29 @@ export interface ConnectionArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The parameters supplied to the create or update connection operation.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Gets or sets the connectionType of the connection.
      */
-    readonly connectionType: pulumi.Input<inputs.automation.v20200113preview.ConnectionTypeAssociationPropertyArgs>;
+    connectionType: pulumi.Input<inputs.automation.v20200113preview.ConnectionTypeAssociationPropertyArgs>;
     /**
      * Gets or sets the description of the connection.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the field definition properties of the connection.
      */
-    readonly fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets the name of the connection.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

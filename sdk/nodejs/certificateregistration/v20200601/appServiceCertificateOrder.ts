@@ -217,49 +217,49 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
      */
-    readonly autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean>;
     /**
      * Name of the certificate order.
      */
-    readonly certificateOrderName?: pulumi.Input<string>;
+    certificateOrderName?: pulumi.Input<string>;
     /**
      * State of the Key Vault secret.
      */
-    readonly certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20200601.AppServiceCertificateArgs>}>;
+    certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20200601.AppServiceCertificateArgs>}>;
     /**
      * Last CSR that was created for this order.
      */
-    readonly csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string>;
     /**
      * Certificate distinguished name.
      */
-    readonly distinguishedName?: pulumi.Input<string>;
+    distinguishedName?: pulumi.Input<string>;
     /**
      * Certificate key size.
      */
-    readonly keySize?: pulumi.Input<number>;
+    keySize?: pulumi.Input<number>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Certificate product type.
      */
-    readonly productType: pulumi.Input<enums.certificateregistration.v20200601.CertificateProductType>;
+    productType: pulumi.Input<enums.certificateregistration.v20200601.CertificateProductType>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Duration in years (must be between 1 and 3).
      */
-    readonly validityInYears?: pulumi.Input<number>;
+    validityInYears?: pulumi.Input<number>;
 }

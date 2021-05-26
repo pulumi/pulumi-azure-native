@@ -28,15 +28,15 @@ export interface GetConnectorArgs {
     /**
      * The name of the connector.
      */
-    readonly connectorName: string;
+    connectorName: string;
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetMediaGraphArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The Media Graph name.
      */
-    readonly mediaGraphName: string;
+    mediaGraphName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

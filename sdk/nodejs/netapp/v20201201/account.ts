@@ -118,25 +118,25 @@ export interface AccountArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Active Directories
      */
-    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20201201.ActiveDirectoryArgs>[]>;
+    activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20201201.ActiveDirectoryArgs>[]>;
     /**
      * Encryption settings
      */
-    readonly encryption?: pulumi.Input<inputs.netapp.v20201201.AccountEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.netapp.v20201201.AccountEncryptionArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

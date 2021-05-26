@@ -184,37 +184,37 @@ export interface ConnectedClusterArgs {
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
      */
-    readonly agentPublicKeyCertificate: pulumi.Input<string>;
+    agentPublicKeyCertificate: pulumi.Input<string>;
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The Kubernetes distribution running on this connected cluster.
      */
-    readonly distribution?: pulumi.Input<string>;
+    distribution?: pulumi.Input<string>;
     /**
      * The identity of the connected cluster.
      */
-    readonly identity: pulumi.Input<inputs.kubernetes.v20210301.ConnectedClusterIdentityArgs>;
+    identity: pulumi.Input<inputs.kubernetes.v20210301.ConnectedClusterIdentityArgs>;
     /**
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */
-    readonly infrastructure?: pulumi.Input<string>;
+    infrastructure?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Provisioning state of the connected cluster resource.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.kubernetes.v20210301.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.kubernetes.v20210301.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

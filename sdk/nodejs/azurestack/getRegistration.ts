@@ -27,11 +27,11 @@ export interface GetRegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName: string;
+    registrationName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

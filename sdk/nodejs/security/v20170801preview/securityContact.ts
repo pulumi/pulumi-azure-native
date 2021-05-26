@@ -111,21 +111,21 @@ export interface SecurityContactArgs {
     /**
      * Whether to send security alerts notifications to the security contact
      */
-    readonly alertNotifications: pulumi.Input<string | enums.security.v20170801preview.AlertNotifications>;
+    alertNotifications: pulumi.Input<string | enums.security.v20170801preview.AlertNotifications>;
     /**
      * Whether to send security alerts notifications to subscription admins
      */
-    readonly alertsToAdmins: pulumi.Input<string | enums.security.v20170801preview.AlertsToAdmins>;
+    alertsToAdmins: pulumi.Input<string | enums.security.v20170801preview.AlertsToAdmins>;
     /**
      * The email of this security contact
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * The phone number of this security contact
      */
-    readonly phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string>;
     /**
      * Name of the security contact object
      */
-    readonly securityContactName?: pulumi.Input<string>;
+    securityContactName?: pulumi.Input<string>;
 }

@@ -110,25 +110,25 @@ export interface DataConnectionArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the data connection.
      */
-    readonly dataConnectionName?: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Kind of the endpoint for the data connection
      */
-    readonly kind: pulumi.Input<string | enums.kusto.v20190515.Kind>;
+    kind: pulumi.Input<string | enums.kusto.v20190515.Kind>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetDedicatedHostGroupArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName: string;
+    hostGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

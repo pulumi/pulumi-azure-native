@@ -106,25 +106,25 @@ export interface ServiceArgs {
     /**
      * The GEO location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the Service resource
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.v20200701.ClusterResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.v20200701.ClusterResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Sku of the Service resource
      */
-    readonly sku?: pulumi.Input<inputs.appplatform.v20200701.SkuArgs>;
+    sku?: pulumi.Input<inputs.appplatform.v20200701.SkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

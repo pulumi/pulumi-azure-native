@@ -28,15 +28,15 @@ export interface GetGuestConfigurationHCRPAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    readonly guestConfigurationAssignmentName: string;
+    guestConfigurationAssignmentName: string;
     /**
      * The name of the ARC machine.
      */
-    readonly machineName: string;
+    machineName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetIotDpsResourceArgs {
     /**
      * Name of the provisioning service to retrieve.
      */
-    readonly provisioningServiceName: string;
+    provisioningServiceName: string;
     /**
      * Resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

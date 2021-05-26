@@ -28,15 +28,15 @@ export interface GetEventHubEventSourceArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    readonly eventSourceName: string;
+    eventSourceName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

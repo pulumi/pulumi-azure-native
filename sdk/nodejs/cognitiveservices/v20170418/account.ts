@@ -124,33 +124,33 @@ export interface AccountArgs {
     /**
      * The name of Cognitive Services account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The identity of Cognitive Services account.
      */
-    readonly identity?: pulumi.Input<inputs.cognitiveservices.v20170418.IdentityArgs>;
+    identity?: pulumi.Input<inputs.cognitiveservices.v20170418.IdentityArgs>;
     /**
      * The Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account.
      */
-    readonly properties?: pulumi.Input<inputs.cognitiveservices.v20170418.CognitiveServicesAccountPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.v20170418.CognitiveServicesAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of Cognitive Services account.
      */
-    readonly sku?: pulumi.Input<inputs.cognitiveservices.v20170418.SkuArgs>;
+    sku?: pulumi.Input<inputs.cognitiveservices.v20170418.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

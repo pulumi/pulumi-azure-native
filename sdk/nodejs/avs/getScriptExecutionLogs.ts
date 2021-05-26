@@ -28,15 +28,15 @@ export interface GetScriptExecutionLogsArgs {
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the user-invoked script execution resource
      */
-    readonly scriptExecutionName: string;
+    scriptExecutionName: string;
 }
 
 /**

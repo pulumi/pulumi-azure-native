@@ -29,23 +29,23 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlArgs {
     /**
      * The integration account agreement name.
      */
-    readonly agreementName: string;
+    agreementName: string;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The key type.
      */
-    readonly keyType?: string | enums.logic.v20180701preview.KeyType;
+    keyType?: string | enums.logic.v20180701preview.KeyType;
     /**
      * The expiry time.
      */
-    readonly notAfter?: string;
+    notAfter?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

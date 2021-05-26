@@ -112,29 +112,29 @@ export interface IntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string>;
     /**
      * The integration service environment.
      */
-    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentArgs>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironmentArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20190501.IntegrationAccountSkuArgs>;
+    sku?: pulumi.Input<inputs.logic.v20190501.IntegrationAccountSkuArgs>;
     /**
      * The workflow state.
      */
-    readonly state?: pulumi.Input<string | enums.logic.v20190501.WorkflowState>;
+    state?: pulumi.Input<string | enums.logic.v20190501.WorkflowState>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

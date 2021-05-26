@@ -124,25 +124,25 @@ export interface FactoryArgs {
     /**
      * The factory name.
      */
-    readonly factoryName?: pulumi.Input<string>;
+    factoryName?: pulumi.Input<string>;
     /**
      * Managed service identity of the factory.
      */
-    readonly identity?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryIdentityArgs>;
+    identity?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryIdentityArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VSTS repo information of the factory.
      */
-    readonly vstsConfiguration?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryVSTSConfigurationArgs>;
+    vstsConfiguration?: pulumi.Input<inputs.datafactory.v20170901preview.FactoryVSTSConfigurationArgs>;
 }

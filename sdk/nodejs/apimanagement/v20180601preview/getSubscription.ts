@@ -27,15 +27,15 @@ export interface GetSubscriptionArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    readonly sid: string;
+    sid: string;
 }
 
 /**

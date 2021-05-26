@@ -110,29 +110,29 @@ export interface MachineLearningComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    readonly computeName?: pulumi.Input<string>;
+    computeName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20190501.IdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.v20190501.IdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20190501.AKSArgs | inputs.machinelearningservices.v20190501.AmlComputeArgs | inputs.machinelearningservices.v20190501.DataFactoryArgs | inputs.machinelearningservices.v20190501.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20190501.DatabricksArgs | inputs.machinelearningservices.v20190501.HDInsightArgs | inputs.machinelearningservices.v20190501.VirtualMachineArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.v20190501.AKSArgs | inputs.machinelearningservices.v20190501.AmlComputeArgs | inputs.machinelearningservices.v20190501.DataFactoryArgs | inputs.machinelearningservices.v20190501.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20190501.DatabricksArgs | inputs.machinelearningservices.v20190501.HDInsightArgs | inputs.machinelearningservices.v20190501.VirtualMachineArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -116,29 +116,29 @@ export interface ComputePolicyArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the compute policy to create or update.
      */
-    readonly computePolicyName?: pulumi.Input<string>;
+    computePolicyName?: pulumi.Input<string>;
     /**
      * The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
      */
-    readonly maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
+    maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
     /**
      * The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
      */
-    readonly minPriorityPerJob?: pulumi.Input<number>;
+    minPriorityPerJob?: pulumi.Input<number>;
     /**
      * The AAD object identifier for the entity to create a policy for.
      */
-    readonly objectId: pulumi.Input<string>;
+    objectId: pulumi.Input<string>;
     /**
      * The type of AAD object the object identifier refers to.
      */
-    readonly objectType: pulumi.Input<string | enums.datalakeanalytics.v20161101.AADObjectType>;
+    objectType: pulumi.Input<string | enums.datalakeanalytics.v20161101.AADObjectType>;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

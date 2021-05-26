@@ -27,15 +27,15 @@ export interface GetOutputArgs {
     /**
      * The name of the streaming job.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The name of the output.
      */
-    readonly outputName: string;
+    outputName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

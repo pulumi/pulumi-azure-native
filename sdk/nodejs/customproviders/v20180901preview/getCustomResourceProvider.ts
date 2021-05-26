@@ -26,11 +26,11 @@ export interface GetCustomResourceProviderArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the resource provider.
      */
-    readonly resourceProviderName: string;
+    resourceProviderName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetBudgetByResourceGroupNameArgs {
     /**
      * Budget Name.
      */
-    readonly budgetName: string;
+    budgetName: string;
     /**
      * Azure Resource Group Name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

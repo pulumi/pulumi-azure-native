@@ -159,35 +159,35 @@ export interface InvitationArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The expiration date for the invitation and share subscription.
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The name of the invitation.
      */
-    readonly invitationName?: pulumi.Input<string>;
+    invitationName?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to send the invitation for.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * The target Azure AD Id. Can't be combined with email.
      */
-    readonly targetActiveDirectoryId?: pulumi.Input<string>;
+    targetActiveDirectoryId?: pulumi.Input<string>;
     /**
      * The email the invitation is directed to.
      */
-    readonly targetEmail?: pulumi.Input<string>;
+    targetEmail?: pulumi.Input<string>;
     /**
      * The target user or application Id that invitation is being sent to.
      * Must be specified along TargetActiveDirectoryId. This enables sending
      * invitations to specific users or applications in an AD tenant.
      */
-    readonly targetObjectId?: pulumi.Input<string>;
+    targetObjectId?: pulumi.Input<string>;
 }

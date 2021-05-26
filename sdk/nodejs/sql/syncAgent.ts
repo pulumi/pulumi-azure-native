@@ -122,17 +122,17 @@ export interface SyncAgentArgs {
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server on which the sync agent is hosted.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of the sync agent.
      */
-    readonly syncAgentName?: pulumi.Input<string>;
+    syncAgentName?: pulumi.Input<string>;
     /**
      * ARM resource id of the sync database in the sync agent.
      */
-    readonly syncDatabaseId?: pulumi.Input<string>;
+    syncDatabaseId?: pulumi.Input<string>;
 }

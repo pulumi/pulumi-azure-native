@@ -27,11 +27,11 @@ export interface GetServerDetailsArgs {
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

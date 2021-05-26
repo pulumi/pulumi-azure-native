@@ -189,41 +189,41 @@ export interface ConnectorMappingArgs {
     /**
      * The name of the connector.
      */
-    readonly connectorName: pulumi.Input<string>;
+    connectorName: pulumi.Input<string>;
     /**
      * Type of connector.
      */
-    readonly connectorType?: pulumi.Input<string | enums.customerinsights.ConnectorTypes>;
+    connectorType?: pulumi.Input<string | enums.customerinsights.ConnectorTypes>;
     /**
      * The description of the connector mapping.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Display name for the connector mapping.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Defines which entity type the file should map to.
      */
-    readonly entityType: pulumi.Input<enums.customerinsights.EntityTypes>;
+    entityType: pulumi.Input<enums.customerinsights.EntityTypes>;
     /**
      * The mapping entity name.
      */
-    readonly entityTypeName: pulumi.Input<string>;
+    entityTypeName: pulumi.Input<string>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the connector mapping.
      */
-    readonly mappingName?: pulumi.Input<string>;
+    mappingName?: pulumi.Input<string>;
     /**
      * The properties of the mapping.
      */
-    readonly mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingPropertiesArgs>;
+    mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingPropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

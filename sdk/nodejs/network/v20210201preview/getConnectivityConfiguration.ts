@@ -27,15 +27,15 @@ export interface GetConnectivityConfigurationArgs {
     /**
      * The name of the network manager connectivity configuration.
      */
-    readonly configurationName: string;
+    configurationName: string;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

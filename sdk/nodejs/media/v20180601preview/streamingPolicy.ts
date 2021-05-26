@@ -122,33 +122,33 @@ export interface StreamingPolicyArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Configuration of CommonEncryptionCbcs
      */
-    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.v20180601preview.CommonEncryptionCbcsArgs>;
+    commonEncryptionCbcs?: pulumi.Input<inputs.media.v20180601preview.CommonEncryptionCbcsArgs>;
     /**
      * Configuration of CommonEncryptionCenc
      */
-    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.v20180601preview.CommonEncryptionCencArgs>;
+    commonEncryptionCenc?: pulumi.Input<inputs.media.v20180601preview.CommonEncryptionCencArgs>;
     /**
      * Default ContentKey used by current Streaming Policy
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * Configuration of EnvelopeEncryption
      */
-    readonly envelopeEncryption?: pulumi.Input<inputs.media.v20180601preview.EnvelopeEncryptionArgs>;
+    envelopeEncryption?: pulumi.Input<inputs.media.v20180601preview.EnvelopeEncryptionArgs>;
     /**
      * Configurations of NoEncryption
      */
-    readonly noEncryption?: pulumi.Input<inputs.media.v20180601preview.NoEncryptionArgs>;
+    noEncryption?: pulumi.Input<inputs.media.v20180601preview.NoEncryptionArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Streaming Policy name.
      */
-    readonly streamingPolicyName?: pulumi.Input<string>;
+    streamingPolicyName?: pulumi.Input<string>;
 }

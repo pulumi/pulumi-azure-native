@@ -108,29 +108,29 @@ export interface CustomApiArgs {
     /**
      * API name
      */
-    readonly apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string>;
     /**
      * Resource ETag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Custom API properties
      */
-    readonly properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinitionArgs>;
+    properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinitionArgs>;
     /**
      * The resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

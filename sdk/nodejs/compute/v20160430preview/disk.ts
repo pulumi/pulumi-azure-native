@@ -145,37 +145,37 @@ export interface DiskArgs {
     /**
      * the storage account type of the disk.
      */
-    readonly accountType?: pulumi.Input<enums.compute.v20160430preview.StorageAccountTypes>;
+    accountType?: pulumi.Input<enums.compute.v20160430preview.StorageAccountTypes>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20160430preview.CreationDataArgs>;
+    creationData: pulumi.Input<inputs.compute.v20160430preview.CreationDataArgs>;
     /**
      * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
-    readonly diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    readonly diskSizeGB?: pulumi.Input<number>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettingsArgs>;
+    encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettingsArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<enums.compute.v20160430preview.OperatingSystemTypes>;
+    osType?: pulumi.Input<enums.compute.v20160430preview.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -26,11 +26,11 @@ export interface GetAssignmentArgs {
     /**
      * name of the assignment.
      */
-    readonly assignmentName: string;
+    assignmentName: string;
     /**
      * azure subscriptionId, which we assign the blueprint to.
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

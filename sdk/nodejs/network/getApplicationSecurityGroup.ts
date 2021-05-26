@@ -27,11 +27,11 @@ export interface GetApplicationSecurityGroupArgs {
     /**
      * The name of the application security group.
      */
-    readonly applicationSecurityGroupName: string;
+    applicationSecurityGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

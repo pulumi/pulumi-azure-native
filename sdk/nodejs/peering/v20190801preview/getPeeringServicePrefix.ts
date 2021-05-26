@@ -27,15 +27,15 @@ export interface GetPeeringServicePrefixArgs {
     /**
      * The peering service name.
      */
-    readonly peeringServiceName: string;
+    peeringServiceName: string;
     /**
      * The prefix name.
      */
-    readonly prefixName: string;
+    prefixName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

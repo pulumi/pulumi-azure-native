@@ -202,61 +202,61 @@ export interface DomainServiceArgs {
     /**
      * Configuration diagnostics data containing latest execution from client.
      */
-    readonly configDiagnostics?: pulumi.Input<inputs.aad.v20210501.ConfigDiagnosticsArgs>;
+    configDiagnostics?: pulumi.Input<inputs.aad.v20210501.ConfigDiagnosticsArgs>;
     /**
      * Domain Configuration Type
      */
-    readonly domainConfigurationType?: pulumi.Input<string>;
+    domainConfigurationType?: pulumi.Input<string>;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * DomainSecurity Settings
      */
-    readonly domainSecuritySettings?: pulumi.Input<inputs.aad.v20210501.DomainSecuritySettingsArgs>;
+    domainSecuritySettings?: pulumi.Input<inputs.aad.v20210501.DomainSecuritySettingsArgs>;
     /**
      * The name of the domain service.
      */
-    readonly domainServiceName?: pulumi.Input<string>;
+    domainServiceName?: pulumi.Input<string>;
     /**
      * Resource etag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    readonly filteredSync?: pulumi.Input<string | enums.aad.v20210501.FilteredSync>;
+    filteredSync?: pulumi.Input<string | enums.aad.v20210501.FilteredSync>;
     /**
      * Secure LDAP Settings
      */
-    readonly ldapsSettings?: pulumi.Input<inputs.aad.v20210501.LdapsSettingsArgs>;
+    ldapsSettings?: pulumi.Input<inputs.aad.v20210501.LdapsSettingsArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Notification Settings
      */
-    readonly notificationSettings?: pulumi.Input<inputs.aad.v20210501.NotificationSettingsArgs>;
+    notificationSettings?: pulumi.Input<inputs.aad.v20210501.NotificationSettingsArgs>;
     /**
      * List of ReplicaSets
      */
-    readonly replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.v20210501.ReplicaSetArgs>[]>;
+    replicaSets?: pulumi.Input<pulumi.Input<inputs.aad.v20210501.ReplicaSetArgs>[]>;
     /**
      * Resource Forest Settings
      */
-    readonly resourceForestSettings?: pulumi.Input<inputs.aad.v20210501.ResourceForestSettingsArgs>;
+    resourceForestSettings?: pulumi.Input<inputs.aad.v20210501.ResourceForestSettingsArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sku Type
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

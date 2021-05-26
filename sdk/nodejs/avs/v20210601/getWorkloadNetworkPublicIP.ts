@@ -27,15 +27,15 @@ export interface GetWorkloadNetworkPublicIPArgs {
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
      */
-    readonly publicIPId: string;
+    publicIPId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -163,49 +163,49 @@ export interface ServerDetailsArgs {
     /**
      * A collection of AS server administrators
      */
-    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.v20170801.ServerAdministratorsArgs>;
+    asAdministrators?: pulumi.Input<inputs.analysisservices.v20170801.ServerAdministratorsArgs>;
     /**
      * The SAS container URI to the backup container.
      */
-    readonly backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string>;
     /**
      * The gateway details configured for the AS server.
      */
-    readonly gatewayDetails?: pulumi.Input<inputs.analysisservices.v20170801.GatewayDetailsArgs>;
+    gatewayDetails?: pulumi.Input<inputs.analysisservices.v20170801.GatewayDetailsArgs>;
     /**
      * The firewall settings for the AS server.
      */
-    readonly ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.v20170801.IPv4FirewallSettingsArgs>;
+    ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.v20170801.IPv4FirewallSettingsArgs>;
     /**
      * Location of the Analysis Services resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */
-    readonly managedMode?: pulumi.Input<number>;
+    managedMode?: pulumi.Input<number>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    readonly querypoolConnectionMode?: pulumi.Input<enums.analysisservices.v20170801.ConnectionMode>;
+    querypoolConnectionMode?: pulumi.Input<enums.analysisservices.v20170801.ConnectionMode>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The server monitor mode for AS server
      */
-    readonly serverMonitorMode?: pulumi.Input<number>;
+    serverMonitorMode?: pulumi.Input<number>;
     /**
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU of the Analysis Services resource.
      */
-    readonly sku: pulumi.Input<inputs.analysisservices.v20170801.ResourceSkuArgs>;
+    sku: pulumi.Input<inputs.analysisservices.v20170801.ResourceSkuArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

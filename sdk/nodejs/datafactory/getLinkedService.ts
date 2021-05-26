@@ -28,15 +28,15 @@ export interface GetLinkedServiceArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The linked service name.
      */
-    readonly linkedServiceName: string;
+    linkedServiceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

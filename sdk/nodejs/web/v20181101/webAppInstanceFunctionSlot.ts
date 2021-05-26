@@ -148,57 +148,57 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Config information.
      */
-    readonly config?: any;
+    config?: any;
     /**
      * Config URI.
      */
-    readonly configHref?: pulumi.Input<string>;
+    configHref?: pulumi.Input<string>;
     /**
      * File list.
      */
-    readonly files?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    files?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Function App ID.
      */
-    readonly functionAppId?: pulumi.Input<string>;
+    functionAppId?: pulumi.Input<string>;
     /**
      * Function name.
      */
-    readonly functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string>;
     /**
      * Function URI.
      */
-    readonly href?: pulumi.Input<string>;
+    href?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Site name.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Script URI.
      */
-    readonly scriptHref?: pulumi.Input<string>;
+    scriptHref?: pulumi.Input<string>;
     /**
      * Script root path URI.
      */
-    readonly scriptRootPathHref?: pulumi.Input<string>;
+    scriptRootPathHref?: pulumi.Input<string>;
     /**
      * Secrets file URI.
      */
-    readonly secretsFileHref?: pulumi.Input<string>;
+    secretsFileHref?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * Test data used when testing via the Azure Portal.
      */
-    readonly testData?: pulumi.Input<string>;
+    testData?: pulumi.Input<string>;
 }

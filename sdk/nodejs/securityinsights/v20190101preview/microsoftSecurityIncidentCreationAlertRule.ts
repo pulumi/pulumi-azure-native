@@ -169,58 +169,58 @@ export interface MicrosoftSecurityIncidentCreationAlertRuleArgs {
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    readonly alertRuleTemplateName?: pulumi.Input<string>;
+    alertRuleTemplateName?: pulumi.Input<string>;
     /**
      * The description of the alert rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name for alerts created by this alert rule.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * the alerts' displayNames on which the cases will not be generated
      */
-    readonly displayNamesExcludeFilter?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNamesExcludeFilter?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the alerts' displayNames on which the cases will be generated
      */
-    readonly displayNamesFilter?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNamesFilter?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether this alert rule is enabled or disabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'MicrosoftSecurityIncidentCreation'.
      */
-    readonly kind: pulumi.Input<"MicrosoftSecurityIncidentCreation">;
+    kind: pulumi.Input<"MicrosoftSecurityIncidentCreation">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The alerts' productName on which the cases will be generated
      */
-    readonly productFilter: pulumi.Input<string | enums.securityinsights.v20190101preview.MicrosoftSecurityProductName>;
+    productFilter: pulumi.Input<string | enums.securityinsights.v20190101preview.MicrosoftSecurityProductName>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Alert rule ID
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
     /**
      * the alerts' severities on which the cases will be generated
      */
-    readonly severitiesFilter?: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20190101preview.AlertSeverity>[]>;
+    severitiesFilter?: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20190101preview.AlertSeverity>[]>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

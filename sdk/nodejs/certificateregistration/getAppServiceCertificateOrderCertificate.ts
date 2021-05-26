@@ -28,15 +28,15 @@ export interface GetAppServiceCertificateOrderCertificateArgs {
     /**
      * Name of the certificate order.
      */
-    readonly certificateOrderName: string;
+    certificateOrderName: string;
     /**
      * Name of the certificate.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

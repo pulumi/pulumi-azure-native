@@ -28,15 +28,15 @@ export interface GetWorkloadNetworkDnsZoneArgs {
     /**
      * NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
      */
-    readonly dnsZoneId: string;
+    dnsZoneId: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

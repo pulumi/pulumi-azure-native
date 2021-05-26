@@ -103,21 +103,21 @@ export interface RedisFirewallRuleArgs {
     /**
      * The name of the Redis cache.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * highest IP address included in the range
      */
-    readonly endIP: pulumi.Input<string>;
+    endIP: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * lowest IP address included in the range
      */
-    readonly startIP: pulumi.Input<string>;
+    startIP: pulumi.Input<string>;
 }

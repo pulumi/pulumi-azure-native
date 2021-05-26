@@ -27,15 +27,15 @@ export interface GetShareArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the share to retrieve.
      */
-    readonly shareName: string;
+    shareName: string;
 }
 
 /**

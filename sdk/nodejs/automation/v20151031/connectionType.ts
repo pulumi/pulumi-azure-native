@@ -122,25 +122,25 @@ export interface ConnectionTypeArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The parameters supplied to the create or update connection type operation.
      */
-    readonly connectionTypeName?: pulumi.Input<string>;
+    connectionTypeName?: pulumi.Input<string>;
     /**
      * Gets or sets the field definitions of the connection type.
      */
-    readonly fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20151031.FieldDefinitionArgs>}>;
+    fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20151031.FieldDefinitionArgs>}>;
     /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */
-    readonly isGlobal?: pulumi.Input<boolean>;
+    isGlobal?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the connection type.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -114,41 +114,41 @@ export interface RouteArgs {
     /**
      * Gets or sets the destination CIDR to which the route applies.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    readonly nextHopIpAddress?: pulumi.Input<string>;
+    nextHopIpAddress?: pulumi.Input<string>;
     /**
      * Gets or sets the type of Azure hop the packet should be sent to.
      */
-    readonly nextHopType: pulumi.Input<string | enums.network.v20150501preview.RouteNextHopType>;
+    nextHopType: pulumi.Input<string | enums.network.v20150501preview.RouteNextHopType>;
     /**
      * Gets or sets Provisioning state of the resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route.
      */
-    readonly routeName?: pulumi.Input<string>;
+    routeName?: pulumi.Input<string>;
     /**
      * The name of the route table.
      */
-    readonly routeTableName: pulumi.Input<string>;
+    routeTableName: pulumi.Input<string>;
 }

@@ -174,57 +174,57 @@ export interface ApplicationArgs {
     /**
      * The name of the application group
      */
-    readonly applicationGroupName: pulumi.Input<string>;
+    applicationGroupName: pulumi.Input<string>;
     /**
      * The name of the application within the specified application group
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * Resource Type of Application.
      */
-    readonly applicationType?: pulumi.Input<string | enums.desktopvirtualization.RemoteApplicationType>;
+    applicationType?: pulumi.Input<string | enums.desktopvirtualization.RemoteApplicationType>;
     /**
      * Command Line Arguments for Application.
      */
-    readonly commandLineArguments?: pulumi.Input<string>;
+    commandLineArguments?: pulumi.Input<string>;
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
      */
-    readonly commandLineSetting: pulumi.Input<string | enums.desktopvirtualization.CommandLineSetting>;
+    commandLineSetting: pulumi.Input<string | enums.desktopvirtualization.CommandLineSetting>;
     /**
      * Description of Application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies a path for the executable file for the application.
      */
-    readonly filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string>;
     /**
      * Friendly name of Application.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Index of the icon.
      */
-    readonly iconIndex?: pulumi.Input<number>;
+    iconIndex?: pulumi.Input<number>;
     /**
      * Path to icon.
      */
-    readonly iconPath?: pulumi.Input<string>;
+    iconPath?: pulumi.Input<string>;
     /**
      * Specifies the package application Id for MSIX applications
      */
-    readonly msixPackageApplicationId?: pulumi.Input<string>;
+    msixPackageApplicationId?: pulumi.Input<string>;
     /**
      * Specifies the package family name for MSIX applications
      */
-    readonly msixPackageFamilyName?: pulumi.Input<string>;
+    msixPackageFamilyName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    readonly showInPortal?: pulumi.Input<boolean>;
+    showInPortal?: pulumi.Input<boolean>;
 }

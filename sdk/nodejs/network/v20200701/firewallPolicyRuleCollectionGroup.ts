@@ -111,29 +111,29 @@ export interface FirewallPolicyRuleCollectionGroupArgs {
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName: pulumi.Input<string>;
+    firewallPolicyName: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Priority of the Firewall Policy Rule Collection Group resource.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the FirewallPolicyRuleCollectionGroup.
      */
-    readonly ruleCollectionGroupName?: pulumi.Input<string>;
+    ruleCollectionGroupName?: pulumi.Input<string>;
     /**
      * Group of Firewall Policy rule collections.
      */
-    readonly ruleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20200701.FirewallPolicyFilterRuleCollectionArgs | inputs.network.v20200701.FirewallPolicyNatRuleCollectionArgs>[]>;
+    ruleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20200701.FirewallPolicyFilterRuleCollectionArgs | inputs.network.v20200701.FirewallPolicyNatRuleCollectionArgs>[]>;
 }

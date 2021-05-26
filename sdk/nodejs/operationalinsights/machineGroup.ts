@@ -130,38 +130,38 @@ export interface MachineGroupArgs {
     /**
      * Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
      */
-    readonly count?: pulumi.Input<number>;
+    count?: pulumi.Input<number>;
     /**
      * User defined name for the group
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Resource ETAG.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Type of the machine group
      */
-    readonly groupType?: pulumi.Input<string | enums.operationalinsights.MachineGroupType>;
+    groupType?: pulumi.Input<string | enums.operationalinsights.MachineGroupType>;
     /**
      * Additional resource type qualifier.
      * Expected value is 'machineGroup'.
      */
-    readonly kind: pulumi.Input<"machineGroup">;
+    kind: pulumi.Input<"machineGroup">;
     /**
      * Machine Group resource name.
      */
-    readonly machineGroupName?: pulumi.Input<string>;
+    machineGroupName?: pulumi.Input<string>;
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */
-    readonly machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.MachineReferenceWithHintsArgs>[]>;
+    machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.MachineReferenceWithHintsArgs>[]>;
     /**
      * Resource group name within the specified subscriptionId.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * OMS workspace containing the resources of interest.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

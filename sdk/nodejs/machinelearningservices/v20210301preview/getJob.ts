@@ -27,15 +27,15 @@ export interface GetJobArgs {
     /**
      * The name and identifier for the Job.
      */
-    readonly id: string;
+    id: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

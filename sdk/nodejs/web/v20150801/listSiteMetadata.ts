@@ -26,11 +26,11 @@ export interface ListSiteMetadataArgs {
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

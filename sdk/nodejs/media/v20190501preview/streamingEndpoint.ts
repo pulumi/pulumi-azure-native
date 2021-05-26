@@ -198,65 +198,65 @@ export interface StreamingEndpointArgs {
     /**
      * The access control definition of the StreamingEndpoint.
      */
-    readonly accessControl?: pulumi.Input<inputs.media.v20190501preview.StreamingEndpointAccessControlArgs>;
+    accessControl?: pulumi.Input<inputs.media.v20190501preview.StreamingEndpointAccessControlArgs>;
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The flag indicates if the resource should be automatically started on creation.
      */
-    readonly autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean>;
     /**
      * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
      */
-    readonly availabilitySetName?: pulumi.Input<string>;
+    availabilitySetName?: pulumi.Input<string>;
     /**
      * The CDN enabled flag.
      */
-    readonly cdnEnabled?: pulumi.Input<boolean>;
+    cdnEnabled?: pulumi.Input<boolean>;
     /**
      * The CDN profile name.
      */
-    readonly cdnProfile?: pulumi.Input<string>;
+    cdnProfile?: pulumi.Input<string>;
     /**
      * The CDN provider name.
      */
-    readonly cdnProvider?: pulumi.Input<string>;
+    cdnProvider?: pulumi.Input<string>;
     /**
      * The StreamingEndpoint access policies.
      */
-    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20190501preview.CrossSiteAccessPoliciesArgs>;
+    crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20190501preview.CrossSiteAccessPoliciesArgs>;
     /**
      * The custom host names of the StreamingEndpoint
      */
-    readonly customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The StreamingEndpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Azure Region of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Max cache age
      */
-    readonly maxCacheAge?: pulumi.Input<number>;
+    maxCacheAge?: pulumi.Input<number>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of scale units.  Use the Scale operation to adjust this value.
      */
-    readonly scaleUnits: pulumi.Input<number>;
+    scaleUnits: pulumi.Input<number>;
     /**
      * The name of the StreamingEndpoint.
      */
-    readonly streamingEndpointName?: pulumi.Input<string>;
+    streamingEndpointName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

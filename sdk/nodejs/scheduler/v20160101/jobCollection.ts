@@ -97,25 +97,25 @@ export interface JobCollectionArgs {
     /**
      * The job collection name.
      */
-    readonly jobCollectionName?: pulumi.Input<string>;
+    jobCollectionName?: pulumi.Input<string>;
     /**
      * Gets or sets the storage account location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the job collection resource name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the job collection properties.
      */
-    readonly properties?: pulumi.Input<inputs.scheduler.v20160101.JobCollectionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.scheduler.v20160101.JobCollectionPropertiesArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

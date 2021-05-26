@@ -99,21 +99,21 @@ export interface BackupScheduleGroupArgs {
     /**
      * The name of the device.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the schedule group.
      */
-    readonly scheduleGroupName?: pulumi.Input<string>;
+    scheduleGroupName?: pulumi.Input<string>;
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */
-    readonly startTime: pulumi.Input<inputs.storsimple.v20161001.TimeArgs>;
+    startTime: pulumi.Input<inputs.storsimple.v20161001.TimeArgs>;
 }

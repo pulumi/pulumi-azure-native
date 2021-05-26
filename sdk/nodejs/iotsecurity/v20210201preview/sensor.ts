@@ -148,21 +148,21 @@ export interface SensorArgs {
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * Name of the IoT sensor
      */
-    readonly sensorName?: pulumi.Input<string>;
+    sensorName?: pulumi.Input<string>;
     /**
      * Type of sensor
      */
-    readonly sensorType?: pulumi.Input<string | enums.iotsecurity.v20210201preview.SensorType>;
+    sensorType?: pulumi.Input<string | enums.iotsecurity.v20210201preview.SensorType>;
     /**
      * TI Automatic mode status of the IoT sensor
      */
-    readonly tiAutomaticUpdates?: pulumi.Input<boolean>;
+    tiAutomaticUpdates?: pulumi.Input<boolean>;
     /**
      * Zone of the IoT sensor
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }

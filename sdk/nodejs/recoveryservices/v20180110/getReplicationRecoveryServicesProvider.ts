@@ -28,19 +28,19 @@ export interface GetReplicationRecoveryServicesProviderArgs {
     /**
      * Fabric name.
      */
-    readonly fabricName: string;
+    fabricName: string;
     /**
      * Recovery services provider name
      */
-    readonly providerName: string;
+    providerName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

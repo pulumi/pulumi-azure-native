@@ -116,25 +116,25 @@ export interface DatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Kind of the database
      */
-    readonly kind: pulumi.Input<string | enums.synapse.v20210401preview.Kind>;
+    kind: pulumi.Input<string | enums.synapse.v20210401preview.Kind>;
     /**
      * The name of the Kusto pool.
      */
-    readonly kustoPoolName: pulumi.Input<string>;
+    kustoPoolName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

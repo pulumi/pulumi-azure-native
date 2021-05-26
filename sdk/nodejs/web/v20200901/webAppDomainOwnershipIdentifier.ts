@@ -103,21 +103,21 @@ export interface WebAppDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
      */
-    readonly domainOwnershipIdentifierName?: pulumi.Input<string>;
+    domainOwnershipIdentifierName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * String representation of the identity.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

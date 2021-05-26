@@ -93,17 +93,17 @@ export interface CassandraDataCenterArgs {
     /**
      * Managed Cassandra cluster name.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Data center name in a managed Cassandra cluster.
      */
-    readonly dataCenterName?: pulumi.Input<string>;
+    dataCenterName?: pulumi.Input<string>;
     /**
      * Properties of a managed Cassandra data center.
      */
-    readonly properties?: pulumi.Input<inputs.documentdb.DataCenterResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.documentdb.DataCenterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

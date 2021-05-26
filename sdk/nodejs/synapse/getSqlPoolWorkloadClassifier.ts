@@ -30,23 +30,23 @@ export interface GetSqlPoolWorkloadClassifierArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: string;
+    sqlPoolName: string;
     /**
      * The name of the workload classifier.
      */
-    readonly workloadClassifierName: string;
+    workloadClassifierName: string;
     /**
      * The name of the workload group.
      */
-    readonly workloadGroupName: string;
+    workloadGroupName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

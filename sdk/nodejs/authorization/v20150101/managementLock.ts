@@ -90,17 +90,17 @@ export interface ManagementLockArgs {
     /**
      * The lock level of the management lock.
      */
-    readonly level?: pulumi.Input<string | enums.authorization.v20150101.LockLevel>;
+    level?: pulumi.Input<string | enums.authorization.v20150101.LockLevel>;
     /**
      * The name of lock.
      */
-    readonly lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string>;
     /**
      * The name of the lock.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The notes of the management lock.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
 }

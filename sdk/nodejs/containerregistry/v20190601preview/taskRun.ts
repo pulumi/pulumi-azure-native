@@ -129,29 +129,29 @@ export interface TaskRunArgs {
     /**
      * How the run should be forced to rerun even if the run request configuration has not changed
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityPropertiesArgs>;
     /**
      * The location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The request (parameters) for the run
      */
-    readonly runRequest?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildRequestArgs | inputs.containerregistry.v20190601preview.EncodedTaskRunRequestArgs | inputs.containerregistry.v20190601preview.FileTaskRunRequestArgs | inputs.containerregistry.v20190601preview.TaskRunRequestArgs>;
+    runRequest?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildRequestArgs | inputs.containerregistry.v20190601preview.EncodedTaskRunRequestArgs | inputs.containerregistry.v20190601preview.FileTaskRunRequestArgs | inputs.containerregistry.v20190601preview.TaskRunRequestArgs>;
     /**
      * The name of the task run.
      */
-    readonly taskRunName?: pulumi.Input<string>;
+    taskRunName?: pulumi.Input<string>;
 }

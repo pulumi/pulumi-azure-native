@@ -104,21 +104,21 @@ export interface AddonArgs {
     /**
      * Name of the addon for the private cloud
      */
-    readonly addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * The type of private cloud addon
      */
-    readonly addonType?: pulumi.Input<string | enums.avs.v20200717preview.AddonType>;
+    addonType?: pulumi.Input<string | enums.avs.v20200717preview.AddonType>;
     /**
      * The SRM license
      */
-    readonly licenseKey?: pulumi.Input<string>;
+    licenseKey?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

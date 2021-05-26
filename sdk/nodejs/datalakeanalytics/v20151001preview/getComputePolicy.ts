@@ -27,15 +27,15 @@ export interface GetComputePolicyArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the compute policy to retrieve.
      */
-    readonly computePolicyName: string;
+    computePolicyName: string;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

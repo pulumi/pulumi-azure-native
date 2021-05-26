@@ -134,41 +134,41 @@ export interface SnapshotPolicyArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Schedule for daily snapshots
      */
-    readonly dailySchedule?: pulumi.Input<inputs.netapp.v20201101.DailyScheduleArgs>;
+    dailySchedule?: pulumi.Input<inputs.netapp.v20201101.DailyScheduleArgs>;
     /**
      * The property to decide policy is enabled or not
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Schedule for hourly snapshots
      */
-    readonly hourlySchedule?: pulumi.Input<inputs.netapp.v20201101.HourlyScheduleArgs>;
+    hourlySchedule?: pulumi.Input<inputs.netapp.v20201101.HourlyScheduleArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Schedule for monthly snapshots
      */
-    readonly monthlySchedule?: pulumi.Input<inputs.netapp.v20201101.MonthlyScheduleArgs>;
+    monthlySchedule?: pulumi.Input<inputs.netapp.v20201101.MonthlyScheduleArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the snapshot policy target
      */
-    readonly snapshotPolicyName?: pulumi.Input<string>;
+    snapshotPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Schedule for weekly snapshots
      */
-    readonly weeklySchedule?: pulumi.Input<inputs.netapp.v20201101.WeeklyScheduleArgs>;
+    weeklySchedule?: pulumi.Input<inputs.netapp.v20201101.WeeklyScheduleArgs>;
 }

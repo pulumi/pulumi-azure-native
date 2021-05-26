@@ -149,38 +149,38 @@ export interface DataCollectionRuleArgs {
     /**
      * The name of the data collection rule. The name is case insensitive.
      */
-    readonly dataCollectionRuleName?: pulumi.Input<string>;
+    dataCollectionRuleName?: pulumi.Input<string>;
     /**
      * The specification of data flows.
      */
-    readonly dataFlows?: pulumi.Input<pulumi.Input<inputs.insights.v20210401.DataFlowArgs>[]>;
+    dataFlows?: pulumi.Input<pulumi.Input<inputs.insights.v20210401.DataFlowArgs>[]>;
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    readonly dataSources?: pulumi.Input<inputs.insights.v20210401.DataCollectionRuleDataSourcesArgs>;
+    dataSources?: pulumi.Input<inputs.insights.v20210401.DataCollectionRuleDataSourcesArgs>;
     /**
      * Description of the data collection rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The specification of destinations.
      */
-    readonly destinations?: pulumi.Input<inputs.insights.v20210401.DataCollectionRuleDestinationsArgs>;
+    destinations?: pulumi.Input<inputs.insights.v20210401.DataCollectionRuleDestinationsArgs>;
     /**
      * The kind of the resource.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20210401.KnownDataCollectionRuleResourceKind>;
+    kind?: pulumi.Input<string | enums.insights.v20210401.KnownDataCollectionRuleResourceKind>;
     /**
      * The geo-location where the resource lives.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

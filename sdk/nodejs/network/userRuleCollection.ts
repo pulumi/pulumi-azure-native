@@ -127,29 +127,29 @@ export interface UserRuleCollectionArgs {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItemArgs>[]>;
+    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItemArgs>[]>;
     /**
      * The name of the network manager security Configuration.
      */
-    readonly configurationName: pulumi.Input<string>;
+    configurationName: pulumi.Input<string>;
     /**
      * A description of the rule collection.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A display name of the rule collection.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: pulumi.Input<string>;
+    networkManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    readonly ruleCollectionName?: pulumi.Input<string>;
+    ruleCollectionName?: pulumi.Input<string>;
 }

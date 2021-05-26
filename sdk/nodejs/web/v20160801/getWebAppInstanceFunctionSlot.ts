@@ -28,19 +28,19 @@ export interface GetWebAppInstanceFunctionSlotArgs {
     /**
      * Function name.
      */
-    readonly functionName: string;
+    functionName: string;
     /**
      * Site name.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

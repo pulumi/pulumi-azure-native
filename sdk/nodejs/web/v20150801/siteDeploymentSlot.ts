@@ -160,69 +160,69 @@ export interface SiteDeploymentSlotArgs {
     /**
      * Active
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * Author
      */
-    readonly author?: pulumi.Input<string>;
+    author?: pulumi.Input<string>;
     /**
      * AuthorEmail
      */
-    readonly authorEmail?: pulumi.Input<string>;
+    authorEmail?: pulumi.Input<string>;
     /**
      * Deployer
      */
-    readonly deployer?: pulumi.Input<string>;
+    deployer?: pulumi.Input<string>;
     /**
      * Detail
      */
-    readonly details?: pulumi.Input<string>;
+    details?: pulumi.Input<string>;
     /**
      * EndTime
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Message
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * StartTime
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * Status
      */
-    readonly status?: pulumi.Input<number>;
+    status?: pulumi.Input<number>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

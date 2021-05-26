@@ -29,19 +29,19 @@ export interface GetPrivateRecordSetArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly privateZoneName: string;
+    privateZoneName: string;
     /**
      * The type of DNS record in this record set.
      */
-    readonly recordType: string;
+    recordType: string;
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    readonly relativeRecordSetName: string;
+    relativeRecordSetName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -177,65 +177,65 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The name of the ExpressRouteCrossConnection.
      */
-    readonly crossConnectionName: pulumi.Input<string>;
+    crossConnectionName: pulumi.Input<string>;
     /**
      * The GatewayManager Etag.
      */
-    readonly gatewayManagerEtag?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
+    ipv6PeeringConfig?: pulumi.Input<inputs.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Who was the last to modify the peering.
      */
-    readonly lastModifiedBy?: pulumi.Input<string>;
+    lastModifiedBy?: pulumi.Input<string>;
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeeringConfigArgs>;
+    microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The peer ASN.
      */
-    readonly peerASN?: pulumi.Input<number>;
+    peerASN?: pulumi.Input<number>;
     /**
      * The name of the peering.
      */
-    readonly peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string>;
     /**
      * The peering type.
      */
-    readonly peeringType?: pulumi.Input<string | enums.network.v20190801.ExpressRoutePeeringType>;
+    peeringType?: pulumi.Input<string | enums.network.v20190801.ExpressRoutePeeringType>;
     /**
      * The primary address prefix.
      */
-    readonly primaryPeerAddressPrefix?: pulumi.Input<string>;
+    primaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The secondary address prefix.
      */
-    readonly secondaryPeerAddressPrefix?: pulumi.Input<string>;
+    secondaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * The shared key.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * The peering state.
      */
-    readonly state?: pulumi.Input<string | enums.network.v20190801.ExpressRoutePeeringState>;
+    state?: pulumi.Input<string | enums.network.v20190801.ExpressRoutePeeringState>;
     /**
      * The VLAN ID.
      */
-    readonly vlanId?: pulumi.Input<number>;
+    vlanId?: pulumi.Input<number>;
 }

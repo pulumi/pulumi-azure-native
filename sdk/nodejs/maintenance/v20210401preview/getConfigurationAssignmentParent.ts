@@ -31,31 +31,31 @@ export interface GetConfigurationAssignmentParentArgs {
     /**
      * Configuration assignment name
      */
-    readonly configurationAssignmentName: string;
+    configurationAssignmentName: string;
     /**
      * Resource provider name
      */
-    readonly providerName: string;
+    providerName: string;
     /**
      * Resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource identifier
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * Resource parent identifier
      */
-    readonly resourceParentName: string;
+    resourceParentName: string;
     /**
      * Resource parent type
      */
-    readonly resourceParentType: string;
+    resourceParentType: string;
     /**
      * Resource type
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 /**

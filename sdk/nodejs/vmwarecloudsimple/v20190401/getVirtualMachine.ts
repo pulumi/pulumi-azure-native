@@ -26,11 +26,11 @@ export interface GetVirtualMachineArgs {
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * virtual machine name
      */
-    readonly virtualMachineName: string;
+    virtualMachineName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetDigitalTwinArgs {
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

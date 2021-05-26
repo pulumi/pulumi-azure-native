@@ -27,15 +27,15 @@ export interface GetMachineLearningDatasetArgs {
     /**
      * The Dataset name.
      */
-    readonly datasetName: string;
+    datasetName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

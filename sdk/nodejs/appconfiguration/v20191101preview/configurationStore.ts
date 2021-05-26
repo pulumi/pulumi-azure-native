@@ -145,33 +145,33 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName?: pulumi.Input<string>;
+    configStoreName?: pulumi.Input<string>;
     /**
      * The encryption settings of the configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.appconfiguration.v20191101preview.EncryptionPropertiesArgs>;
+    encryption?: pulumi.Input<inputs.appconfiguration.v20191101preview.EncryptionPropertiesArgs>;
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.appconfiguration.v20191101preview.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.appconfiguration.v20191101preview.ResourceIdentityArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.v20191101preview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.v20191101preview.PublicNetworkAccess>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the configuration store.
      */
-    readonly sku: pulumi.Input<inputs.appconfiguration.v20191101preview.SkuArgs>;
+    sku: pulumi.Input<inputs.appconfiguration.v20191101preview.SkuArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

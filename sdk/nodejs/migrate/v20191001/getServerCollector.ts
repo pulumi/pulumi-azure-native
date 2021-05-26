@@ -24,15 +24,15 @@ export interface GetServerCollectorArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Unique name of a Server collector within a project.
      */
-    readonly serverCollectorName: string;
+    serverCollectorName: string;
 }
 
 export interface GetServerCollectorResult {

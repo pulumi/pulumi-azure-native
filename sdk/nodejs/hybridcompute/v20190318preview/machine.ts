@@ -183,29 +183,29 @@ export interface MachineArgs {
     /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
-    readonly clientPublicKey?: pulumi.Input<string>;
+    clientPublicKey?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Resource's Physical Location
      */
-    readonly physicalLocation?: pulumi.Input<string>;
+    physicalLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identity type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

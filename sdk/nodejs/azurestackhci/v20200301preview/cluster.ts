@@ -166,25 +166,25 @@ export interface ClusterArgs {
     /**
      * App id of cluster AAD identity.
      */
-    readonly aadClientId: pulumi.Input<string>;
+    aadClientId: pulumi.Input<string>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    readonly aadTenantId: pulumi.Input<string>;
+    aadTenantId: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

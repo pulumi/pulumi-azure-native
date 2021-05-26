@@ -26,11 +26,11 @@ export interface GetScheduledQueryRuleArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the rule.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

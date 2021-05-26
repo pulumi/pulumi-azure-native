@@ -128,13 +128,13 @@ export interface ExtensionArgs {
     /**
      * Id of extension resource.
      */
-    readonly extensionId?: pulumi.Input<string>;
+    extensionId?: pulumi.Input<string>;
     /**
      * FarmBeats resource name.
      */
-    readonly farmBeatsResourceName: pulumi.Input<string>;
+    farmBeatsResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

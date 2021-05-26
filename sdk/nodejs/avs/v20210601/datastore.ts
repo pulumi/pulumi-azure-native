@@ -108,25 +108,25 @@ export interface DatastoreArgs {
     /**
      * Name of the cluster in the private cloud
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Name of the datastore in the private cloud cluster
      */
-    readonly datastoreName?: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string>;
     /**
      * An iSCSI volume
      */
-    readonly diskPoolVolume?: pulumi.Input<inputs.avs.v20210601.DiskPoolVolumeArgs>;
+    diskPoolVolume?: pulumi.Input<inputs.avs.v20210601.DiskPoolVolumeArgs>;
     /**
      * An Azure NetApp Files volume
      */
-    readonly netAppVolume?: pulumi.Input<inputs.avs.v20210601.NetAppVolumeArgs>;
+    netAppVolume?: pulumi.Input<inputs.avs.v20210601.NetAppVolumeArgs>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

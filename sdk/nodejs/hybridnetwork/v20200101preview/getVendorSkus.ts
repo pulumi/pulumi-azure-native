@@ -26,11 +26,11 @@ export interface GetVendorSkusArgs {
     /**
      * The name of the sku.
      */
-    readonly skuName: string;
+    skuName: string;
     /**
      * The name of the vendor.
      */
-    readonly vendorName: string;
+    vendorName: string;
 }
 
 /**

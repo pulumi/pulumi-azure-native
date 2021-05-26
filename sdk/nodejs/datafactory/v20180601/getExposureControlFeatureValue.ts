@@ -27,15 +27,15 @@ export interface GetExposureControlFeatureValueArgs {
     /**
      * The feature name.
      */
-    readonly featureName?: string;
+    featureName?: string;
     /**
      * The feature type.
      */
-    readonly featureType?: string;
+    featureType?: string;
     /**
      * The location identifier.
      */
-    readonly locationId: string;
+    locationId: string;
 }
 
 /**

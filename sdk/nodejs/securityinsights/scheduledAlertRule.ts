@@ -217,74 +217,74 @@ export interface ScheduledAlertRuleArgs {
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    readonly alertRuleTemplateName?: pulumi.Input<string>;
+    alertRuleTemplateName?: pulumi.Input<string>;
     /**
      * The description of the alert rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name for alerts created by this alert rule.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Determines whether this alert rule is enabled or disabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
      */
-    readonly kind: pulumi.Input<"Scheduled">;
+    kind: pulumi.Input<"Scheduled">;
     /**
      * The query that creates alerts for this rule.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The frequency (in ISO 8601 duration format) for this alert rule to run.
      */
-    readonly queryFrequency: pulumi.Input<string>;
+    queryFrequency: pulumi.Input<string>;
     /**
      * The period (in ISO 8601 duration format) that this alert rule looks at.
      */
-    readonly queryPeriod: pulumi.Input<string>;
+    queryPeriod: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Alert rule ID
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
     /**
      * The severity for alerts created by this alert rule.
      */
-    readonly severity: pulumi.Input<string | enums.securityinsights.AlertSeverity>;
+    severity: pulumi.Input<string | enums.securityinsights.AlertSeverity>;
     /**
      * The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
      */
-    readonly suppressionDuration: pulumi.Input<string>;
+    suppressionDuration: pulumi.Input<string>;
     /**
      * Determines whether the suppression for this alert rule is enabled or disabled.
      */
-    readonly suppressionEnabled: pulumi.Input<boolean>;
+    suppressionEnabled: pulumi.Input<boolean>;
     /**
      * The tactics of the alert rule
      */
-    readonly tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[]>;
     /**
      * The operation against the threshold that triggers alert rule.
      */
-    readonly triggerOperator: pulumi.Input<enums.securityinsights.TriggerOperator>;
+    triggerOperator: pulumi.Input<enums.securityinsights.TriggerOperator>;
     /**
      * The threshold triggers this alert rule.
      */
-    readonly triggerThreshold: pulumi.Input<number>;
+    triggerThreshold: pulumi.Input<number>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -190,41 +190,41 @@ export interface JobArgs {
     /**
      * Delivery Info of Job.
      */
-    readonly deliveryInfo?: pulumi.Input<inputs.databox.v20200401.JobDeliveryInfoArgs>;
+    deliveryInfo?: pulumi.Input<inputs.databox.v20200401.JobDeliveryInfoArgs>;
     /**
      * Delivery type of Job.
      */
-    readonly deliveryType?: pulumi.Input<string | enums.databox.v20200401.JobDeliveryType>;
+    deliveryType?: pulumi.Input<string | enums.databox.v20200401.JobDeliveryType>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: pulumi.Input<inputs.databox.v20200401.DataBoxDiskJobDetailsArgs | inputs.databox.v20200401.DataBoxHeavyJobDetailsArgs | inputs.databox.v20200401.DataBoxJobDetailsArgs>;
+    details?: pulumi.Input<inputs.databox.v20200401.DataBoxDiskJobDetailsArgs | inputs.databox.v20200401.DataBoxHeavyJobDetailsArgs | inputs.databox.v20200401.DataBoxJobDetailsArgs>;
     /**
      * Msi identity of the resource
      */
-    readonly identity?: pulumi.Input<inputs.databox.v20200401.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.databox.v20200401.ResourceIdentityArgs>;
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku type.
      */
-    readonly sku: pulumi.Input<inputs.databox.v20200401.SkuArgs>;
+    sku: pulumi.Input<inputs.databox.v20200401.SkuArgs>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the data transfer.
      */
-    readonly transferType: pulumi.Input<string | enums.databox.v20200401.TransferType>;
+    transferType: pulumi.Input<string | enums.databox.v20200401.TransferType>;
 }

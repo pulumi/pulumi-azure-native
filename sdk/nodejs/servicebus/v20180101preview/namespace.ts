@@ -154,33 +154,33 @@ export interface NamespaceArgs {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.servicebus.v20180101preview.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.servicebus.v20180101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.servicebus.v20180101preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.servicebus.v20180101preview.IdentityArgs>;
     /**
      * The Geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Properties of SKU
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20180101preview.SBSkuArgs>;
+    sku?: pulumi.Input<inputs.servicebus.v20180101preview.SBSkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

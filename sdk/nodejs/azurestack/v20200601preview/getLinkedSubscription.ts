@@ -26,11 +26,11 @@ export interface GetLinkedSubscriptionArgs {
     /**
      * Name of the Linked Subscription resource.
      */
-    readonly linkedSubscriptionName: string;
+    linkedSubscriptionName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

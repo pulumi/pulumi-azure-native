@@ -156,46 +156,46 @@ export interface SensitivityLabelArgs {
     /**
      * The name of the column.
      */
-    readonly columnName: pulumi.Input<string>;
+    columnName: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The information type.
      */
-    readonly informationType?: pulumi.Input<string>;
+    informationType?: pulumi.Input<string>;
     /**
      * The information type ID.
      */
-    readonly informationTypeId?: pulumi.Input<string>;
+    informationTypeId?: pulumi.Input<string>;
     /**
      * The label ID.
      */
-    readonly labelId?: pulumi.Input<string>;
+    labelId?: pulumi.Input<string>;
     /**
      * The label name.
      */
-    readonly labelName?: pulumi.Input<string>;
-    readonly rank?: pulumi.Input<enums.sql.v20200801preview.SensitivityLabelRank>;
+    labelName?: pulumi.Input<string>;
+    rank?: pulumi.Input<enums.sql.v20200801preview.SensitivityLabelRank>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the schema.
      */
-    readonly schemaName: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
     /**
      * The source of the sensitivity label.
      */
-    readonly sensitivityLabelSource?: pulumi.Input<string>;
+    sensitivityLabelSource?: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of the table.
      */
-    readonly tableName: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

@@ -172,61 +172,61 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20180401.VirtualMachineScaleSetIdentityArgs>;
+    identity?: pulumi.Input<inputs.compute.v20180401.VirtualMachineScaleSetIdentityArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    readonly overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: pulumi.Input<inputs.compute.v20180401.PlanArgs>;
+    plan?: pulumi.Input<inputs.compute.v20180401.PlanArgs>;
     /**
      * Fault Domain count for each placement group.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20180401.SubResourceArgs>;
+    proximityPlacementGroup?: pulumi.Input<inputs.compute.v20180401.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20180401.SkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20180401.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20180401.UpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.compute.v20180401.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20180401.VirtualMachineScaleSetVMProfileArgs>;
+    virtualMachineProfile?: pulumi.Input<inputs.compute.v20180401.VirtualMachineScaleSetVMProfileArgs>;
     /**
      * The name of the VM scale set to create or update.
      */
-    readonly vmScaleSetName?: pulumi.Input<string>;
+    vmScaleSetName?: pulumi.Input<string>;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
      */
-    readonly zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean>;
     /**
      * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

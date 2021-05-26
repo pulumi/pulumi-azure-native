@@ -190,89 +190,89 @@ export interface CertificateArgs {
     /**
      * Raw bytes of .cer file
      */
-    readonly cerBlob?: pulumi.Input<string>;
+    cerBlob?: pulumi.Input<string>;
     /**
      * Certificate expiration date
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * Friendly name of the certificate
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Host names the certificate applies to
      */
-    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specification for the hosting environment (App Service Environment) to use for the certificate
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Certificate issue Date
      */
-    readonly issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string>;
     /**
      * Certificate issuer
      */
-    readonly issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Certificate password
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Pfx blob
      */
-    readonly pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * Public key hash
      */
-    readonly publicKeyHash?: pulumi.Input<string>;
+    publicKeyHash?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Self link
      */
-    readonly selfLink?: pulumi.Input<string>;
+    selfLink?: pulumi.Input<string>;
     /**
      * App name
      */
-    readonly siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string>;
     /**
      * Subject name of the certificate
      */
-    readonly subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Certificate thumbprint
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Is the certificate valid?
      */
-    readonly valid?: pulumi.Input<boolean>;
+    valid?: pulumi.Input<boolean>;
 }

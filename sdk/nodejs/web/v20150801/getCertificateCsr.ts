@@ -26,11 +26,11 @@ export interface GetCertificateCsrArgs {
     /**
      * Name of the certificate.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

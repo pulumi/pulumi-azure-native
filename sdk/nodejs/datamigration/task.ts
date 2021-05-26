@@ -103,25 +103,25 @@ export interface TaskArgs {
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesArgs | inputs.datamigration.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesArgs | inputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs | inputs.datamigration.GetTdeCertificatesSqlTaskPropertiesArgs | inputs.datamigration.GetUserTablesSqlSyncTaskPropertiesArgs | inputs.datamigration.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs | inputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesArgs | inputs.datamigration.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesArgs | inputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs | inputs.datamigration.GetTdeCertificatesSqlTaskPropertiesArgs | inputs.datamigration.GetUserTablesSqlSyncTaskPropertiesArgs | inputs.datamigration.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs | inputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Name of the Task
      */
-    readonly taskName?: pulumi.Input<string>;
+    taskName?: pulumi.Input<string>;
 }

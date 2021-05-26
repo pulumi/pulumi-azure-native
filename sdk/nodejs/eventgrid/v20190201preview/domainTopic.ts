@@ -91,13 +91,13 @@ export interface DomainTopicArgs {
     /**
      * Name of the domain
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * Name of the domain topic
      */
-    readonly domainTopicName?: pulumi.Input<string>;
+    domainTopicName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

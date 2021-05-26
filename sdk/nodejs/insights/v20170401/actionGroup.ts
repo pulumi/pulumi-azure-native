@@ -148,49 +148,49 @@ export interface ActionGroupArgs {
     /**
      * The name of the action group.
      */
-    readonly actionGroupName?: pulumi.Input<string>;
+    actionGroupName?: pulumi.Input<string>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AutomationRunbookReceiverArgs>[]>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AutomationRunbookReceiverArgs>[]>;
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AzureAppPushReceiverArgs>[]>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.AzureAppPushReceiverArgs>[]>;
     /**
      * The list of email receivers that are part of this action group.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.EmailReceiverArgs>[]>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.EmailReceiverArgs>[]>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    readonly groupShortName: pulumi.Input<string>;
+    groupShortName: pulumi.Input<string>;
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.ItsmReceiverArgs>[]>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.ItsmReceiverArgs>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.SmsReceiverArgs>[]>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.SmsReceiverArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.WebhookReceiverArgs>[]>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20170401.WebhookReceiverArgs>[]>;
 }

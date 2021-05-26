@@ -139,45 +139,45 @@ export interface JobStepArgs {
     /**
      * The action payload of the job step.
      */
-    readonly action: pulumi.Input<inputs.sql.v20201101preview.JobStepActionArgs>;
+    action: pulumi.Input<inputs.sql.v20201101preview.JobStepActionArgs>;
     /**
      * The resource ID of the job credential that will be used to connect to the targets.
      */
-    readonly credential: pulumi.Input<string>;
+    credential: pulumi.Input<string>;
     /**
      * Execution options for the job step.
      */
-    readonly executionOptions?: pulumi.Input<inputs.sql.v20201101preview.JobStepExecutionOptionsArgs>;
+    executionOptions?: pulumi.Input<inputs.sql.v20201101preview.JobStepExecutionOptionsArgs>;
     /**
      * The name of the job agent.
      */
-    readonly jobAgentName: pulumi.Input<string>;
+    jobAgentName: pulumi.Input<string>;
     /**
      * The name of the job.
      */
-    readonly jobName: pulumi.Input<string>;
+    jobName: pulumi.Input<string>;
     /**
      * Output destination properties of the job step.
      */
-    readonly output?: pulumi.Input<inputs.sql.v20201101preview.JobStepOutputArgs>;
+    output?: pulumi.Input<inputs.sql.v20201101preview.JobStepOutputArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
      */
-    readonly stepId?: pulumi.Input<number>;
+    stepId?: pulumi.Input<number>;
     /**
      * The name of the job step.
      */
-    readonly stepName?: pulumi.Input<string>;
+    stepName?: pulumi.Input<string>;
     /**
      * The resource ID of the target group that the job step will be executed on.
      */
-    readonly targetGroup: pulumi.Input<string>;
+    targetGroup: pulumi.Input<string>;
 }

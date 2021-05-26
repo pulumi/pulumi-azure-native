@@ -24,12 +24,12 @@ export interface GetResourceGuardProxyArgs {
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
-    readonly resourceGuardProxyName: string;
+    resourceGroupName: string;
+    resourceGuardProxyName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 export interface GetResourceGuardProxyResult {

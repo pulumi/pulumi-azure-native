@@ -92,17 +92,17 @@ export interface CertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Properties of the certificate resource payload.
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.v20200701.CertificatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.v20200701.CertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

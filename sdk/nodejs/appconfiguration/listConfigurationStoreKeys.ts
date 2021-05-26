@@ -28,15 +28,15 @@ export interface ListConfigurationStoreKeysArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: string;
+    configStoreName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
 }
 
 /**

@@ -142,34 +142,34 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    readonly hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string>;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
-    readonly kind: pulumi.Input<"ReadWrite">;
+    kind: pulumi.Input<"ReadWrite">;
     /**
      * The name of the Kusto pool.
      */
-    readonly kustoPoolName: pulumi.Input<string>;
+    kustoPoolName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */
-    readonly softDeletePeriod?: pulumi.Input<string>;
+    softDeletePeriod?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

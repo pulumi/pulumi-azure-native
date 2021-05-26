@@ -113,33 +113,33 @@ export interface BackupLongTermRetentionPolicyArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */
-    readonly monthlyRetention?: pulumi.Input<string>;
+    monthlyRetention?: pulumi.Input<string>;
     /**
      * The policy name. Should always be Default.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The week of year to take the yearly backup in an ISO 8601 format.
      */
-    readonly weekOfYear?: pulumi.Input<number>;
+    weekOfYear?: pulumi.Input<number>;
     /**
      * The weekly retention policy for an LTR backup in an ISO 8601 format.
      */
-    readonly weeklyRetention?: pulumi.Input<string>;
+    weeklyRetention?: pulumi.Input<string>;
     /**
      * The yearly retention policy for an LTR backup in an ISO 8601 format.
      */
-    readonly yearlyRetention?: pulumi.Input<string>;
+    yearlyRetention?: pulumi.Input<string>;
 }

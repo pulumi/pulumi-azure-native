@@ -118,37 +118,37 @@ export interface ProtectedItemArgs {
     /**
      * Container name associated with the backup item.
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the backup item.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ProtectedItemResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20190615.AzureFileshareProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureSqlProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.DPMProtectedItemArgs | inputs.recoveryservices.v20190615.GenericProtectedItemArgs | inputs.recoveryservices.v20190615.MabFileFolderProtectedItemArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20190615.AzureFileshareProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.v20190615.AzureSqlProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.v20190615.DPMProtectedItemArgs | inputs.recoveryservices.v20190615.GenericProtectedItemArgs | inputs.recoveryservices.v20190615.MabFileFolderProtectedItemArgs>;
     /**
      * Item name to be backed up.
      */
-    readonly protectedItemName?: pulumi.Input<string>;
+    protectedItemName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

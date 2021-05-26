@@ -99,14 +99,14 @@ export interface TagRuleArgs {
     /**
      * Monitor resource name
      */
-    readonly monitorName: pulumi.Input<string>;
+    monitorName: pulumi.Input<string>;
     /**
      * Definition of the properties for a TagRules resource.
      */
-    readonly properties?: pulumi.Input<inputs.logz.MonitoringTagRulesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.logz.MonitoringTagRulesPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly ruleSetName?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string>;
 }

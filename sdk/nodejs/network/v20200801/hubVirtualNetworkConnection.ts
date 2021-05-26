@@ -123,41 +123,41 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
      */
-    readonly allowHubToRemoteVnetTransit?: pulumi.Input<boolean>;
+    allowHubToRemoteVnetTransit?: pulumi.Input<boolean>;
     /**
      * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
      */
-    readonly allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean>;
+    allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean>;
     /**
      * The name of the HubVirtualNetworkConnection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Enable internet security.
      */
-    readonly enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Reference to the remote virtual network.
      */
-    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200801.SubResourceArgs>;
+    remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200801.SubResourceArgs>;
     /**
      * The resource group name of the HubVirtualNetworkConnection.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200801.RoutingConfigurationArgs>;
+    routingConfiguration?: pulumi.Input<inputs.network.v20200801.RoutingConfigurationArgs>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: pulumi.Input<string>;
+    virtualHubName: pulumi.Input<string>;
 }

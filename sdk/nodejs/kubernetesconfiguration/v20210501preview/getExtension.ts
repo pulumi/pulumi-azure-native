@@ -29,23 +29,23 @@ export interface GetExtensionArgs {
     /**
      * The name of the kubernetes cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
      */
-    readonly clusterResourceName: string;
+    clusterResourceName: string;
     /**
      * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
      */
-    readonly clusterRp: string;
+    clusterRp: string;
     /**
      * Name of the Extension.
      */
-    readonly extensionName: string;
+    extensionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

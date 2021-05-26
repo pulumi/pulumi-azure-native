@@ -27,15 +27,15 @@ export interface GetProviderInstanceArgs {
     /**
      * Name of the provider instance.
      */
-    readonly providerInstanceName: string;
+    providerInstanceName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the SAP monitor resource.
      */
-    readonly sapMonitorName: string;
+    sapMonitorName: string;
 }
 
 /**

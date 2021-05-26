@@ -28,15 +28,15 @@ export interface GetKeyValueArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: string;
+    configStoreName: string;
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    readonly keyValueName: string;
+    keyValueName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

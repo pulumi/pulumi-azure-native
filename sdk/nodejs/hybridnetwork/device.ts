@@ -128,25 +128,25 @@ export interface DeviceArgs {
     /**
      * The reference to the Azure stack edge device.
      */
-    readonly azureStackEdge?: pulumi.Input<inputs.hybridnetwork.SubResourceArgs>;
+    azureStackEdge?: pulumi.Input<inputs.hybridnetwork.SubResourceArgs>;
     /**
      * Resource name for the device resource.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The type of the device.
      */
-    readonly deviceType: pulumi.Input<string | enums.hybridnetwork.DeviceType>;
+    deviceType: pulumi.Input<string | enums.hybridnetwork.DeviceType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

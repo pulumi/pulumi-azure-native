@@ -112,29 +112,29 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
      */
-    readonly extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200401.MaintenanceScope>;
+    maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200401.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource Identifier
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

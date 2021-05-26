@@ -115,29 +115,29 @@ export interface AssetFilterArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The Asset name.
      */
-    readonly assetName: pulumi.Input<string>;
+    assetName: pulumi.Input<string>;
     /**
      * The Asset Filter name
      */
-    readonly filterName?: pulumi.Input<string>;
+    filterName?: pulumi.Input<string>;
     /**
      * The first quality.
      */
-    readonly firstQuality?: pulumi.Input<inputs.media.FirstQualityArgs>;
+    firstQuality?: pulumi.Input<inputs.media.FirstQualityArgs>;
     /**
      * The presentation time range.
      */
-    readonly presentationTimeRange?: pulumi.Input<inputs.media.PresentationTimeRangeArgs>;
+    presentationTimeRange?: pulumi.Input<inputs.media.PresentationTimeRangeArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tracks selection conditions.
      */
-    readonly tracks?: pulumi.Input<pulumi.Input<inputs.media.FilterTrackSelectionArgs>[]>;
+    tracks?: pulumi.Input<pulumi.Input<inputs.media.FilterTrackSelectionArgs>[]>;
 }

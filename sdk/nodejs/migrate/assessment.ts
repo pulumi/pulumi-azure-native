@@ -106,25 +106,25 @@ export interface AssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    readonly assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * For optimistic concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Properties of the assessment.
      */
-    readonly properties: pulumi.Input<inputs.migrate.AssessmentPropertiesArgs>;
+    properties: pulumi.Input<inputs.migrate.AssessmentPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

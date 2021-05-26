@@ -95,17 +95,17 @@ export interface ManagementConfigurationArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * User Management Configuration Name.
      */
-    readonly managementConfigurationName?: pulumi.Input<string>;
+    managementConfigurationName?: pulumi.Input<string>;
     /**
      * Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.ManagementConfigurationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.operationsmanagement.ManagementConfigurationPropertiesArgs>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

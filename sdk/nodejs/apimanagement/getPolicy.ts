@@ -29,19 +29,19 @@ export interface GetPolicyArgs {
     /**
      * Policy Export Format.
      */
-    readonly format?: string;
+    format?: string;
     /**
      * The identifier of the Policy.
      */
-    readonly policyId: string;
+    policyId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

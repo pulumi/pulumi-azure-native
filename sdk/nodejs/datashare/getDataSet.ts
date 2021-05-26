@@ -31,19 +31,19 @@ export interface GetDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName: string;
+    dataSetName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the share.
      */
-    readonly shareName: string;
+    shareName: string;
 }
 
 /**

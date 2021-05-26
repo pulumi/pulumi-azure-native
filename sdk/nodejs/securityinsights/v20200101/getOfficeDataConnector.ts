@@ -27,15 +27,15 @@ export interface GetOfficeDataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId: string;
+    dataConnectorId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -116,29 +116,29 @@ export interface DataSourceArgs {
     /**
      * The name of the datasource resource.
      */
-    readonly dataSourceName?: pulumi.Input<string>;
+    dataSourceName?: pulumi.Input<string>;
     /**
      * The ETag of the data source.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the DataSource.
      */
-    readonly kind: pulumi.Input<string | enums.operationalinsights.v20200801.DataSourceKind>;
+    kind: pulumi.Input<string | enums.operationalinsights.v20200801.DataSourceKind>;
     /**
      * The data source properties in raw json format, each kind of data source have it's own schema.
      */
-    readonly properties: any;
+    properties: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

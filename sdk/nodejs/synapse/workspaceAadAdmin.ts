@@ -109,25 +109,25 @@ export interface WorkspaceAadAdminArgs {
     /**
      * Workspace active directory administrator type
      */
-    readonly administratorType?: pulumi.Input<string>;
+    administratorType?: pulumi.Input<string>;
     /**
      * Login of the workspace active directory administrator
      */
-    readonly login?: pulumi.Input<string>;
+    login?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Object ID of the workspace active directory administrator
      */
-    readonly sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string>;
     /**
      * Tenant ID of the workspace active directory administrator
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

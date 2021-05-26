@@ -106,9 +106,9 @@ export interface ManagementGroupSubscriptionArgs {
     /**
      * Management Group ID.
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
     /**
      * Subscription ID.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
 }

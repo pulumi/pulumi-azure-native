@@ -155,35 +155,35 @@ export interface LabArgs {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string | enums.devtestlab.v20160515.StorageType>;
+    labStorageType?: pulumi.Input<string | enums.devtestlab.v20160515.StorageType>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The setting to enable usage of premium data disks.
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string | enums.devtestlab.v20160515.PremiumDataDisk>;
+    premiumDataDisks?: pulumi.Input<string | enums.devtestlab.v20160515.PremiumDataDisk>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }

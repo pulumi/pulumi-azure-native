@@ -27,15 +27,15 @@ export interface GetConnectionTypeArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * The name of connection type.
      */
-    readonly connectionTypeName: string;
+    connectionTypeName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

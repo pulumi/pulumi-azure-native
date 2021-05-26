@@ -26,11 +26,11 @@ export interface ListAdminKeyArgs {
     /**
      * The name of the resource group within the current subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Search service for which to list admin keys.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

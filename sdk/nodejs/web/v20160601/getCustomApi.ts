@@ -27,15 +27,15 @@ export interface GetCustomApiArgs {
     /**
      * API name
      */
-    readonly apiName: string;
+    apiName: string;
     /**
      * The resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

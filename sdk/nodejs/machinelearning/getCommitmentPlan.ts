@@ -27,11 +27,11 @@ export interface GetCommitmentPlanArgs {
     /**
      * The Azure ML commitment plan name.
      */
-    readonly commitmentPlanName: string;
+    commitmentPlanName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -148,61 +148,61 @@ export interface ManagedDatabaseArgs {
     /**
      * Collation of the metadata catalog.
      */
-    readonly catalogCollation?: pulumi.Input<string | enums.sql.v20190601preview.CatalogCollationType>;
+    catalogCollation?: pulumi.Input<string | enums.sql.v20190601preview.CatalogCollationType>;
     /**
      * Collation of the managed database.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
      */
-    readonly createMode?: pulumi.Input<string | enums.sql.v20190601preview.ManagedDatabaseCreateMode>;
+    createMode?: pulumi.Input<string | enums.sql.v20190601preview.ManagedDatabaseCreateMode>;
     /**
      * The name of the database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Long Term Retention backup to be used for restore of this managed database.
      */
-    readonly longTermRetentionBackupResourceId?: pulumi.Input<string>;
+    longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName: pulumi.Input<string>;
+    managedInstanceName: pulumi.Input<string>;
     /**
      * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    readonly recoverableDatabaseId?: pulumi.Input<string>;
+    recoverableDatabaseId?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The restorable dropped database resource id to restore when creating this database.
      */
-    readonly restorableDroppedDatabaseId?: pulumi.Input<string>;
+    restorableDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The resource identifier of the source database associated with create operation of this database.
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
      */
-    readonly storageContainerSasToken?: pulumi.Input<string>;
+    storageContainerSasToken?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
      */
-    readonly storageContainerUri?: pulumi.Input<string>;
+    storageContainerUri?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

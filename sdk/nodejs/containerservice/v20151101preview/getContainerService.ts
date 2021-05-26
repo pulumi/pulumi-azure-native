@@ -26,11 +26,11 @@ export interface GetContainerServiceArgs {
     /**
      * The name of the container service within the given subscription and resource group.
      */
-    readonly containerServiceName: string;
+    containerServiceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

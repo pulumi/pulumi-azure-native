@@ -199,21 +199,21 @@ export interface GatewayApiEntityTagArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    readonly gatewayId: pulumi.Input<string>;
+    gatewayId: pulumi.Input<string>;
     /**
      * Provisioning state.
      */
-    readonly provisioningState?: pulumi.Input<enums.apimanagement.v20201201.ProvisioningState>;
+    provisioningState?: pulumi.Input<enums.apimanagement.v20201201.ProvisioningState>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

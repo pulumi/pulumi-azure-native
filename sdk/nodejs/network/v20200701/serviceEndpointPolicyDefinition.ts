@@ -110,33 +110,33 @@ export interface ServiceEndpointPolicyDefinitionArgs {
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Service endpoint name.
      */
-    readonly service?: pulumi.Input<string>;
+    service?: pulumi.Input<string>;
     /**
      * The name of the service endpoint policy definition name.
      */
-    readonly serviceEndpointPolicyDefinitionName?: pulumi.Input<string>;
+    serviceEndpointPolicyDefinitionName?: pulumi.Input<string>;
     /**
      * The name of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyName: pulumi.Input<string>;
+    serviceEndpointPolicyName: pulumi.Input<string>;
     /**
      * A list of service resources.
      */
-    readonly serviceResources?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceResources?: pulumi.Input<pulumi.Input<string>[]>;
 }

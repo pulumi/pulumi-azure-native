@@ -27,15 +27,15 @@ export interface GetHybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    readonly hybridConnectionName: string;
+    hybridConnectionName: string;
     /**
      * The Namespace Name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -92,17 +92,17 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * NSX DHCP identifier. Generally the same as the DHCP display name
      */
-    readonly dhcpId?: pulumi.Input<string>;
+    dhcpId?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * DHCP properties.
      */
-    readonly properties?: pulumi.Input<inputs.avs.v20210601.WorkloadNetworkDhcpRelayArgs | inputs.avs.v20210601.WorkloadNetworkDhcpServerArgs>;
+    properties?: pulumi.Input<inputs.avs.v20210601.WorkloadNetworkDhcpRelayArgs | inputs.avs.v20210601.WorkloadNetworkDhcpServerArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

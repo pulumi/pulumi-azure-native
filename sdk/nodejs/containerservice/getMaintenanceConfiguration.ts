@@ -28,15 +28,15 @@ export interface GetMaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    readonly configName: string;
+    configName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

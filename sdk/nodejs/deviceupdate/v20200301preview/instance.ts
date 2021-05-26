@@ -121,25 +121,25 @@ export interface InstanceArgs {
     /**
      * Account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Instance name.
      */
-    readonly instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * List of IoT Hubs associated with the account.
      */
-    readonly iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.v20200301preview.IotHubSettingsArgs>[]>;
+    iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.v20200301preview.IotHubSettingsArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

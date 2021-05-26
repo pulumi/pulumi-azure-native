@@ -27,15 +27,15 @@ export interface GetLinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    readonly dataSourceType: string;
+    dataSourceType: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Log Analytics Workspace that will contain the resource.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

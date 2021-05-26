@@ -168,61 +168,61 @@ export interface VirtualMachineScaleSetVMRunCommandArgs {
     /**
      * Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
      */
-    readonly asyncExecution?: pulumi.Input<boolean>;
+    asyncExecution?: pulumi.Input<boolean>;
     /**
      * Specifies the Azure storage blob where script error stream will be uploaded.
      */
-    readonly errorBlobUri?: pulumi.Input<string>;
+    errorBlobUri?: pulumi.Input<string>;
     /**
      * The instance ID of the virtual machine.
      */
-    readonly instanceId: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded.
      */
-    readonly outputBlobUri?: pulumi.Input<string>;
+    outputBlobUri?: pulumi.Input<string>;
     /**
      * The parameters used by the script.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
     /**
      * The parameters used by the script.
      */
-    readonly protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
+    protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.v20200601.RunCommandInputParameterArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the user account password on the VM when executing the run command.
      */
-    readonly runAsPassword?: pulumi.Input<string>;
+    runAsPassword?: pulumi.Input<string>;
     /**
      * Specifies the user account on the VM when executing the run command.
      */
-    readonly runAsUser?: pulumi.Input<string>;
+    runAsUser?: pulumi.Input<string>;
     /**
      * The name of the virtual machine run command.
      */
-    readonly runCommandName?: pulumi.Input<string>;
+    runCommandName?: pulumi.Input<string>;
     /**
      * The source of the run command script.
      */
-    readonly source?: pulumi.Input<inputs.compute.v20200601.VirtualMachineRunCommandScriptSourceArgs>;
+    source?: pulumi.Input<inputs.compute.v20200601.VirtualMachineRunCommandScriptSourceArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The timeout in seconds to execute the run command.
      */
-    readonly timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number>;
     /**
      * The name of the VM scale set.
      */
-    readonly vmScaleSetName: pulumi.Input<string>;
+    vmScaleSetName: pulumi.Input<string>;
 }

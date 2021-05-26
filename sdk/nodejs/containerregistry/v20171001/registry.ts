@@ -145,33 +145,33 @@ export interface RegistryArgs {
     /**
      * The value that indicates whether the admin user is enabled.
      */
-    readonly adminUserEnabled?: pulumi.Input<boolean>;
+    adminUserEnabled?: pulumi.Input<boolean>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20171001.NetworkRuleSetArgs>;
+    networkRuleSet?: pulumi.Input<inputs.containerregistry.v20171001.NetworkRuleSetArgs>;
     /**
      * The name of the container registry.
      */
-    readonly registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the container registry.
      */
-    readonly sku: pulumi.Input<inputs.containerregistry.v20171001.SkuArgs>;
+    sku: pulumi.Input<inputs.containerregistry.v20171001.SkuArgs>;
     /**
      * The properties of the storage account for the container registry. Only applicable to Classic SKU.
      */
-    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20171001.StorageAccountPropertiesArgs>;
+    storageAccount?: pulumi.Input<inputs.containerregistry.v20171001.StorageAccountPropertiesArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

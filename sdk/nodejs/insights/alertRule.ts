@@ -146,45 +146,45 @@ export interface AlertRuleArgs {
     /**
      * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly action?: pulumi.Input<inputs.insights.RuleEmailActionArgs | inputs.insights.RuleWebhookActionArgs>;
+    action?: pulumi.Input<inputs.insights.RuleEmailActionArgs | inputs.insights.RuleWebhookActionArgs>;
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.RuleEmailActionArgs | inputs.insights.RuleWebhookActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.insights.RuleEmailActionArgs | inputs.insights.RuleWebhookActionArgs>[]>;
     /**
      * the condition that results in the alert rule being activated.
      */
-    readonly condition: pulumi.Input<inputs.insights.LocationThresholdRuleConditionArgs | inputs.insights.ManagementEventRuleConditionArgs | inputs.insights.ThresholdRuleConditionArgs>;
+    condition: pulumi.Input<inputs.insights.LocationThresholdRuleConditionArgs | inputs.insights.ManagementEventRuleConditionArgs | inputs.insights.ThresholdRuleConditionArgs>;
     /**
      * the description of the alert rule that will be included in the alert email.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * the flag that indicates whether the alert rule is enabled.
      */
-    readonly isEnabled: pulumi.Input<boolean>;
+    isEnabled: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * the name of the alert rule.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * the provisioning state.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

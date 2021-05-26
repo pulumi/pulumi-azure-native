@@ -31,27 +31,27 @@ export interface GetProtectedItemArgs {
     /**
      * Container name associated with the backed up item.
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * Fabric name associated with the backed up item.
      */
-    readonly fabricName: string;
+    fabricName: string;
     /**
      * OData filter options.
      */
-    readonly filter?: string;
+    filter?: string;
     /**
      * Backed up item name whose details are to be fetched.
      */
-    readonly protectedItemName: string;
+    protectedItemName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

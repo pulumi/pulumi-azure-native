@@ -27,15 +27,15 @@ export interface GetSqlDatabaseArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the sql database.
      */
-    readonly sqlDatabaseName: string;
+    sqlDatabaseName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

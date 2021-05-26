@@ -28,15 +28,15 @@ export interface GetProtectionPolicyArgs {
     /**
      * Backup policy information to be fetched.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

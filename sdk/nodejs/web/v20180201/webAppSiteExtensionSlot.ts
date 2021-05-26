@@ -211,17 +211,17 @@ export interface WebAppSiteExtensionSlotArgs {
     /**
      * Site name.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Site extension name.
      */
-    readonly siteExtensionId?: pulumi.Input<string>;
+    siteExtensionId?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

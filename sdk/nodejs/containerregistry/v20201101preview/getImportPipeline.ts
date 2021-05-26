@@ -27,15 +27,15 @@ export interface GetImportPipelineArgs {
     /**
      * The name of the import pipeline.
      */
-    readonly importPipelineName: string;
+    importPipelineName: string;
     /**
      * The name of the container registry.
      */
-    readonly registryName: string;
+    registryName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

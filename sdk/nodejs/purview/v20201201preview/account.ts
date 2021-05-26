@@ -179,33 +179,33 @@ export interface AccountArgs {
     /**
      * The name of the account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Identity Info on the tracked resource
      */
-    readonly identity?: pulumi.Input<inputs.purview.v20201201preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.purview.v20201201preview.IdentityArgs>;
     /**
      * Gets or sets the location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the managed resource group name
      */
-    readonly managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Gets or sets the public network access.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.purview.v20201201preview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.purview.v20201201preview.PublicNetworkAccess>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the Sku.
      */
-    readonly sku?: pulumi.Input<inputs.purview.v20201201preview.AccountSkuArgs>;
+    sku?: pulumi.Input<inputs.purview.v20201201preview.AccountSkuArgs>;
     /**
      * Tags on the azure resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -137,49 +137,49 @@ export interface VirtualNetworkArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: pulumi.Input<inputs.network.v20170801.AddressSpaceArgs>;
+    addressSpace?: pulumi.Input<inputs.network.v20170801.AddressSpaceArgs>;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: pulumi.Input<inputs.network.v20170801.DhcpOptionsArgs>;
+    dhcpOptions?: pulumi.Input<inputs.network.v20170801.DhcpOptionsArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resourceGuid property of the Virtual Network resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20170801.SubnetArgs>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.v20170801.SubnetArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string>;
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20170801.VirtualNetworkPeeringArgs>[]>;
+    virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20170801.VirtualNetworkPeeringArgs>[]>;
 }

@@ -27,11 +27,11 @@ export interface ListRedisKeysArgs {
     /**
      * The name of the Redis cache.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

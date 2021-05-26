@@ -28,15 +28,15 @@ export interface ListTopLevelDomainAgreementsArgs {
     /**
      * If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
      */
-    readonly forTransfer?: boolean;
+    forTransfer?: boolean;
     /**
      * If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
      */
-    readonly includePrivacy?: boolean;
+    includePrivacy?: boolean;
     /**
      * Name of the top-level domain.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

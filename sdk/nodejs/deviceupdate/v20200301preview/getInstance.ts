@@ -27,15 +27,15 @@ export interface GetInstanceArgs {
     /**
      * Account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Instance name.
      */
-    readonly instanceName: string;
+    instanceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

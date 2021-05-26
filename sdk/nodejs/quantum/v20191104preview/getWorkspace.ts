@@ -26,11 +26,11 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the quantum workspace resource.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

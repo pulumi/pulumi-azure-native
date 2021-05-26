@@ -170,49 +170,49 @@ export interface AgreementArgs {
     /**
      * The integration account agreement name.
      */
-    readonly agreementName?: pulumi.Input<string>;
+    agreementName?: pulumi.Input<string>;
     /**
      * The agreement type.
      */
-    readonly agreementType: pulumi.Input<enums.logic.v20160601.AgreementType>;
+    agreementType: pulumi.Input<enums.logic.v20160601.AgreementType>;
     /**
      * The agreement content.
      */
-    readonly content: pulumi.Input<inputs.logic.v20160601.AgreementContentArgs>;
+    content: pulumi.Input<inputs.logic.v20160601.AgreementContentArgs>;
     /**
      * The business identity of the guest partner.
      */
-    readonly guestIdentity: pulumi.Input<inputs.logic.v20160601.BusinessIdentityArgs>;
+    guestIdentity: pulumi.Input<inputs.logic.v20160601.BusinessIdentityArgs>;
     /**
      * The integration account partner that is set as guest partner for this agreement.
      */
-    readonly guestPartner: pulumi.Input<string>;
+    guestPartner: pulumi.Input<string>;
     /**
      * The business identity of the host partner.
      */
-    readonly hostIdentity: pulumi.Input<inputs.logic.v20160601.BusinessIdentityArgs>;
+    hostIdentity: pulumi.Input<inputs.logic.v20160601.BusinessIdentityArgs>;
     /**
      * The integration account partner that is set as host partner for this agreement.
      */
-    readonly hostPartner: pulumi.Input<string>;
+    hostPartner: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

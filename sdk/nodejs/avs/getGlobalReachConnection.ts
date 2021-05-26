@@ -28,15 +28,15 @@ export interface GetGlobalReachConnectionArgs {
     /**
      * Name of the global reach connection in the private cloud
      */
-    readonly globalReachConnectionName: string;
+    globalReachConnectionName: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

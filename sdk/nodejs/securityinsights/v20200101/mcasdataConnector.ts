@@ -114,30 +114,30 @@ export interface MCASDataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The available data types for the connector.
      */
-    readonly dataTypes?: pulumi.Input<inputs.securityinsights.v20200101.MCASDataConnectorDataTypesArgs>;
+    dataTypes?: pulumi.Input<inputs.securityinsights.v20200101.MCASDataConnectorDataTypesArgs>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'MicrosoftCloudAppSecurity'.
      */
-    readonly kind: pulumi.Input<"MicrosoftCloudAppSecurity">;
+    kind: pulumi.Input<"MicrosoftCloudAppSecurity">;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tenant id to connect to, and get the data from.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

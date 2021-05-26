@@ -110,21 +110,21 @@ export interface SynchronizationSettingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Kind of synchronization setting.
      */
-    readonly kind: pulumi.Input<string | enums.datashare.v20200901.SynchronizationSettingKind>;
+    kind: pulumi.Input<string | enums.datashare.v20200901.SynchronizationSettingKind>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the synchronization setting to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * The name of the synchronizationSetting.
      */
-    readonly synchronizationSettingName?: pulumi.Input<string>;
+    synchronizationSettingName?: pulumi.Input<string>;
 }

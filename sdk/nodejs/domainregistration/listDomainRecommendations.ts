@@ -28,11 +28,11 @@ export interface ListDomainRecommendationsArgs {
     /**
      * Keywords to be used for generating domain recommendations.
      */
-    readonly keywords?: string;
+    keywords?: string;
     /**
      * Maximum number of recommendations.
      */
-    readonly maxDomainRecommendations?: number;
+    maxDomainRecommendations?: number;
 }
 
 /**

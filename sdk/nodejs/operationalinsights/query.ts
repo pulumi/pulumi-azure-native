@@ -153,37 +153,37 @@ export interface QueryArgs {
     /**
      * Body of the query.
      */
-    readonly body: pulumi.Input<string>;
+    body: pulumi.Input<string>;
     /**
      * Description of the query.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Unique display name for your query within the Query Pack.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The id of a specific query defined in the Log Analytics QueryPack
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Additional properties that can be set for the query.
      */
-    readonly properties?: any;
+    properties?: any;
     /**
      * The name of the Log Analytics QueryPack resource.
      */
-    readonly queryPackName: pulumi.Input<string>;
+    queryPackName: pulumi.Input<string>;
     /**
      * The related metadata items for the function.
      */
-    readonly related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs>;
+    related?: pulumi.Input<inputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags associated with the query.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
 }

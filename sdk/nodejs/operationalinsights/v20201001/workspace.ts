@@ -172,53 +172,53 @@ export interface WorkspaceArgs {
     /**
      * The ETag of the workspace.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Workspace features.
      */
-    readonly features?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceFeaturesArgs>;
+    features?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceFeaturesArgs>;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
-    readonly forceCmkForQuery?: pulumi.Input<boolean>;
+    forceCmkForQuery?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.operationalinsights.v20201001.WorkspaceEntityStatus>;
+    provisioningState?: pulumi.Input<string | enums.operationalinsights.v20201001.WorkspaceEntityStatus>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
-    readonly publicNetworkAccessForIngestion?: pulumi.Input<string | enums.operationalinsights.v20201001.PublicNetworkAccessType>;
+    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.operationalinsights.v20201001.PublicNetworkAccessType>;
     /**
      * The network access type for accessing Log Analytics query.
      */
-    readonly publicNetworkAccessForQuery?: pulumi.Input<string | enums.operationalinsights.v20201001.PublicNetworkAccessType>;
+    publicNetworkAccessForQuery?: pulumi.Input<string | enums.operationalinsights.v20201001.PublicNetworkAccessType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceSkuArgs>;
+    sku?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The daily volume cap for ingestion.
      */
-    readonly workspaceCapping?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceCappingArgs>;
+    workspaceCapping?: pulumi.Input<inputs.operationalinsights.v20201001.WorkspaceCappingArgs>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

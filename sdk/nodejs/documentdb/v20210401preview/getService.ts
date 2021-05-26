@@ -27,15 +27,15 @@ export interface GetServiceArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Cosmos DB service name.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

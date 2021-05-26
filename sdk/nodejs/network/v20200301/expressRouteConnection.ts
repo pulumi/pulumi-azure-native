@@ -117,37 +117,37 @@ export interface ExpressRouteConnectionArgs {
     /**
      * Authorization key to establish the connection.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The name of the connection subresource.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Enable internet security.
      */
-    readonly enableInternetSecurity?: pulumi.Input<boolean>;
+    enableInternetSecurity?: pulumi.Input<boolean>;
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20200301.ExpressRouteCircuitPeeringIdArgs>;
+    expressRouteCircuitPeering: pulumi.Input<inputs.network.v20200301.ExpressRouteCircuitPeeringIdArgs>;
     /**
      * The name of the ExpressRoute gateway.
      */
-    readonly expressRouteGatewayName: pulumi.Input<string>;
+    expressRouteGatewayName: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The routing weight associated to the connection.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
 }

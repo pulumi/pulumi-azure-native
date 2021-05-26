@@ -185,61 +185,61 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
+    basePolicy?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * DNS Proxy Settings definition.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20201101.DnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20201101.DnsSettingsArgs>;
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName?: pulumi.Input<string>;
+    firewallPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The identity of the firewall policy.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.v20201101.ManagedServiceIdentityArgs>;
     /**
      * Insights on Firewall Policy.
      */
-    readonly insights?: pulumi.Input<inputs.network.v20201101.FirewallPolicyInsightsArgs>;
+    insights?: pulumi.Input<inputs.network.v20201101.FirewallPolicyInsightsArgs>;
     /**
      * The configuration for Intrusion detection.
      */
-    readonly intrusionDetection?: pulumi.Input<inputs.network.v20201101.FirewallPolicyIntrusionDetectionArgs>;
+    intrusionDetection?: pulumi.Input<inputs.network.v20201101.FirewallPolicyIntrusionDetectionArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Firewall Policy SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20201101.FirewallPolicySkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20201101.FirewallPolicySkuArgs>;
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    readonly snat?: pulumi.Input<inputs.network.v20201101.FirewallPolicySNATArgs>;
+    snat?: pulumi.Input<inputs.network.v20201101.FirewallPolicySNATArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    readonly threatIntelMode?: pulumi.Input<string | enums.network.v20201101.AzureFirewallThreatIntelMode>;
+    threatIntelMode?: pulumi.Input<string | enums.network.v20201101.AzureFirewallThreatIntelMode>;
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    readonly threatIntelWhitelist?: pulumi.Input<inputs.network.v20201101.FirewallPolicyThreatIntelWhitelistArgs>;
+    threatIntelWhitelist?: pulumi.Input<inputs.network.v20201101.FirewallPolicyThreatIntelWhitelistArgs>;
     /**
      * TLS Configuration definition.
      */
-    readonly transportSecurity?: pulumi.Input<inputs.network.v20201101.FirewallPolicyTransportSecurityArgs>;
+    transportSecurity?: pulumi.Input<inputs.network.v20201101.FirewallPolicyTransportSecurityArgs>;
 }

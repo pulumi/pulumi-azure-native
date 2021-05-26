@@ -28,15 +28,15 @@ export interface GetRouteFilterRuleArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the route filter.
      */
-    readonly routeFilterName: string;
+    routeFilterName: string;
     /**
      * The name of the rule.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

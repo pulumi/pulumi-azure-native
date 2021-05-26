@@ -27,11 +27,11 @@ export interface GetVolumeArgs {
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The identity of the volume.
      */
-    readonly volumeResourceName: string;
+    volumeResourceName: string;
 }
 
 /**

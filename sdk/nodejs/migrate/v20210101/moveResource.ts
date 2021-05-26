@@ -92,17 +92,17 @@ export interface MoveResourceArgs {
     /**
      * The Move Collection Name.
      */
-    readonly moveCollectionName: pulumi.Input<string>;
+    moveCollectionName: pulumi.Input<string>;
     /**
      * The Move Resource Name.
      */
-    readonly moveResourceName?: pulumi.Input<string>;
+    moveResourceName?: pulumi.Input<string>;
     /**
      * Defines the move resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.v20210101.MoveResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.v20210101.MoveResourcePropertiesArgs>;
     /**
      * The Resource Group Name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

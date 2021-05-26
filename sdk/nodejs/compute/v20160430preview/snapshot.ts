@@ -145,37 +145,37 @@ export interface SnapshotArgs {
     /**
      * the storage account type of the disk.
      */
-    readonly accountType?: pulumi.Input<enums.compute.v20160430preview.StorageAccountTypes>;
+    accountType?: pulumi.Input<enums.compute.v20160430preview.StorageAccountTypes>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20160430preview.CreationDataArgs>;
+    creationData: pulumi.Input<inputs.compute.v20160430preview.CreationDataArgs>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    readonly diskSizeGB?: pulumi.Input<number>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettingsArgs>;
+    encryptionSettings?: pulumi.Input<inputs.compute.v20160430preview.EncryptionSettingsArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<enums.compute.v20160430preview.OperatingSystemTypes>;
+    osType?: pulumi.Input<enums.compute.v20160430preview.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the snapshot within the given subscription and resource group.
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

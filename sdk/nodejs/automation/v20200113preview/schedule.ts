@@ -179,45 +179,45 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the AdvancedSchedule.
      */
-    readonly advancedSchedule?: pulumi.Input<inputs.automation.v20200113preview.AdvancedScheduleArgs>;
+    advancedSchedule?: pulumi.Input<inputs.automation.v20200113preview.AdvancedScheduleArgs>;
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the description of the schedule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the end time of the schedule.
      */
-    readonly expiryTime?: pulumi.Input<string>;
+    expiryTime?: pulumi.Input<string>;
     /**
      * Gets or sets the frequency of the schedule.
      */
-    readonly frequency: pulumi.Input<string | enums.automation.v20200113preview.ScheduleFrequency>;
+    frequency: pulumi.Input<string | enums.automation.v20200113preview.ScheduleFrequency>;
     /**
      * Gets or sets the interval of the schedule.
      */
-    readonly interval?: any;
+    interval?: any;
     /**
      * Gets or sets the name of the Schedule.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The schedule name.
      */
-    readonly scheduleName?: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string>;
     /**
      * Gets or sets the start time of the schedule.
      */
-    readonly startTime: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
     /**
      * Gets or sets the time zone of the schedule.
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }

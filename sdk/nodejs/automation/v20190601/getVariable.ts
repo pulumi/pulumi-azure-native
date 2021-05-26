@@ -27,15 +27,15 @@ export interface GetVariableArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of variable.
      */
-    readonly variableName: string;
+    variableName: string;
 }
 
 /**

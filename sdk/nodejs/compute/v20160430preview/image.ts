@@ -112,25 +112,25 @@ export interface ImageArgs {
     /**
      * The name of the image.
      */
-    readonly imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The source virtual machine from which Image is created.
      */
-    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.v20160430preview.SubResourceArgs>;
+    sourceVirtualMachine?: pulumi.Input<inputs.compute.v20160430preview.SubResourceArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.compute.v20160430preview.ImageStorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.compute.v20160430preview.ImageStorageProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

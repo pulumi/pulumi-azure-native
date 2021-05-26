@@ -102,21 +102,21 @@ export interface SqlPoolTransparentDataEncryptionArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: pulumi.Input<string>;
+    sqlPoolName: pulumi.Input<string>;
     /**
      * The status of the database transparent data encryption.
      */
-    readonly status?: pulumi.Input<string | enums.synapse.v20201201.TransparentDataEncryptionStatus>;
+    status?: pulumi.Input<string | enums.synapse.v20201201.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */
-    readonly transparentDataEncryptionName?: pulumi.Input<string>;
+    transparentDataEncryptionName?: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetCommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    readonly communicationServiceName: string;
+    communicationServiceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

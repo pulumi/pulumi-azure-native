@@ -133,41 +133,41 @@ export interface NotificationChannelArgs {
     /**
      * Description of notification.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The list of event for which this notification is enabled.
      */
-    readonly events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.EventArgs>[]>;
+    events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.EventArgs>[]>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the notificationChannel.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
     /**
      * The webhook URL to send notifications to.
      */
-    readonly webHookUrl?: pulumi.Input<string>;
+    webHookUrl?: pulumi.Input<string>;
 }

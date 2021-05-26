@@ -32,31 +32,31 @@ export interface ListShareSubscriptionSynchronizationDetailsArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Filters the results using OData syntax.
      */
-    readonly filter?: string;
+    filter?: string;
     /**
      * Sorts the results using OData syntax.
      */
-    readonly orderby?: string;
+    orderby?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the share subscription.
      */
-    readonly shareSubscriptionName: string;
+    shareSubscriptionName: string;
     /**
      * Continuation token
      */
-    readonly skipToken?: string;
+    skipToken?: string;
     /**
      * Synchronization id
      */
-    readonly synchronizationId: string;
+    synchronizationId: string;
 }
 
 /**

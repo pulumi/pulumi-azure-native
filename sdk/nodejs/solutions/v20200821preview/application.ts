@@ -217,53 +217,53 @@ export interface ApplicationArgs {
     /**
      * The fully qualified path of managed application definition Id.
      */
-    readonly applicationDefinitionId?: pulumi.Input<string>;
+    applicationDefinitionId?: pulumi.Input<string>;
     /**
      * The name of the managed application.
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20200821preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.v20200821preview.IdentityArgs>;
     /**
      * The managed application Jit access policy.
      */
-    readonly jitAccessPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationJitAccessPolicyArgs>;
+    jitAccessPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationJitAccessPolicyArgs>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
-    readonly kind: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ID of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The managed resource group Id.
      */
-    readonly managedResourceGroupId?: pulumi.Input<string>;
+    managedResourceGroupId?: pulumi.Input<string>;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    readonly parameters?: any;
+    parameters?: any;
     /**
      * The plan information.
      */
-    readonly plan?: pulumi.Input<inputs.solutions.v20200821preview.PlanArgs>;
+    plan?: pulumi.Input<inputs.solutions.v20200821preview.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20200821preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.solutions.v20200821preview.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

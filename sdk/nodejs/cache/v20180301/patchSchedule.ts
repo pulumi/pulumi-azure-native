@@ -94,17 +94,17 @@ export interface PatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
      */
-    readonly default?: pulumi.Input<string>;
+    default?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * List of patch schedules for a Redis cache.
      */
-    readonly scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20180301.ScheduleEntryArgs>[]>;
+    scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20180301.ScheduleEntryArgs>[]>;
 }

@@ -202,49 +202,49 @@ export interface StorageAccountArgs {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier?: pulumi.Input<enums.storage.v20171001.AccessTier>;
+    accessTier?: pulumi.Input<enums.storage.v20171001.AccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.v20171001.CustomDomainArgs>;
+    customDomain?: pulumi.Input<inputs.storage.v20171001.CustomDomainArgs>;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
-    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
      */
-    readonly encryption?: pulumi.Input<inputs.storage.v20171001.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.storage.v20171001.EncryptionArgs>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.storage.v20171001.IdentityArgs>;
+    identity?: pulumi.Input<inputs.storage.v20171001.IdentityArgs>;
     /**
      * Required. Indicates the type of storage account.
      */
-    readonly kind: pulumi.Input<enums.storage.v20171001.Kind>;
+    kind: pulumi.Input<enums.storage.v20171001.Kind>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Network rule set
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20171001.NetworkRuleSetArgs>;
+    networkRuleSet?: pulumi.Input<inputs.storage.v20171001.NetworkRuleSetArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Required. Gets or sets the sku name.
      */
-    readonly sku: pulumi.Input<inputs.storage.v20171001.SkuArgs>;
+    sku: pulumi.Input<inputs.storage.v20171001.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -152,41 +152,41 @@ export interface VirtualWanArgs {
     /**
      * True if branch to branch traffic is allowed.
      */
-    readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    allowBranchToBranchTraffic?: pulumi.Input<boolean>;
     /**
      * True if Vnet to Vnet traffic is allowed.
      */
-    readonly allowVnetToVnetTraffic?: pulumi.Input<boolean>;
+    allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**
      * Vpn encryption to be disabled or not.
      */
-    readonly disableVpnEncryption?: pulumi.Input<boolean>;
+    disableVpnEncryption?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * list of all P2SVpnServerConfigurations associated with the virtual wan.
      */
-    readonly p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181101.P2SVpnServerConfigurationArgs>[]>;
+    p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181101.P2SVpnServerConfigurationArgs>[]>;
     /**
      * The resource group name of the VirtualWan.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Security Provider name.
      */
-    readonly securityProviderName?: pulumi.Input<string>;
+    securityProviderName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VirtualWAN being created or updated.
      */
-    readonly virtualWANName?: pulumi.Input<string>;
+    virtualWANName?: pulumi.Input<string>;
 }

@@ -130,29 +130,29 @@ export interface VideoAnalyzerArgs {
     /**
      * The Video Analyzer account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The account encryption properties.
      */
-    readonly encryption: pulumi.Input<inputs.videoanalyzer.v20210501preview.AccountEncryptionArgs>;
+    encryption: pulumi.Input<inputs.videoanalyzer.v20210501preview.AccountEncryptionArgs>;
     /**
      * The set of managed identities associated with the Video Analyzer resource.
      */
-    readonly identity?: pulumi.Input<inputs.videoanalyzer.v20210501preview.VideoAnalyzerIdentityArgs>;
+    identity?: pulumi.Input<inputs.videoanalyzer.v20210501preview.VideoAnalyzerIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.videoanalyzer.v20210501preview.StorageAccountArgs>[]>;
+    storageAccounts: pulumi.Input<pulumi.Input<inputs.videoanalyzer.v20210501preview.StorageAccountArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

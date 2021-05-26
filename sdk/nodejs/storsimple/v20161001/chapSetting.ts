@@ -99,21 +99,21 @@ export interface ChapSettingArgs {
     /**
      * The chap user name.
      */
-    readonly chapUserName?: pulumi.Input<string>;
+    chapUserName?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The chap password.
      */
-    readonly password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
+    password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

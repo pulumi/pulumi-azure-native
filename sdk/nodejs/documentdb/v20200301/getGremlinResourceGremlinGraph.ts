@@ -28,19 +28,19 @@ export interface GetGremlinResourceGremlinGraphArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * Cosmos DB graph name.
      */
-    readonly graphName: string;
+    graphName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

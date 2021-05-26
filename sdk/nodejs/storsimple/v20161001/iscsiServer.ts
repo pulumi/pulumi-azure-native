@@ -125,37 +125,37 @@ export interface IscsiServerArgs {
     /**
      * The backup policy id.
      */
-    readonly backupScheduleGroupId: pulumi.Input<string>;
+    backupScheduleGroupId: pulumi.Input<string>;
     /**
      * The chap id.
      */
-    readonly chapId?: pulumi.Input<string>;
+    chapId?: pulumi.Input<string>;
     /**
      * The description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The iSCSI server name.
      */
-    readonly iscsiServerName?: pulumi.Input<string>;
+    iscsiServerName?: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The reverse chap id.
      */
-    readonly reverseChapId?: pulumi.Input<string>;
+    reverseChapId?: pulumi.Input<string>;
     /**
      * The storage domain id.
      */
-    readonly storageDomainId: pulumi.Input<string>;
+    storageDomainId: pulumi.Input<string>;
 }

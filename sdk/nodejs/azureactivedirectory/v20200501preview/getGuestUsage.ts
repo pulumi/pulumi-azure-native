@@ -26,11 +26,11 @@ export interface GetGuestUsageArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The initial domain name of the AAD tenant.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

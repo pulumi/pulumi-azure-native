@@ -127,33 +127,33 @@ export interface PrivateLinkServicesForSCCPowershellArgs {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.ServicesResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.ServicesResourceIdentityArgs>;
     /**
      * The kind of the service.
      */
-    readonly kind: pulumi.Input<enums.m365securityandcompliance.v20210325preview.Kind>;
+    kind: pulumi.Input<enums.m365securityandcompliance.v20210325preview.Kind>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The common properties of a service.
      */
-    readonly properties?: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.ServicesPropertiesArgs>;
+    properties?: pulumi.Input<inputs.m365securityandcompliance.v20210325preview.ServicesPropertiesArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service instance.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

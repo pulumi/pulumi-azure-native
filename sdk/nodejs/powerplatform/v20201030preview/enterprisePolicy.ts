@@ -124,33 +124,33 @@ export interface EnterprisePolicyArgs {
     /**
      * The encryption settings for a configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesEncryptionArgs>;
     /**
      * Name of the EnterprisePolicy.
      */
-    readonly enterprisePolicyName?: pulumi.Input<string>;
+    enterprisePolicyName?: pulumi.Input<string>;
     /**
      * The identity of the EnterprisePolicy.
      */
-    readonly identity?: pulumi.Input<inputs.powerplatform.v20201030preview.EnterprisePolicyIdentityArgs>;
+    identity?: pulumi.Input<inputs.powerplatform.v20201030preview.EnterprisePolicyIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Settings concerning lockbox.
      */
-    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesLockboxArgs>;
+    lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesLockboxArgs>;
     /**
      * Settings concerning network injection.
      */
-    readonly networkInjection?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesNetworkInjectionArgs>;
+    networkInjection?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesNetworkInjectionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

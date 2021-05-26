@@ -26,7 +26,7 @@ export interface GetSecurityContactArgs {
     /**
      * Name of the security contact object
      */
-    readonly securityContactName: string;
+    securityContactName: string;
 }
 
 /**

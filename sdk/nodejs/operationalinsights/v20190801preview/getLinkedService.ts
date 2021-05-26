@@ -27,15 +27,15 @@ export interface GetLinkedServiceArgs {
     /**
      * Name of the linked service.
      */
-    readonly linkedServiceName: string;
+    linkedServiceName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Log Analytics Workspace that contains the linkedServices resource
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -26,7 +26,7 @@ export interface GetSettingArgs {
     /**
      * Name of the setting. Allowed values: myscope
      */
-    readonly settingName: string;
+    settingName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the machine learning team account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the machine learning team account workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

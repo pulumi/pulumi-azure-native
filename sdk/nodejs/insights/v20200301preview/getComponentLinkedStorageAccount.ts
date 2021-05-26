@@ -27,15 +27,15 @@ export interface GetComponentLinkedStorageAccountArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * The type of the Application Insights component data source for the linked storage account.
      */
-    readonly storageType: string;
+    storageType: string;
 }
 
 /**

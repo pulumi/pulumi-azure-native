@@ -26,11 +26,11 @@ export interface GetManagementLockByScopeArgs {
     /**
      * The name of lock.
      */
-    readonly lockName: string;
+    lockName: string;
     /**
      * The scope for the lock. 
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

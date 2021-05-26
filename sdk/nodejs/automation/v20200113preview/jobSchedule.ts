@@ -121,29 +121,29 @@ export interface JobScheduleArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The job schedule name.
      */
-    readonly jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string>;
     /**
      * Gets or sets a list of job properties.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the hybrid worker group that the scheduled job should run on.
      */
-    readonly runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string>;
     /**
      * Gets or sets the runbook.
      */
-    readonly runbook: pulumi.Input<inputs.automation.v20200113preview.RunbookAssociationPropertyArgs>;
+    runbook: pulumi.Input<inputs.automation.v20200113preview.RunbookAssociationPropertyArgs>;
     /**
      * Gets or sets the schedule.
      */
-    readonly schedule: pulumi.Input<inputs.automation.v20200113preview.ScheduleAssociationPropertyArgs>;
+    schedule: pulumi.Input<inputs.automation.v20200113preview.ScheduleAssociationPropertyArgs>;
 }

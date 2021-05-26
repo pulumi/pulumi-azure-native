@@ -27,15 +27,15 @@ export interface GetFirewallPolicyArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName: string;
+    firewallPolicyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

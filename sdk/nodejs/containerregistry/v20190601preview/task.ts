@@ -183,65 +183,65 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20190601preview.AgentPropertiesArgs>;
+    agentConfiguration?: pulumi.Input<inputs.containerregistry.v20190601preview.AgentPropertiesArgs>;
     /**
      * The dedicated agent pool for the task.
      */
-    readonly agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190601preview.CredentialsArgs>;
+    credentials?: pulumi.Input<inputs.containerregistry.v20190601preview.CredentialsArgs>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.v20190601preview.IdentityPropertiesArgs>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
-    readonly isSystemTask?: pulumi.Input<boolean>;
+    isSystemTask?: pulumi.Input<boolean>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The template that describes the repository and tag information for run log artifact.
      */
-    readonly logTemplate?: pulumi.Input<string>;
+    logTemplate?: pulumi.Input<string>;
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform?: pulumi.Input<inputs.containerregistry.v20190601preview.PlatformPropertiesArgs>;
+    platform?: pulumi.Input<inputs.containerregistry.v20190601preview.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The current status of task.
      */
-    readonly status?: pulumi.Input<string | enums.containerregistry.v20190601preview.TaskStatus>;
+    status?: pulumi.Input<string | enums.containerregistry.v20190601preview.TaskStatus>;
     /**
      * The properties of a task step.
      */
-    readonly step?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildStepArgs | inputs.containerregistry.v20190601preview.EncodedTaskStepArgs | inputs.containerregistry.v20190601preview.FileTaskStepArgs>;
+    step?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildStepArgs | inputs.containerregistry.v20190601preview.EncodedTaskStepArgs | inputs.containerregistry.v20190601preview.FileTaskStepArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the container registry task.
      */
-    readonly taskName?: pulumi.Input<string>;
+    taskName?: pulumi.Input<string>;
     /**
      * Run timeout in seconds.
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.v20190601preview.TriggerPropertiesArgs>;
+    trigger?: pulumi.Input<inputs.containerregistry.v20190601preview.TriggerPropertiesArgs>;
 }

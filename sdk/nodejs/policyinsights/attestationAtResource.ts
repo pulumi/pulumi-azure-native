@@ -146,37 +146,37 @@ export interface AttestationAtResourceArgs {
     /**
      * The name of the attestation.
      */
-    readonly attestationName?: pulumi.Input<string>;
+    attestationName?: pulumi.Input<string>;
     /**
      * Comments describing why this attestation was created.
      */
-    readonly comments?: pulumi.Input<string>;
+    comments?: pulumi.Input<string>;
     /**
      * The compliance state that should be set on the resource.
      */
-    readonly complianceState?: pulumi.Input<string | enums.policyinsights.ComplianceState>;
+    complianceState?: pulumi.Input<string | enums.policyinsights.ComplianceState>;
     /**
      * The evidence supporting the compliance state set in this attestation.
      */
-    readonly evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.AttestationEvidenceArgs>[]>;
+    evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.AttestationEvidenceArgs>[]>;
     /**
      * The time the compliance state should expire.
      */
-    readonly expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string>;
     /**
      * The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The resource ID of the policy assignment that the attestation is setting the state for.
      */
-    readonly policyAssignmentId: pulumi.Input<string>;
+    policyAssignmentId: pulumi.Input<string>;
     /**
      * The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
      */
-    readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
 }

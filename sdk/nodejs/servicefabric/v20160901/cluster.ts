@@ -214,73 +214,73 @@ export interface ClusterArgs {
     /**
      * The settings to enable AAD authentication on the cluster
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20160901.AzureActiveDirectoryArgs>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20160901.AzureActiveDirectoryArgs>;
     /**
      * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
      */
-    readonly certificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescriptionArgs>;
+    certificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescriptionArgs>;
     /**
      *  List of client certificates to whitelist based on common names
      */
-    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateCommonNameArgs>[]>;
+    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateCommonNameArgs>[]>;
     /**
      * The client thumbprint details ,it is used for client access for cluster operation
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateThumbprintArgs>[]>;
+    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateThumbprintArgs>[]>;
     /**
      * The ServiceFabric code version running in your cluster
      */
-    readonly clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string>;
     /**
      * The name of the cluster resource
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The storage diagnostics account configuration details
      */
-    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20160901.DiagnosticsStorageAccountConfigArgs>;
+    diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20160901.DiagnosticsStorageAccountConfigArgs>;
     /**
      * List of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.SettingsSectionDescriptionArgs>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.SettingsSectionDescriptionArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The http management endpoint of the cluster
      */
-    readonly managementEndpoint: pulumi.Input<string>;
+    managementEndpoint: pulumi.Input<string>;
     /**
      * The list of node types that make up the cluster
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.NodeTypeDescriptionArgs>[]>;
+    nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.NodeTypeDescriptionArgs>[]>;
     /**
      * Cluster reliability level indicates replica set size of system service
      */
-    readonly reliabilityLevel?: pulumi.Input<string>;
+    reliabilityLevel?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the resource belongs or get created
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The server certificate used by reverse proxy
      */
-    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescriptionArgs>;
+    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescriptionArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The policy to use when upgrading the cluster.
      */
-    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.v20160901.ClusterUpgradePolicyArgs>;
+    upgradeDescription?: pulumi.Input<inputs.servicefabric.v20160901.ClusterUpgradePolicyArgs>;
     /**
      * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
      */
-    readonly upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string>;
     /**
      * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
      */
-    readonly vmImage?: pulumi.Input<string>;
+    vmImage?: pulumi.Input<string>;
 }

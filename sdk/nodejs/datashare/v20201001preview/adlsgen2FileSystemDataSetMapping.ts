@@ -163,42 +163,42 @@ export interface ADLSGen2FileSystemDataSetMappingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The id of the source data set.
      */
-    readonly dataSetId: pulumi.Input<string>;
+    dataSetId: pulumi.Input<string>;
     /**
      * The name of the data set mapping to be created.
      */
-    readonly dataSetMappingName?: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * The file system name.
      */
-    readonly fileSystem: pulumi.Input<string>;
+    fileSystem: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'AdlsGen2FileSystem'.
      */
-    readonly kind: pulumi.Input<"AdlsGen2FileSystem">;
+    kind: pulumi.Input<"AdlsGen2FileSystem">;
     /**
      * Resource group of storage account.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * Storage account name of the source data set.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * Subscription id of storage account.
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

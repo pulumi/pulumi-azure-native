@@ -146,49 +146,49 @@ export interface BackupPolicyArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    readonly backupPolicyName?: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string>;
     /**
      * Daily backups count to keep
      */
-    readonly dailyBackupsToKeep?: pulumi.Input<number>;
+    dailyBackupsToKeep?: pulumi.Input<number>;
     /**
      * The property to decide policy is enabled or not
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Monthly backups count to keep
      */
-    readonly monthlyBackupsToKeep?: pulumi.Input<number>;
+    monthlyBackupsToKeep?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of volumes assigned to this policy
      */
-    readonly volumeBackups?: pulumi.Input<pulumi.Input<inputs.netapp.v20200601.VolumeBackupsArgs>[]>;
+    volumeBackups?: pulumi.Input<pulumi.Input<inputs.netapp.v20200601.VolumeBackupsArgs>[]>;
     /**
      * Volumes using current backup policy
      */
-    readonly volumesAssigned?: pulumi.Input<number>;
+    volumesAssigned?: pulumi.Input<number>;
     /**
      * Weekly backups count to keep
      */
-    readonly weeklyBackupsToKeep?: pulumi.Input<number>;
+    weeklyBackupsToKeep?: pulumi.Input<number>;
     /**
      * Yearly backups count to keep
      */
-    readonly yearlyBackupsToKeep?: pulumi.Input<number>;
+    yearlyBackupsToKeep?: pulumi.Input<number>;
 }

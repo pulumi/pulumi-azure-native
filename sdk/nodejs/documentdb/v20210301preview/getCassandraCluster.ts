@@ -26,11 +26,11 @@ export interface GetCassandraClusterArgs {
     /**
      * Managed Cassandra cluster name.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

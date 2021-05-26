@@ -26,11 +26,11 @@ export interface ListMonitorApiKeysArgs {
     /**
      * Monitor resource name
      */
-    readonly monitorName: string;
+    monitorName: string;
     /**
      * The name of the resource group to which the Datadog resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -116,29 +116,29 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagedInstanceAdministrator resource.
  */
 export interface ManagedInstanceAdministratorArgs {
-    readonly administratorName?: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string>;
     /**
      * Type of the managed instance administrator.
      */
-    readonly administratorType: pulumi.Input<string | enums.sql.v20210201preview.ManagedInstanceAdministratorType>;
+    administratorType: pulumi.Input<string | enums.sql.v20210201preview.ManagedInstanceAdministratorType>;
     /**
      * Login name of the managed instance administrator.
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName: pulumi.Input<string>;
+    managedInstanceName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SID (object ID) of the managed instance administrator.
      */
-    readonly sid: pulumi.Input<string>;
+    sid: pulumi.Input<string>;
     /**
      * Tenant ID of the managed instance administrator.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetExpressRouteCrossConnectionPeeringArgs {
     /**
      * The name of the ExpressRouteCrossConnection.
      */
-    readonly crossConnectionName: string;
+    crossConnectionName: string;
     /**
      * The name of the peering.
      */
-    readonly peeringName: string;
+    peeringName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

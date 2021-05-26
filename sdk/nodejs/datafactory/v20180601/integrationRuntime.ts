@@ -101,17 +101,17 @@ export interface IntegrationRuntimeArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * The integration runtime name.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.ManagedIntegrationRuntimeArgs | inputs.datafactory.v20180601.SelfHostedIntegrationRuntimeArgs>;
+    properties: pulumi.Input<inputs.datafactory.v20180601.ManagedIntegrationRuntimeArgs | inputs.datafactory.v20180601.SelfHostedIntegrationRuntimeArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

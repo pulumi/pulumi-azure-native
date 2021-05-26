@@ -173,53 +173,53 @@ export interface ServerArgs {
     /**
      * Administrator username for the server. Once created it cannot be changed.
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The administrator login password (required for server creation).
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ServerExternalAdministratorArgs>;
+    administrators?: pulumi.Input<inputs.sql.v20201101preview.ServerExternalAdministratorArgs>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityArgs>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
      */
-    readonly minimalTlsVersion?: pulumi.Input<string>;
+    minimalTlsVersion?: pulumi.Input<string>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    readonly primaryUserAssignedIdentityId?: pulumi.Input<string>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.sql.v20201101preview.ServerPublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.sql.v20201101preview.ServerPublicNetworkAccess>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the server.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

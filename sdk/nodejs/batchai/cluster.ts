@@ -183,41 +183,41 @@ export interface ClusterArgs {
     /**
      * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Setup to be performed on each compute node in the cluster.
      */
-    readonly nodeSetup?: pulumi.Input<inputs.batchai.NodeSetupArgs>;
+    nodeSetup?: pulumi.Input<inputs.batchai.NodeSetupArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
      */
-    readonly scaleSettings?: pulumi.Input<inputs.batchai.ScaleSettingsArgs>;
+    scaleSettings?: pulumi.Input<inputs.batchai.ScaleSettingsArgs>;
     /**
      * Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.ResourceIdArgs>;
+    subnet?: pulumi.Input<inputs.batchai.ResourceIdArgs>;
     /**
      * Settings for an administrator user account that will be created on each compute node in the cluster.
      */
-    readonly userAccountSettings: pulumi.Input<inputs.batchai.UserAccountSettingsArgs>;
+    userAccountSettings: pulumi.Input<inputs.batchai.UserAccountSettingsArgs>;
     /**
      * OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
      */
-    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.VirtualMachineConfigurationArgs>;
+    virtualMachineConfiguration?: pulumi.Input<inputs.batchai.VirtualMachineConfigurationArgs>;
     /**
      * VM priority. Allowed values are: dedicated (default) and lowpriority.
      */
-    readonly vmPriority?: pulumi.Input<enums.batchai.VmPriority>;
+    vmPriority?: pulumi.Input<enums.batchai.VmPriority>;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */
-    readonly vmSize: pulumi.Input<string>;
+    vmSize: pulumi.Input<string>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

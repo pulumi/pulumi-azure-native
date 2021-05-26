@@ -27,11 +27,11 @@ export interface GetDeploymentAtScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
     /**
      * The resource scope.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

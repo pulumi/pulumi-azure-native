@@ -26,11 +26,11 @@ export interface ListTopicSharedAccessKeysArgs {
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the topic.
      */
-    readonly topicName: string;
+    topicName: string;
 }
 
 /**

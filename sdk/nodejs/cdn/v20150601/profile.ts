@@ -115,21 +115,21 @@ export interface ProfileArgs {
     /**
      * Profile location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Profile SKU
      */
-    readonly sku: pulumi.Input<inputs.cdn.v20150601.SkuArgs>;
+    sku: pulumi.Input<inputs.cdn.v20150601.SkuArgs>;
     /**
      * Profile tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

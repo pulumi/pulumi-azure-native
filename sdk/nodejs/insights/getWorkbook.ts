@@ -27,11 +27,11 @@ export interface GetWorkbookArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

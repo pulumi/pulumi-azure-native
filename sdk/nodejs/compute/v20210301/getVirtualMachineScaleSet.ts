@@ -27,15 +27,15 @@ export interface GetVirtualMachineScaleSetArgs {
     /**
      * The expand expression to apply on the operation. 'UserData' retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VM scale set.
      */
-    readonly vmScaleSetName: string;
+    vmScaleSetName: string;
 }
 
 /**

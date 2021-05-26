@@ -29,19 +29,19 @@ export interface GetAssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    readonly assessmentName: string;
+    assessmentName: string;
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName: string;
+    groupName: string;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

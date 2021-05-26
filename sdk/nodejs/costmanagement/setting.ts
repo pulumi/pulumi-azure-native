@@ -106,17 +106,17 @@ export interface SettingArgs {
     /**
      * Array of scopes with additional details used by Cost Management in the Azure portal.
      */
-    readonly cache?: pulumi.Input<pulumi.Input<inputs.costmanagement.SettingsPropertiesCacheArgs>[]>;
+    cache?: pulumi.Input<pulumi.Input<inputs.costmanagement.SettingsPropertiesCacheArgs>[]>;
     /**
      * Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * Name of the setting. Allowed values: myscope
      */
-    readonly settingName?: pulumi.Input<string>;
+    settingName?: pulumi.Input<string>;
     /**
      * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
      */
-    readonly startOn?: pulumi.Input<string>;
+    startOn?: pulumi.Input<string>;
 }

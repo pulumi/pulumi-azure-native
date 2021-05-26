@@ -105,29 +105,29 @@ export interface LinkedServiceArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
     /**
      * Friendly name of the linked workspace
      */
-    readonly linkName?: pulumi.Input<string>;
+    linkName?: pulumi.Input<string>;
     /**
      * location of the linked service.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Friendly name of the linked service
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * LinkedService specific properties.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.LinkedServicePropsArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.LinkedServicePropsArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -128,29 +128,29 @@ export interface UserArgs {
     /**
      * The identity of the user.
      */
-    readonly identity?: pulumi.Input<inputs.devtestlab.UserIdentityArgs>;
+    identity?: pulumi.Input<inputs.devtestlab.UserIdentityArgs>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the user profile.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The secret store of the user.
      */
-    readonly secretStore?: pulumi.Input<inputs.devtestlab.UserSecretStoreArgs>;
+    secretStore?: pulumi.Input<inputs.devtestlab.UserSecretStoreArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

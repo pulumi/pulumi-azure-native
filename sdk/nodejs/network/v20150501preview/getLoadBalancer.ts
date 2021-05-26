@@ -26,11 +26,11 @@ export interface GetLoadBalancerArgs {
     /**
      * The name of the loadBalancer.
      */
-    readonly loadBalancerName: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

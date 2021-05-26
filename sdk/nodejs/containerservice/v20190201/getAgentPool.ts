@@ -27,15 +27,15 @@ export interface GetAgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    readonly agentPoolName: string;
+    agentPoolName: string;
     /**
      * The name of the managed cluster resource.
      */
-    readonly managedClusterName: string;
+    managedClusterName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

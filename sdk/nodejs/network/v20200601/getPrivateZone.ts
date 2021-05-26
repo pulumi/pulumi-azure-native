@@ -26,11 +26,11 @@ export interface GetPrivateZoneArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly privateZoneName: string;
+    privateZoneName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

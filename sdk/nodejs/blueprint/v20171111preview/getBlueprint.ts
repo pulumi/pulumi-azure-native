@@ -26,11 +26,11 @@ export interface GetBlueprintArgs {
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: string;
+    blueprintName: string;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: string;
+    managementGroupName: string;
 }
 
 /**

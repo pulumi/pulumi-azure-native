@@ -113,17 +113,17 @@ export interface DataPoolArgs {
     /**
      * The name of the ADP account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the Data Pool.
      */
-    readonly dataPoolName?: pulumi.Input<string>;
+    dataPoolName?: pulumi.Input<string>;
     /**
      * Gets or sets the collection of locations where Data Pool resources should be created.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.autonomousdevelopmentplatform.v20200701preview.DataPoolLocationArgs>[]>;
+    locations: pulumi.Input<pulumi.Input<inputs.autonomousdevelopmentplatform.v20200701preview.DataPoolLocationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

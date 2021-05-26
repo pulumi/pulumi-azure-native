@@ -29,19 +29,19 @@ export interface ListRemediationDeploymentsAtManagementGroupArgs {
     /**
      * Management group ID.
      */
-    readonly managementGroupId: string;
+    managementGroupId: string;
     /**
      * The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
      */
-    readonly managementGroupsNamespace: string;
+    managementGroupsNamespace: string;
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
     /**
      * Maximum number of records to return.
      */
-    readonly top?: number;
+    top?: number;
 }
 
 /**

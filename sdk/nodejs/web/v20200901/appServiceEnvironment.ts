@@ -335,103 +335,103 @@ export interface AppServiceEnvironmentArgs {
     /**
      * API Management Account associated with the App Service Environment.
      */
-    readonly apiManagementAccountId?: pulumi.Input<string>;
+    apiManagementAccountId?: pulumi.Input<string>;
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20200901.NameValuePairArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20200901.NameValuePairArgs>[]>;
     /**
      * DNS suffix of the App Service Environment.
      */
-    readonly dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string>;
     /**
      * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
      * (most likely because NSG blocked the incoming traffic).
      */
-    readonly dynamicCacheEnabled?: pulumi.Input<boolean>;
+    dynamicCacheEnabled?: pulumi.Input<boolean>;
     /**
      * Scale factor for front-ends.
      */
-    readonly frontEndScaleFactor?: pulumi.Input<number>;
+    frontEndScaleFactor?: pulumi.Input<number>;
     /**
      * Flag that displays whether an ASE has linux workers or not
      */
-    readonly hasLinuxWorkers?: pulumi.Input<boolean>;
+    hasLinuxWorkers?: pulumi.Input<boolean>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string | enums.web.v20200901.LoadBalancingMode>;
+    internalLoadBalancingMode?: pulumi.Input<string | enums.web.v20200901.LoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
-    readonly ipsslAddressCount?: pulumi.Input<number>;
+    ipsslAddressCount?: pulumi.Input<number>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Number of front-end instances.
      */
-    readonly multiRoleCount?: pulumi.Input<number>;
+    multiRoleCount?: pulumi.Input<number>;
     /**
      * Front-end VM size, e.g. "Medium", "Large".
      */
-    readonly multiSize?: pulumi.Input<string>;
+    multiSize?: pulumi.Input<string>;
     /**
      * Name of the App Service Environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Access control list for controlling traffic to the App Service Environment.
      */
-    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20200901.NetworkAccessControlEntryArgs>[]>;
+    networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20200901.NetworkAccessControlEntryArgs>[]>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Key Vault ID for ILB App Service Environment default SSL certificate
      */
-    readonly sslCertKeyVaultId?: pulumi.Input<string>;
+    sslCertKeyVaultId?: pulumi.Input<string>;
     /**
      * Key Vault Secret Name for ILB App Service Environment default SSL certificate
      */
-    readonly sslCertKeyVaultSecretName?: pulumi.Input<string>;
+    sslCertKeyVaultSecretName?: pulumi.Input<string>;
     /**
      * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
      *  (most likely because NSG blocked the incoming traffic).
      */
-    readonly suspended?: pulumi.Input<boolean>;
+    suspended?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * User added ip ranges to whitelist on ASE db
      */
-    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of the Virtual Network.
      */
-    readonly virtualNetwork: pulumi.Input<inputs.web.v20200901.VirtualNetworkProfileArgs>;
+    virtualNetwork: pulumi.Input<inputs.web.v20200901.VirtualNetworkProfileArgs>;
     /**
      * Name of the Virtual Network for the App Service Environment.
      */
-    readonly vnetName?: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string>;
     /**
      * Resource group of the Virtual Network.
      */
-    readonly vnetResourceGroupName?: pulumi.Input<string>;
+    vnetResourceGroupName?: pulumi.Input<string>;
     /**
      * Subnet of the Virtual Network.
      */
-    readonly vnetSubnetName?: pulumi.Input<string>;
+    vnetSubnetName?: pulumi.Input<string>;
     /**
      * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
      */
-    readonly workerPools: pulumi.Input<pulumi.Input<inputs.web.v20200901.WorkerPoolArgs>[]>;
+    workerPools: pulumi.Input<pulumi.Input<inputs.web.v20200901.WorkerPoolArgs>[]>;
 }

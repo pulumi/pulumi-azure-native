@@ -126,29 +126,29 @@ export interface BookmarkRelationArgs {
     /**
      * Bookmark ID
      */
-    readonly bookmarkId: pulumi.Input<string>;
+    bookmarkId: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The resource ID of the related resource
      */
-    readonly relatedResourceId: pulumi.Input<string>;
+    relatedResourceId: pulumi.Input<string>;
     /**
      * Relation Name
      */
-    readonly relationName?: pulumi.Input<string>;
+    relationName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

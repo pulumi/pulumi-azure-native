@@ -126,29 +126,29 @@ export interface SnapshotArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * UUID v4 used to identify the FileSystem
      */
-    readonly fileSystemId: pulumi.Input<string>;
+    fileSystemId: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
-    readonly poolName: pulumi.Input<string>;
+    poolName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the mount target
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * The name of the volume
      */
-    readonly volumeName: pulumi.Input<string>;
+    volumeName: pulumi.Input<string>;
 }

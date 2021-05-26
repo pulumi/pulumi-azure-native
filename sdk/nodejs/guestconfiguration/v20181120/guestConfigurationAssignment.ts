@@ -98,25 +98,25 @@ export interface GuestConfigurationAssignmentArgs {
     /**
      * Name of the guest configuration assignment.
      */
-    readonly guestConfigurationAssignmentName?: pulumi.Input<string>;
+    guestConfigurationAssignmentName?: pulumi.Input<string>;
     /**
      * Region where the VM is located.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the guest configuration assignment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Properties of the Guest configuration assignment.
      */
-    readonly properties?: pulumi.Input<inputs.guestconfiguration.v20181120.GuestConfigurationAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.guestconfiguration.v20181120.GuestConfigurationAssignmentPropertiesArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the virtual machine.
      */
-    readonly vmName: pulumi.Input<string>;
+    vmName: pulumi.Input<string>;
 }

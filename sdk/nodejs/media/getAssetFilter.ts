@@ -29,19 +29,19 @@ export interface GetAssetFilterArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The Asset name.
      */
-    readonly assetName: string;
+    assetName: string;
     /**
      * The Asset Filter name
      */
-    readonly filterName: string;
+    filterName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

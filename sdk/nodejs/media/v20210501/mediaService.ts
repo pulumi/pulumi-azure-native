@@ -133,34 +133,34 @@ export interface MediaServiceArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The account encryption properties.
      */
-    readonly encryption?: pulumi.Input<inputs.media.v20210501.AccountEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.media.v20210501.AccountEncryptionArgs>;
     /**
      * The Managed Identity for the Media Services account.
      */
-    readonly identity?: pulumi.Input<inputs.media.v20210501.MediaServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.media.v20210501.MediaServiceIdentityArgs>;
     /**
      * The Key Delivery properties for Media Services account.
      */
-    readonly keyDelivery?: pulumi.Input<inputs.media.v20210501.KeyDeliveryArgs>;
+    keyDelivery?: pulumi.Input<inputs.media.v20210501.KeyDeliveryArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20210501.StorageAccountArgs>[]>;
-    readonly storageAuthentication?: pulumi.Input<string | enums.media.v20210501.StorageAuthentication>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20210501.StorageAccountArgs>[]>;
+    storageAuthentication?: pulumi.Input<string | enums.media.v20210501.StorageAuthentication>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -126,21 +126,21 @@ export interface ContentKeyPolicyArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The Content Key Policy name.
      */
-    readonly contentKeyPolicyName?: pulumi.Input<string>;
+    contentKeyPolicyName?: pulumi.Input<string>;
     /**
      * A description for the Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Key Policy options.
      */
-    readonly options: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyOptionArgs>[]>;
+    options: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyOptionArgs>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

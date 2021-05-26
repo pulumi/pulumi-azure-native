@@ -27,15 +27,15 @@ export interface GetFlowLogArgs {
     /**
      * The name of the flow log resource.
      */
-    readonly flowLogName: string;
+    flowLogName: string;
     /**
      * The name of the network watcher.
      */
-    readonly networkWatcherName: string;
+    networkWatcherName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -136,29 +136,29 @@ export interface BatchAccountArgs {
     /**
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The properties related to the auto-storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20181201.AutoStorageBasePropertiesArgs>;
+    autoStorage?: pulumi.Input<inputs.batch.v20181201.AutoStorageBasePropertiesArgs>;
     /**
      * A reference to the Azure key vault associated with the Batch account.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20181201.KeyVaultReferenceArgs>;
+    keyVaultReference?: pulumi.Input<inputs.batch.v20181201.KeyVaultReferenceArgs>;
     /**
      * The region in which to create the account.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */
-    readonly poolAllocationMode?: pulumi.Input<enums.batch.v20181201.PoolAllocationMode>;
+    poolAllocationMode?: pulumi.Input<enums.batch.v20181201.PoolAllocationMode>;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The user-specified tags associated with the account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

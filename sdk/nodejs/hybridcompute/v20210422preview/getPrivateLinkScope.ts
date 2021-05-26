@@ -26,11 +26,11 @@ export interface GetPrivateLinkScopeArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName: string;
+    scopeName: string;
 }
 
 /**

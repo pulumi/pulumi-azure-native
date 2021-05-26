@@ -190,49 +190,49 @@ export interface ExportConfigurationArgs {
     /**
      * The name of destination storage account.
      */
-    readonly destinationAccountId?: pulumi.Input<string>;
+    destinationAccountId?: pulumi.Input<string>;
     /**
      * The SAS URL for the destination storage container. It must grant write permission.
      */
-    readonly destinationAddress?: pulumi.Input<string>;
+    destinationAddress?: pulumi.Input<string>;
     /**
      * The location ID of the destination storage container.
      */
-    readonly destinationStorageLocationId?: pulumi.Input<string>;
+    destinationStorageLocationId?: pulumi.Input<string>;
     /**
      * The subscription ID of the destination storage container.
      */
-    readonly destinationStorageSubscriptionId?: pulumi.Input<string>;
+    destinationStorageSubscriptionId?: pulumi.Input<string>;
     /**
      * The Continuous Export destination type. This has to be 'Blob'.
      */
-    readonly destinationType?: pulumi.Input<string>;
+    destinationType?: pulumi.Input<string>;
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    readonly exportId?: pulumi.Input<string>;
+    exportId?: pulumi.Input<string>;
     /**
      * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
      */
-    readonly isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string>;
     /**
      * Deprecated
      */
-    readonly notificationQueueEnabled?: pulumi.Input<string>;
+    notificationQueueEnabled?: pulumi.Input<string>;
     /**
      * Deprecated
      */
-    readonly notificationQueueUri?: pulumi.Input<string>;
+    notificationQueueUri?: pulumi.Input<string>;
     /**
      * The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
      */
-    readonly recordTypes?: pulumi.Input<string>;
+    recordTypes?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

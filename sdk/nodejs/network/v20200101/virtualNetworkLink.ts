@@ -128,33 +128,33 @@ export interface VirtualNetworkLinkArgs {
     /**
      * The ETag of the virtual network link.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly privateZoneName: pulumi.Input<string>;
+    privateZoneName: pulumi.Input<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
-    readonly registrationEnabled?: pulumi.Input<boolean>;
+    registrationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The reference of the virtual network.
      */
-    readonly virtualNetwork?: pulumi.Input<inputs.network.v20200101.SubResourceArgs>;
+    virtualNetwork?: pulumi.Input<inputs.network.v20200101.SubResourceArgs>;
     /**
      * The name of the virtual network link.
      */
-    readonly virtualNetworkLinkName?: pulumi.Input<string>;
+    virtualNetworkLinkName?: pulumi.Input<string>;
 }

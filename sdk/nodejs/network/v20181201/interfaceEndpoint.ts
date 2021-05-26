@@ -137,37 +137,37 @@ export interface InterfaceEndpointArgs {
     /**
      * A reference to the service being brought into the virtual network.
      */
-    readonly endpointService?: pulumi.Input<inputs.network.v20181201.EndpointServiceArgs>;
+    endpointService?: pulumi.Input<inputs.network.v20181201.EndpointServiceArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the interface endpoint.
      */
-    readonly interfaceEndpointName?: pulumi.Input<string>;
+    interfaceEndpointName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20181201.SubnetArgs>;
+    subnet?: pulumi.Input<inputs.network.v20181201.SubnetArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

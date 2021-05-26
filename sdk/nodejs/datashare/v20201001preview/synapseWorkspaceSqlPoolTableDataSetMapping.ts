@@ -136,30 +136,30 @@ export interface SynapseWorkspaceSqlPoolTableDataSetMappingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The id of the source data set.
      */
-    readonly dataSetId: pulumi.Input<string>;
+    dataSetId: pulumi.Input<string>;
     /**
      * The name of the data set mapping to be created.
      */
-    readonly dataSetMappingName?: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'SynapseWorkspaceSqlPoolTable'.
      */
-    readonly kind: pulumi.Input<"SynapseWorkspaceSqlPoolTable">;
+    kind: pulumi.Input<"SynapseWorkspaceSqlPoolTable">;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * Resource id of the Synapse Workspace SQL Pool Table
      */
-    readonly synapseWorkspaceSqlPoolTableResourceId: pulumi.Input<string>;
+    synapseWorkspaceSqlPoolTableResourceId: pulumi.Input<string>;
 }

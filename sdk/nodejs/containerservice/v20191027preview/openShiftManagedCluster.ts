@@ -175,53 +175,53 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterAgentPoolProfileArgs>[]>;
+    agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileArgs>;
+    authProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileArgs>;
+    masterPoolProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileArgs>;
     /**
      * Configures Log Analytics integration.
      */
-    readonly monitorProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs>;
+    monitorProfile?: pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs>;
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20191027preview.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.containerservice.v20191027preview.NetworkProfileArgs>;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
-    readonly openShiftVersion: pulumi.Input<string>;
+    openShiftVersion: pulumi.Input<string>;
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: pulumi.Input<inputs.containerservice.v20191027preview.PurchasePlanArgs>;
+    plan?: pulumi.Input<inputs.containerservice.v20191027preview.PurchasePlanArgs>;
     /**
      * Allows node rotation
      */
-    readonly refreshCluster?: pulumi.Input<boolean>;
+    refreshCluster?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the OpenShift managed cluster resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftRouterProfileArgs>[]>;
+    routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20191027preview.OpenShiftRouterProfileArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

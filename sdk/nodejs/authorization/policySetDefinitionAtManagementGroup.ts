@@ -128,37 +128,37 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The policy set definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy set definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The ID of the management group.
      */
-    readonly managementGroupId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>}>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionGroupArgs>[]>;
+    policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionGroupArgs>[]>;
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionReferenceArgs>[]>;
+    policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */
-    readonly policySetDefinitionName?: pulumi.Input<string>;
+    policySetDefinitionName?: pulumi.Input<string>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    readonly policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
 }

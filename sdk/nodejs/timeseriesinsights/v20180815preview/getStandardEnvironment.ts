@@ -27,15 +27,15 @@ export interface GetStandardEnvironmentArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

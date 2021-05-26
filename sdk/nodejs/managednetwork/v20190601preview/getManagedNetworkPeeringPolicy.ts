@@ -27,15 +27,15 @@ export interface GetManagedNetworkPeeringPolicyArgs {
     /**
      * The name of the Managed Network.
      */
-    readonly managedNetworkName: string;
+    managedNetworkName: string;
     /**
      * The name of the Managed Network Peering Policy.
      */
-    readonly managedNetworkPeeringPolicyName: string;
+    managedNetworkPeeringPolicyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -139,21 +139,21 @@ export interface CommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    readonly communicationServiceName?: pulumi.Input<string>;
+    communicationServiceName?: pulumi.Input<string>;
     /**
      * The location where the communication service stores its data at rest.
      */
-    readonly dataLocation: pulumi.Input<string>;
+    dataLocation: pulumi.Input<string>;
     /**
      * The Azure location where the CommunicationService is running.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

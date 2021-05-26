@@ -176,61 +176,61 @@ export interface OriginArgs {
     /**
      * Origin is enabled for load balancing or not
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    readonly endpointName: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
-    readonly hostName: pulumi.Input<string>;
+    hostName: pulumi.Input<string>;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    readonly httpPort?: pulumi.Input<number>;
+    httpPort?: pulumi.Input<number>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    readonly httpsPort?: pulumi.Input<number>;
+    httpsPort?: pulumi.Input<number>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    readonly originHostHeader?: pulumi.Input<string>;
+    originHostHeader?: pulumi.Input<string>;
     /**
      * Name of the origin that is unique within the endpoint.
      */
-    readonly originName?: pulumi.Input<string>;
+    originName?: pulumi.Input<string>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
      */
-    readonly privateLinkAlias?: pulumi.Input<string>;
+    privateLinkAlias?: pulumi.Input<string>;
     /**
      * A custom message to be included in the approval request to connect to the Private Link.
      */
-    readonly privateLinkApprovalMessage?: pulumi.Input<string>;
+    privateLinkApprovalMessage?: pulumi.Input<string>;
     /**
      * The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
      */
-    readonly privateLinkLocation?: pulumi.Input<string>;
+    privateLinkLocation?: pulumi.Input<string>;
     /**
      * The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
      */
-    readonly privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */
-    readonly weight?: pulumi.Input<number>;
+    weight?: pulumi.Input<number>;
 }

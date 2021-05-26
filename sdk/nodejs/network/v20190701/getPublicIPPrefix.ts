@@ -27,15 +27,15 @@ export interface GetPublicIPPrefixArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the public IP prefix.
      */
-    readonly publicIpPrefixName: string;
+    publicIpPrefixName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

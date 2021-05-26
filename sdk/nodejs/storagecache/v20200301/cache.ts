@@ -166,49 +166,49 @@ export interface CacheArgs {
     /**
      * Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
      */
-    readonly cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string>;
     /**
      * The size of this Cache, in GB.
      */
-    readonly cacheSizeGB?: pulumi.Input<number>;
+    cacheSizeGB?: pulumi.Input<number>;
     /**
      * Specifies encryption settings of the cache.
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheEncryptionSettingsArgs>;
+    encryptionSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheEncryptionSettingsArgs>;
     /**
      * The identity of the cache, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.storagecache.v20200301.CacheIdentityArgs>;
+    identity?: pulumi.Input<inputs.storagecache.v20200301.CacheIdentityArgs>;
     /**
      * Region name string.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies network settings of the cache.
      */
-    readonly networkSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheNetworkSettingsArgs>;
+    networkSettings?: pulumi.Input<inputs.storagecache.v20200301.CacheNetworkSettingsArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string | enums.storagecache.v20200301.ProvisioningStateType>;
+    provisioningState?: pulumi.Input<string | enums.storagecache.v20200301.ProvisioningStateType>;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies security settings of the cache.
      */
-    readonly securitySettings?: pulumi.Input<inputs.storagecache.v20200301.CacheSecuritySettingsArgs>;
+    securitySettings?: pulumi.Input<inputs.storagecache.v20200301.CacheSecuritySettingsArgs>;
     /**
      * SKU for the Cache.
      */
-    readonly sku?: pulumi.Input<inputs.storagecache.v20200301.CacheSkuArgs>;
+    sku?: pulumi.Input<inputs.storagecache.v20200301.CacheSkuArgs>;
     /**
      * Subnet used for the Cache.
      */
-    readonly subnet?: pulumi.Input<string>;
+    subnet?: pulumi.Input<string>;
     /**
      * ARM tags as name/value pairs.
      */
-    readonly tags?: any;
+    tags?: any;
 }

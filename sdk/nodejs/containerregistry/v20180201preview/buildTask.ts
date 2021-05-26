@@ -149,41 +149,41 @@ export interface BuildTaskArgs {
     /**
      * The alternative updatable name for a build task.
      */
-    readonly alias: pulumi.Input<string>;
+    alias: pulumi.Input<string>;
     /**
      * The name of the container registry build task.
      */
-    readonly buildTaskName?: pulumi.Input<string>;
+    buildTaskName?: pulumi.Input<string>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The platform properties against which the build has to happen.
      */
-    readonly platform: pulumi.Input<inputs.containerregistry.v20180201preview.PlatformPropertiesArgs>;
+    platform: pulumi.Input<inputs.containerregistry.v20180201preview.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The properties that describes the source(code) for the build task.
      */
-    readonly sourceRepository: pulumi.Input<inputs.containerregistry.v20180201preview.SourceRepositoryPropertiesArgs>;
+    sourceRepository: pulumi.Input<inputs.containerregistry.v20180201preview.SourceRepositoryPropertiesArgs>;
     /**
      * The current status of build task.
      */
-    readonly status?: pulumi.Input<string | enums.containerregistry.v20180201preview.BuildTaskStatus>;
+    status?: pulumi.Input<string | enums.containerregistry.v20180201preview.BuildTaskStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Build timeout in seconds.
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }

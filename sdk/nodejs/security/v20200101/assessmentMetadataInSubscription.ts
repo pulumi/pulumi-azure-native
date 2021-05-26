@@ -153,43 +153,43 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentMetadataName?: pulumi.Input<string>;
+    assessmentMetadataName?: pulumi.Input<string>;
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    readonly assessmentType: pulumi.Input<string | enums.security.v20200101.AssessmentType>;
-    readonly categories?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Categories>[]>;
+    assessmentType: pulumi.Input<string | enums.security.v20200101.AssessmentType>;
+    categories?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Categories>[]>;
     /**
      * Human readable description of the assessment
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * User friendly display name of the assessment
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The implementation effort required to remediate this assessment
      */
-    readonly implementationEffort?: pulumi.Input<string | enums.security.v20200101.ImplementationEffort>;
+    implementationEffort?: pulumi.Input<string | enums.security.v20200101.ImplementationEffort>;
     /**
      * Describes the partner that created the assessment
      */
-    readonly partnerData?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataPartnerDataArgs>;
+    partnerData?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataPartnerDataArgs>;
     /**
      * True if this assessment is in preview release status
      */
-    readonly preview?: pulumi.Input<boolean>;
+    preview?: pulumi.Input<boolean>;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
-    readonly remediationDescription?: pulumi.Input<string>;
+    remediationDescription?: pulumi.Input<string>;
     /**
      * The severity level of the assessment
      */
-    readonly severity: pulumi.Input<string | enums.security.v20200101.Severity>;
-    readonly threats?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Threats>[]>;
+    severity: pulumi.Input<string | enums.security.v20200101.Severity>;
+    threats?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Threats>[]>;
     /**
      * The user impact of the assessment
      */
-    readonly userImpact?: pulumi.Input<string | enums.security.v20200101.UserImpact>;
+    userImpact?: pulumi.Input<string | enums.security.v20200101.UserImpact>;
 }

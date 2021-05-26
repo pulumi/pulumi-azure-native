@@ -26,11 +26,11 @@ export interface GetConsoleWithLocationArgs {
     /**
      * The name of the console
      */
-    readonly consoleName: string;
+    consoleName: string;
     /**
      * The provider location
      */
-    readonly location: string;
+    location: string;
 }
 
 /**

@@ -100,21 +100,21 @@ export interface ActionRuleByNameArgs {
     /**
      * The name of action rule that needs to be created/updated
      */
-    readonly actionRuleName?: pulumi.Input<string>;
+    actionRuleName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Action rule properties defining scope, conditions, suppression logic for action rule
      */
-    readonly properties?: pulumi.Input<inputs.alertsmanagement.v20181102privatepreview.ActionRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.alertsmanagement.v20181102privatepreview.ActionRulePropertiesArgs>;
     /**
      * Resource group name where the resource is created.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

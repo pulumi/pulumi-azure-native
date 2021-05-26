@@ -25,7 +25,7 @@ export interface GetTenantConfigurationArgs {
     /**
      * The configuration name. Value must be 'default'
      */
-    readonly configurationName: string;
+    configurationName: string;
 }
 
 /**

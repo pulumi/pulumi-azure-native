@@ -194,73 +194,73 @@ export interface ProfileArgs {
     /**
      * The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
      */
-    readonly apiEntitySetName?: pulumi.Input<string>;
+    apiEntitySetName?: pulumi.Input<string>;
     /**
      * The attributes for the Type.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     /**
      * Localized descriptions for the property.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display names for the property.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of entity.
      */
-    readonly entityType?: pulumi.Input<enums.customerinsights.v20170101.EntityTypes>;
+    entityType?: pulumi.Input<enums.customerinsights.v20170101.EntityTypes>;
     /**
      * The properties of the Profile.
      */
-    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.PropertyDefinitionArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.PropertyDefinitionArgs>[]>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The instance count.
      */
-    readonly instancesCount?: pulumi.Input<number>;
+    instancesCount?: pulumi.Input<number>;
     /**
      * Large Image associated with the Property or EntityType.
      */
-    readonly largeImage?: pulumi.Input<string>;
+    largeImage?: pulumi.Input<string>;
     /**
      * Any custom localized attributes for the Type.
      */
-    readonly localizedAttributes?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    localizedAttributes?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
     /**
      * Medium Image associated with the Property or EntityType.
      */
-    readonly mediumImage?: pulumi.Input<string>;
+    mediumImage?: pulumi.Input<string>;
     /**
      * The name of the profile.
      */
-    readonly profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The schema org link. This helps ACI identify and suggest semantic models.
      */
-    readonly schemaItemTypeLink?: pulumi.Input<string>;
+    schemaItemTypeLink?: pulumi.Input<string>;
     /**
      * Small Image associated with the Property or EntityType.
      */
-    readonly smallImage?: pulumi.Input<string>;
+    smallImage?: pulumi.Input<string>;
     /**
      * The strong IDs.
      */
-    readonly strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.StrongIdArgs>[]>;
+    strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.StrongIdArgs>[]>;
     /**
      * The timestamp property name. Represents the time when the interaction or profile update happened.
      */
-    readonly timestampFieldName?: pulumi.Input<string>;
+    timestampFieldName?: pulumi.Input<string>;
     /**
      * The name of the entity.
      */
-    readonly typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string>;
 }

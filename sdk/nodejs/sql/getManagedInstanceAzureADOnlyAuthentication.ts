@@ -28,15 +28,15 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    readonly authenticationName: string;
+    authenticationName: string;
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName: string;
+    managedInstanceName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

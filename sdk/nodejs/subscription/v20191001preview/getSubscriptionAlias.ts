@@ -25,7 +25,7 @@ export interface GetSubscriptionAliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName: string;
+    aliasName: string;
 }
 
 /**

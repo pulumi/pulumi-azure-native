@@ -133,37 +133,37 @@ export interface BlueprintArgs {
     /**
      * name of the blueprint.
      */
-    readonly blueprintName?: pulumi.Input<string>;
+    blueprintName?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Layout view of the blueprint, for UI reference.
      */
-    readonly layout?: any;
+    layout?: any;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: pulumi.Input<string>;
+    managementGroupName: pulumi.Input<string>;
     /**
      * Parameters required by this Blueprint definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterDefinitionArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterDefinitionArgs>}>;
     /**
      * Resource group placeholders defined by this Blueprint definition.
      */
-    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupDefinitionArgs>}>;
+    resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupDefinitionArgs>}>;
     /**
      * The scope where this Blueprint can be applied.
      */
-    readonly targetScope: pulumi.Input<string | enums.blueprint.v20171111preview.BlueprintTargetScope>;
+    targetScope: pulumi.Input<string | enums.blueprint.v20171111preview.BlueprintTargetScope>;
     /**
      * Published versions of this blueprint.
      */
-    readonly versions?: any;
+    versions?: any;
 }

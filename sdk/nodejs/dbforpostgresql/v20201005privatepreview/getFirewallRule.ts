@@ -27,15 +27,15 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the server group firewall rule.
      */
-    readonly firewallRuleName: string;
+    firewallRuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server group.
      */
-    readonly serverGroupName: string;
+    serverGroupName: string;
 }
 
 /**

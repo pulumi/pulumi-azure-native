@@ -96,17 +96,17 @@ export interface BuildStepArgs {
     /**
      * The name of the container registry build task.
      */
-    readonly buildTaskName: pulumi.Input<string>;
+    buildTaskName: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of a build step for a container registry build task.
      */
-    readonly stepName?: pulumi.Input<string>;
+    stepName?: pulumi.Input<string>;
 }

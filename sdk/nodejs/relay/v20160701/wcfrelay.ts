@@ -134,29 +134,29 @@ export interface WCFRelayArgs {
     /**
      * The Namespace Name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The relay name
      */
-    readonly relayName?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string>;
     /**
      * WCFRelay Type.
      */
-    readonly relayType?: pulumi.Input<string | enums.relay.v20160701.Relaytype>;
+    relayType?: pulumi.Input<string | enums.relay.v20160701.Relaytype>;
     /**
      * true if client authorization is needed for this relay; otherwise, false.
      */
-    readonly requiresClientAuthorization?: pulumi.Input<boolean>;
+    requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
      * true if transport security is needed for this relay; otherwise, false.
      */
-    readonly requiresTransportSecurity?: pulumi.Input<boolean>;
+    requiresTransportSecurity?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }

@@ -148,33 +148,33 @@ export interface NamespaceArgs {
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
-    readonly isAutoInflateEnabled?: pulumi.Input<boolean>;
+    isAutoInflateEnabled?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
-    readonly kafkaEnabled?: pulumi.Input<boolean>;
+    kafkaEnabled?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
      */
-    readonly maximumThroughputUnits?: pulumi.Input<number>;
+    maximumThroughputUnits?: pulumi.Input<number>;
     /**
      * The Namespace name
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Properties of sku resource
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20170401.SkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.v20170401.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

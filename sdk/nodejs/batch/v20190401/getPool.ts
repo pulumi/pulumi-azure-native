@@ -27,15 +27,15 @@ export interface GetPoolArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The pool name. This must be unique within the account.
      */
-    readonly poolName: string;
+    poolName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

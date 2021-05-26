@@ -27,15 +27,15 @@ export interface GetStorageInsightArgs {
     /**
      * The Resource Group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the storageInsightsConfigs resource
      */
-    readonly storageInsightName: string;
+    storageInsightName: string;
     /**
      * The Log Analytics Workspace name.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

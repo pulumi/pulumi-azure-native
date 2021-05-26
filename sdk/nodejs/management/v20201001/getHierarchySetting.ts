@@ -25,7 +25,7 @@ export interface GetHierarchySettingArgs {
     /**
      * Management Group ID.
      */
-    readonly groupId: string;
+    groupId: string;
 }
 
 /**

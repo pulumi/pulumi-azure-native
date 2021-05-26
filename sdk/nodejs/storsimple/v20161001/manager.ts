@@ -118,29 +118,29 @@ export interface ManagerArgs {
     /**
      * Specifies if the Manager is Garda or Helsinki
      */
-    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettingsArgs>;
+    cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettingsArgs>;
     /**
      * ETag of the Manager
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The Geo location of the Manager
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName?: pulumi.Input<string>;
+    managerName?: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the Sku
      */
-    readonly sku?: pulumi.Input<inputs.storsimple.v20161001.ManagerSkuArgs>;
+    sku?: pulumi.Input<inputs.storsimple.v20161001.ManagerSkuArgs>;
     /**
      * Tags attached to the Manager
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -28,19 +28,19 @@ export interface GetGeoBackupPolicyArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the geo backup policy.
      */
-    readonly geoBackupPolicyName: string;
+    geoBackupPolicyName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

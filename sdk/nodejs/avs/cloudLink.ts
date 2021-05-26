@@ -98,17 +98,17 @@ export interface CloudLinkArgs {
     /**
      * Name of the cloud link resource
      */
-    readonly cloudLinkName?: pulumi.Input<string>;
+    cloudLinkName?: pulumi.Input<string>;
     /**
      * Identifier of the other private cloud participating in the link.
      */
-    readonly linkedCloud?: pulumi.Input<string>;
+    linkedCloud?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

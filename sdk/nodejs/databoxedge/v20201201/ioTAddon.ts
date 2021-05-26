@@ -148,30 +148,30 @@ export interface IoTAddonArgs {
     /**
      * The addon name.
      */
-    readonly addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * IoT device metadata to which appliance needs to be connected.
      */
-    readonly ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
+    ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
     /**
      * IoT edge device to which the IoT Addon needs to be configured.
      */
-    readonly ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
+    ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20201201.IoTDeviceInfoArgs>;
     /**
      * Addon type.
      * Expected value is 'IotEdge'.
      */
-    readonly kind: pulumi.Input<"IotEdge">;
+    kind: pulumi.Input<"IotEdge">;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The role name.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
 }

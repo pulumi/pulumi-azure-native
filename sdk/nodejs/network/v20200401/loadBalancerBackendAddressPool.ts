@@ -129,25 +129,25 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    readonly backendAddressPoolName?: pulumi.Input<string>;
+    backendAddressPoolName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * An array of backend addresses.
      */
-    readonly loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200401.LoadBalancerBackendAddressArgs>[]>;
+    loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200401.LoadBalancerBackendAddressArgs>[]>;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -31,31 +31,31 @@ export interface GetFactoryDataPlaneAccessArgs {
     /**
      * The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
      */
-    readonly accessResourcePath?: string;
+    accessResourcePath?: string;
     /**
      * Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
      */
-    readonly expireTime?: string;
+    expireTime?: string;
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
      */
-    readonly permissions?: string;
+    permissions?: string;
     /**
      * The name of the profile. Currently only the default is supported. The default value is DefaultProfile.
      */
-    readonly profileName?: string;
+    profileName?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Start time for the token. If not specified the current time will be used.
      */
-    readonly startTime?: string;
+    startTime?: string;
 }
 
 /**

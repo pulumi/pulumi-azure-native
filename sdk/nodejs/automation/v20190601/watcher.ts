@@ -157,45 +157,45 @@ export interface WatcherArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the etag of the resource.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Gets or sets the frequency at which the watcher is invoked.
      */
-    readonly executionFrequencyInSeconds?: pulumi.Input<number>;
+    executionFrequencyInSeconds?: pulumi.Input<number>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
      */
-    readonly scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string>;
     /**
      * Gets or sets the parameters of the script.
      */
-    readonly scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets the name of the hybrid worker group the watcher will run on.
      */
-    readonly scriptRunOn?: pulumi.Input<string>;
+    scriptRunOn?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The watcher name.
      */
-    readonly watcherName?: pulumi.Input<string>;
+    watcherName?: pulumi.Input<string>;
 }

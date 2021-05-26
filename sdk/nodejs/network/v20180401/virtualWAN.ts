@@ -122,25 +122,25 @@ export interface VirtualWANArgs {
     /**
      * Vpn encryption to be disabled or not.
      */
-    readonly disableVpnEncryption?: pulumi.Input<boolean>;
+    disableVpnEncryption?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VirtualWAN being created or updated.
      */
-    readonly virtualWANName?: pulumi.Input<string>;
+    virtualWANName?: pulumi.Input<string>;
 }

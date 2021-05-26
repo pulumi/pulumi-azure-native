@@ -161,65 +161,65 @@ export interface NetworkInterfaceArgs {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20171101.NetworkInterfaceDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20171101.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is accelerated networking enabled.
      */
-    readonly enableAcceleratedNetworking?: pulumi.Input<boolean>;
+    enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
      * Indicates whether IP forwarding is enabled on this network interface.
      */
-    readonly enableIPForwarding?: pulumi.Input<boolean>;
+    enableIPForwarding?: pulumi.Input<boolean>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20171101.NetworkInterfaceIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20171101.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The MAC address of the network interface.
      */
-    readonly macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string>;
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName?: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string>;
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20171101.NetworkSecurityGroupArgs>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.v20171101.NetworkSecurityGroupArgs>;
     /**
      * Gets whether this is a primary network interface on a virtual machine.
      */
-    readonly primary?: pulumi.Input<boolean>;
+    primary?: pulumi.Input<boolean>;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the network interface resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The reference of a virtual machine.
      */
-    readonly virtualMachine?: pulumi.Input<inputs.network.v20171101.SubResourceArgs>;
+    virtualMachine?: pulumi.Input<inputs.network.v20171101.SubResourceArgs>;
 }

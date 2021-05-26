@@ -123,21 +123,21 @@ export interface ScopeMapArgs {
      * E.g. repositories/repository-name/content/read,
      * repositories/repository-name/metadata/write
      */
-    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    actions: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The user friendly description of the scope map.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the scope map.
      */
-    readonly scopeMapName?: pulumi.Input<string>;
+    scopeMapName?: pulumi.Input<string>;
 }

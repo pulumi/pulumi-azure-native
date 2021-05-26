@@ -92,17 +92,17 @@ export interface ServiceArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Services response resource.
      */
-    readonly properties?: pulumi.Input<inputs.documentdb.v20210401preview.DataTransferServiceResourcePropertiesArgs | inputs.documentdb.v20210401preview.SqlDedicatedGatewayServiceResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.documentdb.v20210401preview.DataTransferServiceResourcePropertiesArgs | inputs.documentdb.v20210401preview.SqlDedicatedGatewayServiceResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Cosmos DB service name.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
 }

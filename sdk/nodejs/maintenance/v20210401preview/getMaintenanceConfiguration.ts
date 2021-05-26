@@ -26,11 +26,11 @@ export interface GetMaintenanceConfigurationArgs {
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource Identifier
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

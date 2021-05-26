@@ -28,19 +28,19 @@ export interface GetServiceArgs {
     /**
      * The name of the application resource.
      */
-    readonly applicationName: string;
+    applicationName: string;
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

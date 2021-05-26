@@ -27,15 +27,15 @@ export interface GetContentKeyPolicyPropertiesWithSecretsArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The Content Key Policy name.
      */
-    readonly contentKeyPolicyName: string;
+    contentKeyPolicyName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

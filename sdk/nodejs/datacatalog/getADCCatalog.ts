@@ -27,11 +27,11 @@ export interface GetADCCatalogArgs {
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    readonly catalogName: string;
+    catalogName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

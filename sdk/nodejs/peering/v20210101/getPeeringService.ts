@@ -26,11 +26,11 @@ export interface GetPeeringServiceArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringServiceName: string;
+    peeringServiceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

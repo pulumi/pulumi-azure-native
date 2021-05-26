@@ -152,45 +152,45 @@ export interface ElasticPoolArgs {
     /**
      * The maximum DTU any one database can consume.
      */
-    readonly databaseDtuMax?: pulumi.Input<number>;
+    databaseDtuMax?: pulumi.Input<number>;
     /**
      * The minimum DTU all databases are guaranteed.
      */
-    readonly databaseDtuMin?: pulumi.Input<number>;
+    databaseDtuMin?: pulumi.Input<number>;
     /**
      * The total shared DTU for the database elastic pool.
      */
-    readonly dtu?: pulumi.Input<number>;
+    dtu?: pulumi.Input<number>;
     /**
      * The edition of the elastic pool.
      */
-    readonly edition?: pulumi.Input<string | enums.sql.v20140401.ElasticPoolEdition>;
+    edition?: pulumi.Input<string | enums.sql.v20140401.ElasticPoolEdition>;
     /**
      * The name of the elastic pool to be operated on (updated or created).
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * Gets storage limit for the database elastic pool in MB.
      */
-    readonly storageMB?: pulumi.Input<number>;
+    storageMB?: pulumi.Input<number>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

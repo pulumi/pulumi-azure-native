@@ -104,21 +104,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The private endpoint information.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.purview.v20201201preview.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.purview.v20201201preview.PrivateEndpointArgs>;
     /**
      * Name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The private link service connection state.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.purview.v20201201preview.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.purview.v20201201preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

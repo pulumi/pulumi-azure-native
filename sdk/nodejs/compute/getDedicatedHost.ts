@@ -29,19 +29,19 @@ export interface GetDedicatedHostArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName: string;
+    hostGroupName: string;
     /**
      * The name of the dedicated host.
      */
-    readonly hostName: string;
+    hostName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

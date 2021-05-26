@@ -27,11 +27,11 @@ export interface ListBatchAccountKeysArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

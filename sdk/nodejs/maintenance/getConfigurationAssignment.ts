@@ -30,23 +30,23 @@ export interface GetConfigurationAssignmentArgs {
     /**
      * Configuration assignment name
      */
-    readonly configurationAssignmentName: string;
+    configurationAssignmentName: string;
     /**
      * Resource provider name
      */
-    readonly providerName: string;
+    providerName: string;
     /**
      * Resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource identifier
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * Resource type
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 /**

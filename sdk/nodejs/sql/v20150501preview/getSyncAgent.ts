@@ -27,15 +27,15 @@ export interface GetSyncAgentArgs {
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server on which the sync agent is hosted.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * The name of the sync agent.
      */
-    readonly syncAgentName: string;
+    syncAgentName: string;
 }
 
 /**

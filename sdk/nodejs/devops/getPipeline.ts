@@ -27,11 +27,11 @@ export interface GetPipelineArgs {
     /**
      * The name of the Pipeline resource in ARM.
      */
-    readonly pipelineName: string;
+    pipelineName: string;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

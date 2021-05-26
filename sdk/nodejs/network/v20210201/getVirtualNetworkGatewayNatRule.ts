@@ -27,15 +27,15 @@ export interface GetVirtualNetworkGatewayNatRuleArgs {
     /**
      * The name of the nat rule.
      */
-    readonly natRuleName: string;
+    natRuleName: string;
     /**
      * The resource group name of the Virtual Network Gateway.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the gateway.
      */
-    readonly virtualNetworkGatewayName: string;
+    virtualNetworkGatewayName: string;
 }
 
 /**

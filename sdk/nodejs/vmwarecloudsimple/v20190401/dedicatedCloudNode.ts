@@ -197,45 +197,45 @@ export interface DedicatedCloudNodeArgs {
     /**
      * Availability Zone id, e.g. "az1"
      */
-    readonly availabilityZoneId: pulumi.Input<string>;
+    availabilityZoneId: pulumi.Input<string>;
     /**
      * dedicated cloud node name
      */
-    readonly dedicatedCloudNodeName?: pulumi.Input<string>;
+    dedicatedCloudNodeName?: pulumi.Input<string>;
     /**
      * SKU's id
      */
-    readonly id: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
      * Azure region
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * SKU's name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * count of nodes to create
      */
-    readonly nodesCount: pulumi.Input<number>;
+    nodesCount: pulumi.Input<number>;
     /**
      * Placement Group id, e.g. "n1"
      */
-    readonly placementGroupId: pulumi.Input<string>;
+    placementGroupId: pulumi.Input<string>;
     /**
      * purchase id
      */
-    readonly purchaseId: pulumi.Input<string>;
+    purchaseId: pulumi.Input<string>;
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Dedicated Cloud Nodes SKU
      */
-    readonly sku?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.SkuArgs>;
+    sku?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.SkuArgs>;
     /**
      * Dedicated Cloud Nodes tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

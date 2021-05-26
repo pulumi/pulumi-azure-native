@@ -116,29 +116,29 @@ export interface ServiceArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service resource.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The name of the service topology .
      */
-    readonly serviceTopologyName: pulumi.Input<string>;
+    serviceTopologyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure location to which the resources in the service belong to or should be deployed to.
      */
-    readonly targetLocation: pulumi.Input<string>;
+    targetLocation: pulumi.Input<string>;
     /**
      * The subscription to which the resources in the service belong to or should be deployed to.
      */
-    readonly targetSubscriptionId: pulumi.Input<string>;
+    targetSubscriptionId: pulumi.Input<string>;
 }

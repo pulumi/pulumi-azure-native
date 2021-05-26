@@ -29,19 +29,19 @@ export interface GetJobDefinitionArgs {
     /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly dataManagerName: string;
+    dataManagerName: string;
     /**
      * The data service name of the job definition
      */
-    readonly dataServiceName: string;
+    dataServiceName: string;
     /**
      * The job definition name that is being queried.
      */
-    readonly jobDefinitionName: string;
+    jobDefinitionName: string;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

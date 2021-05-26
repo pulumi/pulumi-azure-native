@@ -134,49 +134,49 @@ export interface SiteBackupConfigurationSlotArgs {
     /**
      * Schedule for the backup if it is executed periodically
      */
-    readonly backupSchedule?: pulumi.Input<inputs.web.v20150801.BackupScheduleArgs>;
+    backupSchedule?: pulumi.Input<inputs.web.v20150801.BackupScheduleArgs>;
     /**
      * Databases included in the backup
      */
-    readonly databases?: pulumi.Input<pulumi.Input<inputs.web.v20150801.DatabaseBackupSettingArgs>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.web.v20150801.DatabaseBackupSettingArgs>[]>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * SAS URL to the container
      */
-    readonly storageAccountUrl?: pulumi.Input<string>;
+    storageAccountUrl?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

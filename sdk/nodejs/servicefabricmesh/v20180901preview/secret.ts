@@ -103,21 +103,21 @@ export interface SecretArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Describes the properties of a secret resource.
      */
-    readonly properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.SecretResourcePropertiesArgs>;
+    properties: pulumi.Input<inputs.servicefabricmesh.v20180901preview.SecretResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the secret resource.
      */
-    readonly secretResourceName?: pulumi.Input<string>;
+    secretResourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

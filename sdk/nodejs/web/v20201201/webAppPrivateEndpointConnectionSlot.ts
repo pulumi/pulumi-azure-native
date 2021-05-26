@@ -116,19 +116,19 @@ export interface WebAppPrivateEndpointConnectionSlotArgs {
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the site.
      */
-    readonly name: pulumi.Input<string>;
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The state of a private link connection
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.v20201201.PrivateLinkConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.v20201201.PrivateLinkConnectionStateArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly slot: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

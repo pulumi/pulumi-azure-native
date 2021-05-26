@@ -105,25 +105,25 @@ export interface AppArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName?: pulumi.Input<string>;
+    appName?: pulumi.Input<string>;
     /**
      * The Managed Identity type of the app resource
      */
-    readonly identity?: pulumi.Input<inputs.appplatform.ManagedIdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.appplatform.ManagedIdentityPropertiesArgs>;
     /**
      * The GEO location of the application, always the same with its parent resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the App resource
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.AppResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.AppResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

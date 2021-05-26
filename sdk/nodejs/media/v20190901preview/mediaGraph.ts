@@ -128,25 +128,25 @@ export interface MediaGraphArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Media Graph  description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Media Graph name.
      */
-    readonly mediaGraphName?: pulumi.Input<string>;
+    mediaGraphName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Media Graph sinks
      */
-    readonly sinks: pulumi.Input<pulumi.Input<inputs.media.v20190901preview.MediaGraphAssetSinkArgs>[]>;
+    sinks: pulumi.Input<pulumi.Input<inputs.media.v20190901preview.MediaGraphAssetSinkArgs>[]>;
     /**
      * Media Graph sources
      */
-    readonly sources: pulumi.Input<pulumi.Input<inputs.media.v20190901preview.MediaGraphRtspSourceArgs>[]>;
+    sources: pulumi.Input<pulumi.Input<inputs.media.v20190901preview.MediaGraphRtspSourceArgs>[]>;
 }

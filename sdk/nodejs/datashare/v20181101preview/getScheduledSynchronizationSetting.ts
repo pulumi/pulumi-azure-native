@@ -28,19 +28,19 @@ export interface GetScheduledSynchronizationSettingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the share.
      */
-    readonly shareName: string;
+    shareName: string;
     /**
      * The name of the synchronizationSetting.
      */
-    readonly synchronizationSettingName: string;
+    synchronizationSettingName: string;
 }
 
 /**

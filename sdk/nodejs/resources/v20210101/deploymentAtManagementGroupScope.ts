@@ -103,21 +103,21 @@ export interface DeploymentAtManagementGroupScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * The management group ID.
      */
-    readonly groupId: pulumi.Input<string>;
+    groupId: pulumi.Input<string>;
     /**
      * The location to store the deployment data.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20210101.DeploymentPropertiesArgs>;
+    properties: pulumi.Input<inputs.resources.v20210101.DeploymentPropertiesArgs>;
     /**
      * Deployment tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

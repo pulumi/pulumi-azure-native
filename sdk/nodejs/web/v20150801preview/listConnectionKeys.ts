@@ -30,39 +30,39 @@ export interface ListConnectionKeysArgs {
     /**
      * The connection name.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * Resource Id
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Kind of resource
      */
-    readonly kind?: string;
+    kind?: string;
     /**
      * Resource Location
      */
-    readonly location?: string;
+    location?: string;
     /**
      * Resource Name
      */
-    readonly name?: string;
+    name?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource tags
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * Resource type
      */
-    readonly type?: string;
+    type?: string;
     /**
      * time span for how long the keys will be valid
      */
-    readonly validityTimeSpan?: string;
+    validityTimeSpan?: string;
 }
 
 export interface ListConnectionKeysResult {

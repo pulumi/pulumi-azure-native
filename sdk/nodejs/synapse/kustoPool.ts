@@ -162,33 +162,33 @@ export interface KustoPoolArgs {
     /**
      * The engine type
      */
-    readonly engineType?: pulumi.Input<string | enums.synapse.EngineType>;
+    engineType?: pulumi.Input<string | enums.synapse.EngineType>;
     /**
      * The name of the Kusto pool.
      */
-    readonly kustoPoolName?: pulumi.Input<string>;
+    kustoPoolName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the kusto pool.
      */
-    readonly sku: pulumi.Input<inputs.synapse.AzureSkuArgs>;
+    sku: pulumi.Input<inputs.synapse.AzureSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
     /**
      * The workspace unique identifier.
      */
-    readonly workspaceUid?: pulumi.Input<string>;
+    workspaceUid?: pulumi.Input<string>;
 }

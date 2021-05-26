@@ -145,33 +145,33 @@ export interface BillingRoleAssignmentByEnrollmentAccountArgs {
     /**
      * The ID that uniquely identifies a billing account.
      */
-    readonly billingAccountName: pulumi.Input<string>;
+    billingAccountName: pulumi.Input<string>;
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName?: pulumi.Input<string>;
+    billingRoleAssignmentName?: pulumi.Input<string>;
     /**
      * The ID that uniquely identifies an enrollment account.
      */
-    readonly enrollmentAccountName: pulumi.Input<string>;
+    enrollmentAccountName: pulumi.Input<string>;
     /**
      * The principal id of the user to whom the role was assigned.
      */
-    readonly principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string>;
     /**
      * The principal tenant id of the user to whom the role was assigned.
      */
-    readonly principalTenantId?: pulumi.Input<string>;
+    principalTenantId?: pulumi.Input<string>;
     /**
      * The ID of the role definition.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
      */
-    readonly userAuthenticationType?: pulumi.Input<string>;
+    userAuthenticationType?: pulumi.Input<string>;
     /**
      * The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
      */
-    readonly userEmailAddress?: pulumi.Input<string>;
+    userEmailAddress?: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetProximityPlacementGroupArgs {
     /**
      * includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
      */
-    readonly includeColocationStatus?: string;
+    includeColocationStatus?: string;
     /**
      * The name of the proximity placement group.
      */
-    readonly proximityPlacementGroupName: string;
+    proximityPlacementGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

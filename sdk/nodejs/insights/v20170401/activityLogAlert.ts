@@ -133,37 +133,37 @@ export interface ActivityLogAlertArgs {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertActionListArgs>;
+    actions: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertActionListArgs>;
     /**
      * The name of the activity log alert.
      */
-    readonly activityLogAlertName?: pulumi.Input<string>;
+    activityLogAlertName?: pulumi.Input<string>;
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertAllOfConditionArgs>;
+    condition: pulumi.Input<inputs.insights.v20170401.ActivityLogAlertAllOfConditionArgs>;
     /**
      * A description of this activity log alert.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

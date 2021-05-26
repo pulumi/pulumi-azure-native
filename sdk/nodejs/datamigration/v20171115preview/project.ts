@@ -146,41 +146,41 @@ export interface ProjectArgs {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20171115preview.DatabaseInfoArgs>[]>;
+    databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20171115preview.DatabaseInfoArgs>[]>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20171115preview.SqlConnectionInfoArgs>;
+    sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20171115preview.SqlConnectionInfoArgs>;
     /**
      * Source platform for the project
      */
-    readonly sourcePlatform: pulumi.Input<enums.datamigration.v20171115preview.ProjectSourcePlatform>;
+    sourcePlatform: pulumi.Input<enums.datamigration.v20171115preview.ProjectSourcePlatform>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20171115preview.SqlConnectionInfoArgs>;
+    targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20171115preview.SqlConnectionInfoArgs>;
     /**
      * Target platform for the project
      */
-    readonly targetPlatform: pulumi.Input<enums.datamigration.v20171115preview.ProjectTargetPlatform>;
+    targetPlatform: pulumi.Input<enums.datamigration.v20171115preview.ProjectTargetPlatform>;
 }

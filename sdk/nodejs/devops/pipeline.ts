@@ -125,25 +125,25 @@ export interface PipelineArgs {
     /**
      * Configuration used to bootstrap the Pipeline.
      */
-    readonly bootstrapConfiguration: pulumi.Input<inputs.devops.BootstrapConfigurationArgs>;
+    bootstrapConfiguration: pulumi.Input<inputs.devops.BootstrapConfigurationArgs>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Pipeline resource in ARM.
      */
-    readonly pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
      */
-    readonly pipelineType: pulumi.Input<string | enums.devops.PipelineTypeEnum>;
+    pipelineType: pulumi.Input<string | enums.devops.PipelineTypeEnum>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource Tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

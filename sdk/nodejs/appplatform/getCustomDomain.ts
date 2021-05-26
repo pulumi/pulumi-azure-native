@@ -29,19 +29,19 @@ export interface GetCustomDomainArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName: string;
+    appName: string;
     /**
      * The name of the custom domain resource.
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

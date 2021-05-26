@@ -26,11 +26,11 @@ export interface GetActivityLogAlertArgs {
     /**
      * The name of the activity log alert.
      */
-    readonly activityLogAlertName: string;
+    activityLogAlertName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

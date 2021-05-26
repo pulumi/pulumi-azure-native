@@ -125,37 +125,37 @@ export interface WebAppAuthSettingsV2SlotArgs {
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
-    readonly globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs>;
+    globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
      */
-    readonly httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs>;
+    httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs>;
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    readonly identityProviders?: pulumi.Input<inputs.web.IdentityProvidersArgs>;
+    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersArgs>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The configuration settings of the login flow of users using App Service Authentication/Authorization.
      */
-    readonly login?: pulumi.Input<inputs.web.LoginArgs>;
+    login?: pulumi.Input<inputs.web.LoginArgs>;
     /**
      * Name of web app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The configuration settings of the platform of App Service Authentication/Authorization.
      */
-    readonly platform?: pulumi.Input<inputs.web.AuthPlatformArgs>;
+    platform?: pulumi.Input<inputs.web.AuthPlatformArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

@@ -28,19 +28,19 @@ export interface ListEdgeModuleProvisioningTokenArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the edge module used to create a new provisioning token.
      */
-    readonly edgeModuleName: string;
+    edgeModuleName: string;
     /**
      * The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
      */
-    readonly expirationDate: string;
+    expirationDate: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

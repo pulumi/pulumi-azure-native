@@ -27,11 +27,11 @@ export interface ListSpatialAnchorsAccountKeysArgs {
     /**
      * Name of an Mixed Reality Account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -28,15 +28,15 @@ export interface GetVirtualHubRouteTableV2Args {
     /**
      * The resource group name of the VirtualHubRouteTableV2.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VirtualHubRouteTableV2.
      */
-    readonly routeTableName: string;
+    routeTableName: string;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: string;
+    virtualHubName: string;
 }
 
 /**

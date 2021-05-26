@@ -146,33 +146,33 @@ export interface PoolArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
-    readonly poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string>;
     /**
      * The qos type of the pool
      */
-    readonly qosType?: pulumi.Input<string | enums.netapp.v20201201.QosType>;
+    qosType?: pulumi.Input<string | enums.netapp.v20201201.QosType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: pulumi.Input<string | enums.netapp.v20201201.ServiceLevel>;
+    serviceLevel: pulumi.Input<string | enums.netapp.v20201201.ServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */
-    readonly size: pulumi.Input<number>;
+    size: pulumi.Input<number>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

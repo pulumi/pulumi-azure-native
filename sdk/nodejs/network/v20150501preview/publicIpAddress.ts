@@ -148,49 +148,49 @@ export interface PublicIpAddressArgs {
     /**
      * Gets or sets FQDN of the DNS record associated with the public IP address
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20150501preview.PublicIpAddressDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20150501preview.PublicIpAddressDnsSettingsArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Gets or sets the idle timeout of the public IP address
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Gets the assigned public IP address
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Gets a reference to the network interface IP configurations using this public IP address
      */
-    readonly ipConfiguration?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
+    ipConfiguration?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Gets or sets PublicIP allocation method (Static/Dynamic)
      */
-    readonly publicIPAllocationMethod: pulumi.Input<string | enums.network.v20150501preview.IpAllocationMethod>;
+    publicIPAllocationMethod: pulumi.Input<string | enums.network.v20150501preview.IpAllocationMethod>;
     /**
      * The name of the publicIpAddress.
      */
-    readonly publicIpAddressName: pulumi.Input<string>;
+    publicIpAddressName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets resource guid property of the PublicIP resource
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

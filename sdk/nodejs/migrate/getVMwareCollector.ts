@@ -27,15 +27,15 @@ export interface GetVMwareCollectorArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Unique name of a VMware collector within a project.
      */
-    readonly vmWareCollectorName: string;
+    vmWareCollectorName: string;
 }
 
 export interface GetVMwareCollectorResult {

@@ -120,33 +120,33 @@ export interface SubscriptionDiagnosticSettingArgs {
     /**
      * The resource Id for the event hub authorization rule.
      */
-    readonly eventHubAuthorizationRuleId?: pulumi.Input<string>;
+    eventHubAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * The name of the event hub. If none is specified, the default event hub will be selected.
      */
-    readonly eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string>;
     /**
      * Location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of logs settings.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.insights.SubscriptionLogSettingsArgs>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.insights.SubscriptionLogSettingsArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */
-    readonly serviceBusRuleId?: pulumi.Input<string>;
+    serviceBusRuleId?: pulumi.Input<string>;
     /**
      * The resource ID of the storage account to which you would like to send Diagnostic Logs.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
 }

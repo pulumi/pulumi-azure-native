@@ -24,15 +24,15 @@ export interface ListControllerConnectionDetailsArgs {
     /**
      * Name of the resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * Resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
      */
-    readonly targetContainerHostResourceId: string;
+    targetContainerHostResourceId: string;
 }
 
 export interface ListControllerConnectionDetailsResult {

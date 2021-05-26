@@ -27,15 +27,15 @@ export interface GetIpGroupArgs {
     /**
      * Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the ipGroups.
      */
-    readonly ipGroupsName: string;
+    ipGroupsName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

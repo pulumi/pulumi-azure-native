@@ -28,15 +28,15 @@ export interface GetNatGatewayArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the nat gateway.
      */
-    readonly natGatewayName: string;
+    natGatewayName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

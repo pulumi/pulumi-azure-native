@@ -91,9 +91,9 @@ export interface TagAtScopeArgs {
     /**
      * The set of tags.
      */
-    readonly properties: pulumi.Input<inputs.resources.TagsArgs>;
+    properties: pulumi.Input<inputs.resources.TagsArgs>;
     /**
      * The resource scope.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

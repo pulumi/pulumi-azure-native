@@ -27,11 +27,11 @@ export interface GetVpnSiteArgs {
     /**
      * The resource group name of the VpnSite.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VpnSite being retrieved.
      */
-    readonly vpnSiteName: string;
+    vpnSiteName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetMoveResourceArgs {
     /**
      * The Move Collection Name.
      */
-    readonly moveCollectionName: string;
+    moveCollectionName: string;
     /**
      * The Move Resource Name.
      */
-    readonly moveResourceName: string;
+    moveResourceName: string;
     /**
      * The Resource Group Name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

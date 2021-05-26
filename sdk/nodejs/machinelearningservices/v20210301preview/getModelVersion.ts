@@ -28,19 +28,19 @@ export interface GetModelVersionArgs {
     /**
      * Container name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Version identifier.
      */
-    readonly version: string;
+    version: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

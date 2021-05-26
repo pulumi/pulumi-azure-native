@@ -27,15 +27,15 @@ export interface GetTemplateSpecVersionArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Template Spec.
      */
-    readonly templateSpecName: string;
+    templateSpecName: string;
     /**
      * The version of the Template Spec.
      */
-    readonly templateSpecVersion: string;
+    templateSpecVersion: string;
 }
 
 /**
