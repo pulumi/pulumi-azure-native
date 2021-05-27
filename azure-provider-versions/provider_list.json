@@ -83,7 +83,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries"
@@ -132,7 +133,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/connectedRegistries"
@@ -181,7 +183,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/connectedRegistries/deactivate"
@@ -231,7 +234,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/scopeMaps"
@@ -281,7 +285,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/tokens"
@@ -331,7 +336,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/generateCredentials"
@@ -381,7 +387,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/privateEndpointConnections"
@@ -431,7 +438,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/privateEndpointConnectionProxies"
@@ -481,7 +489,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/privateEndpointConnectionProxies/validate"
@@ -531,7 +540,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/privateLinkResources"
@@ -583,7 +593,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/importImage"
@@ -633,7 +644,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/exportPipelines"
@@ -683,7 +695,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/importPipelines"
@@ -733,7 +746,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/pipelineRuns"
@@ -784,7 +798,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/listBuildSourceUploadUrl"
@@ -835,7 +850,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/scheduleRun"
@@ -886,7 +902,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/runs"
@@ -935,7 +952,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/taskRuns"
@@ -984,7 +1002,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/taskRuns/listDetails"
@@ -1076,7 +1095,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/runs/listLogSasUrl"
@@ -1127,7 +1147,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/runs/cancel"
@@ -1178,7 +1199,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/tasks"
@@ -1229,7 +1251,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/tasks/listDetails"
@@ -1278,7 +1301,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/getBuildSourceUploadUrl"
@@ -1327,7 +1351,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/queueBuild"
@@ -1376,7 +1401,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/builds"
@@ -1425,7 +1451,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/builds/getLogLink"
@@ -1474,7 +1501,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/builds/cancel"
@@ -1523,7 +1551,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/buildTasks"
@@ -1572,7 +1601,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/buildTasks/listSourceRepositoryProperties"
@@ -1621,7 +1651,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/buildTasks/steps"
@@ -1670,7 +1701,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/buildTasks/steps/listBuildArguments"
@@ -1722,7 +1754,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/replications"
@@ -1774,7 +1807,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/webhooks"
@@ -1826,7 +1860,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/webhooks/ping"
@@ -1878,7 +1913,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/webhooks/getCallbackConfig"
@@ -1930,7 +1966,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/webhooks/listEvents"
@@ -1979,7 +2016,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "locations/setupAuth"
@@ -2028,7 +2066,8 @@
           "Germany West Central",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "locations/authorize"
@@ -2081,7 +2120,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -2131,7 +2171,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnets"
@@ -2202,7 +2243,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/listCredentials"
@@ -2255,7 +2297,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/regenerateCredential"
@@ -2307,7 +2350,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/listUsages"
@@ -2356,7 +2400,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/listPolicies"
@@ -2405,7 +2450,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/updatePolicies"
@@ -2473,7 +2519,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "registries/eventGridFilters"
@@ -2528,7 +2575,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -2582,7 +2630,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -2636,7 +2685,8 @@
           "Brazil Southeast",
           "Norway East",
           "Korea South",
-          "West US 3"
+          "West US 3",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -3179,8 +3229,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -3229,8 +3278,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -3289,8 +3337,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/capabilities"
@@ -3344,8 +3391,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/databaseAzureAsyncOperation"
@@ -3399,8 +3445,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/databaseOperationResults"
@@ -3455,8 +3500,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyAzureAsyncOperation"
@@ -3511,8 +3555,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyOperationResults"
@@ -3567,8 +3610,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/keys"
@@ -3623,8 +3665,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/encryptionProtector"
@@ -3679,8 +3720,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/encryptionProtectorOperationResults"
@@ -3735,8 +3775,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/encryptionProtectorAzureAsyncOperation"
@@ -3789,8 +3828,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceKeyAzureAsyncOperation"
@@ -3843,8 +3881,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceKeyOperationResults"
@@ -3897,8 +3934,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceEncryptionProtectorOperationResults"
@@ -3951,8 +3987,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceEncryptionProtectorAzureAsyncOperation"
@@ -4005,8 +4040,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/tdeCertificates"
@@ -4059,8 +4093,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/tdeCertAzureAsyncOperation"
@@ -4113,8 +4146,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/tdeCertOperationResults"
@@ -4169,8 +4201,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverAzureAsyncOperation"
@@ -4225,8 +4256,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverOperationResults"
@@ -4283,8 +4313,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/usages"
@@ -4342,8 +4371,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -4401,8 +4429,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers"
@@ -4461,8 +4488,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases"
@@ -4511,8 +4537,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/serviceObjectives"
@@ -4561,8 +4586,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/communicationLinks"
@@ -4617,8 +4641,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/administrators"
@@ -4667,8 +4690,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/administratorOperationResults"
@@ -4720,8 +4742,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverAdministratorAzureAsyncOperation"
@@ -4773,8 +4794,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverAdministratorOperationResults"
@@ -4823,8 +4843,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/restorableDroppedDatabases"
@@ -4873,8 +4892,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/recoverableDatabases"
@@ -4923,8 +4941,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/geoBackupPolicies"
@@ -4977,8 +4994,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/import"
@@ -5027,8 +5043,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/importExportOperationResults"
@@ -5077,8 +5092,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/operationResults"
@@ -5132,8 +5146,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/backupLongTermRetentionPolicies"
@@ -5186,8 +5199,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/backupShortTermRetentionPolicies"
@@ -5236,8 +5248,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databaseSecurityPolicies"
@@ -5291,8 +5302,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/automaticTuning"
@@ -5347,8 +5357,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/automaticTuning"
@@ -5398,8 +5407,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/transparentDataEncryption"
@@ -5446,8 +5454,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/ledgerDigestUploads"
@@ -5494,8 +5501,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/ledgerDigestUploadsAzureAsyncOperation"
@@ -5542,8 +5548,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/ledgerDigestUploadsOperationResults"
@@ -5592,8 +5597,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/recommendedElasticPools"
@@ -5642,8 +5646,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/dataMaskingPolicies"
@@ -5692,8 +5695,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/dataMaskingPolicies/rules"
@@ -5748,8 +5750,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/securityAlertPolicies"
@@ -5804,8 +5805,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/securityAlertPolicies"
@@ -5860,8 +5860,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/auditingSettings"
@@ -5916,8 +5915,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/auditingSettings"
@@ -5971,8 +5969,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/extendedAuditingSettings"
@@ -6022,8 +6019,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/devOpsAuditingSettings"
@@ -6077,8 +6073,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/auditingSettingsAzureAsyncOperation"
@@ -6132,8 +6127,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/auditingSettingsOperationResults"
@@ -6187,8 +6181,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/extendedAuditingSettingsAzureAsyncOperation"
@@ -6242,8 +6235,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/extendedAuditingSettingsOperationResults"
@@ -6293,8 +6285,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/devOpsAuditingSettingsOperationResults"
@@ -6344,8 +6335,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/devOpsAuditingSettingsAzureAsyncOperation"
@@ -6401,8 +6391,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/elasticPoolAzureAsyncOperation"
@@ -6458,8 +6447,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/elasticPoolOperationResults"
@@ -6519,8 +6507,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/elasticpools"
@@ -6571,8 +6558,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/jobAccounts"
@@ -6626,8 +6612,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/jobAgents"
@@ -6681,8 +6666,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/jobAgentOperationResults"
@@ -6736,8 +6720,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/jobAgentAzureAsyncOperation"
@@ -6791,8 +6774,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/jobAgents/jobs"
@@ -6846,8 +6828,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/jobAgents/jobs/steps"
@@ -6901,8 +6882,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/jobAgents/jobs/executions"
@@ -6951,8 +6931,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/disasterRecoveryConfiguration"
@@ -7006,8 +6985,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/dnsAliases"
@@ -7061,8 +7039,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/dnsAliasAsyncOperation"
@@ -7116,8 +7093,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/dnsAliasOperationResults"
@@ -7172,8 +7148,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/failoverGroups"
@@ -7228,8 +7203,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/failoverGroupAzureAsyncOperation"
@@ -7284,8 +7258,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/failoverGroupOperationResults"
@@ -7340,8 +7313,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/firewallRulesOperationResults"
@@ -7396,8 +7368,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/firewallRulesAzureAsyncOperation"
@@ -7453,8 +7424,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnets"
@@ -7509,8 +7479,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/virtualNetworkRules"
@@ -7566,8 +7535,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/virtualNetworkRulesOperationResults"
@@ -7623,8 +7591,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/virtualNetworkRulesAzureAsyncOperation"
@@ -7680,8 +7647,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnetsOperationResults"
@@ -7737,8 +7703,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnetsAzureAsyncOperation"
@@ -7792,8 +7757,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/databaseRestoreAzureAsyncOperation"
@@ -7842,8 +7806,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/usages"
@@ -7892,8 +7855,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/metricDefinitions"
@@ -7942,8 +7904,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/metrics"
@@ -7992,8 +7953,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/aggregatedDatabaseMetrics"
@@ -8042,8 +8002,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/elasticpools/metrics"
@@ -8092,8 +8051,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/elasticpools/metricdefinitions"
@@ -8142,8 +8100,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/topQueries"
@@ -8192,8 +8149,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/topQueries/queryText"
@@ -8251,8 +8207,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/advisors"
@@ -8307,8 +8262,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/elasticPools/advisors"
@@ -8366,8 +8320,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/advisors"
@@ -8416,8 +8369,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/extensions"
@@ -8472,8 +8424,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/elasticPoolEstimates"
@@ -8528,8 +8479,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/auditRecords"
@@ -8584,8 +8534,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/VulnerabilityAssessmentScans"
@@ -8636,8 +8585,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/workloadGroups"
@@ -8691,8 +8639,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/vulnerabilityAssessments"
@@ -8744,8 +8691,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/vulnerabilityAssessments"
@@ -8799,8 +8745,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/databases/vulnerabilityAssessments"
@@ -8852,8 +8797,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/vulnerabilityAssessments"
@@ -8908,8 +8852,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/VulnerabilityAssessmentSettings"
@@ -8960,8 +8903,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/VulnerabilityAssessment"
@@ -9014,8 +8956,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/vulnerabilityAssessmentScanAzureAsyncOperation"
@@ -9068,8 +9009,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/vulnerabilityAssessmentScanOperationResults"
@@ -9123,8 +9063,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/recommendedSensitivityLabels"
@@ -9179,8 +9118,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/syncGroups"
@@ -9235,8 +9173,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/databases/syncGroups/syncMembers"
@@ -9291,8 +9228,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/syncAgents"
@@ -9344,8 +9280,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "instancePools"
@@ -9396,8 +9331,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/importExportOperationResults"
@@ -9448,8 +9382,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/importExportAzureAsyncOperation"
@@ -9501,8 +9434,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/instancePoolOperationResults"
@@ -9554,8 +9486,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/instancePoolAzureAsyncOperation"
@@ -9610,8 +9541,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances"
@@ -9665,8 +9595,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/administrators"
@@ -9720,8 +9649,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/databases"
@@ -9770,8 +9698,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/recoverableDatabases"
@@ -9825,8 +9752,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/metrics"
@@ -9880,8 +9806,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/metricDefinitions"
@@ -9933,8 +9858,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/databases/backupLongTermRetentionPolicies"
@@ -9987,8 +9911,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/sqlAgent"
@@ -10039,8 +9962,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstancePrivateEndpointConnectionProxyOperationResults"
@@ -10091,8 +10013,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstancePrivateEndpointConnectionProxyAzureAsyncOperation"
@@ -10143,8 +10064,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstancePrivateEndpointConnectionOperationResults"
@@ -10195,8 +10115,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstancePrivateEndpointConnectionAzureAsyncOperation"
@@ -10248,8 +10167,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionManagedInstances"
@@ -10301,8 +10219,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionManagedInstanceBackups"
@@ -10354,8 +10271,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceLongTermRetentionPolicyOperationResults"
@@ -10407,8 +10323,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceLongTermRetentionPolicyAzureAsyncOperation"
@@ -10460,8 +10375,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionManagedInstanceBackupOperationResults"
@@ -10513,8 +10427,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionManagedInstanceBackupAzureAsyncOperation"
@@ -10568,8 +10481,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseAzureAsyncOperation"
@@ -10623,8 +10535,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseOperationResults"
@@ -10678,8 +10589,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseRestoreAzureAsyncOperation"
@@ -10733,8 +10643,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseRestoreOperationResults"
@@ -10786,8 +10695,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseCompleteRestoreAzureAsyncOperation"
@@ -10839,8 +10747,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedDatabaseCompleteRestoreOperationResults"
@@ -10894,8 +10801,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedServerSecurityAlertPoliciesAzureAsyncOperation"
@@ -10948,8 +10854,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "managedInstances/tdeCertificates"
@@ -11002,8 +10907,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceTdeCertAzureAsyncOperation"
@@ -11056,8 +10960,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceTdeCertOperationResults"
@@ -11111,8 +11014,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedServerSecurityAlertPoliciesOperationResults"
@@ -11166,8 +11068,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesAzureAsyncOperation"
@@ -11221,8 +11122,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesOperationResults"
@@ -11277,8 +11177,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "virtualClusters"
@@ -11333,8 +11232,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/virtualClusterAzureAsyncOperation"
@@ -11389,8 +11287,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/virtualClusterOperationResults"
@@ -11445,8 +11342,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceAzureAsyncOperation"
@@ -11501,8 +11397,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedInstanceOperationResults"
@@ -11556,8 +11451,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/administratorAzureAsyncOperation"
@@ -11611,8 +11505,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/administratorOperationResults"
@@ -11667,8 +11560,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/syncGroupOperationResults"
@@ -11723,8 +11615,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/syncMemberOperationResults"
@@ -11779,8 +11670,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/syncAgentOperationResults"
@@ -11835,8 +11725,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/syncDatabaseIds"
@@ -11890,8 +11779,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionServers"
@@ -11945,8 +11833,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionBackups"
@@ -12000,8 +11887,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionPolicyOperationResults"
@@ -12055,8 +11941,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionPolicyAzureAsyncOperation"
@@ -12110,8 +11995,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionBackupOperationResults"
@@ -12165,8 +12049,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/longTermRetentionBackupAzureAsyncOperation"
@@ -12219,8 +12102,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/shortTermRetentionPolicyOperationResults"
@@ -12273,8 +12155,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/shortTermRetentionPolicyAzureAsyncOperation"
@@ -12328,8 +12209,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedShortTermRetentionPolicyOperationResults"
@@ -12383,8 +12263,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/managedShortTermRetentionPolicyAzureAsyncOperation"
@@ -12437,8 +12316,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/instanceFailoverGroups"
@@ -12491,8 +12369,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/instanceFailoverGroupAzureAsyncOperation"
@@ -12545,8 +12422,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/instanceFailoverGroupOperationResults"
@@ -12598,8 +12474,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyOperationResults"
@@ -12651,8 +12526,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyAzureAsyncOperation"
@@ -12704,8 +12578,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionOperationResults"
@@ -12752,8 +12625,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/outboundFirewallRulesAzureAsyncOperation"
@@ -12800,8 +12672,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/outboundFirewallRulesOperationResults"
@@ -12853,8 +12724,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionAzureAsyncOperation"
@@ -12909,8 +12779,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/notifyAzureAsyncOperation"
@@ -12960,8 +12829,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverTrustGroups"
@@ -13011,8 +12879,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverTrustGroupOperationResults"
@@ -13062,8 +12929,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/serverTrustGroupAzureAsyncOperation"
@@ -13112,8 +12978,7 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2",
-          "West US 3"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "servers/connectionPolicies"
@@ -60618,6 +60483,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60661,6 +60527,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60704,6 +60571,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60747,6 +60615,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60790,6 +60659,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60847,6 +60717,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60890,6 +60761,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60933,6 +60805,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -60976,6 +60849,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -61019,6 +60893,7 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
+          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
@@ -62105,6 +61980,37 @@
         ],
         "properties": null,
         "resourceType": "privateClouds/workloadNetworks/dnsZones"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "North Central US",
+          "West US",
+          "West Europe",
+          "Australia East",
+          "South Central US",
+          "Japan East",
+          "UK South",
+          "Canada Central",
+          "North Europe",
+          "Southeast Asia",
+          "UK West",
+          "East US 2",
+          "Central US",
+          "Australia Southeast",
+          "Canada East",
+          "East Asia"
+        ],
+        "properties": null,
+        "resourceType": "privateClouds/cloudLinks"
       }
     ]
   },
@@ -62554,6 +62460,126 @@
         ],
         "properties": null,
         "resourceType": "operations"
+      }
+    ]
+  },
+  {
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureActiveDirectory",
+    "namespace": "Microsoft.AzureActiveDirectory",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "Registered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-05-01-preview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2020-05-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "Global",
+          "United States",
+          "Europe",
+          "Asia Pacific",
+          "Australia"
+        ],
+        "properties": null,
+        "resourceType": "guestUsages"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-05-01-preview",
+          "2019-01-01-privatepreview",
+          "2019-01-01-preview",
+          "2017-01-30",
+          "2016-12-13-preview",
+          "2016-02-10-privatepreview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2017-01-30",
+        "locationMappings": null,
+        "locations": [
+          "Global",
+          "United States",
+          "Europe",
+          "Asia Pacific",
+          "Australia"
+        ],
+        "properties": null,
+        "resourceType": "b2cDirectories"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-05-01-preview",
+          "2019-01-01-privatepreview",
+          "2019-01-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Global",
+          "United States",
+          "Europe",
+          "Asia Pacific",
+          "Australia"
+        ],
+        "properties": null,
+        "resourceType": "checkNameAvailability"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-05-01-preview",
+          "2019-01-01-privatepreview",
+          "2019-01-01-preview",
+          "2017-01-30",
+          "2016-12-13-preview",
+          "2016-02-10-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2017-01-30",
+        "locationMappings": null,
+        "locations": [
+          "Global",
+          "United States",
+          "Europe",
+          "Asia Pacific",
+          "Australia"
+        ],
+        "properties": null,
+        "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-05-01-preview",
+          "2016-02-10-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Global",
+          "United States",
+          "Europe",
+          "Asia Pacific",
+          "Australia"
+        ],
+        "properties": null,
+        "resourceType": "b2ctenants"
       }
     ]
   },
@@ -67574,126 +67600,6 @@
     ]
   },
   {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureActiveDirectory",
-    "namespace": "Microsoft.AzureActiveDirectory",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-05-01-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-05-01-preview",
-        "locationMappings": null,
-        "locations": [
-          "Global",
-          "United States",
-          "Europe",
-          "Asia Pacific",
-          "Australia"
-        ],
-        "properties": null,
-        "resourceType": "guestUsages"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-04-01-preview",
-          "2020-05-01-preview",
-          "2019-01-01-privatepreview",
-          "2019-01-01-preview",
-          "2017-01-30",
-          "2016-12-13-preview",
-          "2016-02-10-privatepreview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2017-01-30",
-        "locationMappings": null,
-        "locations": [
-          "Global",
-          "United States",
-          "Europe",
-          "Asia Pacific",
-          "Australia"
-        ],
-        "properties": null,
-        "resourceType": "b2cDirectories"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-04-01-preview",
-          "2020-05-01-preview",
-          "2019-01-01-privatepreview",
-          "2019-01-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Global",
-          "United States",
-          "Europe",
-          "Asia Pacific",
-          "Australia"
-        ],
-        "properties": null,
-        "resourceType": "checkNameAvailability"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-04-01-preview",
-          "2020-05-01-preview",
-          "2019-01-01-privatepreview",
-          "2019-01-01-preview",
-          "2017-01-30",
-          "2016-12-13-preview",
-          "2016-02-10-privatepreview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": "2017-01-30",
-        "locationMappings": null,
-        "locations": [
-          "Global",
-          "United States",
-          "Europe",
-          "Asia Pacific",
-          "Australia"
-        ],
-        "properties": null,
-        "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-04-01-preview",
-          "2020-05-01-preview",
-          "2016-02-10-privatepreview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Global",
-          "United States",
-          "Europe",
-          "Asia Pacific",
-          "Australia"
-        ],
-        "properties": null,
-        "resourceType": "b2ctenants"
-      }
-    ]
-  },
-  {
     "authorizations": [
       {
         "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
@@ -70459,6 +70365,19 @@
         "locations": [],
         "properties": null,
         "resourceType": "paymentMethods"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-11-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "billingAccounts/billingProfiles/paymentMethodLinks"
       },
       {
         "aliases": null,
