@@ -131,31 +131,31 @@ export interface ServerFarmRouteForVnetArgs {
     /**
      * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
      */
-    readonly endAddress?: pulumi.Input<string>;
+    endAddress?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the virtual network route
      */
-    readonly routeName?: pulumi.Input<string>;
+    routeName?: pulumi.Input<string>;
     /**
      * The type of route this is:
      *             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
@@ -165,21 +165,21 @@ export interface ServerFarmRouteForVnetArgs {
      *             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
      *             with new INHERITED routes.
      */
-    readonly routeType?: pulumi.Input<string>;
+    routeType?: pulumi.Input<string>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */
-    readonly startAddress?: pulumi.Input<string>;
+    startAddress?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Name of virtual network
      */
-    readonly vnetName: pulumi.Input<string>;
+    vnetName: pulumi.Input<string>;
 }

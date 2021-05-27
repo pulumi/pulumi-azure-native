@@ -133,29 +133,29 @@ export interface VolumeArgs {
     /**
      * This type describes a volume provided by an Azure Files file share.
      */
-    readonly azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.VolumeProviderParametersAzureFileArgs>;
+    azureFileParameters?: pulumi.Input<inputs.servicefabricmesh.v20180901preview.VolumeProviderParametersAzureFileArgs>;
     /**
      * User readable description of the volume.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Provider of the volume.
      */
-    readonly provider: pulumi.Input<string | enums.servicefabricmesh.v20180901preview.VolumeProvider>;
+    provider: pulumi.Input<string | enums.servicefabricmesh.v20180901preview.VolumeProvider>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identity of the volume.
      */
-    readonly volumeResourceName?: pulumi.Input<string>;
+    volumeResourceName?: pulumi.Input<string>;
 }

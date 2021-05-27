@@ -26,11 +26,11 @@ export interface GetApplicationDefinitionArgs {
     /**
      * The name of the managed application definition.
      */
-    readonly applicationDefinitionName: string;
+    applicationDefinitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

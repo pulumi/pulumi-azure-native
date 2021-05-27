@@ -27,11 +27,11 @@ export interface GetManagedNetworkArgs {
     /**
      * The name of the Managed Network.
      */
-    readonly managedNetworkName: string;
+    managedNetworkName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

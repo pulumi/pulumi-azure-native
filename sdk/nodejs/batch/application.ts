@@ -110,25 +110,25 @@ export interface ApplicationArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string.
      */
-    readonly allowUpdates?: pulumi.Input<boolean>;
+    allowUpdates?: pulumi.Input<boolean>;
     /**
      * The name of the application. This must be unique within the account.
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
-    readonly defaultVersion?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string>;
     /**
      * The display name for the application.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

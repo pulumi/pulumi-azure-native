@@ -150,34 +150,34 @@ export interface KubernetesRoleArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Host OS supported by the Kubernetes role.
      */
-    readonly hostPlatform: pulumi.Input<string | enums.databoxedge.PlatformType>;
+    hostPlatform: pulumi.Input<string | enums.databoxedge.PlatformType>;
     /**
      * Role type.
      * Expected value is 'Kubernetes'.
      */
-    readonly kind: pulumi.Input<"Kubernetes">;
+    kind: pulumi.Input<"Kubernetes">;
     /**
      * Kubernetes cluster configuration
      */
-    readonly kubernetesClusterInfo: pulumi.Input<inputs.databoxedge.KubernetesClusterInfoArgs>;
+    kubernetesClusterInfo: pulumi.Input<inputs.databoxedge.KubernetesClusterInfoArgs>;
     /**
      * Kubernetes role resources
      */
-    readonly kubernetesRoleResources: pulumi.Input<inputs.databoxedge.KubernetesRoleResourcesArgs>;
+    kubernetesRoleResources: pulumi.Input<inputs.databoxedge.KubernetesRoleResourcesArgs>;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role status.
      */
-    readonly roleStatus: pulumi.Input<string | enums.databoxedge.RoleStatus>;
+    roleStatus: pulumi.Input<string | enums.databoxedge.RoleStatus>;
 }

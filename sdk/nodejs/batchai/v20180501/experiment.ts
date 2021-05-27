@@ -103,13 +103,13 @@ export interface ExperimentArgs {
     /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly experimentName?: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -96,21 +96,21 @@ export interface DomainOwnershipIdentifierArgs {
     /**
      * Name of domain.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of identifier.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Ownership Id.
      */
-    readonly ownershipId?: pulumi.Input<string>;
+    ownershipId?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

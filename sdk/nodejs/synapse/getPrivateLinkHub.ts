@@ -27,11 +27,11 @@ export interface GetPrivateLinkHubArgs {
     /**
      * Name of the privateLinkHub
      */
-    readonly privateLinkHubName: string;
+    privateLinkHubName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

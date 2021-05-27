@@ -28,19 +28,19 @@ export interface GetIotHubResourceEventHubConsumerGroupArgs {
     /**
      * The name of the Event Hub-compatible endpoint in the IoT hub.
      */
-    readonly eventHubEndpointName: string;
+    eventHubEndpointName: string;
     /**
      * The name of the consumer group to retrieve.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

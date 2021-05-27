@@ -27,15 +27,15 @@ export interface ListBuildTaskSourceRepositoryPropertiesArgs {
     /**
      * The name of the container registry build task.
      */
-    readonly buildTaskName: string;
+    buildTaskName: string;
     /**
      * The name of the container registry.
      */
-    readonly registryName: string;
+    registryName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

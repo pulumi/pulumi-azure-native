@@ -134,37 +134,37 @@ export interface ActivityLogAlertArgs {
     /**
      * The actions that will activate when the condition is met.
      */
-    readonly actions: pulumi.Input<inputs.insights.ActionListArgs>;
+    actions: pulumi.Input<inputs.insights.ActionListArgs>;
     /**
      * The name of the Activity Log Alert rule.
      */
-    readonly activityLogAlertName?: pulumi.Input<string>;
+    activityLogAlertName?: pulumi.Input<string>;
     /**
      * The condition that will cause this alert to activate.
      */
-    readonly condition: pulumi.Input<inputs.insights.AlertRuleAllOfConditionArgs>;
+    condition: pulumi.Input<inputs.insights.AlertRuleAllOfConditionArgs>;
     /**
      * A description of this Activity Log Alert rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

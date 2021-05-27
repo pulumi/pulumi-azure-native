@@ -114,17 +114,17 @@ export interface DiagnosticLoggerArgs {
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly diagnosticId: pulumi.Input<string>;
+    diagnosticId: pulumi.Input<string>;
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    readonly loggerid?: pulumi.Input<string>;
+    loggerid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

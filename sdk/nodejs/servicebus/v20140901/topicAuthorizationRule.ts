@@ -147,49 +147,49 @@ export interface TopicAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * A string that describes Claim Type for authorization rule.
      */
-    readonly claimType?: pulumi.Input<string>;
+    claimType?: pulumi.Input<string>;
     /**
      * A string that describes Claim Value of authorization rule.
      */
-    readonly claimValue?: pulumi.Input<string>;
+    claimValue?: pulumi.Input<string>;
     /**
      * A string that describes the Key Name of authorization rule.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * data center location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the authorization rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<enums.servicebus.v20140901.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<enums.servicebus.v20140901.AccessRights>[]>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The topic name.
      */
-    readonly topicName: pulumi.Input<string>;
+    topicName: pulumi.Input<string>;
 }

@@ -128,33 +128,33 @@ export interface DatabaseArgs {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
-    readonly clientProtocol?: pulumi.Input<string | enums.cache.v20201001preview.Protocol>;
+    clientProtocol?: pulumi.Input<string | enums.cache.v20201001preview.Protocol>;
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Clustering policy - default is OSSCluster. Specified at create time.
      */
-    readonly clusteringPolicy?: pulumi.Input<string | enums.cache.v20201001preview.ClusteringPolicy>;
+    clusteringPolicy?: pulumi.Input<string | enums.cache.v20201001preview.ClusteringPolicy>;
     /**
      * The name of the database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Redis eviction policy - default is VolatileLRU
      */
-    readonly evictionPolicy?: pulumi.Input<string | enums.cache.v20201001preview.EvictionPolicy>;
+    evictionPolicy?: pulumi.Input<string | enums.cache.v20201001preview.EvictionPolicy>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20201001preview.ModuleArgs>[]>;
+    modules?: pulumi.Input<pulumi.Input<inputs.cache.v20201001preview.ModuleArgs>[]>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

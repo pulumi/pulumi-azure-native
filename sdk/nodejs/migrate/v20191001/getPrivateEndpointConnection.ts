@@ -27,15 +27,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Unique name of a private endpoint connection within a project.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

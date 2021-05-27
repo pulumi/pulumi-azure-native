@@ -25,7 +25,7 @@ export interface GetManagementLockAtSubscriptionLevelArgs {
     /**
      * The name of the lock to get.
      */
-    readonly lockName: string;
+    lockName: string;
 }
 
 /**

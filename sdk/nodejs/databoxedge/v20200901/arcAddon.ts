@@ -162,34 +162,34 @@ export interface ArcAddonArgs {
     /**
      * The addon name.
      */
-    readonly addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Addon type.
      * Expected value is 'ArcForKubernetes'.
      */
-    readonly kind: pulumi.Input<"ArcForKubernetes">;
+    kind: pulumi.Input<"ArcForKubernetes">;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Arc resource location
      */
-    readonly resourceLocation: pulumi.Input<string>;
+    resourceLocation: pulumi.Input<string>;
     /**
      * Arc resource Name
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * The role name.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
     /**
      * Arc resource subscription Id
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

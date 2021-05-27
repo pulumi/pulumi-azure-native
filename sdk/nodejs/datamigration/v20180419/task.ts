@@ -102,25 +102,25 @@ export interface TaskArgs {
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20180419.ConnectToSourcePostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToSourceSqlServerSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetAzureDbForMySqlTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.GetTdeCertificatesSqlTaskPropertiesArgs | inputs.datamigration.v20180419.GetUserTablesSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datamigration.v20180419.ConnectToSourcePostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToSourceSqlServerSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToSourceSqlServerTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetAzureDbForMySqlTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlDbTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlMITaskPropertiesArgs | inputs.datamigration.v20180419.ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.GetTdeCertificatesSqlTaskPropertiesArgs | inputs.datamigration.v20180419.GetUserTablesSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.GetUserTablesSqlTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlDbTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.MigrateSqlServerSqlMITaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs | inputs.datamigration.v20180419.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Name of the Task
      */
-    readonly taskName?: pulumi.Input<string>;
+    taskName?: pulumi.Input<string>;
 }

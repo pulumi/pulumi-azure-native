@@ -30,23 +30,23 @@ export interface GetBackupArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the backup
      */
-    readonly backupName: string;
+    backupName: string;
     /**
      * The name of the capacity pool
      */
-    readonly poolName: string;
+    poolName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the volume
      */
-    readonly volumeName: string;
+    volumeName: string;
 }
 
 /**

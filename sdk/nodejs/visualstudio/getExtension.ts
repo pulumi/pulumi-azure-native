@@ -28,15 +28,15 @@ export interface GetExtensionArgs {
     /**
      * The name of the Visual Studio Team Services account resource.
      */
-    readonly accountResourceName: string;
+    accountResourceName: string;
     /**
      * The name of the extension.
      */
-    readonly extensionResourceName: string;
+    extensionResourceName: string;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -142,45 +142,45 @@ export interface NamespaceArgs {
     /**
      * The time the Namespace was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * Specifies whether this instance is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Namespace location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Namespace name
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Provisioning state of the Namespace.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
-    readonly serviceBusEndpoint?: pulumi.Input<string>;
+    serviceBusEndpoint?: pulumi.Input<string>;
     /**
      * SKU parameters supplied to the create Namespace operation
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20140901.SkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.v20140901.SkuArgs>;
     /**
      * State of the Namespace.
      */
-    readonly status?: pulumi.Input<enums.eventhub.v20140901.NamespaceState>;
+    status?: pulumi.Input<enums.eventhub.v20140901.NamespaceState>;
     /**
      * Namespace tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The time the Namespace was updated.
      */
-    readonly updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
 }

@@ -128,29 +128,29 @@ export interface WorkloadNetworkSegmentArgs {
     /**
      * Gateway which to connect segment to.
      */
-    readonly connectedGateway?: pulumi.Input<string>;
+    connectedGateway?: pulumi.Input<string>;
     /**
      * Display name of the segment.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * NSX revision number.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
     /**
      * NSX Segment identifier. Generally the same as the Segment's display name
      */
-    readonly segmentId?: pulumi.Input<string>;
+    segmentId?: pulumi.Input<string>;
     /**
      * Subnet which to connect segment to.
      */
-    readonly subnet?: pulumi.Input<inputs.avs.v20200717preview.WorkloadNetworkSegmentSubnetArgs>;
+    subnet?: pulumi.Input<inputs.avs.v20200717preview.WorkloadNetworkSegmentSubnetArgs>;
 }

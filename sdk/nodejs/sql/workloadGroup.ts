@@ -135,41 +135,41 @@ export interface WorkloadGroupArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The workload group importance level.
      */
-    readonly importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string>;
     /**
      * The workload group cap percentage resource.
      */
-    readonly maxResourcePercent: pulumi.Input<number>;
+    maxResourcePercent: pulumi.Input<number>;
     /**
      * The workload group request maximum grant percentage.
      */
-    readonly maxResourcePercentPerRequest?: pulumi.Input<number>;
+    maxResourcePercentPerRequest?: pulumi.Input<number>;
     /**
      * The workload group minimum percentage resource.
      */
-    readonly minResourcePercent: pulumi.Input<number>;
+    minResourcePercent: pulumi.Input<number>;
     /**
      * The workload group request minimum grant percentage.
      */
-    readonly minResourcePercentPerRequest: pulumi.Input<number>;
+    minResourcePercentPerRequest: pulumi.Input<number>;
     /**
      * The workload group query execution timeout.
      */
-    readonly queryExecutionTimeout?: pulumi.Input<number>;
+    queryExecutionTimeout?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of the workload group.
      */
-    readonly workloadGroupName?: pulumi.Input<string>;
+    workloadGroupName?: pulumi.Input<string>;
 }

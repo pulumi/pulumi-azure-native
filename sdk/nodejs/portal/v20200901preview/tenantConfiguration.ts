@@ -83,9 +83,9 @@ export interface TenantConfigurationArgs {
     /**
      * The configuration name. Value must be 'default'
      */
-    readonly configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
      */
-    readonly enforcePrivateMarkdownStorage?: pulumi.Input<boolean>;
+    enforcePrivateMarkdownStorage?: pulumi.Input<boolean>;
 }

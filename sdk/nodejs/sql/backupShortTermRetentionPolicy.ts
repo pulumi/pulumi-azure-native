@@ -96,21 +96,21 @@ export interface BackupShortTermRetentionPolicyArgs {
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The policy name. Should always be "default".
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
-    readonly retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

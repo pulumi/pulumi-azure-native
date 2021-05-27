@@ -193,53 +193,53 @@ export interface RegistryArgs {
     /**
      * The value that indicates whether the admin user is enabled.
      */
-    readonly adminUserEnabled?: pulumi.Input<boolean>;
+    adminUserEnabled?: pulumi.Input<boolean>;
     /**
      * Enable a single data endpoint per region for serving data.
      */
-    readonly dataEndpointEnabled?: pulumi.Input<boolean>;
+    dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * The encryption settings of container registry.
      */
-    readonly encryption?: pulumi.Input<inputs.containerregistry.v20191201preview.EncryptionPropertyArgs>;
+    encryption?: pulumi.Input<inputs.containerregistry.v20191201preview.EncryptionPropertyArgs>;
     /**
      * The identity of the container registry.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20191201preview.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.v20191201preview.IdentityPropertiesArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Whether to allow trusted Azure services to access a network restricted registry.
      */
-    readonly networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.v20191201preview.NetworkRuleBypassOptions>;
+    networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.v20191201preview.NetworkRuleBypassOptions>;
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20191201preview.NetworkRuleSetArgs>;
+    networkRuleSet?: pulumi.Input<inputs.containerregistry.v20191201preview.NetworkRuleSetArgs>;
     /**
      * The policies for a container registry.
      */
-    readonly policies?: pulumi.Input<inputs.containerregistry.v20191201preview.PoliciesArgs>;
+    policies?: pulumi.Input<inputs.containerregistry.v20191201preview.PoliciesArgs>;
     /**
      * Whether or not public network access is allowed for the container registry.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.v20191201preview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.v20191201preview.PublicNetworkAccess>;
     /**
      * The name of the container registry.
      */
-    readonly registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the container registry.
      */
-    readonly sku: pulumi.Input<inputs.containerregistry.v20191201preview.SkuArgs>;
+    sku: pulumi.Input<inputs.containerregistry.v20191201preview.SkuArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -111,29 +111,29 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Group id of the private endpoint.
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.documentdb.PrivateEndpointPropertyArgs>;
+    privateEndpoint?: pulumi.Input<inputs.documentdb.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.documentdb.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.documentdb.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Provisioning state of the private endpoint.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -103,21 +103,21 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Default Action for Network Rule Set
      */
-    readonly defaultAction?: pulumi.Input<string | enums.eventhub.v20170401.DefaultAction>;
+    defaultAction?: pulumi.Input<string | enums.eventhub.v20170401.DefaultAction>;
     /**
      * List of IpRules
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20170401.NWRuleSetIpRulesArgs>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20170401.NWRuleSetIpRulesArgs>[]>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * List VirtualNetwork Rules
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20170401.NWRuleSetVirtualNetworkRulesArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20170401.NWRuleSetVirtualNetworkRulesArgs>[]>;
 }

@@ -122,37 +122,37 @@ export interface ChannelArgs {
     /**
      * The name of the Channel resource.
      */
-    readonly channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string>;
     /**
      * Entity Tag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string | enums.botservice.v20171201.Kind>;
+    kind?: pulumi.Input<string | enums.botservice.v20171201.Kind>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20171201.DirectLineChannelArgs | inputs.botservice.v20171201.EmailChannelArgs | inputs.botservice.v20171201.FacebookChannelArgs | inputs.botservice.v20171201.KikChannelArgs | inputs.botservice.v20171201.MsTeamsChannelArgs | inputs.botservice.v20171201.SkypeChannelArgs | inputs.botservice.v20171201.SlackChannelArgs | inputs.botservice.v20171201.SmsChannelArgs | inputs.botservice.v20171201.TelegramChannelArgs | inputs.botservice.v20171201.WebChatChannelArgs>;
+    properties?: pulumi.Input<inputs.botservice.v20171201.DirectLineChannelArgs | inputs.botservice.v20171201.EmailChannelArgs | inputs.botservice.v20171201.FacebookChannelArgs | inputs.botservice.v20171201.KikChannelArgs | inputs.botservice.v20171201.MsTeamsChannelArgs | inputs.botservice.v20171201.SkypeChannelArgs | inputs.botservice.v20171201.SlackChannelArgs | inputs.botservice.v20171201.SmsChannelArgs | inputs.botservice.v20171201.TelegramChannelArgs | inputs.botservice.v20171201.WebChatChannelArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Bot resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20171201.SkuArgs>;
+    sku?: pulumi.Input<inputs.botservice.v20171201.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -167,75 +167,75 @@ export interface ConnectionArgs {
     /**
      * expanded connection provider name
      */
-    readonly api?: pulumi.Input<inputs.web.v20150801preview.ExpandedParentApiEntityArgs>;
+    api?: pulumi.Input<inputs.web.v20150801preview.ExpandedParentApiEntityArgs>;
     /**
      * Timestamp of last connection change.
      */
-    readonly changedTime?: pulumi.Input<string>;
+    changedTime?: pulumi.Input<string>;
     /**
      * The connection name.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Timestamp of the connection creation
      */
-    readonly createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * Custom login setting values.
      */
-    readonly customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801preview.ParameterCustomLoginSettingValuesArgs>}>;
+    customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20150801preview.ParameterCustomLoginSettingValuesArgs>}>;
     /**
      * display name
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Time in UTC when the first expiration of OAuth tokens
      */
-    readonly firstExpirationTime?: pulumi.Input<string>;
+    firstExpirationTime?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * List of Keywords that tag the acl
      */
-    readonly keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    keywords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
-    readonly metadata?: any;
+    location?: pulumi.Input<string>;
+    metadata?: any;
     /**
      * Resource Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Tokens/Claim
      */
-    readonly nonSecretParameterValues?: pulumi.Input<{[key: string]: any}>;
+    nonSecretParameterValues?: pulumi.Input<{[key: string]: any}>;
     /**
      * Tokens/Claim
      */
-    readonly parameterValues?: pulumi.Input<{[key: string]: any}>;
+    parameterValues?: pulumi.Input<{[key: string]: any}>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Status of the connection
      */
-    readonly statuses?: pulumi.Input<pulumi.Input<inputs.web.v20150801preview.ConnectionStatusArgs>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.web.v20150801preview.ConnectionStatusArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tenantId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

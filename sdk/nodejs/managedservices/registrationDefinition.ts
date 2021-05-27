@@ -95,17 +95,17 @@ export interface RegistrationDefinitionArgs {
     /**
      * Plan details for the managed services.
      */
-    readonly plan?: pulumi.Input<inputs.managedservices.PlanArgs>;
+    plan?: pulumi.Input<inputs.managedservices.PlanArgs>;
     /**
      * Properties of a registration definition.
      */
-    readonly properties?: pulumi.Input<inputs.managedservices.RegistrationDefinitionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.managedservices.RegistrationDefinitionPropertiesArgs>;
     /**
      * Guid of the registration definition.
      */
-    readonly registrationDefinitionId?: pulumi.Input<string>;
+    registrationDefinitionId?: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

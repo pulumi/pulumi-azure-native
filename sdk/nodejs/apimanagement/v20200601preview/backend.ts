@@ -146,49 +146,49 @@ export interface BackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    readonly backendId?: pulumi.Input<string>;
+    backendId?: pulumi.Input<string>;
     /**
      * Backend Credentials Contract Properties
      */
-    readonly credentials?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendCredentialsContractArgs>;
+    credentials?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendCredentialsContractArgs>;
     /**
      * Backend Description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Backend Properties contract
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendPropertiesArgs>;
+    properties?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendPropertiesArgs>;
     /**
      * Backend communication protocol.
      */
-    readonly protocol: pulumi.Input<string | enums.apimanagement.v20200601preview.BackendProtocol>;
+    protocol: pulumi.Input<string | enums.apimanagement.v20200601preview.BackendProtocol>;
     /**
      * Backend Proxy Contract Properties
      */
-    readonly proxy?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendProxyContractArgs>;
+    proxy?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendProxyContractArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Backend Title.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * Backend TLS Properties
      */
-    readonly tls?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendTlsPropertiesArgs>;
+    tls?: pulumi.Input<inputs.apimanagement.v20200601preview.BackendTlsPropertiesArgs>;
     /**
      * Runtime Url of the Backend.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

@@ -115,33 +115,33 @@ export interface ProtectionContainerArgs {
     /**
      * Name of the container to be registered.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the container.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainerArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.AzureSqlContainerArgs | inputs.recoveryservices.AzureStorageContainerArgs | inputs.recoveryservices.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.AzureWorkloadContainerArgs | inputs.recoveryservices.DpmContainerArgs | inputs.recoveryservices.GenericContainerArgs | inputs.recoveryservices.IaaSVMContainerArgs | inputs.recoveryservices.MabContainerArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureBackupServerContainerArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMContainerArgs | inputs.recoveryservices.AzureIaaSComputeVMContainerArgs | inputs.recoveryservices.AzureSQLAGWorkloadContainerProtectionContainerArgs | inputs.recoveryservices.AzureSqlContainerArgs | inputs.recoveryservices.AzureStorageContainerArgs | inputs.recoveryservices.AzureVMAppContainerProtectionContainerArgs | inputs.recoveryservices.AzureWorkloadContainerArgs | inputs.recoveryservices.DpmContainerArgs | inputs.recoveryservices.GenericContainerArgs | inputs.recoveryservices.IaaSVMContainerArgs | inputs.recoveryservices.MabContainerArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

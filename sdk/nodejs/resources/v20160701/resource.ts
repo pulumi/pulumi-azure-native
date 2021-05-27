@@ -142,53 +142,53 @@ export interface ResourceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.resources.v20160701.IdentityArgs>;
+    identity?: pulumi.Input<inputs.resources.v20160701.IdentityArgs>;
     /**
      * The kind of the resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Id of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly parentResourcePath: pulumi.Input<string>;
+    parentResourcePath: pulumi.Input<string>;
     /**
      * The plan of the resource.
      */
-    readonly plan?: pulumi.Input<inputs.resources.v20160701.PlanArgs>;
+    plan?: pulumi.Input<inputs.resources.v20160701.PlanArgs>;
     /**
      * The resource properties.
      */
-    readonly properties?: any;
+    properties?: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceProviderNamespace: pulumi.Input<string>;
+    resourceProviderNamespace: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * The sku of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.resources.v20160701.SkuArgs>;
+    sku?: pulumi.Input<inputs.resources.v20160701.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

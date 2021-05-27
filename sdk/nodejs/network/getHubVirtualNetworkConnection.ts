@@ -28,15 +28,15 @@ export interface GetHubVirtualNetworkConnectionArgs {
     /**
      * The name of the vpn connection.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: string;
+    virtualHubName: string;
 }
 
 /**

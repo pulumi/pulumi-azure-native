@@ -122,29 +122,29 @@ export interface OriginArgs {
     /**
      * Name of the endpoint within the CDN profile.
      */
-    readonly endpointName: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
      */
-    readonly hostName: pulumi.Input<string>;
+    hostName: pulumi.Input<string>;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    readonly httpPort?: pulumi.Input<number>;
+    httpPort?: pulumi.Input<number>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    readonly httpsPort?: pulumi.Input<number>;
+    httpsPort?: pulumi.Input<number>;
     /**
      * Name of the origin, an arbitrary value but it needs to be unique under endpoint
      */
-    readonly originName?: pulumi.Input<string>;
+    originName?: pulumi.Input<string>;
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

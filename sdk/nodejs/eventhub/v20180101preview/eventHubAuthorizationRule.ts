@@ -99,21 +99,21 @@ export interface EventHubAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */
-    readonly eventHubName: pulumi.Input<string>;
+    eventHubName: pulumi.Input<string>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string | enums.eventhub.v20180101preview.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<string | enums.eventhub.v20180101preview.AccessRights>[]>;
 }

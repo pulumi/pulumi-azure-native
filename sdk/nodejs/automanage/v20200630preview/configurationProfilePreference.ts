@@ -100,21 +100,21 @@ export interface ConfigurationProfilePreferenceArgs {
     /**
      * Name of the configuration profile preference.
      */
-    readonly configurationProfilePreferenceName?: pulumi.Input<string>;
+    configurationProfilePreferenceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the configuration profile preference.
      */
-    readonly properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesArgs>;
+    properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

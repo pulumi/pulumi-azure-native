@@ -112,25 +112,25 @@ export interface EventSourceArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * Name of the event source.
      */
-    readonly eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string>;
     /**
      * The kind of the event source.
      */
-    readonly kind: pulumi.Input<enums.timeseriesinsights.v20171115.Kind>;
+    kind: pulumi.Input<enums.timeseriesinsights.v20171115.Kind>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -138,33 +138,33 @@ export interface BudgetArgs {
     /**
      * The total amount of cost to track with the budget
      */
-    readonly amount: pulumi.Input<number>;
+    amount: pulumi.Input<number>;
     /**
      * Budget Name.
      */
-    readonly budgetName?: pulumi.Input<string>;
+    budgetName?: pulumi.Input<string>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    readonly category: pulumi.Input<string | enums.consumption.v20180831.CategoryType>;
+    category: pulumi.Input<string | enums.consumption.v20180831.CategoryType>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * May be used to filter budgets by resource group, resource, or meter.
      */
-    readonly filters?: pulumi.Input<inputs.consumption.v20180831.FiltersArgs>;
+    filters?: pulumi.Input<inputs.consumption.v20180831.FiltersArgs>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20180831.NotificationArgs>}>;
+    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20180831.NotificationArgs>}>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    readonly timeGrain: pulumi.Input<string | enums.consumption.v20180831.TimeGrainType>;
+    timeGrain: pulumi.Input<string | enums.consumption.v20180831.TimeGrainType>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: pulumi.Input<inputs.consumption.v20180831.BudgetTimePeriodArgs>;
+    timePeriod: pulumi.Input<inputs.consumption.v20180831.BudgetTimePeriodArgs>;
 }

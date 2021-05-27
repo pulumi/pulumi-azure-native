@@ -29,19 +29,19 @@ export interface GetPrefixArgs {
     /**
      * The properties to be expanded.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the peering service.
      */
-    readonly peeringServiceName: string;
+    peeringServiceName: string;
     /**
      * The name of the prefix.
      */
-    readonly prefixName: string;
+    prefixName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

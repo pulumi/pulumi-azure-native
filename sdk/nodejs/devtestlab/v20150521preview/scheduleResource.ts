@@ -140,57 +140,57 @@ export interface ScheduleResourceArgs {
     /**
      * The daily recurrence of the schedule.
      */
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.DayDetailsArgs>;
+    dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.DayDetailsArgs>;
     /**
      * The hourly recurrence of the schedule.
      */
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.HourDetailsArgs>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.HourDetailsArgs>;
     /**
      * The identifier of the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The status of the schedule.
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The task type of the schedule.
      */
-    readonly taskType?: pulumi.Input<string | enums.devtestlab.v20150521preview.TaskType>;
+    taskType?: pulumi.Input<string | enums.devtestlab.v20150521preview.TaskType>;
     /**
      * The time zone id.
      */
-    readonly timeZoneId?: pulumi.Input<string>;
+    timeZoneId?: pulumi.Input<string>;
     /**
      * The type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The weekly recurrence of the schedule.
      */
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.WeekDetailsArgs>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20150521preview.WeekDetailsArgs>;
 }

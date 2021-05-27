@@ -31,27 +31,27 @@ export interface GetEnvironmentArgs {
     /**
      * The name of the environment.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * The name of the environment Setting.
      */
-    readonly environmentSettingName: string;
+    environmentSettingName: string;
     /**
      * Specify the $expand query. Example: 'properties($expand=networkInterface)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: string;
+    labAccountName: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

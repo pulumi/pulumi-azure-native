@@ -107,25 +107,25 @@ export interface ChannelArgs {
     /**
      * Account Name
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The functions to be enabled for the channel
      */
-    readonly channelFunctions?: pulumi.Input<pulumi.Input<string>[]>;
+    channelFunctions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Channel Name
      */
-    readonly channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string>;
     /**
      * The channel type
      */
-    readonly channelType: pulumi.Input<string>;
+    channelType: pulumi.Input<string>;
     /**
      * The channel credentials
      */
-    readonly credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -28,19 +28,19 @@ export interface ListDeviceFailoverTarsArgs {
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The source device name on which failover is performed.
      */
-    readonly sourceDeviceName: string;
+    sourceDeviceName: string;
     /**
      * The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
      */
-    readonly volumeContainers?: string[];
+    volumeContainers?: string[];
 }
 
 /**

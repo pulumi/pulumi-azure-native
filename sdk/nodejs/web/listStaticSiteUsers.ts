@@ -28,15 +28,15 @@ export interface ListStaticSiteUsersArgs {
     /**
      * The auth provider for the users.
      */
-    readonly authprovider: string;
+    authprovider: string;
     /**
      * Name of the static site.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

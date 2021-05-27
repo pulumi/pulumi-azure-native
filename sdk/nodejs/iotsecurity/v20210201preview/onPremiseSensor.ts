@@ -84,5 +84,5 @@ export interface OnPremiseSensorArgs {
     /**
      * Name of the on-premise IoT sensor
      */
-    readonly onPremiseSensorName?: pulumi.Input<string>;
+    onPremiseSensorName?: pulumi.Input<string>;
 }

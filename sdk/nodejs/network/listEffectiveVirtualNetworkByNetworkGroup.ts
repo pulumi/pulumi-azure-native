@@ -29,19 +29,19 @@ export interface ListEffectiveVirtualNetworkByNetworkGroupArgs {
     /**
      * The name of the network group to get.
      */
-    readonly networkGroupName: string;
+    networkGroupName: string;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
 }
 
 /**

@@ -137,33 +137,33 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    readonly attachedDatabaseConfigurationName?: pulumi.Input<string>;
+    attachedDatabaseConfigurationName?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    readonly clusterResourceId: pulumi.Input<string>;
+    clusterResourceId: pulumi.Input<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The default principals modification kind
      */
-    readonly defaultPrincipalsModificationKind: pulumi.Input<string | enums.kusto.v20210101.DefaultPrincipalsModificationKind>;
+    defaultPrincipalsModificationKind: pulumi.Input<string | enums.kusto.v20210101.DefaultPrincipalsModificationKind>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Table level sharing specifications
      */
-    readonly tableLevelSharingProperties?: pulumi.Input<inputs.kusto.v20210101.TableLevelSharingPropertiesArgs>;
+    tableLevelSharingProperties?: pulumi.Input<inputs.kusto.v20210101.TableLevelSharingPropertiesArgs>;
 }

@@ -27,15 +27,15 @@ export interface GetNetworkGroupArgs {
     /**
      * The name of the network group to get.
      */
-    readonly networkGroupName: string;
+    networkGroupName: string;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

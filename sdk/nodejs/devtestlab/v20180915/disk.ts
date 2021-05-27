@@ -167,57 +167,57 @@ export interface DiskArgs {
     /**
      * When backed by a blob, the name of the VHD blob without extension.
      */
-    readonly diskBlobName?: pulumi.Input<string>;
+    diskBlobName?: pulumi.Input<string>;
     /**
      * The size of the disk in Gibibytes.
      */
-    readonly diskSizeGiB?: pulumi.Input<number>;
+    diskSizeGiB?: pulumi.Input<number>;
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    readonly diskType?: pulumi.Input<string | enums.devtestlab.v20180915.StorageType>;
+    diskType?: pulumi.Input<string | enums.devtestlab.v20180915.StorageType>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */
-    readonly diskUri?: pulumi.Input<string>;
+    diskUri?: pulumi.Input<string>;
     /**
      * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
      */
-    readonly hostCaching?: pulumi.Input<string>;
+    hostCaching?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The resource ID of the VM to which this disk is leased.
      */
-    readonly leasedByLabVmId?: pulumi.Input<string>;
+    leasedByLabVmId?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * When backed by managed disk, this is the ID of the compute disk resource.
      */
-    readonly managedDiskId?: pulumi.Input<string>;
+    managedDiskId?: pulumi.Input<string>;
     /**
      * The name of the disk.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * When backed by a blob, the storage account where the blob is.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the user profile.
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

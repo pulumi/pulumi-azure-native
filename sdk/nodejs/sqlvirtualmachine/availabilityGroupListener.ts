@@ -117,29 +117,29 @@ export interface AvailabilityGroupListenerArgs {
     /**
      * Name of the availability group listener.
      */
-    readonly availabilityGroupListenerName?: pulumi.Input<string>;
+    availabilityGroupListenerName?: pulumi.Input<string>;
     /**
      * Name of the availability group.
      */
-    readonly availabilityGroupName?: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string>;
     /**
      * Create a default availability group if it does not exist.
      */
-    readonly createDefaultAvailabilityGroupIfNotExist?: pulumi.Input<boolean>;
+    createDefaultAvailabilityGroupIfNotExist?: pulumi.Input<boolean>;
     /**
      * List of load balancer configurations for an availability group listener.
      */
-    readonly loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.LoadBalancerConfigurationArgs>[]>;
+    loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.LoadBalancerConfigurationArgs>[]>;
     /**
      * Listener port.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the SQL virtual machine group.
      */
-    readonly sqlVirtualMachineGroupName: pulumi.Input<string>;
+    sqlVirtualMachineGroupName: pulumi.Input<string>;
 }

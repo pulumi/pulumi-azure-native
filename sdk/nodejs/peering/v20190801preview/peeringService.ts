@@ -111,25 +111,25 @@ export interface PeeringServiceArgs {
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The PeeringServiceLocation of the Customer.
      */
-    readonly peeringServiceLocation?: pulumi.Input<string>;
+    peeringServiceLocation?: pulumi.Input<string>;
     /**
      * The name of the peering service.
      */
-    readonly peeringServiceName?: pulumi.Input<string>;
+    peeringServiceName?: pulumi.Input<string>;
     /**
      * The MAPS Provider Name.
      */
-    readonly peeringServiceProvider?: pulumi.Input<string>;
+    peeringServiceProvider?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

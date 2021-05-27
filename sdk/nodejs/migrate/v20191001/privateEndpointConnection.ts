@@ -101,21 +101,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * For optimistic concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a private endpoint connection within a project.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Properties of the private endpoint endpoint connection.
      */
-    readonly properties: pulumi.Input<inputs.migrate.v20191001.PrivateEndpointConnectionPropertiesArgs>;
+    properties: pulumi.Input<inputs.migrate.v20191001.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

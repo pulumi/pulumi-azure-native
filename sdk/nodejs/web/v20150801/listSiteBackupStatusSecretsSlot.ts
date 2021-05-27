@@ -37,55 +37,55 @@ export interface ListSiteBackupStatusSecretsSlotArgs {
     /**
      * Id of backup
      */
-    readonly backupId: string;
+    backupId: string;
     /**
      * Schedule for the backup if it is executed periodically
      */
-    readonly backupSchedule?: inputs.web.v20150801.BackupSchedule;
+    backupSchedule?: inputs.web.v20150801.BackupSchedule;
     /**
      * Databases included in the backup
      */
-    readonly databases?: inputs.web.v20150801.DatabaseBackupSetting[];
+    databases?: inputs.web.v20150801.DatabaseBackupSetting[];
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
      */
-    readonly enabled?: boolean;
+    enabled?: boolean;
     /**
      * Resource Id
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Kind of resource
      */
-    readonly kind?: string;
+    kind?: string;
     /**
      * Resource Location
      */
-    readonly location?: string;
+    location?: string;
     /**
      * Resource Name
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: string;
+    slot: string;
     /**
      * SAS URL to the container
      */
-    readonly storageAccountUrl?: string;
+    storageAccountUrl?: string;
     /**
      * Resource tags
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * Resource type
      */
-    readonly type: string;
+    type: string;
 }
 
 /**

@@ -209,97 +209,97 @@ export interface ServerEndpointArgs {
     /**
      * Bytes in progress
      */
-    readonly byteProgress?: pulumi.Input<number>;
+    byteProgress?: pulumi.Input<number>;
     /**
      * Bytes total
      */
-    readonly byteTotal?: pulumi.Input<number>;
+    byteTotal?: pulumi.Input<number>;
     /**
      * Cloud Tiering.
      */
-    readonly cloudTiering?: pulumi.Input<string>;
+    cloudTiering?: pulumi.Input<string>;
     /**
      * current progress type.
      */
-    readonly currentProgressType?: pulumi.Input<string>;
+    currentProgressType?: pulumi.Input<string>;
     /**
      * Friendly Name
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Item download error count.
      */
-    readonly itemDownloadErrorCount?: pulumi.Input<number>;
+    itemDownloadErrorCount?: pulumi.Input<number>;
     /**
      * Item Progress Count
      */
-    readonly itemProgressCount?: pulumi.Input<number>;
+    itemProgressCount?: pulumi.Input<number>;
     /**
      * Item Total Count
      */
-    readonly itemTotalCount?: pulumi.Input<number>;
+    itemTotalCount?: pulumi.Input<number>;
     /**
      * Item Upload Error Count.
      */
-    readonly itemUploadErrorCount?: pulumi.Input<number>;
+    itemUploadErrorCount?: pulumi.Input<number>;
     /**
      * Last Sync Success
      */
-    readonly lastSyncSuccess?: pulumi.Input<string>;
+    lastSyncSuccess?: pulumi.Input<string>;
     /**
      * ServerEndpoint lastWorkflowId
      */
-    readonly lastWorkflowId?: pulumi.Input<string>;
+    lastWorkflowId?: pulumi.Input<string>;
     /**
      * ServerEndpoint Provisioning State
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Server Endpoint object.
      */
-    readonly serverEndpointName?: pulumi.Input<string>;
+    serverEndpointName?: pulumi.Input<string>;
     /**
      * Server Local path.
      */
-    readonly serverLocalPath?: pulumi.Input<string>;
+    serverLocalPath?: pulumi.Input<string>;
     /**
      * Server Resource Id.
      */
-    readonly serverResourceId?: pulumi.Input<string>;
+    serverResourceId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * sync error context.
      */
-    readonly syncErrorContext?: pulumi.Input<string>;
+    syncErrorContext?: pulumi.Input<string>;
     /**
      * Sync Error Direction.
      */
-    readonly syncErrorDirection?: pulumi.Input<string>;
+    syncErrorDirection?: pulumi.Input<string>;
     /**
      * Sync Error State
      */
-    readonly syncErrorState?: pulumi.Input<string>;
+    syncErrorState?: pulumi.Input<string>;
     /**
      * Sync Error State Timestamp
      */
-    readonly syncErrorStateTimestamp?: pulumi.Input<string>;
+    syncErrorStateTimestamp?: pulumi.Input<string>;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    syncGroupName: pulumi.Input<string>;
     /**
      * Total progress
      */
-    readonly totalProgress?: pulumi.Input<number>;
+    totalProgress?: pulumi.Input<number>;
     /**
      * Level of free space to be maintained by Cloud Tiering if it is enabled.
      */
-    readonly volumeFreeSpacePercent?: pulumi.Input<number>;
+    volumeFreeSpacePercent?: pulumi.Input<number>;
 }

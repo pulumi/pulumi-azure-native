@@ -32,31 +32,31 @@ export interface GetTestResultFileArgs {
     /**
      * The continuation token.
      */
-    readonly continuationToken?: string;
+    continuationToken?: string;
     /**
      * The format to use when returning the webtest result.
      */
-    readonly downloadAs: string;
+    downloadAs: string;
     /**
      * The location ID where the webtest was physically run.
      */
-    readonly geoLocationId: string;
+    geoLocationId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The success state criteria for the webtest result.
      */
-    readonly testSuccessfulCriteria?: boolean;
+    testSuccessfulCriteria?: boolean;
     /**
      * The posix (epoch) time stamp for the webtest result.
      */
-    readonly timeStamp: number;
+    timeStamp: number;
     /**
      * The name of the Application Insights webtest resource.
      */
-    readonly webTestName: string;
+    webTestName: string;
 }
 
 /**

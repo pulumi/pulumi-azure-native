@@ -212,65 +212,65 @@ export interface ClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
-    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    enableDiskEncryption?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if double encryption is enabled.
      */
-    readonly enableDoubleEncryption?: pulumi.Input<boolean>;
+    enableDoubleEncryption?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the purge operations are enabled.
      */
-    readonly enablePurge?: pulumi.Input<boolean>;
+    enablePurge?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The engine type
      */
-    readonly engineType?: pulumi.Input<string | enums.kusto.EngineType>;
+    engineType?: pulumi.Input<string | enums.kusto.EngineType>;
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.kusto.IdentityArgs>;
+    identity?: pulumi.Input<inputs.kusto.IdentityArgs>;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
+    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs>;
+    optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.AzureSkuArgs>;
+    sku: pulumi.Input<inputs.kusto.AzureSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfigurationArgs>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

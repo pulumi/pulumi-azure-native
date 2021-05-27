@@ -226,74 +226,74 @@ export interface AppServicePlanArgs {
     /**
      * The time when the server farm free offer expires.
      */
-    readonly freeOfferExpirationTime?: pulumi.Input<string>;
+    freeOfferExpirationTime?: pulumi.Input<string>;
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20200901.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20200901.HostingEnvironmentProfileArgs>;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    readonly hyperV?: pulumi.Input<boolean>;
+    hyperV?: pulumi.Input<boolean>;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
-    readonly isSpot?: pulumi.Input<boolean>;
+    isSpot?: pulumi.Input<boolean>;
     /**
      * Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    readonly isXenon?: pulumi.Input<boolean>;
+    isXenon?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
      */
-    readonly maximumElasticWorkerCount?: pulumi.Input<number>;
+    maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * Name of the App Service plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
-    readonly perSiteScaling?: pulumi.Input<boolean>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20200901.SkuDescriptionArgs>;
+    sku?: pulumi.Input<inputs.web.v20200901.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
-    readonly spotExpirationTime?: pulumi.Input<string>;
+    spotExpirationTime?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Scaling worker count.
      */
-    readonly targetWorkerCount?: pulumi.Input<number>;
+    targetWorkerCount?: pulumi.Input<number>;
     /**
      * Scaling worker size ID.
      */
-    readonly targetWorkerSizeId?: pulumi.Input<number>;
+    targetWorkerSizeId?: pulumi.Input<number>;
     /**
      * Target worker tier assigned to the App Service plan.
      */
-    readonly workerTierName?: pulumi.Input<string>;
+    workerTierName?: pulumi.Input<string>;
 }

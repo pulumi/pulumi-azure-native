@@ -120,33 +120,33 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy definition metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: any;
+    parameters?: any;
     /**
      * The name of the policy definition to create.
      */
-    readonly policyDefinitionName?: pulumi.Input<string>;
+    policyDefinitionName?: pulumi.Input<string>;
     /**
      * The policy rule.
      */
-    readonly policyRule?: any;
+    policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string | enums.authorization.v20190101.PolicyType>;
+    policyType?: pulumi.Input<string | enums.authorization.v20190101.PolicyType>;
 }

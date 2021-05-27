@@ -128,33 +128,33 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The key details in the key vault.
      */
-    readonly key?: pulumi.Input<inputs.logic.v20190501.KeyVaultKeyReferenceArgs>;
+    key?: pulumi.Input<inputs.logic.v20190501.KeyVaultKeyReferenceArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The public certificate.
      */
-    readonly publicCertificate?: pulumi.Input<string>;
+    publicCertificate?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -27,11 +27,11 @@ export interface GetIotSensorArgs {
     /**
      * Name of the IoT sensor
      */
-    readonly iotSensorName: string;
+    iotSensorName: string;
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

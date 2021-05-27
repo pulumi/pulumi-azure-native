@@ -27,15 +27,15 @@ export interface GetCertificateArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
      */
-    readonly certificateName: string;
+    certificateName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

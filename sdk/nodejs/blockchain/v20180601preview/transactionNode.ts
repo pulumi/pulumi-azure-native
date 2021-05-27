@@ -128,25 +128,25 @@ export interface TransactionNodeArgs {
     /**
      * Blockchain member name.
      */
-    readonly blockchainMemberName: pulumi.Input<string>;
+    blockchainMemberName: pulumi.Input<string>;
     /**
      * Gets or sets the firewall rules.
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRuleArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.blockchain.v20180601preview.FirewallRuleArgs>[]>;
     /**
      * Gets or sets the transaction node location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Sets the transaction node dns endpoint basic auth password.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Transaction node name.
      */
-    readonly transactionNodeName?: pulumi.Input<string>;
+    transactionNodeName?: pulumi.Input<string>;
 }

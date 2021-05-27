@@ -121,37 +121,37 @@ export interface AutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    readonly autoscaleSettingName?: pulumi.Input<string>;
+    autoscaleSettingName?: pulumi.Input<string>;
     /**
      * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * the name of the autoscale setting.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * the collection of notifications.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleNotificationArgs>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleNotificationArgs>[]>;
     /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
-    readonly profiles: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleProfileArgs>[]>;
+    profiles: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleProfileArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * the resource identifier of the resource that the autoscale setting should be added to.
      */
-    readonly targetResourceUri?: pulumi.Input<string>;
+    targetResourceUri?: pulumi.Input<string>;
 }

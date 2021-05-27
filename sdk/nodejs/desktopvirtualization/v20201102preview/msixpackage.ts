@@ -152,57 +152,57 @@ export interface MSIXPackageArgs {
     /**
      * User friendly Name to be displayed in the portal. 
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the host pool within the specified resource group
      */
-    readonly hostPoolName: pulumi.Input<string>;
+    hostPoolName: pulumi.Input<string>;
     /**
      * VHD/CIM image path on Network Share.
      */
-    readonly imagePath?: pulumi.Input<string>;
+    imagePath?: pulumi.Input<string>;
     /**
      * Make this version of the package the active one across the hostpool. 
      */
-    readonly isActive?: pulumi.Input<boolean>;
+    isActive?: pulumi.Input<boolean>;
     /**
      * Specifies how to register Package in feed.
      */
-    readonly isRegularRegistration?: pulumi.Input<boolean>;
+    isRegularRegistration?: pulumi.Input<boolean>;
     /**
      * Date Package was last updated, found in the appxmanifest.xml. 
      */
-    readonly lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string>;
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    readonly msixPackageFullName?: pulumi.Input<string>;
+    msixPackageFullName?: pulumi.Input<string>;
     /**
      * List of package applications. 
      */
-    readonly packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageApplicationsArgs>[]>;
+    packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageApplicationsArgs>[]>;
     /**
      * List of package dependencies. 
      */
-    readonly packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageDependenciesArgs>[]>;
+    packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageDependenciesArgs>[]>;
     /**
      * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
      */
-    readonly packageFamilyName?: pulumi.Input<string>;
+    packageFamilyName?: pulumi.Input<string>;
     /**
      * Package Name from appxmanifest.xml. 
      */
-    readonly packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string>;
     /**
      * Relative Path to the package inside the image. 
      */
-    readonly packageRelativePath?: pulumi.Input<string>;
+    packageRelativePath?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Package Version found in the appxmanifest.xml. 
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

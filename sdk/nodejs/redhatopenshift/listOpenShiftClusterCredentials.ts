@@ -27,11 +27,11 @@ export interface ListOpenShiftClusterCredentialsArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the OpenShift cluster resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

@@ -122,22 +122,22 @@ export interface CloudEdgeManagementRoleArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Role type.
      * Expected value is 'CloudEdgeManagement'.
      */
-    readonly kind: pulumi.Input<"CloudEdgeManagement">;
+    kind: pulumi.Input<"CloudEdgeManagement">;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role status.
      */
-    readonly roleStatus: pulumi.Input<string | enums.databoxedge.v20200901.RoleStatus>;
+    roleStatus: pulumi.Input<string | enums.databoxedge.v20200901.RoleStatus>;
 }

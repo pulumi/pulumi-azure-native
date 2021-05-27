@@ -28,15 +28,15 @@ export interface GetIotDpsResourcePrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the provisioning service.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the provisioning service.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

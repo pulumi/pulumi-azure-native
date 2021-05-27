@@ -26,11 +26,11 @@ export interface GetTestBaseAccountArgs {
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: string;
+    testBaseAccountName: string;
 }
 
 /**

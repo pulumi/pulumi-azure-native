@@ -107,21 +107,21 @@ export interface SecretArgs {
     /**
      * Properties of the secret
      */
-    readonly properties: pulumi.Input<inputs.keyvault.v20210401preview.SecretPropertiesArgs>;
+    properties: pulumi.Input<inputs.keyvault.v20210401preview.SecretPropertiesArgs>;
     /**
      * The name of the Resource Group to which the vault belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the secret
      */
-    readonly secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string>;
     /**
      * The tags that will be assigned to the secret. 
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the vault
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

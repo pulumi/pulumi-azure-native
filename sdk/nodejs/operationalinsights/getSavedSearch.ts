@@ -28,15 +28,15 @@ export interface GetSavedSearchArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The id of the saved search.
      */
-    readonly savedSearchId: string;
+    savedSearchId: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetDataExportArgs {
     /**
      * The data export rule name.
      */
-    readonly dataExportName: string;
+    dataExportName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Log Analytics workspace name.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

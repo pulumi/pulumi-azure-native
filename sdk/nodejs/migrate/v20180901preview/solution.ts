@@ -98,21 +98,21 @@ export interface SolutionArgs {
     /**
      * Gets or sets the ETAG for optimistic concurrency control.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly migrateProjectName: pulumi.Input<string>;
+    migrateProjectName: pulumi.Input<string>;
     /**
      * Gets or sets the properties of the solution.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.v20180901preview.SolutionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.v20180901preview.SolutionPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    readonly solutionName?: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string>;
 }

@@ -102,21 +102,21 @@ export interface TransparentDataEncryptionArgs {
     /**
      * The name of the database for which setting the transparent data encryption applies.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The status of the database transparent data encryption.
      */
-    readonly status?: pulumi.Input<string | enums.sql.v20140401.TransparentDataEncryptionStatus>;
+    status?: pulumi.Input<string | enums.sql.v20140401.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */
-    readonly transparentDataEncryptionName?: pulumi.Input<string>;
+    transparentDataEncryptionName?: pulumi.Input<string>;
 }

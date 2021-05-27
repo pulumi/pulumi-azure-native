@@ -29,23 +29,23 @@ export interface GetManagementAssociationArgs {
     /**
      * User ManagementAssociation Name.
      */
-    readonly managementAssociationName: string;
+    managementAssociationName: string;
     /**
      * Provider name for the parent resource.
      */
-    readonly providerName: string;
+    providerName: string;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Parent resource name.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * Resource type for the parent resource
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 /**

@@ -257,69 +257,69 @@ export interface AccountArgs {
     /**
      * The name of the Data Lake Analytics account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The list of compute policies associated with this account.
      */
-    readonly computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.CreateComputePolicyWithAccountParametersArgs>[]>;
+    computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.CreateComputePolicyWithAccountParametersArgs>[]>;
     /**
      * The list of Data Lake Store accounts associated with this account.
      */
-    readonly dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.AddDataLakeStoreWithAccountParametersArgs>[]>;
+    dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.AddDataLakeStoreWithAccountParametersArgs>[]>;
     /**
      * The default Data Lake Store account associated with this account.
      */
-    readonly defaultDataLakeStoreAccount: pulumi.Input<string>;
+    defaultDataLakeStoreAccount: pulumi.Input<string>;
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<enums.datalakeanalytics.FirewallAllowAzureIpsState>;
+    firewallAllowAzureIps?: pulumi.Input<enums.datalakeanalytics.FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this account.
      */
-    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.CreateFirewallRuleWithAccountParametersArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.CreateFirewallRuleWithAccountParametersArgs>[]>;
     /**
      * The current state of the IP address firewall for this account.
      */
-    readonly firewallState?: pulumi.Input<enums.datalakeanalytics.FirewallState>;
+    firewallState?: pulumi.Input<enums.datalakeanalytics.FirewallState>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum supported degree of parallelism for this account.
      */
-    readonly maxDegreeOfParallelism?: pulumi.Input<number>;
+    maxDegreeOfParallelism?: pulumi.Input<number>;
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
-    readonly maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
+    maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
     /**
      * The maximum supported jobs running under the account at the same time.
      */
-    readonly maxJobCount?: pulumi.Input<number>;
+    maxJobCount?: pulumi.Input<number>;
     /**
      * The minimum supported priority per job for this account.
      */
-    readonly minPriorityPerJob?: pulumi.Input<number>;
+    minPriorityPerJob?: pulumi.Input<number>;
     /**
      * The commitment tier for the next month.
      */
-    readonly newTier?: pulumi.Input<enums.datalakeanalytics.TierType>;
+    newTier?: pulumi.Input<enums.datalakeanalytics.TierType>;
     /**
      * The number of days that job metadata is retained.
      */
-    readonly queryStoreRetention?: pulumi.Input<number>;
+    queryStoreRetention?: pulumi.Input<number>;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The list of Azure Blob Storage accounts associated with this account.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.AddStorageAccountWithAccountParametersArgs>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.AddStorageAccountWithAccountParametersArgs>[]>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -120,25 +120,25 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * NSX DHCP identifier. Generally the same as the DHCP display name
      */
-    readonly dhcpId?: pulumi.Input<string>;
+    dhcpId?: pulumi.Input<string>;
     /**
      * Type of DHCP: SERVER or RELAY.
      */
-    readonly dhcpType: pulumi.Input<string | enums.avs.DhcpTypeEnum>;
+    dhcpType: pulumi.Input<string | enums.avs.DhcpTypeEnum>;
     /**
      * Display name of the DHCP entity.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * NSX revision number.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
 }

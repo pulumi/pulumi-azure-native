@@ -27,15 +27,15 @@ export interface GetHyperVCollectorArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    readonly hyperVCollectorName: string;
+    hyperVCollectorName: string;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetHyperVCollectorResult {

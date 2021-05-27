@@ -28,19 +28,19 @@ export interface GetJobArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The Job name.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Transform name.
      */
-    readonly transformName: string;
+    transformName: string;
 }
 
 /**

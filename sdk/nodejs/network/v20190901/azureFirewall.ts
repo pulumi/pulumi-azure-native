@@ -173,61 +173,61 @@ export interface AzureFirewallArgs {
     /**
      * The additional properties used to further config this azure firewall.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Collection of application rule collections used by Azure Firewall.
      */
-    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallApplicationRuleCollectionArgs>[]>;
+    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallApplicationRuleCollectionArgs>[]>;
     /**
      * The name of the Azure Firewall.
      */
-    readonly azureFirewallName?: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string>;
     /**
      * The firewallPolicy associated with this azure firewall.
      */
-    readonly firewallPolicy?: pulumi.Input<inputs.network.v20190901.SubResourceArgs>;
+    firewallPolicy?: pulumi.Input<inputs.network.v20190901.SubResourceArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNatRuleCollectionArgs>[]>;
+    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNatRuleCollectionArgs>[]>;
     /**
      * Collection of network rule collections used by Azure Firewall.
      */
-    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNetworkRuleCollectionArgs>[]>;
+    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNetworkRuleCollectionArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Azure Firewall Resource SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20190901.AzureFirewallSkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20190901.AzureFirewallSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    readonly threatIntelMode?: pulumi.Input<string | enums.network.v20190901.AzureFirewallThreatIntelMode>;
+    threatIntelMode?: pulumi.Input<string | enums.network.v20190901.AzureFirewallThreatIntelMode>;
     /**
      * The virtualHub to which the firewall belongs.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20190901.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.v20190901.SubResourceArgs>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

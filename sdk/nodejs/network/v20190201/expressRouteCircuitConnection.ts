@@ -127,41 +127,41 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * /29 IP address space to carve out Customer addresses for tunnels.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * The authorization key.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The name of the express route circuit.
      */
-    readonly circuitName: pulumi.Input<string>;
+    circuitName: pulumi.Input<string>;
     /**
      * The name of the express route circuit connection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
-    readonly expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20190201.SubResourceArgs>;
+    expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20190201.SubResourceArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    readonly peerExpressRouteCircuitPeering?: pulumi.Input<inputs.network.v20190201.SubResourceArgs>;
+    peerExpressRouteCircuitPeering?: pulumi.Input<inputs.network.v20190201.SubResourceArgs>;
     /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    peeringName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

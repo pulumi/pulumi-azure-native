@@ -26,7 +26,7 @@ export interface GetDeploymentAtSubscriptionScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
 }
 
 /**

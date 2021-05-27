@@ -117,17 +117,17 @@ export interface DigitalTwinArgs {
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

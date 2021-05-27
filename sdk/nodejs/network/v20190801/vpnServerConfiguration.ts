@@ -173,69 +173,69 @@ export interface VpnServerConfigurationArgs {
     /**
      * The set of aad vpn authentication parameters.
      */
-    readonly aadAuthenticationParameters?: pulumi.Input<inputs.network.v20190801.AadAuthenticationParametersArgs>;
+    aadAuthenticationParameters?: pulumi.Input<inputs.network.v20190801.AadAuthenticationParametersArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the VpnServerConfiguration that is unique within a resource group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Radius client root certificate of VpnServerConfiguration.
      */
-    readonly radiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigRadiusClientRootCertificateArgs>[]>;
+    radiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigRadiusClientRootCertificateArgs>[]>;
     /**
      * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
      */
-    readonly radiusServerAddress?: pulumi.Input<string>;
+    radiusServerAddress?: pulumi.Input<string>;
     /**
      * Radius Server root certificate of VpnServerConfiguration.
      */
-    readonly radiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigRadiusServerRootCertificateArgs>[]>;
+    radiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigRadiusServerRootCertificateArgs>[]>;
     /**
      * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
      */
-    readonly radiusServerSecret?: pulumi.Input<string>;
+    radiusServerSecret?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnServerConfiguration.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnAuthenticationType>[]>;
+    vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnAuthenticationType>[]>;
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
-    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.IpsecPolicyArgs>[]>;
+    vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190801.IpsecPolicyArgs>[]>;
     /**
      * VPN client revoked certificate of VpnServerConfiguration.
      */
-    readonly vpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigVpnClientRevokedCertificateArgs>[]>;
+    vpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigVpnClientRevokedCertificateArgs>[]>;
     /**
      * VPN client root certificate of VpnServerConfiguration.
      */
-    readonly vpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigVpnClientRootCertificateArgs>[]>;
+    vpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VpnServerConfigVpnClientRootCertificateArgs>[]>;
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnGatewayTunnelingProtocol>[]>;
+    vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20190801.VpnGatewayTunnelingProtocol>[]>;
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */
-    readonly vpnServerConfigurationName?: pulumi.Input<string>;
+    vpnServerConfigurationName?: pulumi.Input<string>;
 }

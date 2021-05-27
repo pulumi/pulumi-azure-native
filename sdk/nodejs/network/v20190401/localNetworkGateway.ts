@@ -131,41 +131,41 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20190401.BgpSettingsArgs>;
+    bgpSettings?: pulumi.Input<inputs.network.v20190401.BgpSettingsArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * IP address of local network gateway.
      */
-    readonly gatewayIpAddress?: pulumi.Input<string>;
+    gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Local network site address space.
      */
-    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20190401.AddressSpaceArgs>;
+    localNetworkAddressSpace?: pulumi.Input<inputs.network.v20190401.AddressSpaceArgs>;
     /**
      * The name of the local network gateway.
      */
-    readonly localNetworkGatewayName?: pulumi.Input<string>;
+    localNetworkGatewayName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the LocalNetworkGateway resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

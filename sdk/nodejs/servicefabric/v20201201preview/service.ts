@@ -183,65 +183,65 @@ export interface ServiceArgs {
     /**
      * The name of the application resource.
      */
-    readonly applicationName: pulumi.Input<string>;
+    applicationName: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServiceCorrelationDescriptionArgs>[]>;
+    correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServiceCorrelationDescriptionArgs>[]>;
     /**
      * Specifies the move cost for the service.
      */
-    readonly defaultMoveCost?: pulumi.Input<string | enums.servicefabric.v20201201preview.MoveCost>;
+    defaultMoveCost?: pulumi.Input<string | enums.servicefabric.v20201201preview.MoveCost>;
     /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20201201preview.NamedPartitionSchemeDescriptionArgs | inputs.servicefabric.v20201201preview.SingletonPartitionSchemeDescriptionArgs | inputs.servicefabric.v20201201preview.UniformInt64RangePartitionSchemeDescriptionArgs>;
+    partitionDescription?: pulumi.Input<inputs.servicefabric.v20201201preview.NamedPartitionSchemeDescriptionArgs | inputs.servicefabric.v20201201preview.SingletonPartitionSchemeDescriptionArgs | inputs.servicefabric.v20201201preview.UniformInt64RangePartitionSchemeDescriptionArgs>;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */
-    readonly placementConstraints?: pulumi.Input<string>;
+    placementConstraints?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
      */
-    readonly serviceDnsName?: pulumi.Input<string>;
+    serviceDnsName?: pulumi.Input<string>;
     /**
      * The kind of service (Stateless or Stateful).
      */
-    readonly serviceKind: pulumi.Input<string | enums.servicefabric.v20201201preview.ServiceKind>;
+    serviceKind: pulumi.Input<string | enums.servicefabric.v20201201preview.ServiceKind>;
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
-    readonly serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServiceLoadMetricDescriptionArgs>[]>;
+    serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServiceLoadMetricDescriptionArgs>[]>;
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The activation Mode of the service package
      */
-    readonly servicePackageActivationMode?: pulumi.Input<string | enums.servicefabric.v20201201preview.ArmServicePackageActivationMode>;
+    servicePackageActivationMode?: pulumi.Input<string | enums.servicefabric.v20201201preview.ArmServicePackageActivationMode>;
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServicePlacementPolicyDescriptionArgs>[]>;
+    servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20201201preview.ServicePlacementPolicyDescriptionArgs>[]>;
     /**
      * The name of the service type
      */
-    readonly serviceTypeName?: pulumi.Input<string>;
+    serviceTypeName?: pulumi.Input<string>;
     /**
      * Azure resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

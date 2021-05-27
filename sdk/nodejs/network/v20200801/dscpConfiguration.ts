@@ -161,45 +161,45 @@ export interface DscpConfigurationArgs {
     /**
      * Destination IP ranges.
      */
-    readonly destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosIpRangeArgs>[]>;
+    destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosIpRangeArgs>[]>;
     /**
      * Destination port ranges.
      */
-    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosPortRangeArgs>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosPortRangeArgs>[]>;
     /**
      * The name of the resource.
      */
-    readonly dscpConfigurationName?: pulumi.Input<string>;
+    dscpConfigurationName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of markings to be used in the configuration.
      */
-    readonly markings?: pulumi.Input<pulumi.Input<number>[]>;
+    markings?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: pulumi.Input<string | enums.network.v20200801.ProtocolType>;
+    protocol?: pulumi.Input<string | enums.network.v20200801.ProtocolType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Source IP ranges.
      */
-    readonly sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosIpRangeArgs>[]>;
+    sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosIpRangeArgs>[]>;
     /**
      * Sources port ranges.
      */
-    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosPortRangeArgs>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.v20200801.QosPortRangeArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

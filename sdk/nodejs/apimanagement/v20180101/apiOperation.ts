@@ -147,49 +147,49 @@ export interface ApiOperationArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Description of the operation. May include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Operation Name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
      */
-    readonly method: pulumi.Input<string>;
+    method: pulumi.Input<string>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string>;
     /**
      * Operation Policies
      */
-    readonly policies?: pulumi.Input<string>;
+    policies?: pulumi.Input<string>;
     /**
      * An entity containing request details.
      */
-    readonly request?: pulumi.Input<inputs.apimanagement.v20180101.RequestContractArgs>;
+    request?: pulumi.Input<inputs.apimanagement.v20180101.RequestContractArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Array of Operation responses.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.ResponseContractArgs>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.ResponseContractArgs>[]>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Collection of URL template parameters.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.ParameterContractArgs>[]>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.ParameterContractArgs>[]>;
     /**
      * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
      */
-    readonly urlTemplate: pulumi.Input<string>;
+    urlTemplate: pulumi.Input<string>;
 }

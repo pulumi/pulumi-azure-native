@@ -149,53 +149,53 @@ export interface CloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    readonly cloudEndpointName?: pulumi.Input<string>;
+    cloudEndpointName?: pulumi.Input<string>;
     /**
      * Friendly Name
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * CloudEndpoint lastWorkflowId
      */
-    readonly lastWorkflowId?: pulumi.Input<string>;
+    lastWorkflowId?: pulumi.Input<string>;
     /**
      * Partnership Id
      */
-    readonly partnershipId?: pulumi.Input<string>;
+    partnershipId?: pulumi.Input<string>;
     /**
      * CloudEndpoint Provisioning State
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Storage Account name.
      */
-    readonly storageAccount?: pulumi.Input<string>;
+    storageAccount?: pulumi.Input<string>;
     /**
      * Storage Account access key.
      */
-    readonly storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * Storage Account Resource Id
      */
-    readonly storageAccountResourceId?: pulumi.Input<string>;
+    storageAccountResourceId?: pulumi.Input<string>;
     /**
      * Storage Account Share name
      */
-    readonly storageAccountShareName?: pulumi.Input<string>;
+    storageAccountShareName?: pulumi.Input<string>;
     /**
      * Storage Account Tenant Id
      */
-    readonly storageAccountTenantId?: pulumi.Input<string>;
+    storageAccountTenantId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    syncGroupName: pulumi.Input<string>;
 }

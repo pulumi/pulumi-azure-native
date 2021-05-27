@@ -26,11 +26,11 @@ export interface GetAccountArgs {
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

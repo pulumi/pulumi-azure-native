@@ -28,15 +28,15 @@ export interface GetVirtualNetworkArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName: string;
+    virtualNetworkName: string;
 }
 
 /**

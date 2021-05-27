@@ -25,7 +25,7 @@ export interface GetOnPremiseSensorArgs {
     /**
      * Name of the on-premise IoT sensor
      */
-    readonly onPremiseSensorName: string;
+    onPremiseSensorName: string;
 }
 
 /**

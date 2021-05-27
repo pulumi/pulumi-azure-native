@@ -118,25 +118,25 @@ export interface ExportArgs {
     /**
      * Has definition for the export.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20190901.QueryDefinitionArgs>;
+    definition: pulumi.Input<inputs.costmanagement.v20190901.QueryDefinitionArgs>;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20190901.ExportDeliveryInfoArgs>;
+    deliveryInfo: pulumi.Input<inputs.costmanagement.v20190901.ExportDeliveryInfoArgs>;
     /**
      * Export Name.
      */
-    readonly exportName?: pulumi.Input<string>;
+    exportName?: pulumi.Input<string>;
     /**
      * The format of the export being delivered.
      */
-    readonly format?: pulumi.Input<string | enums.costmanagement.v20190901.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.v20190901.FormatType>;
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.v20190901.ExportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.v20190901.ExportScheduleArgs>;
     /**
      * The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

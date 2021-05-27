@@ -28,15 +28,15 @@ export interface GetTestBaseAccountFileUploadUrlArgs {
     /**
      * The custom file name of the uploaded blob.
      */
-    readonly blobName?: string;
+    blobName?: string;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: string;
+    testBaseAccountName: string;
 }
 
 /**

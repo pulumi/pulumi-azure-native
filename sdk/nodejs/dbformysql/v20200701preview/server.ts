@@ -218,81 +218,81 @@ export interface ServerArgs {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password of the administrator login (required for server creation).
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * availability Zone information of the server.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The mode to create a new MySQL server.
      */
-    readonly createMode?: pulumi.Input<string | enums.dbformysql.v20200701preview.CreateMode>;
+    createMode?: pulumi.Input<string | enums.dbformysql.v20200701preview.CreateMode>;
     /**
      * Delegated subnet arguments.
      */
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701preview.DelegatedSubnetArgumentsArgs>;
+    delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701preview.DelegatedSubnetArgumentsArgs>;
     /**
      * Enable HA or not for a server.
      */
-    readonly haEnabled?: pulumi.Input<string | enums.dbformysql.v20200701preview.HaEnabledEnum>;
+    haEnabled?: pulumi.Input<string | enums.dbformysql.v20200701preview.HaEnabledEnum>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbformysql.v20200701preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.dbformysql.v20200701preview.IdentityArgs>;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
-    readonly infrastructureEncryption?: pulumi.Input<string | enums.dbformysql.v20200701preview.InfrastructureEncryptionEnum>;
+    infrastructureEncryption?: pulumi.Input<string | enums.dbformysql.v20200701preview.InfrastructureEncryptionEnum>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701preview.MaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701preview.MaintenanceWindowArgs>;
     /**
      * The replication role.
      */
-    readonly replicationRole?: pulumi.Input<string>;
+    replicationRole?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformysql.v20200701preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.dbformysql.v20200701preview.SkuArgs>;
     /**
      * The source MySQL server id.
      */
-    readonly sourceServerId?: pulumi.Input<string>;
+    sourceServerId?: pulumi.Input<string>;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
-    readonly sslEnforcement?: pulumi.Input<string | enums.dbformysql.v20200701preview.SslEnforcementEnum>;
+    sslEnforcement?: pulumi.Input<string | enums.dbformysql.v20200701preview.SslEnforcementEnum>;
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: pulumi.Input<inputs.dbformysql.v20200701preview.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.dbformysql.v20200701preview.StorageProfileArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Server version.
      */
-    readonly version?: pulumi.Input<string | enums.dbformysql.v20200701preview.ServerVersion>;
+    version?: pulumi.Input<string | enums.dbformysql.v20200701preview.ServerVersion>;
 }

@@ -187,53 +187,53 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20190301.CreationDataArgs>;
+    creationData: pulumi.Input<inputs.compute.v20190301.CreationDataArgs>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
-    readonly diskIOPSReadWrite?: pulumi.Input<number>;
+    diskIOPSReadWrite?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
      */
-    readonly diskMBpsReadWrite?: pulumi.Input<number>;
+    diskMBpsReadWrite?: pulumi.Input<number>;
     /**
      * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
-    readonly diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    readonly diskSizeGB?: pulumi.Input<number>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20190301.EncryptionSettingsCollectionArgs>;
+    encryptionSettingsCollection?: pulumi.Input<inputs.compute.v20190301.EncryptionSettingsCollectionArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20190301.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.v20190301.HyperVGeneration>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<enums.compute.v20190301.OperatingSystemTypes>;
+    osType?: pulumi.Input<enums.compute.v20190301.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20190301.DiskSkuArgs>;
+    sku?: pulumi.Input<inputs.compute.v20190301.DiskSkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Logical zone list for Disk.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

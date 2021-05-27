@@ -122,21 +122,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Modified whenever there is a change in the state of private endpoint connection.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20200401preview.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20200401preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group that contains the key vault.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the key vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

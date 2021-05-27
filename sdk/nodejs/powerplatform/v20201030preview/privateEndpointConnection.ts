@@ -113,17 +113,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * EnterprisePolicy for the Microsoft Azure subscription.
      */
-    readonly enterprisePolicyName: pulumi.Input<string>;
+    enterprisePolicyName: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.powerplatform.v20201030preview.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.powerplatform.v20201030preview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

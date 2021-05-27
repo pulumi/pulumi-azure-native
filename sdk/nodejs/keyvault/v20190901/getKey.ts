@@ -27,15 +27,15 @@ export interface GetKeyArgs {
     /**
      * The name of the key to be retrieved.
      */
-    readonly keyName: string;
+    keyName: string;
     /**
      * The name of the resource group which contains the specified key vault.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the vault which contains the key to be retrieved.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

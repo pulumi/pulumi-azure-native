@@ -29,19 +29,19 @@ export interface GetHybridConnectionAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: string;
+    authorizationRuleName: string;
     /**
      * The hybrid connection name.
      */
-    readonly hybridConnectionName: string;
+    hybridConnectionName: string;
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

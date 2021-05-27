@@ -166,45 +166,45 @@ export interface ServiceArgs {
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */
-    readonly hostingMode?: pulumi.Input<enums.search.v20200801.HostingMode>;
+    hostingMode?: pulumi.Input<enums.search.v20200801.HostingMode>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.search.v20200801.IdentityArgs>;
+    identity?: pulumi.Input<inputs.search.v20200801.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Network specific rules that determine how the Azure Cognitive Search service may be reached.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.search.v20200801.NetworkRuleSetArgs>;
+    networkRuleSet?: pulumi.Input<inputs.search.v20200801.NetworkRuleSetArgs>;
     /**
      * The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
      */
-    readonly publicNetworkAccess?: pulumi.Input<enums.search.v20200801.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<enums.search.v20200801.PublicNetworkAccess>;
     /**
      * The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
      */
-    readonly replicaCount?: pulumi.Input<number>;
+    replicaCount?: pulumi.Input<number>;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
      */
-    readonly searchServiceName?: pulumi.Input<string>;
+    searchServiceName?: pulumi.Input<string>;
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
-    readonly sku?: pulumi.Input<inputs.search.v20200801.SkuArgs>;
+    sku?: pulumi.Input<inputs.search.v20200801.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

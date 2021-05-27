@@ -156,37 +156,37 @@ export interface AutomationRuleArgs {
     /**
      * The actions to execute when the automation rule is triggered
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionArgs>[]>;
     /**
      * Automation rule ID
      */
-    readonly automationRuleId?: pulumi.Input<string>;
+    automationRuleId?: pulumi.Input<string>;
     /**
      * The display name of the automation  rule
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The order of execution of the automation rule
      */
-    readonly order: pulumi.Input<number>;
+    order: pulumi.Input<number>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The triggering logic of the automation rule
      */
-    readonly triggeringLogic: pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleTriggeringLogicArgs>;
+    triggeringLogic: pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleTriggeringLogicArgs>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

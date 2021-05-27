@@ -138,42 +138,42 @@ export interface TemplateArtifactArgs {
     /**
      * name of the artifact.
      */
-    readonly artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string>;
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    readonly dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
+    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the kind of Blueprint artifact.
      * Expected value is 'template'.
      */
-    readonly kind: pulumi.Input<"template">;
+    kind: pulumi.Input<"template">;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: pulumi.Input<string>;
+    managementGroupName: pulumi.Input<string>;
     /**
      * Template parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
     /**
      * If applicable, the name of the resource group placeholder to which the template will be deployed.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The Azure Resource Manager template body.
      */
-    readonly template: any;
+    template: any;
 }

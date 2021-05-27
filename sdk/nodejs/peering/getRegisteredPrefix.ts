@@ -28,15 +28,15 @@ export interface GetRegisteredPrefixArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringName: string;
+    peeringName: string;
     /**
      * The name of the registered prefix.
      */
-    readonly registeredPrefixName: string;
+    registeredPrefixName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

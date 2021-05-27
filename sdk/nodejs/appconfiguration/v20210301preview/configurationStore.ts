@@ -157,37 +157,37 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName?: pulumi.Input<string>;
+    configStoreName?: pulumi.Input<string>;
     /**
      * Disables all authentication methods other than AAD authentication.
      */
-    readonly disableLocalAuth?: pulumi.Input<boolean>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * The encryption settings of the configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.appconfiguration.v20210301preview.EncryptionPropertiesArgs>;
+    encryption?: pulumi.Input<inputs.appconfiguration.v20210301preview.EncryptionPropertiesArgs>;
     /**
      * The managed identity information, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.appconfiguration.v20210301preview.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.appconfiguration.v20210301preview.ResourceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.v20210301preview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.v20210301preview.PublicNetworkAccess>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the configuration store.
      */
-    readonly sku: pulumi.Input<inputs.appconfiguration.v20210301preview.SkuArgs>;
+    sku: pulumi.Input<inputs.appconfiguration.v20210301preview.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

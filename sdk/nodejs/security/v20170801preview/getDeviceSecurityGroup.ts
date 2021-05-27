@@ -26,11 +26,11 @@ export interface GetDeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    readonly deviceSecurityGroupName: string;
+    deviceSecurityGroupName: string;
     /**
      * The identifier of the resource.
      */
-    readonly resourceId: string;
+    resourceId: string;
 }
 
 /**

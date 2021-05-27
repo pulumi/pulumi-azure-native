@@ -112,21 +112,21 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20180101.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180101.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.v20180101.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180101.WebHookEventSubscriptionDestinationArgs>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */
-    readonly eventSubscriptionName?: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string>;
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionFilterArgs>;
+    filter?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

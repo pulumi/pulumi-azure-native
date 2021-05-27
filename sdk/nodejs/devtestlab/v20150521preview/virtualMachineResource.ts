@@ -218,109 +218,109 @@ export interface VirtualMachineResourceArgs {
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactDeploymentStatusPropertiesArgs>;
+    artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactDeploymentStatusPropertiesArgs>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactInstallPropertiesArgs>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20150521preview.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
-    readonly computeId?: pulumi.Input<string>;
+    computeId?: pulumi.Input<string>;
     /**
      * The email address of creator of the virtual machine.
      */
-    readonly createdByUser?: pulumi.Input<string>;
+    createdByUser?: pulumi.Input<string>;
     /**
      * The object identifier of the creator of the virtual machine.
      */
-    readonly createdByUserId?: pulumi.Input<string>;
+    createdByUserId?: pulumi.Input<string>;
     /**
      * The custom image identifier of the virtual machine.
      */
-    readonly customImageId?: pulumi.Input<string>;
+    customImageId?: pulumi.Input<string>;
     /**
      * Indicates whether the virtual machine is to be created without a public IP address.
      */
-    readonly disallowPublicIpAddress?: pulumi.Input<boolean>;
+    disallowPublicIpAddress?: pulumi.Input<boolean>;
     /**
      * The fully-qualified domain name of the virtual machine.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20150521preview.GalleryImageReferenceArgs>;
+    galleryImageReference?: pulumi.Input<inputs.devtestlab.v20150521preview.GalleryImageReferenceArgs>;
     /**
      * The identifier of the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A value indicating whether this virtual machine uses an SSH key for authentication.
      */
-    readonly isAuthenticationWithSshKey?: pulumi.Input<boolean>;
+    isAuthenticationWithSshKey?: pulumi.Input<boolean>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The lab subnet name of the virtual machine.
      */
-    readonly labSubnetName?: pulumi.Input<string>;
+    labSubnetName?: pulumi.Input<string>;
     /**
      * The lab virtual network identifier of the virtual machine.
      */
-    readonly labVirtualNetworkId?: pulumi.Input<string>;
+    labVirtualNetworkId?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The notes of the virtual machine.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * The OS type of the virtual machine.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The object identifier of the owner of the virtual machine.
      */
-    readonly ownerObjectId?: pulumi.Input<string>;
+    ownerObjectId?: pulumi.Input<string>;
     /**
      * The password of the virtual machine administrator.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The size of the virtual machine.
      */
-    readonly size?: pulumi.Input<string>;
+    size?: pulumi.Input<string>;
     /**
      * The SSH key of the virtual machine administrator.
      */
-    readonly sshKey?: pulumi.Input<string>;
+    sshKey?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The user name of the virtual machine.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

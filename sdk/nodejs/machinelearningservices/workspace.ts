@@ -233,81 +233,81 @@ export interface WorkspaceArgs {
     /**
      * The flag to indicate whether to allow public access when behind VNet.
      */
-    readonly allowPublicAccessWhenBehindVnet?: pulumi.Input<boolean>;
+    allowPublicAccessWhenBehindVnet?: pulumi.Input<boolean>;
     /**
      * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
      */
-    readonly applicationInsights?: pulumi.Input<string>;
+    applicationInsights?: pulumi.Input<string>;
     /**
      * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
      */
-    readonly containerRegistry?: pulumi.Input<string>;
+    containerRegistry?: pulumi.Input<string>;
     /**
      * The description of this workspace.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Url for the discovery service to identify regional endpoints for machine learning experimentation services
      */
-    readonly discoveryUrl?: pulumi.Input<string>;
+    discoveryUrl?: pulumi.Input<string>;
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: pulumi.Input<inputs.machinelearningservices.EncryptionPropertyArgs>;
+    encryption?: pulumi.Input<inputs.machinelearningservices.EncryptionPropertyArgs>;
     /**
      * The friendly name for this workspace. This name in mutable
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
      */
-    readonly hbiWorkspace?: pulumi.Input<boolean>;
+    hbiWorkspace?: pulumi.Input<boolean>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
+    identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
     /**
      * The compute name for image build
      */
-    readonly imageBuildCompute?: pulumi.Input<string>;
+    imageBuildCompute?: pulumi.Input<string>;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
-    readonly keyVault?: pulumi.Input<string>;
+    keyVault?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The user assigned identity resource id that represents the workspace identity.
      */
-    readonly primaryUserAssignedIdentity?: pulumi.Input<string>;
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service managed resource settings.
      */
-    readonly serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.ServiceManagedResourcesSettingsArgs>;
+    serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.ServiceManagedResourcesSettingsArgs>;
     /**
      * The list of shared private link resources in this workspace.
      */
-    readonly sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.SharedPrivateLinkResourceArgs>[]>;
+    sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.SharedPrivateLinkResourceArgs>[]>;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
-    readonly storageAccount?: pulumi.Input<string>;
+    storageAccount?: pulumi.Input<string>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

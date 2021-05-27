@@ -118,21 +118,21 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the proximity placement group.
      */
-    readonly proximityPlacementGroupName?: pulumi.Input<string>;
+    proximityPlacementGroupName?: pulumi.Input<string>;
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly proximityPlacementGroupType?: pulumi.Input<string | enums.compute.v20180601.ProximityPlacementGroupType>;
+    proximityPlacementGroupType?: pulumi.Input<string | enums.compute.v20180601.ProximityPlacementGroupType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -26,11 +26,11 @@ export interface GetBillingRoleAssignmentByBillingAccountArgs {
     /**
      * The ID that uniquely identifies a billing account.
      */
-    readonly billingAccountName: string;
+    billingAccountName: string;
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName: string;
+    billingRoleAssignmentName: string;
 }
 
 /**

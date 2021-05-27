@@ -29,19 +29,19 @@ export interface GetWebAppPublicCertificateSlotArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Public certificate name.
      */
-    readonly publicCertificateName: string;
+    publicCertificateName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

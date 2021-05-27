@@ -121,33 +121,33 @@ export interface IotHubResourceArgs {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The managed identities for the IotHub.
      */
-    readonly identity?: pulumi.Input<inputs.devices.v20210303preview.ArmIdentityArgs>;
+    identity?: pulumi.Input<inputs.devices.v20210303preview.ArmIdentityArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * IotHub properties
      */
-    readonly properties?: pulumi.Input<inputs.devices.v20210303preview.IotHubPropertiesArgs>;
+    properties?: pulumi.Input<inputs.devices.v20210303preview.IotHubPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * IotHub SKU info
      */
-    readonly sku: pulumi.Input<inputs.devices.v20210303preview.IotHubSkuInfoArgs>;
+    sku: pulumi.Input<inputs.devices.v20210303preview.IotHubSkuInfoArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -144,45 +144,45 @@ export interface SavedSearchArgs {
     /**
      * The category of the saved search. This helps the user to find a saved search faster. 
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * Saved search display name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The ETag of the saved search.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The function alias if query serves as a function.
      */
-    readonly functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string>;
     /**
      * The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
      */
-    readonly functionParameters?: pulumi.Input<string>;
+    functionParameters?: pulumi.Input<string>;
     /**
      * The query expression for the saved search.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The id of the saved search.
      */
-    readonly savedSearchId?: pulumi.Input<string>;
+    savedSearchId?: pulumi.Input<string>;
     /**
      * The tags attached to the saved search.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.TagArgs>[]>;
     /**
      * The version number of the query language. The current version is 2 and is the default.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

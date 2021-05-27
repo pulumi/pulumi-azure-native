@@ -99,17 +99,17 @@ export interface DpsCertificateArgs {
     /**
      * Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
      */
-    readonly certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
     /**
      * The name of the certificate create or update.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The name of the provisioning service.
      */
-    readonly provisioningServiceName: pulumi.Input<string>;
+    provisioningServiceName: pulumi.Input<string>;
     /**
      * Resource group identifier.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

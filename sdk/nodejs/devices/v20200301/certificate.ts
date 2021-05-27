@@ -99,17 +99,17 @@ export interface CertificateArgs {
     /**
      * base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
      */
-    readonly certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
     /**
      * The name of the certificate
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

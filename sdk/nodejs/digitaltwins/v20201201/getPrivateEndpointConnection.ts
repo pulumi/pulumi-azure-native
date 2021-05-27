@@ -27,15 +27,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetApplicationArgs {
     /**
      * The identity of the application.
      */
-    readonly applicationName: string;
+    applicationName: string;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

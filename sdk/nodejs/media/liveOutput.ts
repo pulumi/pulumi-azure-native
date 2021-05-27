@@ -157,41 +157,41 @@ export interface LiveOutputArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
      */
-    readonly archiveWindowLength: pulumi.Input<string>;
+    archiveWindowLength: pulumi.Input<string>;
     /**
      * The asset that the live output will write to.
      */
-    readonly assetName: pulumi.Input<string>;
+    assetName: pulumi.Input<string>;
     /**
      * The description of the live output.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * HTTP Live Streaming (HLS) packing setting for the live output.
      */
-    readonly hls?: pulumi.Input<inputs.media.HlsArgs>;
+    hls?: pulumi.Input<inputs.media.HlsArgs>;
     /**
      * The name of the live event, maximum length is 32.
      */
-    readonly liveEventName: pulumi.Input<string>;
+    liveEventName: pulumi.Input<string>;
     /**
      * The name of the live output.
      */
-    readonly liveOutputName?: pulumi.Input<string>;
+    liveOutputName?: pulumi.Input<string>;
     /**
      * The manifest file name. If not provided, the service will generate one automatically.
      */
-    readonly manifestName?: pulumi.Input<string>;
+    manifestName?: pulumi.Input<string>;
     /**
      * The initial timestamp that the live output will start at, any content before this value will not be archived.
      */
-    readonly outputSnapTime?: pulumi.Input<number>;
+    outputSnapTime?: pulumi.Input<number>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -119,29 +119,29 @@ export interface JobAgentArgs {
     /**
      * Resource ID of the database to store job metadata in.
      */
-    readonly databaseId: pulumi.Input<string>;
+    databaseId: pulumi.Input<string>;
     /**
      * The name of the job agent to be created or updated.
      */
-    readonly jobAgentName?: pulumi.Input<string>;
+    jobAgentName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20200202preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.v20200202preview.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

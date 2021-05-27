@@ -27,15 +27,15 @@ export interface GetIntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration name.
      */
-    readonly batchConfigurationName: string;
+    batchConfigurationName: string;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

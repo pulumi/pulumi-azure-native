@@ -136,41 +136,41 @@ export interface WebhookArgs {
     /**
      * The list of actions that trigger the webhook to post notifications.
      */
-    readonly actions: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookAction>[]>;
+    actions: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookAction>[]>;
     /**
      * Custom headers that will be added to the webhook notifications.
      */
-    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the webhook. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * The service URI for the webhook to post notifications.
      */
-    readonly serviceUri: pulumi.Input<string>;
+    serviceUri: pulumi.Input<string>;
     /**
      * The status of the webhook at the time the operation was called.
      */
-    readonly status?: pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookStatus>;
+    status?: pulumi.Input<string | enums.containerregistry.v20201101preview.WebhookStatus>;
     /**
      * The tags for the webhook.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the webhook.
      */
-    readonly webhookName?: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string>;
 }

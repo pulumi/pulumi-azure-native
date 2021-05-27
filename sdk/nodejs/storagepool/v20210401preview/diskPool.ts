@@ -149,37 +149,37 @@ export interface DiskPoolArgs {
     /**
      * List of additional capabilities for a Disk Pool.
      */
-    readonly additionalCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Logical zone for Disk Pool resource; example: ["1"].
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Disk Pool.
      */
-    readonly diskPoolName?: pulumi.Input<string>;
+    diskPoolName?: pulumi.Input<string>;
     /**
      * List of Azure Managed Disks to attach to a Disk Pool.
      */
-    readonly disks?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.DiskArgs>[]>;
+    disks?: pulumi.Input<pulumi.Input<inputs.storagepool.v20210401preview.DiskArgs>[]>;
     /**
      * The geo-location where the resource lives.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Determines the SKU of the Disk Pool
      */
-    readonly sku: pulumi.Input<inputs.storagepool.v20210401preview.SkuArgs>;
+    sku: pulumi.Input<inputs.storagepool.v20210401preview.SkuArgs>;
     /**
      * Azure Resource ID of a Subnet for the Disk Pool.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

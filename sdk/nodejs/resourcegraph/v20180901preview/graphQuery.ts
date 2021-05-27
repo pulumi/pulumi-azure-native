@@ -126,29 +126,29 @@ export interface GraphQueryArgs {
     /**
      * The description of a graph query.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * KQL query that will be graph.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Graph Query resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

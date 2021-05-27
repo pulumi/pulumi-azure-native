@@ -157,45 +157,45 @@ export interface IscsiDiskArgs {
     /**
      * The access control records.
      */
-    readonly accessControlRecords: pulumi.Input<pulumi.Input<string>[]>;
+    accessControlRecords: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The data policy.
      */
-    readonly dataPolicy: pulumi.Input<enums.storsimple.v20161001.DataPolicy>;
+    dataPolicy: pulumi.Input<enums.storsimple.v20161001.DataPolicy>;
     /**
      * The description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The disk name.
      */
-    readonly diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string>;
     /**
      * The disk status.
      */
-    readonly diskStatus: pulumi.Input<enums.storsimple.v20161001.DiskStatus>;
+    diskStatus: pulumi.Input<enums.storsimple.v20161001.DiskStatus>;
     /**
      * The iSCSI server name.
      */
-    readonly iscsiServerName: pulumi.Input<string>;
+    iscsiServerName: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The monitoring.
      */
-    readonly monitoringStatus: pulumi.Input<enums.storsimple.v20161001.MonitoringStatus>;
+    monitoringStatus: pulumi.Input<enums.storsimple.v20161001.MonitoringStatus>;
     /**
      * The provisioned capacity in bytes.
      */
-    readonly provisionedCapacityInBytes: pulumi.Input<number>;
+    provisionedCapacityInBytes: pulumi.Input<number>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

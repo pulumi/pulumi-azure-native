@@ -110,29 +110,29 @@ export interface VirtualRouterPeeringArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Peer ASN.
      */
-    readonly peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * Peer IP.
      */
-    readonly peerIp?: pulumi.Input<string>;
+    peerIp?: pulumi.Input<string>;
     /**
      * The name of the Virtual Router Peering.
      */
-    readonly peeringName?: pulumi.Input<string>;
+    peeringName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Virtual Router.
      */
-    readonly virtualRouterName: pulumi.Input<string>;
+    virtualRouterName: pulumi.Input<string>;
 }

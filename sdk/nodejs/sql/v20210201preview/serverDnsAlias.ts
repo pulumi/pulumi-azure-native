@@ -91,13 +91,13 @@ export interface ServerDnsAliasArgs {
     /**
      * The name of the server dns alias.
      */
-    readonly dnsAliasName?: pulumi.Input<string>;
+    dnsAliasName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server that the alias is pointing to.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

@@ -154,41 +154,41 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
      */
-    readonly buildTimeoutInMinutes?: pulumi.Input<number>;
+    buildTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateFileCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplatePowerShellCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateRestartCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs>[]>;
+    customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateFileCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplatePowerShellCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateRestartCustomizerArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs>[]>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributorArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributorArgs>[]>;
+    distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributorArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributorArgs>[]>;
     /**
      * The identity of the image template, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateIdentityArgs>;
+    identity?: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateIdentityArgs>;
     /**
      * The name of the image Template
      */
-    readonly imageTemplateName?: pulumi.Input<string>;
+    imageTemplateName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateIsoSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplatePlatformImageSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageVersionSourceArgs>;
+    source: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateIsoSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplatePlatformImageSourceArgs | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageVersionSourceArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Describes how virtual machine is set up to build images
      */
-    readonly vmProfile?: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs>;
+    vmProfile?: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs>;
 }

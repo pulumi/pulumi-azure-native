@@ -125,33 +125,33 @@ export interface BastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly bastionHostName?: pulumi.Input<string>;
+    bastionHostName?: pulumi.Input<string>;
     /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * IP configuration of the Bastion Host resource.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.BastionHostIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.BastionHostIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of this Bastion Host.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20210201.SkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20210201.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

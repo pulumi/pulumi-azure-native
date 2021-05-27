@@ -154,57 +154,57 @@ export interface NetworkInterfaceArgs {
     /**
      * Gets or sets DNS Settings in  NetworkInterface
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20150501preview.NetworkInterfaceDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20150501preview.NetworkInterfaceDnsSettingsArgs>;
     /**
      * Gets or sets whether IPForwarding is enabled on the NIC
      */
-    readonly enableIPForwarding?: pulumi.Input<boolean>;
+    enableIPForwarding?: pulumi.Input<boolean>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Gets or sets list of IPConfigurations of the NetworkInterface
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.NetworkInterfaceIpConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.NetworkInterfaceIpConfigurationArgs>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets the MAC Address of the network interface
      */
-    readonly macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string>;
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName?: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string>;
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
     /**
      * Gets whether this is a primary NIC on a virtual machine
      */
-    readonly primary?: pulumi.Input<boolean>;
+    primary?: pulumi.Input<boolean>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets resource guid property of the network interface resource
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets the reference of a VirtualMachine
      */
-    readonly virtualMachine?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
+    virtualMachine?: pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>;
 }

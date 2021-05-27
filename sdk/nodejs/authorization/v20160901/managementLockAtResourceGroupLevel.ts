@@ -103,21 +103,21 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: pulumi.Input<string | enums.authorization.v20160901.LockLevel>;
+    level: pulumi.Input<string | enums.authorization.v20160901.LockLevel>;
     /**
      * The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
-    readonly lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * The owners of the lock.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20160901.ManagementLockOwnerArgs>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20160901.ManagementLockOwnerArgs>[]>;
     /**
      * The name of the resource group to lock.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

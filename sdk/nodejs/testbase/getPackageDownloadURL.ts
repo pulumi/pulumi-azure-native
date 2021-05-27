@@ -28,15 +28,15 @@ export interface GetPackageDownloadURLArgs {
     /**
      * The resource name of the Test Base Package.
      */
-    readonly packageName: string;
+    packageName: string;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: string;
+    testBaseAccountName: string;
 }
 
 /**

@@ -202,65 +202,65 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQueryRule resource.
  */
 export interface ScheduledQueryRuleArgs {
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20200501preview.ActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.insights.v20200501preview.ActionArgs>[]>;
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteriaArgs>;
+    criteria: pulumi.Input<inputs.insights.v20200501preview.ScheduledQueryRuleCriteriaArgs>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the alert rule
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    readonly evaluationFrequency: pulumi.Input<string>;
+    evaluationFrequency: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
      */
-    readonly muteActionsDuration?: pulumi.Input<string>;
+    muteActionsDuration?: pulumi.Input<string>;
     /**
      * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
      */
-    readonly overrideQueryTimeRange?: pulumi.Input<string>;
+    overrideQueryTimeRange?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly severity: pulumi.Input<number>;
+    severity: pulumi.Input<number>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
      */
-    readonly targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
      */
-    readonly windowSize: pulumi.Input<string>;
+    windowSize: pulumi.Input<string>;
 }

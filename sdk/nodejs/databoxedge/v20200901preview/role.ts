@@ -105,17 +105,17 @@ export interface RoleArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Role type.
      */
-    readonly kind: pulumi.Input<string | enums.databoxedge.v20200901preview.RoleTypes>;
+    kind: pulumi.Input<string | enums.databoxedge.v20200901preview.RoleTypes>;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

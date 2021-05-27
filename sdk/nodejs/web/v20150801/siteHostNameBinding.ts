@@ -140,57 +140,57 @@ export interface SiteHostNameBindingArgs {
     /**
      * Azure resource name
      */
-    readonly azureResourceName?: pulumi.Input<string>;
+    azureResourceName?: pulumi.Input<string>;
     /**
      * Azure resource type
      */
-    readonly azureResourceType?: pulumi.Input<enums.web.v20150801.AzureResourceType>;
+    azureResourceType?: pulumi.Input<enums.web.v20150801.AzureResourceType>;
     /**
      * Custom DNS record type
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<enums.web.v20150801.CustomHostNameDnsRecordType>;
+    customHostNameDnsRecordType?: pulumi.Input<enums.web.v20150801.CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI
      */
-    readonly domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
     /**
      * Name of host
      */
-    readonly hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     /**
      * Host name type
      */
-    readonly hostNameType?: pulumi.Input<enums.web.v20150801.HostNameType>;
+    hostNameType?: pulumi.Input<enums.web.v20150801.HostNameType>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Web app name
      */
-    readonly siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

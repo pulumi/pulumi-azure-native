@@ -110,37 +110,37 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
      */
-    readonly configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string>;
     /**
      * Custom email addresses for this rule notifications
      */
-    readonly customEmails?: pulumi.Input<pulumi.Input<string>[]>;
+    customEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A flag that indicates whether this rule is enabled by the user
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The last time this rule was updated
      */
-    readonly lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string>;
     /**
      * The rule name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    readonly ruleDefinitions?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs>;
+    ruleDefinitions?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs>;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */
-    readonly sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
 }

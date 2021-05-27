@@ -173,65 +173,65 @@ export interface VirtualHubArgs {
     /**
      * Address-prefix for this VirtualHub.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * The azureFirewall associated with this VirtualHub.
      */
-    readonly azureFirewall?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
+    azureFirewall?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */
-    readonly expressRouteGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
+    expressRouteGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
-    readonly p2SVpnGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
+    p2SVpnGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The routeTable associated with this virtual hub.
      */
-    readonly routeTable?: pulumi.Input<inputs.network.v20191201.VirtualHubRouteTableArgs>;
+    routeTable?: pulumi.Input<inputs.network.v20191201.VirtualHubRouteTableArgs>;
     /**
      * The Security Provider name.
      */
-    readonly securityProviderName?: pulumi.Input<string>;
+    securityProviderName?: pulumi.Input<string>;
     /**
      * The sku of this VirtualHub.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName?: pulumi.Input<string>;
+    virtualHubName?: pulumi.Input<string>;
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      */
-    readonly virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.v20191201.VirtualHubRouteTableV2Args>[]>;
+    virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.v20191201.VirtualHubRouteTableV2Args>[]>;
     /**
      * List of all vnet connections with this VirtualHub.
      */
-    readonly virtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20191201.HubVirtualNetworkConnectionArgs>[]>;
+    virtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20191201.HubVirtualNetworkConnectionArgs>[]>;
     /**
      * The VirtualWAN to which the VirtualHub belongs.
      */
-    readonly virtualWan?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
+    virtualWan?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
     /**
      * The VpnGateway associated with this VirtualHub.
      */
-    readonly vpnGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
+    vpnGateway?: pulumi.Input<inputs.network.v20191201.SubResourceArgs>;
 }

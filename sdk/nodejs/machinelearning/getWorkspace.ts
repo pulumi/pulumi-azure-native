@@ -27,11 +27,11 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the resource group to which the machine learning workspace belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the machine learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

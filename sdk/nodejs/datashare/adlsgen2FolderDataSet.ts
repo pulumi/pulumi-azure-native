@@ -158,42 +158,42 @@ export interface ADLSGen2FolderDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * File system to which the folder belongs.
      */
-    readonly fileSystem: pulumi.Input<string>;
+    fileSystem: pulumi.Input<string>;
     /**
      * Folder path within the file system.
      */
-    readonly folderPath: pulumi.Input<string>;
+    folderPath: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'AdlsGen2Folder'.
      */
-    readonly kind: pulumi.Input<"AdlsGen2Folder">;
+    kind: pulumi.Input<"AdlsGen2Folder">;
     /**
      * Resource group of storage account
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * Storage account name of the source data set
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * Subscription id of storage account
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

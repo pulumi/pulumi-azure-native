@@ -155,57 +155,57 @@ export interface HanaInstanceArgs {
     /**
      * Specifies the HANA instance unique ID.
      */
-    readonly hanaInstanceId?: pulumi.Input<string>;
+    hanaInstanceId?: pulumi.Input<string>;
     /**
      * Name of the SAP HANA on Azure instance.
      */
-    readonly hanaInstanceName?: pulumi.Input<string>;
+    hanaInstanceName?: pulumi.Input<string>;
     /**
      * Specifies the hardware settings for the HANA instance.
      */
-    readonly hardwareProfile?: pulumi.Input<inputs.hanaonazure.HardwareProfileArgs>;
+    hardwareProfile?: pulumi.Input<inputs.hanaonazure.HardwareProfileArgs>;
     /**
      * Hardware revision of a HANA instance
      */
-    readonly hwRevision?: pulumi.Input<string>;
+    hwRevision?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the network settings for the HANA instance.
      */
-    readonly networkProfile?: pulumi.Input<inputs.hanaonazure.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.hanaonazure.NetworkProfileArgs>;
     /**
      * Specifies the operating system settings for the HANA instance.
      */
-    readonly osProfile?: pulumi.Input<inputs.hanaonazure.OSProfileArgs>;
+    osProfile?: pulumi.Input<inputs.hanaonazure.OSProfileArgs>;
     /**
      * ARM ID of another HanaInstance that will share a network with this HanaInstance
      */
-    readonly partnerNodeId?: pulumi.Input<string>;
+    partnerNodeId?: pulumi.Input<string>;
     /**
      * Resource power state
      */
-    readonly powerState?: pulumi.Input<string | enums.hanaonazure.HanaInstancePowerStateEnum>;
+    powerState?: pulumi.Input<string | enums.hanaonazure.HanaInstancePowerStateEnum>;
     /**
      * State of provisioning of the HanaInstance
      */
-    readonly provisioningState?: pulumi.Input<string | enums.hanaonazure.HanaProvisioningStatesEnum>;
+    provisioningState?: pulumi.Input<string | enums.hanaonazure.HanaProvisioningStatesEnum>;
     /**
      * Resource proximity placement group
      */
-    readonly proximityPlacementGroup?: pulumi.Input<string>;
+    proximityPlacementGroup?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the storage settings for the HANA instance disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.hanaonazure.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.hanaonazure.StorageProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

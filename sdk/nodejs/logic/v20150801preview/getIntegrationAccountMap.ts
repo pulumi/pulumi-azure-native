@@ -24,15 +24,15 @@ export interface GetIntegrationAccountMapArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The integration account map name.
      */
-    readonly mapName: string;
+    mapName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetIntegrationAccountMapResult {

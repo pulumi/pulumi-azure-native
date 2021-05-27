@@ -28,15 +28,15 @@ export interface ListMonitorUserRolesArgs {
     /**
      * Email of the user used by Logz for contacting them if needed
      */
-    readonly emailAddress?: string;
+    emailAddress?: string;
     /**
      * Monitor resource name
      */
-    readonly monitorName: string;
+    monitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

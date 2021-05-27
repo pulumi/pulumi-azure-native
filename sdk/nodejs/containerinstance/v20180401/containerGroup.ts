@@ -151,44 +151,44 @@ export interface ContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    readonly containerGroupName?: pulumi.Input<string>;
+    containerGroupName?: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.ContainerArgs>[]>;
+    containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.ContainerArgs>[]>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.ImageRegistryCredentialArgs>[]>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.ImageRegistryCredentialArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20180401.IpAddressArgs>;
+    ipAddress?: pulumi.Input<inputs.containerinstance.v20180401.IpAddressArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: pulumi.Input<string | enums.containerinstance.v20180401.OperatingSystemTypes>;
+    osType: pulumi.Input<string | enums.containerinstance.v20180401.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Restart policy for all containers within the container group. 
      * - `Always` Always restart
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: pulumi.Input<string | enums.containerinstance.v20180401.ContainerGroupRestartPolicy>;
+    restartPolicy?: pulumi.Input<string | enums.containerinstance.v20180401.ContainerGroupRestartPolicy>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.VolumeArgs>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20180401.VolumeArgs>[]>;
 }

@@ -160,37 +160,37 @@ export interface AutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * Set the encryption properties for the automation account
      */
-    readonly encryption?: pulumi.Input<inputs.automation.v20200113preview.EncryptionPropertiesArgs>;
+    encryption?: pulumi.Input<inputs.automation.v20200113preview.EncryptionPropertiesArgs>;
     /**
      * Sets the identity property for automation account
      */
-    readonly identity?: pulumi.Input<inputs.automation.v20200113preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.automation.v20200113preview.IdentityArgs>;
     /**
      * Gets or sets the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
      */
-    readonly publicNetworkAccess?: pulumi.Input<boolean>;
+    publicNetworkAccess?: pulumi.Input<boolean>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets account SKU.
      */
-    readonly sku?: pulumi.Input<inputs.automation.v20200113preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.automation.v20200113preview.SkuArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

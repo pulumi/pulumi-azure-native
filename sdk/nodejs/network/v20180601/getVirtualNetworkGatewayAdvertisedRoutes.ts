@@ -27,15 +27,15 @@ export interface GetVirtualNetworkGatewayAdvertisedRoutesArgs {
     /**
      * The IP address of the peer
      */
-    readonly peer: string;
+    peer: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual network gateway.
      */
-    readonly virtualNetworkGatewayName: string;
+    virtualNetworkGatewayName: string;
 }
 
 /**

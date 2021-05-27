@@ -29,23 +29,23 @@ export interface GetJobStepArgs {
     /**
      * The name of the job agent.
      */
-    readonly jobAgentName: string;
+    jobAgentName: string;
     /**
      * The name of the job.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * The name of the job step.
      */
-    readonly stepName: string;
+    stepName: string;
 }
 
 /**

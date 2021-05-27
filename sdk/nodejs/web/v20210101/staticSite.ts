@@ -195,57 +195,57 @@ export interface StaticSiteArgs {
     /**
      * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
      */
-    readonly allowConfigFileUpdates?: pulumi.Input<boolean>;
+    allowConfigFileUpdates?: pulumi.Input<boolean>;
     /**
      * The target branch in the repository.
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Build properties to configure on the repository.
      */
-    readonly buildProperties?: pulumi.Input<inputs.web.v20210101.StaticSiteBuildPropertiesArgs>;
+    buildProperties?: pulumi.Input<inputs.web.v20210101.StaticSiteBuildPropertiesArgs>;
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20210101.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.web.v20210101.ManagedServiceIdentityArgs>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the static site to create or update.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
-    readonly repositoryToken?: pulumi.Input<string>;
+    repositoryToken?: pulumi.Input<string>;
     /**
      * URL for the repository of the static site.
      */
-    readonly repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20210101.SkuDescriptionArgs>;
+    sku?: pulumi.Input<inputs.web.v20210101.SkuDescriptionArgs>;
     /**
      * State indicating whether staging environments are allowed or not allowed for a static web app.
      */
-    readonly stagingEnvironmentPolicy?: pulumi.Input<enums.web.v20210101.StagingEnvironmentPolicy>;
+    stagingEnvironmentPolicy?: pulumi.Input<enums.web.v20210101.StagingEnvironmentPolicy>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Template options for generating a new repository.
      */
-    readonly templateProperties?: pulumi.Input<inputs.web.v20210101.StaticSiteTemplateOptionsArgs>;
+    templateProperties?: pulumi.Input<inputs.web.v20210101.StaticSiteTemplateOptionsArgs>;
 }

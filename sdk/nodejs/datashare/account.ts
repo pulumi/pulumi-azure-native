@@ -134,21 +134,21 @@ export interface AccountArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Identity Info on the Account
      */
-    readonly identity: pulumi.Input<inputs.datashare.IdentityArgs>;
+    identity: pulumi.Input<inputs.datashare.IdentityArgs>;
     /**
      * Location of the azure resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags on the azure resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

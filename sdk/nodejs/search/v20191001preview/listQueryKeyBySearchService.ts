@@ -26,11 +26,11 @@ export interface ListQueryKeyBySearchServiceArgs {
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Azure Cognitive Search service associated with the specified resource group.
      */
-    readonly searchServiceName: string;
+    searchServiceName: string;
 }
 
 /**

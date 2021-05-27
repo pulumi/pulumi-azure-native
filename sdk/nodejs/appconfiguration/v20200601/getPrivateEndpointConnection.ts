@@ -27,15 +27,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: string;
+    configStoreName: string;
     /**
      * Private endpoint connection name
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

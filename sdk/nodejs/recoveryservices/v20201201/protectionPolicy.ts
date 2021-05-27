@@ -110,29 +110,29 @@ export interface ProtectionPolicyArgs {
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Backup policy to be created.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * ProtectionPolicyResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureFileShareProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicyArgs | inputs.recoveryservices.v20201201.GenericProtectionPolicyArgs | inputs.recoveryservices.v20201201.MabProtectionPolicyArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureFileShareProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicyArgs | inputs.recoveryservices.v20201201.GenericProtectionPolicyArgs | inputs.recoveryservices.v20201201.MabProtectionPolicyArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

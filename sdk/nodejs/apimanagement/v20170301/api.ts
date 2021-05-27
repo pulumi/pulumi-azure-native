@@ -176,73 +176,73 @@ export interface ApiArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * Describes the Revision of the Api. If no value is provided, default revision 1 is created
      */
-    readonly apiRevision?: pulumi.Input<string>;
+    apiRevision?: pulumi.Input<string>;
     /**
      * Type of API.
      */
-    readonly apiType?: pulumi.Input<string | enums.apimanagement.v20170301.ApiType>;
+    apiType?: pulumi.Input<string | enums.apimanagement.v20170301.ApiType>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
-    readonly apiVersion?: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string>;
     /**
      * Api Version Set Contract details.
      */
-    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20170301.ApiVersionSetContractArgs>;
+    apiVersionSet?: pulumi.Input<inputs.apimanagement.v20170301.ApiVersionSetContractArgs>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
-    readonly apiVersionSetId?: pulumi.Input<string>;
+    apiVersionSetId?: pulumi.Input<string>;
     /**
      * Collection of authentication settings included into this API.
      */
-    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20170301.AuthenticationSettingsContractArgs>;
+    authenticationSettings?: pulumi.Input<inputs.apimanagement.v20170301.AuthenticationSettingsContractArgs>;
     /**
      * Format of the Content in which the API is getting imported.
      */
-    readonly contentFormat?: pulumi.Input<string | enums.apimanagement.v20170301.ContentFormat>;
+    contentFormat?: pulumi.Input<string | enums.apimanagement.v20170301.ContentFormat>;
     /**
      * Content value when Importing an API.
      */
-    readonly contentValue?: pulumi.Input<string>;
+    contentValue?: pulumi.Input<string>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * API name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    readonly path: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<enums.apimanagement.v20170301.Protocol>[]>;
+    protocols?: pulumi.Input<pulumi.Input<enums.apimanagement.v20170301.Protocol>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API.
      */
-    readonly serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string>;
     /**
      * Protocols over which API is made available.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs>;
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20170301.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
+    wsdlSelector?: pulumi.Input<inputs.apimanagement.v20170301.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>;
 }

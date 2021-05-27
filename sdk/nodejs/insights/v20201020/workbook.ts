@@ -170,65 +170,65 @@ export interface WorkbookArgs {
     /**
      * Workbook category, as defined by the user at creation time.
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * The user-defined name (display name) of the workbook.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Resource etag
      */
-    readonly etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    etag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Identity used for BYOS
      */
-    readonly identity?: pulumi.Input<inputs.insights.v20201020.WorkbookManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.insights.v20201020.WorkbookManagedIdentityArgs>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20201020.Kind>;
+    kind?: pulumi.Input<string | enums.insights.v20201020.Kind>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
-    readonly serializedData: pulumi.Input<string>;
+    serializedData: pulumi.Input<string>;
     /**
      * ResourceId for a source resource.
      */
-    readonly sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string>;
     /**
      * BYOS Storage Account URI
      */
-    readonly storageUri?: pulumi.Input<string>;
+    storageUri?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Workbook version
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

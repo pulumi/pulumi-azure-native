@@ -104,25 +104,25 @@ export interface NamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Action
      */
-    readonly action?: pulumi.Input<string | enums.servicebus.v20180101preview.IPAction>;
+    action?: pulumi.Input<string | enums.servicebus.v20180101preview.IPAction>;
     /**
      * IP Filter name
      */
-    readonly filterName?: pulumi.Input<string>;
+    filterName?: pulumi.Input<string>;
     /**
      * The IP Filter Rule name.
      */
-    readonly ipFilterRuleName?: pulumi.Input<string>;
+    ipFilterRuleName?: pulumi.Input<string>;
     /**
      * IP Mask
      */
-    readonly ipMask?: pulumi.Input<string>;
+    ipMask?: pulumi.Input<string>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

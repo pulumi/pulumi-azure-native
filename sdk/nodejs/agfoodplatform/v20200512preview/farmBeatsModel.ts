@@ -112,17 +112,17 @@ export interface FarmBeatsModelArgs {
     /**
      * FarmBeats resource name.
      */
-    readonly farmBeatsResourceName?: pulumi.Input<string>;
+    farmBeatsResourceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

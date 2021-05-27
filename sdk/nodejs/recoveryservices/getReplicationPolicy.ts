@@ -28,15 +28,15 @@ export interface GetReplicationPolicyArgs {
     /**
      * Replication policy name.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

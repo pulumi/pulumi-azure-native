@@ -28,19 +28,19 @@ export interface GetDatabaseAccountCassandraTableArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Cosmos DB keyspace name.
      */
-    readonly keyspaceName: string;
+    keyspaceName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Cosmos DB table name.
      */
-    readonly tableName: string;
+    tableName: string;
 }
 
 /**

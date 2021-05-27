@@ -110,25 +110,25 @@ export interface StorageDomainArgs {
     /**
      * The encryption key used to encrypt the data. This is a user secret.
      */
-    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
+    encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
     /**
      * The encryption status "Enabled | Disabled".
      */
-    readonly encryptionStatus: pulumi.Input<enums.storsimple.v20161001.EncryptionStatus>;
+    encryptionStatus: pulumi.Input<enums.storsimple.v20161001.EncryptionStatus>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage account credentials.
      */
-    readonly storageAccountCredentialIds: pulumi.Input<pulumi.Input<string>[]>;
+    storageAccountCredentialIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The storage domain name.
      */
-    readonly storageDomainName?: pulumi.Input<string>;
+    storageDomainName?: pulumi.Input<string>;
 }

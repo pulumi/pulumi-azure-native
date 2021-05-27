@@ -119,21 +119,21 @@ export interface RestorePointCollectionArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the restore point collection.
      */
-    readonly restorePointCollectionName?: pulumi.Input<string>;
+    restorePointCollectionName?: pulumi.Input<string>;
     /**
      * The properties of the source resource that this restore point collection is created from.
      */
-    readonly source?: pulumi.Input<inputs.compute.RestorePointCollectionSourcePropertiesArgs>;
+    source?: pulumi.Input<inputs.compute.RestorePointCollectionSourcePropertiesArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

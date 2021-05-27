@@ -28,15 +28,15 @@ export interface GetIntegrationAccountPartnerArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The integration account partner name.
      */
-    readonly partnerName: string;
+    partnerName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

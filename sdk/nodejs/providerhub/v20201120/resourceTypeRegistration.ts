@@ -79,13 +79,13 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceTypeRegistration resource.
  */
 export interface ResourceTypeRegistrationArgs {
-    readonly properties?: pulumi.Input<inputs.providerhub.v20201120.ResourceTypeRegistrationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.providerhub.v20201120.ResourceTypeRegistrationPropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: pulumi.Input<string>;
+    providerNamespace: pulumi.Input<string>;
     /**
      * The resource type.
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
 }

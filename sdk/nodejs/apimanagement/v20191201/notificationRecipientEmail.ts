@@ -94,17 +94,17 @@ export interface NotificationRecipientEmailArgs {
     /**
      * Email identifier.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * Notification Name Identifier.
      */
-    readonly notificationName: pulumi.Input<string>;
+    notificationName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

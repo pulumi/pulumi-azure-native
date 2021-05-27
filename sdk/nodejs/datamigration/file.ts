@@ -103,25 +103,25 @@ export interface FileArgs {
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the File
      */
-    readonly fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Custom file properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.ProjectFilePropertiesArgs>;
+    properties?: pulumi.Input<inputs.datamigration.ProjectFilePropertiesArgs>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

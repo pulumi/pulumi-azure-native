@@ -102,29 +102,29 @@ export interface AccountArgs {
     /**
      * The account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The Azure instance location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The type of the operation.
      */
-    readonly operationType?: pulumi.Input<string | enums.visualstudio.v20171101preview.AccountResourceRequestOperationType>;
+    operationType?: pulumi.Input<string | enums.visualstudio.v20171101preview.AccountResourceRequestOperationType>;
     /**
      * The custom properties of the resource.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The custom tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

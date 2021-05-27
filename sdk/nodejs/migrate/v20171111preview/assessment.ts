@@ -243,65 +243,65 @@ export interface AssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    readonly assessmentName?: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * AHUB discount on windows virtual machines.
      */
-    readonly azureHybridUseBenefit: pulumi.Input<string | enums.migrate.v20171111preview.AzureHybridUseBenefit>;
+    azureHybridUseBenefit: pulumi.Input<string | enums.migrate.v20171111preview.AzureHybridUseBenefit>;
     /**
      * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
      */
-    readonly azureLocation: pulumi.Input<string | enums.migrate.v20171111preview.AzureLocation>;
+    azureLocation: pulumi.Input<string | enums.migrate.v20171111preview.AzureLocation>;
     /**
      * Offer code according to which cost estimation is done.
      */
-    readonly azureOfferCode: pulumi.Input<string | enums.migrate.v20171111preview.AzureOfferCode>;
+    azureOfferCode: pulumi.Input<string | enums.migrate.v20171111preview.AzureOfferCode>;
     /**
      * Pricing tier for Size evaluation.
      */
-    readonly azurePricingTier: pulumi.Input<string | enums.migrate.v20171111preview.AzurePricingTier>;
+    azurePricingTier: pulumi.Input<string | enums.migrate.v20171111preview.AzurePricingTier>;
     /**
      * Storage Redundancy type offered by Azure.
      */
-    readonly azureStorageRedundancy: pulumi.Input<string | enums.migrate.v20171111preview.AzureStorageRedundancy>;
+    azureStorageRedundancy: pulumi.Input<string | enums.migrate.v20171111preview.AzureStorageRedundancy>;
     /**
      * Currency to report prices in.
      */
-    readonly currency: pulumi.Input<string | enums.migrate.v20171111preview.Currency>;
+    currency: pulumi.Input<string | enums.migrate.v20171111preview.Currency>;
     /**
      * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
      */
-    readonly discountPercentage: pulumi.Input<number>;
+    discountPercentage: pulumi.Input<number>;
     /**
      * For optimistic concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Percentile of performance data used to recommend Azure size.
      */
-    readonly percentile: pulumi.Input<string | enums.migrate.v20171111preview.Percentile>;
+    percentile: pulumi.Input<string | enums.migrate.v20171111preview.Percentile>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
      */
-    readonly scalingFactor: pulumi.Input<number>;
+    scalingFactor: pulumi.Input<number>;
     /**
      * User configurable setting that describes the status of the assessment.
      */
-    readonly stage: pulumi.Input<string | enums.migrate.v20171111preview.AssessmentStage>;
+    stage: pulumi.Input<string | enums.migrate.v20171111preview.AssessmentStage>;
     /**
      * Time range of performance data used to recommend a size.
      */
-    readonly timeRange: pulumi.Input<string | enums.migrate.v20171111preview.TimeRange>;
+    timeRange: pulumi.Input<string | enums.migrate.v20171111preview.TimeRange>;
 }

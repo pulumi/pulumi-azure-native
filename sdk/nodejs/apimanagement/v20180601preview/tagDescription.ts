@@ -113,29 +113,29 @@ export interface TagDescriptionArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Description of the Tag.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Description of the external resources describing the tag.
      */
-    readonly externalDocsDescription?: pulumi.Input<string>;
+    externalDocsDescription?: pulumi.Input<string>;
     /**
      * Absolute URL of external resources describing the tag.
      */
-    readonly externalDocsUrl?: pulumi.Input<string>;
+    externalDocsUrl?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    readonly tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string>;
 }

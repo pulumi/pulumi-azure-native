@@ -27,15 +27,15 @@ export interface GetRegisteredAsnArgs {
     /**
      * The name of the peering.
      */
-    readonly peeringName: string;
+    peeringName: string;
     /**
      * The name of the registered ASN.
      */
-    readonly registeredAsnName: string;
+    registeredAsnName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

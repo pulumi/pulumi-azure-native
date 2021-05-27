@@ -28,15 +28,15 @@ export interface ListManagedClusterAccessProfileArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * The name of the role for managed cluster accessProfile resource.
      */
-    readonly roleName: string;
+    roleName: string;
 }
 
 /**

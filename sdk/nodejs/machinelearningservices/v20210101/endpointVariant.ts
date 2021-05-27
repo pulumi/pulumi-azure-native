@@ -133,53 +133,53 @@ export interface EndpointVariantArgs {
      * The compute environment type for the service.
      * Expected value is 'Custom'.
      */
-    readonly computeType: pulumi.Input<"Custom">;
+    computeType: pulumi.Input<"Custom">;
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Environment, models and assets needed for inferencing.
      */
-    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequestArgs>;
+    environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequestArgs>;
     /**
      * Is this the default variant.
      */
-    readonly isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
     /**
      * The authentication keys.
      */
-    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeysArgs>;
+    keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeysArgs>;
     /**
      * The service tag dictionary. Tags are mutable.
      */
-    readonly kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Azure location/region.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The service properties dictionary. Properties are immutable.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The amount of traffic variant receives.
      */
-    readonly trafficPercentile?: pulumi.Input<number>;
+    trafficPercentile?: pulumi.Input<number>;
     /**
      * The type of the variant.
      */
-    readonly type?: pulumi.Input<string | enums.machinelearningservices.v20210101.VariantType>;
+    type?: pulumi.Input<string | enums.machinelearningservices.v20210101.VariantType>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

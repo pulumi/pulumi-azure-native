@@ -29,19 +29,19 @@ export interface GetWebAppPrivateEndpointConnectionSlotArgs {
     /**
      * Name of the site.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the site deployment slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

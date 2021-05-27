@@ -143,25 +143,25 @@ export interface NetworkSecurityGroupArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network security group.
      */
-    readonly networkSecurityGroupName?: pulumi.Input<string>;
+    networkSecurityGroupName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20191201.SecurityRuleArgs>[]>;
+    securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20191201.SecurityRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -141,45 +141,45 @@ export interface PolicyAssignmentArgs {
     /**
      * This message will be part of response in case of policy violation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy assignment.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: pulumi.Input<inputs.authorization.v20190101.IdentityArgs>;
+    identity?: pulumi.Input<inputs.authorization.v20190101.IdentityArgs>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The policy assignment metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The policy's excluded scopes.
      */
-    readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Required if a parameter is used in policy rule.
      */
-    readonly parameters?: any;
+    parameters?: any;
     /**
      * The name of the policy assignment.
      */
-    readonly policyAssignmentName?: pulumi.Input<string>;
+    policyAssignmentName?: pulumi.Input<string>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */
-    readonly policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionId?: pulumi.Input<string>;
     /**
      * The scope for the policy assignment.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    readonly sku?: pulumi.Input<inputs.authorization.v20190101.PolicySkuArgs>;
+    sku?: pulumi.Input<inputs.authorization.v20190101.PolicySkuArgs>;
 }

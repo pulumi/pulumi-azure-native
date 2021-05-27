@@ -115,25 +115,25 @@ export interface DedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName?: pulumi.Input<string>;
+    hostGroupName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Number of fault domains that the host group can span.
      */
-    readonly platformFaultDomainCount: pulumi.Input<number>;
+    platformFaultDomainCount: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

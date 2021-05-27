@@ -112,30 +112,30 @@ export interface UebaArgs {
     /**
      * The relevant data sources that enriched by ueba
      */
-    readonly dataSources?: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20190101preview.UebaDataSources>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20190101preview.UebaDataSources>[]>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'Ueba'.
      */
-    readonly kind: pulumi.Input<"Ueba">;
+    kind: pulumi.Input<"Ueba">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The setting name. Supports - EyesOn, EntityAnalytics, Ueba
      */
-    readonly settingsName?: pulumi.Input<string>;
+    settingsName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -29,23 +29,23 @@ export interface GetTagByOperationArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly operationId: string;
+    operationId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    readonly tagId: string;
+    tagId: string;
 }
 
 /**

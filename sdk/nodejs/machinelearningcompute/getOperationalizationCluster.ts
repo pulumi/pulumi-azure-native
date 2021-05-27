@@ -27,11 +27,11 @@ export interface GetOperationalizationClusterArgs {
     /**
      * The name of the cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * Name of the resource group in which the cluster is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

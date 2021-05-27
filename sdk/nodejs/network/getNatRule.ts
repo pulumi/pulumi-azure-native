@@ -28,15 +28,15 @@ export interface GetNatRuleArgs {
     /**
      * The name of the gateway.
      */
-    readonly gatewayName: string;
+    gatewayName: string;
     /**
      * The name of the nat rule.
      */
-    readonly natRuleName: string;
+    natRuleName: string;
     /**
      * The resource group name of the VpnGateway.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

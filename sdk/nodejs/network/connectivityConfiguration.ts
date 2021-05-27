@@ -150,41 +150,41 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItemArgs>[]>;
+    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItemArgs>[]>;
     /**
      * The name of the network manager connectivity configuration.
      */
-    readonly configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Connectivity topology type.
      */
-    readonly connectivityTopology: pulumi.Input<string | enums.network.ConnectivityTopology>;
+    connectivityTopology: pulumi.Input<string | enums.network.ConnectivityTopology>;
     /**
      * Flag if need to remove current existing peerings.
      */
-    readonly deleteExistingPeering?: pulumi.Input<string | enums.network.DeleteExistingPeering>;
+    deleteExistingPeering?: pulumi.Input<string | enums.network.DeleteExistingPeering>;
     /**
      * A description of the connectivity configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name for the resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The hub vnet Id.
      */
-    readonly hubId?: pulumi.Input<string>;
+    hubId?: pulumi.Input<string>;
     /**
      * Flag if global mesh is supported.
      */
-    readonly isGlobal?: pulumi.Input<string | enums.network.IsGlobal>;
+    isGlobal?: pulumi.Input<string | enums.network.IsGlobal>;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: pulumi.Input<string>;
+    networkManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

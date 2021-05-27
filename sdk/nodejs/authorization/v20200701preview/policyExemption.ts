@@ -136,37 +136,37 @@ export interface PolicyExemptionArgs {
     /**
      * The description of the policy exemption.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy exemption.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy exemption category. Possible values are Waiver and Mitigated.
      */
-    readonly exemptionCategory: pulumi.Input<string | enums.authorization.v20200701preview.ExemptionCategory>;
+    exemptionCategory: pulumi.Input<string | enums.authorization.v20200701preview.ExemptionCategory>;
     /**
      * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
      */
-    readonly expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string>;
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The ID of the policy assignment that is being exempted.
      */
-    readonly policyAssignmentId: pulumi.Input<string>;
+    policyAssignmentId: pulumi.Input<string>;
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    readonly policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the policy exemption to delete.
      */
-    readonly policyExemptionName?: pulumi.Input<string>;
+    policyExemptionName?: pulumi.Input<string>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

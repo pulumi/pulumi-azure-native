@@ -26,11 +26,11 @@ export interface GetProximityPlacementGroupArgs {
     /**
      * The name of the proximity placement group.
      */
-    readonly proximityPlacementGroupName: string;
+    proximityPlacementGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

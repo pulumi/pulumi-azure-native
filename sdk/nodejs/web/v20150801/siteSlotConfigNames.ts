@@ -114,37 +114,37 @@ export interface SiteSlotConfigNamesArgs {
     /**
      * List of application settings names
      */
-    readonly appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+    appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of connection string names
      */
-    readonly connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

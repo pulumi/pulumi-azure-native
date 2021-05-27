@@ -26,11 +26,11 @@ export interface GetDeploymentAtManagementGroupScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
     /**
      * The management group ID.
      */
-    readonly groupId: string;
+    groupId: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetHealthAlertArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the rule.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

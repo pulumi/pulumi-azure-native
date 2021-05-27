@@ -108,17 +108,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.attestation.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.attestation.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the attestation provider.
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetGalleryArgs {
     /**
      * The name of the Shared Image Gallery.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

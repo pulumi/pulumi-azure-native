@@ -100,21 +100,21 @@ export interface ServiceTopologyArgs {
     /**
      * The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
      */
-    readonly artifactSourceId?: pulumi.Input<string>;
+    artifactSourceId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service topology .
      */
-    readonly serviceTopologyName?: pulumi.Input<string>;
+    serviceTopologyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

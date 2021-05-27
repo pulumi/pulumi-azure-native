@@ -130,33 +130,33 @@ export interface AccountArgs {
     /**
      * The name of Cognitive Services account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.cognitiveservices.v20210430.IdentityArgs>;
+    identity?: pulumi.Input<inputs.cognitiveservices.v20210430.IdentityArgs>;
     /**
      * The Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account.
      */
-    readonly properties?: pulumi.Input<inputs.cognitiveservices.v20210430.AccountPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.v20210430.AccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource model definition representing SKU
      */
-    readonly sku?: pulumi.Input<inputs.cognitiveservices.v20210430.SkuArgs>;
+    sku?: pulumi.Input<inputs.cognitiveservices.v20210430.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

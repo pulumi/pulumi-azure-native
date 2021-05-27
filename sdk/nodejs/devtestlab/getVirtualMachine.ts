@@ -29,19 +29,19 @@ export interface GetVirtualMachineArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the virtual machine.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

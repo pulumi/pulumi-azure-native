@@ -98,21 +98,21 @@ export interface CustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    readonly customerSubscriptionName?: pulumi.Input<string>;
+    customerSubscriptionName?: pulumi.Input<string>;
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Name of the Azure Stack registration.
      */
-    readonly registrationName: pulumi.Input<string>;
+    registrationName: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * Tenant Id.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

@@ -164,52 +164,52 @@ export interface PartnerTopicEventSubscriptionArgs {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs>;
+    deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs>;
+    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs>;
+    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
     /**
      * The event delivery schema for the event subscription.
      */
-    readonly eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.EventDeliverySchema>;
+    eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.EventDeliverySchema>;
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
      */
-    readonly eventSubscriptionName?: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string>;
     /**
      * Expiration time of the event subscription.
      */
-    readonly expirationTimeUtc?: pulumi.Input<string>;
+    expirationTimeUtc?: pulumi.Input<string>;
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.EventSubscriptionFilterArgs>;
+    filter?: pulumi.Input<inputs.eventgrid.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the partner topic.
      */
-    readonly partnerTopicName: pulumi.Input<string>;
+    partnerTopicName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.RetryPolicyArgs>;
+    retryPolicy?: pulumi.Input<inputs.eventgrid.RetryPolicyArgs>;
 }

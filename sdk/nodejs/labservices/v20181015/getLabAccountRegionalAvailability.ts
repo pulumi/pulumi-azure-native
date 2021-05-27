@@ -26,11 +26,11 @@ export interface GetLabAccountRegionalAvailabilityArgs {
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: string;
+    labAccountName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

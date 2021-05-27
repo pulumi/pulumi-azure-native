@@ -116,25 +116,25 @@ export interface AddressByNameArgs {
     /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly addressName?: pulumi.Input<string>;
+    addressName?: pulumi.Input<string>;
     /**
      * Contact details for the address
      */
-    readonly contactDetails: pulumi.Input<inputs.edgeorder.ContactDetailsArgs>;
+    contactDetails: pulumi.Input<inputs.edgeorder.ContactDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Shipping details for the address
      */
-    readonly shippingAddress?: pulumi.Input<inputs.edgeorder.ShippingAddressArgs>;
+    shippingAddress?: pulumi.Input<inputs.edgeorder.ShippingAddressArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

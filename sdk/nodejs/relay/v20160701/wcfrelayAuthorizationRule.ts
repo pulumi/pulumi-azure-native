@@ -99,21 +99,21 @@ export interface WCFRelayAuthorizationRuleArgs {
     /**
      * The authorizationRule name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The Namespace Name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The relay name
      */
-    readonly relayName: pulumi.Input<string>;
+    relayName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string | enums.relay.v20160701.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<string | enums.relay.v20160701.AccessRights>[]>;
 }

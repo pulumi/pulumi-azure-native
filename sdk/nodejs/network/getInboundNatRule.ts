@@ -29,19 +29,19 @@ export interface GetInboundNatRuleArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the inbound nat rule.
      */
-    readonly inboundNatRuleName: string;
+    inboundNatRuleName: string;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

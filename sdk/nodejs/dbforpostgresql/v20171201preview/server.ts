@@ -200,25 +200,25 @@ export interface ServerArgs {
     /**
      * The location the resource resides in.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201preview.ServerPropertiesForDefaultCreateArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForGeoRestoreArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForReplicaArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForRestoreArgs>;
+    properties: pulumi.Input<inputs.dbforpostgresql.v20171201preview.ServerPropertiesForDefaultCreateArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForGeoRestoreArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForReplicaArgs | inputs.dbforpostgresql.v20171201preview.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20171201preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.dbforpostgresql.v20171201preview.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

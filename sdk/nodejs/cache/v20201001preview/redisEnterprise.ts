@@ -145,29 +145,29 @@ export interface RedisEnterpriseArgs {
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20201001preview.EnterpriseSkuArgs>;
+    sku: pulumi.Input<inputs.cache.v20201001preview.EnterpriseSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The zones where this cluster will be deployed.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

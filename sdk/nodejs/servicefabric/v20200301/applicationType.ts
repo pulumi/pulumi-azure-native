@@ -109,21 +109,21 @@ export interface ApplicationTypeArgs {
     /**
      * The name of the application type name resource.
      */
-    readonly applicationTypeName?: pulumi.Input<string>;
+    applicationTypeName?: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Azure resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

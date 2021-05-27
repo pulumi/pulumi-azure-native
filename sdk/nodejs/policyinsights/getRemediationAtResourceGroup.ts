@@ -27,11 +27,11 @@ export interface GetRemediationAtResourceGroupArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
     /**
      * Resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

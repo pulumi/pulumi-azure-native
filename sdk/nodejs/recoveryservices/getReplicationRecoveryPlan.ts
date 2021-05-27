@@ -28,15 +28,15 @@ export interface GetReplicationRecoveryPlanArgs {
     /**
      * Name of the recovery plan.
      */
-    readonly recoveryPlanName: string;
+    recoveryPlanName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

@@ -29,19 +29,19 @@ export interface ListConnectionConsentLinksArgs {
     /**
      * Connection name
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * Collection of resources
      */
-    readonly parameters?: inputs.web.ConsentLinkParameterDefinition[];
+    parameters?: inputs.web.ConsentLinkParameterDefinition[];
     /**
      * The resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

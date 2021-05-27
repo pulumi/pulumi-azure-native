@@ -108,21 +108,21 @@ export interface PeerAsnArgs {
     /**
      * The Autonomous System Number (ASN) of the peer.
      */
-    readonly peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * The peer ASN name.
      */
-    readonly peerAsnName?: pulumi.Input<string>;
+    peerAsnName?: pulumi.Input<string>;
     /**
      * The contact details of the peer.
      */
-    readonly peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.v20210101.ContactDetailArgs>[]>;
+    peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.v20210101.ContactDetailArgs>[]>;
     /**
      * The name of the peer.
      */
-    readonly peerName?: pulumi.Input<string>;
+    peerName?: pulumi.Input<string>;
     /**
      * The validation state of the ASN associated with the peer.
      */
-    readonly validationState?: pulumi.Input<string | enums.peering.v20210101.ValidationState>;
+    validationState?: pulumi.Input<string | enums.peering.v20210101.ValidationState>;
 }

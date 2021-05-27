@@ -28,15 +28,15 @@ export interface ListWorkflowTriggerCallbackUrlArgs {
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The workflow trigger name.
      */
-    readonly triggerName: string;
+    triggerName: string;
     /**
      * The workflow name.
      */
-    readonly workflowName: string;
+    workflowName: string;
 }
 
 /**

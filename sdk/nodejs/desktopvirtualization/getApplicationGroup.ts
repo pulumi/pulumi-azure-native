@@ -27,11 +27,11 @@ export interface GetApplicationGroupArgs {
     /**
      * The name of the application group
      */
-    readonly applicationGroupName: string;
+    applicationGroupName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -139,41 +139,41 @@ export interface ManagerExtendedInfoArgs {
     /**
      * Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
      */
-    readonly algorithm: pulumi.Input<string>;
+    algorithm: pulumi.Input<string>;
     /**
      * Represents the CEK of the resource.
      */
-    readonly encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string>;
     /**
      * Represents the Cert thumbprint that was used to encrypt the CEK.
      */
-    readonly encryptionKeyThumbprint?: pulumi.Input<string>;
+    encryptionKeyThumbprint?: pulumi.Input<string>;
     /**
      * The etag of the resource.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Represents the CIK of the resource.
      */
-    readonly integrityKey: pulumi.Input<string>;
+    integrityKey: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
+    kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */
-    readonly portalCertificateThumbprint?: pulumi.Input<string>;
+    portalCertificateThumbprint?: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The version of the extended info being persisted.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

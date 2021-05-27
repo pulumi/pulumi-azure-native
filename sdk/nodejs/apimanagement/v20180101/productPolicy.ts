@@ -105,25 +105,25 @@ export interface ProductPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    readonly contentFormat?: pulumi.Input<string | enums.apimanagement.v20180101.PolicyContentFormat>;
+    contentFormat?: pulumi.Input<string | enums.apimanagement.v20180101.PolicyContentFormat>;
     /**
      * Json escaped Xml Encoded contents of the Policy.
      */
-    readonly policyContent: pulumi.Input<string>;
+    policyContent: pulumi.Input<string>;
     /**
      * The identifier of the Policy.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    readonly productId: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

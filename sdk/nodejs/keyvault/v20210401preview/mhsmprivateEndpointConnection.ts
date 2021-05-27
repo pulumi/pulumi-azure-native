@@ -133,33 +133,33 @@ export interface MHSMPrivateEndpointConnectionArgs {
     /**
      * Modified whenever there is a change in the state of private endpoint connection.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the managed HSM Pool
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection associated with the managed hsm pool.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Approval state of the private link connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20210401preview.MHSMPrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20210401preview.MHSMPrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU details
      */
-    readonly sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSkuArgs>;
+    sku?: pulumi.Input<inputs.keyvault.v20210401preview.ManagedHsmSkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -27,15 +27,15 @@ export interface ListNamespaceKeysArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: string;
+    authorizationRuleName: string;
     /**
      * The Namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetExpressRouteCircuitAuthorizationArgs {
     /**
      * The name of the authorization.
      */
-    readonly authorizationName: string;
+    authorizationName: string;
     /**
      * The name of the express route circuit.
      */
-    readonly circuitName: string;
+    circuitName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

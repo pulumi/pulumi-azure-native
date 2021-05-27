@@ -122,33 +122,33 @@ export interface EmailTemplateArgs {
     /**
      * Email Template Body. This should be a valid XDocument
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * Description of the Email Template.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Email Template Parameter values.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.EmailTemplateParametersContractPropertiesArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20200601preview.EmailTemplateParametersContractPropertiesArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Subject of the Template.
      */
-    readonly subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string>;
     /**
      * Email Template Name Identifier.
      */
-    readonly templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string>;
     /**
      * Title of the Template.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
 }

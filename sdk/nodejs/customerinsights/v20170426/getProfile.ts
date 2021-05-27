@@ -28,19 +28,19 @@ export interface GetProfileArgs {
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * Locale of profile to retrieve, default is en-us.
      */
-    readonly localeCode?: string;
+    localeCode?: string;
     /**
      * The name of the profile.
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

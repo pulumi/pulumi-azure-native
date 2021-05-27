@@ -128,33 +128,33 @@ export interface AutoScaleVCoreArgs {
     /**
      * The maximum capacity of an auto scale v-core resource.
      */
-    readonly capacityLimit?: pulumi.Input<number>;
+    capacityLimit?: pulumi.Input<number>;
     /**
      * The object ID of the capacity resource associated with the auto scale v-core resource.
      */
-    readonly capacityObjectId?: pulumi.Input<string>;
+    capacityObjectId?: pulumi.Input<string>;
     /**
      * Location of the PowerBI Dedicated resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the auto scale v-core resource.
      */
-    readonly sku: pulumi.Input<inputs.powerbidedicated.AutoScaleVCoreSkuArgs>;
+    sku: pulumi.Input<inputs.powerbidedicated.AutoScaleVCoreSkuArgs>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData?: pulumi.Input<inputs.powerbidedicated.SystemDataArgs>;
+    systemData?: pulumi.Input<inputs.powerbidedicated.SystemDataArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly vcoreName?: pulumi.Input<string>;
+    vcoreName?: pulumi.Input<string>;
 }

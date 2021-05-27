@@ -142,53 +142,53 @@ export interface ResourceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.resources.v20190301.IdentityArgs>;
+    identity?: pulumi.Input<inputs.resources.v20190301.IdentityArgs>;
     /**
      * The kind of the resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ID of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The parent resource identity.
      */
-    readonly parentResourcePath: pulumi.Input<string>;
+    parentResourcePath: pulumi.Input<string>;
     /**
      * The plan of the resource.
      */
-    readonly plan?: pulumi.Input<inputs.resources.v20190301.PlanArgs>;
+    plan?: pulumi.Input<inputs.resources.v20190301.PlanArgs>;
     /**
      * The resource properties.
      */
-    readonly properties?: any;
+    properties?: any;
     /**
      * The name of the resource group for the resource. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the resource to create.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The namespace of the resource provider.
      */
-    readonly resourceProviderNamespace: pulumi.Input<string>;
+    resourceProviderNamespace: pulumi.Input<string>;
     /**
      * The resource type of the resource to create.
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.resources.v20190301.SkuArgs>;
+    sku?: pulumi.Input<inputs.resources.v20190301.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

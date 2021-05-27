@@ -121,26 +121,26 @@ export interface SynapseWorkspaceSqlPoolTableDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'SynapseWorkspaceSqlPoolTable'.
      */
-    readonly kind: pulumi.Input<"SynapseWorkspaceSqlPoolTable">;
+    kind: pulumi.Input<"SynapseWorkspaceSqlPoolTable">;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * Resource id of the Synapse Workspace SQL Pool Table
      */
-    readonly synapseWorkspaceSqlPoolTableResourceId: pulumi.Input<string>;
+    synapseWorkspaceSqlPoolTableResourceId: pulumi.Input<string>;
 }

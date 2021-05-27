@@ -106,21 +106,21 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * Managed private endpoint name
      */
-    readonly managedPrivateEndpointName?: pulumi.Input<string>;
+    managedPrivateEndpointName?: pulumi.Input<string>;
     /**
      * Managed virtual network name
      */
-    readonly managedVirtualNetworkName: pulumi.Input<string>;
+    managedVirtualNetworkName: pulumi.Input<string>;
     /**
      * Managed private endpoint properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.ManagedPrivateEndpointArgs>;
+    properties: pulumi.Input<inputs.datafactory.ManagedPrivateEndpointArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -111,41 +111,41 @@ export interface ProtectionPolicyArgs {
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource ID represents the complete path to the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource name associated with the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The backup policy to be created.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20160601.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20160601.MabProtectionPolicyArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20160601.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20160601.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20160601.MabProtectionPolicyArgs>;
     /**
      * The name of the resource group associated with the Recovery Services vault.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The name of the Recovery Services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

@@ -123,36 +123,36 @@ export interface WebAppSitePushSettingsSlotArgs {
     /**
      * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
      */
-    readonly dynamicTagsJson?: pulumi.Input<string>;
+    dynamicTagsJson?: pulumi.Input<string>;
     /**
      * Gets or sets a flag indicating whether the Push endpoint is enabled.
      */
-    readonly isPushEnabled: pulumi.Input<boolean>;
+    isPushEnabled: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of web app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
-    readonly tagWhitelistJson?: pulumi.Input<string>;
+    tagWhitelistJson?: pulumi.Input<string>;
     /**
      * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
      * Tags can consist of alphanumeric characters and the following:
      * '_', '@', '#', '.', ':', '-'. 
      * Validation should be performed at the PushRequestHandler.
      */
-    readonly tagsRequiringAuth?: pulumi.Input<string>;
+    tagsRequiringAuth?: pulumi.Input<string>;
 }

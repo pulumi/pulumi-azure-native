@@ -153,37 +153,37 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
  * The set of arguments for constructing a IoMAMPolicyByName resource.
  */
 export interface IoMAMPolicyByNameArgs {
-    readonly accessRecheckOfflineTimeout?: pulumi.Input<string>;
-    readonly accessRecheckOnlineTimeout?: pulumi.Input<string>;
-    readonly appSharingFromLevel?: pulumi.Input<string>;
-    readonly appSharingToLevel?: pulumi.Input<string>;
-    readonly authentication?: pulumi.Input<string>;
-    readonly clipboardSharingLevel?: pulumi.Input<string>;
-    readonly dataBackup?: pulumi.Input<string>;
-    readonly description?: pulumi.Input<string>;
-    readonly deviceCompliance?: pulumi.Input<string>;
-    readonly fileEncryptionLevel?: pulumi.Input<string>;
-    readonly fileSharingSaveAs?: pulumi.Input<string>;
-    readonly friendlyName: pulumi.Input<string>;
+    accessRecheckOfflineTimeout?: pulumi.Input<string>;
+    accessRecheckOnlineTimeout?: pulumi.Input<string>;
+    appSharingFromLevel?: pulumi.Input<string>;
+    appSharingToLevel?: pulumi.Input<string>;
+    authentication?: pulumi.Input<string>;
+    clipboardSharingLevel?: pulumi.Input<string>;
+    dataBackup?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    deviceCompliance?: pulumi.Input<string>;
+    fileEncryptionLevel?: pulumi.Input<string>;
+    fileSharingSaveAs?: pulumi.Input<string>;
+    friendlyName: pulumi.Input<string>;
     /**
      * Location hostName for the tenant
      */
-    readonly hostName: pulumi.Input<string>;
+    hostName: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
-    readonly managedBrowser?: pulumi.Input<string>;
-    readonly offlineWipeTimeout?: pulumi.Input<string>;
-    readonly pin?: pulumi.Input<string>;
-    readonly pinNumRetry?: pulumi.Input<number>;
+    location?: pulumi.Input<string>;
+    managedBrowser?: pulumi.Input<string>;
+    offlineWipeTimeout?: pulumi.Input<string>;
+    pin?: pulumi.Input<string>;
+    pinNumRetry?: pulumi.Input<number>;
     /**
      * Unique name for the policy
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Resource Tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly touchId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    touchId?: pulumi.Input<string>;
 }

@@ -27,11 +27,11 @@ export interface GetActiveSessionsArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly bastionHostName: string;
+    bastionHostName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

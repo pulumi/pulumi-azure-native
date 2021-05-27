@@ -152,29 +152,29 @@ export interface JitRequestArgs {
     /**
      * The parent application id.
      */
-    readonly applicationResourceId: pulumi.Input<string>;
+    applicationResourceId: pulumi.Input<string>;
     /**
      * The JIT authorization policies.
      */
-    readonly jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.JitAuthorizationPoliciesArgs>[]>;
+    jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.JitAuthorizationPoliciesArgs>[]>;
     /**
      * The name of the JIT request.
      */
-    readonly jitRequestName?: pulumi.Input<string>;
+    jitRequestName?: pulumi.Input<string>;
     /**
      * The JIT request properties.
      */
-    readonly jitSchedulingPolicy: pulumi.Input<inputs.solutions.JitSchedulingPolicyArgs>;
+    jitSchedulingPolicy: pulumi.Input<inputs.solutions.JitSchedulingPolicyArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

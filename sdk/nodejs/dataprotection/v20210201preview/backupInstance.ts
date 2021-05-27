@@ -98,17 +98,17 @@ export interface BackupInstanceArgs {
     /**
      * The name of the backup instance
      */
-    readonly backupInstanceName?: pulumi.Input<string>;
+    backupInstanceName?: pulumi.Input<string>;
     /**
      * BackupInstanceResource properties
      */
-    readonly properties?: pulumi.Input<inputs.dataprotection.v20210201preview.BackupInstanceArgs>;
+    properties?: pulumi.Input<inputs.dataprotection.v20210201preview.BackupInstanceArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the backup vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetPrivateLinkScopedResourceArgs {
     /**
      * The name of the scoped resource object.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Azure Arc PrivateLinkScope resource.
      */
-    readonly scopeName: string;
+    scopeName: string;
 }
 
 /**

@@ -28,15 +28,15 @@ export interface GetAccessPolicyArgs {
     /**
      * The name of the Time Series Insights access policy associated with the specified environment.
      */
-    readonly accessPolicyName: string;
+    accessPolicyName: string;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -129,25 +129,25 @@ export interface ViewArgs {
     /**
      * View definition.
      */
-    readonly definition: pulumi.Input<string>;
+    definition: pulumi.Input<string>;
     /**
      * Localized display name for the view.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * the user ID.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
     /**
      * The name of the view.
      */
-    readonly viewName?: pulumi.Input<string>;
+    viewName?: pulumi.Input<string>;
 }

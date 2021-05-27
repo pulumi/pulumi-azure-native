@@ -190,61 +190,61 @@ export interface MetricAlertArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20180301.MetricAlertActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.insights.v20180301.MetricAlertActionArgs>[]>;
     /**
      * the flag that indicates whether the alert should be auto resolved or not. The default is true.
      */
-    readonly autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs | inputs.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaArgs | inputs.insights.v20180301.WebtestLocationAvailabilityCriteriaArgs>;
+    criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs | inputs.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaArgs | inputs.insights.v20180301.WebtestLocationAvailabilityCriteriaArgs>;
     /**
      * the description of the metric alert that will be included in the alert email.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * the flag that indicates whether the metric alert is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * how often the metric alert is evaluated represented in ISO 8601 duration format.
      */
-    readonly evaluationFrequency: pulumi.Input<string>;
+    evaluationFrequency: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * the list of resource id's that this metric alert is scoped to.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Alert severity {0, 1, 2, 3, 4}
      */
-    readonly severity: pulumi.Input<number>;
+    severity: pulumi.Input<number>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
-    readonly targetResourceRegion?: pulumi.Input<string>;
+    targetResourceRegion?: pulumi.Input<string>;
     /**
      * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
-    readonly targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string>;
     /**
      * the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
      */
-    readonly windowSize: pulumi.Input<string>;
+    windowSize: pulumi.Input<string>;
 }

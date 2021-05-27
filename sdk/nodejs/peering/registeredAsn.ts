@@ -104,17 +104,17 @@ export interface RegisteredAsnArgs {
     /**
      * The customer's ASN from which traffic originates.
      */
-    readonly asn?: pulumi.Input<number>;
+    asn?: pulumi.Input<number>;
     /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    peeringName: pulumi.Input<string>;
     /**
      * The name of the ASN.
      */
-    readonly registeredAsnName?: pulumi.Input<string>;
+    registeredAsnName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

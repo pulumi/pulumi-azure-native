@@ -26,11 +26,11 @@ export interface GetOrganizationArgs {
     /**
      * Organization resource name
      */
-    readonly organizationName: string;
+    organizationName: string;
     /**
      * Resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

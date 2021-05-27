@@ -118,33 +118,33 @@ export interface RouteTableArgs {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route table.
      */
-    readonly routeTableName?: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string>;
     /**
      * Gets or sets Routes in a Route Table
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.RouteArgs>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.RouteArgs>[]>;
     /**
      * Gets collection of references to subnets
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>[]>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

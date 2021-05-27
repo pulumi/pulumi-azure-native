@@ -28,15 +28,15 @@ export interface ListNamespaceKeysArgs {
     /**
      * The connection string of the namespace for the specified authorizationRule.
      */
-    readonly authorizationRuleName: string;
+    authorizationRuleName: string;
     /**
      * The namespace name.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -29,19 +29,19 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs {
     /**
      * The stage site identifier.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * Name of the function app registered with the static site build.
      */
-    readonly functionAppName: string;
+    functionAppName: string;
     /**
      * Name of the static site.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

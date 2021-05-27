@@ -92,17 +92,17 @@ export interface NamespaceVirtualNetworkRuleArgs {
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Virtual Network Rule name.
      */
-    readonly virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string>;
     /**
      * ARM ID of Virtual Network Subnet
      */
-    readonly virtualNetworkSubnetId?: pulumi.Input<string>;
+    virtualNetworkSubnetId?: pulumi.Input<string>;
 }

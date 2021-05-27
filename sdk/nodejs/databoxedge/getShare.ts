@@ -28,15 +28,15 @@ export interface GetShareArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The share name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetManagementGroupDiagnosticSettingArgs {
     /**
      * The management group id.
      */
-    readonly managementGroupId: string;
+    managementGroupId: string;
     /**
      * The name of the diagnostic setting.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

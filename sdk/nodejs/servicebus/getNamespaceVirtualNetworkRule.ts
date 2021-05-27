@@ -28,15 +28,15 @@ export interface GetNamespaceVirtualNetworkRuleArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Virtual Network Rule name.
      */
-    readonly virtualNetworkRuleName: string;
+    virtualNetworkRuleName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetWorkloadNetworkPortMirroringArgs {
     /**
      * NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
      */
-    readonly portMirroringId: string;
+    portMirroringId: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

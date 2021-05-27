@@ -28,19 +28,19 @@ export interface GetApplicationPackageArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The ID of the application.
      */
-    readonly applicationId: string;
+    applicationId: string;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The version of the application.
      */
-    readonly version: string;
+    version: string;
 }
 
 /**

@@ -142,37 +142,37 @@ export interface BudgetArgs {
     /**
      * The total amount of cost to track with the budget
      */
-    readonly amount: pulumi.Input<number>;
+    amount: pulumi.Input<number>;
     /**
      * Budget Name.
      */
-    readonly budgetName?: pulumi.Input<string>;
+    budgetName?: pulumi.Input<string>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    readonly category: pulumi.Input<string | enums.consumption.v20190501preview.CategoryType>;
+    category: pulumi.Input<string | enums.consumption.v20190501preview.CategoryType>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * May be used to filter budgets by resource group, resource, or meter.
      */
-    readonly filters?: pulumi.Input<inputs.consumption.v20190501preview.FiltersArgs>;
+    filters?: pulumi.Input<inputs.consumption.v20190501preview.FiltersArgs>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20190501preview.NotificationArgs>}>;
+    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20190501preview.NotificationArgs>}>;
     /**
      * The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    readonly timeGrain: pulumi.Input<string | enums.consumption.v20190501preview.TimeGrainType>;
+    timeGrain: pulumi.Input<string | enums.consumption.v20190501preview.TimeGrainType>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: pulumi.Input<inputs.consumption.v20190501preview.BudgetTimePeriodArgs>;
+    timePeriod: pulumi.Input<inputs.consumption.v20190501preview.BudgetTimePeriodArgs>;
 }

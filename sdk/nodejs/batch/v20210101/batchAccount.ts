@@ -178,41 +178,41 @@ export interface BatchAccountArgs {
     /**
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The properties related to the auto-storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20210101.AutoStorageBasePropertiesArgs>;
+    autoStorage?: pulumi.Input<inputs.batch.v20210101.AutoStorageBasePropertiesArgs>;
     /**
      * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
      */
-    readonly encryption?: pulumi.Input<inputs.batch.v20210101.EncryptionPropertiesArgs>;
+    encryption?: pulumi.Input<inputs.batch.v20210101.EncryptionPropertiesArgs>;
     /**
      * The identity of the Batch account.
      */
-    readonly identity?: pulumi.Input<inputs.batch.v20210101.BatchAccountIdentityArgs>;
+    identity?: pulumi.Input<inputs.batch.v20210101.BatchAccountIdentityArgs>;
     /**
      * A reference to the Azure key vault associated with the Batch account.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20210101.KeyVaultReferenceArgs>;
+    keyVaultReference?: pulumi.Input<inputs.batch.v20210101.KeyVaultReferenceArgs>;
     /**
      * The region in which to create the account.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */
-    readonly poolAllocationMode?: pulumi.Input<enums.batch.v20210101.PoolAllocationMode>;
+    poolAllocationMode?: pulumi.Input<enums.batch.v20210101.PoolAllocationMode>;
     /**
      * If not specified, the default value is 'enabled'.
      */
-    readonly publicNetworkAccess?: pulumi.Input<enums.batch.v20210101.PublicNetworkAccessType>;
+    publicNetworkAccess?: pulumi.Input<enums.batch.v20210101.PublicNetworkAccessType>;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The user-specified tags associated with the account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

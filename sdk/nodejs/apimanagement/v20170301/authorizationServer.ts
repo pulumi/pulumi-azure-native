@@ -197,77 +197,77 @@ export interface AuthorizationServerArgs {
     /**
      * OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
      */
-    readonly authorizationEndpoint: pulumi.Input<string>;
+    authorizationEndpoint: pulumi.Input<string>;
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    readonly authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.v20170301.AuthorizationMethod>[]>;
+    authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.v20170301.AuthorizationMethod>[]>;
     /**
      * Identifier of the authorization server.
      */
-    readonly authsid?: pulumi.Input<string>;
+    authsid?: pulumi.Input<string>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.BearerTokenSendingMethod>[]>;
+    bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.BearerTokenSendingMethod>[]>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.ClientAuthenticationMethod>[]>;
+    clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.ClientAuthenticationMethod>[]>;
     /**
      * Client or app id registered with this authorization server.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
      */
-    readonly clientRegistrationEndpoint: pulumi.Input<string>;
+    clientRegistrationEndpoint: pulumi.Input<string>;
     /**
      * Client or app secret registered with this authorization server.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
      */
-    readonly defaultScope?: pulumi.Input<string>;
+    defaultScope?: pulumi.Input<string>;
     /**
      * Description of the authorization server. Can contain HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * User-friendly authorization server name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    readonly grantTypes: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.GrantType>[]>;
+    grantTypes: pulumi.Input<pulumi.Input<string | enums.apimanagement.v20170301.GrantType>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
      */
-    readonly resourceOwnerPassword?: pulumi.Input<string>;
+    resourceOwnerPassword?: pulumi.Input<string>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
      */
-    readonly resourceOwnerUsername?: pulumi.Input<string>;
+    resourceOwnerUsername?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
      */
-    readonly supportState?: pulumi.Input<boolean>;
+    supportState?: pulumi.Input<boolean>;
     /**
      * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
      */
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.TokenBodyParameterContractArgs>[]>;
+    tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.TokenBodyParameterContractArgs>[]>;
     /**
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */
-    readonly tokenEndpoint?: pulumi.Input<string>;
+    tokenEndpoint?: pulumi.Input<string>;
 }

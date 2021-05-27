@@ -272,15 +272,15 @@ export interface ExtendedDatabaseBlobAuditingPolicyArgs {
      * 
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
-    readonly auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the blob auditing policy.
      */
-    readonly blobAuditingPolicyName?: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies whether audit events are sent to Azure Monitor. 
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
@@ -294,36 +294,36 @@ export interface ExtendedDatabaseBlobAuditingPolicyArgs {
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    readonly isAzureMonitorTargetEnabled?: pulumi.Input<boolean>;
+    isAzureMonitorTargetEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
-    readonly isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
+    isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    readonly predicateExpression?: pulumi.Input<string>;
+    predicateExpression?: pulumi.Input<string>;
     /**
      * Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
      * The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
      */
-    readonly queueDelayMs?: pulumi.Input<number>;
+    queueDelayMs?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the number of days to keep in the audit logs in the storage account.
      */
-    readonly retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
      */
-    readonly state: pulumi.Input<enums.sql.BlobAuditingPolicyState>;
+    state: pulumi.Input<enums.sql.BlobAuditingPolicyState>;
     /**
      * Specifies the identifier key of the auditing storage account. 
      * If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
@@ -332,13 +332,13 @@ export interface ExtendedDatabaseBlobAuditingPolicyArgs {
      * 2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
      * For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    readonly storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }

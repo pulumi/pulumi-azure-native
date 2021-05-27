@@ -102,21 +102,21 @@ export interface GroupArgs {
     /**
      * For optimistic concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */
-    readonly groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
     /**
      * Properties of the group.
      */
-    readonly properties: pulumi.Input<inputs.migrate.GroupPropertiesArgs>;
+    properties: pulumi.Input<inputs.migrate.GroupPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

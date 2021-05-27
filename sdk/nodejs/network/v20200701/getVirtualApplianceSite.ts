@@ -27,15 +27,15 @@ export interface GetVirtualApplianceSiteArgs {
     /**
      * The name of the Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName: string;
+    networkVirtualApplianceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the site.
      */
-    readonly siteName: string;
+    siteName: string;
 }
 
 /**

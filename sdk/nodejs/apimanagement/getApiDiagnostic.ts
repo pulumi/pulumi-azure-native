@@ -29,19 +29,19 @@ export interface GetApiDiagnosticArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    readonly diagnosticId: string;
+    diagnosticId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

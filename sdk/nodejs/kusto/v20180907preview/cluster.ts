@@ -139,25 +139,25 @@ export interface ClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.v20180907preview.AzureSkuArgs>;
+    sku: pulumi.Input<inputs.kusto.v20180907preview.AzureSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20180907preview.TrustedExternalTenantArgs>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20180907preview.TrustedExternalTenantArgs>[]>;
 }

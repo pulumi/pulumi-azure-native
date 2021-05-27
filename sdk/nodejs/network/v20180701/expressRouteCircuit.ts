@@ -173,69 +173,69 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Allow classic operations
      */
-    readonly allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean>;
     /**
      * Flag to enable Global Reach on the circuit.
      */
-    readonly allowGlobalReach?: pulumi.Input<boolean>;
+    allowGlobalReach?: pulumi.Input<boolean>;
     /**
      * The list of authorizations.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitAuthorizationArgs>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitAuthorizationArgs>[]>;
     /**
      * The name of the circuit.
      */
-    readonly circuitName?: pulumi.Input<string>;
+    circuitName?: pulumi.Input<string>;
     /**
      * The CircuitProvisioningState state of the resource.
      */
-    readonly circuitProvisioningState?: pulumi.Input<string>;
+    circuitProvisioningState?: pulumi.Input<string>;
     /**
      * The GatewayManager Etag.
      */
-    readonly gatewayManagerEtag?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of peerings.
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitPeeringArgs>[]>;
+    peerings?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ServiceKey.
      */
-    readonly serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string>;
     /**
      * The ServiceProviderNotes.
      */
-    readonly serviceProviderNotes?: pulumi.Input<string>;
+    serviceProviderNotes?: pulumi.Input<string>;
     /**
      * The ServiceProviderProperties.
      */
-    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitServiceProviderPropertiesArgs>;
+    serviceProviderProperties?: pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitServiceProviderPropertiesArgs>;
     /**
      * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
      */
-    readonly serviceProviderProvisioningState?: pulumi.Input<string | enums.network.v20180701.ServiceProviderProvisioningState>;
+    serviceProviderProvisioningState?: pulumi.Input<string | enums.network.v20180701.ServiceProviderProvisioningState>;
     /**
      * The SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitSkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20180701.ExpressRouteCircuitSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

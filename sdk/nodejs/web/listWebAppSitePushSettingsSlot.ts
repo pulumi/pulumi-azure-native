@@ -28,15 +28,15 @@ export interface ListWebAppSitePushSettingsSlotArgs {
     /**
      * Name of web app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

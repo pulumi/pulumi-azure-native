@@ -24,15 +24,15 @@ export interface GetIntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    readonly certificateName: string;
+    certificateName: string;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetIntegrationAccountCertificateResult {

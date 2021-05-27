@@ -27,11 +27,11 @@ export interface GetGlobalUserOperationBatchStatusArgs {
     /**
      * The operation url of long running operation
      */
-    readonly urls: string[];
+    urls: string[];
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

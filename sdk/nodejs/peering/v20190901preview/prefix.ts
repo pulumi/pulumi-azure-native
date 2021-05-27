@@ -122,17 +122,17 @@ export interface PrefixArgs {
     /**
      * The name of the peering service.
      */
-    readonly peeringServiceName: pulumi.Input<string>;
+    peeringServiceName: pulumi.Input<string>;
     /**
      * The prefix from which your traffic originates.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The name of the prefix.
      */
-    readonly prefixName?: pulumi.Input<string>;
+    prefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

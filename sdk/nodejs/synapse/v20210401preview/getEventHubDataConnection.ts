@@ -29,23 +29,23 @@ export interface GetEventHubDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    readonly dataConnectionName: string;
+    dataConnectionName: string;
     /**
      * The name of the database in the Kusto pool.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the Kusto pool.
      */
-    readonly kustoPoolName: string;
+    kustoPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

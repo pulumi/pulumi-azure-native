@@ -28,19 +28,19 @@ export interface GetTestResultDownloadURLArgs {
     /**
      * The resource name of the Test Base Package.
      */
-    readonly packageName: string;
+    packageName: string;
     /**
      * The name of the resource group that contains the resource.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource name of the Test Base Account.
      */
-    readonly testBaseAccountName: string;
+    testBaseAccountName: string;
     /**
      * The Test Result Name. It equals to {osName}-{TestResultId} string.
      */
-    readonly testResultName: string;
+    testResultName: string;
 }
 
 /**

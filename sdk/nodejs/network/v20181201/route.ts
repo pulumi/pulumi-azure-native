@@ -114,41 +114,41 @@ export interface RouteArgs {
     /**
      * The destination CIDR to which the route applies.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    readonly nextHopIpAddress?: pulumi.Input<string>;
+    nextHopIpAddress?: pulumi.Input<string>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
      */
-    readonly nextHopType: pulumi.Input<string | enums.network.v20181201.RouteNextHopType>;
+    nextHopType: pulumi.Input<string | enums.network.v20181201.RouteNextHopType>;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route.
      */
-    readonly routeName?: pulumi.Input<string>;
+    routeName?: pulumi.Input<string>;
     /**
      * The name of the route table.
      */
-    readonly routeTableName: pulumi.Input<string>;
+    routeTableName: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetJobAgentArgs {
     /**
      * The name of the job agent to be retrieved.
      */
-    readonly jobAgentName: string;
+    jobAgentName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

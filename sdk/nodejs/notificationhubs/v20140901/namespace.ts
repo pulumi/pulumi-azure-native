@@ -103,21 +103,21 @@ export interface NamespaceArgs {
     /**
      * Gets or sets Namespace data center location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Gets or sets properties of the Namespace.
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.v20140901.NamespacePropertiesArgs>;
+    properties: pulumi.Input<inputs.notificationhubs.v20140901.NamespacePropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets Namespace tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -139,45 +139,45 @@ export interface FavoriteArgs {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    readonly category?: pulumi.Input<string>;
+    category?: pulumi.Input<string>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    readonly config?: pulumi.Input<string>;
+    config?: pulumi.Input<string>;
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly favoriteId?: pulumi.Input<string>;
+    favoriteId?: pulumi.Input<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly favoriteType?: pulumi.Input<enums.insights.v20150501.FavoriteType>;
+    favoriteType?: pulumi.Input<enums.insights.v20150501.FavoriteType>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    readonly isGeneratedFromTemplate?: pulumi.Input<boolean>;
+    isGeneratedFromTemplate?: pulumi.Input<boolean>;
     /**
      * The user-defined name of the favorite.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * The source of the favorite definition.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

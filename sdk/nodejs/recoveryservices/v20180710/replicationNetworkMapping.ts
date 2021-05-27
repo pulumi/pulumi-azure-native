@@ -106,25 +106,25 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Primary fabric name.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Network mapping name.
      */
-    readonly networkMappingName?: pulumi.Input<string>;
+    networkMappingName?: pulumi.Input<string>;
     /**
      * Primary network name.
      */
-    readonly networkName: pulumi.Input<string>;
+    networkName: pulumi.Input<string>;
     /**
      * Input properties for creating network mapping.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.CreateNetworkMappingInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20180710.CreateNetworkMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

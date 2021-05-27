@@ -101,25 +101,25 @@ export interface SerialPortArgs {
     /**
      * The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
      */
-    readonly parentResource: pulumi.Input<string>;
+    parentResource: pulumi.Input<string>;
     /**
      * The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
      */
-    readonly parentResourceType: pulumi.Input<string>;
+    parentResourceType: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The namespace of the resource provider.
      */
-    readonly resourceProviderNamespace: pulumi.Input<string>;
+    resourceProviderNamespace: pulumi.Input<string>;
     /**
      * The name of the serial port to create.
      */
-    readonly serialPort?: pulumi.Input<string>;
+    serialPort?: pulumi.Input<string>;
     /**
      * Specifies whether the port is enabled for a serial console connection.
      */
-    readonly state?: pulumi.Input<enums.serialconsole.SerialPortState>;
+    state?: pulumi.Input<enums.serialconsole.SerialPortState>;
 }

@@ -34,43 +34,43 @@ export interface ListStorageAccountSASArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * An IP address or a range of IP addresses from which to accept requests.
      */
-    readonly iPAddressOrRange?: string;
+    iPAddressOrRange?: string;
     /**
      * The key to sign the account SAS token with.
      */
-    readonly keyToSign?: string;
+    keyToSign?: string;
     /**
      * The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
      */
-    readonly permissions: string;
+    permissions: string;
     /**
      * The protocol permitted for a request made with the account SAS.
      */
-    readonly protocols?: enums.storage.v20160501.HttpProtocol;
+    protocols?: enums.storage.v20160501.HttpProtocol;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
      */
-    readonly resourceTypes: string;
+    resourceTypes: string;
     /**
      * The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
      */
-    readonly services: string;
+    services: string;
     /**
      * The time at which the shared access signature becomes invalid.
      */
-    readonly sharedAccessExpiryTime: string;
+    sharedAccessExpiryTime: string;
     /**
      * The time at which the SAS becomes valid.
      */
-    readonly sharedAccessStartTime?: string;
+    sharedAccessStartTime?: string;
 }
 
 /**

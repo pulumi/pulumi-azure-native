@@ -29,19 +29,19 @@ export interface GetContentItemArgs {
     /**
      * Content item identifier.
      */
-    readonly contentItemId: string;
+    contentItemId: string;
     /**
      * Content type identifier.
      */
-    readonly contentTypeId: string;
+    contentTypeId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

@@ -130,25 +130,25 @@ export interface RemediationAtResourceArgs {
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: pulumi.Input<inputs.policyinsights.v20190701.RemediationFiltersArgs>;
+    filters?: pulumi.Input<inputs.policyinsights.v20190701.RemediationFiltersArgs>;
     /**
      * The resource ID of the policy assignment that should be remediated.
      */
-    readonly policyAssignmentId?: pulumi.Input<string>;
+    policyAssignmentId?: pulumi.Input<string>;
     /**
      * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
      * The name of the remediation.
      */
-    readonly remediationName?: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    readonly resourceDiscoveryMode?: pulumi.Input<string | enums.policyinsights.v20190701.ResourceDiscoveryMode>;
+    resourceDiscoveryMode?: pulumi.Input<string | enums.policyinsights.v20190701.ResourceDiscoveryMode>;
     /**
      * Resource ID.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
 }

@@ -140,33 +140,33 @@ export interface FailoverGroupArgs {
     /**
      * List of databases in the failover group.
      */
-    readonly databases?: pulumi.Input<pulumi.Input<string>[]>;
+    databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the failover group.
      */
-    readonly failoverGroupName?: pulumi.Input<string>;
+    failoverGroupName?: pulumi.Input<string>;
     /**
      * List of partner server information for the failover group.
      */
-    readonly partnerServers: pulumi.Input<pulumi.Input<inputs.sql.v20201101preview.PartnerInfoArgs>[]>;
+    partnerServers: pulumi.Input<pulumi.Input<inputs.sql.v20201101preview.PartnerInfoArgs>[]>;
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readonly readOnlyEndpoint?: pulumi.Input<inputs.sql.v20201101preview.FailoverGroupReadOnlyEndpointArgs>;
+    readOnlyEndpoint?: pulumi.Input<inputs.sql.v20201101preview.FailoverGroupReadOnlyEndpointArgs>;
     /**
      * Read-write endpoint of the failover group instance.
      */
-    readonly readWriteEndpoint: pulumi.Input<inputs.sql.v20201101preview.FailoverGroupReadWriteEndpointArgs>;
+    readWriteEndpoint: pulumi.Input<inputs.sql.v20201101preview.FailoverGroupReadWriteEndpointArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server containing the failover group.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

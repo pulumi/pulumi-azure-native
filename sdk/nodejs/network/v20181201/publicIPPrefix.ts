@@ -161,61 +161,61 @@ export interface PublicIPPrefixArgs {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The allocated Prefix
      */
-    readonly ipPrefix?: pulumi.Input<string>;
+    ipPrefix?: pulumi.Input<string>;
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20181201.IpTagArgs>[]>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20181201.IpTagArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Length of the Public IP Prefix.
      */
-    readonly prefixLength?: pulumi.Input<number>;
+    prefixLength?: pulumi.Input<number>;
     /**
      * The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string | enums.network.v20181201.IPVersion>;
+    publicIPAddressVersion?: pulumi.Input<string | enums.network.v20181201.IPVersion>;
     /**
      * The list of all referenced PublicIPAddresses
      */
-    readonly publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ReferencedPublicIpAddressArgs>[]>;
+    publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ReferencedPublicIpAddressArgs>[]>;
     /**
      * The name of the public IP prefix.
      */
-    readonly publicIpPrefixName?: pulumi.Input<string>;
+    publicIpPrefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the public IP prefix resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20181201.PublicIPPrefixSkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20181201.PublicIPPrefixSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

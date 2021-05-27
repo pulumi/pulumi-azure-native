@@ -27,11 +27,11 @@ export interface GetPolicyArgs {
     /**
      * The name of the Web Application Firewall Policy.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

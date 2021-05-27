@@ -26,11 +26,11 @@ export interface GetPolicyAssignmentArgs {
     /**
      * The name of the policy assignment to get.
      */
-    readonly policyAssignmentName: string;
+    policyAssignmentName: string;
     /**
      * The scope of the policy assignment.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

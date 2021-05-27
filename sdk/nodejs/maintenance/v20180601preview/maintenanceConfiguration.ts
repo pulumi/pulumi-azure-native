@@ -112,29 +112,29 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets extensionProperties of the maintenanceConfiguration
      */
-    readonly extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
-    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.v20180601preview.MaintenanceScope>;
+    maintenanceScope?: pulumi.Input<string | enums.maintenance.v20180601preview.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource Identifier
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

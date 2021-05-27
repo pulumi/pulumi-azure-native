@@ -27,11 +27,11 @@ export interface GetManagedHsmArgs {
     /**
      * The name of the managed HSM Pool.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

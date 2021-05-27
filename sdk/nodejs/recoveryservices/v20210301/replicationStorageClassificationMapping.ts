@@ -106,25 +106,25 @@ export interface ReplicationStorageClassificationMappingArgs {
     /**
      * Fabric name.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Storage mapping input properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20210301.StorageMappingInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20210301.StorageMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Storage classification mapping name.
      */
-    readonly storageClassificationMappingName?: pulumi.Input<string>;
+    storageClassificationMappingName?: pulumi.Input<string>;
     /**
      * Storage classification name.
      */
-    readonly storageClassificationName: pulumi.Input<string>;
+    storageClassificationName: pulumi.Input<string>;
 }

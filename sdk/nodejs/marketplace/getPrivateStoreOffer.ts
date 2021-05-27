@@ -27,11 +27,11 @@ export interface GetPrivateStoreOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    readonly offerId: string;
+    offerId: string;
     /**
      * The store ID - must use the tenant ID
      */
-    readonly privateStoreId: string;
+    privateStoreId: string;
 }
 
 /**

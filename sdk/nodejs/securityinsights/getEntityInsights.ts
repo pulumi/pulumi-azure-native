@@ -33,35 +33,35 @@ export interface GetEntityInsightsArgs {
     /**
      * Indicates if query time range should be extended with default time range of the query. Default value is false
      */
-    readonly addDefaultExtendedTimeRange?: boolean;
+    addDefaultExtendedTimeRange?: boolean;
     /**
      * The end timeline date, so the results returned are before this date.
      */
-    readonly endTime: string;
+    endTime: string;
     /**
      * entity ID
      */
-    readonly entityId: string;
+    entityId: string;
     /**
      * List of Insights Query Id. If empty, default value is all insights of this entity
      */
-    readonly insightQueryIds?: string[];
+    insightQueryIds?: string[];
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: string;
+    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The start timeline date, so the results returned are after this date.
      */
-    readonly startTime: string;
+    startTime: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

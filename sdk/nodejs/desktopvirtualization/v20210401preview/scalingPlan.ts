@@ -169,56 +169,56 @@ export interface ScalingPlanArgs {
     /**
      * Description of scaling plan.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Exclusion tag for scaling plan.
      */
-    readonly exclusionTag?: pulumi.Input<string>;
+    exclusionTag?: pulumi.Input<string>;
     /**
      * User friendly name of scaling plan.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210401preview.ScalingHostPoolReferenceArgs>[]>;
+    hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210401preview.ScalingHostPoolReferenceArgs>[]>;
     /**
      * HostPool type for desktop.
      */
-    readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20210401preview.HostPoolType>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20210401preview.HostPoolType>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetPlanArgs>;
+    managedBy?: pulumi.Input<string>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the scaling plan.
      */
-    readonly scalingPlanName?: pulumi.Input<string>;
+    scalingPlanName?: pulumi.Input<string>;
     /**
      * List of ScalingSchedule definitions.
      */
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210401preview.ScalingScheduleArgs>[]>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetSkuArgs>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210401preview.ScalingScheduleArgs>[]>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.v20210401preview.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Timezone of the scaling plan.
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }

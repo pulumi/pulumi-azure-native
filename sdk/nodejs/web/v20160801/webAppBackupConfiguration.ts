@@ -126,37 +126,37 @@ export interface WebAppBackupConfigurationArgs {
     /**
      * Name of the backup.
      */
-    readonly backupRequestName: pulumi.Input<string>;
+    backupRequestName: pulumi.Input<string>;
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    readonly backupSchedule?: pulumi.Input<inputs.web.v20160801.BackupScheduleArgs>;
+    backupSchedule?: pulumi.Input<inputs.web.v20160801.BackupScheduleArgs>;
     /**
      * Databases included in the backup.
      */
-    readonly databases?: pulumi.Input<pulumi.Input<inputs.web.v20160801.DatabaseBackupSettingArgs>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.web.v20160801.DatabaseBackupSettingArgs>[]>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SAS URL to the container.
      */
-    readonly storageAccountUrl: pulumi.Input<string>;
+    storageAccountUrl: pulumi.Input<string>;
     /**
      * Type of the backup.
      */
-    readonly type?: pulumi.Input<enums.web.v20160801.BackupRestoreOperationType>;
+    type?: pulumi.Input<enums.web.v20160801.BackupRestoreOperationType>;
 }

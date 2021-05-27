@@ -131,33 +131,33 @@ export interface AFDOriginGroupArgs {
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParametersArgs>;
+    healthProbeSettings?: pulumi.Input<inputs.cdn.v20200901.HealthProbeParametersArgs>;
     /**
      * Load balancing settings for a backend pool
      */
-    readonly loadBalancingSettings?: pulumi.Input<inputs.cdn.v20200901.LoadBalancingSettingsParametersArgs>;
+    loadBalancingSettings?: pulumi.Input<inputs.cdn.v20200901.LoadBalancingSettingsParametersArgs>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName?: pulumi.Input<string>;
+    originGroupName?: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs>;
+    responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
-    readonly sessionAffinityState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
+    sessionAffinityState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
-    readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
+    trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
 }

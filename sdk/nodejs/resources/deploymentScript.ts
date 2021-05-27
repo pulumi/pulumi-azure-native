@@ -121,25 +121,25 @@ export interface DeploymentScriptArgs {
     /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    readonly identity?: pulumi.Input<inputs.resources.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.resources.ManagedServiceIdentityArgs>;
     /**
      * Type of the script.
      */
-    readonly kind: pulumi.Input<string | enums.resources.ScriptType>;
+    kind: pulumi.Input<string | enums.resources.ScriptType>;
     /**
      * The location of the ACI and the storage account for the deployment script.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the deployment script.
      */
-    readonly scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

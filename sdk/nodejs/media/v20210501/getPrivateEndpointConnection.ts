@@ -27,12 +27,12 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
-    readonly name: string;
+    accountName: string;
+    name: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

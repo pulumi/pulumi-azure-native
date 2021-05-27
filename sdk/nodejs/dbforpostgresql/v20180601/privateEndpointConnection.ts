@@ -104,18 +104,18 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateEndpointPropertyArgs>;
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpoint?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateEndpointPropertyArgs>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

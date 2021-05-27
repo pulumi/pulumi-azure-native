@@ -132,33 +132,33 @@ export interface ImportPipelineArgs {
     /**
      * The identity of the import pipeline.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The name of the import pipeline.
      */
-    readonly importPipelineName?: pulumi.Input<string>;
+    importPipelineName?: pulumi.Input<string>;
     /**
      * The location of the import pipeline.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of all options configured for the pipeline.
      */
-    readonly options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[]>;
+    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[]>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The source properties of the import pipeline.
      */
-    readonly source: pulumi.Input<inputs.containerregistry.ImportPipelineSourcePropertiesArgs>;
+    source: pulumi.Input<inputs.containerregistry.ImportPipelineSourcePropertiesArgs>;
     /**
      * The properties that describe the trigger of the import pipeline.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerPropertiesArgs>;
+    trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerPropertiesArgs>;
 }

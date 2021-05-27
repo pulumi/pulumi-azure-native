@@ -28,15 +28,15 @@ export interface GetStreamingEndpointArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the streaming endpoint, maximum length is 24.
      */
-    readonly streamingEndpointName: string;
+    streamingEndpointName: string;
 }
 
 /**

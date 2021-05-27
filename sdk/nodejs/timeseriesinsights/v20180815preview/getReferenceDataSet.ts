@@ -27,15 +27,15 @@ export interface GetReferenceDataSetArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: string;
+    environmentName: string;
     /**
      * The name of the Time Series Insights reference data set associated with the specified environment.
      */
-    readonly referenceDataSetName: string;
+    referenceDataSetName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

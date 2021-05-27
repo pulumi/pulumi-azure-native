@@ -158,49 +158,49 @@ export interface StreamingLocatorArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Alternative Media ID of this Streaming Locator
      */
-    readonly alternativeMediaId?: pulumi.Input<string>;
+    alternativeMediaId?: pulumi.Input<string>;
     /**
      * Asset Name
      */
-    readonly assetName: pulumi.Input<string>;
+    assetName: pulumi.Input<string>;
     /**
      * The ContentKeys used by this Streaming Locator.
      */
-    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StreamingLocatorContentKeyArgs>[]>;
+    contentKeys?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StreamingLocatorContentKeyArgs>[]>;
     /**
      * Name of the default ContentKeyPolicy used by this Streaming Locator.
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * The end time of the Streaming Locator.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * A list of asset or account filters which apply to this streaming locator
      */
-    readonly filters?: pulumi.Input<pulumi.Input<string>[]>;
+    filters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The start time of the Streaming Locator.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * The StreamingLocatorId of the Streaming Locator.
      */
-    readonly streamingLocatorId?: pulumi.Input<string>;
+    streamingLocatorId?: pulumi.Input<string>;
     /**
      * The Streaming Locator name.
      */
-    readonly streamingLocatorName?: pulumi.Input<string>;
+    streamingLocatorName?: pulumi.Input<string>;
     /**
      * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
      */
-    readonly streamingPolicyName: pulumi.Input<string>;
+    streamingPolicyName: pulumi.Input<string>;
 }

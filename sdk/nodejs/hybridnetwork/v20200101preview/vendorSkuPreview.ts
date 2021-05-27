@@ -85,13 +85,13 @@ export interface VendorSkuPreviewArgs {
     /**
      * Preview subscription ID.
      */
-    readonly previewSubscription?: pulumi.Input<string>;
+    previewSubscription?: pulumi.Input<string>;
     /**
      * The name of the vendor sku.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * The name of the vendor.
      */
-    readonly vendorName: pulumi.Input<string>;
+    vendorName: pulumi.Input<string>;
 }

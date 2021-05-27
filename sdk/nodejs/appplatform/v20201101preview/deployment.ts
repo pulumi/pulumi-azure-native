@@ -102,25 +102,25 @@ export interface DeploymentArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName: pulumi.Input<string>;
+    appName: pulumi.Input<string>;
     /**
      * The name of the Deployment resource.
      */
-    readonly deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * Properties of the Deployment resource
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.v20201101preview.DeploymentResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.v20201101preview.DeploymentResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Sku of the Deployment resource
      */
-    readonly sku?: pulumi.Input<inputs.appplatform.v20201101preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.appplatform.v20201101preview.SkuArgs>;
 }

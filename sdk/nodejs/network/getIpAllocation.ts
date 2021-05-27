@@ -28,15 +28,15 @@ export interface GetIpAllocationArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the IpAllocation.
      */
-    readonly ipAllocationName: string;
+    ipAllocationName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

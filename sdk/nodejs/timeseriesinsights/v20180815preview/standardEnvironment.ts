@@ -164,38 +164,38 @@ export interface StandardEnvironmentArgs {
     /**
      * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
-    readonly dataRetentionTime: pulumi.Input<string>;
+    dataRetentionTime: pulumi.Input<string>;
     /**
      * Name of the environment
      */
-    readonly environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Standard'.
      */
-    readonly kind: pulumi.Input<"Standard">;
+    kind: pulumi.Input<"Standard">;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
      */
-    readonly partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyArgs>[]>;
+    partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyArgs>[]>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
+    sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    readonly storageLimitExceededBehavior?: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.StorageLimitExceededBehavior>;
+    storageLimitExceededBehavior?: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

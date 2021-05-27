@@ -27,11 +27,11 @@ export interface GetRoleDefinitionArgs {
     /**
      * The ID of the role definition.
      */
-    readonly roleDefinitionId: string;
+    roleDefinitionId: string;
     /**
      * The scope of the role definition.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

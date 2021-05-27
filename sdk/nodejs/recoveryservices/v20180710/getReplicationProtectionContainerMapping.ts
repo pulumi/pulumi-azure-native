@@ -29,23 +29,23 @@ export interface GetReplicationProtectionContainerMappingArgs {
     /**
      * Fabric name.
      */
-    readonly fabricName: string;
+    fabricName: string;
     /**
      * Protection Container mapping name.
      */
-    readonly mappingName: string;
+    mappingName: string;
     /**
      * Protection container name.
      */
-    readonly protectionContainerName: string;
+    protectionContainerName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

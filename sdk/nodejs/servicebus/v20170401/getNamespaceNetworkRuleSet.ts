@@ -26,11 +26,11 @@ export interface GetNamespaceNetworkRuleSetArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

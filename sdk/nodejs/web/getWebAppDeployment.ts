@@ -28,15 +28,15 @@ export interface GetWebAppDeploymentArgs {
     /**
      * Deployment ID.
      */
-    readonly id: string;
+    id: string;
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

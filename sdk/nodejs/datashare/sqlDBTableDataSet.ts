@@ -149,38 +149,38 @@ export interface SqlDBTableDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * Database name of the source data set
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'SqlDBTable'.
      */
-    readonly kind: pulumi.Input<"SqlDBTable">;
+    kind: pulumi.Input<"SqlDBTable">;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Schema of the table. Default value is dbo.
      */
-    readonly schemaName: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * Resource id of SQL server
      */
-    readonly sqlServerResourceId: pulumi.Input<string>;
+    sqlServerResourceId: pulumi.Input<string>;
     /**
      * SQL DB table name.
      */
-    readonly tableName: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

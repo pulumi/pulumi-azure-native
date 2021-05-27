@@ -97,17 +97,17 @@ export interface ManagementPolicyArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    readonly managementPolicyName?: pulumi.Input<string>;
+    managementPolicyName?: pulumi.Input<string>;
     /**
      * The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly policy?: any;
+    policy?: any;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

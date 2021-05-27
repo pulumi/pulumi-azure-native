@@ -147,49 +147,49 @@ export interface PolicyAssignmentArgs {
     /**
      * This message will be part of response in case of policy violation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy assignment.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
-    readonly enforcementMode?: pulumi.Input<string | enums.authorization.v20200901.EnforcementMode>;
+    enforcementMode?: pulumi.Input<string | enums.authorization.v20200901.EnforcementMode>;
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: pulumi.Input<inputs.authorization.v20200901.IdentityArgs>;
+    identity?: pulumi.Input<inputs.authorization.v20200901.IdentityArgs>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The messages that describe why a resource is non-compliant with the policy.
      */
-    readonly nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.NonComplianceMessageArgs>[]>;
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.NonComplianceMessageArgs>[]>;
     /**
      * The policy's excluded scopes.
      */
-    readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterValuesValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterValuesValueArgs>}>;
     /**
      * The name of the policy assignment.
      */
-    readonly policyAssignmentName?: pulumi.Input<string>;
+    policyAssignmentName?: pulumi.Input<string>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */
-    readonly policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionId?: pulumi.Input<string>;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

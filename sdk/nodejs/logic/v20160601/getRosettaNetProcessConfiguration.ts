@@ -27,15 +27,15 @@ export interface GetRosettaNetProcessConfigurationArgs {
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The integration account RosettaNetProcessConfiguration name.
      */
-    readonly rosettaNetProcessConfigurationName: string;
+    rosettaNetProcessConfigurationName: string;
 }
 
 /**

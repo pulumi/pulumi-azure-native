@@ -164,45 +164,45 @@ export interface RelationshipArgs {
     /**
      * The Relationship Cardinality.
      */
-    readonly cardinality?: pulumi.Input<enums.customerinsights.CardinalityTypes>;
+    cardinality?: pulumi.Input<enums.customerinsights.CardinalityTypes>;
     /**
      * Localized descriptions for the Relationship.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the Relationship.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The expiry date time in UTC.
      */
-    readonly expiryDateTimeUtc?: pulumi.Input<string>;
+    expiryDateTimeUtc?: pulumi.Input<string>;
     /**
      * The properties of the Relationship.
      */
-    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.PropertyDefinitionArgs>[]>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * Optional property to be used to map fields in profile to their strong ids in related profile.
      */
-    readonly lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMappingArgs>[]>;
+    lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.RelationshipTypeMappingArgs>[]>;
     /**
      * Profile type.
      */
-    readonly profileType: pulumi.Input<string>;
+    profileType: pulumi.Input<string>;
     /**
      * Related profile being referenced.
      */
-    readonly relatedProfileType: pulumi.Input<string>;
+    relatedProfileType: pulumi.Input<string>;
     /**
      * The name of the Relationship.
      */
-    readonly relationshipName?: pulumi.Input<string>;
+    relationshipName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

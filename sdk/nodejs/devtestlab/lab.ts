@@ -216,51 +216,51 @@ export interface LabArgs {
     /**
      * The properties of any lab announcement associated with this lab
      */
-    readonly announcement?: pulumi.Input<inputs.devtestlab.LabAnnouncementPropertiesArgs>;
+    announcement?: pulumi.Input<inputs.devtestlab.LabAnnouncementPropertiesArgs>;
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    readonly environmentPermission?: pulumi.Input<string | enums.devtestlab.EnvironmentPermission>;
+    environmentPermission?: pulumi.Input<string | enums.devtestlab.EnvironmentPermission>;
     /**
      * Extended properties of the lab used for experimental features
      */
-    readonly extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string | enums.devtestlab.StorageType>;
+    labStorageType?: pulumi.Input<string | enums.devtestlab.StorageType>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
      */
-    readonly mandatoryArtifactsResourceIdsLinux?: pulumi.Input<pulumi.Input<string>[]>;
+    mandatoryArtifactsResourceIdsLinux?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
      */
-    readonly mandatoryArtifactsResourceIdsWindows?: pulumi.Input<pulumi.Input<string>[]>;
+    mandatoryArtifactsResourceIdsWindows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the lab.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The setting to enable usage of premium data disks.
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string | enums.devtestlab.PremiumDataDisk>;
+    premiumDataDisks?: pulumi.Input<string | enums.devtestlab.PremiumDataDisk>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The properties of any lab support message associated with this lab
      */
-    readonly support?: pulumi.Input<inputs.devtestlab.LabSupportPropertiesArgs>;
+    support?: pulumi.Input<inputs.devtestlab.LabSupportPropertiesArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

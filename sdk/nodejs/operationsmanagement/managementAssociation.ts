@@ -107,29 +107,29 @@ export interface ManagementAssociationArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * User ManagementAssociation Name.
      */
-    readonly managementAssociationName?: pulumi.Input<string>;
+    managementAssociationName?: pulumi.Input<string>;
     /**
      * Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.ManagementAssociationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.operationsmanagement.ManagementAssociationPropertiesArgs>;
     /**
      * Provider name for the parent resource.
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Parent resource name.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Resource type for the parent resource
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
 }

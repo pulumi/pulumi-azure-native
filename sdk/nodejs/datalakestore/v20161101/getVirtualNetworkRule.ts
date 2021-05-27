@@ -27,15 +27,15 @@ export interface GetVirtualNetworkRuleArgs {
     /**
      * The name of the Data Lake Store account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual network rule to retrieve.
      */
-    readonly virtualNetworkRuleName: string;
+    virtualNetworkRuleName: string;
 }
 
 /**

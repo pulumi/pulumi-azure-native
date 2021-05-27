@@ -27,15 +27,15 @@ export interface GetServerTrustGroupArgs {
     /**
      * The name of the region where the resource is located.
      */
-    readonly locationName: string;
+    locationName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server trust group.
      */
-    readonly serverTrustGroupName: string;
+    serverTrustGroupName: string;
 }
 
 /**

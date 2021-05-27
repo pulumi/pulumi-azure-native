@@ -105,25 +105,25 @@ export interface ApplicationArgs {
     /**
      * The constant value for the application name.
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The ETag for the application
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The properties of the application.
      */
-    readonly properties?: pulumi.Input<inputs.hdinsight.ApplicationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hdinsight.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags for the application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

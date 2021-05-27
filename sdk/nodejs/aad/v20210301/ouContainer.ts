@@ -161,25 +161,25 @@ export interface OuContainerArgs {
     /**
      * The account name
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The name of the domain service.
      */
-    readonly domainServiceName: pulumi.Input<string>;
+    domainServiceName: pulumi.Input<string>;
     /**
      * The name of the OuContainer.
      */
-    readonly ouContainerName?: pulumi.Input<string>;
+    ouContainerName?: pulumi.Input<string>;
     /**
      * The account password
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The account spn
      */
-    readonly spn?: pulumi.Input<string>;
+    spn?: pulumi.Input<string>;
 }

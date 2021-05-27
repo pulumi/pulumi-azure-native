@@ -118,33 +118,33 @@ export interface NotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The notification hub name.
      */
-    readonly notificationHubName: pulumi.Input<string>;
+    notificationHubName: pulumi.Input<string>;
     /**
      * Properties of the Namespace AuthorizationRules.
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesArgs>;
+    properties: pulumi.Input<inputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the created namespace
      */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.v20160301.SkuArgs>;
+    sku?: pulumi.Input<inputs.notificationhubs.v20160301.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

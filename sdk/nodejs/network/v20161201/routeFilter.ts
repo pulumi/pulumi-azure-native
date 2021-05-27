@@ -119,25 +119,25 @@ export interface RouteFilterArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route filter.
      */
-    readonly routeFilterName?: pulumi.Input<string>;
+    routeFilterName?: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20161201.RouteFilterRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.v20161201.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

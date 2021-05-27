@@ -104,25 +104,25 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.servicebus.v20180101preview.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.servicebus.v20180101preview.PrivateEndpointArgs>;
     /**
      * The PrivateEndpointConnection name
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.servicebus.v20180101preview.ConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.servicebus.v20180101preview.ConnectionStateArgs>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.servicebus.v20180101preview.EndPointProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.servicebus.v20180101preview.EndPointProvisioningState>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -106,21 +106,21 @@ export interface LedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    readonly ledgerName?: pulumi.Input<string>;
+    ledgerName?: pulumi.Input<string>;
     /**
      * The Azure location where the Confidential Ledger is running.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Confidential Ledger Resource.
      */
-    readonly properties?: pulumi.Input<inputs.confidentialledger.v20201201preview.LedgerPropertiesArgs>;
+    properties?: pulumi.Input<inputs.confidentialledger.v20201201preview.LedgerPropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Additional tags for Confidential Ledger
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

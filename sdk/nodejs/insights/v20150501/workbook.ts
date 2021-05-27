@@ -166,53 +166,53 @@ export interface WorkbookArgs {
     /**
      * Workbook category, as defined by the user at creation time.
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
+    kind?: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The user-defined name of the workbook.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
-    readonly serializedData: pulumi.Input<string>;
+    serializedData: pulumi.Input<string>;
     /**
      * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly sharedTypeKind: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
+    sharedTypeKind: pulumi.Input<string | enums.insights.v20150501.SharedTypeKind>;
     /**
      * Optional resourceId for a source resource.
      */
-    readonly sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique user id of the specific user that owns this workbook.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked workbook.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * Internally assigned unique id of the workbook definition.
      */
-    readonly workbookId: pulumi.Input<string>;
+    workbookId: pulumi.Input<string>;
 }

@@ -95,13 +95,13 @@ export interface IotSiteArgs {
     /**
      * Display name of the IoT site
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * Tags of the IoT site
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

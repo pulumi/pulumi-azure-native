@@ -87,9 +87,9 @@ export interface AliasArgs {
     /**
      * Alias Name
      */
-    readonly aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */
-    readonly properties: pulumi.Input<inputs.subscription.v20200901.PutAliasRequestPropertiesArgs>;
+    properties: pulumi.Input<inputs.subscription.v20200901.PutAliasRequestPropertiesArgs>;
 }

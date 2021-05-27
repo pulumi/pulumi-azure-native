@@ -28,15 +28,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

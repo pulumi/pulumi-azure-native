@@ -27,15 +27,15 @@ export interface GetSiteArgs {
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Additional web app properties included in the response
      */
-    readonly propertiesToInclude?: string;
+    propertiesToInclude?: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

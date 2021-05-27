@@ -27,15 +27,15 @@ export interface ListDatabasePrincipalsArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

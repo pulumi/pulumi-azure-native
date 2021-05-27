@@ -101,17 +101,17 @@ export interface TriggerArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * Properties of the trigger.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20170901preview.BlobEventsTriggerArgs | inputs.datafactory.v20170901preview.BlobTriggerArgs | inputs.datafactory.v20170901preview.MultiplePipelineTriggerArgs | inputs.datafactory.v20170901preview.ScheduleTriggerArgs | inputs.datafactory.v20170901preview.TumblingWindowTriggerArgs>;
+    properties: pulumi.Input<inputs.datafactory.v20170901preview.BlobEventsTriggerArgs | inputs.datafactory.v20170901preview.BlobTriggerArgs | inputs.datafactory.v20170901preview.MultiplePipelineTriggerArgs | inputs.datafactory.v20170901preview.ScheduleTriggerArgs | inputs.datafactory.v20170901preview.TumblingWindowTriggerArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The trigger name.
      */
-    readonly triggerName?: pulumi.Input<string>;
+    triggerName?: pulumi.Input<string>;
 }

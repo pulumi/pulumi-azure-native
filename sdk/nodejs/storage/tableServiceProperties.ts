@@ -93,17 +93,17 @@ export interface TableServicePropertiesArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
      */
-    readonly cors?: pulumi.Input<inputs.storage.CorsRulesArgs>;
+    cors?: pulumi.Input<inputs.storage.CorsRulesArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
      */
-    readonly tableServiceName?: pulumi.Input<string>;
+    tableServiceName?: pulumi.Input<string>;
 }

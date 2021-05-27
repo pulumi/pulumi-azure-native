@@ -26,11 +26,11 @@ export interface GetControllerArgs {
     /**
      * Name of the resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * Resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetControllerResult {

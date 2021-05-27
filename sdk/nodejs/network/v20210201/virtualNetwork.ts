@@ -179,65 +179,65 @@ export interface VirtualNetworkArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    readonly addressSpace?: pulumi.Input<inputs.network.v20210201.AddressSpaceArgs>;
+    addressSpace?: pulumi.Input<inputs.network.v20210201.AddressSpaceArgs>;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    readonly bgpCommunities?: pulumi.Input<inputs.network.v20210201.VirtualNetworkBgpCommunitiesArgs>;
+    bgpCommunities?: pulumi.Input<inputs.network.v20210201.VirtualNetworkBgpCommunitiesArgs>;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.v20210201.SubResourceArgs>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.v20210201.SubResourceArgs>;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    readonly dhcpOptions?: pulumi.Input<inputs.network.v20210201.DhcpOptionsArgs>;
+    dhcpOptions?: pulumi.Input<inputs.network.v20210201.DhcpOptionsArgs>;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
-    readonly enableDdosProtection?: pulumi.Input<boolean>;
+    enableDdosProtection?: pulumi.Input<boolean>;
     /**
      * Indicates if VM protection is enabled for all the subnets in the virtual network.
      */
-    readonly enableVmProtection?: pulumi.Input<boolean>;
+    enableVmProtection?: pulumi.Input<boolean>;
     /**
      * The extended location of the virtual network.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
     /**
      * The FlowTimeout value (in minutes) for the Virtual Network
      */
-    readonly flowTimeoutInMinutes?: pulumi.Input<number>;
+    flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Array of IpAllocation which reference this VNET.
      */
-    readonly ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.SubResourceArgs>[]>;
+    ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.SubResourceArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A list of subnets in a Virtual Network.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20210201.SubnetArgs>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.v20210201.SubnetArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string>;
     /**
      * A list of peerings in a Virtual Network.
      */
-    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20210201.VirtualNetworkPeeringArgs>[]>;
+    virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20210201.VirtualNetworkPeeringArgs>[]>;
 }

@@ -136,29 +136,29 @@ export interface WorkspaceArgs {
     /**
      * Managed Identity information.
      */
-    readonly identity?: pulumi.Input<inputs.quantum.v20191104preview.QuantumWorkspaceIdentityArgs>;
+    identity?: pulumi.Input<inputs.quantum.v20191104preview.QuantumWorkspaceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of Providers selected for this Workspace
      */
-    readonly providers?: pulumi.Input<pulumi.Input<inputs.quantum.v20191104preview.ProviderArgs>[]>;
+    providers?: pulumi.Input<pulumi.Input<inputs.quantum.v20191104preview.ProviderArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * ARM Resource Id of the storage account associated with this workspace.
      */
-    readonly storageAccount?: pulumi.Input<string>;
+    storageAccount?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the quantum workspace resource.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

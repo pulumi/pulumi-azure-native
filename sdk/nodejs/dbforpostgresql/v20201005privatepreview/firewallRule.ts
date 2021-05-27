@@ -110,21 +110,21 @@ export interface FirewallRuleArgs {
     /**
      * The end IP address of the server group firewall rule. Must be IPv4 format.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * The name of the server group firewall rule.
      */
-    readonly firewallRuleName?: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server group.
      */
-    readonly serverGroupName: pulumi.Input<string>;
+    serverGroupName: pulumi.Input<string>;
     /**
      * The start IP address of the server group firewall rule. Must be IPv4 format.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
 }

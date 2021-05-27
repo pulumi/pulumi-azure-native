@@ -129,49 +129,49 @@ export interface SubnetArgs {
     /**
      * The address prefix for the subnet.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20180601.NetworkSecurityGroupArgs>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.v20180601.NetworkSecurityGroupArgs>;
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets an array of references to the external resources using subnet.
      */
-    readonly resourceNavigationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ResourceNavigationLinkArgs>[]>;
+    resourceNavigationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ResourceNavigationLinkArgs>[]>;
     /**
      * The reference of the RouteTable resource.
      */
-    readonly routeTable?: pulumi.Input<inputs.network.v20180601.RouteTableArgs>;
+    routeTable?: pulumi.Input<inputs.network.v20180601.RouteTableArgs>;
     /**
      * An array of service endpoints.
      */
-    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ServiceEndpointPropertiesFormatArgs>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ServiceEndpointPropertiesFormatArgs>[]>;
     /**
      * The name of the subnet.
      */
-    readonly subnetName?: pulumi.Input<string>;
+    subnetName?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */
-    readonly virtualNetworkName: pulumi.Input<string>;
+    virtualNetworkName: pulumi.Input<string>;
 }

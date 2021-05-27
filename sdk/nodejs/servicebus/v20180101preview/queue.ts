@@ -212,73 +212,73 @@ export interface QueueArgs {
     /**
      * ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
      */
-    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string>;
     /**
      * A value that indicates whether this queue has dead letter support when a message expires.
      */
-    readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    defaultMessageTimeToLive?: pulumi.Input<string>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      */
-    readonly enableExpress?: pulumi.Input<boolean>;
+    enableExpress?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether the queue is to be partitioned across multiple message brokers.
      */
-    readonly enablePartitioning?: pulumi.Input<boolean>;
+    enablePartitioning?: pulumi.Input<boolean>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
     /**
      * Queue/Topic name to forward the messages
      */
-    readonly forwardTo?: pulumi.Input<string>;
+    forwardTo?: pulumi.Input<string>;
     /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
-    readonly lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string>;
     /**
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
-    readonly maxDeliveryCount?: pulumi.Input<number>;
+    maxDeliveryCount?: pulumi.Input<number>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
-    readonly maxSizeInMegabytes?: pulumi.Input<number>;
+    maxSizeInMegabytes?: pulumi.Input<number>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The queue name.
      */
-    readonly queueName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */
-    readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
+    requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether the queue supports the concept of sessions.
      */
-    readonly requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<enums.servicebus.v20180101preview.EntityStatus>;
+    status?: pulumi.Input<enums.servicebus.v20180101preview.EntityStatus>;
 }

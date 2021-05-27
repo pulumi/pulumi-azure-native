@@ -87,9 +87,9 @@ export interface SupportPlanTypeArgs {
     /**
      * The Canonical support plan type.
      */
-    readonly planTypeName?: pulumi.Input<string>;
+    planTypeName?: pulumi.Input<string>;
     /**
      * The support plan type. For now the only valid type is "canonical".
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
 }

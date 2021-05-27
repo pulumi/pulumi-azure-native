@@ -95,13 +95,13 @@ export interface WorkspaceSettingArgs {
     /**
      * All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * The full Azure ID of the workspace to save the data in
      */
-    readonly workspaceId: pulumi.Input<string>;
+    workspaceId: pulumi.Input<string>;
     /**
      * Name of the security setting
      */
-    readonly workspaceSettingName?: pulumi.Input<string>;
+    workspaceSettingName?: pulumi.Input<string>;
 }

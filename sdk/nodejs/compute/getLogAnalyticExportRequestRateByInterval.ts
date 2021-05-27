@@ -35,43 +35,43 @@ export interface GetLogAnalyticExportRequestRateByIntervalArgs {
     /**
      * SAS Uri of the logging blob container to which LogAnalytics Api writes output logs to.
      */
-    readonly blobContainerSasUri: string;
+    blobContainerSasUri: string;
     /**
      * From time of the query
      */
-    readonly fromTime: string;
+    fromTime: string;
     /**
      * Group query result by Client Application ID.
      */
-    readonly groupByClientApplicationId?: boolean;
+    groupByClientApplicationId?: boolean;
     /**
      * Group query result by Operation Name.
      */
-    readonly groupByOperationName?: boolean;
+    groupByOperationName?: boolean;
     /**
      * Group query result by Resource Name.
      */
-    readonly groupByResourceName?: boolean;
+    groupByResourceName?: boolean;
     /**
      * Group query result by Throttle Policy applied.
      */
-    readonly groupByThrottlePolicy?: boolean;
+    groupByThrottlePolicy?: boolean;
     /**
      * Group query result by User Agent.
      */
-    readonly groupByUserAgent?: boolean;
+    groupByUserAgent?: boolean;
     /**
      * Interval value in minutes used to create LogAnalytics call rate logs.
      */
-    readonly intervalLength: enums.compute.IntervalInMins;
+    intervalLength: enums.compute.IntervalInMins;
     /**
      * The location upon which virtual-machine-sizes is queried.
      */
-    readonly location: string;
+    location: string;
     /**
      * To time of the query
      */
-    readonly toTime: string;
+    toTime: string;
 }
 
 /**

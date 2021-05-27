@@ -124,34 +124,34 @@ export interface ASCDataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The available data types for the connector.
      */
-    readonly dataTypes?: pulumi.Input<inputs.securityinsights.v20210301preview.AlertsDataTypeOfDataConnectorArgs>;
+    dataTypes?: pulumi.Input<inputs.securityinsights.v20210301preview.AlertsDataTypeOfDataConnectorArgs>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the data connector
      * Expected value is 'AzureSecurityCenter'.
      */
-    readonly kind: pulumi.Input<"AzureSecurityCenter">;
+    kind: pulumi.Input<"AzureSecurityCenter">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The subscription id to connect to, and get the data from.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

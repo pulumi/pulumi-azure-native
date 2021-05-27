@@ -98,21 +98,21 @@ export interface GatewayArgs {
     /**
      * Gateway description
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string>;
     /**
      * Gateway location.
      */
-    readonly locationData?: pulumi.Input<inputs.apimanagement.v20201201.ResourceLocationDataContractArgs>;
+    locationData?: pulumi.Input<inputs.apimanagement.v20201201.ResourceLocationDataContractArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

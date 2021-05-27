@@ -142,25 +142,25 @@ export interface OrganizationArgs {
     /**
      * Location of Organization resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Confluent offer detail
      */
-    readonly offerDetail: pulumi.Input<inputs.confluent.v20210301preview.OfferDetailArgs>;
+    offerDetail: pulumi.Input<inputs.confluent.v20210301preview.OfferDetailArgs>;
     /**
      * Organization resource name
      */
-    readonly organizationName?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
     /**
      * Resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Organization resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Subscriber detail
      */
-    readonly userDetail: pulumi.Input<inputs.confluent.v20210301preview.UserDetailArgs>;
+    userDetail: pulumi.Input<inputs.confluent.v20210301preview.UserDetailArgs>;
 }

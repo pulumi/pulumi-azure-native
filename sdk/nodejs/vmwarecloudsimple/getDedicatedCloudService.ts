@@ -27,11 +27,11 @@ export interface GetDedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    readonly dedicatedCloudServiceName: string;
+    dedicatedCloudServiceName: string;
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

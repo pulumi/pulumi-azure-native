@@ -27,15 +27,15 @@ export interface GetSiteHostNameBindingArgs {
     /**
      * Name of host
      */
-    readonly hostName: string;
+    hostName: string;
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

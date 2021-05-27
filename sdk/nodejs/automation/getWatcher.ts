@@ -28,15 +28,15 @@ export interface GetWatcherArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The watcher name.
      */
-    readonly watcherName: string;
+    watcherName: string;
 }
 
 /**

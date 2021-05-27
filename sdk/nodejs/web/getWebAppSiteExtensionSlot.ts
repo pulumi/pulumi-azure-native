@@ -29,19 +29,19 @@ export interface GetWebAppSiteExtensionSlotArgs {
     /**
      * Site name.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Site extension name.
      */
-    readonly siteExtensionId: string;
+    siteExtensionId: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetClusterArgs {
     /**
      * The name of the cluster resource
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group to which the resource belongs or get created
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -142,33 +142,33 @@ export interface ZoneArgs {
     /**
      * The etag of the zone.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
      */
-    readonly registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResourceArgs>[]>;
+    registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResourceArgs>[]>;
     /**
      * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
      */
-    readonly resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResourceArgs>[]>;
+    resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResourceArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
     /**
      * The type of this DNS zone (Public or Private).
      */
-    readonly zoneType?: pulumi.Input<enums.network.v20180501.ZoneType>;
+    zoneType?: pulumi.Input<enums.network.v20180501.ZoneType>;
 }

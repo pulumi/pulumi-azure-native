@@ -131,29 +131,29 @@ export interface DatabaseArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The number of days of data that should be kept in cache for fast queries.
      */
-    readonly hotCachePeriodInDays?: pulumi.Input<number>;
+    hotCachePeriodInDays?: pulumi.Input<number>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of days data should be kept before it stops being accessible to queries.
      */
-    readonly softDeletePeriodInDays: pulumi.Input<number>;
+    softDeletePeriodInDays: pulumi.Input<number>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

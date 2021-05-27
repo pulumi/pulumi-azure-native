@@ -28,15 +28,15 @@ export interface GetPartnerTopicEventSubscriptionFullUrlArgs {
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
      */
-    readonly eventSubscriptionName: string;
+    eventSubscriptionName: string;
     /**
      * Name of the partner topic.
      */
-    readonly partnerTopicName: string;
+    partnerTopicName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -28,15 +28,15 @@ export interface GetP2sVpnServerConfigurationArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigurationName: string;
+    p2SVpnServerConfigurationName: string;
     /**
      * The resource group name of the P2SVpnServerConfiguration.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VirtualWan.
      */
-    readonly virtualWanName: string;
+    virtualWanName: string;
 }
 
 /**

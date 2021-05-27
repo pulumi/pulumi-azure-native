@@ -136,33 +136,33 @@ export interface WorkspaceArgs {
     /**
      * The ETag of the workspace.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.operationalinsights.v20151101preview.EntityStatus>;
+    provisioningState?: pulumi.Input<string | enums.operationalinsights.v20151101preview.EntityStatus>;
     /**
      * The resource group name of the workspace.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. 
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.v20151101preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.operationalinsights.v20151101preview.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }

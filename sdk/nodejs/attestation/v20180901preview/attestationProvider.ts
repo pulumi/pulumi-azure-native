@@ -116,21 +116,21 @@ export interface AttestationProviderArgs {
     /**
      * The supported Azure location where the attestation service instance should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the attestation service instance
      */
-    readonly properties: pulumi.Input<inputs.attestation.v20180901preview.AttestationServiceCreationSpecificParamsArgs>;
+    properties: pulumi.Input<inputs.attestation.v20180901preview.AttestationServiceCreationSpecificParamsArgs>;
     /**
      * Name of the attestation service instance.
      */
-    readonly providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags that will be assigned to the attestation service instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

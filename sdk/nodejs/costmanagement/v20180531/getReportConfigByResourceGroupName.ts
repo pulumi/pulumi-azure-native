@@ -26,11 +26,11 @@ export interface GetReportConfigByResourceGroupNameArgs {
     /**
      * Report Config Name.
      */
-    readonly reportConfigName: string;
+    reportConfigName: string;
     /**
      * Azure Resource Group Name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

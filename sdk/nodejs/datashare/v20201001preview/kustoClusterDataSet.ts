@@ -133,26 +133,26 @@ export interface KustoClusterDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'KustoCluster'.
      */
-    readonly kind: pulumi.Input<"KustoCluster">;
+    kind: pulumi.Input<"KustoCluster">;
     /**
      * Resource id of the kusto cluster.
      */
-    readonly kustoClusterResourceId: pulumi.Input<string>;
+    kustoClusterResourceId: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
 }

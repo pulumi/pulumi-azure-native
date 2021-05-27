@@ -98,21 +98,21 @@ export interface KeyArgs {
     /**
      * Used to activate the workspace after a customer managed key is provided.
      */
-    readonly isActiveCMK?: pulumi.Input<boolean>;
+    isActiveCMK?: pulumi.Input<boolean>;
     /**
      * The name of the workspace key
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * The Key Vault Url of the workspace key.
      */
-    readonly keyVaultUrl?: pulumi.Input<string>;
+    keyVaultUrl?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -98,17 +98,17 @@ export interface LabelingJobArgs {
     /**
      * Name and identifier for LabelingJob.
      */
-    readonly labelingJobId?: pulumi.Input<string>;
+    labelingJobId?: pulumi.Input<string>;
     /**
      * Definition of a labeling job.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.LabelingJobPropertiesArgs>;
+    properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.LabelingJobPropertiesArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

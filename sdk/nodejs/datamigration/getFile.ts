@@ -29,19 +29,19 @@ export interface GetFileArgs {
     /**
      * Name of the File
      */
-    readonly fileName: string;
+    fileName: string;
     /**
      * Name of the resource group
      */
-    readonly groupName: string;
+    groupName: string;
     /**
      * Name of the project
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the service
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

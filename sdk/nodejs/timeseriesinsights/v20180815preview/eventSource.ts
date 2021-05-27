@@ -113,29 +113,29 @@ export interface EventSourceArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * Name of the event source.
      */
-    readonly eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string>;
     /**
      * The kind of the event source.
      */
-    readonly kind: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.Kind>;
+    kind: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.Kind>;
     /**
      * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */
-    readonly localTimestamp?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LocalTimestampArgs>;
+    localTimestamp?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LocalTimestampArgs>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

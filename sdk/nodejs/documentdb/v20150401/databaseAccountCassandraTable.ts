@@ -122,25 +122,25 @@ export interface DatabaseAccountCassandraTableArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Cosmos DB keyspace name.
      */
-    readonly keyspaceName: pulumi.Input<string>;
+    keyspaceName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The standard JSON format of a Cassandra table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20150401.CassandraTableResourceArgs>;
+    resource: pulumi.Input<inputs.documentdb.v20150401.CassandraTableResourceArgs>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Cosmos DB table name.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

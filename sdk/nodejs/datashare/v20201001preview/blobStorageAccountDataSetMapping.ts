@@ -166,42 +166,42 @@ export interface BlobStorageAccountDataSetMappingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Gets or sets the container name.
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * The id of the source data set.
      */
-    readonly dataSetId: pulumi.Input<string>;
+    dataSetId: pulumi.Input<string>;
     /**
      * The name of the data set mapping to be created.
      */
-    readonly dataSetMappingName?: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * Gets or sets the path to folder within the container.
      */
-    readonly folder: pulumi.Input<string>;
+    folder: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'BlobStorageAccount'.
      */
-    readonly kind: pulumi.Input<"BlobStorageAccount">;
+    kind: pulumi.Input<"BlobStorageAccount">;
     /**
      * Gets or sets the mount path on the consumer side where the dataset is to be mapped.
      */
-    readonly mountPath?: pulumi.Input<string>;
+    mountPath?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * Resource id of the sink storage account
      */
-    readonly storageAccountResourceId: pulumi.Input<string>;
+    storageAccountResourceId: pulumi.Input<string>;
 }

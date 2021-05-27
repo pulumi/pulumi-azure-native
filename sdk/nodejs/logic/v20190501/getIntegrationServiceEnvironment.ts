@@ -26,11 +26,11 @@ export interface GetIntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment name.
      */
-    readonly integrationServiceEnvironmentName: string;
+    integrationServiceEnvironmentName: string;
     /**
      * The resource group.
      */
-    readonly resourceGroup: string;
+    resourceGroup: string;
 }
 
 /**

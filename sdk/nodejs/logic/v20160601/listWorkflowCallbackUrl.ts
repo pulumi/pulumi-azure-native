@@ -28,19 +28,19 @@ export interface ListWorkflowCallbackUrlArgs {
     /**
      * The key type.
      */
-    readonly keyType?: enums.logic.v20160601.KeyType;
+    keyType?: enums.logic.v20160601.KeyType;
     /**
      * The expiry time.
      */
-    readonly notAfter?: string;
+    notAfter?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The workflow name.
      */
-    readonly workflowName: string;
+    workflowName: string;
 }
 
 /**

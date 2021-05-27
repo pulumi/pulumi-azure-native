@@ -155,57 +155,57 @@ export interface PublicIPAddressArgs {
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20170601.PublicIPAddressDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20170601.PublicIPAddressDnsSettingsArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The idle timeout of the public IP address.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The IP address associated with the public IP address resource.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string | enums.network.v20170601.IPVersion>;
+    publicIPAddressVersion?: pulumi.Input<string | enums.network.v20170601.IPVersion>;
     /**
      * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
      */
-    readonly publicIPAllocationMethod?: pulumi.Input<string | enums.network.v20170601.IPAllocationMethod>;
+    publicIPAllocationMethod?: pulumi.Input<string | enums.network.v20170601.IPAllocationMethod>;
     /**
      * The name of the public IP address.
      */
-    readonly publicIpAddressName?: pulumi.Input<string>;
+    publicIpAddressName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the public IP resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -134,37 +134,37 @@ export interface WorkloadNetworkDnsServiceArgs {
     /**
      * Default DNS zone of the DNS Service.
      */
-    readonly defaultDnsZone?: pulumi.Input<string>;
+    defaultDnsZone?: pulumi.Input<string>;
     /**
      * Display name of the DNS Service.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * NSX DNS Service identifier. Generally the same as the DNS Service's display name
      */
-    readonly dnsServiceId?: pulumi.Input<string>;
+    dnsServiceId?: pulumi.Input<string>;
     /**
      * DNS service IP of the DNS Service.
      */
-    readonly dnsServiceIp?: pulumi.Input<string>;
+    dnsServiceIp?: pulumi.Input<string>;
     /**
      * FQDN zones of the DNS Service.
      */
-    readonly fqdnZones?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdnZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * DNS Service log level.
      */
-    readonly logLevel?: pulumi.Input<string | enums.avs.v20210101preview.DnsServiceLogLevelEnum>;
+    logLevel?: pulumi.Input<string | enums.avs.v20210101preview.DnsServiceLogLevelEnum>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * NSX revision number.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
 }

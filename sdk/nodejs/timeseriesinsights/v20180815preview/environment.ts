@@ -117,25 +117,25 @@ export interface EnvironmentArgs {
     /**
      * Name of the environment
      */
-    readonly environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      */
-    readonly kind: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.Kind>;
+    kind: pulumi.Input<string | enums.timeseriesinsights.v20180815preview.Kind>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
+    sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

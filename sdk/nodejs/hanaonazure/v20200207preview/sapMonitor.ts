@@ -141,37 +141,37 @@ export interface SapMonitorArgs {
     /**
      * The value indicating whether to send analytics to Microsoft
      */
-    readonly enableCustomerAnalytics?: pulumi.Input<boolean>;
+    enableCustomerAnalytics?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ARM ID of the Log Analytics Workspace that is used for monitoring
      */
-    readonly logAnalyticsWorkspaceArmId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceArmId?: pulumi.Input<string>;
     /**
      * The workspace ID of the log analytics workspace to be used for monitoring
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The shared key of the log analytics workspace that is used for monitoring
      */
-    readonly logAnalyticsWorkspaceSharedKey?: pulumi.Input<string>;
+    logAnalyticsWorkspaceSharedKey?: pulumi.Input<string>;
     /**
      * The subnet which the SAP monitor will be deployed in
      */
-    readonly monitorSubnet?: pulumi.Input<string>;
+    monitorSubnet?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the SAP monitor resource.
      */
-    readonly sapMonitorName?: pulumi.Input<string>;
+    sapMonitorName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

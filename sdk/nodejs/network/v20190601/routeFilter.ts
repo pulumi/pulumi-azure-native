@@ -125,33 +125,33 @@ export interface RouteFilterArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A collection of references to express route circuit ipv6 peerings.
      */
-    readonly ipv6Peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitPeeringArgs>[]>;
+    ipv6Peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A collection of references to express route circuit peerings.
      */
-    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitPeeringArgs>[]>;
+    peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitPeeringArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route filter.
      */
-    readonly routeFilterName?: pulumi.Input<string>;
+    routeFilterName?: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190601.RouteFilterRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.v20190601.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

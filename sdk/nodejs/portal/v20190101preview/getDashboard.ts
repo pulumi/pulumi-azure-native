@@ -26,11 +26,11 @@ export interface GetDashboardArgs {
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName: string;
+    dashboardName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

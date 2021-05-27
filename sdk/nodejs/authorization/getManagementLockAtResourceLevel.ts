@@ -31,27 +31,27 @@ export interface GetManagementLockAtResourceLevelArgs {
     /**
      * The name of lock.
      */
-    readonly lockName: string;
+    lockName: string;
     /**
      * An extra path parameter needed in some services, like SQL Databases.
      */
-    readonly parentResourcePath: string;
+    parentResourcePath: string;
     /**
      * The name of the resource group. 
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * The namespace of the resource provider.
      */
-    readonly resourceProviderNamespace: string;
+    resourceProviderNamespace: string;
     /**
      * The type of the resource.
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 /**

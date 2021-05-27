@@ -132,30 +132,30 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    readonly hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string>;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
-    readonly kind: pulumi.Input<"ReadWrite">;
+    kind: pulumi.Input<"ReadWrite">;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */
-    readonly softDeletePeriod?: pulumi.Input<string>;
+    softDeletePeriod?: pulumi.Input<string>;
 }

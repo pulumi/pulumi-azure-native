@@ -26,11 +26,11 @@ export interface GetStorageSyncServiceArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: string;
+    storageSyncServiceName: string;
 }
 
 /**

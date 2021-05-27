@@ -26,11 +26,11 @@ export interface GetZoneArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    readonly zoneName: string;
+    zoneName: string;
 }
 
 /**

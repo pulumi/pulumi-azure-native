@@ -144,61 +144,61 @@ export interface PolicyResourceArgs {
     /**
      * The description of the policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The evaluator type of the policy.
      */
-    readonly evaluatorType?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyEvaluatorType>;
+    evaluatorType?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyEvaluatorType>;
     /**
      * The fact data of the policy.
      */
-    readonly factData?: pulumi.Input<string>;
+    factData?: pulumi.Input<string>;
     /**
      * The fact name of the policy.
      */
-    readonly factName?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyFactName>;
+    factName?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyFactName>;
     /**
      * The identifier of the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the policy set.
      */
-    readonly policySetName: pulumi.Input<string>;
+    policySetName: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The status of the policy.
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold of the policy.
      */
-    readonly threshold?: pulumi.Input<string>;
+    threshold?: pulumi.Input<string>;
     /**
      * The type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

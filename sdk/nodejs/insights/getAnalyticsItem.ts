@@ -30,23 +30,23 @@ export interface GetAnalyticsItemArgs {
     /**
      * The Id of a specific item defined in the Application Insights component
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of a specific item defined in the Application Insights component
      */
-    readonly name?: string;
+    name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scopePath: string;
+    scopePath: string;
 }
 
 /**

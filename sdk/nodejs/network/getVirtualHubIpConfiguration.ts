@@ -28,15 +28,15 @@ export interface GetVirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    readonly ipConfigName: string;
+    ipConfigName: string;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: string;
+    virtualHubName: string;
 }
 
 /**

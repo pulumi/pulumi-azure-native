@@ -27,15 +27,15 @@ export interface GetWebServiceArgs {
     /**
      * The region for which encrypted credential parameters are valid.
      */
-    readonly region?: string;
+    region?: string;
     /**
      * Name of the resource group in which the web service is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the web service.
      */
-    readonly webServiceName: string;
+    webServiceName: string;
 }
 
 /**

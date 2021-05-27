@@ -202,73 +202,73 @@ export interface WorkspaceArgs {
     /**
      * Connectivity endpoints
      */
-    readonly connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workspace default data lake storage account details
      */
-    readonly defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20210301.DataLakeStorageAccountDetailsArgs>;
+    defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20210301.DataLakeStorageAccountDetailsArgs>;
     /**
      * The encryption details of the workspace
      */
-    readonly encryption?: pulumi.Input<inputs.synapse.v20210301.EncryptionDetailsArgs>;
+    encryption?: pulumi.Input<inputs.synapse.v20210301.EncryptionDetailsArgs>;
     /**
      * Identity of the workspace
      */
-    readonly identity?: pulumi.Input<inputs.synapse.v20210301.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.synapse.v20210301.ManagedIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
      */
-    readonly managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
      */
-    readonly managedVirtualNetwork?: pulumi.Input<string>;
+    managedVirtualNetwork?: pulumi.Input<string>;
     /**
      * Managed Virtual Network Settings
      */
-    readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210301.ManagedVirtualNetworkSettingsArgs>;
+    managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210301.ManagedVirtualNetworkSettingsArgs>;
     /**
      * Private endpoint connections to the workspace
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.PrivateEndpointConnectionArgs>[]>;
     /**
      * Enable or Disable public network access to workspace
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.synapse.v20210301.WorkspacePublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.synapse.v20210301.WorkspacePublicNetworkAccess>;
     /**
      * Purview Configuration
      */
-    readonly purviewConfiguration?: pulumi.Input<inputs.synapse.v20210301.PurviewConfigurationArgs>;
+    purviewConfiguration?: pulumi.Input<inputs.synapse.v20210301.PurviewConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Login for workspace SQL active directory administrator
      */
-    readonly sqlAdministratorLogin?: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string>;
     /**
      * SQL administrator login password
      */
-    readonly sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual Network profile
      */
-    readonly virtualNetworkProfile?: pulumi.Input<inputs.synapse.v20210301.VirtualNetworkProfileArgs>;
+    virtualNetworkProfile?: pulumi.Input<inputs.synapse.v20210301.VirtualNetworkProfileArgs>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
     /**
      * Git integration settings
      */
-    readonly workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20210301.WorkspaceRepositoryConfigurationArgs>;
+    workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20210301.WorkspaceRepositoryConfigurationArgs>;
 }

@@ -26,11 +26,11 @@ export interface GetProfileArgs {
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

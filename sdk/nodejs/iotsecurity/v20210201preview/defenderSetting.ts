@@ -104,13 +104,13 @@ export interface DefenderSettingArgs {
     /**
      * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
      */
-    readonly deviceQuota: pulumi.Input<number>;
+    deviceQuota: pulumi.Input<number>;
     /**
      * The kind of onboarding for the subscription
      */
-    readonly onboardingKind: pulumi.Input<string | enums.iotsecurity.v20210201preview.OnboardingKind>;
+    onboardingKind: pulumi.Input<string | enums.iotsecurity.v20210201preview.OnboardingKind>;
     /**
      * Sentinel Workspace Resource Ids
      */
-    readonly sentinelWorkspaceResourceIds: pulumi.Input<pulumi.Input<string>[]>;
+    sentinelWorkspaceResourceIds: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -26,11 +26,11 @@ export interface GetDeviceGroupArgs {
     /**
      * Device group name
      */
-    readonly deviceGroupName: string;
+    deviceGroupName: string;
     /**
      * Defender for IoT location
      */
-    readonly iotDefenderLocation: string;
+    iotDefenderLocation: string;
 }
 
 /**

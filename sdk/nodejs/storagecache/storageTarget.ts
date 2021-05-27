@@ -144,41 +144,41 @@ export interface StorageTargetArgs {
     /**
      * Properties when targetType is blobNfs.
      */
-    readonly blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTargetArgs>;
+    blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTargetArgs>;
     /**
      * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * Properties when targetType is clfs.
      */
-    readonly clfs?: pulumi.Input<inputs.storagecache.ClfsTargetArgs>;
+    clfs?: pulumi.Input<inputs.storagecache.ClfsTargetArgs>;
     /**
      * List of Cache namespace junctions to target for namespace associations.
      */
-    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunctionArgs>[]>;
+    junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunctionArgs>[]>;
     /**
      * Properties when targetType is nfs3.
      */
-    readonly nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
+    nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string | enums.storagecache.ProvisioningStateType>;
+    provisioningState?: pulumi.Input<string | enums.storagecache.ProvisioningStateType>;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Storage Target.
      */
-    readonly storageTargetName?: pulumi.Input<string>;
+    storageTargetName?: pulumi.Input<string>;
     /**
      * Type of the Storage Target.
      */
-    readonly targetType: pulumi.Input<string | enums.storagecache.StorageTargetType>;
+    targetType: pulumi.Input<string | enums.storagecache.StorageTargetType>;
     /**
      * Properties when targetType is unknown.
      */
-    readonly unknown?: pulumi.Input<inputs.storagecache.UnknownTargetArgs>;
+    unknown?: pulumi.Input<inputs.storagecache.UnknownTargetArgs>;
 }

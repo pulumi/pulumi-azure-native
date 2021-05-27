@@ -121,21 +121,21 @@ export interface MigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    readonly configName?: pulumi.Input<string>;
+    configName?: pulumi.Input<string>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name to access Standard Namespace after migration
      */
-    readonly postMigrationName: pulumi.Input<string>;
+    postMigrationName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Existing premium Namespace ARM Id name which has no entities, will be used for migration
      */
-    readonly targetNamespace: pulumi.Input<string>;
+    targetNamespace: pulumi.Input<string>;
 }

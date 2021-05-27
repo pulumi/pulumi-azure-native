@@ -26,11 +26,11 @@ export interface GetHostingEnvironmentArgs {
     /**
      * Name of hostingEnvironment (App Service Environment)
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

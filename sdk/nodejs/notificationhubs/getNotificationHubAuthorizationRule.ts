@@ -29,19 +29,19 @@ export interface GetNotificationHubAuthorizationRuleArgs {
     /**
      * authorization rule name.
      */
-    readonly authorizationRuleName: string;
+    authorizationRuleName: string;
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The notification hub name.
      */
-    readonly notificationHubName: string;
+    notificationHubName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

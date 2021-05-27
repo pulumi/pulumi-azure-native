@@ -26,11 +26,11 @@ export interface GetConnectorArgs {
     /**
      * Connector Name.
      */
-    readonly connectorName: string;
+    connectorName: string;
     /**
      * Azure Resource Group Name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

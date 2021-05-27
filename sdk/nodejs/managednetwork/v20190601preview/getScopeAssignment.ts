@@ -26,11 +26,11 @@ export interface GetScopeAssignmentArgs {
     /**
      * The base resource of the scope assignment.
      */
-    readonly scope: string;
+    scope: string;
     /**
      * The name of the scope assignment to get.
      */
-    readonly scopeAssignmentName: string;
+    scopeAssignmentName: string;
 }
 
 /**

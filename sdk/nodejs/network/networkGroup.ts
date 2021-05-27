@@ -135,33 +135,33 @@ export interface NetworkGroupArgs {
     /**
      * Network group conditional filter.
      */
-    readonly conditionalMembership?: pulumi.Input<string>;
+    conditionalMembership?: pulumi.Input<string>;
     /**
      * A description of the network group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name for the network group.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Group members of network group.
      */
-    readonly groupMembers?: pulumi.Input<pulumi.Input<inputs.network.GroupMembersItemArgs>[]>;
+    groupMembers?: pulumi.Input<pulumi.Input<inputs.network.GroupMembersItemArgs>[]>;
     /**
      * Group member type.
      */
-    readonly memberType?: pulumi.Input<string | enums.network.MemberType>;
+    memberType?: pulumi.Input<string | enums.network.MemberType>;
     /**
      * The name of the network group to get.
      */
-    readonly networkGroupName?: pulumi.Input<string>;
+    networkGroupName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: pulumi.Input<string>;
+    networkManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

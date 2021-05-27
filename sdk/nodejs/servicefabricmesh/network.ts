@@ -104,21 +104,21 @@ export interface NetworkArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The identity of the network.
      */
-    readonly networkResourceName?: pulumi.Input<string>;
+    networkResourceName?: pulumi.Input<string>;
     /**
      * Describes properties of a network resource.
      */
-    readonly properties: pulumi.Input<inputs.servicefabricmesh.NetworkResourcePropertiesArgs>;
+    properties: pulumi.Input<inputs.servicefabricmesh.NetworkResourcePropertiesArgs>;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

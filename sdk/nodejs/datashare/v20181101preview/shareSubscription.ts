@@ -166,17 +166,17 @@ export interface ShareSubscriptionArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The invitation id.
      */
-    readonly invitationId: pulumi.Input<string>;
+    invitationId: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the shareSubscription.
      */
-    readonly shareSubscriptionName?: pulumi.Input<string>;
+    shareSubscriptionName?: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetRegistrationAssignmentArgs {
     /**
      * Tells whether to return registration definition details also along with registration assignment details.
      */
-    readonly expandRegistrationDefinition?: boolean;
+    expandRegistrationDefinition?: boolean;
     /**
      * Guid of the registration assignment.
      */
-    readonly registrationAssignmentId: string;
+    registrationAssignmentId: string;
     /**
      * Scope of the resource.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

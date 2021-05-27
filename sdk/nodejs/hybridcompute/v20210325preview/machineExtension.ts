@@ -110,25 +110,25 @@ export interface MachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    readonly extensionName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the machine where the extension should be created or updated.
      */
-    readonly machineName: pulumi.Input<string>;
+    machineName: pulumi.Input<string>;
     /**
      * Describes Machine Extension Properties.
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachineExtensionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachineExtensionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

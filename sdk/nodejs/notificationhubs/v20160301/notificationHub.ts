@@ -152,61 +152,61 @@ export interface NotificationHubArgs {
     /**
      * The AdmCredential of the created NotificationHub
      */
-    readonly admCredential?: pulumi.Input<inputs.notificationhubs.v20160301.AdmCredentialArgs>;
+    admCredential?: pulumi.Input<inputs.notificationhubs.v20160301.AdmCredentialArgs>;
     /**
      * The ApnsCredential of the created NotificationHub
      */
-    readonly apnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.ApnsCredentialArgs>;
+    apnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.ApnsCredentialArgs>;
     /**
      * The AuthorizationRules of the created NotificationHub
      */
-    readonly authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesArgs>[]>;
+    authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesArgs>[]>;
     /**
      * The BaiduCredential of the created NotificationHub
      */
-    readonly baiduCredential?: pulumi.Input<inputs.notificationhubs.v20160301.BaiduCredentialArgs>;
+    baiduCredential?: pulumi.Input<inputs.notificationhubs.v20160301.BaiduCredentialArgs>;
     /**
      * The GcmCredential of the created NotificationHub
      */
-    readonly gcmCredential?: pulumi.Input<inputs.notificationhubs.v20160301.GcmCredentialArgs>;
+    gcmCredential?: pulumi.Input<inputs.notificationhubs.v20160301.GcmCredentialArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The MpnsCredential of the created NotificationHub
      */
-    readonly mpnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.MpnsCredentialArgs>;
+    mpnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.MpnsCredentialArgs>;
     /**
      * The NotificationHub name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The notification hub name.
      */
-    readonly notificationHubName?: pulumi.Input<string>;
+    notificationHubName?: pulumi.Input<string>;
     /**
      * The RegistrationTtl of the created NotificationHub
      */
-    readonly registrationTtl?: pulumi.Input<string>;
+    registrationTtl?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku of the created namespace
      */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.v20160301.SkuArgs>;
+    sku?: pulumi.Input<inputs.notificationhubs.v20160301.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The WnsCredential of the created NotificationHub
      */
-    readonly wnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.WnsCredentialArgs>;
+    wnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.WnsCredentialArgs>;
 }

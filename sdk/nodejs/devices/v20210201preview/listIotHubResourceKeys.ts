@@ -26,11 +26,11 @@ export interface ListIotHubResourceKeysArgs {
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

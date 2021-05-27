@@ -26,11 +26,11 @@ export interface GetAutoScaleVCoreArgs {
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly vcoreName: string;
+    vcoreName: string;
 }
 
 /**

@@ -260,91 +260,91 @@ export interface JobArgs {
     /**
      * Specifies the settings for Caffe2 job.
      */
-    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20180301.Caffe2SettingsArgs>;
+    caffe2Settings?: pulumi.Input<inputs.batchai.v20180301.Caffe2SettingsArgs>;
     /**
      * Specifies the settings for Caffe job.
      */
-    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20180301.CaffeSettingsArgs>;
+    caffeSettings?: pulumi.Input<inputs.batchai.v20180301.CaffeSettingsArgs>;
     /**
      * Specifies the settings for Chainer job.
      */
-    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20180301.ChainerSettingsArgs>;
+    chainerSettings?: pulumi.Input<inputs.batchai.v20180301.ChainerSettingsArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly cluster: pulumi.Input<inputs.batchai.v20180301.ResourceIdArgs>;
+    cluster: pulumi.Input<inputs.batchai.v20180301.ResourceIdArgs>;
     /**
      * Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
      */
-    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20180301.CNTKsettingsArgs>;
+    cntkSettings?: pulumi.Input<inputs.batchai.v20180301.CNTKsettingsArgs>;
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.v20180301.JobBasePropertiesConstraintsArgs>;
+    constraints?: pulumi.Input<inputs.batchai.v20180301.JobBasePropertiesConstraintsArgs>;
     /**
      * If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
      */
-    readonly containerSettings?: pulumi.Input<inputs.batchai.v20180301.ContainerSettingsArgs>;
+    containerSettings?: pulumi.Input<inputs.batchai.v20180301.ContainerSettingsArgs>;
     /**
      * Specifies the settings for a custom tool kit job.
      */
-    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20180301.CustomToolkitSettingsArgs>;
+    customToolkitSettings?: pulumi.Input<inputs.batchai.v20180301.CustomToolkitSettingsArgs>;
     /**
      * Batch AI will setup these additional environment variables for the job.
      */
-    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariableArgs>[]>;
     /**
      * Describe the experiment information of the job
      */
-    readonly experimentName?: pulumi.Input<string>;
-    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.InputDirectoryArgs>[]>;
+    experimentName?: pulumi.Input<string>;
+    inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.InputDirectoryArgs>[]>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * The specified actions will run on all the nodes that are part of the job
      */
-    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180301.JobPreparationArgs>;
+    jobPreparation?: pulumi.Input<inputs.batchai.v20180301.JobPreparationArgs>;
     /**
      * The region in which to create the job.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
      */
-    readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180301.MountVolumesArgs>;
+    mountVolumes?: pulumi.Input<inputs.batchai.v20180301.MountVolumesArgs>;
     /**
      * The job will be gang scheduled on that many compute nodes
      */
-    readonly nodeCount: pulumi.Input<number>;
-    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.OutputDirectoryArgs>[]>;
+    nodeCount: pulumi.Input<number>;
+    outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.OutputDirectoryArgs>[]>;
     /**
      * Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Specifies the settings for pyTorch job.
      */
-    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.v20180301.PyTorchSettingsArgs>;
+    pyTorchSettings?: pulumi.Input<inputs.batchai.v20180301.PyTorchSettingsArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariableWithSecretValueArgs>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariableWithSecretValueArgs>[]>;
     /**
      * The path where the Batch AI service will upload stdout and stderror of the job.
      */
-    readonly stdOutErrPathPrefix: pulumi.Input<string>;
+    stdOutErrPathPrefix: pulumi.Input<string>;
     /**
      * The user specified tags associated with the job.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the settings for TensorFlow job.
      */
-    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180301.TensorFlowSettingsArgs>;
+    tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180301.TensorFlowSettingsArgs>;
 }

@@ -117,17 +117,17 @@ export interface RestorePointArgs {
     /**
      * List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
      */
-    readonly excludeDisks?: pulumi.Input<pulumi.Input<inputs.compute.ApiEntityReferenceArgs>[]>;
+    excludeDisks?: pulumi.Input<pulumi.Input<inputs.compute.ApiEntityReferenceArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the restore point collection.
      */
-    readonly restorePointCollectionName: pulumi.Input<string>;
+    restorePointCollectionName: pulumi.Input<string>;
     /**
      * The name of the restore point.
      */
-    readonly restorePointName?: pulumi.Input<string>;
+    restorePointName?: pulumi.Input<string>;
 }

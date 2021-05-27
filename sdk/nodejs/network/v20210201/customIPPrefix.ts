@@ -173,49 +173,49 @@ export interface CustomIPPrefixArgs {
     /**
      * Authorization message for WAN validation.
      */
-    readonly authorizationMessage?: pulumi.Input<string>;
+    authorizationMessage?: pulumi.Input<string>;
     /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
-    readonly cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string>;
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    readonly commissionedState?: pulumi.Input<string | enums.network.v20210201.CommissionedState>;
+    commissionedState?: pulumi.Input<string | enums.network.v20210201.CommissionedState>;
     /**
      * The name of the custom IP prefix.
      */
-    readonly customIpPrefixName?: pulumi.Input<string>;
+    customIpPrefixName?: pulumi.Input<string>;
     /**
      * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
      */
-    readonly customIpPrefixParent?: pulumi.Input<inputs.network.v20210201.CustomIpPrefixArgs>;
+    customIpPrefixParent?: pulumi.Input<inputs.network.v20210201.CustomIpPrefixArgs>;
     /**
      * The extended location of the custom IP prefix.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Signed message for WAN validation.
      */
-    readonly signedMessage?: pulumi.Input<string>;
+    signedMessage?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

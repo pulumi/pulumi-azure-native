@@ -27,11 +27,11 @@ export interface GetPolicySetDefinitionAtManagementGroupArgs {
     /**
      * The ID of the management group.
      */
-    readonly managementGroupId: string;
+    managementGroupId: string;
     /**
      * The name of the policy set definition to get.
      */
-    readonly policySetDefinitionName: string;
+    policySetDefinitionName: string;
 }
 
 /**

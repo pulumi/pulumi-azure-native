@@ -148,29 +148,29 @@ export interface PrivateStoreOfferArgs {
     /**
      * Identifier for purposes of race condition
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Icon File Uris
      */
-    readonly iconFileUris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    iconFileUris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The offer ID to update or delete
      */
-    readonly offerId?: pulumi.Input<string>;
+    offerId?: pulumi.Input<string>;
     /**
      * Offer plans
      */
-    readonly plans?: pulumi.Input<pulumi.Input<inputs.marketplace.PlanArgs>[]>;
+    plans?: pulumi.Input<pulumi.Input<inputs.marketplace.PlanArgs>[]>;
     /**
      * The store ID - must use the tenant ID
      */
-    readonly privateStoreId: pulumi.Input<string>;
+    privateStoreId: pulumi.Input<string>;
     /**
      * Plan ids limitation for this offer
      */
-    readonly specificPlanIdsLimitation?: pulumi.Input<pulumi.Input<string>[]>;
+    specificPlanIdsLimitation?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    readonly updateSuppressedDueIdempotence?: pulumi.Input<boolean>;
+    updateSuppressedDueIdempotence?: pulumi.Input<boolean>;
 }

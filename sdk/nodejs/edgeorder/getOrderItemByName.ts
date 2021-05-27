@@ -27,11 +27,11 @@ export interface GetOrderItemByNameArgs {
     /**
      * The name of the order item
      */
-    readonly orderItemName: string;
+    orderItemName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

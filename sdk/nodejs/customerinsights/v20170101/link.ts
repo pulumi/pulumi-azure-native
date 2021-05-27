@@ -160,45 +160,45 @@ export interface LinkArgs {
     /**
      * Localized descriptions for the Link.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the Link.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the link.
      */
-    readonly linkName?: pulumi.Input<string>;
+    linkName?: pulumi.Input<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.TypePropertiesMappingArgs>[]>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.TypePropertiesMappingArgs>[]>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<enums.customerinsights.v20170101.InstanceOperationType>;
+    operationType?: pulumi.Input<enums.customerinsights.v20170101.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
-    readonly participantPropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.ParticipantPropertyReferenceArgs>[]>;
+    participantPropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.ParticipantPropertyReferenceArgs>[]>;
     /**
      * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
      */
-    readonly referenceOnly?: pulumi.Input<boolean>;
+    referenceOnly?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the source Interaction Type.
      */
-    readonly sourceInteractionType: pulumi.Input<string>;
+    sourceInteractionType: pulumi.Input<string>;
     /**
      * Name of the target Profile Type.
      */
-    readonly targetProfileType: pulumi.Input<string>;
+    targetProfileType: pulumi.Input<string>;
 }

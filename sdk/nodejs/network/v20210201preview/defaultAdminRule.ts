@@ -188,30 +188,30 @@ export interface DefaultAdminRuleArgs {
     /**
      * The name of the network manager security Configuration.
      */
-    readonly configurationName: pulumi.Input<string>;
+    configurationName: pulumi.Input<string>;
     /**
      * Default rule flag.
      */
-    readonly flag?: pulumi.Input<string>;
+    flag?: pulumi.Input<string>;
     /**
      * Whether the rule is custom or default.
      * Expected value is 'Default'.
      */
-    readonly kind: pulumi.Input<"Default">;
+    kind: pulumi.Input<"Default">;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: pulumi.Input<string>;
+    networkManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    readonly ruleCollectionName: pulumi.Input<string>;
+    ruleCollectionName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
 }

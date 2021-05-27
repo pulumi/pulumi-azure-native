@@ -112,29 +112,29 @@ export interface RoleDefinitionArgs {
     /**
      * Role definition assignable scopes.
      */
-    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The role definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Role definition permissions.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20180101preview.PermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20180101preview.PermissionArgs>[]>;
     /**
      * The ID of the role definition.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The role name.
      */
-    readonly roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string>;
     /**
      * The role type.
      */
-    readonly roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string>;
     /**
      * The scope of the role definition.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

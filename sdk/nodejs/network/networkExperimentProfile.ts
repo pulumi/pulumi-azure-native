@@ -113,29 +113,29 @@ export interface NetworkExperimentProfileArgs {
     /**
      * The state of the Experiment
      */
-    readonly enabledState?: pulumi.Input<string | enums.network.State>;
+    enabledState?: pulumi.Input<string | enums.network.State>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Profile
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    readonly profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -27,11 +27,11 @@ export interface GetConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: string;
+    configStoreName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

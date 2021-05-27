@@ -100,17 +100,17 @@ export interface ArtifactArgs {
     /**
      * name of the artifact.
      */
-    readonly artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string>;
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Specifies the kind of Blueprint artifact.
      */
-    readonly kind: pulumi.Input<string | enums.blueprint.v20171111preview.ArtifactKind>;
+    kind: pulumi.Input<string | enums.blueprint.v20171111preview.ArtifactKind>;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: pulumi.Input<string>;
+    managementGroupName: pulumi.Input<string>;
 }

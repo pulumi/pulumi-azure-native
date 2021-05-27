@@ -118,37 +118,37 @@ export interface ResourceArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly parentResourcePath: pulumi.Input<string>;
+    parentResourcePath: pulumi.Input<string>;
     /**
      * Gets or sets the plan of the resource.
      */
-    readonly plan?: pulumi.Input<inputs.resources.v20151101.PlanArgs>;
+    plan?: pulumi.Input<inputs.resources.v20151101.PlanArgs>;
     /**
      * Gets or sets the resource properties.
      */
-    readonly properties?: any;
+    properties?: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceProviderNamespace: pulumi.Input<string>;
+    resourceProviderNamespace: pulumi.Input<string>;
     /**
      * Resource identity.
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

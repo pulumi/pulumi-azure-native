@@ -26,11 +26,11 @@ export interface GetCommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    readonly communicationServiceName: string;
+    communicationServiceName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

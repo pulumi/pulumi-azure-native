@@ -101,21 +101,21 @@ export interface PolicyArgs {
     /**
      * Format of the policyContent.
      */
-    readonly format?: pulumi.Input<string | enums.apimanagement.v20191201preview.PolicyContentFormat>;
+    format?: pulumi.Input<string | enums.apimanagement.v20191201preview.PolicyContentFormat>;
     /**
      * The identifier of the Policy.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Contents of the Policy as defined by the format.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

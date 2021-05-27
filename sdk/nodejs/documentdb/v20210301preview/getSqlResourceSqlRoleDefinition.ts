@@ -27,15 +27,15 @@ export interface GetSqlResourceSqlRoleDefinitionArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The GUID for the Role Definition.
      */
-    readonly roleDefinitionId: string;
+    roleDefinitionId: string;
 }
 
 /**

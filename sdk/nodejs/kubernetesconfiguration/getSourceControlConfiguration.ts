@@ -30,23 +30,23 @@ export interface GetSourceControlConfigurationArgs {
     /**
      * The name of the kubernetes cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
      */
-    readonly clusterResourceName: string;
+    clusterResourceName: string;
     /**
      * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
      */
-    readonly clusterRp: string;
+    clusterRp: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Source Control Configuration.
      */
-    readonly sourceControlConfigurationName: string;
+    sourceControlConfigurationName: string;
 }
 
 /**

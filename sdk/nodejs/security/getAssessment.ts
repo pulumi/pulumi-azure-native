@@ -28,15 +28,15 @@ export interface GetAssessmentArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentName: string;
+    assessmentName: string;
     /**
      * OData expand. Optional.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The identifier of the resource.
      */
-    readonly resourceId: string;
+    resourceId: string;
 }
 
 /**

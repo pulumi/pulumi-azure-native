@@ -26,11 +26,11 @@ export interface GetBlueprintArgs {
     /**
      * Name of the blueprint definition.
      */
-    readonly blueprintName: string;
+    blueprintName: string;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: string;
+    resourceScope: string;
 }
 
 /**

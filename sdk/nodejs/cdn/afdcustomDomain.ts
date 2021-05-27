@@ -135,25 +135,25 @@ export interface AFDCustomDomainArgs {
     /**
      * Resource reference to the Azure DNS zone
      */
-    readonly azureDnsZone?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
+    azureDnsZone?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * Name of the domain under the profile which is unique globally
      */
-    readonly customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string>;
     /**
      * The host name of the domain. Must be a domain name.
      */
-    readonly hostName: pulumi.Input<string>;
+    hostName: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
      */
-    readonly tlsSettings?: pulumi.Input<inputs.cdn.AFDDomainHttpsParametersArgs>;
+    tlsSettings?: pulumi.Input<inputs.cdn.AFDDomainHttpsParametersArgs>;
 }

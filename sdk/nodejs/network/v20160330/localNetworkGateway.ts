@@ -131,45 +131,45 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20160330.BgpSettingsArgs>;
+    bgpSettings?: pulumi.Input<inputs.network.v20160330.BgpSettingsArgs>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * IP address of local network gateway.
      */
-    readonly gatewayIpAddress?: pulumi.Input<string>;
+    gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Local network site Address space
      */
-    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20160330.AddressSpaceArgs>;
+    localNetworkAddressSpace?: pulumi.Input<inputs.network.v20160330.AddressSpaceArgs>;
     /**
      * The name of the local network gateway.
      */
-    readonly localNetworkGatewayName?: pulumi.Input<string>;
+    localNetworkGatewayName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets resource GUID property of the LocalNetworkGateway resource
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

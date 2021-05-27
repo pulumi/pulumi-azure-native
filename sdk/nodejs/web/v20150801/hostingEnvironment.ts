@@ -284,150 +284,150 @@ export interface HostingEnvironmentArgs {
     /**
      * List of comma separated strings describing which VM sizes are allowed for front-ends
      */
-    readonly allowedMultiSizes?: pulumi.Input<string>;
+    allowedMultiSizes?: pulumi.Input<string>;
     /**
      * List of comma separated strings describing which VM sizes are allowed for workers
      */
-    readonly allowedWorkerSizes?: pulumi.Input<string>;
+    allowedWorkerSizes?: pulumi.Input<string>;
     /**
      * Api Management Account associated with this Hosting Environment
      */
-    readonly apiManagementAccountId?: pulumi.Input<string>;
+    apiManagementAccountId?: pulumi.Input<string>;
     /**
      * Custom settings for changing the behavior of the hosting environment
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NameValuePairArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NameValuePairArgs>[]>;
     /**
      * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
      */
-    readonly databaseEdition?: pulumi.Input<string>;
+    databaseEdition?: pulumi.Input<string>;
     /**
      * Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
      */
-    readonly databaseServiceObjective?: pulumi.Input<string>;
+    databaseServiceObjective?: pulumi.Input<string>;
     /**
      * DNS suffix of the hostingEnvironment (App Service Environment)
      */
-    readonly dnsSuffix?: pulumi.Input<string>;
+    dnsSuffix?: pulumi.Input<string>;
     /**
      * Current total, used, and available worker capacities
      */
-    readonly environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.v20150801.StampCapacityArgs>[]>;
+    environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.v20150801.StampCapacityArgs>[]>;
     /**
      * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
      */
-    readonly environmentIsHealthy?: pulumi.Input<boolean>;
+    environmentIsHealthy?: pulumi.Input<boolean>;
     /**
      * Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
      */
-    readonly environmentStatus?: pulumi.Input<string>;
+    environmentStatus?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<enums.web.v20150801.InternalLoadBalancingMode>;
+    internalLoadBalancingMode?: pulumi.Input<enums.web.v20150801.InternalLoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
      */
-    readonly ipsslAddressCount?: pulumi.Input<number>;
+    ipsslAddressCount?: pulumi.Input<number>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Last deployment action on this hostingEnvironment (App Service Environment)
      */
-    readonly lastAction?: pulumi.Input<string>;
+    lastAction?: pulumi.Input<string>;
     /**
      * Result of the last deployment action on this hostingEnvironment (App Service Environment)
      */
-    readonly lastActionResult?: pulumi.Input<string>;
+    lastActionResult?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of VMs in this hostingEnvironment (App Service Environment)
      */
-    readonly maximumNumberOfMachines?: pulumi.Input<number>;
+    maximumNumberOfMachines?: pulumi.Input<number>;
     /**
      * Number of front-end instances
      */
-    readonly multiRoleCount?: pulumi.Input<number>;
+    multiRoleCount?: pulumi.Input<number>;
     /**
      * Front-end VM size, e.g. "Medium", "Large"
      */
-    readonly multiSize?: pulumi.Input<string>;
+    multiSize?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
      */
-    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NetworkAccessControlEntryArgs>[]>;
+    networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NetworkAccessControlEntryArgs>[]>;
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
-    readonly provisioningState?: pulumi.Input<enums.web.v20150801.ProvisioningState>;
+    provisioningState?: pulumi.Input<enums.web.v20150801.ProvisioningState>;
     /**
      * Resource group of the hostingEnvironment (App Service Environment)
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Current status of the hostingEnvironment (App Service Environment)
      */
-    readonly status: pulumi.Input<enums.web.v20150801.HostingEnvironmentStatus>;
+    status: pulumi.Input<enums.web.v20150801.HostingEnvironmentStatus>;
     /**
      * Subscription of the hostingEnvironment (App Service Environment)
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
      *             (most likely because NSG blocked the incoming traffic)
      */
-    readonly suspended?: pulumi.Input<boolean>;
+    suspended?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Number of upgrade domains of this hostingEnvironment (App Service Environment)
      */
-    readonly upgradeDomains?: pulumi.Input<number>;
+    upgradeDomains?: pulumi.Input<number>;
     /**
      * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
      */
-    readonly vipMappings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VirtualIPMappingArgs>[]>;
+    vipMappings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VirtualIPMappingArgs>[]>;
     /**
      * Description of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly virtualNetwork?: pulumi.Input<inputs.web.v20150801.VirtualNetworkProfileArgs>;
+    virtualNetwork?: pulumi.Input<inputs.web.v20150801.VirtualNetworkProfileArgs>;
     /**
      * Name of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly vnetName?: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string>;
     /**
      * Resource group of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly vnetResourceGroupName?: pulumi.Input<string>;
+    vnetResourceGroupName?: pulumi.Input<string>;
     /**
      * Subnet of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly vnetSubnetName?: pulumi.Input<string>;
+    vnetSubnetName?: pulumi.Input<string>;
     /**
      * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
      */
-    readonly workerPools?: pulumi.Input<pulumi.Input<inputs.web.v20150801.WorkerPoolArgs>[]>;
+    workerPools?: pulumi.Input<pulumi.Input<inputs.web.v20150801.WorkerPoolArgs>[]>;
 }

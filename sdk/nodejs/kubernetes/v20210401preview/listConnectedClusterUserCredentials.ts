@@ -28,19 +28,19 @@ export interface ListConnectedClusterUserCredentialsArgs {
     /**
      * The mode of client authentication.
      */
-    readonly authenticationMethod: string | enums.kubernetes.v20210401preview.AuthenticationMethod;
+    authenticationMethod: string | enums.kubernetes.v20210401preview.AuthenticationMethod;
     /**
      * Boolean value to indicate whether the request is for client side proxy or not
      */
-    readonly clientProxy: boolean;
+    clientProxy: boolean;
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

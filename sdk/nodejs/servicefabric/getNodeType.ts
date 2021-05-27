@@ -28,15 +28,15 @@ export interface GetNodeTypeArgs {
     /**
      * The name of the cluster resource.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the node type.
      */
-    readonly nodeTypeName: string;
+    nodeTypeName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

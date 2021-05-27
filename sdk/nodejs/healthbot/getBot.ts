@@ -27,11 +27,11 @@ export interface GetBotArgs {
     /**
      * The name of the Bot resource.
      */
-    readonly botName: string;
+    botName: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

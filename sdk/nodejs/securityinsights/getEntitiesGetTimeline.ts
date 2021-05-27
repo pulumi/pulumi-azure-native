@@ -33,35 +33,35 @@ export interface GetEntitiesGetTimelineArgs {
     /**
      * The end timeline date, so the results returned are before this date.
      */
-    readonly endTime: string;
+    endTime: string;
     /**
      * entity ID
      */
-    readonly entityId: string;
+    entityId: string;
     /**
      * Array of timeline Item kinds.
      */
-    readonly kinds?: string | enums.securityinsights.EntityTimelineKind[];
+    kinds?: string | enums.securityinsights.EntityTimelineKind[];
     /**
      * The number of bucket for timeline queries aggregation.
      */
-    readonly numberOfBucket?: number;
+    numberOfBucket?: number;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: string;
+    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The start timeline date, so the results returned are after this date.
      */
-    readonly startTime: string;
+    startTime: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

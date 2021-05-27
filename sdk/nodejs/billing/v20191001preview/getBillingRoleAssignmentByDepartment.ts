@@ -27,15 +27,15 @@ export interface GetBillingRoleAssignmentByDepartmentArgs {
     /**
      * The ID that uniquely identifies a billing account.
      */
-    readonly billingAccountName: string;
+    billingAccountName: string;
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    readonly billingRoleAssignmentName: string;
+    billingRoleAssignmentName: string;
     /**
      * The ID that uniquely identifies a department.
      */
-    readonly departmentName: string;
+    departmentName: string;
 }
 
 /**

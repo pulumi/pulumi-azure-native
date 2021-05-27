@@ -28,15 +28,15 @@ export interface GetLoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    readonly backendAddressPoolName: string;
+    backendAddressPoolName: string;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

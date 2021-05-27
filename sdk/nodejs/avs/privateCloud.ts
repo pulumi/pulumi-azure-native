@@ -194,45 +194,45 @@ export interface PrivateCloudArgs {
     /**
      * vCenter Single Sign On Identity Sources
      */
-    readonly identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySourceArgs>[]>;
+    identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySourceArgs>[]>;
     /**
      * Connectivity to internet is enabled or disabled
      */
-    readonly internet?: pulumi.Input<string | enums.avs.InternetEnum>;
+    internet?: pulumi.Input<string | enums.avs.InternetEnum>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The default cluster used for management
      */
-    readonly managementCluster: pulumi.Input<inputs.avs.ManagementClusterArgs>;
+    managementCluster: pulumi.Input<inputs.avs.ManagementClusterArgs>;
     /**
      * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
-    readonly networkBlock: pulumi.Input<string>;
+    networkBlock: pulumi.Input<string>;
     /**
      * Optionally, set the NSX-T Manager password when the private cloud is created
      */
-    readonly nsxtPassword?: pulumi.Input<string>;
+    nsxtPassword?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName?: pulumi.Input<string>;
+    privateCloudName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The private cloud SKU
      */
-    readonly sku: pulumi.Input<inputs.avs.SkuArgs>;
+    sku: pulumi.Input<inputs.avs.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Optionally, set the vCenter admin password when the private cloud is created
      */
-    readonly vcenterPassword?: pulumi.Input<string>;
+    vcenterPassword?: pulumi.Input<string>;
 }

@@ -150,34 +150,34 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

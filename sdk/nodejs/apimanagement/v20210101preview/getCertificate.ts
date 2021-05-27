@@ -27,15 +27,15 @@ export interface GetCertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    readonly certificateId: string;
+    certificateId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

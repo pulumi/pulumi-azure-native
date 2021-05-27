@@ -28,19 +28,19 @@ export interface GetSiteVNETConnectionSlotArgs {
     /**
      * The name of the web app
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the slot for this web app.
      */
-    readonly slot: string;
+    slot: string;
     /**
      * The name of the Virtual Network
      */
-    readonly vnetName: string;
+    vnetName: string;
 }
 
 /**

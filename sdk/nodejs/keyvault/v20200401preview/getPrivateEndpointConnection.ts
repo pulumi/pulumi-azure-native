@@ -27,15 +27,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group that contains the key vault.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the key vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

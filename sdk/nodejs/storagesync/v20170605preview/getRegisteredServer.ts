@@ -27,15 +27,15 @@ export interface GetRegisteredServerArgs {
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * GUID identifying the on-premises server.
      */
-    readonly serverId: string;
+    serverId: string;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: string;
+    storageSyncServiceName: string;
 }
 
 /**

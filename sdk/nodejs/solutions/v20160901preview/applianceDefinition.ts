@@ -157,53 +157,53 @@ export interface ApplianceDefinitionArgs {
     /**
      * The name of the appliance definition.
      */
-    readonly applianceDefinitionName?: pulumi.Input<string>;
+    applianceDefinitionName?: pulumi.Input<string>;
     /**
      * The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceArtifactArgs>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceArtifactArgs>[]>;
     /**
      * The appliance provider authorizations.
      */
-    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceProviderAuthorizationArgs>[]>;
+    authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20160901preview.ApplianceProviderAuthorizationArgs>[]>;
     /**
      * The appliance definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The appliance definition display name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The appliance lock level.
      */
-    readonly lockLevel: pulumi.Input<enums.solutions.v20160901preview.ApplianceLockLevel>;
+    lockLevel: pulumi.Input<enums.solutions.v20160901preview.ApplianceLockLevel>;
     /**
      * ID of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The appliance definition package file Uri.
      */
-    readonly packageFileUri: pulumi.Input<string>;
+    packageFileUri: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -26,11 +26,11 @@ export interface GetSnapshotArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the snapshot within the given subscription and resource group.
      */
-    readonly snapshotName: string;
+    snapshotName: string;
 }
 
 /**

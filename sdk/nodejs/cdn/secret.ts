@@ -108,17 +108,17 @@ export interface SecretArgs {
     /**
      * object which contains secret parameters
      */
-    readonly parameters?: pulumi.Input<inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs>;
+    parameters?: pulumi.Input<inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Secret under the profile.
      */
-    readonly secretName?: pulumi.Input<string>;
+    secretName?: pulumi.Input<string>;
 }

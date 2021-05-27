@@ -28,19 +28,19 @@ export interface GetSiteSlotArgs {
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Additional web app properties included in the response
      */
-    readonly propertiesToInclude?: string;
+    propertiesToInclude?: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

@@ -155,46 +155,46 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Identity information for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.eventgrid.v20200401preview.IdentityInfoArgs>;
+    identity?: pulumi.Input<inputs.eventgrid.v20200401preview.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.InboundIpRuleArgs>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.InboundIpRuleArgs>[]>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.v20200401preview.InputSchema>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.v20200401preview.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.JsonInputSchemaMappingArgs>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpointConnectionArgs>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.v20200401preview.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.v20200401preview.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Sku pricing tier for the domain.
      */
-    readonly sku?: pulumi.Input<inputs.eventgrid.v20200401preview.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.eventgrid.v20200401preview.ResourceSkuArgs>;
     /**
      * Tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

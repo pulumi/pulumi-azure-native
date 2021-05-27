@@ -98,13 +98,13 @@ export interface ReplicationFabricArgs {
     /**
      * Name of the ASR fabric.
      */
-    readonly fabricName?: pulumi.Input<string>;
+    fabricName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

@@ -28,19 +28,19 @@ export interface GetVirtualMachineScaleSetVMArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The instance ID of the virtual machine.
      */
-    readonly instanceId: string;
+    instanceId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VM scale set.
      */
-    readonly vmScaleSetName: string;
+    vmScaleSetName: string;
 }
 
 /**

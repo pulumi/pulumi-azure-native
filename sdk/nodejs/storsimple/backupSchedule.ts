@@ -152,45 +152,45 @@ export interface BackupScheduleArgs {
     /**
      * The backup policy name.
      */
-    readonly backupPolicyName: pulumi.Input<string>;
+    backupPolicyName: pulumi.Input<string>;
     /**
      * The backup schedule name.
      */
-    readonly backupScheduleName?: pulumi.Input<string>;
+    backupScheduleName?: pulumi.Input<string>;
     /**
      * The type of backup which needs to be taken.
      */
-    readonly backupType: pulumi.Input<enums.storsimple.BackupType>;
+    backupType: pulumi.Input<enums.storsimple.BackupType>;
     /**
      * The device name
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.Kind>;
+    kind?: pulumi.Input<enums.storsimple.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of backups to be retained.
      */
-    readonly retentionCount: pulumi.Input<number>;
+    retentionCount: pulumi.Input<number>;
     /**
      * The schedule recurrence.
      */
-    readonly scheduleRecurrence: pulumi.Input<inputs.storsimple.ScheduleRecurrenceArgs>;
+    scheduleRecurrence: pulumi.Input<inputs.storsimple.ScheduleRecurrenceArgs>;
     /**
      * The schedule status.
      */
-    readonly scheduleStatus: pulumi.Input<enums.storsimple.ScheduleStatus>;
+    scheduleStatus: pulumi.Input<enums.storsimple.ScheduleStatus>;
     /**
      * The start time of the schedule.
      */
-    readonly startTime: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
 }

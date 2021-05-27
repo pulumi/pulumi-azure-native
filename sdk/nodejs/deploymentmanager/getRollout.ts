@@ -28,15 +28,15 @@ export interface GetRolloutArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
      */
-    readonly retryAttempt?: number;
+    retryAttempt?: number;
     /**
      * The rollout name.
      */
-    readonly rolloutName: string;
+    rolloutName: string;
 }
 
 /**

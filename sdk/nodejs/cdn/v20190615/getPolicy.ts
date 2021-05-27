@@ -26,11 +26,11 @@ export interface GetPolicyArgs {
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

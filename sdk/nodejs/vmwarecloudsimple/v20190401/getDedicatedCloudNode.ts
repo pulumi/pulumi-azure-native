@@ -26,11 +26,11 @@ export interface GetDedicatedCloudNodeArgs {
     /**
      * dedicated cloud node name
      */
-    readonly dedicatedCloudNodeName: string;
+    dedicatedCloudNodeName: string;
     /**
      * The name of the resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

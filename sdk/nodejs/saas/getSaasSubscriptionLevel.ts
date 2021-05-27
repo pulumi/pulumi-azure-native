@@ -27,11 +27,11 @@ export interface GetSaasSubscriptionLevelArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

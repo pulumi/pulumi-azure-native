@@ -27,11 +27,11 @@ export interface GetStepArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the deployment step.
      */
-    readonly stepName: string;
+    stepName: string;
 }
 
 /**

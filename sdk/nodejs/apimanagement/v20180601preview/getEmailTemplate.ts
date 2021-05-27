@@ -27,15 +27,15 @@ export interface GetEmailTemplateArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Email Template Name Identifier.
      */
-    readonly templateName: string;
+    templateName: string;
 }
 
 /**

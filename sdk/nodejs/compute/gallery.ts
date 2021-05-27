@@ -119,25 +119,25 @@ export interface GalleryArgs {
     /**
      * The description of this Shared Image Gallery resource. This property is updatable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Profile for gallery sharing to subscription or tenant
      */
-    readonly sharingProfile?: pulumi.Input<inputs.compute.SharingProfileArgs>;
+    sharingProfile?: pulumi.Input<inputs.compute.SharingProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

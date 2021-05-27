@@ -27,15 +27,15 @@ export interface GetWebAppVnetConnectionArgs {
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the virtual network.
      */
-    readonly vnetName: string;
+    vnetName: string;
 }
 
 /**

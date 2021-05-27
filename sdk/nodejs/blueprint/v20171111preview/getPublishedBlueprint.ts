@@ -27,15 +27,15 @@ export interface GetPublishedBlueprintArgs {
     /**
      * name of the blueprint.
      */
-    readonly blueprintName: string;
+    blueprintName: string;
     /**
      * ManagementGroup where blueprint stores.
      */
-    readonly managementGroupName: string;
+    managementGroupName: string;
     /**
      * version of the published blueprint.
      */
-    readonly versionId: string;
+    versionId: string;
 }
 
 /**

@@ -115,25 +115,25 @@ export interface WorkloadNetworkVMGroupArgs {
     /**
      * Display name of the VM group.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Virtual machine members of this group.
      */
-    readonly members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * NSX revision number.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
     /**
      * NSX VM Group identifier. Generally the same as the VM Group's display name
      */
-    readonly vmGroupId?: pulumi.Input<string>;
+    vmGroupId?: pulumi.Input<string>;
 }

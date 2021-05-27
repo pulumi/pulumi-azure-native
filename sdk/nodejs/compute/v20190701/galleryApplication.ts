@@ -137,45 +137,45 @@ export interface GalleryApplicationArgs {
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    readonly endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string>;
     /**
      * The Eula agreement for the gallery Application Definition.
      */
-    readonly eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string>;
     /**
      * The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
-    readonly galleryApplicationName?: pulumi.Input<string>;
+    galleryApplicationName?: pulumi.Input<string>;
     /**
      * The name of the Shared Application Gallery in which the Application Definition is to be created.
      */
-    readonly galleryName: pulumi.Input<string>;
+    galleryName: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The privacy statement uri.
      */
-    readonly privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string>;
     /**
      * The release note uri.
      */
-    readonly releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly supportedOSType: pulumi.Input<enums.compute.v20190701.OperatingSystemTypes>;
+    supportedOSType: pulumi.Input<enums.compute.v20190701.OperatingSystemTypes>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

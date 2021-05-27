@@ -26,11 +26,11 @@ export interface GetAccountArgs {
     /**
      * The name of the Maps Account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Azure Resource Group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

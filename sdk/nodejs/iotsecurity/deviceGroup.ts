@@ -89,9 +89,9 @@ export interface DeviceGroupArgs {
     /**
      * Device group name
      */
-    readonly deviceGroupName?: pulumi.Input<string>;
+    deviceGroupName?: pulumi.Input<string>;
     /**
      * Defender for IoT location
      */
-    readonly iotDefenderLocation: pulumi.Input<string>;
+    iotDefenderLocation: pulumi.Input<string>;
 }

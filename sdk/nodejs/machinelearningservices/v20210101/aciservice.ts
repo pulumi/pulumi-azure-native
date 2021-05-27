@@ -141,86 +141,86 @@ export interface ACIServiceArgs {
     /**
      * Whether or not Application Insights is enabled.
      */
-    readonly appInsightsEnabled?: pulumi.Input<boolean>;
+    appInsightsEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not authentication is enabled on the service.
      */
-    readonly authEnabled?: pulumi.Input<boolean>;
+    authEnabled?: pulumi.Input<boolean>;
     /**
      * The CName for the service.
      */
-    readonly cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string>;
     /**
      * The compute environment type for the service.
      * Expected value is 'ACI'.
      */
-    readonly computeType: pulumi.Input<"ACI">;
+    computeType: pulumi.Input<"ACI">;
     /**
      * The container resource requirements.
      */
-    readonly containerResourceRequirements?: pulumi.Input<inputs.machinelearningservices.v20210101.ContainerResourceRequirementsArgs>;
+    containerResourceRequirements?: pulumi.Input<inputs.machinelearningservices.v20210101.ContainerResourceRequirementsArgs>;
     /**
      * Details of the data collection options specified.
      */
-    readonly dataCollection?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestDataCollectionArgs>;
+    dataCollection?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestDataCollectionArgs>;
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Dns label for the service.
      */
-    readonly dnsNameLabel?: pulumi.Input<string>;
+    dnsNameLabel?: pulumi.Input<string>;
     /**
      * The encryption properties.
      */
-    readonly encryptionProperties?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestEncryptionPropertiesArgs>;
+    encryptionProperties?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestEncryptionPropertiesArgs>;
     /**
      * The Environment, models and assets needed for inferencing.
      */
-    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequestArgs>;
+    environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestEnvironmentImageRequestArgs>;
     /**
      * The authentication keys.
      */
-    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeysArgs>;
+    keys?: pulumi.Input<inputs.machinelearningservices.v20210101.CreateServiceRequestKeysArgs>;
     /**
      * The service tag dictionary. Tags are mutable.
      */
-    readonly kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Azure location/region.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The service properties dictionary. Properties are immutable.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The public SSL certificate in PEM format to use if SSL is enabled.
      */
-    readonly sslCertificate?: pulumi.Input<string>;
+    sslCertificate?: pulumi.Input<string>;
     /**
      * Whether or not SSL is enabled.
      */
-    readonly sslEnabled?: pulumi.Input<boolean>;
+    sslEnabled?: pulumi.Input<boolean>;
     /**
      * The public SSL key in PEM format for the certificate.
      */
-    readonly sslKey?: pulumi.Input<string>;
+    sslKey?: pulumi.Input<string>;
     /**
      * The virtual network configuration.
      */
-    readonly vnetConfiguration?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestVnetConfigurationArgs>;
+    vnetConfiguration?: pulumi.Input<inputs.machinelearningservices.v20210101.ACIServiceCreateRequestVnetConfigurationArgs>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

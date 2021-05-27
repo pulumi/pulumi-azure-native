@@ -118,37 +118,37 @@ export interface RuleArgs {
     /**
      * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
      */
-    readonly action?: pulumi.Input<inputs.servicebus.v20180101preview.ActionArgs>;
+    action?: pulumi.Input<inputs.servicebus.v20180101preview.ActionArgs>;
     /**
      * Properties of correlationFilter
      */
-    readonly correlationFilter?: pulumi.Input<inputs.servicebus.v20180101preview.CorrelationFilterArgs>;
+    correlationFilter?: pulumi.Input<inputs.servicebus.v20180101preview.CorrelationFilterArgs>;
     /**
      * Filter type that is evaluated against a BrokeredMessage.
      */
-    readonly filterType?: pulumi.Input<enums.servicebus.v20180101preview.FilterType>;
+    filterType?: pulumi.Input<enums.servicebus.v20180101preview.FilterType>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rule name.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Properties of sqlFilter
      */
-    readonly sqlFilter?: pulumi.Input<inputs.servicebus.v20180101preview.SqlFilterArgs>;
+    sqlFilter?: pulumi.Input<inputs.servicebus.v20180101preview.SqlFilterArgs>;
     /**
      * The subscription name.
      */
-    readonly subscriptionName: pulumi.Input<string>;
+    subscriptionName: pulumi.Input<string>;
     /**
      * The topic name.
      */
-    readonly topicName: pulumi.Input<string>;
+    topicName: pulumi.Input<string>;
 }

@@ -189,70 +189,70 @@ export interface PartnerRegistrationArgs {
      * partner namespaces is always permitted under the same Azure subscription as the one used
      * for creating the partner registration.
      */
-    readonly authorizedAzureSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedAzureSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The extension of the customer service URI of the publisher.
      */
-    readonly customerServiceUri?: pulumi.Input<string>;
+    customerServiceUri?: pulumi.Input<string>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * URI of the logo.
      */
-    readonly logoUri?: pulumi.Input<string>;
+    logoUri?: pulumi.Input<string>;
     /**
      * Long description for the custom scenarios and integration to be displayed in the portal if needed.
      * Length of this description should not exceed 2048 characters.
      */
-    readonly longDescription?: pulumi.Input<string>;
+    longDescription?: pulumi.Input<string>;
     /**
      * The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
      */
-    readonly partnerCustomerServiceExtension?: pulumi.Input<string>;
+    partnerCustomerServiceExtension?: pulumi.Input<string>;
     /**
      * The customer service number of the publisher. The expected phone format should start with a '+' sign 
      * followed by the country code. The remaining digits are then followed. Only digits and spaces are allowed and its
      * length cannot exceed 16 digits including country code. Examples of valid phone numbers are: +1 515 123 4567 and
      * +966 7 5115 2471. Examples of invalid phone numbers are: +1 (515) 123-4567, 1 515 123 4567 and +966 121 5115 24 7 551 1234 43
      */
-    readonly partnerCustomerServiceNumber?: pulumi.Input<string>;
+    partnerCustomerServiceNumber?: pulumi.Input<string>;
     /**
      * Official name of the partner name. For example: "Contoso".
      */
-    readonly partnerName?: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string>;
     /**
      * Name of the partner registration.
      */
-    readonly partnerRegistrationName?: pulumi.Input<string>;
+    partnerRegistrationName?: pulumi.Input<string>;
     /**
      * Short description of the partner resource type. The length of this description should not exceed 256 characters.
      */
-    readonly partnerResourceTypeDescription?: pulumi.Input<string>;
+    partnerResourceTypeDescription?: pulumi.Input<string>;
     /**
      * Display name of the partner resource type.
      */
-    readonly partnerResourceTypeDisplayName?: pulumi.Input<string>;
+    partnerResourceTypeDisplayName?: pulumi.Input<string>;
     /**
      * Name of the partner resource type.
      */
-    readonly partnerResourceTypeName?: pulumi.Input<string>;
+    partnerResourceTypeName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * URI of the partner website that can be used by Azure customers to setup Event Grid
      * integration on an event source.
      */
-    readonly setupUri?: pulumi.Input<string>;
+    setupUri?: pulumi.Input<string>;
     /**
      * Tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Visibility state of the partner registration.
      */
-    readonly visibilityState?: pulumi.Input<string | enums.eventgrid.v20201015preview.PartnerRegistrationVisibilityState>;
+    visibilityState?: pulumi.Input<string | enums.eventgrid.v20201015preview.PartnerRegistrationVisibilityState>;
 }

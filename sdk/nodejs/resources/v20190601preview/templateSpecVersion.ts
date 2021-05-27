@@ -122,33 +122,33 @@ export interface TemplateSpecVersionArgs {
     /**
      * An array of Template Spec artifacts.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.resources.v20190601preview.TemplateSpecTemplateArtifactArgs>[]>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.resources.v20190601preview.TemplateSpecTemplateArtifactArgs>[]>;
     /**
      * Template Spec version description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Resource Manager template content.
      */
-    readonly template?: any;
+    template?: any;
     /**
      * Name of the Template Spec.
      */
-    readonly templateSpecName: pulumi.Input<string>;
+    templateSpecName: pulumi.Input<string>;
     /**
      * The version of the Template Spec.
      */
-    readonly templateSpecVersion?: pulumi.Input<string>;
+    templateSpecVersion?: pulumi.Input<string>;
 }

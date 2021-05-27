@@ -28,15 +28,15 @@ export interface GetDpsCertificateArgs {
     /**
      * Name of the certificate to retrieve.
      */
-    readonly certificateName: string;
+    certificateName: string;
     /**
      * Name of the provisioning service the certificate is associated with.
      */
-    readonly provisioningServiceName: string;
+    provisioningServiceName: string;
     /**
      * Resource group identifier.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

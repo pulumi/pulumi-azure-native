@@ -132,33 +132,33 @@ export interface ServiceFabricArgs {
     /**
      * The resource id of the environment under which the service fabric resource is present
      */
-    readonly environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string>;
     /**
      * The backing service fabric resource's id
      */
-    readonly externalServiceFabricId?: pulumi.Input<string>;
+    externalServiceFabricId?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the service fabric.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the user profile.
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

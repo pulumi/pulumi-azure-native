@@ -26,11 +26,11 @@ export interface GetAzureFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    readonly azureFirewallName: string;
+    azureFirewallName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

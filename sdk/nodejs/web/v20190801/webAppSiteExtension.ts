@@ -207,13 +207,13 @@ export interface WebAppSiteExtensionArgs {
     /**
      * Site name.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Site extension name.
      */
-    readonly siteExtensionId?: pulumi.Input<string>;
+    siteExtensionId?: pulumi.Input<string>;
 }

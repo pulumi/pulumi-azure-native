@@ -229,81 +229,81 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Actions to invoke when the alert fires.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20210201preview.ActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.insights.v20210201preview.ActionArgs>[]>;
     /**
      * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
      */
-    readonly autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
      */
-    readonly checkWorkspaceAlertsStorageConfigured?: pulumi.Input<boolean>;
+    checkWorkspaceAlertsStorageConfigured?: pulumi.Input<boolean>;
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20210201preview.ScheduledQueryRuleCriteriaArgs>;
+    criteria: pulumi.Input<inputs.insights.v20210201preview.ScheduledQueryRuleCriteriaArgs>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the alert rule
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
      */
-    readonly evaluationFrequency?: pulumi.Input<string>;
+    evaluationFrequency?: pulumi.Input<string>;
     /**
      * Indicates the type of scheduled query rule. The default is LogAlert.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20210201preview.Kind>;
+    kind?: pulumi.Input<string | enums.insights.v20210201preview.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
      */
-    readonly muteActionsDuration?: pulumi.Input<string>;
+    muteActionsDuration?: pulumi.Input<string>;
     /**
      * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
      */
-    readonly overrideQueryTimeRange?: pulumi.Input<string>;
+    overrideQueryTimeRange?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
-    readonly severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number>;
     /**
      * The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
      */
-    readonly skipQueryValidation?: pulumi.Input<boolean>;
+    skipQueryValidation?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
      */
-    readonly targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
      */
-    readonly windowSize?: pulumi.Input<string>;
+    windowSize?: pulumi.Input<string>;
 }

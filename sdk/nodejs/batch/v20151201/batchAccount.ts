@@ -130,21 +130,21 @@ export interface BatchAccountArgs {
     /**
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The properties related to auto storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20151201.AutoStorageBasePropertiesArgs>;
+    autoStorage?: pulumi.Input<inputs.batch.v20151201.AutoStorageBasePropertiesArgs>;
     /**
      * The region in which to create the account.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the new Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The user specified tags associated with the account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

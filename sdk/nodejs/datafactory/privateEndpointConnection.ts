@@ -99,17 +99,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * The private endpoint connection name.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Core resource properties
      */
-    readonly properties?: pulumi.Input<inputs.datafactory.PrivateLinkConnectionApprovalRequestArgs>;
+    properties?: pulumi.Input<inputs.datafactory.PrivateLinkConnectionApprovalRequestArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

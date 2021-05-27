@@ -94,17 +94,17 @@ export interface TrustedIdProviderArgs {
     /**
      * The name of the Data Lake Store account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The URL of this trusted identity provider.
      */
-    readonly idProvider: pulumi.Input<string>;
+    idProvider: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the trusted identity provider. This is used for differentiation of providers in the account.
      */
-    readonly trustedIdProviderName?: pulumi.Input<string>;
+    trustedIdProviderName?: pulumi.Input<string>;
 }

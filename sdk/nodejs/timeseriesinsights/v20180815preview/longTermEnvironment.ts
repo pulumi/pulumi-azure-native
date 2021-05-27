@@ -167,38 +167,38 @@ export interface LongTermEnvironmentArgs {
     /**
      * Name of the environment
      */
-    readonly environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      * Expected value is 'LongTerm'.
      */
-    readonly kind: pulumi.Input<"LongTerm">;
+    kind: pulumi.Input<"LongTerm">;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
+    sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
     /**
      * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
      */
-    readonly storageConfiguration: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LongTermStorageConfigurationInputArgs>;
+    storageConfiguration: pulumi.Input<inputs.timeseriesinsights.v20180815preview.LongTermStorageConfigurationInputArgs>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of event properties which will be used to define the environment's time series id.
      */
-    readonly timeSeriesIdProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyArgs>[]>;
+    timeSeriesIdProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20180815preview.TimeSeriesIdPropertyArgs>[]>;
     /**
      * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
      */
-    readonly warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesArgs>;
+    warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.v20180815preview.WarmStoreConfigurationPropertiesArgs>;
 }

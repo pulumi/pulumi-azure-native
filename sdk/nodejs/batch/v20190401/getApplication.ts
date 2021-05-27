@@ -27,15 +27,15 @@ export interface GetApplicationArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the application. This must be unique within the account.
      */
-    readonly applicationName: string;
+    applicationName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

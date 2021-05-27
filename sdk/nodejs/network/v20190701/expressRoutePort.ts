@@ -173,45 +173,45 @@ export interface ExpressRoutePortArgs {
     /**
      * Bandwidth of procured ports in Gbps.
      */
-    readonly bandwidthInGbps?: pulumi.Input<number>;
+    bandwidthInGbps?: pulumi.Input<number>;
     /**
      * Encapsulation method on physical ports.
      */
-    readonly encapsulation?: pulumi.Input<string | enums.network.v20190701.ExpressRoutePortsEncapsulation>;
+    encapsulation?: pulumi.Input<string | enums.network.v20190701.ExpressRoutePortsEncapsulation>;
     /**
      * The name of the ExpressRoutePort resource.
      */
-    readonly expressRoutePortName?: pulumi.Input<string>;
+    expressRoutePortName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The identity of ExpressRoutePort, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20190701.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.v20190701.ManagedServiceIdentityArgs>;
     /**
      * The set of physical links of the ExpressRoutePort resource.
      */
-    readonly links?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteLinkArgs>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ExpressRouteLinkArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */
-    readonly peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the express route port resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

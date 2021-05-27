@@ -115,29 +115,29 @@ export interface PropertyArgs {
     /**
      * Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Identifier of the property.
      */
-    readonly propId?: pulumi.Input<string>;
+    propId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Optional tags that when provided can be used to filter the property list.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

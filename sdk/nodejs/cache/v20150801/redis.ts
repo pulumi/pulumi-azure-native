@@ -180,53 +180,53 @@ export interface RedisArgs {
     /**
      * If the value is true, then the non-SLL Redis server port (6379) will be enabled.
      */
-    readonly enableNonSslPort?: pulumi.Input<boolean>;
+    enableNonSslPort?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    readonly redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
      */
-    readonly redisVersion?: pulumi.Input<string>;
+    redisVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
-    readonly shardCount?: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number>;
     /**
      * What SKU of Redis cache to deploy.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20150801.SkuArgs>;
+    sku: pulumi.Input<inputs.cache.v20150801.SkuArgs>;
     /**
      * Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */
-    readonly staticIP?: pulumi.Input<string>;
+    staticIP?: pulumi.Input<string>;
     /**
      * Required when deploying a Redis cache inside an existing Azure Virtual Network.
      */
-    readonly subnet?: pulumi.Input<string>;
+    subnet?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * tenantSettings
      */
-    readonly tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
      */
-    readonly virtualNetwork?: pulumi.Input<string>;
+    virtualNetwork?: pulumi.Input<string>;
 }

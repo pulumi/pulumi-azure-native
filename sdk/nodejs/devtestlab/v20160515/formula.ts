@@ -145,49 +145,49 @@ export interface FormulaArgs {
     /**
      * The author of the formula.
      */
-    readonly author?: pulumi.Input<string>;
+    author?: pulumi.Input<string>;
     /**
      * The description of the formula.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The content of the formula.
      */
-    readonly formulaContent?: pulumi.Input<inputs.devtestlab.v20160515.LabVirtualMachineCreationParameterArgs>;
+    formulaContent?: pulumi.Input<inputs.devtestlab.v20160515.LabVirtualMachineCreationParameterArgs>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the formula.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The OS type of the formula.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
     /**
      * Information about a VM from which a formula is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.v20160515.FormulaPropertiesFromVmArgs>;
+    vm?: pulumi.Input<inputs.devtestlab.v20160515.FormulaPropertiesFromVmArgs>;
 }

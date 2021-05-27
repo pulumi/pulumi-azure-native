@@ -27,11 +27,11 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual network gateway connection.
      */
-    readonly virtualNetworkGatewayConnectionName: string;
+    virtualNetworkGatewayConnectionName: string;
 }
 
 /**

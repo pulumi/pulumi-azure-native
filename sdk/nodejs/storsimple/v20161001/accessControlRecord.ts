@@ -94,17 +94,17 @@ export interface AccessControlRecordArgs {
     /**
      * The name of the access control record.
      */
-    readonly accessControlRecordName?: pulumi.Input<string>;
+    accessControlRecordName?: pulumi.Input<string>;
     /**
      * The Iscsi initiator name (IQN)
      */
-    readonly initiatorName: pulumi.Input<string>;
+    initiatorName: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

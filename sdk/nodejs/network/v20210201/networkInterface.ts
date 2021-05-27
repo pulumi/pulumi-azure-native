@@ -215,61 +215,61 @@ export interface NetworkInterfaceArgs {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20210201.NetworkInterfaceDnsSettingsArgs>;
+    dnsSettings?: pulumi.Input<inputs.network.v20210201.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is accelerated networking enabled.
      */
-    readonly enableAcceleratedNetworking?: pulumi.Input<boolean>;
+    enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
      * Indicates whether IP forwarding is enabled on this network interface.
      */
-    readonly enableIPForwarding?: pulumi.Input<boolean>;
+    enableIPForwarding?: pulumi.Input<boolean>;
     /**
      * The extended location of the network interface.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.v20210201.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.NetworkInterfaceIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20210201.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Migration phase of Network Interface resource.
      */
-    readonly migrationPhase?: pulumi.Input<string | enums.network.v20210201.NetworkInterfaceMigrationPhase>;
+    migrationPhase?: pulumi.Input<string | enums.network.v20210201.NetworkInterfaceMigrationPhase>;
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName?: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20210201.NetworkSecurityGroupArgs>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.v20210201.NetworkSecurityGroupArgs>;
     /**
      * Type of Network Interface resource.
      */
-    readonly nicType?: pulumi.Input<string | enums.network.v20210201.NetworkInterfaceNicType>;
+    nicType?: pulumi.Input<string | enums.network.v20210201.NetworkInterfaceNicType>;
     /**
      * Privatelinkservice of the network interface resource.
      */
-    readonly privateLinkService?: pulumi.Input<inputs.network.v20210201.PrivateLinkServiceArgs>;
+    privateLinkService?: pulumi.Input<inputs.network.v20210201.PrivateLinkServiceArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * WorkloadType of the NetworkInterface for BareMetal resources
      */
-    readonly workloadType?: pulumi.Input<string>;
+    workloadType?: pulumi.Input<string>;
 }

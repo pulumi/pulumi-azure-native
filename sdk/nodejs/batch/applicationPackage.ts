@@ -126,17 +126,17 @@ export interface ApplicationPackageArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the application. This must be unique within the account.
      */
-    readonly applicationName: pulumi.Input<string>;
+    applicationName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The version of the application.
      */
-    readonly versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string>;
 }

@@ -30,23 +30,23 @@ export interface GetUserArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=email)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: string;
+    labAccountName: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

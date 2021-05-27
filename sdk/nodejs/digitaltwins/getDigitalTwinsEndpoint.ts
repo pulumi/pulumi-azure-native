@@ -28,15 +28,15 @@ export interface GetDigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    readonly endpointName: string;
+    endpointName: string;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the DigitalTwinsInstance.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

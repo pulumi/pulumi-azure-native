@@ -98,21 +98,21 @@ export interface ManagedNetworkPeeringPolicyArgs {
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Managed Network.
      */
-    readonly managedNetworkName: pulumi.Input<string>;
+    managedNetworkName: pulumi.Input<string>;
     /**
      * The name of the Managed Network Peering Policy.
      */
-    readonly managedNetworkPeeringPolicyName?: pulumi.Input<string>;
+    managedNetworkPeeringPolicyName?: pulumi.Input<string>;
     /**
      * Gets or sets the properties of a Managed Network Policy
      */
-    readonly properties?: pulumi.Input<inputs.managednetwork.v20190601preview.ManagedNetworkPeeringPolicyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.managednetwork.v20190601preview.ManagedNetworkPeeringPolicyPropertiesArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

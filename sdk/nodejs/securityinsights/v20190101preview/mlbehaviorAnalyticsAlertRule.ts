@@ -153,34 +153,34 @@ export interface MLBehaviorAnalyticsAlertRuleArgs {
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    readonly alertRuleTemplateName: pulumi.Input<string>;
+    alertRuleTemplateName: pulumi.Input<string>;
     /**
      * Determines whether this alert rule is enabled or disabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      *
      * Expected value is 'MLBehaviorAnalytics'.
      */
-    readonly kind: pulumi.Input<"MLBehaviorAnalytics">;
+    kind: pulumi.Input<"MLBehaviorAnalytics">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Alert rule ID
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetModuleArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * The module name.
      */
-    readonly moduleName: string;
+    moduleName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

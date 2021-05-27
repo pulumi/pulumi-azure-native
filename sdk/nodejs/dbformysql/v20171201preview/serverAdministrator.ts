@@ -121,25 +121,25 @@ export interface ServerAdministratorArgs {
     /**
      * The type of administrator.
      */
-    readonly administratorType: pulumi.Input<string | enums.dbformysql.v20171201preview.AdministratorType>;
+    administratorType: pulumi.Input<string | enums.dbformysql.v20171201preview.AdministratorType>;
     /**
      * The server administrator login account name.
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The server administrator Sid (Secure ID).
      */
-    readonly sid: pulumi.Input<string>;
+    sid: pulumi.Input<string>;
     /**
      * The server Active Directory Administrator tenant id.
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
 }

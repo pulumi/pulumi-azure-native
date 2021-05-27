@@ -133,29 +133,29 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateShellCustomizerArgs>[]>;
+    customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateShellCustomizerArgs>[]>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorArgs>[]>;
+    distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorArgs | inputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorArgs>[]>;
     /**
      * The name of the image Template
      */
-    readonly imageTemplateName?: pulumi.Input<string>;
+    imageTemplateName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateIsoSourceArgs | inputs.virtualmachineimages.v20180201preview.ImageTemplatePlatformImageSourceArgs>;
+    source: pulumi.Input<inputs.virtualmachineimages.v20180201preview.ImageTemplateIsoSourceArgs | inputs.virtualmachineimages.v20180201preview.ImageTemplatePlatformImageSourceArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -169,58 +169,58 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of blob storage event type to process.
      */
-    readonly blobStorageEventType?: pulumi.Input<string | enums.kusto.v20210101.BlobStorageEventType>;
+    blobStorageEventType?: pulumi.Input<string | enums.kusto.v20210101.BlobStorageEventType>;
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The event hub consumer group.
      */
-    readonly consumerGroup: pulumi.Input<string>;
+    consumerGroup: pulumi.Input<string>;
     /**
      * The name of the data connection.
      */
-    readonly dataConnectionName?: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    readonly dataFormat?: pulumi.Input<string | enums.kusto.v20210101.EventGridDataFormat>;
+    dataFormat?: pulumi.Input<string | enums.kusto.v20210101.EventGridDataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The resource ID where the event grid is configured to send events.
      */
-    readonly eventHubResourceId: pulumi.Input<string>;
+    eventHubResourceId: pulumi.Input<string>;
     /**
      * A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
      */
-    readonly ignoreFirstRecord?: pulumi.Input<boolean>;
+    ignoreFirstRecord?: pulumi.Input<boolean>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'EventGrid'.
      */
-    readonly kind: pulumi.Input<"EventGrid">;
+    kind: pulumi.Input<"EventGrid">;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    readonly mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource ID of the storage account where the data resides.
      */
-    readonly storageAccountResourceId: pulumi.Input<string>;
+    storageAccountResourceId: pulumi.Input<string>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

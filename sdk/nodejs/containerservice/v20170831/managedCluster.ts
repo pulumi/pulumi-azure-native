@@ -136,37 +136,37 @@ export interface ManagedClusterArgs {
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20170831.ContainerServiceAgentPoolProfileArgs>[]>;
+    agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20170831.ContainerServiceAgentPoolProfileArgs>[]>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
-    readonly dnsPrefix?: pulumi.Input<string>;
+    dnsPrefix?: pulumi.Input<string>;
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */
-    readonly kubernetesVersion?: pulumi.Input<string>;
+    kubernetesVersion?: pulumi.Input<string>;
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceLinuxProfileArgs>;
+    linuxProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileArgs>;
+    servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20170831.ContainerServiceServicePrincipalProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

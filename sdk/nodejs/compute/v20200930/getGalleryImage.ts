@@ -27,15 +27,15 @@ export interface GetGalleryImageArgs {
     /**
      * The name of the gallery image definition to be retrieved.
      */
-    readonly galleryImageName: string;
+    galleryImageName: string;
     /**
      * The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -119,30 +119,30 @@ export interface OnlineEndpointArgs {
     /**
      * Online Endpoint name.
      */
-    readonly endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string>;
     /**
      * Service identity associated with a resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20210301preview.ResourceIdentityArgs>;
-    readonly kind?: pulumi.Input<string>;
+    identity?: pulumi.Input<inputs.machinelearningservices.v20210301preview.ResourceIdentityArgs>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Additional attributes of the entity.
      */
-    readonly properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.OnlineEndpointArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.OnlineEndpointArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

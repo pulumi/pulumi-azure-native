@@ -175,60 +175,60 @@ export interface ContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    readonly containerGroupName?: pulumi.Input<string>;
+    containerGroupName?: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.ContainerArgs>[]>;
+    containers: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.ContainerArgs>[]>;
     /**
      * The diagnostic information for a container group.
      */
-    readonly diagnostics?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupDiagnosticsArgs>;
+    diagnostics?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupDiagnosticsArgs>;
     /**
      * The DNS config information for a container group.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.containerinstance.v20181001.DnsConfigurationArgs>;
+    dnsConfig?: pulumi.Input<inputs.containerinstance.v20181001.DnsConfigurationArgs>;
     /**
      * The identity of the container group, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupIdentityArgs>;
+    identity?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupIdentityArgs>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.ImageRegistryCredentialArgs>[]>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.ImageRegistryCredentialArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    readonly ipAddress?: pulumi.Input<inputs.containerinstance.v20181001.IpAddressArgs>;
+    ipAddress?: pulumi.Input<inputs.containerinstance.v20181001.IpAddressArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The network profile information for a container group.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupNetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.containerinstance.v20181001.ContainerGroupNetworkProfileArgs>;
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: pulumi.Input<string | enums.containerinstance.v20181001.OperatingSystemTypes>;
+    osType: pulumi.Input<string | enums.containerinstance.v20181001.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Restart policy for all containers within the container group. 
      * - `Always` Always restart
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: pulumi.Input<string | enums.containerinstance.v20181001.ContainerGroupRestartPolicy>;
+    restartPolicy?: pulumi.Input<string | enums.containerinstance.v20181001.ContainerGroupRestartPolicy>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.VolumeArgs>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.v20181001.VolumeArgs>[]>;
 }

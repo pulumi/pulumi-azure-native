@@ -93,13 +93,13 @@ export interface DeploymentAtTenantScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * The location to store the deployment data.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.v20190801.DeploymentPropertiesArgs>;
+    properties: pulumi.Input<inputs.resources.v20190801.DeploymentPropertiesArgs>;
 }

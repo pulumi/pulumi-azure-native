@@ -23,11 +23,11 @@ export interface GetWorkflowArgs {
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The workflow name.
      */
-    readonly workflowName: string;
+    workflowName: string;
 }
 
 export interface GetWorkflowResult {

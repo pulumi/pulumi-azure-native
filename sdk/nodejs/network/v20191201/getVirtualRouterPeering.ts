@@ -27,15 +27,15 @@ export interface GetVirtualRouterPeeringArgs {
     /**
      * The name of the Virtual Router Peering.
      */
-    readonly peeringName: string;
+    peeringName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Virtual Router.
      */
-    readonly virtualRouterName: string;
+    virtualRouterName: string;
 }
 
 /**

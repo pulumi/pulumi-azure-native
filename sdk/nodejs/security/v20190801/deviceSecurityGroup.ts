@@ -106,25 +106,25 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The allow-list custom alert rules.
      */
-    readonly allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.AllowlistCustomAlertRuleArgs>[]>;
+    allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.AllowlistCustomAlertRuleArgs>[]>;
     /**
      * The deny-list custom alert rules.
      */
-    readonly denylistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.DenylistCustomAlertRuleArgs>[]>;
+    denylistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.DenylistCustomAlertRuleArgs>[]>;
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    readonly deviceSecurityGroupName?: pulumi.Input<string>;
+    deviceSecurityGroupName?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * The list of custom alert threshold rules.
      */
-    readonly thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.ThresholdCustomAlertRuleArgs>[]>;
+    thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.ThresholdCustomAlertRuleArgs>[]>;
     /**
      * The list of custom alert time-window rules.
      */
-    readonly timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.TimeWindowCustomAlertRuleArgs>[]>;
+    timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.TimeWindowCustomAlertRuleArgs>[]>;
 }

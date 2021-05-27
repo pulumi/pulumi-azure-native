@@ -154,41 +154,41 @@ export interface WorkbookArgs {
     /**
      * Workbook category, as defined by the user at creation time.
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * The user-defined name (display name) of the workbook.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string | enums.insights.v20180617preview.SharedTypeKind>;
+    kind?: pulumi.Input<string | enums.insights.v20180617preview.SharedTypeKind>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
-    readonly serializedData: pulumi.Input<string>;
+    serializedData: pulumi.Input<string>;
     /**
      * ResourceId for a source resource.
      */
-    readonly sourceId: pulumi.Input<string>;
+    sourceId: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workbook version
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

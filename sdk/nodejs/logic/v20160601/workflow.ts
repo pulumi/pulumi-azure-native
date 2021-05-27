@@ -154,33 +154,33 @@ export interface WorkflowArgs {
     /**
      * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
      */
-    readonly definition?: any;
+    definition?: any;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20160601.WorkflowParameterArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20160601.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20160601.SkuArgs>;
+    sku?: pulumi.Input<inputs.logic.v20160601.SkuArgs>;
     /**
      * The state.
      */
-    readonly state?: pulumi.Input<enums.logic.v20160601.WorkflowState>;
+    state?: pulumi.Input<enums.logic.v20160601.WorkflowState>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The workflow name.
      */
-    readonly workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string>;
 }

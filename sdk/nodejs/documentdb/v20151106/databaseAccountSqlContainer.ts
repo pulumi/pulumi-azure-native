@@ -158,25 +158,25 @@ export interface DatabaseAccountSqlContainerArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Cosmos DB container name.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The standard JSON format of a container
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20151106.SqlContainerResourceArgs>;
+    resource: pulumi.Input<inputs.documentdb.v20151106.SqlContainerResourceArgs>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

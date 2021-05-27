@@ -27,15 +27,15 @@ export interface GetSqlPoolsV3Args {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the sql pool.
      */
-    readonly sqlPoolName: string;
+    sqlPoolName: string;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

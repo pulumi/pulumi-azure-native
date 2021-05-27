@@ -26,11 +26,11 @@ export interface GetSpatialAnchorsAccountArgs {
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of an Mixed Reality Spatial Anchors Account.
      */
-    readonly spatialAnchorsAccountName: string;
+    spatialAnchorsAccountName: string;
 }
 
 /**

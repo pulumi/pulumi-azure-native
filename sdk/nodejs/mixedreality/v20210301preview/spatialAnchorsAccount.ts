@@ -142,37 +142,37 @@ export interface SpatialAnchorsAccountArgs {
     /**
      * Name of an Mixed Reality Account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The identity associated with this account
      */
-    readonly identity?: pulumi.Input<inputs.mixedreality.v20210301preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.mixedreality.v20210301preview.IdentityArgs>;
     /**
      * The kind of account, if supported
      */
-    readonly kind?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
+    kind?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The plan associated with this account
      */
-    readonly plan?: pulumi.Input<inputs.mixedreality.v20210301preview.IdentityArgs>;
+    plan?: pulumi.Input<inputs.mixedreality.v20210301preview.IdentityArgs>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku associated with this account
      */
-    readonly sku?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
     /**
      * The name of the storage account associated with this accountId
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

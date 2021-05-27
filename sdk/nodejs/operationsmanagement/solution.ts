@@ -107,25 +107,25 @@ export interface SolutionArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Plan for solution object supported by the OperationsManagement resource provider.
      */
-    readonly plan?: pulumi.Input<inputs.operationsmanagement.SolutionPlanArgs>;
+    plan?: pulumi.Input<inputs.operationsmanagement.SolutionPlanArgs>;
     /**
      * Properties for solution object supported by the OperationsManagement resource provider.
      */
-    readonly properties?: pulumi.Input<inputs.operationsmanagement.SolutionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.operationsmanagement.SolutionPropertiesArgs>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * User Solution Name.
      */
-    readonly solutionName?: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

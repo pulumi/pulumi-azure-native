@@ -142,21 +142,21 @@ export interface KeyArgs {
     /**
      * The name of the key to be created.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * The properties of the key to be created.
      */
-    readonly properties: pulumi.Input<inputs.keyvault.KeyPropertiesArgs>;
+    properties: pulumi.Input<inputs.keyvault.KeyPropertiesArgs>;
     /**
      * The name of the resource group which contains the specified key vault.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags that will be assigned to the key.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the key vault which contains the key to be created.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetActionRuleByNameArgs {
     /**
      * The name of action rule that needs to be fetched
      */
-    readonly actionRuleName: string;
+    actionRuleName: string;
     /**
      * Resource group name where the resource is created.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

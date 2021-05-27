@@ -115,29 +115,29 @@ export interface DscNodeConfigurationArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the configuration of the node.
      */
-    readonly configuration: pulumi.Input<inputs.automation.v20151031.DscConfigurationAssociationPropertyArgs>;
+    configuration: pulumi.Input<inputs.automation.v20151031.DscConfigurationAssociationPropertyArgs>;
     /**
      * If a new build version of NodeConfiguration is required.
      */
-    readonly incrementNodeConfigurationBuild?: pulumi.Input<boolean>;
+    incrementNodeConfigurationBuild?: pulumi.Input<boolean>;
     /**
      * Name of the node configuration.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The create or update parameters for configuration.
      */
-    readonly nodeConfigurationName?: pulumi.Input<string>;
+    nodeConfigurationName?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the source.
      */
-    readonly source: pulumi.Input<inputs.automation.v20151031.ContentSourceArgs>;
+    source: pulumi.Input<inputs.automation.v20151031.ContentSourceArgs>;
 }

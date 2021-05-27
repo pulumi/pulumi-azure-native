@@ -28,19 +28,19 @@ export interface GetApiTagDescriptionArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
-    readonly tagDescriptionId: string;
+    tagDescriptionId: string;
 }
 
 /**

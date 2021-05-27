@@ -26,7 +26,7 @@ export interface GetPolicySetDefinitionArgs {
     /**
      * The name of the policy set definition to get.
      */
-    readonly policySetDefinitionName: string;
+    policySetDefinitionName: string;
 }
 
 /**

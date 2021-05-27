@@ -140,37 +140,37 @@ export interface ExperimentArgs {
     /**
      * The description of the details or intents of the Experiment
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The state of the Experiment
      */
-    readonly enabledState?: pulumi.Input<string | enums.network.v20191101.State>;
+    enabledState?: pulumi.Input<string | enums.network.v20191101.State>;
     /**
      * The endpoint A of an experiment
      */
-    readonly endpointA?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
+    endpointA?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
     /**
      * The endpoint B of an experiment
      */
-    readonly endpointB?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
+    endpointB?: pulumi.Input<inputs.network.v20191101.ExperimentEndpointArgs>;
     /**
      * The Experiment identifier associated with the Experiment
      */
-    readonly experimentName?: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

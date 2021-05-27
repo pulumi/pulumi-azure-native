@@ -28,15 +28,15 @@ export interface GetPublicIPAddressArgs {
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the public IP address.
      */
-    readonly publicIpAddressName: string;
+    publicIpAddressName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

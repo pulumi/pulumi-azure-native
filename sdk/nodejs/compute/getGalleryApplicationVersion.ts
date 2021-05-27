@@ -30,23 +30,23 @@ export interface GetGalleryApplicationVersionArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the gallery Application Definition in which the Application Version resides.
      */
-    readonly galleryApplicationName: string;
+    galleryApplicationName: string;
     /**
      * The name of the gallery Application Version to be retrieved.
      */
-    readonly galleryApplicationVersionName: string;
+    galleryApplicationVersionName: string;
     /**
      * The name of the Shared Application Gallery in which the Application Definition resides.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

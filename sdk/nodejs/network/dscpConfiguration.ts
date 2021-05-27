@@ -162,45 +162,45 @@ export interface DscpConfigurationArgs {
     /**
      * Destination IP ranges.
      */
-    readonly destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
+    destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
     /**
      * Destination port ranges.
      */
-    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
     /**
      * The name of the resource.
      */
-    readonly dscpConfigurationName?: pulumi.Input<string>;
+    dscpConfigurationName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of markings to be used in the configuration.
      */
-    readonly markings?: pulumi.Input<pulumi.Input<number>[]>;
+    markings?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: pulumi.Input<string | enums.network.ProtocolType>;
+    protocol?: pulumi.Input<string | enums.network.ProtocolType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Source IP ranges.
      */
-    readonly sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
+    sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
     /**
      * Sources port ranges.
      */
-    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

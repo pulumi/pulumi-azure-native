@@ -100,25 +100,25 @@ export interface MasterSiteArgs {
     /**
      * eTag for concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Azure location in which Sites is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Master site.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Nested properties of Master site.
      */
-    readonly properties?: pulumi.Input<inputs.offazure.v20200707.MasterSitePropertiesArgs>;
+    properties?: pulumi.Input<inputs.offazure.v20200707.MasterSitePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Site name.
      */
-    readonly siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string>;
 }

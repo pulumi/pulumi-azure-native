@@ -28,15 +28,15 @@ export interface GetAddonArgs {
     /**
      * Name of the addon for the private cloud
      */
-    readonly addonName: string;
+    addonName: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

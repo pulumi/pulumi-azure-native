@@ -133,29 +133,29 @@ export interface OrderItemByNameArgs {
     /**
      * Represents shipping and return address for order
      */
-    readonly addressDetails: pulumi.Input<inputs.edgeorder.v20201201preview.AddressDetailsArgs>;
+    addressDetails: pulumi.Input<inputs.edgeorder.v20201201preview.AddressDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Id of the order to which order items belongs to
      */
-    readonly orderId: pulumi.Input<string>;
+    orderId: pulumi.Input<string>;
     /**
      * Represents order item details.
      */
-    readonly orderItemDetails: pulumi.Input<inputs.edgeorder.v20201201preview.OrderItemDetailsArgs>;
+    orderItemDetails: pulumi.Input<inputs.edgeorder.v20201201preview.OrderItemDetailsArgs>;
     /**
      * The name of the order item
      */
-    readonly orderItemName?: pulumi.Input<string>;
+    orderItemName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

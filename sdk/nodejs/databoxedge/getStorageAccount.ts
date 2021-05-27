@@ -28,15 +28,15 @@ export interface GetStorageAccountArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The storage account name.
      */
-    readonly storageAccountName: string;
+    storageAccountName: string;
 }
 
 /**

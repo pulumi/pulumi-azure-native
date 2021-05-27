@@ -28,15 +28,15 @@ export interface GetExpressRouteCircuitPeeringArgs {
     /**
      * The name of the express route circuit.
      */
-    readonly circuitName: string;
+    circuitName: string;
     /**
      * The name of the peering.
      */
-    readonly peeringName: string;
+    peeringName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

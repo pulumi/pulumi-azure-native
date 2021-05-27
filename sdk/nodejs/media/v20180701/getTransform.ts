@@ -27,15 +27,15 @@ export interface GetTransformArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Transform name.
      */
-    readonly transformName: string;
+    transformName: string;
 }
 
 /**

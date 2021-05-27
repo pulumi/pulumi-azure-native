@@ -153,37 +153,37 @@ export interface ProjectArgs {
     /**
      * The name of the machine learning team account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The description of this project.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name for this project.
      */
-    readonly friendlyName: pulumi.Input<string>;
+    friendlyName: pulumi.Input<string>;
     /**
      * The reference to git repo for this project.
      */
-    readonly gitrepo?: pulumi.Input<string>;
+    gitrepo?: pulumi.Input<string>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the machine learning project under a team account workspace.
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the machine learning team account workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

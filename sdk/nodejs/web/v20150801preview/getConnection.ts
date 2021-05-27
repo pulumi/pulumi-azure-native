@@ -26,11 +26,11 @@ export interface GetConnectionArgs {
     /**
      * The connection name.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

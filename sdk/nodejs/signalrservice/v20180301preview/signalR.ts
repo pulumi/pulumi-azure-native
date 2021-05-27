@@ -145,25 +145,25 @@ export interface SignalRArgs {
      * Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
      * The geo region of a resource never changes after it is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Settings used to provision or configure the resource
      */
-    readonly properties?: pulumi.Input<inputs.signalrservice.v20180301preview.SignalRCreateOrUpdatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.signalrservice.v20180301preview.SignalRCreateOrUpdatePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the SignalR resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The billing information of the resource.(e.g. basic vs. standard)
      */
-    readonly sku?: pulumi.Input<inputs.signalrservice.v20180301preview.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.signalrservice.v20180301preview.ResourceSkuArgs>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

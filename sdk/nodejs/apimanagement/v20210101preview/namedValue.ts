@@ -119,33 +119,33 @@ export interface NamedValueArgs {
     /**
      * Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * KeyVault location details of the namedValue.
      */
-    readonly keyVault?: pulumi.Input<inputs.apimanagement.v20210101preview.KeyVaultContractCreatePropertiesArgs>;
+    keyVault?: pulumi.Input<inputs.apimanagement.v20210101preview.KeyVaultContractCreatePropertiesArgs>;
     /**
      * Identifier of the NamedValue.
      */
-    readonly namedValueId?: pulumi.Input<string>;
+    namedValueId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Optional tags that when provided can be used to filter the NamedValue list.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

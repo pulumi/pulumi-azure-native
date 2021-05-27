@@ -26,11 +26,11 @@ export interface GetOrchestratorInstanceServiceDetailsArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

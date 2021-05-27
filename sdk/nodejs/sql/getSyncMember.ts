@@ -30,23 +30,23 @@ export interface GetSyncMemberArgs {
     /**
      * The name of the database on which the sync group is hosted.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * The name of the sync group on which the sync member is hosted.
      */
-    readonly syncGroupName: string;
+    syncGroupName: string;
     /**
      * The name of the sync member.
      */
-    readonly syncMemberName: string;
+    syncMemberName: string;
 }
 
 /**

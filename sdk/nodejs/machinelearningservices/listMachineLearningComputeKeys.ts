@@ -28,15 +28,15 @@ export interface ListMachineLearningComputeKeysArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    readonly computeName: string;
+    computeName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

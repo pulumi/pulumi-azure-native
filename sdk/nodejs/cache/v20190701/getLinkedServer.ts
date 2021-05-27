@@ -27,15 +27,15 @@ export interface GetLinkedServerArgs {
     /**
      * The name of the linked server.
      */
-    readonly linkedServerName: string;
+    linkedServerName: string;
     /**
      * The name of the redis cache.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

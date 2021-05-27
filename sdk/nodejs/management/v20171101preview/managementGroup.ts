@@ -103,13 +103,13 @@ export interface ManagementGroupArgs {
     /**
      * The friendly name of the management group.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Management Group ID.
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
     /**
      * (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
      */
-    readonly parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string>;
 }

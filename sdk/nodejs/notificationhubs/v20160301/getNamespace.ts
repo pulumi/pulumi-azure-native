@@ -26,11 +26,11 @@ export interface GetNamespaceArgs {
     /**
      * The namespace name.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

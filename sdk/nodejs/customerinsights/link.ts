@@ -179,53 +179,53 @@ export interface LinkArgs {
     /**
      * Localized descriptions for the Link.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the Link.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the link.
      */
-    readonly linkName?: pulumi.Input<string>;
+    linkName?: pulumi.Input<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */
-    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.TypePropertiesMappingArgs>[]>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.TypePropertiesMappingArgs>[]>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<enums.customerinsights.InstanceOperationType>;
+    operationType?: pulumi.Input<enums.customerinsights.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
-    readonly participantPropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantPropertyReferenceArgs>[]>;
+    participantPropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.ParticipantPropertyReferenceArgs>[]>;
     /**
      * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
      */
-    readonly referenceOnly?: pulumi.Input<boolean>;
+    referenceOnly?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Type of source entity.
      */
-    readonly sourceEntityType: pulumi.Input<enums.customerinsights.EntityType>;
+    sourceEntityType: pulumi.Input<enums.customerinsights.EntityType>;
     /**
      * Name of the source Entity Type.
      */
-    readonly sourceEntityTypeName: pulumi.Input<string>;
+    sourceEntityTypeName: pulumi.Input<string>;
     /**
      * Type of target entity.
      */
-    readonly targetEntityType: pulumi.Input<enums.customerinsights.EntityType>;
+    targetEntityType: pulumi.Input<enums.customerinsights.EntityType>;
     /**
      * Name of the target Entity Type.
      */
-    readonly targetEntityTypeName: pulumi.Input<string>;
+    targetEntityTypeName: pulumi.Input<string>;
 }

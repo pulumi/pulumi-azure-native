@@ -142,57 +142,57 @@ export interface LabResourceArgs {
     /**
      * The artifact storage account of the lab.
      */
-    readonly artifactsStorageAccount?: pulumi.Input<string>;
+    artifactsStorageAccount?: pulumi.Input<string>;
     /**
      * The creation date of the lab.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The lab's default storage account.
      */
-    readonly defaultStorageAccount?: pulumi.Input<string>;
+    defaultStorageAccount?: pulumi.Input<string>;
     /**
      * The default virtual network identifier of the lab.
      */
-    readonly defaultVirtualNetworkId?: pulumi.Input<string>;
+    defaultVirtualNetworkId?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The type of the lab storage.
      */
-    readonly labStorageType?: pulumi.Input<string | enums.devtestlab.v20150521preview.LabStorageType>;
+    labStorageType?: pulumi.Input<string | enums.devtestlab.v20150521preview.LabStorageType>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage accounts of the lab.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The name of the key vault of the lab.
      */
-    readonly vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string>;
 }

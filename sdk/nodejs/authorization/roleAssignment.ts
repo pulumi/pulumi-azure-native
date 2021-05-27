@@ -160,37 +160,37 @@ export interface RoleAssignmentArgs {
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Version of the condition. Currently accepted value is '2.0'
      */
-    readonly conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string>;
     /**
      * Id of the delegated managed identity resource
      */
-    readonly delegatedManagedIdentityResourceId?: pulumi.Input<string>;
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Description of role assignment
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The principal ID.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string | enums.authorization.PrincipalType>;
+    principalType?: pulumi.Input<string | enums.authorization.PrincipalType>;
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    readonly roleAssignmentName?: pulumi.Input<string>;
+    roleAssignmentName?: pulumi.Input<string>;
     /**
      * The role definition ID.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

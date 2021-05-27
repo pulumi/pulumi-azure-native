@@ -29,23 +29,23 @@ export interface GetImageUploadUrlForEntityTypeArgs {
     /**
      * Type of entity. Can be Profile or Interaction.
      */
-    readonly entityType?: string;
+    entityType?: string;
     /**
      * Name of the entity type.
      */
-    readonly entityTypeName?: string;
+    entityTypeName?: string;
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * Relative path of the image.
      */
-    readonly relativePath?: string;
+    relativePath?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

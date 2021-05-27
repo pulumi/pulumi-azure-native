@@ -88,17 +88,17 @@ export interface StorageAccountStaticWebsiteArgs {
     /**
      * The name of the storage account within the specified resource group.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    readonly error404Document?: pulumi.Input<string>;
+    error404Document?: pulumi.Input<string>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
      */
-    readonly indexDocument?: pulumi.Input<string>;
+    indexDocument?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

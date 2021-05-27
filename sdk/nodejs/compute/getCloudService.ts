@@ -27,11 +27,11 @@ export interface GetCloudServiceArgs {
     /**
      * Name of the cloud service.
      */
-    readonly cloudServiceName: string;
+    cloudServiceName: string;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

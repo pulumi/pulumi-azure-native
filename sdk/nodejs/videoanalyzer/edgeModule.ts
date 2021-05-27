@@ -99,13 +99,13 @@ export interface EdgeModuleArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the edge module to create or update.
      */
-    readonly edgeModuleName?: pulumi.Input<string>;
+    edgeModuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

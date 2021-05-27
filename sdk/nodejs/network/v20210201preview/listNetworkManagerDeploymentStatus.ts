@@ -29,23 +29,23 @@ export interface ListNetworkManagerDeploymentStatusArgs {
     /**
      * List of deployment types.
      */
-    readonly deploymentTypes?: string | enums.network.v20210201preview.ConfigurationType[];
+    deploymentTypes?: string | enums.network.v20210201preview.ConfigurationType[];
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * List of locations.
      */
-    readonly regions?: string[];
+    regions?: string[];
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
 }
 
 /**

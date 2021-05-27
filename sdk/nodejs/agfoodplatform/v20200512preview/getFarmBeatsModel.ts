@@ -26,11 +26,11 @@ export interface GetFarmBeatsModelArgs {
     /**
      * FarmBeats resource name.
      */
-    readonly farmBeatsResourceName: string;
+    farmBeatsResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

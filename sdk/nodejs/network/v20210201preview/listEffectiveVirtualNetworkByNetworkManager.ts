@@ -29,23 +29,23 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerArgs {
     /**
      * Conditional Members.
      */
-    readonly conditionalMembers?: string;
+    conditionalMembers?: string;
     /**
      * The name of the network manager.
      */
-    readonly networkManagerName: string;
+    networkManagerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
     /**
      * An optional query parameter which specifies the maximum number of records to be returned by the server.
      */
-    readonly top?: number;
+    top?: number;
 }
 
 /**

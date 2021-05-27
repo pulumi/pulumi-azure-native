@@ -163,61 +163,61 @@ export interface ArtifactSourceArgs {
     /**
      * The folder containing Azure Resource Manager templates.
      */
-    readonly armTemplateFolderPath?: pulumi.Input<string>;
+    armTemplateFolderPath?: pulumi.Input<string>;
     /**
      * The artifact source's branch reference.
      */
-    readonly branchRef?: pulumi.Input<string>;
+    branchRef?: pulumi.Input<string>;
     /**
      * The artifact source's display name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The folder containing artifacts.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the artifact source.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The security token to authenticate to the artifact source.
      */
-    readonly securityToken?: pulumi.Input<string>;
+    securityToken?: pulumi.Input<string>;
     /**
      * The artifact source's type.
      */
-    readonly sourceType?: pulumi.Input<string | enums.devtestlab.v20160515.SourceControlType>;
+    sourceType?: pulumi.Input<string | enums.devtestlab.v20160515.SourceControlType>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.v20160515.EnableStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.v20160515.EnableStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
     /**
      * The artifact source's URI.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
 }

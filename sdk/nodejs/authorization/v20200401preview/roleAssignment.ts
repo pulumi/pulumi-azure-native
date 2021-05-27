@@ -165,41 +165,41 @@ export interface RoleAssignmentArgs {
     /**
      * The delegation flag used for creating a role assignment
      */
-    readonly canDelegate?: pulumi.Input<boolean>;
+    canDelegate?: pulumi.Input<boolean>;
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Version of the condition. Currently accepted value is '2.0'
      */
-    readonly conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string>;
     /**
      * Id of the delegated managed identity resource
      */
-    readonly delegatedManagedIdentityResourceId?: pulumi.Input<string>;
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Description of role assignment
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string | enums.authorization.v20200401preview.PrincipalType>;
+    principalType?: pulumi.Input<string | enums.authorization.v20200401preview.PrincipalType>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */
-    readonly roleAssignmentName?: pulumi.Input<string>;
+    roleAssignmentName?: pulumi.Input<string>;
     /**
      * The role definition ID used in the role assignment.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

@@ -101,17 +101,17 @@ export interface ArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    readonly artifactName?: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string>;
     /**
      * Name of the blueprint definition.
      */
-    readonly blueprintName: pulumi.Input<string>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Specifies the kind of blueprint artifact.
      */
-    readonly kind: pulumi.Input<string | enums.blueprint.ArtifactKind>;
+    kind: pulumi.Input<string | enums.blueprint.ArtifactKind>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */
-    readonly resourceScope: pulumi.Input<string>;
+    resourceScope: pulumi.Input<string>;
 }

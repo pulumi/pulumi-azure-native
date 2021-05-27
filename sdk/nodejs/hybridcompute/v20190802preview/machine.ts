@@ -189,41 +189,41 @@ export interface MachineArgs {
     /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
-    readonly clientPublicKey?: pulumi.Input<string>;
+    clientPublicKey?: pulumi.Input<string>;
     /**
      * Machine Extensions information
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewArgs>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewArgs>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Operating System running on the hybrid machine.
      */
-    readonly osName?: pulumi.Input<string>;
+    osName?: pulumi.Input<string>;
     /**
      * The version of Operating System running on the hybrid machine.
      */
-    readonly osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string>;
     /**
      * Resource's Physical Location
      */
-    readonly physicalLocation?: pulumi.Input<string>;
+    physicalLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identity type.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

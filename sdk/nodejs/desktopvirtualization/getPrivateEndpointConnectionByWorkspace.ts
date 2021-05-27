@@ -28,15 +28,15 @@ export interface GetPrivateEndpointConnectionByWorkspaceArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

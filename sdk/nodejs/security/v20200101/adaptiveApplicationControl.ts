@@ -124,19 +124,19 @@ export interface AdaptiveApplicationControlArgs {
     /**
      * The location where ASC stores the data of the subscription. can be retrieved from Get locations
      */
-    readonly ascLocation: pulumi.Input<string>;
+    ascLocation: pulumi.Input<string>;
     /**
      * The application control policy enforcement/protection mode of the machine group
      */
-    readonly enforcementMode?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<string>;
     /**
      * Name of an application control machine group
      */
-    readonly groupName?: pulumi.Input<string>;
-    readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendationArgs>[]>;
+    groupName?: pulumi.Input<string>;
+    pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendationArgs>[]>;
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
      */
-    readonly protectionMode?: pulumi.Input<inputs.security.v20200101.ProtectionModeArgs>;
-    readonly vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.VmRecommendationArgs>[]>;
+    protectionMode?: pulumi.Input<inputs.security.v20200101.ProtectionModeArgs>;
+    vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.VmRecommendationArgs>[]>;
 }

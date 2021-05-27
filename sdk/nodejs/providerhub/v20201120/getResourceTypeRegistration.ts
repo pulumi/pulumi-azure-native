@@ -23,11 +23,11 @@ export interface GetResourceTypeRegistrationArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: string;
+    providerNamespace: string;
     /**
      * The resource type.
      */
-    readonly resourceType: string;
+    resourceType: string;
 }
 
 export interface GetResourceTypeRegistrationResult {

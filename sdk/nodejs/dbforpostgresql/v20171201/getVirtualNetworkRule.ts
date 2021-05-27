@@ -27,15 +27,15 @@ export interface GetVirtualNetworkRuleArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the server.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * The name of the virtual network rule.
      */
-    readonly virtualNetworkRuleName: string;
+    virtualNetworkRuleName: string;
 }
 
 /**

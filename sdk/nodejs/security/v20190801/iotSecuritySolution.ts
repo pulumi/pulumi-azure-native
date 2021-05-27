@@ -172,57 +172,57 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of additional workspaces
      */
-    readonly additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.security.v20190801.AdditionalWorkspacesPropertiesArgs>[]>;
+    additionalWorkspaces?: pulumi.Input<pulumi.Input<inputs.security.v20190801.AdditionalWorkspacesPropertiesArgs>[]>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.v20190801.DataSource>[]>;
+    disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.v20190801.DataSource>[]>;
     /**
      * Resource display name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * List of additional options for exporting to workspace data.
      */
-    readonly export?: pulumi.Input<pulumi.Input<string | enums.security.v20190801.ExportData>[]>;
+    export?: pulumi.Input<pulumi.Input<string | enums.security.v20190801.ExportData>[]>;
     /**
      * IoT Hub resource IDs
      */
-    readonly iotHubs: pulumi.Input<pulumi.Input<string>[]>;
+    iotHubs: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of the configuration status for each recommendation type.
      */
-    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20190801.RecommendationConfigurationPropertiesArgs>[]>;
+    recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20190801.RecommendationConfigurationPropertiesArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoT Security solution.
      */
-    readonly solutionName?: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string>;
     /**
      * Status of the IoT Security solution.
      */
-    readonly status?: pulumi.Input<string | enums.security.v20190801.SecuritySolutionStatus>;
+    status?: pulumi.Input<string | enums.security.v20190801.SecuritySolutionStatus>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unmasked IP address logging status
      */
-    readonly unmaskedIpLoggingStatus?: pulumi.Input<string | enums.security.v20190801.UnmaskedIpLoggingStatus>;
+    unmaskedIpLoggingStatus?: pulumi.Input<string | enums.security.v20190801.UnmaskedIpLoggingStatus>;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */
-    readonly userDefinedResources?: pulumi.Input<inputs.security.v20190801.UserDefinedResourcesPropertiesArgs>;
+    userDefinedResources?: pulumi.Input<inputs.security.v20190801.UserDefinedResourcesPropertiesArgs>;
     /**
      * Workspace resource ID
      */
-    readonly workspace?: pulumi.Input<string>;
+    workspace?: pulumi.Input<string>;
 }

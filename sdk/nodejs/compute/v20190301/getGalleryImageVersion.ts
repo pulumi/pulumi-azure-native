@@ -29,23 +29,23 @@ export interface GetGalleryImageVersionArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the gallery Image Definition in which the Image Version resides.
      */
-    readonly galleryImageName: string;
+    galleryImageName: string;
     /**
      * The name of the gallery Image Version to be retrieved.
      */
-    readonly galleryImageVersionName: string;
+    galleryImageVersionName: string;
     /**
      * The name of the Shared Image Gallery in which the Image Definition resides.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

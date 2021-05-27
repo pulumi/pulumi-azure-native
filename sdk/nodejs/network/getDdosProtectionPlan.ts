@@ -27,11 +27,11 @@ export interface GetDdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    readonly ddosProtectionPlanName: string;
+    ddosProtectionPlanName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

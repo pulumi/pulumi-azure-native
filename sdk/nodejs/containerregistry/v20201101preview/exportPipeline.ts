@@ -125,29 +125,29 @@ export interface ExportPipelineArgs {
     /**
      * The name of the export pipeline.
      */
-    readonly exportPipelineName?: pulumi.Input<string>;
+    exportPipelineName?: pulumi.Input<string>;
     /**
      * The identity of the export pipeline.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20201101preview.IdentityPropertiesArgs>;
+    identity?: pulumi.Input<inputs.containerregistry.v20201101preview.IdentityPropertiesArgs>;
     /**
      * The location of the export pipeline.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The list of all options configured for the pipeline.
      */
-    readonly options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.PipelineOptions>[]>;
+    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.PipelineOptions>[]>;
     /**
      * The name of the container registry.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The target properties of the export pipeline.
      */
-    readonly target: pulumi.Input<inputs.containerregistry.v20201101preview.ExportPipelineTargetPropertiesArgs>;
+    target: pulumi.Input<inputs.containerregistry.v20201101preview.ExportPipelineTargetPropertiesArgs>;
 }

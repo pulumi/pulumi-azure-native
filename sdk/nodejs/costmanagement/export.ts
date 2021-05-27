@@ -131,29 +131,29 @@ export interface ExportArgs {
     /**
      * Has the definition for the export.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.ExportDefinitionArgs>;
+    definition: pulumi.Input<inputs.costmanagement.ExportDefinitionArgs>;
     /**
      * Has delivery information for the export.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.ExportDeliveryInfoArgs>;
+    deliveryInfo: pulumi.Input<inputs.costmanagement.ExportDeliveryInfoArgs>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Export Name.
      */
-    readonly exportName?: pulumi.Input<string>;
+    exportName?: pulumi.Input<string>;
     /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
-    readonly format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.FormatType>;
     /**
      * Has schedule information for the export.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.ExportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.ExportScheduleArgs>;
     /**
      * The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

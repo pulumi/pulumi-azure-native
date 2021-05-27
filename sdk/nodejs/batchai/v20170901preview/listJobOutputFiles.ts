@@ -29,23 +29,23 @@ export interface ListJobOutputFilesArgs {
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The number of minutes after which the download link will expire.
      */
-    readonly linkexpiryinminutes?: number;
+    linkexpiryinminutes?: number;
     /**
      * The maximum number of items to return in the response. A maximum of 1000 files can be returned.
      */
-    readonly maxResults?: number;
+    maxResults?: number;
     /**
      * Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
      */
-    readonly outputdirectoryid: string;
+    outputdirectoryid: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

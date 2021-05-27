@@ -119,26 +119,26 @@ export interface EyesOnArgs {
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The kind of the setting
      * Expected value is 'EyesOn'.
      */
-    readonly kind: pulumi.Input<"EyesOn">;
+    kind: pulumi.Input<"EyesOn">;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The setting name. Supports - EyesOn, EntityAnalytics, Ueba
      */
-    readonly settingsName?: pulumi.Input<string>;
+    settingsName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

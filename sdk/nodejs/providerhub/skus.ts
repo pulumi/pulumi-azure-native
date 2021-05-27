@@ -93,14 +93,14 @@ export interface SkusArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: pulumi.Input<string>;
+    providerNamespace: pulumi.Input<string>;
     /**
      * The resource type.
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * The SKU.
      */
-    readonly sku?: pulumi.Input<string>;
-    readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.SkuSettingArgs>[]>;
+    sku?: pulumi.Input<string>;
+    skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.SkuSettingArgs>[]>;
 }

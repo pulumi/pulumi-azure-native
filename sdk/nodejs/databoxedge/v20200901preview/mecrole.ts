@@ -116,26 +116,26 @@ export interface MECRoleArgs {
     /**
      * Activation key of the MEC.
      */
-    readonly connectionString?: pulumi.Input<inputs.databoxedge.v20200901preview.AsymmetricEncryptedSecretArgs>;
+    connectionString?: pulumi.Input<inputs.databoxedge.v20200901preview.AsymmetricEncryptedSecretArgs>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Role type.
      * Expected value is 'MEC'.
      */
-    readonly kind: pulumi.Input<"MEC">;
+    kind: pulumi.Input<"MEC">;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role status.
      */
-    readonly roleStatus: pulumi.Input<string | enums.databoxedge.v20200901preview.RoleStatus>;
+    roleStatus: pulumi.Input<string | enums.databoxedge.v20200901preview.RoleStatus>;
 }

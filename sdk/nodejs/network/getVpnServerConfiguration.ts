@@ -27,11 +27,11 @@ export interface GetVpnServerConfigurationArgs {
     /**
      * The resource group name of the VpnServerConfiguration.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VpnServerConfiguration being retrieved.
      */
-    readonly vpnServerConfigurationName: string;
+    vpnServerConfigurationName: string;
 }
 
 /**

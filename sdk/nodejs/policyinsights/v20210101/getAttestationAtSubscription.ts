@@ -25,7 +25,7 @@ export interface GetAttestationAtSubscriptionArgs {
     /**
      * The name of the attestation.
      */
-    readonly attestationName: string;
+    attestationName: string;
 }
 
 /**

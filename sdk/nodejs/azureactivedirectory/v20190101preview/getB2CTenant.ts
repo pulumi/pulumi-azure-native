@@ -23,11 +23,11 @@ export interface GetB2CTenantArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The initial domain name of the B2C tenant.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 export interface GetB2CTenantResult {

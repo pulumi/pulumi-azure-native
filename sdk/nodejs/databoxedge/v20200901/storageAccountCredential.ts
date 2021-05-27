@@ -148,45 +148,45 @@ export interface StorageAccountCredentialArgs {
     /**
      * Encrypted storage key.
      */
-    readonly accountKey?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecretArgs>;
+    accountKey?: pulumi.Input<inputs.databoxedge.v20200901.AsymmetricEncryptedSecretArgs>;
     /**
      * Type of storage accessed on the storage account.
      */
-    readonly accountType: pulumi.Input<string | enums.databoxedge.v20200901.AccountType>;
+    accountType: pulumi.Input<string | enums.databoxedge.v20200901.AccountType>;
     /**
      * Alias for the storage account.
      */
-    readonly alias: pulumi.Input<string>;
+    alias: pulumi.Input<string>;
     /**
      * Blob end point for private clouds.
      */
-    readonly blobDomainName?: pulumi.Input<string>;
+    blobDomainName?: pulumi.Input<string>;
     /**
      * Connection string for the storage account. Use this string if username and account key are not specified.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The storage account credential name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<string | enums.databoxedge.v20200901.SSLStatus>;
+    sslStatus: pulumi.Input<string | enums.databoxedge.v20200901.SSLStatus>;
     /**
      * Id of the storage account.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Username for the storage account.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

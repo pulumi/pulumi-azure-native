@@ -169,57 +169,57 @@ export interface CustomImageArgs {
     /**
      * The author of the custom image.
      */
-    readonly author?: pulumi.Input<string>;
+    author?: pulumi.Input<string>;
     /**
      * Storage information about the plan related to this custom image
      */
-    readonly customImagePlan?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromPlanArgs>;
+    customImagePlan?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromPlanArgs>;
     /**
      * Storage information about the data disks present in the custom image
      */
-    readonly dataDiskStorageInfo?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.DataDiskStorageTypeInfoArgs>[]>;
+    dataDiskStorageInfo?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.DataDiskStorageTypeInfoArgs>[]>;
     /**
      * The description of the custom image.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
      */
-    readonly isPlanAuthorized?: pulumi.Input<boolean>;
+    isPlanAuthorized?: pulumi.Input<boolean>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Managed Image Id backing the custom image.
      */
-    readonly managedImageId?: pulumi.Input<string>;
+    managedImageId?: pulumi.Input<string>;
     /**
      * The Managed Snapshot Id backing the custom image.
      */
-    readonly managedSnapshotId?: pulumi.Input<string>;
+    managedSnapshotId?: pulumi.Input<string>;
     /**
      * The name of the custom image.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VHD from which the image is to be created.
      */
-    readonly vhd?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesCustomArgs>;
+    vhd?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesCustomArgs>;
     /**
      * The virtual machine from which the image is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromVmArgs>;
+    vm?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromVmArgs>;
 }

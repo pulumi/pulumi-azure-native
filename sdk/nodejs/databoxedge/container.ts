@@ -124,21 +124,21 @@ export interface ContainerArgs {
     /**
      * The container name.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * DataFormat for Container
      */
-    readonly dataFormat: pulumi.Input<string | enums.databoxedge.AzureContainerDataFormat>;
+    dataFormat: pulumi.Input<string | enums.databoxedge.AzureContainerDataFormat>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Storage Account Name
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
 }

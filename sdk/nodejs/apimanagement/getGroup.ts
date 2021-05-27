@@ -28,15 +28,15 @@ export interface GetGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    readonly groupId: string;
+    groupId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

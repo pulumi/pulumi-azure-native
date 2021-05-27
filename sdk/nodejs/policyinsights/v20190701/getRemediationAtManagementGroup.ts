@@ -27,15 +27,15 @@ export interface GetRemediationAtManagementGroupArgs {
     /**
      * Management group ID.
      */
-    readonly managementGroupId: string;
+    managementGroupId: string;
     /**
      * The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
      */
-    readonly managementGroupsNamespace: string;
+    managementGroupsNamespace: string;
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
 }
 
 /**

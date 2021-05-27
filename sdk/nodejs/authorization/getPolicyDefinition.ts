@@ -26,7 +26,7 @@ export interface GetPolicyDefinitionArgs {
     /**
      * The name of the policy definition to get.
      */
-    readonly policyDefinitionName: string;
+    policyDefinitionName: string;
 }
 
 /**

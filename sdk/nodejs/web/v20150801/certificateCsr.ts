@@ -135,53 +135,53 @@ export interface CertificateCsrArgs {
     /**
      * Actual CSR string created
      */
-    readonly csrString?: pulumi.Input<string>;
+    csrString?: pulumi.Input<string>;
     /**
      * Distinguished name of certificate to be created
      */
-    readonly distinguishedName?: pulumi.Input<string>;
+    distinguishedName?: pulumi.Input<string>;
     /**
      * Hosting environment
      */
-    readonly hostingEnvironment?: pulumi.Input<string>;
+    hostingEnvironment?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * PFX password
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * PFX certificate of created certificate
      */
-    readonly pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * Hash of the certificates public key
      */
-    readonly publicKeyHash?: pulumi.Input<string>;
+    publicKeyHash?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

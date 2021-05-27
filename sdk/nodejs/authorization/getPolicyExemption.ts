@@ -27,11 +27,11 @@ export interface GetPolicyExemptionArgs {
     /**
      * The name of the policy exemption to delete.
      */
-    readonly policyExemptionName: string;
+    policyExemptionName: string;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

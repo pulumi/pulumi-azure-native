@@ -111,21 +111,21 @@ export interface WebPubSubPrivateEndpointConnectionArgs {
     /**
      * Private endpoint associated with the private endpoint connection
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.webpubsub.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.webpubsub.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint connection
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection state
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.webpubsub.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.webpubsub.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

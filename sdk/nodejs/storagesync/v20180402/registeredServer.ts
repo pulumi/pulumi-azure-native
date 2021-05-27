@@ -194,53 +194,53 @@ export interface RegisteredServerArgs {
     /**
      * Registered Server Agent Version
      */
-    readonly agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string>;
     /**
      * Registered Server clusterId
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Registered Server clusterName
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Friendly Name
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Registered Server last heart beat
      */
-    readonly lastHeartBeat?: pulumi.Input<string>;
+    lastHeartBeat?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Registered Server Certificate
      */
-    readonly serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string>;
     /**
      * Registered Server serverId
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * Registered Server OS Version
      */
-    readonly serverOSVersion?: pulumi.Input<string>;
+    serverOSVersion?: pulumi.Input<string>;
     /**
      * Registered Server serverRole
      */
-    readonly serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

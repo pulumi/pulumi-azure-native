@@ -28,15 +28,15 @@ export interface GetOuContainerArgs {
     /**
      * The name of the domain service.
      */
-    readonly domainServiceName: string;
+    domainServiceName: string;
     /**
      * The name of the OuContainer.
      */
-    readonly ouContainerName: string;
+    ouContainerName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

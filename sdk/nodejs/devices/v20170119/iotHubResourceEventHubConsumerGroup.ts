@@ -88,17 +88,17 @@ export interface IotHubResourceEventHubConsumerGroupArgs {
     /**
      * The name of the Event Hub-compatible endpoint in the IoT hub.
      */
-    readonly eventHubEndpointName: pulumi.Input<string>;
+    eventHubEndpointName: pulumi.Input<string>;
     /**
      * The name of the consumer group to add.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the IoT hub.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

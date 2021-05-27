@@ -105,25 +105,25 @@ export interface AccessPolicyArgs {
     /**
      * Name of the access policy.
      */
-    readonly accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string>;
     /**
      * An description of the access policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * The objectId of the principal in Azure Active Directory.
      */
-    readonly principalObjectId?: pulumi.Input<string>;
+    principalObjectId?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | enums.timeseriesinsights.AccessPolicyRole>[]>;
+    roles?: pulumi.Input<pulumi.Input<string | enums.timeseriesinsights.AccessPolicyRole>[]>;
 }

@@ -118,25 +118,25 @@ export interface TopicArgs {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the topic.
      */
-    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.v20180915preview.InputSchema>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.v20180915preview.InputSchema>;
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMappingArgs>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the topic
      */
-    readonly topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string>;
 }

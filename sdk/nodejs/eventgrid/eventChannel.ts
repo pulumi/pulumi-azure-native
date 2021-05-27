@@ -137,35 +137,35 @@ export interface EventChannelArgs {
     /**
      * Represents the destination of an event channel.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.EventChannelDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.EventChannelDestinationArgs>;
     /**
      * Name of the event channel.
      */
-    readonly eventChannelName?: pulumi.Input<string>;
+    eventChannelName?: pulumi.Input<string>;
     /**
      * Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
      * the event channel and corresponding partner topic are deleted.
      */
-    readonly expirationTimeIfNotActivatedUtc?: pulumi.Input<string>;
+    expirationTimeIfNotActivatedUtc?: pulumi.Input<string>;
     /**
      * Information about the filter for the event channel.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.EventChannelFilterArgs>;
+    filter?: pulumi.Input<inputs.eventgrid.EventChannelFilterArgs>;
     /**
      * Name of the partner namespace.
      */
-    readonly partnerNamespaceName: pulumi.Input<string>;
+    partnerNamespaceName: pulumi.Input<string>;
     /**
      * Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
      * This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
      */
-    readonly partnerTopicFriendlyDescription?: pulumi.Input<string>;
+    partnerTopicFriendlyDescription?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Source of the event channel. This represents a unique resource in the partner's resource model.
      */
-    readonly source?: pulumi.Input<inputs.eventgrid.EventChannelSourceArgs>;
+    source?: pulumi.Input<inputs.eventgrid.EventChannelSourceArgs>;
 }

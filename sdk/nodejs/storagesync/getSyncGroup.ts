@@ -28,15 +28,15 @@ export interface GetSyncGroupArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: string;
+    storageSyncServiceName: string;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName: string;
+    syncGroupName: string;
 }
 
 /**

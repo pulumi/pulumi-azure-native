@@ -27,15 +27,15 @@ export interface GetWebAppRelayServiceConnectionArgs {
     /**
      * Name of the hybrid connection.
      */
-    readonly entityName: string;
+    entityName: string;
     /**
      * Name of the app.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

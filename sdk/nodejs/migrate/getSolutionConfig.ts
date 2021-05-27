@@ -28,15 +28,15 @@ export interface GetSolutionConfigArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly migrateProjectName: string;
+    migrateProjectName: string;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    readonly solutionName: string;
+    solutionName: string;
 }
 
 /**

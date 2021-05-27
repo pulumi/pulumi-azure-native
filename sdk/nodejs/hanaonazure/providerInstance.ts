@@ -104,25 +104,25 @@ export interface ProviderInstanceArgs {
     /**
      * A JSON string containing metadata of the provider instance.
      */
-    readonly metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string>;
     /**
      * A JSON string containing the properties of the provider instance.
      */
-    readonly properties?: pulumi.Input<string>;
+    properties?: pulumi.Input<string>;
     /**
      * Name of the provider instance.
      */
-    readonly providerInstanceName?: pulumi.Input<string>;
+    providerInstanceName?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the SAP monitor resource.
      */
-    readonly sapMonitorName: pulumi.Input<string>;
+    sapMonitorName: pulumi.Input<string>;
     /**
      * The type of provider instance.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

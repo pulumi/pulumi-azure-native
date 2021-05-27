@@ -178,73 +178,73 @@ export interface NamespaceArgs {
     /**
      * The time the namespace was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * Whether or not the namespace is set as Critical.
      */
-    readonly critical?: pulumi.Input<boolean>;
+    critical?: pulumi.Input<boolean>;
     /**
      * Data center for the namespace
      */
-    readonly dataCenter?: pulumi.Input<string>;
+    dataCenter?: pulumi.Input<string>;
     /**
      * Whether or not the namespace is currently enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The namespace name.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The namespace type.
      */
-    readonly namespaceType?: pulumi.Input<enums.notificationhubs.v20170401.NamespaceType>;
+    namespaceType?: pulumi.Input<enums.notificationhubs.v20170401.NamespaceType>;
     /**
      * Provisioning state of the Namespace.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
      */
-    readonly region?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * ScaleUnit where the namespace gets created
      */
-    readonly scaleUnit?: pulumi.Input<string>;
+    scaleUnit?: pulumi.Input<string>;
     /**
      * Endpoint you can use to perform NotificationHub operations.
      */
-    readonly serviceBusEndpoint?: pulumi.Input<string>;
+    serviceBusEndpoint?: pulumi.Input<string>;
     /**
      * The sku of the created namespace
      */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.v20170401.SkuArgs>;
+    sku?: pulumi.Input<inputs.notificationhubs.v20170401.SkuArgs>;
     /**
      * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The Id of the Azure subscription associated with the namespace.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The time the namespace was updated.
      */
-    readonly updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
 }

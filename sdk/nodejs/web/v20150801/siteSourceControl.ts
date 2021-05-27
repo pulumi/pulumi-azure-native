@@ -132,49 +132,49 @@ export interface SiteSourceControlArgs {
     /**
      * Name of branch to use for deployment
      */
-    readonly branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string>;
     /**
      * Whether to manual or continuous integration
      */
-    readonly deploymentRollbackEnabled?: pulumi.Input<boolean>;
+    deploymentRollbackEnabled?: pulumi.Input<boolean>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Whether to manual or continuous integration
      */
-    readonly isManualIntegration?: pulumi.Input<boolean>;
+    isManualIntegration?: pulumi.Input<boolean>;
     /**
      * Mercurial or Git repository type
      */
-    readonly isMercurial?: pulumi.Input<boolean>;
+    isMercurial?: pulumi.Input<boolean>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Repository or source control url
      */
-    readonly repoUrl?: pulumi.Input<string>;
+    repoUrl?: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

@@ -215,97 +215,97 @@ export interface ServerGroupArgs {
     /**
      * The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password of the administrator login.
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * Availability Zone information of the server group.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The backup retention days for server group.
      */
-    readonly backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number>;
     /**
      * The Citus version of server group.
      */
-    readonly citusVersion?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.CitusVersion>;
+    citusVersion?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.CitusVersion>;
     /**
      * The mode to create a new server group.
      */
-    readonly createMode?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.CreateMode>;
+    createMode?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.CreateMode>;
     /**
      * The delegated subnet arguments for a server group.
      */
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArgumentsArgs>;
+    delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArgumentsArgs>;
     /**
      * If Citus MX is enabled or not for the server group.
      */
-    readonly enableMx?: pulumi.Input<boolean>;
+    enableMx?: pulumi.Input<boolean>;
     /**
      * If shards on coordinator is enabled or not for the server group.
      */
-    readonly enableShardsOnCoordinator?: pulumi.Input<boolean>;
+    enableShardsOnCoordinator?: pulumi.Input<boolean>;
     /**
      * If ZFS compression is enabled or not for the server group.
      */
-    readonly enableZfs?: pulumi.Input<boolean>;
+    enableZfs?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window of a server group.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.MaintenanceWindowArgs>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
      */
-    readonly pointInTimeUTC?: pulumi.Input<string>;
+    pointInTimeUTC?: pulumi.Input<string>;
     /**
      * The PostgreSQL version of server group.
      */
-    readonly postgresqlVersion?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.PostgreSQLVersion>;
+    postgresqlVersion?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.PostgreSQLVersion>;
     /**
      * The private dns zone arguments for a server group.
      */
-    readonly privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs>;
+    privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server group.
      */
-    readonly serverGroupName?: pulumi.Input<string>;
+    serverGroupName?: pulumi.Input<string>;
     /**
      * The list of server role groups.
      */
-    readonly serverRoleGroups?: pulumi.Input<pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs>[]>;
+    serverRoleGroups?: pulumi.Input<pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs>[]>;
     /**
      * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
-    readonly sourceLocation?: pulumi.Input<string>;
+    sourceLocation?: pulumi.Input<string>;
     /**
      * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
-    readonly sourceResourceGroupName?: pulumi.Input<string>;
+    sourceResourceGroupName?: pulumi.Input<string>;
     /**
      * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
-    readonly sourceServerGroupName?: pulumi.Input<string>;
+    sourceServerGroupName?: pulumi.Input<string>;
     /**
      * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
-    readonly sourceSubscriptionId?: pulumi.Input<string>;
+    sourceSubscriptionId?: pulumi.Input<string>;
     /**
      * Standby Availability Zone information of the server group.
      */
-    readonly standbyAvailabilityZone?: pulumi.Input<string>;
+    standbyAvailabilityZone?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

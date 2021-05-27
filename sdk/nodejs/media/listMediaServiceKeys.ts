@@ -27,11 +27,11 @@ export interface ListMediaServiceKeysArgs {
     /**
      * Name of the Media Service.
      */
-    readonly mediaServiceName: string;
+    mediaServiceName: string;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

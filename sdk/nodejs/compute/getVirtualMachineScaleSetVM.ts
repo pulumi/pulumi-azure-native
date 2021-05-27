@@ -29,19 +29,19 @@ export interface GetVirtualMachineScaleSetVMArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The instance ID of the virtual machine.
      */
-    readonly instanceId: string;
+    instanceId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the VM scale set.
      */
-    readonly vmScaleSetName: string;
+    vmScaleSetName: string;
 }
 
 /**

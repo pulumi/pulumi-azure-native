@@ -124,21 +124,21 @@ export interface ClusterArgs {
     /**
      * The name of the Event Hubs Cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Properties of the cluster SKU.
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.ClusterSkuArgs>;
+    sku?: pulumi.Input<inputs.eventhub.v20180101preview.ClusterSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -148,41 +148,41 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule actions.
      */
-    readonly actionGroups: pulumi.Input<inputs.alertsmanagement.v20190301.ActionGroupsInformationArgs>;
+    actionGroups: pulumi.Input<inputs.alertsmanagement.v20190301.ActionGroupsInformationArgs>;
     /**
      * The name of the alert rule.
      */
-    readonly alertRuleName?: pulumi.Input<string>;
+    alertRuleName?: pulumi.Input<string>;
     /**
      * The alert rule description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The alert rule's detector.
      */
-    readonly detector: pulumi.Input<inputs.alertsmanagement.v20190301.DetectorArgs>;
+    detector: pulumi.Input<inputs.alertsmanagement.v20190301.DetectorArgs>;
     /**
      * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
-    readonly frequency: pulumi.Input<string>;
+    frequency: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The alert rule resources scope.
      */
-    readonly scope: pulumi.Input<pulumi.Input<string>[]>;
+    scope: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert rule severity.
      */
-    readonly severity: pulumi.Input<string | enums.alertsmanagement.v20190301.Severity>;
+    severity: pulumi.Input<string | enums.alertsmanagement.v20190301.Severity>;
     /**
      * The alert rule state.
      */
-    readonly state: pulumi.Input<string | enums.alertsmanagement.v20190301.AlertRuleState>;
+    state: pulumi.Input<string | enums.alertsmanagement.v20190301.AlertRuleState>;
     /**
      * The alert rule throttling information.
      */
-    readonly throttling?: pulumi.Input<inputs.alertsmanagement.v20190301.ThrottlingInformationArgs>;
+    throttling?: pulumi.Input<inputs.alertsmanagement.v20190301.ThrottlingInformationArgs>;
 }

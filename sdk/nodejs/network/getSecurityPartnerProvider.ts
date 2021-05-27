@@ -27,11 +27,11 @@ export interface GetSecurityPartnerProviderArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Security Partner Provider.
      */
-    readonly securityPartnerProviderName: string;
+    securityPartnerProviderName: string;
 }
 
 /**

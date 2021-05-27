@@ -127,41 +127,41 @@ export interface ConfigurationAssignmentParentArgs {
     /**
      * Configuration assignment name
      */
-    readonly configurationAssignmentName?: pulumi.Input<string>;
+    configurationAssignmentName?: pulumi.Input<string>;
     /**
      * Location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maintenance configuration Id
      */
-    readonly maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * Resource provider name
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
     /**
      * Resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The unique resourceId
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * Resource identifier
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Resource parent identifier
      */
-    readonly resourceParentName: pulumi.Input<string>;
+    resourceParentName: pulumi.Input<string>;
     /**
      * Resource parent type
      */
-    readonly resourceParentType: pulumi.Input<string>;
+    resourceParentType: pulumi.Input<string>;
     /**
      * Resource type
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
 }

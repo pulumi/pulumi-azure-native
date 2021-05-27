@@ -224,97 +224,97 @@ export interface WatchlistArgs {
     /**
      * The content type of the raw content. Example : text/csv or text/tsv 
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * The time the watchlist was created
      */
-    readonly created?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
     /**
      * Describes a user that created the watchlist
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
+    createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
-    readonly defaultDuration?: pulumi.Input<string>;
+    defaultDuration?: pulumi.Input<string>;
     /**
      * A description of the watchlist
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the watchlist
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * A flag that indicates if the watchlist is deleted or not
      */
-    readonly isDeleted?: pulumi.Input<boolean>;
+    isDeleted?: pulumi.Input<boolean>;
     /**
      * List of labels relevant to this watchlist
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The number of lines in a csv/tsv content to skip before the header
      */
-    readonly numberOfLinesToSkip?: pulumi.Input<number>;
+    numberOfLinesToSkip?: pulumi.Input<number>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The provider of the watchlist
      */
-    readonly provider: pulumi.Input<string>;
+    provider: pulumi.Input<string>;
     /**
      * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
      */
-    readonly rawContent?: pulumi.Input<string>;
+    rawContent?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The source of the watchlist
      */
-    readonly source: pulumi.Input<string | enums.securityinsights.v20190101preview.Source>;
+    source: pulumi.Input<string | enums.securityinsights.v20190101preview.Source>;
     /**
      * The tenantId where the watchlist belongs to
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The last time the watchlist was updated
      */
-    readonly updated?: pulumi.Input<string>;
+    updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the watchlist
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
      */
-    readonly uploadStatus?: pulumi.Input<string>;
+    uploadStatus?: pulumi.Input<string>;
     /**
      * The alias of the watchlist
      */
-    readonly watchlistAlias?: pulumi.Input<string>;
+    watchlistAlias?: pulumi.Input<string>;
     /**
      * The id (a Guid) of the watchlist
      */
-    readonly watchlistId?: pulumi.Input<string>;
+    watchlistId?: pulumi.Input<string>;
     /**
      * The number of Watchlist Items in the Watchlist
      */
-    readonly watchlistItemsCount?: pulumi.Input<number>;
+    watchlistItemsCount?: pulumi.Input<number>;
     /**
      * The type of the watchlist
      */
-    readonly watchlistType?: pulumi.Input<string>;
+    watchlistType?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

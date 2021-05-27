@@ -92,21 +92,21 @@ export interface InputArgs {
     /**
      * The name of the input.
      */
-    readonly inputName?: pulumi.Input<string>;
+    inputName?: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */
-    readonly jobName: pulumi.Input<string>;
+    jobName: pulumi.Input<string>;
     /**
      * Resource name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.ReferenceInputPropertiesArgs | inputs.streamanalytics.v20170401preview.StreamInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.streamanalytics.v20170401preview.ReferenceInputPropertiesArgs | inputs.streamanalytics.v20170401preview.StreamInputPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -185,11 +185,11 @@ export interface DatabaseArgs {
     /**
      * Collation of the metadata catalog.
      */
-    readonly catalogCollation?: pulumi.Input<string | enums.sql.v20170301preview.CatalogCollationType>;
+    catalogCollation?: pulumi.Input<string | enums.sql.v20170301preview.CatalogCollationType>;
     /**
      * The collation of the database.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
      * 
@@ -209,73 +209,73 @@ export interface DatabaseArgs {
      * 
      * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string | enums.sql.v20170301preview.CreateMode>;
+    createMode?: pulumi.Input<string | enums.sql.v20170301preview.CreateMode>;
     /**
      * The name of the database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The resource identifier of the elastic pool containing this database.
      */
-    readonly elasticPoolId?: pulumi.Input<string>;
+    elasticPoolId?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource identifier of the long term retention backup associated with create operation of this database.
      */
-    readonly longTermRetentionBackupResourceId?: pulumi.Input<string>;
+    longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
      * The max size of the database expressed in bytes.
      */
-    readonly maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    readonly recoverableDatabaseId?: pulumi.Input<string>;
+    recoverableDatabaseId?: pulumi.Input<string>;
     /**
      * The resource identifier of the recovery point associated with create operation of this database.
      */
-    readonly recoveryServicesRecoveryPointId?: pulumi.Input<string>;
+    recoveryServicesRecoveryPointId?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource identifier of the restorable dropped database associated with create operation of this database.
      */
-    readonly restorableDroppedDatabaseId?: pulumi.Input<string>;
+    restorableDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the sample schema to apply when creating this database.
      */
-    readonly sampleName?: pulumi.Input<string | enums.sql.v20170301preview.SampleName>;
+    sampleName?: pulumi.Input<string | enums.sql.v20170301preview.SampleName>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20170301preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.v20170301preview.SkuArgs>;
     /**
      * Specifies the time that the database was deleted.
      */
-    readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * The resource identifier of the source database associated with create operation of this database.
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

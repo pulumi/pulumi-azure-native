@@ -30,23 +30,23 @@ export interface GetVolumeArgs {
     /**
      * The device name
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The volume container name.
      */
-    readonly volumeContainerName: string;
+    volumeContainerName: string;
     /**
      * The volume name.
      */
-    readonly volumeName: string;
+    volumeName: string;
 }
 
 /**

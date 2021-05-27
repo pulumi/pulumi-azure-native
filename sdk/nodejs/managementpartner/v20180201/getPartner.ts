@@ -25,7 +25,7 @@ export interface GetPartnerArgs {
     /**
      * Id of the Partner
      */
-    readonly partnerId: string;
+    partnerId: string;
 }
 
 /**

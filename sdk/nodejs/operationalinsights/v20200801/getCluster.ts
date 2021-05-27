@@ -26,11 +26,11 @@ export interface GetClusterArgs {
     /**
      * Name of the Log Analytics Cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

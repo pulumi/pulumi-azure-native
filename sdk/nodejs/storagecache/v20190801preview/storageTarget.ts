@@ -122,37 +122,37 @@ export interface StorageTargetArgs {
     /**
      * Name of cache.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * Properties when clfs target.
      */
-    readonly clfs?: pulumi.Input<inputs.storagecache.v20190801preview.ClfsTargetArgs>;
+    clfs?: pulumi.Input<inputs.storagecache.v20190801preview.ClfsTargetArgs>;
     /**
      * List of cache namespace to target namespace associations.
      */
-    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20190801preview.NamespaceJunctionArgs>[]>;
+    junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20190801preview.NamespaceJunctionArgs>[]>;
     /**
      * Properties when nfs3 target.
      */
-    readonly nfs3?: pulumi.Input<inputs.storagecache.v20190801preview.Nfs3TargetArgs>;
+    nfs3?: pulumi.Input<inputs.storagecache.v20190801preview.Nfs3TargetArgs>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string | enums.storagecache.v20190801preview.ProvisioningStateType>;
+    provisioningState?: pulumi.Input<string | enums.storagecache.v20190801preview.ProvisioningStateType>;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of storage target.
      */
-    readonly storageTargetName?: pulumi.Input<string>;
+    storageTargetName?: pulumi.Input<string>;
     /**
      * Type for storage target.
      */
-    readonly targetType?: pulumi.Input<string | enums.storagecache.v20190801preview.StorageTargetType>;
+    targetType?: pulumi.Input<string | enums.storagecache.v20190801preview.StorageTargetType>;
     /**
      * Properties when unknown target.
      */
-    readonly unknown?: pulumi.Input<inputs.storagecache.v20190801preview.UnknownTargetArgs>;
+    unknown?: pulumi.Input<inputs.storagecache.v20190801preview.UnknownTargetArgs>;
 }

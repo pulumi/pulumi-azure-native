@@ -29,23 +29,23 @@ export interface GetSqlResourceSqlTriggerArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Cosmos DB container name.
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Cosmos DB trigger name.
      */
-    readonly triggerName: string;
+    triggerName: string;
 }
 
 /**

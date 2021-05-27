@@ -28,19 +28,19 @@ export interface GetCustomDomainArgs {
     /**
      * Name of the custom domain within an endpoint.
      */
-    readonly customDomainName: string;
+    customDomainName: string;
     /**
      * Name of the endpoint within the CDN profile.
      */
-    readonly endpointName: string;
+    endpointName: string;
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

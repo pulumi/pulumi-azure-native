@@ -30,15 +30,15 @@ export interface GetRoleArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The role name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

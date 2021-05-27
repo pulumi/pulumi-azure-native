@@ -27,15 +27,15 @@ export interface ListTenantAccessSecretsArgs {
     /**
      * The identifier of the Access configuration.
      */
-    readonly accessName: string;
+    accessName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

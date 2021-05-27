@@ -129,29 +129,29 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * Type of the alert to automatically suppress. For all alert types, use '*'
      */
-    readonly alertType: pulumi.Input<string>;
+    alertType: pulumi.Input<string>;
     /**
      * The unique name of the suppression alert rule
      */
-    readonly alertsSuppressionRuleName?: pulumi.Input<string>;
+    alertsSuppressionRuleName?: pulumi.Input<string>;
     /**
      * Any comment regarding the rule
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
      */
-    readonly expirationDateUtc?: pulumi.Input<string>;
+    expirationDateUtc?: pulumi.Input<string>;
     /**
      * The reason for dismissing the alert
      */
-    readonly reason: pulumi.Input<string>;
+    reason: pulumi.Input<string>;
     /**
      * Possible states of the rule
      */
-    readonly state: pulumi.Input<string | enums.security.v20190101preview.RuleState>;
+    state: pulumi.Input<string | enums.security.v20190101preview.RuleState>;
     /**
      * The suppression conditions
      */
-    readonly suppressionAlertsScope?: pulumi.Input<inputs.security.v20190101preview.SuppressionAlertsScopeArgs>;
+    suppressionAlertsScope?: pulumi.Input<inputs.security.v20190101preview.SuppressionAlertsScopeArgs>;
 }

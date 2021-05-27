@@ -137,26 +137,26 @@ export interface KeyValueArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: pulumi.Input<string>;
+    configStoreName: pulumi.Input<string>;
     /**
      * The content type of the key-value's value.
      * Providing a proper content-type can enable transformations of values when they are retrieved by applications.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    readonly keyValueName?: pulumi.Input<string>;
+    keyValueName?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A dictionary of tags that can help identify what a key-value may be applicable for.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The value of the key-value.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

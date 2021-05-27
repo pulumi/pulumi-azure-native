@@ -27,15 +27,15 @@ export interface GetExpressRouteConnectionArgs {
     /**
      * The name of the ExpressRoute connection.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The name of the ExpressRoute gateway.
      */
-    readonly expressRouteGatewayName: string;
+    expressRouteGatewayName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

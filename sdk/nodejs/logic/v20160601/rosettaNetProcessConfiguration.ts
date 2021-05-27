@@ -176,53 +176,53 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The RosettaNet process configuration activity settings.
      */
-    readonly activitySettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipActivitySettingsArgs>;
+    activitySettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipActivitySettingsArgs>;
     /**
      * The integration account RosettaNet ProcessConfiguration properties.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The RosettaNet initiator role settings.
      */
-    readonly initiatorRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
+    initiatorRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The integration account RosettaNet process code.
      */
-    readonly processCode: pulumi.Input<string>;
+    processCode: pulumi.Input<string>;
     /**
      * The integration account RosettaNet process name.
      */
-    readonly processName: pulumi.Input<string>;
+    processName: pulumi.Input<string>;
     /**
      * The integration account RosettaNet process version.
      */
-    readonly processVersion: pulumi.Input<string>;
+    processVersion: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The RosettaNet responder role settings.
      */
-    readonly responderRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
+    responderRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettingsArgs>;
     /**
      * The integration account RosettaNet ProcessConfiguration name.
      */
-    readonly rosettaNetProcessConfigurationName?: pulumi.Input<string>;
+    rosettaNetProcessConfigurationName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -212,65 +212,65 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    readonly authCode?: pulumi.Input<string>;
+    authCode?: pulumi.Input<string>;
     /**
      * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
      */
-    readonly autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean>;
     /**
      * Legal agreement consent.
      */
-    readonly consent: pulumi.Input<inputs.domainregistration.DomainPurchaseConsentArgs>;
+    consent: pulumi.Input<inputs.domainregistration.DomainPurchaseConsentArgs>;
     /**
      * Administrative contact.
      */
-    readonly contactAdmin: pulumi.Input<inputs.domainregistration.ContactArgs>;
+    contactAdmin: pulumi.Input<inputs.domainregistration.ContactArgs>;
     /**
      * Billing contact.
      */
-    readonly contactBilling: pulumi.Input<inputs.domainregistration.ContactArgs>;
+    contactBilling: pulumi.Input<inputs.domainregistration.ContactArgs>;
     /**
      * Registrant contact.
      */
-    readonly contactRegistrant: pulumi.Input<inputs.domainregistration.ContactArgs>;
+    contactRegistrant: pulumi.Input<inputs.domainregistration.ContactArgs>;
     /**
      * Technical contact.
      */
-    readonly contactTech: pulumi.Input<inputs.domainregistration.ContactArgs>;
+    contactTech: pulumi.Input<inputs.domainregistration.ContactArgs>;
     /**
      * Current DNS type
      */
-    readonly dnsType?: pulumi.Input<enums.domainregistration.DnsType>;
+    dnsType?: pulumi.Input<enums.domainregistration.DnsType>;
     /**
      * Azure DNS Zone to use
      */
-    readonly dnsZoneId?: pulumi.Input<string>;
+    dnsZoneId?: pulumi.Input<string>;
     /**
      * Name of the domain.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */
-    readonly privacy?: pulumi.Input<boolean>;
+    privacy?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target DNS type (would be used for migration)
      */
-    readonly targetDnsType?: pulumi.Input<enums.domainregistration.DnsType>;
+    targetDnsType?: pulumi.Input<enums.domainregistration.DnsType>;
 }

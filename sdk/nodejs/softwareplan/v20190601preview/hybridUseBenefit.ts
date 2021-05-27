@@ -115,13 +115,13 @@ export interface HybridUseBenefitArgs {
     /**
      * This is a unique identifier for a plan. Should be a guid.
      */
-    readonly planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string>;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * Hybrid use benefit SKU
      */
-    readonly sku: pulumi.Input<inputs.softwareplan.v20190601preview.SkuArgs>;
+    sku: pulumi.Input<inputs.softwareplan.v20190601preview.SkuArgs>;
 }

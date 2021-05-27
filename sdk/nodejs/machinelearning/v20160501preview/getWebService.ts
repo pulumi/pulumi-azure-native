@@ -26,11 +26,11 @@ export interface GetWebServiceArgs {
     /**
      * Name of the resource group in which the web service is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the web service.
      */
-    readonly webServiceName: string;
+    webServiceName: string;
 }
 
 /**

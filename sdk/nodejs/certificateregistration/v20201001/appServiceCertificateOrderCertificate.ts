@@ -127,33 +127,33 @@ export interface AppServiceCertificateOrderCertificateArgs {
     /**
      * Name of the certificate order.
      */
-    readonly certificateOrderName: pulumi.Input<string>;
+    certificateOrderName: pulumi.Input<string>;
     /**
      * Key Vault resource Id.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Key Vault secret name.
      */
-    readonly keyVaultSecretName?: pulumi.Input<string>;
+    keyVaultSecretName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the certificate.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -28,15 +28,15 @@ export interface GetEventHubArgs {
     /**
      * The Event Hub name
      */
-    readonly eventHubName: string;
+    eventHubName: string;
     /**
      * The Namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

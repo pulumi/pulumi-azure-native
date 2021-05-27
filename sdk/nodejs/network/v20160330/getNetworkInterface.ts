@@ -27,15 +27,15 @@ export interface GetNetworkInterfaceArgs {
     /**
      * expand references resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the network interface.
      */
-    readonly networkInterfaceName: string;
+    networkInterfaceName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

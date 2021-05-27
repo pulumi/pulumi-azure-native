@@ -28,19 +28,19 @@ export interface GetGalleryImageArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=author)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the gallery Image.
      */
-    readonly galleryImageName: string;
+    galleryImageName: string;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: string;
+    labAccountName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

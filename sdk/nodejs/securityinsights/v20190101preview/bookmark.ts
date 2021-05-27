@@ -180,73 +180,73 @@ export interface BookmarkArgs {
     /**
      * Bookmark ID
      */
-    readonly bookmarkId?: pulumi.Input<string>;
+    bookmarkId?: pulumi.Input<string>;
     /**
      * The time the bookmark was created
      */
-    readonly created?: pulumi.Input<string>;
+    created?: pulumi.Input<string>;
     /**
      * Describes a user that created the bookmark
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfoArgs>;
+    createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfoArgs>;
     /**
      * The display name of the bookmark
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The bookmark event time
      */
-    readonly eventTime?: pulumi.Input<string>;
+    eventTime?: pulumi.Input<string>;
     /**
      * Describes an incident that relates to bookmark
      */
-    readonly incidentInfo?: pulumi.Input<inputs.securityinsights.v20190101preview.IncidentInfoArgs>;
+    incidentInfo?: pulumi.Input<inputs.securityinsights.v20190101preview.IncidentInfoArgs>;
     /**
      * List of labels relevant to this bookmark
      */
-    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The notes of the bookmark
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The query of the bookmark.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The end time for the query
      */
-    readonly queryEndTime?: pulumi.Input<string>;
+    queryEndTime?: pulumi.Input<string>;
     /**
      * The query result of the bookmark.
      */
-    readonly queryResult?: pulumi.Input<string>;
+    queryResult?: pulumi.Input<string>;
     /**
      * The start time for the query
      */
-    readonly queryStartTime?: pulumi.Input<string>;
+    queryStartTime?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The last time the bookmark was updated
      */
-    readonly updated?: pulumi.Input<string>;
+    updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the bookmark
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfoArgs>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfoArgs>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

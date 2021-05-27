@@ -26,11 +26,11 @@ export interface GetguestDiagnosticsSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    readonly diagnosticSettingsName: string;
+    diagnosticSettingsName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

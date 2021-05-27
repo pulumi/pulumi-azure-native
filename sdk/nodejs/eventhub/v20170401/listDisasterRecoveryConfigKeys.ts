@@ -28,19 +28,19 @@ export interface ListDisasterRecoveryConfigKeysArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    readonly alias: string;
+    alias: string;
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName: string;
+    authorizationRuleName: string;
     /**
      * The Namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

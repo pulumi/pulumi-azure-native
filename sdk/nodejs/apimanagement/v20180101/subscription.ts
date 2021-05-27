@@ -168,43 +168,43 @@ export interface SubscriptionArgs {
     /**
      * Subscription name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Notify change in Subscription State. 
      *  - If false, do not send any email notification for change of state of subscription 
      *  - If true, send email notification of change of state of subscription 
      */
-    readonly notify?: pulumi.Input<boolean>;
+    notify?: pulumi.Input<boolean>;
     /**
      * Primary subscription key. If not specified during request key will be generated automatically.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * Product (product id path) for which subscription is being created in form /products/{productId}
      */
-    readonly productId: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Secondary subscription key. If not specified during request key will be generated automatically.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    readonly sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string>;
     /**
      * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */
-    readonly state?: pulumi.Input<enums.apimanagement.v20180101.SubscriptionState>;
+    state?: pulumi.Input<enums.apimanagement.v20180101.SubscriptionState>;
     /**
      * User (user id path) for whom subscription is being created in form /users/{uid}
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

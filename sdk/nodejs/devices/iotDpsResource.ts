@@ -119,29 +119,29 @@ export interface IotDpsResourceArgs {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Service specific properties for a provisioning service
      */
-    readonly properties: pulumi.Input<inputs.devices.IotDpsPropertiesDescriptionArgs>;
+    properties: pulumi.Input<inputs.devices.IotDpsPropertiesDescriptionArgs>;
     /**
      * Name of provisioning service to create or update.
      */
-    readonly provisioningServiceName?: pulumi.Input<string>;
+    provisioningServiceName?: pulumi.Input<string>;
     /**
      * Resource group identifier.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sku info for a provisioning Service.
      */
-    readonly sku: pulumi.Input<inputs.devices.IotDpsSkuInfoArgs>;
+    sku: pulumi.Input<inputs.devices.IotDpsSkuInfoArgs>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

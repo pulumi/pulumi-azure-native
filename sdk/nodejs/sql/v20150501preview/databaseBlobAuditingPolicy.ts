@@ -136,45 +136,45 @@ export interface DatabaseBlobAuditingPolicyArgs {
     /**
      * Specifies the Actions and Actions-Groups to audit.
      */
-    readonly auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the blob auditing policy.
      */
-    readonly blobAuditingPolicyName?: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string>;
     /**
      * The name of the database for which the blob auditing policy will be defined.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage’s secondary key.
      */
-    readonly isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
+    isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the number of days to keep in the audit logs.
      */
-    readonly retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
      */
-    readonly state: pulumi.Input<enums.sql.v20150501preview.BlobAuditingPolicyState>;
+    state: pulumi.Input<enums.sql.v20150501preview.BlobAuditingPolicyState>;
     /**
      * Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    readonly storageAccountSubscriptionId?: pulumi.Input<string>;
+    storageAccountSubscriptionId?: pulumi.Input<string>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }

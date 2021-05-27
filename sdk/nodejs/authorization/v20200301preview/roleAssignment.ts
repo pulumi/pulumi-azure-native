@@ -159,37 +159,37 @@ export interface RoleAssignmentArgs {
     /**
      * The delegation flag used for creating a role assignment
      */
-    readonly canDelegate?: pulumi.Input<boolean>;
+    canDelegate?: pulumi.Input<boolean>;
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Version of the condition. Currently accepted value is '2.0'
      */
-    readonly conditionVersion?: pulumi.Input<string>;
+    conditionVersion?: pulumi.Input<string>;
     /**
      * Id of the delegated managed identity resource
      */
-    readonly delegatedManagedIdentityResourceId?: pulumi.Input<string>;
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The principal ID.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string | enums.authorization.v20200301preview.PrincipalType>;
+    principalType?: pulumi.Input<string | enums.authorization.v20200301preview.PrincipalType>;
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    readonly roleAssignmentName?: pulumi.Input<string>;
+    roleAssignmentName?: pulumi.Input<string>;
     /**
      * The role definition ID.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId: pulumi.Input<string>;
     /**
      * The role assignment scope.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

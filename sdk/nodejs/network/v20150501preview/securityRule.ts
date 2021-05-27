@@ -162,65 +162,65 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
      */
-    readonly access: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleAccess>;
+    access: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleAccess>;
     /**
      * Gets or sets a description for this rule. Restricted to 140 chars.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
      */
-    readonly destinationAddressPrefix: pulumi.Input<string>;
+    destinationAddressPrefix: pulumi.Input<string>;
     /**
      * Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    readonly destinationPortRange?: pulumi.Input<string>;
+    destinationPortRange?: pulumi.Input<string>;
     /**
      * Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    readonly direction: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleDirection>;
+    direction: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleDirection>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the network security group.
      */
-    readonly networkSecurityGroupName: pulumi.Input<string>;
+    networkSecurityGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
      */
-    readonly protocol: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleProtocol>;
+    protocol: pulumi.Input<string | enums.network.v20150501preview.SecurityRuleProtocol>;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the security rule.
      */
-    readonly securityRuleName?: pulumi.Input<string>;
+    securityRuleName?: pulumi.Input<string>;
     /**
      * Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
      */
-    readonly sourceAddressPrefix: pulumi.Input<string>;
+    sourceAddressPrefix: pulumi.Input<string>;
     /**
      * Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    readonly sourcePortRange?: pulumi.Input<string>;
+    sourcePortRange?: pulumi.Input<string>;
 }

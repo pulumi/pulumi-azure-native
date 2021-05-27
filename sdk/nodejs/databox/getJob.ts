@@ -28,15 +28,15 @@ export interface GetJobArgs {
     /**
      * $expand is supported on details parameter for job, which provides details on the job stages.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The Resource Group Name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetDomainOwnershipIdentifierArgs {
     /**
      * Name of domain.
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * Name of identifier.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

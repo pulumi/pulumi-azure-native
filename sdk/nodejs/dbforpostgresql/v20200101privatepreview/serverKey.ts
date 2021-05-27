@@ -113,21 +113,21 @@ export interface ServerKeyArgs {
     /**
      * The name of the PostgreSQL Server key to be operated on (updated or created).
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The key type like 'AzureKeyVault'.
      */
-    readonly serverKeyType: pulumi.Input<string | enums.dbforpostgresql.v20200101privatepreview.ServerKeyType>;
+    serverKeyType: pulumi.Input<string | enums.dbforpostgresql.v20200101privatepreview.ServerKeyType>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The URI of the key.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
 }

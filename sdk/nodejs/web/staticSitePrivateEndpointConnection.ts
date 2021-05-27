@@ -113,21 +113,21 @@ export interface StaticSitePrivateEndpointConnectionArgs {
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the static site.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The state of a private link connection
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

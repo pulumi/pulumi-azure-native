@@ -26,11 +26,11 @@ export interface GetGatewayArgs {
     /**
      * The identity of the gateway.
      */
-    readonly gatewayResourceName: string;
+    gatewayResourceName: string;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

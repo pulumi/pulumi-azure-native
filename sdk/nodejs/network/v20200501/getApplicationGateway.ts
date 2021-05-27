@@ -26,11 +26,11 @@ export interface GetApplicationGatewayArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName: string;
+    applicationGatewayName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

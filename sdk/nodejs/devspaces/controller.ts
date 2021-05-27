@@ -139,29 +139,29 @@ export interface ControllerArgs {
     /**
      * Region where the Azure resource is located.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
-    readonly sku: pulumi.Input<inputs.devspaces.SkuArgs>;
+    sku: pulumi.Input<inputs.devspaces.SkuArgs>;
     /**
      * Tags for the Azure resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Credentials of the target container host (base64).
      */
-    readonly targetContainerHostCredentialsBase64: pulumi.Input<string>;
+    targetContainerHostCredentialsBase64: pulumi.Input<string>;
     /**
      * Resource ID of the target container host
      */
-    readonly targetContainerHostResourceId: pulumi.Input<string>;
+    targetContainerHostResourceId: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface ListIntegrationAccountAssemblyContentCallbackUrlArgs {
     /**
      * The assembly artifact name.
      */
-    readonly assemblyArtifactName: string;
+    assemblyArtifactName: string;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

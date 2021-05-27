@@ -29,23 +29,23 @@ export interface ListAssetContainerSasArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The Asset name.
      */
-    readonly assetName: string;
+    assetName: string;
     /**
      * The SAS URL expiration time.  This must be less than 24 hours from the current time.
      */
-    readonly expiryTime?: string;
+    expiryTime?: string;
     /**
      * The permissions to set on the SAS URL.
      */
-    readonly permissions?: string | enums.media.v20180701.AssetContainerPermission;
+    permissions?: string | enums.media.v20180701.AssetContainerPermission;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

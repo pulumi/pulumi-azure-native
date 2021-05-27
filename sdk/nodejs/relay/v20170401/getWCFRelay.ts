@@ -27,15 +27,15 @@ export interface GetWCFRelayArgs {
     /**
      * The namespace name
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The relay name.
      */
-    readonly relayName: string;
+    relayName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

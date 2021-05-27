@@ -103,26 +103,26 @@ export interface HyperVSiteArgs {
     /**
      * eTag for concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Azure location in which Sites is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Hyper-V site.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Nested properties of Hyper-V site.
      */
-    readonly properties?: pulumi.Input<inputs.offazure.v20200707.SitePropertiesArgs>;
+    properties?: pulumi.Input<inputs.offazure.v20200707.SitePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Site name.
      */
-    readonly siteName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    siteName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

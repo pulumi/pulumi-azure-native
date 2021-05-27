@@ -27,11 +27,11 @@ export interface GetDataCollectionRuleArgs {
     /**
      * The name of the data collection rule. The name is case insensitive.
      */
-    readonly dataCollectionRuleName: string;
+    dataCollectionRuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

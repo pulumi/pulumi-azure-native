@@ -192,69 +192,69 @@ export interface SubscriptionArgs {
     /**
      * TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
-    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string>;
     /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
-    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
+    deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether a subscription has dead letter support when a message expires.
      */
-    readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    defaultMessageTimeToLive?: pulumi.Input<string>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Entity availability status for the topic.
      */
-    readonly entityAvailabilityStatus?: pulumi.Input<enums.servicebus.v20140901.EntityAvailabilityStatus>;
+    entityAvailabilityStatus?: pulumi.Input<enums.servicebus.v20140901.EntityAvailabilityStatus>;
     /**
      * Value that indicates whether the entity description is read-only.
      */
-    readonly isReadOnly?: pulumi.Input<boolean>;
+    isReadOnly?: pulumi.Input<boolean>;
     /**
      * Subscription data center location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The lock duration time span for the subscription.
      */
-    readonly lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string>;
     /**
      * Number of maximum deliveries.
      */
-    readonly maxDeliveryCount?: pulumi.Input<number>;
+    maxDeliveryCount?: pulumi.Input<number>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Value indicating if a subscription supports the concept of sessions.
      */
-    readonly requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<enums.servicebus.v20140901.EntityStatus>;
+    status?: pulumi.Input<enums.servicebus.v20140901.EntityStatus>;
     /**
      * The subscription name.
      */
-    readonly subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * The topic name.
      */
-    readonly topicName: pulumi.Input<string>;
+    topicName: pulumi.Input<string>;
     /**
      * Resource manager type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

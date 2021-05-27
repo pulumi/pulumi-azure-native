@@ -91,13 +91,13 @@ export interface RoleAssignmentArgs {
     /**
      * Role assignment properties.
      */
-    readonly properties: pulumi.Input<inputs.authorization.v20150701.RoleAssignmentPropertiesArgs>;
+    properties: pulumi.Input<inputs.authorization.v20150701.RoleAssignmentPropertiesArgs>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */
-    readonly roleAssignmentName?: pulumi.Input<string>;
+    roleAssignmentName?: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

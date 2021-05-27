@@ -110,29 +110,29 @@ export interface ExtensionArgs {
     /**
      * The name of the Visual Studio Team Services account resource.
      */
-    readonly accountResourceName: pulumi.Input<string>;
+    accountResourceName: pulumi.Input<string>;
     /**
      * The name of the extension.
      */
-    readonly extensionResourceName?: pulumi.Input<string>;
+    extensionResourceName?: pulumi.Input<string>;
     /**
      * The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Extended information about the plan being purchased for this extension resource.
      */
-    readonly plan?: pulumi.Input<inputs.visualstudio.v20171101preview.ExtensionResourcePlanArgs>;
+    plan?: pulumi.Input<inputs.visualstudio.v20171101preview.ExtensionResourcePlanArgs>;
     /**
      * A dictionary of extended properties. This property is currently unused.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A dictionary of user-defined tags to be stored with the extension resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

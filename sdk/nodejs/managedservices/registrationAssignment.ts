@@ -89,13 +89,13 @@ export interface RegistrationAssignmentArgs {
     /**
      * Properties of a registration assignment.
      */
-    readonly properties?: pulumi.Input<inputs.managedservices.RegistrationAssignmentPropertiesArgs>;
+    properties?: pulumi.Input<inputs.managedservices.RegistrationAssignmentPropertiesArgs>;
     /**
      * Guid of the registration assignment.
      */
-    readonly registrationAssignmentId?: pulumi.Input<string>;
+    registrationAssignmentId?: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

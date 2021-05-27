@@ -120,33 +120,33 @@ export interface WebAppAuthSettingsV2Args {
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
-    readonly globalValidation?: pulumi.Input<inputs.web.v20210101.GlobalValidationArgs>;
+    globalValidation?: pulumi.Input<inputs.web.v20210101.GlobalValidationArgs>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
      */
-    readonly httpSettings?: pulumi.Input<inputs.web.v20210101.HttpSettingsArgs>;
+    httpSettings?: pulumi.Input<inputs.web.v20210101.HttpSettingsArgs>;
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    readonly identityProviders?: pulumi.Input<inputs.web.v20210101.IdentityProvidersArgs>;
+    identityProviders?: pulumi.Input<inputs.web.v20210101.IdentityProvidersArgs>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The configuration settings of the login flow of users using App Service Authentication/Authorization.
      */
-    readonly login?: pulumi.Input<inputs.web.v20210101.LoginArgs>;
+    login?: pulumi.Input<inputs.web.v20210101.LoginArgs>;
     /**
      * Name of web app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The configuration settings of the platform of App Service Authentication/Authorization.
      */
-    readonly platform?: pulumi.Input<inputs.web.v20210101.AuthPlatformArgs>;
+    platform?: pulumi.Input<inputs.web.v20210101.AuthPlatformArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

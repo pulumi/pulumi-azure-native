@@ -27,15 +27,15 @@ export interface GetCustomImageResourceArgs {
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the custom image.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -114,17 +114,17 @@ export interface PrivateEndpointConnectionsForMIPPolicySyncArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.securityandcompliance.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.securityandcompliance.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service instance.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

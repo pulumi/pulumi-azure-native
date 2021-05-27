@@ -27,11 +27,11 @@ export interface GetJobArgs {
     /**
      * The name of the import/export job.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

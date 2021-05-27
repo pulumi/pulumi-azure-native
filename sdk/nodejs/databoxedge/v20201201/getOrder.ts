@@ -26,11 +26,11 @@ export interface GetOrderArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

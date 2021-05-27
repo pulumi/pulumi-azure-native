@@ -98,13 +98,13 @@ export interface HcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site in the private cloud
      */
-    readonly hcxEnterpriseSiteName?: pulumi.Input<string>;
+    hcxEnterpriseSiteName?: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */
-    readonly privateCloudName: pulumi.Input<string>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -106,21 +106,21 @@ export interface MediaServiceArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The Azure Region of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20180701.StorageAccountArgs>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20180701.StorageAccountArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

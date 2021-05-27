@@ -145,41 +145,41 @@ export interface NotificationChannelArgs {
     /**
      * Description of notification.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
      */
-    readonly emailRecipient?: pulumi.Input<string>;
+    emailRecipient?: pulumi.Input<string>;
     /**
      * The list of event for which this notification is enabled.
      */
-    readonly events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.EventArgs>[]>;
+    events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.EventArgs>[]>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the notification channel.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The locale to use when sending a notification (fallback for unsupported languages is EN).
      */
-    readonly notificationLocale?: pulumi.Input<string>;
+    notificationLocale?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The webhook URL to send notifications to.
      */
-    readonly webHookUrl?: pulumi.Input<string>;
+    webHookUrl?: pulumi.Input<string>;
 }

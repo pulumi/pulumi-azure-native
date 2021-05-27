@@ -108,21 +108,21 @@ export interface BandwidthSettingArgs {
     /**
      * The bandwidth setting name.
      */
-    readonly bandwidthSettingName?: pulumi.Input<string>;
+    bandwidthSettingName?: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.Kind>;
+    kind?: pulumi.Input<enums.storsimple.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The schedules.
      */
-    readonly schedules: pulumi.Input<pulumi.Input<inputs.storsimple.BandwidthScheduleArgs>[]>;
+    schedules: pulumi.Input<pulumi.Input<inputs.storsimple.BandwidthScheduleArgs>[]>;
 }

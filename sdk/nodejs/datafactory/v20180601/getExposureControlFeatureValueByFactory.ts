@@ -28,19 +28,19 @@ export interface GetExposureControlFeatureValueByFactoryArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The feature name.
      */
-    readonly featureName?: string;
+    featureName?: string;
     /**
      * The feature type.
      */
-    readonly featureType?: string;
+    featureType?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

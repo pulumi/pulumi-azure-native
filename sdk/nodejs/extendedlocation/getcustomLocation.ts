@@ -27,11 +27,11 @@ export interface GetcustomLocationArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Custom Locations name.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

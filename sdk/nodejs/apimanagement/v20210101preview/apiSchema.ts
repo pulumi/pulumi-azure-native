@@ -110,29 +110,29 @@ export interface ApiSchemaArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
      */
-    readonly contentType: pulumi.Input<string>;
+    contentType: pulumi.Input<string>;
     /**
      * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
      */
-    readonly definitions?: any;
+    definitions?: any;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Schema identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly schemaId?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

@@ -29,23 +29,23 @@ export interface GetBackupScheduleArgs {
     /**
      * The backup policy name.
      */
-    readonly backupPolicyName: string;
+    backupPolicyName: string;
     /**
      * The name of the backup schedule to be fetched
      */
-    readonly backupScheduleName: string;
+    backupScheduleName: string;
     /**
      * The device name
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

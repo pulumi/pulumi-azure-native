@@ -27,11 +27,11 @@ export interface GetVaultArgs {
     /**
      * The name of the Resource Group to which the vault belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the vault.
      */
-    readonly vaultName: string;
+    vaultName: string;
 }
 
 /**

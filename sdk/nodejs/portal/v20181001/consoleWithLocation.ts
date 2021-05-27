@@ -76,9 +76,9 @@ export interface ConsoleWithLocationArgs {
     /**
      * The name of the console
      */
-    readonly consoleName?: pulumi.Input<string>;
+    consoleName?: pulumi.Input<string>;
     /**
      * The provider location
      */
-    readonly location: pulumi.Input<string>;
+    location: pulumi.Input<string>;
 }

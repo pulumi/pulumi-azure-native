@@ -27,15 +27,15 @@ export interface GetLoadBalancerArgs {
     /**
      * expand references resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the loadBalancer.
      */
-    readonly loadBalancerName: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

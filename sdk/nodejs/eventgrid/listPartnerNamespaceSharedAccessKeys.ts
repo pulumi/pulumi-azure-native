@@ -27,11 +27,11 @@ export interface ListPartnerNamespaceSharedAccessKeysArgs {
     /**
      * Name of the partner namespace.
      */
-    readonly partnerNamespaceName: string;
+    partnerNamespaceName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -247,65 +247,65 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.AdditionalLocationArgs>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.AdditionalLocationArgs>[]>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.CertificateConfigurationArgs>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.CertificateConfigurationArgs>[]>;
     /**
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`:</br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA</br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA</br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</br>TLS_RSA_WITH_AES_128_GCM_SHA256</br>TLS_RSA_WITH_AES_256_CBC_SHA256</br>TLS_RSA_WITH_AES_128_CBC_SHA256</br>TLS_RSA_WITH_AES_256_CBC_SHA</br>TLS_RSA_WITH_AES_128_CBC_SHA.</br>For example: `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for all of them.
      */
-    readonly customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
      */
-    readonly enableClientCertificate?: pulumi.Input<boolean>;
+    enableClientCertificate?: pulumi.Input<boolean>;
     /**
      * Custom hostname configuration of the API Management service.
      */
-    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.HostnameConfigurationArgs>[]>;
+    hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.HostnameConfigurationArgs>[]>;
     /**
      * Managed service identity of the Api Management service.
      */
-    readonly identity?: pulumi.Input<inputs.apimanagement.v20190101.ApiManagementServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.apimanagement.v20190101.ApiManagementServiceIdentityArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Email address from which the notification will be sent.
      */
-    readonly notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string>;
     /**
      * Publisher email.
      */
-    readonly publisherEmail: pulumi.Input<string>;
+    publisherEmail: pulumi.Input<string>;
     /**
      * Publisher name.
      */
-    readonly publisherName: pulumi.Input<string>;
+    publisherName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * SKU properties of the API Management service.
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.v20190101.ApiManagementServiceSkuPropertiesArgs>;
+    sku: pulumi.Input<inputs.apimanagement.v20190101.ApiManagementServiceSkuPropertiesArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual network configuration of the API Management service.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20190101.VirtualNetworkConfigurationArgs>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20190101.VirtualNetworkConfigurationArgs>;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    readonly virtualNetworkType?: pulumi.Input<string | enums.apimanagement.v20190101.VirtualNetworkType>;
+    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.v20190101.VirtualNetworkType>;
 }

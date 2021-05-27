@@ -246,85 +246,85 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
-    readonly autoApplyDecisionsEnabled?: pulumi.Input<boolean>;
+    autoApplyDecisionsEnabled?: pulumi.Input<boolean>;
     /**
      * This is the collection of backup reviewers.
      */
-    readonly backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewReviewerArgs>[]>;
+    backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewReviewerArgs>[]>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */
-    readonly defaultDecision?: pulumi.Input<string | enums.authorization.v20210301preview.DefaultDecisionType>;
+    defaultDecision?: pulumi.Input<string | enums.authorization.v20210301preview.DefaultDecisionType>;
     /**
      * Flag to indicate whether reviewers are required to provide a justification when reviewing access.
      */
-    readonly defaultDecisionEnabled?: pulumi.Input<boolean>;
+    defaultDecisionEnabled?: pulumi.Input<boolean>;
     /**
      * The description provided by the access review creator and visible to admins.
      */
-    readonly descriptionForAdmins?: pulumi.Input<string>;
+    descriptionForAdmins?: pulumi.Input<string>;
     /**
      * The description provided by the access review creator to be shown to reviewers.
      */
-    readonly descriptionForReviewers?: pulumi.Input<string>;
+    descriptionForReviewers?: pulumi.Input<string>;
     /**
      * The display name for the schedule definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The DateTime when the review is scheduled to end. Required if type is endDate
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
-    readonly inactiveDuration?: pulumi.Input<string>;
+    inactiveDuration?: pulumi.Input<string>;
     /**
      * The duration in days for an instance.
      */
-    readonly instanceDurationInDays?: pulumi.Input<number>;
+    instanceDurationInDays?: pulumi.Input<number>;
     /**
      * This is the collection of instances returned when one does an expand on it.
      */
-    readonly instances?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewInstanceArgs>[]>;
+    instances?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewInstanceArgs>[]>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
-    readonly interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
     /**
      * Flag to indicate whether the reviewer is required to pass justification when recording a decision.
      */
-    readonly justificationRequiredOnApproval?: pulumi.Input<boolean>;
+    justificationRequiredOnApproval?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether sending mails to reviewers and the review creator is enabled.
      */
-    readonly mailNotificationsEnabled?: pulumi.Input<boolean>;
+    mailNotificationsEnabled?: pulumi.Input<boolean>;
     /**
      * The number of times to repeat the access review. Required and must be positive if type is numbered.
      */
-    readonly numberOfOccurrences?: pulumi.Input<number>;
+    numberOfOccurrences?: pulumi.Input<number>;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */
-    readonly recommendationsEnabled?: pulumi.Input<boolean>;
+    recommendationsEnabled?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether sending reminder emails to reviewers are enabled.
      */
-    readonly reminderNotificationsEnabled?: pulumi.Input<boolean>;
+    reminderNotificationsEnabled?: pulumi.Input<boolean>;
     /**
      * This is the collection of reviewers.
      */
-    readonly reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewReviewerArgs>[]>;
+    reviewers?: pulumi.Input<pulumi.Input<inputs.authorization.v20210301preview.AccessReviewReviewerArgs>[]>;
     /**
      * The id of the access review schedule definition.
      */
-    readonly scheduleDefinitionId?: pulumi.Input<string>;
+    scheduleDefinitionId?: pulumi.Input<string>;
     /**
      * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
      */
-    readonly startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string>;
     /**
      * The recurrence range type. The possible values are: endDate, noEnd, numbered.
      */
-    readonly type?: pulumi.Input<string | enums.authorization.v20210301preview.AccessReviewRecurrenceRangeType>;
+    type?: pulumi.Input<string | enums.authorization.v20210301preview.AccessReviewRecurrenceRangeType>;
 }

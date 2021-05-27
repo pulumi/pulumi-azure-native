@@ -147,37 +147,37 @@ export interface VolumeContainerArgs {
     /**
      * The bandwidth-rate set on the volume container.
      */
-    readonly bandWidthRateInMbps?: pulumi.Input<number>;
+    bandWidthRateInMbps?: pulumi.Input<number>;
     /**
      * The ID of the bandwidth setting associated with the volume container.
      */
-    readonly bandwidthSettingId?: pulumi.Input<string>;
+    bandwidthSettingId?: pulumi.Input<string>;
     /**
      * The device name
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
      */
-    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
+    encryptionKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
+    kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The path ID of storage account associated with the volume container.
      */
-    readonly storageAccountCredentialId: pulumi.Input<string>;
+    storageAccountCredentialId: pulumi.Input<string>;
     /**
      * The name of the volume container.
      */
-    readonly volumeContainerName?: pulumi.Input<string>;
+    volumeContainerName?: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetExperimentArgs {
     /**
      * The Experiment identifier associated with the Experiment
      */
-    readonly experimentName: string;
+    experimentName: string;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    readonly profileName: string;
+    profileName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

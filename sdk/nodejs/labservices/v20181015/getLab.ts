@@ -28,19 +28,19 @@ export interface GetLabArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: string;
+    labAccountName: string;
     /**
      * The name of the lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

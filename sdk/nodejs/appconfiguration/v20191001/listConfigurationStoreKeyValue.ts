@@ -28,19 +28,19 @@ export interface ListConfigurationStoreKeyValueArgs {
     /**
      * The name of the configuration store.
      */
-    readonly configStoreName: string;
+    configStoreName: string;
     /**
      * The key to retrieve.
      */
-    readonly key: string;
+    key: string;
     /**
      * The label of the key.
      */
-    readonly label?: string;
+    label?: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

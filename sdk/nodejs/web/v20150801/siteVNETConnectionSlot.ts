@@ -146,61 +146,61 @@ export interface SiteVNETConnectionSlotArgs {
      * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
      *             Point-To-Site VPN connection.
      */
-    readonly certBlob?: pulumi.Input<string>;
+    certBlob?: pulumi.Input<string>;
     /**
      * The client certificate thumbprint
      */
-    readonly certThumbprint?: pulumi.Input<string>;
+    certThumbprint?: pulumi.Input<string>;
     /**
      * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
      */
-    readonly dnsServers?: pulumi.Input<string>;
+    dnsServers?: pulumi.Input<string>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Flag to determine if a resync is required
      */
-    readonly resyncRequired?: pulumi.Input<boolean>;
+    resyncRequired?: pulumi.Input<boolean>;
     /**
      * The routes that this virtual network connection uses.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRouteArgs>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRouteArgs>[]>;
     /**
      * The name of the slot for this web app.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The name of the Virtual Network
      */
-    readonly vnetName?: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string>;
     /**
      * The vnet resource id
      */
-    readonly vnetResourceId?: pulumi.Input<string>;
+    vnetResourceId?: pulumi.Input<string>;
 }

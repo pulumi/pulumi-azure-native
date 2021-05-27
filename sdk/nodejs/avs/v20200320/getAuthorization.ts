@@ -27,15 +27,15 @@ export interface GetAuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
-    readonly authorizationName: string;
+    authorizationName: string;
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

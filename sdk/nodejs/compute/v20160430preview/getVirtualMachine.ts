@@ -27,15 +27,15 @@ export interface GetVirtualMachineArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual machine.
      */
-    readonly vmName: string;
+    vmName: string;
 }
 
 /**

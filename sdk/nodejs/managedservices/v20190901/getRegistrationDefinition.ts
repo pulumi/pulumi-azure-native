@@ -26,11 +26,11 @@ export interface GetRegistrationDefinitionArgs {
     /**
      * Guid of the registration definition.
      */
-    readonly registrationDefinitionId: string;
+    registrationDefinitionId: string;
     /**
      * Scope of the resource.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

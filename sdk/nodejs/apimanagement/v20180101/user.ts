@@ -145,45 +145,45 @@ export interface UserArgs {
     /**
      * Determines the type of confirmation e-mail that will be sent to the newly created user.
      */
-    readonly confirmation?: pulumi.Input<string | enums.apimanagement.v20180101.Confirmation>;
+    confirmation?: pulumi.Input<string | enums.apimanagement.v20180101.Confirmation>;
     /**
      * Email address. Must not be empty and must be unique within the service instance.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * First name.
      */
-    readonly firstName: pulumi.Input<string>;
+    firstName: pulumi.Input<string>;
     /**
      * Collection of user identities.
      */
-    readonly identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.UserIdentityContractArgs>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.UserIdentityContractArgs>[]>;
     /**
      * Last name.
      */
-    readonly lastName: pulumi.Input<string>;
+    lastName: pulumi.Input<string>;
     /**
      * Optional note about a user set by the administrator.
      */
-    readonly note?: pulumi.Input<string>;
+    note?: pulumi.Input<string>;
     /**
      * User Password. If no value is provided, a default password is generated.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    readonly state?: pulumi.Input<string | enums.apimanagement.v20180101.UserState>;
+    state?: pulumi.Input<string | enums.apimanagement.v20180101.UserState>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    readonly uid?: pulumi.Input<string>;
+    uid?: pulumi.Input<string>;
 }

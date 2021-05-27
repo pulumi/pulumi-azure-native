@@ -27,15 +27,15 @@ export interface GetStorageAccountCredentialArgs {
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The storage account credential name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

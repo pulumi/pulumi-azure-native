@@ -27,15 +27,15 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    readonly roleAssignmentName: string;
+    roleAssignmentName: string;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
-    readonly scope: string;
+    scope: string;
     /**
      * Tenant ID for cross-tenant request
      */
-    readonly tenantId?: string;
+    tenantId?: string;
 }
 
 /**

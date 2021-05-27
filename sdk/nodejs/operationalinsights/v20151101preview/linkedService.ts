@@ -94,17 +94,17 @@ export interface LinkedServiceArgs {
     /**
      * Name of the linkedServices resource
      */
-    readonly linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource id of the resource that will be linked to the workspace.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

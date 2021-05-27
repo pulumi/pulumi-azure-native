@@ -174,62 +174,62 @@ export interface ServerFarmArgs {
     /**
      * App Service Plan administration site
      */
-    readonly adminSiteName?: pulumi.Input<string>;
+    adminSiteName?: pulumi.Input<string>;
     /**
      * OBSOLETE: If true, allow pending state for App Service Plan
      */
-    readonly allowPendingState?: pulumi.Input<boolean>;
+    allowPendingState?: pulumi.Input<boolean>;
     /**
      * Specification for the hosting environment (App Service Environment) to use for the App Service Plan
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of instances that can be assigned to this App Service Plan
      */
-    readonly maximumNumberOfWorkers?: pulumi.Input<number>;
+    maximumNumberOfWorkers?: pulumi.Input<number>;
     /**
      * Resource Name
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * If True apps assigned to this App Service Plan can be scaled independently
      *             If False apps assigned to this App Service Plan will scale to all instances of the plan
      */
-    readonly perSiteScaling?: pulumi.Input<boolean>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * Enables creation of a Linux App Service Plan
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Describes a sku for a scalable resource
      */
-    readonly sku?: pulumi.Input<inputs.web.v20150801.SkuDescriptionArgs>;
+    sku?: pulumi.Input<inputs.web.v20150801.SkuDescriptionArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Target worker tier assigned to the App Service Plan
      */
-    readonly workerTierName?: pulumi.Input<string>;
+    workerTierName?: pulumi.Input<string>;
 }

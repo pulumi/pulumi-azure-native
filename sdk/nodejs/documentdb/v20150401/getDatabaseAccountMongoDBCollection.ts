@@ -28,19 +28,19 @@ export interface GetDatabaseAccountMongoDBCollectionArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Cosmos DB collection name.
      */
-    readonly collectionName: string;
+    collectionName: string;
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

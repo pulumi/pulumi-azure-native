@@ -291,87 +291,87 @@ export interface WebAppArgs {
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
      */
-    readonly clientCertEnabled?: pulumi.Input<boolean>;
+    clientCertEnabled?: pulumi.Input<boolean>;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20160801.CloningInfoArgs>;
+    cloningInfo?: pulumi.Input<inputs.web.v20160801.CloningInfoArgs>;
     /**
      * Size of the function container.
      */
-    readonly containerSize?: pulumi.Input<number>;
+    containerSize?: pulumi.Input<number>;
     /**
      * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
      */
-    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20160801.HostNameSslStateArgs>[]>;
+    hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20160801.HostNameSslStateArgs>[]>;
     /**
      * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
      *  If <code>true</code>, the app is only accessible via API management process.
      */
-    readonly hostNamesDisabled?: pulumi.Input<boolean>;
+    hostNamesDisabled?: pulumi.Input<boolean>;
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160801.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160801.HostingEnvironmentProfileArgs>;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
      */
-    readonly httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20160801.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.web.v20160801.ManagedServiceIdentityArgs>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
      */
-    readonly scmSiteAlsoStopped?: pulumi.Input<boolean>;
+    scmSiteAlsoStopped?: pulumi.Input<boolean>;
     /**
      * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
      */
-    readonly serverFarmId?: pulumi.Input<string>;
+    serverFarmId?: pulumi.Input<string>;
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20160801.SiteConfigArgs>;
+    siteConfig?: pulumi.Input<inputs.web.v20160801.SiteConfigArgs>;
     /**
      * If specified during app creation, the app is created from a previous snapshot.
      */
-    readonly snapshotInfo?: pulumi.Input<inputs.web.v20160801.SnapshotRecoveryRequestArgs>;
+    snapshotInfo?: pulumi.Input<inputs.web.v20160801.SnapshotRecoveryRequestArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

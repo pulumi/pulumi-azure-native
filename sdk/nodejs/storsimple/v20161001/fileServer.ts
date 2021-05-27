@@ -122,33 +122,33 @@ export interface FileServerArgs {
     /**
      * The backup policy id.
      */
-    readonly backupScheduleGroupId: pulumi.Input<string>;
+    backupScheduleGroupId: pulumi.Input<string>;
     /**
      * The description of the file server
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Domain of the file server
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * The file server name.
      */
-    readonly fileServerName?: pulumi.Input<string>;
+    fileServerName?: pulumi.Input<string>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage domain id.
      */
-    readonly storageDomainId: pulumi.Input<string>;
+    storageDomainId: pulumi.Input<string>;
 }

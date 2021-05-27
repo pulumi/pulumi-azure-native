@@ -92,17 +92,17 @@ export interface ComponentLinkedStorageAccountArgs {
     /**
      * Linked storage account resource ID
      */
-    readonly linkedStorageAccount?: pulumi.Input<string>;
+    linkedStorageAccount?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * The type of the Application Insights component data source for the linked storage account.
      */
-    readonly storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
 }

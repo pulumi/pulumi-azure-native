@@ -28,19 +28,19 @@ export interface GetProjectArgs {
     /**
      * The name of the machine learning team account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the machine learning project under a team account workspace.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * The name of the resource group to which the machine learning team account belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the machine learning team account workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

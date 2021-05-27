@@ -95,17 +95,17 @@ export interface NotificationRecipientUserArgs {
     /**
      * Notification Name Identifier.
      */
-    readonly notificationName: pulumi.Input<string>;
+    notificationName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    readonly uid?: pulumi.Input<string>;
+    uid?: pulumi.Input<string>;
 }

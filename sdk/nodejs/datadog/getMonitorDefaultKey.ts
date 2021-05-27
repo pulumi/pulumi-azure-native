@@ -26,11 +26,11 @@ export interface GetMonitorDefaultKeyArgs {
     /**
      * Monitor resource name
      */
-    readonly monitorName: string;
+    monitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetMonitorDefaultKeyResult {

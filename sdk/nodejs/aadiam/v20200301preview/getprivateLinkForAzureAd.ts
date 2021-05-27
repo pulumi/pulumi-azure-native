@@ -26,11 +26,11 @@ export interface GetprivateLinkForAzureAdArgs {
     /**
      * The name of the private link policy in Azure AD.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

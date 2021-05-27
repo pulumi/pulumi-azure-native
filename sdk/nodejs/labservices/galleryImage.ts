@@ -171,41 +171,41 @@ export interface GalleryImageArgs {
     /**
      * The name of the gallery Image.
      */
-    readonly galleryImageName?: pulumi.Input<string>;
+    galleryImageName?: pulumi.Input<string>;
     /**
      * Indicates whether this gallery image is enabled.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Indicates whether this gallery has been overridden for this lab account
      */
-    readonly isOverride?: pulumi.Input<boolean>;
+    isOverride?: pulumi.Input<boolean>;
     /**
      * Indicates if the plan has been authorized for programmatic deployment.
      */
-    readonly isPlanAuthorized?: pulumi.Input<boolean>;
+    isPlanAuthorized?: pulumi.Input<boolean>;
     /**
      * The name of the lab Account.
      */
-    readonly labAccountName: pulumi.Input<string>;
+    labAccountName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }

@@ -26,11 +26,11 @@ export interface GetGraphQueryArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Graph Query resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

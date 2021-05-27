@@ -29,23 +29,23 @@ export interface GetLabelingJobArgs {
     /**
      * Boolean value to indicate whether to include JobInstructions in response.
      */
-    readonly includeJobInstructions?: boolean;
+    includeJobInstructions?: boolean;
     /**
      * Boolean value to indicate whether to include LabelCategories in response.
      */
-    readonly includeLabelCategories?: boolean;
+    includeLabelCategories?: boolean;
     /**
      * Name and identifier for LabelingJob.
      */
-    readonly labelingJobId: string;
+    labelingJobId: string;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

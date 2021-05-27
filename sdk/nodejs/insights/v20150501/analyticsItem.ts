@@ -127,41 +127,41 @@ export interface AnalyticsItemArgs {
     /**
      * The content of this item
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * Internally assigned unique id of the item definition.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The user-defined name of the item.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
      */
-    readonly overrideItem?: pulumi.Input<boolean>;
+    overrideItem?: pulumi.Input<boolean>;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    readonly properties?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>;
+    properties?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scope?: pulumi.Input<string | enums.insights.v20150501.ItemScope>;
+    scope?: pulumi.Input<string | enums.insights.v20150501.ItemScope>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scopePath: pulumi.Input<string>;
+    scopePath: pulumi.Input<string>;
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly type?: pulumi.Input<string | enums.insights.v20150501.ItemType>;
+    type?: pulumi.Input<string | enums.insights.v20150501.ItemType>;
 }

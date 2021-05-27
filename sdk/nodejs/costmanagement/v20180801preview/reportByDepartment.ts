@@ -118,25 +118,25 @@ export interface ReportByDepartmentArgs {
     /**
      * Has definition for the report.
      */
-    readonly definition: pulumi.Input<inputs.costmanagement.v20180801preview.ReportDefinitionArgs>;
+    definition: pulumi.Input<inputs.costmanagement.v20180801preview.ReportDefinitionArgs>;
     /**
      * Has delivery information for the report.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20180801preview.ReportDeliveryInfoArgs>;
+    deliveryInfo: pulumi.Input<inputs.costmanagement.v20180801preview.ReportDeliveryInfoArgs>;
     /**
      * Department ID
      */
-    readonly departmentId: pulumi.Input<string>;
+    departmentId: pulumi.Input<string>;
     /**
      * The format of the report being delivered.
      */
-    readonly format?: pulumi.Input<string | enums.costmanagement.v20180801preview.FormatType>;
+    format?: pulumi.Input<string | enums.costmanagement.v20180801preview.FormatType>;
     /**
      * Report Name.
      */
-    readonly reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string>;
     /**
      * Has schedule information for the report.
      */
-    readonly schedule?: pulumi.Input<inputs.costmanagement.v20180801preview.ReportScheduleArgs>;
+    schedule?: pulumi.Input<inputs.costmanagement.v20180801preview.ReportScheduleArgs>;
 }

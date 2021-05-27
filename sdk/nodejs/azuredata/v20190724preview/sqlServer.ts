@@ -115,33 +115,33 @@ export interface SqlServerArgs {
     /**
      * Cores of the Sql Server.
      */
-    readonly cores?: pulumi.Input<number>;
+    cores?: pulumi.Input<number>;
     /**
      * Sql Server Edition.
      */
-    readonly edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
     /**
      * Sql Server Json Property Bag.
      */
-    readonly propertyBag?: pulumi.Input<string>;
+    propertyBag?: pulumi.Input<string>;
     /**
      * ID for Parent Sql Server Registration.
      */
-    readonly registrationID?: pulumi.Input<string>;
+    registrationID?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the SQL Server.
      */
-    readonly sqlServerName?: pulumi.Input<string>;
+    sqlServerName?: pulumi.Input<string>;
     /**
      * Name of the SQL Server registration.
      */
-    readonly sqlServerRegistrationName: pulumi.Input<string>;
+    sqlServerRegistrationName: pulumi.Input<string>;
     /**
      * Version of the Sql Server.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

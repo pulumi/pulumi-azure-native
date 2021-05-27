@@ -148,29 +148,29 @@ export interface ProjectArgs {
     /**
      * ARM ID of the Service Map workspace created by user.
      */
-    readonly customerWorkspaceId?: pulumi.Input<string>;
+    customerWorkspaceId?: pulumi.Input<string>;
     /**
      * For optimistic concurrency control.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Azure location in which project is created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * Provisioning state of the project.
      */
-    readonly provisioningState?: pulumi.Input<string | enums.migrate.v20171111preview.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.migrate.v20171111preview.ProvisioningState>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags provided by Azure Tagging service.
      */
-    readonly tags?: any;
+    tags?: any;
 }

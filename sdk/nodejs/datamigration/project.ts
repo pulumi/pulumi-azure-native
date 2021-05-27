@@ -147,41 +147,41 @@ export interface ProjectArgs {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.DatabaseInfoArgs>[]>;
+    databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.DatabaseInfoArgs>[]>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
+    sourceConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
     /**
      * Source platform for the project
      */
-    readonly sourcePlatform: pulumi.Input<string | enums.datamigration.ProjectSourcePlatform>;
+    sourcePlatform: pulumi.Input<string | enums.datamigration.ProjectSourcePlatform>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
+    targetConnectionInfo?: pulumi.Input<inputs.datamigration.MiSqlConnectionInfoArgs | inputs.datamigration.MySqlConnectionInfoArgs | inputs.datamigration.PostgreSqlConnectionInfoArgs | inputs.datamigration.SqlConnectionInfoArgs>;
     /**
      * Target platform for the project
      */
-    readonly targetPlatform: pulumi.Input<string | enums.datamigration.ProjectTargetPlatform>;
+    targetPlatform: pulumi.Input<string | enums.datamigration.ProjectTargetPlatform>;
 }

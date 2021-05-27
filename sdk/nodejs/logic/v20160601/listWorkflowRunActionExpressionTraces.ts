@@ -25,19 +25,19 @@ export interface ListWorkflowRunActionExpressionTracesArgs {
     /**
      * The workflow action name.
      */
-    readonly actionName: string;
+    actionName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The workflow run name.
      */
-    readonly runName: string;
+    runName: string;
     /**
      * The workflow name.
      */
-    readonly workflowName: string;
+    workflowName: string;
 }
 
 export interface ListWorkflowRunActionExpressionTracesResult {

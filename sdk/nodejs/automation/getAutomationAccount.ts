@@ -27,11 +27,11 @@ export interface GetAutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

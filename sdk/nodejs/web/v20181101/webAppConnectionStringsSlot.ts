@@ -100,21 +100,21 @@ export interface WebAppConnectionStringsSlotArgs {
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Connection strings.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20181101.ConnStringValueTypePairArgs>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.v20181101.ConnStringValueTypePairArgs>}>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will update the connection settings for the production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

@@ -119,29 +119,29 @@ export interface ManagedInstanceAdministratorArgs {
     /**
      * The requested administrator name.
      */
-    readonly administratorName?: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string>;
     /**
      * Type of the managed instance administrator.
      */
-    readonly administratorType: pulumi.Input<string | enums.sql.v20170301preview.ManagedInstanceAdministratorType>;
+    administratorType: pulumi.Input<string | enums.sql.v20170301preview.ManagedInstanceAdministratorType>;
     /**
      * Login name of the managed instance administrator.
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName: pulumi.Input<string>;
+    managedInstanceName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SID (object ID) of the managed instance administrator.
      */
-    readonly sid: pulumi.Input<string>;
+    sid: pulumi.Input<string>;
     /**
      * Tenant ID of the managed instance administrator.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

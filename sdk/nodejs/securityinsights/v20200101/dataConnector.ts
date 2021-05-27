@@ -106,21 +106,21 @@ export interface DataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The data connector kind
      */
-    readonly kind: pulumi.Input<string | enums.securityinsights.v20200101.DataConnectorKind>;
+    kind: pulumi.Input<string | enums.securityinsights.v20200101.DataConnectorKind>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -147,57 +147,57 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Radius client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigRadiusClientRootCertificateArgs>[]>;
+    p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigRadiusClientRootCertificateArgs>[]>;
     /**
      * Radius Server root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigRadiusServerRootCertificateArgs>[]>;
+    p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigRadiusServerRootCertificateArgs>[]>;
     /**
      * VPN client revoked certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigVpnClientRevokedCertificateArgs>[]>;
+    p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigVpnClientRevokedCertificateArgs>[]>;
     /**
      * VPN client root certificate of P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigVpnClientRootCertificateArgs>[]>;
+    p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190601.P2SVpnServerConfigVpnClientRootCertificateArgs>[]>;
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    readonly p2SVpnServerConfigurationName?: pulumi.Input<string>;
+    p2SVpnServerConfigurationName?: pulumi.Input<string>;
     /**
      * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
      */
-    readonly radiusServerAddress?: pulumi.Input<string>;
+    radiusServerAddress?: pulumi.Input<string>;
     /**
      * The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
      */
-    readonly radiusServerSecret?: pulumi.Input<string>;
+    radiusServerSecret?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the VirtualWan.
      */
-    readonly virtualWanName: pulumi.Input<string>;
+    virtualWanName: pulumi.Input<string>;
     /**
      * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
      */
-    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190601.IpsecPolicyArgs>[]>;
+    vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190601.IpsecPolicyArgs>[]>;
     /**
      * VPN protocols for the P2SVpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20190601.VpnGatewayTunnelingProtocol>[]>;
+    vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20190601.VpnGatewayTunnelingProtocol>[]>;
 }

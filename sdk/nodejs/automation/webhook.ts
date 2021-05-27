@@ -156,41 +156,41 @@ export interface WebhookArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the expiry time.
      */
-    readonly expiryTime?: pulumi.Input<string>;
+    expiryTime?: pulumi.Input<string>;
     /**
      * Gets or sets the value of the enabled flag of webhook.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the webhook.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Gets or sets the parameters of the job.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the name of the hybrid worker group the webhook job will run on.
      */
-    readonly runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string>;
     /**
      * Gets or sets the runbook.
      */
-    readonly runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs>;
+    runbook?: pulumi.Input<inputs.automation.RunbookAssociationPropertyArgs>;
     /**
      * Gets or sets the uri.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * The webhook name.
      */
-    readonly webhookName?: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string>;
 }

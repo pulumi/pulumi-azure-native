@@ -107,25 +107,25 @@ export interface DashboardArgs {
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string>;
     /**
      * The dashboard lenses.
      */
-    readonly lenses?: pulumi.Input<pulumi.Input<inputs.portal.DashboardLensArgs>[]>;
+    lenses?: pulumi.Input<pulumi.Input<inputs.portal.DashboardLensArgs>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The dashboard metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    metadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

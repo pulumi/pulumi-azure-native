@@ -108,25 +108,25 @@ export interface SentinelOnboardingStateArgs {
     /**
      * Flag that indicates the status of the CMK setting
      */
-    readonly customerManagedKey?: pulumi.Input<boolean>;
+    customerManagedKey?: pulumi.Input<boolean>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Sentinel onboarding state name. Supports - default
      */
-    readonly sentinelOnboardingStateName?: pulumi.Input<string>;
+    sentinelOnboardingStateName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

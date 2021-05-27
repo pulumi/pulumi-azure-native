@@ -101,17 +101,17 @@ export interface JobArgs {
     /**
      * The name and identifier for the Job.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Additional attributes of the entity.
      */
-    readonly properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.CommandJobArgs | inputs.machinelearningservices.v20210301preview.SweepJobArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.CommandJobArgs | inputs.machinelearningservices.v20210301preview.SweepJobArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -122,21 +122,21 @@ export interface VideoArgs {
     /**
      * The Azure Video Analyzer account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Optional video title provided by the user. Value can be up to 256 characters long.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * The name of the video to create or update.
      */
-    readonly videoName?: pulumi.Input<string>;
+    videoName?: pulumi.Input<string>;
 }

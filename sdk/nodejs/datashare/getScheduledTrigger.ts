@@ -29,19 +29,19 @@ export interface GetScheduledTriggerArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the shareSubscription.
      */
-    readonly shareSubscriptionName: string;
+    shareSubscriptionName: string;
     /**
      * The name of the trigger.
      */
-    readonly triggerName: string;
+    triggerName: string;
 }
 
 /**

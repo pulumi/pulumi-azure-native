@@ -106,25 +106,25 @@ export interface ZoneArgs {
     /**
      * Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the properties of the zone.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20150504preview.ZonePropertiesArgs>;
+    properties?: pulumi.Input<inputs.network.v20150504preview.ZonePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the zone without a terminating dot.
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
 }

@@ -169,45 +169,45 @@ export interface VolumeArgs {
     /**
      * The IDs of the access control records, associated with the volume.
      */
-    readonly accessControlRecordIds: pulumi.Input<pulumi.Input<string>[]>;
+    accessControlRecordIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The device name
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
+    kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
-    readonly managerName: pulumi.Input<string>;
+    managerName: pulumi.Input<string>;
     /**
      * The monitoring status of the volume.
      */
-    readonly monitoringStatus: pulumi.Input<enums.storsimple.v20170601.MonitoringStatus>;
+    monitoringStatus: pulumi.Input<enums.storsimple.v20170601.MonitoringStatus>;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The size of the volume in bytes.
      */
-    readonly sizeInBytes: pulumi.Input<number>;
+    sizeInBytes: pulumi.Input<number>;
     /**
      * The volume container name.
      */
-    readonly volumeContainerName: pulumi.Input<string>;
+    volumeContainerName: pulumi.Input<string>;
     /**
      * The volume name.
      */
-    readonly volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string>;
     /**
      * The volume status.
      */
-    readonly volumeStatus: pulumi.Input<enums.storsimple.v20170601.VolumeStatus>;
+    volumeStatus: pulumi.Input<enums.storsimple.v20170601.VolumeStatus>;
     /**
      * The type of the volume.
      */
-    readonly volumeType: pulumi.Input<enums.storsimple.v20170601.VolumeType>;
+    volumeType: pulumi.Input<enums.storsimple.v20170601.VolumeType>;
 }

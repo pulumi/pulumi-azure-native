@@ -104,17 +104,17 @@ export interface MonitoringConfigArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The metrics configuration details
      */
-    readonly metricConfigurations: pulumi.Input<pulumi.Input<inputs.databoxedge.v20210201preview.MetricConfigurationArgs>[]>;
+    metricConfigurations: pulumi.Input<pulumi.Input<inputs.databoxedge.v20210201preview.MetricConfigurationArgs>[]>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The role name.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
 }

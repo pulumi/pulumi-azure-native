@@ -111,21 +111,21 @@ export interface CertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    readonly certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string>;
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */
-    readonly data: pulumi.Input<string>;
+    data: pulumi.Input<string>;
     /**
      * Password for the Certificate
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

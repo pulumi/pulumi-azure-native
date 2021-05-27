@@ -26,7 +26,7 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly assessmentMetadataName: string;
+    assessmentMetadataName: string;
 }
 
 /**

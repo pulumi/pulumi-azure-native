@@ -127,33 +127,33 @@ export interface AccountArgs {
     /**
      * The name of the Maps Account.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Sets the identity property for maps account.
      */
-    readonly identity?: pulumi.Input<inputs.maps.v20210701preview.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.maps.v20210701preview.ManagedServiceIdentityArgs>;
     /**
      * Get or Set Kind property.
      */
-    readonly kind?: pulumi.Input<string | enums.maps.v20210701preview.Kind>;
+    kind?: pulumi.Input<string | enums.maps.v20210701preview.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The map account properties.
      */
-    readonly properties?: pulumi.Input<inputs.maps.v20210701preview.MapsAccountPropertiesArgs>;
+    properties?: pulumi.Input<inputs.maps.v20210701preview.MapsAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of this account.
      */
-    readonly sku: pulumi.Input<inputs.maps.v20210701preview.SkuArgs>;
+    sku: pulumi.Input<inputs.maps.v20210701preview.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

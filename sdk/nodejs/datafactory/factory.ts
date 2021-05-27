@@ -149,37 +149,37 @@ export interface FactoryArgs {
     /**
      * Properties to enable Customer Managed Key for the factory.
      */
-    readonly encryption?: pulumi.Input<inputs.datafactory.EncryptionConfigurationArgs>;
+    encryption?: pulumi.Input<inputs.datafactory.EncryptionConfigurationArgs>;
     /**
      * The factory name.
      */
-    readonly factoryName?: pulumi.Input<string>;
+    factoryName?: pulumi.Input<string>;
     /**
      * List of parameters for factory.
      */
-    readonly globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.GlobalParameterSpecificationArgs>}>;
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.GlobalParameterSpecificationArgs>}>;
     /**
      * Managed service identity of the factory.
      */
-    readonly identity?: pulumi.Input<inputs.datafactory.FactoryIdentityArgs>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentityArgs>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for the data factory.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.datafactory.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.datafactory.PublicNetworkAccess>;
     /**
      * Git repo information of the factory.
      */
-    readonly repoConfiguration?: pulumi.Input<inputs.datafactory.FactoryGitHubConfigurationArgs | inputs.datafactory.FactoryVSTSConfigurationArgs>;
+    repoConfiguration?: pulumi.Input<inputs.datafactory.FactoryGitHubConfigurationArgs | inputs.datafactory.FactoryVSTSConfigurationArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

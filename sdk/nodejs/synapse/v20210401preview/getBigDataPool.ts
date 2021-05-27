@@ -27,15 +27,15 @@ export interface GetBigDataPoolArgs {
     /**
      * Big Data pool name
      */
-    readonly bigDataPoolName: string;
+    bigDataPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

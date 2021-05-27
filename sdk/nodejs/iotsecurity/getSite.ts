@@ -26,7 +26,7 @@ export interface GetSiteArgs {
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

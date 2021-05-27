@@ -26,11 +26,11 @@ export interface GetExpressRouteCircuitArgs {
     /**
      * The name of the circuit.
      */
-    readonly circuitName: string;
+    circuitName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

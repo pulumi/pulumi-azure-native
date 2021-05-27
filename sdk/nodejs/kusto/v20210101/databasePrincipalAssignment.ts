@@ -141,33 +141,33 @@ export interface DatabasePrincipalAssignmentArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly principalAssignmentName?: pulumi.Input<string>;
+    principalAssignmentName?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * Principal type.
      */
-    readonly principalType: pulumi.Input<string | enums.kusto.v20210101.PrincipalType>;
+    principalType: pulumi.Input<string | enums.kusto.v20210101.PrincipalType>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Database principal role.
      */
-    readonly role: pulumi.Input<string | enums.kusto.v20210101.DatabasePrincipalRole>;
+    role: pulumi.Input<string | enums.kusto.v20210101.DatabasePrincipalRole>;
     /**
      * The tenant id of the principal
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

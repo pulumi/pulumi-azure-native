@@ -99,17 +99,17 @@ export interface RulesEngineArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName: pulumi.Input<string>;
+    frontDoorName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.RulesEngineRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.RulesEngineRuleArgs>[]>;
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    readonly rulesEngineName?: pulumi.Input<string>;
+    rulesEngineName?: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetStreamingPolicyArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Streaming Policy name.
      */
-    readonly streamingPolicyName: string;
+    streamingPolicyName: string;
 }
 
 /**

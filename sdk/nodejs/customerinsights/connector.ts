@@ -158,33 +158,33 @@ export interface ConnectorArgs {
     /**
      * Name of the connector.
      */
-    readonly connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string>;
     /**
      * The connector properties.
      */
-    readonly connectorProperties: pulumi.Input<{[key: string]: any}>;
+    connectorProperties: pulumi.Input<{[key: string]: any}>;
     /**
      * Type of connector.
      */
-    readonly connectorType: pulumi.Input<string | enums.customerinsights.ConnectorTypes>;
+    connectorType: pulumi.Input<string | enums.customerinsights.ConnectorTypes>;
     /**
      * Description of the connector.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Display name of the connector.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * If this is an internal connector.
      */
-    readonly isInternal?: pulumi.Input<boolean>;
+    isInternal?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

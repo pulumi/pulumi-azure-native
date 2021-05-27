@@ -28,19 +28,19 @@ export interface GetVirtualMachineExtensionArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the virtual machine extension.
      */
-    readonly vmExtensionName: string;
+    vmExtensionName: string;
     /**
      * The name of the virtual machine containing the extension.
      */
-    readonly vmName: string;
+    vmName: string;
 }
 
 /**

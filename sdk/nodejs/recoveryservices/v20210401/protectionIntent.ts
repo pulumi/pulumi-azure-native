@@ -114,33 +114,33 @@ export interface ProtectionIntentArgs {
     /**
      * Optional ETag.
      */
-    readonly eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the backup item.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * Intent object name.
      */
-    readonly intentObjectName?: pulumi.Input<string>;
+    intentObjectName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20210401.AzureRecoveryServiceVaultProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureResourceProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureWorkloadAutoProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureWorkloadSQLAutoProtectionIntentArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.v20210401.AzureRecoveryServiceVaultProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureResourceProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureWorkloadAutoProtectionIntentArgs | inputs.recoveryservices.v20210401.AzureWorkloadSQLAutoProtectionIntentArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

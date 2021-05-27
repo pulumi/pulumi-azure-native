@@ -102,21 +102,21 @@ export interface GuestDiagnosticsSettingsAssociationArgs {
     /**
      * The name of the diagnostic settings association.
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * The guest diagnostic settings name.
      */
-    readonly guestDiagnosticSettingsName: pulumi.Input<string>;
+    guestDiagnosticSettingsName: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified ID of the resource, including the resource name and resource type.
      */
-    readonly resourceUri: pulumi.Input<string>;
+    resourceUri: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

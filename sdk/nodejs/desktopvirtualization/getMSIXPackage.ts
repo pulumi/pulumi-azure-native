@@ -28,15 +28,15 @@ export interface GetMSIXPackageArgs {
     /**
      * The name of the host pool within the specified resource group
      */
-    readonly hostPoolName: string;
+    hostPoolName: string;
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    readonly msixPackageFullName: string;
+    msixPackageFullName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

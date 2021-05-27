@@ -97,17 +97,17 @@ export interface SyncGroupArgs {
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
-    readonly storageSyncServiceName: pulumi.Input<string>;
+    storageSyncServiceName: pulumi.Input<string>;
     /**
      * Name of Sync Group resource.
      */
-    readonly syncGroupName?: pulumi.Input<string>;
+    syncGroupName?: pulumi.Input<string>;
     /**
      * Unique Id
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
 }

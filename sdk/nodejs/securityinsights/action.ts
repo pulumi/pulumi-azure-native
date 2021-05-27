@@ -115,29 +115,29 @@ export interface ActionArgs {
     /**
      * Action ID
      */
-    readonly actionId?: pulumi.Input<string>;
+    actionId?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */
-    readonly logicAppResourceId: pulumi.Input<string>;
+    logicAppResourceId: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Alert rule ID
      */
-    readonly ruleId: pulumi.Input<string>;
+    ruleId: pulumi.Input<string>;
     /**
      * Logic App Callback URL for this specific workflow.
      */
-    readonly triggerUri: pulumi.Input<string>;
+    triggerUri: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -134,29 +134,29 @@ export interface EventHubArgs {
     /**
      * Properties of capture description
      */
-    readonly captureDescription?: pulumi.Input<inputs.eventhub.v20210101preview.CaptureDescriptionArgs>;
+    captureDescription?: pulumi.Input<inputs.eventhub.v20210101preview.CaptureDescriptionArgs>;
     /**
      * The Event Hub name
      */
-    readonly eventHubName?: pulumi.Input<string>;
+    eventHubName?: pulumi.Input<string>;
     /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
-    readonly messageRetentionInDays?: pulumi.Input<number>;
+    messageRetentionInDays?: pulumi.Input<number>;
     /**
      * The Namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * Name of the resource group within the azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    readonly status?: pulumi.Input<enums.eventhub.v20210101preview.EntityStatus>;
+    status?: pulumi.Input<enums.eventhub.v20210101preview.EntityStatus>;
 }

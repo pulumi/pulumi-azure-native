@@ -26,7 +26,7 @@ export interface GetClientTokenArgs {
     /**
      * Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
      */
-    readonly endpoint?: string;
+    endpoint?: string;
 }
 
 /**

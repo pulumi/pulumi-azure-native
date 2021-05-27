@@ -146,54 +146,54 @@ export interface WebAppHybridConnectionSlotArgs {
     /**
      * The hostname of the endpoint.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The name of the web app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The namespace for this hybrid connection.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The port of the endpoint.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The ARM URI to the Service Bus relay.
      */
-    readonly relayArmUri?: pulumi.Input<string>;
+    relayArmUri?: pulumi.Input<string>;
     /**
      * The name of the Service Bus relay.
      */
-    readonly relayName?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
      */
-    readonly sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string>;
     /**
      * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
      * normally, use the POST /listKeys API instead.
      */
-    readonly sendKeyValue?: pulumi.Input<string>;
+    sendKeyValue?: pulumi.Input<string>;
     /**
      * The name of the Service Bus namespace.
      */
-    readonly serviceBusNamespace?: pulumi.Input<string>;
+    serviceBusNamespace?: pulumi.Input<string>;
     /**
      * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
      */
-    readonly serviceBusSuffix?: pulumi.Input<string>;
+    serviceBusSuffix?: pulumi.Input<string>;
     /**
      * The name of the slot for the web app.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
 }

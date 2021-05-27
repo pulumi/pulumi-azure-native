@@ -27,11 +27,11 @@ export interface GetManagementGroupSubscriptionArgs {
     /**
      * Management Group ID.
      */
-    readonly groupId: string;
+    groupId: string;
     /**
      * Subscription ID.
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

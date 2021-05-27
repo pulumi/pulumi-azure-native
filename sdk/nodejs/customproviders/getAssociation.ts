@@ -27,11 +27,11 @@ export interface GetAssociationArgs {
     /**
      * The name of the association.
      */
-    readonly associationName: string;
+    associationName: string;
     /**
      * The scope of the association.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface GetCostAllocationRuleArgs {
     /**
      * BillingAccount ID
      */
-    readonly billingAccountId: string;
+    billingAccountId: string;
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

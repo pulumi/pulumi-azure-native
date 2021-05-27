@@ -89,17 +89,17 @@ export interface JobArgs {
     /**
      * The job collection name.
      */
-    readonly jobCollectionName: pulumi.Input<string>;
+    jobCollectionName: pulumi.Input<string>;
     /**
      * The job name.
      */
-    readonly jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string>;
     /**
      * Gets or sets the job properties.
      */
-    readonly properties?: pulumi.Input<inputs.scheduler.v20140801preview.JobPropertiesArgs>;
+    properties?: pulumi.Input<inputs.scheduler.v20140801preview.JobPropertiesArgs>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -25,7 +25,7 @@ export interface GetViewArgs {
     /**
      * View name
      */
-    readonly viewName: string;
+    viewName: string;
 }
 
 /**

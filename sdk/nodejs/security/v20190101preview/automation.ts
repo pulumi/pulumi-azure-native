@@ -136,45 +136,45 @@ export interface AutomationArgs {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationActionEventHubArgs | inputs.security.v20190101preview.AutomationActionLogicAppArgs | inputs.security.v20190101preview.AutomationActionWorkspaceArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationActionEventHubArgs | inputs.security.v20190101preview.AutomationActionLogicAppArgs | inputs.security.v20190101preview.AutomationActionWorkspaceArgs>[]>;
     /**
      * The security automation name.
      */
-    readonly automationName?: pulumi.Input<string>;
+    automationName?: pulumi.Input<string>;
     /**
      * The security automation description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Indicates whether the security automation is enabled.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Kind of the resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Location where the resource is stored
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationScopeArgs>[]>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationScopeArgs>[]>;
     /**
      * A collection of the source event types which evaluate the security automation set of rules.
      */
-    readonly sources?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationSourceArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationSourceArgs>[]>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

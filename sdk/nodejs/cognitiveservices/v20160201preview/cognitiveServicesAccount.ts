@@ -130,25 +130,25 @@ export interface CognitiveServicesAccountArgs {
     /**
      * The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Required. Indicates the type of cognitive service account.
      */
-    readonly kind: pulumi.Input<string | enums.cognitiveservices.v20160201preview.Kind>;
+    kind: pulumi.Input<string | enums.cognitiveservices.v20160201preview.Kind>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the cognitive services account.
      */
-    readonly sku: pulumi.Input<inputs.cognitiveservices.v20160201preview.SkuArgs>;
+    sku: pulumi.Input<inputs.cognitiveservices.v20160201preview.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

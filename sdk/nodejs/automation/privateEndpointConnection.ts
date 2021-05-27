@@ -99,21 +99,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.automation.PrivateEndpointPropertyArgs>;
+    privateEndpoint?: pulumi.Input<inputs.automation.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

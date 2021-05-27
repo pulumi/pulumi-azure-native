@@ -28,15 +28,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the workspace
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

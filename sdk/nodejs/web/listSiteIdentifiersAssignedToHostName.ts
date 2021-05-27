@@ -27,7 +27,7 @@ export interface ListSiteIdentifiersAssignedToHostNameArgs {
     /**
      * Name of the object.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

@@ -95,17 +95,17 @@ export interface ContentItemArgs {
     /**
      * Content item identifier.
      */
-    readonly contentItemId?: pulumi.Input<string>;
+    contentItemId?: pulumi.Input<string>;
     /**
      * Content type identifier.
      */
-    readonly contentTypeId: pulumi.Input<string>;
+    contentTypeId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

@@ -113,22 +113,22 @@ export interface JitNetworkAccessPolicyArgs {
     /**
      * The location where ASC stores the data of the subscription. can be retrieved from Get locations
      */
-    readonly ascLocation: pulumi.Input<string>;
+    ascLocation: pulumi.Input<string>;
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    readonly jitNetworkAccessPolicyName?: pulumi.Input<string>;
+    jitNetworkAccessPolicyName?: pulumi.Input<string>;
     /**
      * Kind of the resource
      */
-    readonly kind?: pulumi.Input<string>;
-    readonly requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequestArgs>[]>;
+    kind?: pulumi.Input<string>;
+    requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequestArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Configurations for Microsoft.Compute/virtualMachines resource type.
      */
-    readonly virtualMachines: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineArgs>[]>;
+    virtualMachines: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyVirtualMachineArgs>[]>;
 }

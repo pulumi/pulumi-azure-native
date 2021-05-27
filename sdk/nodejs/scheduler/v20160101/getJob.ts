@@ -24,15 +24,15 @@ export interface GetJobArgs {
     /**
      * The job collection name.
      */
-    readonly jobCollectionName: string;
+    jobCollectionName: string;
     /**
      * The job name.
      */
-    readonly jobName: string;
+    jobName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 export interface GetJobResult {

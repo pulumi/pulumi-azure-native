@@ -26,7 +26,7 @@ export interface GetSubscriptionDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

@@ -127,33 +127,33 @@ export interface InstancePoolArgs {
     /**
      * The name of the instance pool to be created or updated.
      */
-    readonly instancePoolName?: pulumi.Input<string>;
+    instancePoolName?: pulumi.Input<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
-    readonly licenseType: pulumi.Input<string | enums.sql.v20210201preview.InstancePoolLicenseType>;
+    licenseType: pulumi.Input<string | enums.sql.v20210201preview.InstancePoolLicenseType>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20210201preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.v20210201preview.SkuArgs>;
     /**
      * Resource ID of the subnet to place this instance pool in.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Count of vCores belonging to this instance pool.
      */
-    readonly vCores: pulumi.Input<number>;
+    vCores: pulumi.Input<number>;
 }

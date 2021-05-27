@@ -345,114 +345,114 @@ export interface WebAppSlotArgs {
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
      */
-    readonly clientCertEnabled?: pulumi.Input<boolean>;
+    clientCertEnabled?: pulumi.Input<boolean>;
     /**
      * client certificate authentication comma-separated exclusion paths
      */
-    readonly clientCertExclusionPaths?: pulumi.Input<string>;
+    clientCertExclusionPaths?: pulumi.Input<string>;
     /**
      * This composes with ClientCertEnabled setting.
      * - ClientCertEnabled: false means ClientCert is ignored.
      * - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
      * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
      */
-    readonly clientCertMode?: pulumi.Input<enums.web.v20200901.ClientCertMode>;
+    clientCertMode?: pulumi.Input<enums.web.v20200901.ClientCertMode>;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20200901.CloningInfoArgs>;
+    cloningInfo?: pulumi.Input<inputs.web.v20200901.CloningInfoArgs>;
     /**
      * Size of the function container.
      */
-    readonly containerSize?: pulumi.Input<number>;
+    containerSize?: pulumi.Input<number>;
     /**
      * Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
      */
-    readonly customDomainVerificationId?: pulumi.Input<string>;
+    customDomainVerificationId?: pulumi.Input<string>;
     /**
      * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
      */
-    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20200901.HostNameSslStateArgs>[]>;
+    hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20200901.HostNameSslStateArgs>[]>;
     /**
      * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
      *  If <code>true</code>, the app is only accessible via API management process.
      */
-    readonly hostNamesDisabled?: pulumi.Input<boolean>;
+    hostNamesDisabled?: pulumi.Input<boolean>;
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20200901.HostingEnvironmentProfileArgs>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20200901.HostingEnvironmentProfileArgs>;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
      */
-    readonly httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * Hyper-V sandbox.
      */
-    readonly hyperV?: pulumi.Input<boolean>;
+    hyperV?: pulumi.Input<boolean>;
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20200901.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.web.v20200901.ManagedServiceIdentityArgs>;
     /**
      * Obsolete: Hyper-V sandbox.
      */
-    readonly isXenon?: pulumi.Input<boolean>;
+    isXenon?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: pulumi.Input<enums.web.v20200901.RedundancyMode>;
+    redundancyMode?: pulumi.Input<enums.web.v20200901.RedundancyMode>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
      */
-    readonly scmSiteAlsoStopped?: pulumi.Input<boolean>;
+    scmSiteAlsoStopped?: pulumi.Input<boolean>;
     /**
      * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
      */
-    readonly serverFarmId?: pulumi.Input<string>;
+    serverFarmId?: pulumi.Input<string>;
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20200901.SiteConfigArgs>;
+    siteConfig?: pulumi.Input<inputs.web.v20200901.SiteConfigArgs>;
     /**
      * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */
-    readonly slot?: pulumi.Input<string>;
+    slot?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

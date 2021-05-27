@@ -27,15 +27,15 @@ export interface GetWorkloadNetworkVMGroupArgs {
     /**
      * Name of the private cloud
      */
-    readonly privateCloudName: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * NSX VM Group identifier. Generally the same as the VM Group's display name
      */
-    readonly vmGroupId: string;
+    vmGroupId: string;
 }
 
 /**

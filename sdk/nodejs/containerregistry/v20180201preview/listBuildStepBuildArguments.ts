@@ -28,19 +28,19 @@ export interface ListBuildStepBuildArgumentsArgs {
     /**
      * The name of the container registry build task.
      */
-    readonly buildTaskName: string;
+    buildTaskName: string;
     /**
      * The name of the container registry.
      */
-    readonly registryName: string;
+    registryName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of a build step for a container registry build task.
      */
-    readonly stepName: string;
+    stepName: string;
 }
 
 /**

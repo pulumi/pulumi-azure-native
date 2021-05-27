@@ -136,29 +136,29 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
      */
-    readonly sqlImageOffer?: pulumi.Input<string>;
+    sqlImageOffer?: pulumi.Input<string>;
     /**
      * SQL image sku.
      */
-    readonly sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlVmGroupImageSku>;
+    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlVmGroupImageSku>;
     /**
      * Name of the SQL virtual machine group.
      */
-    readonly sqlVirtualMachineGroupName?: pulumi.Input<string>;
+    sqlVirtualMachineGroupName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Cluster Active Directory domain profile.
      */
-    readonly wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.v20170301preview.WsfcDomainProfileArgs>;
+    wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.v20170301preview.WsfcDomainProfileArgs>;
 }

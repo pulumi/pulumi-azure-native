@@ -29,19 +29,19 @@ export interface GetLiveOutputArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the live event, maximum length is 32.
      */
-    readonly liveEventName: string;
+    liveEventName: string;
     /**
      * The name of the live output.
      */
-    readonly liveOutputName: string;
+    liveOutputName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

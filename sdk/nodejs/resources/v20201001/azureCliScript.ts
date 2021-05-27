@@ -212,74 +212,74 @@ export interface AzureCliScriptArgs {
     /**
      * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
      */
-    readonly arguments?: pulumi.Input<string>;
+    arguments?: pulumi.Input<string>;
     /**
      * Azure CLI module version to be used.
      */
-    readonly azCliVersion: pulumi.Input<string>;
+    azCliVersion: pulumi.Input<string>;
     /**
      * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
      */
-    readonly cleanupPreference?: pulumi.Input<string | enums.resources.v20201001.CleanupOptions>;
+    cleanupPreference?: pulumi.Input<string | enums.resources.v20201001.CleanupOptions>;
     /**
      * Container settings.
      */
-    readonly containerSettings?: pulumi.Input<inputs.resources.v20201001.ContainerConfigurationArgs>;
+    containerSettings?: pulumi.Input<inputs.resources.v20201001.ContainerConfigurationArgs>;
     /**
      * The environment variables to pass over to the script.
      */
-    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.resources.v20201001.EnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.resources.v20201001.EnvironmentVariableArgs>[]>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    readonly identity?: pulumi.Input<inputs.resources.v20201001.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.resources.v20201001.ManagedServiceIdentityArgs>;
     /**
      * Type of the script.
      * Expected value is 'AzureCLI'.
      */
-    readonly kind: pulumi.Input<"AzureCLI">;
+    kind: pulumi.Input<"AzureCLI">;
     /**
      * The location of the ACI and the storage account for the deployment script.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Uri for the script. This is the entry point for the external script.
      */
-    readonly primaryScriptUri?: pulumi.Input<string>;
+    primaryScriptUri?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
      */
-    readonly retentionInterval: pulumi.Input<string>;
+    retentionInterval: pulumi.Input<string>;
     /**
      * Script body.
      */
-    readonly scriptContent?: pulumi.Input<string>;
+    scriptContent?: pulumi.Input<string>;
     /**
      * Name of the deployment script.
      */
-    readonly scriptName?: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string>;
     /**
      * Storage Account settings.
      */
-    readonly storageAccountSettings?: pulumi.Input<inputs.resources.v20201001.StorageAccountConfigurationArgs>;
+    storageAccountSettings?: pulumi.Input<inputs.resources.v20201001.StorageAccountConfigurationArgs>;
     /**
      * Supporting files for the external script.
      */
-    readonly supportingScriptUris?: pulumi.Input<pulumi.Input<string>[]>;
+    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
      */
-    readonly timeout?: pulumi.Input<string>;
+    timeout?: pulumi.Input<string>;
 }

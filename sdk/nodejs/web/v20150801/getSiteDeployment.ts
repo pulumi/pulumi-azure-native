@@ -27,15 +27,15 @@ export interface GetSiteDeploymentArgs {
     /**
      * Id of the deployment
      */
-    readonly id: string;
+    id: string;
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

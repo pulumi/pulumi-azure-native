@@ -27,11 +27,11 @@ export interface GetSecretArgs {
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the secret resource.
      */
-    readonly secretResourceName: string;
+    secretResourceName: string;
 }
 
 /**

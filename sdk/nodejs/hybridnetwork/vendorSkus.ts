@@ -125,33 +125,33 @@ export interface VendorSkusArgs {
     /**
      * The sku deployment mode.
      */
-    readonly deploymentMode?: pulumi.Input<string | enums.hybridnetwork.SkuDeploymentMode>;
+    deploymentMode?: pulumi.Input<string | enums.hybridnetwork.SkuDeploymentMode>;
     /**
      * The parameters for the managed application to be supplied by the vendor.
      */
-    readonly managedApplicationParameters?: any;
+    managedApplicationParameters?: any;
     /**
      * The template for the managed application deployment.
      */
-    readonly managedApplicationTemplate?: any;
+    managedApplicationTemplate?: any;
     /**
      * The template definition of the network function.
      */
-    readonly networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionTemplateArgs>;
+    networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionTemplateArgs>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */
-    readonly preview?: pulumi.Input<boolean>;
+    preview?: pulumi.Input<boolean>;
     /**
      * The name of the sku.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The sku type.
      */
-    readonly skuType?: pulumi.Input<string | enums.hybridnetwork.SkuType>;
+    skuType?: pulumi.Input<string | enums.hybridnetwork.SkuType>;
     /**
      * The name of the vendor.
      */
-    readonly vendorName: pulumi.Input<string>;
+    vendorName: pulumi.Input<string>;
 }

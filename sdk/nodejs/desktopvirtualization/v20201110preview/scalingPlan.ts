@@ -136,45 +136,45 @@ export interface ScalingPlanArgs {
     /**
      * Description of scaling plan.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Exclusion tag for scaling plan.
      */
-    readonly exclusionTag?: pulumi.Input<string>;
+    exclusionTag?: pulumi.Input<string>;
     /**
      * User friendly name of scaling plan.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingHostPoolReferenceArgs>[]>;
+    hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingHostPoolReferenceArgs>[]>;
     /**
      * HostPool type for scaling plan.
      */
-    readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20201110preview.HostPoolType>;
+    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20201110preview.HostPoolType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the scaling plan.
      */
-    readonly scalingPlanName?: pulumi.Input<string>;
+    scalingPlanName?: pulumi.Input<string>;
     /**
      * List of ScalingSchedule definitions.
      */
-    readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingScheduleArgs>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201110preview.ScalingScheduleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Timezone of the scaling plan.
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }

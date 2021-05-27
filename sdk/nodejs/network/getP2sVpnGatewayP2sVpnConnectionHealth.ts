@@ -27,11 +27,11 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthArgs {
     /**
      * The name of the P2SVpnGateway.
      */
-    readonly gatewayName: string;
+    gatewayName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

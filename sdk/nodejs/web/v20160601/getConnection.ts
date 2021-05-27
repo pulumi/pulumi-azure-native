@@ -27,15 +27,15 @@ export interface GetConnectionArgs {
     /**
      * Connection name
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

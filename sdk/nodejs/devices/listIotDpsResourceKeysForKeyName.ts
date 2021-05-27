@@ -28,15 +28,15 @@ export interface ListIotDpsResourceKeysForKeyNameArgs {
     /**
      * Logical key name to get key-values for.
      */
-    readonly keyName: string;
+    keyName: string;
     /**
      * Name of the provisioning service.
      */
-    readonly provisioningServiceName: string;
+    provisioningServiceName: string;
     /**
      * The name of the resource group that contains the provisioning service.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

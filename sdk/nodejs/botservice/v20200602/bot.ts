@@ -118,33 +118,33 @@ export interface BotArgs {
     /**
      * Entity Tag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    readonly kind?: pulumi.Input<string | enums.botservice.v20200602.Kind>;
+    kind?: pulumi.Input<string | enums.botservice.v20200602.Kind>;
     /**
      * Specifies the location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to bot resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20200602.BotPropertiesArgs>;
+    properties?: pulumi.Input<inputs.botservice.v20200602.BotPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Bot resource.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20200602.SkuArgs>;
+    sku?: pulumi.Input<inputs.botservice.v20200602.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

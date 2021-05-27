@@ -281,113 +281,113 @@ export interface DatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * API specific properties. Currently, supported only for MongoDB API.
      */
-    readonly apiProperties?: pulumi.Input<inputs.documentdb.ApiPropertiesArgs>;
+    apiProperties?: pulumi.Input<inputs.documentdb.ApiPropertiesArgs>;
     /**
      * The object representing the policy for taking backups on an account.
      */
-    readonly backupPolicy?: pulumi.Input<inputs.documentdb.ContinuousModeBackupPolicyArgs | inputs.documentdb.PeriodicModeBackupPolicyArgs>;
+    backupPolicy?: pulumi.Input<inputs.documentdb.ContinuousModeBackupPolicyArgs | inputs.documentdb.PeriodicModeBackupPolicyArgs>;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.CapabilityArgs>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.CapabilityArgs>[]>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    readonly connectorOffer?: pulumi.Input<string | enums.documentdb.ConnectorOffer>;
+    connectorOffer?: pulumi.Input<string | enums.documentdb.ConnectorOffer>;
     /**
      * The consistency policy for the Cosmos DB account.
      */
-    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.ConsistencyPolicyArgs>;
+    consistencyPolicy?: pulumi.Input<inputs.documentdb.ConsistencyPolicyArgs>;
     /**
      * The CORS policy for the Cosmos DB database account.
      */
-    readonly cors?: pulumi.Input<pulumi.Input<inputs.documentdb.CorsPolicyArgs>[]>;
+    cors?: pulumi.Input<pulumi.Input<inputs.documentdb.CorsPolicyArgs>[]>;
     /**
      * The offer type for the database
      */
-    readonly databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
+    databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
     /**
      * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
      */
-    readonly defaultIdentity?: pulumi.Input<string>;
+    defaultIdentity?: pulumi.Input<string>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
-    readonly disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean>;
+    disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether to enable storage analytics.
      */
-    readonly enableAnalyticalStorage?: pulumi.Input<boolean>;
+    enableAnalyticalStorage?: pulumi.Input<boolean>;
     /**
      * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
      */
-    readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
-    readonly enableCassandraConnector?: pulumi.Input<boolean>;
+    enableCassandraConnector?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether Free Tier is enabled.
      */
-    readonly enableFreeTier?: pulumi.Input<boolean>;
+    enableFreeTier?: pulumi.Input<boolean>;
     /**
      * Enables the account to write in multiple locations
      */
-    readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
+    enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.documentdb.ManagedServiceIdentityArgs>;
     /**
      * List of IpRules.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.IpAddressOrRangeArgs>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.IpAddressOrRangeArgs>[]>;
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
-    readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
+    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * The URI of the key vault
      */
-    readonly keyVaultKeyUri?: pulumi.Input<string>;
+    keyVaultKeyUri?: pulumi.Input<string>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string | enums.documentdb.DatabaseAccountKind>;
+    kind?: pulumi.Input<string | enums.documentdb.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.LocationArgs>[]>;
+    locations: pulumi.Input<pulumi.Input<inputs.documentdb.LocationArgs>[]>;
     /**
      * Indicates what services are allowed to bypass firewall checks.
      */
-    readonly networkAclBypass?: pulumi.Input<enums.documentdb.NetworkAclBypass>;
+    networkAclBypass?: pulumi.Input<enums.documentdb.NetworkAclBypass>;
     /**
      * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
      */
-    readonly networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether requests from Public Network are allowed
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.documentdb.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.documentdb.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.VirtualNetworkRuleArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.VirtualNetworkRuleArgs>[]>;
 }

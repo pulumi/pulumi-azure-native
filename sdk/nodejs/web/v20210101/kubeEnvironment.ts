@@ -151,49 +151,49 @@ export class KubeEnvironment extends pulumi.CustomResource {
  * The set of arguments for constructing a KubeEnvironment resource.
  */
 export interface KubeEnvironmentArgs {
-    readonly aksResourceID?: pulumi.Input<string>;
+    aksResourceID?: pulumi.Input<string>;
     /**
      * Cluster configuration which enables the log daemon to export
      * app logs to a destination. Currently only "log-analytics" is
      * supported
      */
-    readonly appLogsConfiguration?: pulumi.Input<inputs.web.v20210101.AppLogsConfigurationArgs>;
+    appLogsConfiguration?: pulumi.Input<inputs.web.v20210101.AppLogsConfigurationArgs>;
     /**
      * Cluster configuration which determines the ARC cluster
      * components types. Eg: Choosing between BuildService kind,
      * FrontEnd Service ArtifactsStorageType etc.
      */
-    readonly arcConfiguration?: pulumi.Input<inputs.web.v20210101.ArcConfigurationArgs>;
+    arcConfiguration?: pulumi.Input<inputs.web.v20210101.ArcConfigurationArgs>;
     /**
      * Extended Location.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.web.v20210101.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.web.v20210101.ExtendedLocationArgs>;
     /**
      * Only visible within Vnet/Subnet
      */
-    readonly internalLoadBalancerEnabled?: pulumi.Input<boolean>;
+    internalLoadBalancerEnabled?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Kubernetes Environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Static IP of the KubeEnvironment
      */
-    readonly staticIp?: pulumi.Input<string>;
+    staticIp?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

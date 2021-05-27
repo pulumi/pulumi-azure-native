@@ -136,30 +136,30 @@ export interface BlobStorageAccountDataSetArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the dataSet.
      */
-    readonly dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'BlobStorageAccount'.
      */
-    readonly kind: pulumi.Input<"BlobStorageAccount">;
+    kind: pulumi.Input<"BlobStorageAccount">;
     /**
      * A list of storage account paths.
      */
-    readonly paths: pulumi.Input<pulumi.Input<inputs.datashare.v20201001preview.BlobStorageAccountPathArgs>[]>;
+    paths: pulumi.Input<pulumi.Input<inputs.datashare.v20201001preview.BlobStorageAccountPathArgs>[]>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share to add the data set to.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * Resource id of the storage account.
      */
-    readonly storageAccountResourceId: pulumi.Input<string>;
+    storageAccountResourceId: pulumi.Input<string>;
 }

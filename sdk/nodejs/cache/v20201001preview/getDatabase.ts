@@ -27,15 +27,15 @@ export interface GetDatabaseArgs {
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the database.
      */
-    readonly databaseName: string;
+    databaseName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

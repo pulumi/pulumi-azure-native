@@ -26,11 +26,11 @@ export interface GetServerFarmArgs {
     /**
      * Name of App Service Plan
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

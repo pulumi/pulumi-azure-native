@@ -177,53 +177,53 @@ export interface VolumeArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * A unique file path for the volume. Used when creating mount targets
      */
-    readonly creationToken: pulumi.Input<string>;
+    creationToken: pulumi.Input<string>;
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190601.VolumePropertiesExportPolicyArgs>;
+    exportPolicy?: pulumi.Input<inputs.netapp.v20190601.VolumePropertiesExportPolicyArgs>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
-    readonly poolName: pulumi.Input<string>;
+    poolName: pulumi.Input<string>;
     /**
      * Set of protocol types
      */
-    readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: pulumi.Input<string | enums.netapp.v20190601.ServiceLevel>;
+    serviceLevel?: pulumi.Input<string | enums.netapp.v20190601.ServiceLevel>;
     /**
      * UUID v4 or resource identifier used to identify the Snapshot.
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string>;
     /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: any;
+    tags?: any;
     /**
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */
-    readonly usageThreshold: pulumi.Input<number>;
+    usageThreshold: pulumi.Input<number>;
     /**
      * The name of the volume
      */
-    readonly volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string>;
 }

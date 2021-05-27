@@ -129,33 +129,33 @@ export interface GalleryImageVersionArgs {
     /**
      * The name of the gallery Image Definition in which the Image Version is to be created.
      */
-    readonly galleryImageName: pulumi.Input<string>;
+    galleryImageName: pulumi.Input<string>;
     /**
      * The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
      */
-    readonly galleryImageVersionName?: pulumi.Input<string>;
+    galleryImageVersionName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery in which the Image Definition resides.
      */
-    readonly galleryName: pulumi.Input<string>;
+    galleryName: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The publishing profile of a gallery Image Version.
      */
-    readonly publishingProfile?: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionPublishingProfileArgs>;
+    publishingProfile?: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionPublishingProfileArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */
-    readonly storageProfile: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionStorageProfileArgs>;
+    storageProfile: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionStorageProfileArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

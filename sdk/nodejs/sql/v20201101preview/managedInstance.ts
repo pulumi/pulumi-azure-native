@@ -245,47 +245,47 @@ export interface ManagedInstanceArgs {
     /**
      * Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The administrator login password (required for managed instance creation).
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The Azure Active Directory administrator of the server.
      */
-    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ManagedInstanceExternalAdministratorArgs>;
+    administrators?: pulumi.Input<inputs.sql.v20201101preview.ManagedInstanceExternalAdministratorArgs>;
     /**
      * Collation of the managed instance.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * The resource id of another managed instance whose DNS zone this managed instance will share after creation.
      */
-    readonly dnsZonePartner?: pulumi.Input<string>;
+    dnsZonePartner?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityArgs>;
+    identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityArgs>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
-    readonly instancePoolId?: pulumi.Input<string>;
+    instancePoolId?: pulumi.Input<string>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
-    readonly licenseType?: pulumi.Input<string | enums.sql.v20201101preview.ManagedInstanceLicenseType>;
+    licenseType?: pulumi.Input<string | enums.sql.v20201101preview.ManagedInstanceLicenseType>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */
-    readonly maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
      * 
@@ -293,59 +293,59 @@ export interface ManagedInstanceArgs {
      * 
      * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
      */
-    readonly managedInstanceCreateMode?: pulumi.Input<string | enums.sql.v20201101preview.ManagedServerCreateMode>;
+    managedInstanceCreateMode?: pulumi.Input<string | enums.sql.v20201101preview.ManagedServerCreateMode>;
     /**
      * The name of the managed instance.
      */
-    readonly managedInstanceName?: pulumi.Input<string>;
+    managedInstanceName?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
-    readonly minimalTlsVersion?: pulumi.Input<string>;
+    minimalTlsVersion?: pulumi.Input<string>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    readonly primaryUserAssignedIdentityId?: pulumi.Input<string>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Connection type used for connecting to the instance.
      */
-    readonly proxyOverride?: pulumi.Input<string | enums.sql.v20201101preview.ManagedInstanceProxyOverride>;
+    proxyOverride?: pulumi.Input<string | enums.sql.v20201101preview.ManagedInstanceProxyOverride>;
     /**
      * Whether or not the public data endpoint is enabled.
      */
-    readonly publicDataEndpointEnabled?: pulumi.Input<boolean>;
+    publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20201101preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.sql.v20201101preview.SkuArgs>;
     /**
      * The resource identifier of the source managed instance associated with create operation of this instance.
      */
-    readonly sourceManagedInstanceId?: pulumi.Input<string>;
+    sourceManagedInstanceId?: pulumi.Input<string>;
     /**
      * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
      */
-    readonly storageAccountType?: pulumi.Input<string | enums.sql.v20201101preview.StorageAccountType>;
+    storageAccountType?: pulumi.Input<string | enums.sql.v20201101preview.StorageAccountType>;
     /**
      * Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
      */
-    readonly storageSizeInGB?: pulumi.Input<number>;
+    storageSizeInGB?: pulumi.Input<number>;
     /**
      * Subnet resource ID for the managed instance.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Id of the timezone. Allowed values are timezones supported by Windows.
      * Windows keeps details on supported timezones, including the id, in registry under
@@ -354,13 +354,13 @@ export interface ManagedInstanceArgs {
      * List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
      * An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
      */
-    readonly timezoneId?: pulumi.Input<string>;
+    timezoneId?: pulumi.Input<string>;
     /**
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
-    readonly vCores?: pulumi.Input<number>;
+    vCores?: pulumi.Input<number>;
     /**
      * Whether or not the multi-az is enabled.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

@@ -78,9 +78,9 @@ export class ProviderRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a ProviderRegistration resource.
  */
 export interface ProviderRegistrationArgs {
-    readonly properties?: pulumi.Input<inputs.providerhub.ProviderRegistrationPropertiesArgs>;
+    properties?: pulumi.Input<inputs.providerhub.ProviderRegistrationPropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace?: pulumi.Input<string>;
+    providerNamespace?: pulumi.Input<string>;
 }

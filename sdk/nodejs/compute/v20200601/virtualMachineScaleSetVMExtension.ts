@@ -144,53 +144,53 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
-    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
      */
-    readonly enableAutomaticUpgrade?: pulumi.Input<boolean>;
+    enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    readonly forceUpdateTag?: pulumi.Input<string>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The instance ID of the virtual machine.
      */
-    readonly instanceId: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
     /**
      * The virtual machine extension instance view.
      */
-    readonly instanceView?: pulumi.Input<inputs.compute.v20200601.VirtualMachineExtensionInstanceViewArgs>;
+    instanceView?: pulumi.Input<inputs.compute.v20200601.VirtualMachineExtensionInstanceViewArgs>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly protectedSettings?: any;
+    protectedSettings?: any;
     /**
      * The name of the extension handler publisher.
      */
-    readonly publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Json formatted public settings for the extension.
      */
-    readonly settings?: any;
+    settings?: any;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies the version of the script handler.
      */
-    readonly typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The name of the virtual machine extension.
      */
-    readonly vmExtensionName?: pulumi.Input<string>;
+    vmExtensionName?: pulumi.Input<string>;
     /**
      * The name of the VM scale set.
      */
-    readonly vmScaleSetName: pulumi.Input<string>;
+    vmScaleSetName: pulumi.Input<string>;
 }

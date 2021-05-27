@@ -113,25 +113,25 @@ export interface WebAppSwiftVirtualNetworkConnectionSlotArgs {
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
      */
-    readonly slot: pulumi.Input<string>;
+    slot: pulumi.Input<string>;
     /**
      * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
      */
-    readonly subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string>;
     /**
      * A flag that specifies if the scale unit this Web App is on supports Swift integration.
      */
-    readonly swiftSupported?: pulumi.Input<boolean>;
+    swiftSupported?: pulumi.Input<boolean>;
 }

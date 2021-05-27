@@ -26,11 +26,11 @@ export interface GetWebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly policyName: string;
+    policyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

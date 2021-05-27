@@ -27,15 +27,15 @@ export interface GetAgreementArgs {
     /**
      * The integration account agreement name.
      */
-    readonly agreementName: string;
+    agreementName: string;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

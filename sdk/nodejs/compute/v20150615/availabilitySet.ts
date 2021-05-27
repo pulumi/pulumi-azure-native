@@ -117,29 +117,29 @@ export interface AvailabilitySetArgs {
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the availability set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Fault Domain count.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * Update Domain count.
      */
-    readonly platformUpdateDomainCount?: pulumi.Input<number>;
+    platformUpdateDomainCount?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20150615.SubResourceArgs>[]>;
+    virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20150615.SubResourceArgs>[]>;
 }

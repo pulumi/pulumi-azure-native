@@ -130,33 +130,33 @@ export interface LogProfileArgs {
     /**
      * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
      */
-    readonly categories: pulumi.Input<pulumi.Input<string>[]>;
+    categories: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
      */
-    readonly locations: pulumi.Input<pulumi.Input<string>[]>;
+    locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the log profile.
      */
-    readonly logProfileName?: pulumi.Input<string>;
+    logProfileName?: pulumi.Input<string>;
     /**
      * the retention policy for the events in the log.
      */
-    readonly retentionPolicy: pulumi.Input<inputs.insights.RetentionPolicyArgs>;
+    retentionPolicy: pulumi.Input<inputs.insights.RetentionPolicyArgs>;
     /**
      * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
      */
-    readonly serviceBusRuleId?: pulumi.Input<string>;
+    serviceBusRuleId?: pulumi.Input<string>;
     /**
      * the resource id of the storage account to which you would like to send the Activity Log.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

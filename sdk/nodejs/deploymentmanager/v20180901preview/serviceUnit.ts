@@ -126,37 +126,37 @@ export interface ServiceUnitArgs {
     /**
      * The artifacts for the service unit.
      */
-    readonly artifacts?: pulumi.Input<inputs.deploymentmanager.v20180901preview.ServiceUnitArtifactsArgs>;
+    artifacts?: pulumi.Input<inputs.deploymentmanager.v20180901preview.ServiceUnitArtifactsArgs>;
     /**
      * Describes the type of ARM deployment to be performed on the resource.
      */
-    readonly deploymentMode: pulumi.Input<enums.deploymentmanager.v20180901preview.DeploymentMode>;
+    deploymentMode: pulumi.Input<enums.deploymentmanager.v20180901preview.DeploymentMode>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the service resource.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * The name of the service topology .
      */
-    readonly serviceTopologyName: pulumi.Input<string>;
+    serviceTopologyName: pulumi.Input<string>;
     /**
      * The name of the service unit resource.
      */
-    readonly serviceUnitName?: pulumi.Input<string>;
+    serviceUnitName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
      */
-    readonly targetResourceGroup: pulumi.Input<string>;
+    targetResourceGroup: pulumi.Input<string>;
 }

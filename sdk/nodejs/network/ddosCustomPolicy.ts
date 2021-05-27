@@ -126,25 +126,25 @@ export interface DdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    readonly ddosCustomPolicyName?: pulumi.Input<string>;
+    ddosCustomPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The protocol-specific DDoS policy customization parameters.
      */
-    readonly protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.ProtocolCustomSettingsFormatArgs>[]>;
+    protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.ProtocolCustomSettingsFormatArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

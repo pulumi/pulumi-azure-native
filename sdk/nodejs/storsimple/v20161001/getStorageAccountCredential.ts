@@ -27,15 +27,15 @@ export interface GetStorageAccountCredentialArgs {
     /**
      * The name of storage account credential to be fetched.
      */
-    readonly credentialName: string;
+    credentialName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

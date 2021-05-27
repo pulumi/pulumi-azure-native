@@ -25,7 +25,7 @@ export interface GetTagAtScopeArgs {
     /**
      * The resource scope.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

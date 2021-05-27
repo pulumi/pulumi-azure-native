@@ -119,41 +119,41 @@ export interface BlobArgs {
     /**
      * The access tier of the storage blob.
      */
-    readonly accessTier?: pulumi.Input<enums.storage.BlobAccessTier>;
+    accessTier?: pulumi.Input<enums.storage.BlobAccessTier>;
     /**
      * Specifies the storage account in which to create the storage container.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
-    readonly blobName?: pulumi.Input<string>;
+    blobName?: pulumi.Input<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
      */
-    readonly contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Defaults to `application/octet-stream`.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * An asset to copy to the blob contents. This field cannot be specified for Append blobs.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The type of the storage blob to be created. Defaults to 'Block'.
      */
-    readonly type?: pulumi.Input<enums.storage.BlobType>;
+    type?: pulumi.Input<enums.storage.BlobType>;
 }

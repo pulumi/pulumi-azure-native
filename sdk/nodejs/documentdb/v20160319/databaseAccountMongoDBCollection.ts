@@ -122,25 +122,25 @@ export interface DatabaseAccountMongoDBCollectionArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Cosmos DB collection name.
      */
-    readonly collectionName?: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string>;
     /**
      * Cosmos DB database name.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The standard JSON format of a MongoDB collection
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20160319.MongoDBCollectionResourceArgs>;
+    resource: pulumi.Input<inputs.documentdb.v20160319.MongoDBCollectionResourceArgs>;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

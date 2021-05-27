@@ -163,53 +163,53 @@ export interface ApplianceArgs {
     /**
      * The fully qualified path of appliance definition Id.
      */
-    readonly applianceDefinitionId?: pulumi.Input<string>;
+    applianceDefinitionId?: pulumi.Input<string>;
     /**
      * The name of the appliance.
      */
-    readonly applianceName?: pulumi.Input<string>;
+    applianceName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
     /**
      * The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * ID of the resource that manages this resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The managed resource group Id.
      */
-    readonly managedResourceGroupId: pulumi.Input<string>;
+    managedResourceGroupId: pulumi.Input<string>;
     /**
      * Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
      */
-    readonly parameters?: any;
+    parameters?: any;
     /**
      * The plan information.
      */
-    readonly plan?: pulumi.Input<inputs.solutions.v20160901preview.PlanArgs>;
+    plan?: pulumi.Input<inputs.solutions.v20160901preview.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The blob URI where the UI definition file is located.
      */
-    readonly uiDefinitionUri?: pulumi.Input<string>;
+    uiDefinitionUri?: pulumi.Input<string>;
 }

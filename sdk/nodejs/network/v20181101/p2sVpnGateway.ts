@@ -137,37 +137,37 @@ export interface P2sVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    readonly gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    readonly p2SVpnServerConfiguration?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
+    p2SVpnServerConfiguration?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
     /**
      * The resource group name of the P2SVpnGateway.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VirtualHub to which the gateway belongs
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.v20181101.SubResourceArgs>;
     /**
      * The reference of the address space resource which represents Address space for P2S VpnClient.
      */
-    readonly vpnClientAddressPool?: pulumi.Input<inputs.network.v20181101.AddressSpaceArgs>;
+    vpnClientAddressPool?: pulumi.Input<inputs.network.v20181101.AddressSpaceArgs>;
     /**
      * The scale unit for this p2s vpn gateway.
      */
-    readonly vpnGatewayScaleUnit?: pulumi.Input<number>;
+    vpnGatewayScaleUnit?: pulumi.Input<number>;
 }

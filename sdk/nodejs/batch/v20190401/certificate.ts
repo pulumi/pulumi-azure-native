@@ -142,33 +142,33 @@ export interface CertificateArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The maximum size is 10KB.
      */
-    readonly data: pulumi.Input<string>;
+    data: pulumi.Input<string>;
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: pulumi.Input<enums.batch.v20190401.CertificateFormat>;
+    format?: pulumi.Input<enums.batch.v20190401.CertificateFormat>;
     /**
      * This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * This must match the thumbprint from the name.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
     /**
      * This must match the first portion of the certificate name. Currently required to be 'SHA1'.
      */
-    readonly thumbprintAlgorithm?: pulumi.Input<string>;
+    thumbprintAlgorithm?: pulumi.Input<string>;
 }

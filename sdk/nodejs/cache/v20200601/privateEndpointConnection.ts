@@ -107,17 +107,17 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the Redis cache.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.cache.v20200601.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.cache.v20200601.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

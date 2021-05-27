@@ -137,38 +137,38 @@ export interface IoTRoleArgs {
     /**
      * The device name.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Host OS supported by the IoT role.
      */
-    readonly hostPlatform: pulumi.Input<string | enums.databoxedge.v20190301.PlatformType>;
+    hostPlatform: pulumi.Input<string | enums.databoxedge.v20190301.PlatformType>;
     /**
      * IoT device metadata to which data box edge device needs to be connected.
      */
-    readonly ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20190301.IoTDeviceInfoArgs>;
+    ioTDeviceDetails: pulumi.Input<inputs.databoxedge.v20190301.IoTDeviceInfoArgs>;
     /**
      * IoT edge device to which the IoT role needs to be configured.
      */
-    readonly ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20190301.IoTDeviceInfoArgs>;
+    ioTEdgeDeviceDetails: pulumi.Input<inputs.databoxedge.v20190301.IoTDeviceInfoArgs>;
     /**
      * Role type.
      * Expected value is 'IOT'.
      */
-    readonly kind: pulumi.Input<"IOT">;
+    kind: pulumi.Input<"IOT">;
     /**
      * The role name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Role status.
      */
-    readonly roleStatus: pulumi.Input<string | enums.databoxedge.v20190301.RoleStatus>;
+    roleStatus: pulumi.Input<string | enums.databoxedge.v20190301.RoleStatus>;
     /**
      * Mount points of shares in role(s).
      */
-    readonly shareMappings?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190301.MountPointMapArgs>[]>;
+    shareMappings?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190301.MountPointMapArgs>[]>;
 }

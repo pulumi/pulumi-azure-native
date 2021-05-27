@@ -135,41 +135,41 @@ export interface MachineLearningServiceArgs {
     /**
      * The compute environment type for the service.
      */
-    readonly computeType: pulumi.Input<string | enums.machinelearningservices.v20210301preview.ComputeEnvironmentType>;
+    computeType: pulumi.Input<string | enums.machinelearningservices.v20210301preview.ComputeEnvironmentType>;
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Environment, models and assets needed for inferencing.
      */
-    readonly environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210301preview.CreateServiceRequestEnvironmentImageRequestArgs>;
+    environmentImageRequest?: pulumi.Input<inputs.machinelearningservices.v20210301preview.CreateServiceRequestEnvironmentImageRequestArgs>;
     /**
      * The authentication keys.
      */
-    readonly keys?: pulumi.Input<inputs.machinelearningservices.v20210301preview.CreateServiceRequestKeysArgs>;
+    keys?: pulumi.Input<inputs.machinelearningservices.v20210301preview.CreateServiceRequestKeysArgs>;
     /**
      * The service tag dictionary. Tags are mutable.
      */
-    readonly kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kvTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Azure location/region.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The service properties dictionary. Properties are immutable.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the Azure Machine Learning service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -125,33 +125,33 @@ export interface VirtualHubArgs {
     /**
      * Address-prefix for this VirtualHub.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * list of all vnet connections with this VirtualHub.
      */
-    readonly hubVirtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.HubVirtualNetworkConnectionArgs>[]>;
+    hubVirtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20180601.HubVirtualNetworkConnectionArgs>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName?: pulumi.Input<string>;
+    virtualHubName?: pulumi.Input<string>;
     /**
      * The VirtualWAN to which the VirtualHub belongs
      */
-    readonly virtualWan?: pulumi.Input<inputs.network.v20180601.SubResourceArgs>;
+    virtualWan?: pulumi.Input<inputs.network.v20180601.SubResourceArgs>;
 }

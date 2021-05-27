@@ -26,11 +26,11 @@ export interface GetRedisEnterpriseArgs {
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

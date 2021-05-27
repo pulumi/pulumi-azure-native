@@ -31,31 +31,31 @@ export interface GetSqlPoolSensitivityLabelArgs {
     /**
      * The name of the column.
      */
-    readonly columnName: string;
+    columnName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the schema.
      */
-    readonly schemaName: string;
+    schemaName: string;
     /**
      * The source of the sensitivity label.
      */
-    readonly sensitivityLabelSource: string;
+    sensitivityLabelSource: string;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: string;
+    sqlPoolName: string;
     /**
      * The name of the table.
      */
-    readonly tableName: string;
+    tableName: string;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: string;
+    workspaceName: string;
 }
 
 /**

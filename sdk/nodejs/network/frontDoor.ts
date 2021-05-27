@@ -173,49 +173,49 @@ export interface FrontDoorArgs {
     /**
      * Backend pools available to routing rules.
      */
-    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.network.BackendPoolArgs>[]>;
+    backendPools?: pulumi.Input<pulumi.Input<inputs.network.BackendPoolArgs>[]>;
     /**
      * Settings for all backendPools
      */
-    readonly backendPoolsSettings?: pulumi.Input<inputs.network.BackendPoolsSettingsArgs>;
+    backendPoolsSettings?: pulumi.Input<inputs.network.BackendPoolsSettingsArgs>;
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string | enums.network.FrontDoorEnabledState>;
+    enabledState?: pulumi.Input<string | enums.network.FrontDoorEnabledState>;
     /**
      * A friendly name for the frontDoor
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName?: pulumi.Input<string>;
+    frontDoorName?: pulumi.Input<string>;
     /**
      * Frontend endpoints available to routing rules.
      */
-    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.FrontendEndpointArgs>[]>;
+    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.network.FrontendEndpointArgs>[]>;
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    readonly healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.HealthProbeSettingsModelArgs>[]>;
+    healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.network.HealthProbeSettingsModelArgs>[]>;
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    readonly loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingSettingsModelArgs>[]>;
+    loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingSettingsModelArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Routing rules associated with this Front Door.
      */
-    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.network.RoutingRuleArgs>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.RoutingRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

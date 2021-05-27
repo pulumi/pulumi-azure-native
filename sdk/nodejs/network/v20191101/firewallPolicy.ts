@@ -137,29 +137,29 @@ export interface FirewallPolicyArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    readonly basePolicy?: pulumi.Input<inputs.network.v20191101.SubResourceArgs>;
+    basePolicy?: pulumi.Input<inputs.network.v20191101.SubResourceArgs>;
     /**
      * The name of the Firewall Policy.
      */
-    readonly firewallPolicyName?: pulumi.Input<string>;
+    firewallPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    readonly threatIntelMode?: pulumi.Input<string | enums.network.v20191101.AzureFirewallThreatIntelMode>;
+    threatIntelMode?: pulumi.Input<string | enums.network.v20191101.AzureFirewallThreatIntelMode>;
 }

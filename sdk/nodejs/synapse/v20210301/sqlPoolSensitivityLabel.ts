@@ -156,46 +156,46 @@ export interface SqlPoolSensitivityLabelArgs {
     /**
      * The name of the column.
      */
-    readonly columnName: pulumi.Input<string>;
+    columnName: pulumi.Input<string>;
     /**
      * The information type.
      */
-    readonly informationType?: pulumi.Input<string>;
+    informationType?: pulumi.Input<string>;
     /**
      * The information type ID.
      */
-    readonly informationTypeId?: pulumi.Input<string>;
+    informationTypeId?: pulumi.Input<string>;
     /**
      * The label ID.
      */
-    readonly labelId?: pulumi.Input<string>;
+    labelId?: pulumi.Input<string>;
     /**
      * The label name.
      */
-    readonly labelName?: pulumi.Input<string>;
-    readonly rank?: pulumi.Input<enums.synapse.v20210301.SensitivityLabelRank>;
+    labelName?: pulumi.Input<string>;
+    rank?: pulumi.Input<enums.synapse.v20210301.SensitivityLabelRank>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the schema.
      */
-    readonly schemaName: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
     /**
      * The source of the sensitivity label.
      */
-    readonly sensitivityLabelSource?: pulumi.Input<string>;
+    sensitivityLabelSource?: pulumi.Input<string>;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName: pulumi.Input<string>;
+    sqlPoolName: pulumi.Input<string>;
     /**
      * The name of the table.
      */
-    readonly tableName: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface ListRemediationDeploymentsAtResourceArgs {
     /**
      * The name of the remediation.
      */
-    readonly remediationName: string;
+    remediationName: string;
     /**
      * Resource ID.
      */
-    readonly resourceId: string;
+    resourceId: string;
     /**
      * Maximum number of records to return.
      */
-    readonly top?: number;
+    top?: number;
 }
 
 /**

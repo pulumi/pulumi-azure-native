@@ -100,17 +100,17 @@ export interface EnvironmentContainerArgs {
     /**
      * Container name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Additional attributes of the entity.
      */
-    readonly properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.EnvironmentContainerArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.EnvironmentContainerArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

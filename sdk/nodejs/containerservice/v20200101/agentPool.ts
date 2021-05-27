@@ -194,85 +194,85 @@ export interface AgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    readonly agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
      */
-    readonly count?: pulumi.Input<number>;
+    count?: pulumi.Input<number>;
     /**
      * Whether to enable auto-scaler
      */
-    readonly enableAutoScaling?: pulumi.Input<boolean>;
+    enableAutoScaling?: pulumi.Input<boolean>;
     /**
      * Enable public IP for nodes
      */
-    readonly enableNodePublicIP?: pulumi.Input<boolean>;
+    enableNodePublicIP?: pulumi.Input<boolean>;
     /**
      * Maximum number of nodes for auto-scaling
      */
-    readonly maxCount?: pulumi.Input<number>;
+    maxCount?: pulumi.Input<number>;
     /**
      * Maximum number of pods that can run on a node.
      */
-    readonly maxPods?: pulumi.Input<number>;
+    maxPods?: pulumi.Input<number>;
     /**
      * Minimum number of nodes for auto-scaling
      */
-    readonly minCount?: pulumi.Input<number>;
+    minCount?: pulumi.Input<number>;
     /**
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
-    readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    readonly nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Version of orchestrator specified when creating the managed cluster.
      */
-    readonly orchestratorVersion?: pulumi.Input<string>;
+    orchestratorVersion?: pulumi.Input<string>;
     /**
      * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
-    readonly osDiskSizeGB?: pulumi.Input<number>;
+    osDiskSizeGB?: pulumi.Input<number>;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
-    readonly osType?: pulumi.Input<string | enums.containerservice.v20200101.OSType>;
+    osType?: pulumi.Input<string | enums.containerservice.v20200101.OSType>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the managed cluster resource.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
     /**
      * ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
      */
-    readonly scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetEvictionPolicy>;
+    scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetEvictionPolicy>;
     /**
      * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
      */
-    readonly scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetPriority>;
+    scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20200101.ScaleSetPriority>;
     /**
      * Agent pool tags to be persisted on the agent pool virtual machine scale set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * AgentPoolType represents types of an agent pool
      */
-    readonly type?: pulumi.Input<string | enums.containerservice.v20200101.AgentPoolType>;
+    type?: pulumi.Input<string | enums.containerservice.v20200101.AgentPoolType>;
     /**
      * Size of agent VMs.
      */
-    readonly vmSize?: pulumi.Input<string | enums.containerservice.v20200101.ContainerServiceVMSizeTypes>;
+    vmSize?: pulumi.Input<string | enums.containerservice.v20200101.ContainerServiceVMSizeTypes>;
     /**
      * VNet SubnetID specifies the VNet's subnet identifier.
      */
-    readonly vnetSubnetID?: pulumi.Input<string>;
+    vnetSubnetID?: pulumi.Input<string>;
 }

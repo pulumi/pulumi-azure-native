@@ -27,15 +27,15 @@ export interface GetBastionShareableLinkArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly bastionHostName: string;
+    bastionHostName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * List of VM references.
      */
-    readonly vms?: inputs.network.v20191201.BastionShareableLink[];
+    vms?: inputs.network.v20191201.BastionShareableLink[];
 }
 
 /**

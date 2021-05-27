@@ -155,34 +155,34 @@ export interface ScheduledTriggerArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Kind of synchronization on trigger.
      * Expected value is 'ScheduleBased'.
      */
-    readonly kind: pulumi.Input<"ScheduleBased">;
+    kind: pulumi.Input<"ScheduleBased">;
     /**
      * Recurrence Interval
      */
-    readonly recurrenceInterval: pulumi.Input<string | enums.datashare.RecurrenceInterval>;
+    recurrenceInterval: pulumi.Input<string | enums.datashare.RecurrenceInterval>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * Synchronization mode
      */
-    readonly synchronizationMode?: pulumi.Input<string | enums.datashare.SynchronizationMode>;
+    synchronizationMode?: pulumi.Input<string | enums.datashare.SynchronizationMode>;
     /**
      * Synchronization time
      */
-    readonly synchronizationTime: pulumi.Input<string>;
+    synchronizationTime: pulumi.Input<string>;
     /**
      * The name of the trigger.
      */
-    readonly triggerName?: pulumi.Input<string>;
+    triggerName?: pulumi.Input<string>;
 }

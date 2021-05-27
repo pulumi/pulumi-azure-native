@@ -29,23 +29,23 @@ export interface GetApiIssueCommentArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * Comment identifier within an Issue. Must be unique in the current Issue.
      */
-    readonly commentId: string;
+    commentId: string;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly issueId: string;
+    issueId: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

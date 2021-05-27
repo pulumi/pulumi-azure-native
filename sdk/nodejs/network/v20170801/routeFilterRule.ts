@@ -132,41 +132,41 @@ export interface RouteFilterRuleArgs {
     /**
      * The access type of the rule. Valid values are: 'Allow', 'Deny'
      */
-    readonly access: pulumi.Input<string | enums.network.v20170801.Access>;
+    access: pulumi.Input<string | enums.network.v20170801.Access>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
      */
-    readonly communities: pulumi.Input<pulumi.Input<string>[]>;
+    communities: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the route filter.
      */
-    readonly routeFilterName: pulumi.Input<string>;
+    routeFilterName: pulumi.Input<string>;
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    readonly routeFilterRuleType: pulumi.Input<string | enums.network.v20170801.RouteFilterRuleType>;
+    routeFilterRuleType: pulumi.Input<string | enums.network.v20170801.RouteFilterRuleType>;
     /**
      * The name of the route filter rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

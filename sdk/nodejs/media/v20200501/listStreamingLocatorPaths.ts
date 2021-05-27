@@ -27,15 +27,15 @@ export interface ListStreamingLocatorPathsArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Streaming Locator name.
      */
-    readonly streamingLocatorName: string;
+    streamingLocatorName: string;
 }
 
 /**

@@ -119,22 +119,22 @@ export interface PartnerNamespaceArgs {
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the partner namespace.
      */
-    readonly partnerNamespaceName?: pulumi.Input<string>;
+    partnerNamespaceName?: pulumi.Input<string>;
     /**
      * The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
-    readonly partnerRegistrationFullyQualifiedId?: pulumi.Input<string>;
+    partnerRegistrationFullyQualifiedId?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

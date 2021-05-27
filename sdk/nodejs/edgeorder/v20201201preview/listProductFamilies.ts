@@ -28,19 +28,19 @@ export interface ListProductFamiliesArgs {
     /**
      * Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
      */
-    readonly customerSubscriptionDetails?: inputs.edgeorder.v20201201preview.CustomerSubscriptionDetails;
+    customerSubscriptionDetails?: inputs.edgeorder.v20201201preview.CustomerSubscriptionDetails;
     /**
      * $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Dictionary of filterable properties on product family.
      */
-    readonly filterableProperties: {[key: string]: inputs.edgeorder.v20201201preview.FilterableProperty[]};
+    filterableProperties: {[key: string]: inputs.edgeorder.v20201201preview.FilterableProperty[]};
     /**
      * $skipToken is supported on list of product families, which provides the next page in the list of product families.
      */
-    readonly skipToken?: string;
+    skipToken?: string;
 }
 
 /**

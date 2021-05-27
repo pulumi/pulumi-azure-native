@@ -28,15 +28,15 @@ export interface GetFavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly favoriteId: string;
+    favoriteId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Application Insights component resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

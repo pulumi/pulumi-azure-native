@@ -25,7 +25,7 @@ export interface ListGlobalUserLabsArgs {
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

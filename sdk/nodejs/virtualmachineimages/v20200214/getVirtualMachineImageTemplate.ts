@@ -26,11 +26,11 @@ export interface GetVirtualMachineImageTemplateArgs {
     /**
      * The name of the image Template
      */
-    readonly imageTemplateName: string;
+    imageTemplateName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

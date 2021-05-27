@@ -26,11 +26,11 @@ export interface GetAttestationAtResourceGroupArgs {
     /**
      * The name of the attestation.
      */
-    readonly attestationName: string;
+    attestationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

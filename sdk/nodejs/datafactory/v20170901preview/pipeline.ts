@@ -122,33 +122,33 @@ export interface PipelineArgs {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20170901preview.AzureMLBatchExecutionActivityArgs | inputs.datafactory.v20170901preview.AzureMLUpdateResourceActivityArgs | inputs.datafactory.v20170901preview.ControlActivityArgs | inputs.datafactory.v20170901preview.CopyActivityArgs | inputs.datafactory.v20170901preview.CustomActivityArgs | inputs.datafactory.v20170901preview.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.v20170901preview.DatabricksNotebookActivityArgs | inputs.datafactory.v20170901preview.ExecutePipelineActivityArgs | inputs.datafactory.v20170901preview.ExecuteSSISPackageActivityArgs | inputs.datafactory.v20170901preview.ExecutionActivityArgs | inputs.datafactory.v20170901preview.FilterActivityArgs | inputs.datafactory.v20170901preview.ForEachActivityArgs | inputs.datafactory.v20170901preview.GetMetadataActivityArgs | inputs.datafactory.v20170901preview.HDInsightHiveActivityArgs | inputs.datafactory.v20170901preview.HDInsightMapReduceActivityArgs | inputs.datafactory.v20170901preview.HDInsightPigActivityArgs | inputs.datafactory.v20170901preview.HDInsightSparkActivityArgs | inputs.datafactory.v20170901preview.HDInsightStreamingActivityArgs | inputs.datafactory.v20170901preview.IfConditionActivityArgs | inputs.datafactory.v20170901preview.LookupActivityArgs | inputs.datafactory.v20170901preview.SqlServerStoredProcedureActivityArgs | inputs.datafactory.v20170901preview.UntilActivityArgs | inputs.datafactory.v20170901preview.WaitActivityArgs | inputs.datafactory.v20170901preview.WebActivityArgs>[]>;
+    activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20170901preview.AzureMLBatchExecutionActivityArgs | inputs.datafactory.v20170901preview.AzureMLUpdateResourceActivityArgs | inputs.datafactory.v20170901preview.ControlActivityArgs | inputs.datafactory.v20170901preview.CopyActivityArgs | inputs.datafactory.v20170901preview.CustomActivityArgs | inputs.datafactory.v20170901preview.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.v20170901preview.DatabricksNotebookActivityArgs | inputs.datafactory.v20170901preview.ExecutePipelineActivityArgs | inputs.datafactory.v20170901preview.ExecuteSSISPackageActivityArgs | inputs.datafactory.v20170901preview.ExecutionActivityArgs | inputs.datafactory.v20170901preview.FilterActivityArgs | inputs.datafactory.v20170901preview.ForEachActivityArgs | inputs.datafactory.v20170901preview.GetMetadataActivityArgs | inputs.datafactory.v20170901preview.HDInsightHiveActivityArgs | inputs.datafactory.v20170901preview.HDInsightMapReduceActivityArgs | inputs.datafactory.v20170901preview.HDInsightPigActivityArgs | inputs.datafactory.v20170901preview.HDInsightSparkActivityArgs | inputs.datafactory.v20170901preview.HDInsightStreamingActivityArgs | inputs.datafactory.v20170901preview.IfConditionActivityArgs | inputs.datafactory.v20170901preview.LookupActivityArgs | inputs.datafactory.v20170901preview.SqlServerStoredProcedureActivityArgs | inputs.datafactory.v20170901preview.UntilActivityArgs | inputs.datafactory.v20170901preview.WaitActivityArgs | inputs.datafactory.v20170901preview.WebActivityArgs>[]>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    readonly annotations?: pulumi.Input<any[]>;
+    annotations?: pulumi.Input<any[]>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
-    readonly concurrency?: pulumi.Input<number>;
+    concurrency?: pulumi.Input<number>;
     /**
      * The description of the pipeline.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The factory name.
      */
-    readonly factoryName: pulumi.Input<string>;
+    factoryName: pulumi.Input<string>;
     /**
      * List of parameters for pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20170901preview.ParameterSpecificationArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20170901preview.ParameterSpecificationArgs>}>;
     /**
      * The pipeline name.
      */
-    readonly pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -29,19 +29,19 @@ export interface GetManagedPrivateEndpointArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * Managed private endpoint name
      */
-    readonly managedPrivateEndpointName: string;
+    managedPrivateEndpointName: string;
     /**
      * Managed virtual network name
      */
-    readonly managedVirtualNetworkName: string;
+    managedVirtualNetworkName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

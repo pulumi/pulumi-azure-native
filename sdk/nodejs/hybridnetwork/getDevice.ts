@@ -27,11 +27,11 @@ export interface GetDeviceArgs {
     /**
      * The name of the device resource.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

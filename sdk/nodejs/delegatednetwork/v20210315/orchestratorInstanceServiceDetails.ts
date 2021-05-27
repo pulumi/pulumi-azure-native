@@ -160,49 +160,49 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    readonly apiServerEndpoint?: pulumi.Input<string>;
+    apiServerEndpoint?: pulumi.Input<string>;
     /**
      * RootCA certificate of kubernetes cluster base64 encoded
      */
-    readonly clusterRootCA?: pulumi.Input<string>;
+    clusterRootCA?: pulumi.Input<string>;
     /**
      * Properties of the controller.
      */
-    readonly controllerDetails: pulumi.Input<inputs.delegatednetwork.v20210315.ControllerDetailsArgs>;
+    controllerDetails: pulumi.Input<inputs.delegatednetwork.v20210315.ControllerDetailsArgs>;
     /**
      * The identity of the orchestrator
      */
-    readonly identity?: pulumi.Input<inputs.delegatednetwork.v20210315.OrchestratorIdentityArgs>;
+    identity?: pulumi.Input<inputs.delegatednetwork.v20210315.OrchestratorIdentityArgs>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind: pulumi.Input<string | enums.delegatednetwork.v20210315.OrchestratorKind>;
+    kind: pulumi.Input<string | enums.delegatednetwork.v20210315.OrchestratorKind>;
     /**
      * Location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * AAD ID used with apiserver
      */
-    readonly orchestratorAppId?: pulumi.Input<string>;
+    orchestratorAppId?: pulumi.Input<string>;
     /**
      * TenantID of server App ID
      */
-    readonly orchestratorTenantId?: pulumi.Input<string>;
+    orchestratorTenantId?: pulumi.Input<string>;
     /**
      * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    readonly privateLinkResourceId?: pulumi.Input<string>;
+    privateLinkResourceId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

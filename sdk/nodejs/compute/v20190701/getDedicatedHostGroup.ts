@@ -26,11 +26,11 @@ export interface GetDedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    readonly hostGroupName: string;
+    hostGroupName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

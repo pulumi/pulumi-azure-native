@@ -99,21 +99,21 @@ export interface HybridConnectionAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly authorizationRuleName?: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The hybrid connection name.
      */
-    readonly hybridConnectionName: pulumi.Input<string>;
+    hybridConnectionName: pulumi.Input<string>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<enums.relay.v20170401.AccessRights>[]>;
+    rights: pulumi.Input<pulumi.Input<enums.relay.v20170401.AccessRights>[]>;
 }

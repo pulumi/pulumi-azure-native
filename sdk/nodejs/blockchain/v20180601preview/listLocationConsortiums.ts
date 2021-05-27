@@ -25,7 +25,7 @@ export interface ListLocationConsortiumsArgs {
     /**
      * Location Name.
      */
-    readonly locationName: string;
+    locationName: string;
 }
 
 /**

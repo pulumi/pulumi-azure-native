@@ -27,15 +27,15 @@ export interface GetPython2PackageArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * The python package name.
      */
-    readonly packageName: string;
+    packageName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

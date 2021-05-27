@@ -167,57 +167,57 @@ export interface LoadBalancerArgs {
     /**
      * Collection of backend address pools used by a load balancer.
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20200801.BackendAddressPoolArgs>[]>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20200801.BackendAddressPoolArgs>[]>;
     /**
      * The extended location of the load balancer.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocationArgs>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200801.FrontendIPConfigurationArgs>[]>;
+    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200801.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20200801.InboundNatPoolArgs>[]>;
+    inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20200801.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.InboundNatRuleArgs>[]>;
+    inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.InboundNatRuleArgs>[]>;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.LoadBalancingRuleArgs>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The outbound rules.
      */
-    readonly outboundRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.OutboundRuleArgs>[]>;
+    outboundRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.OutboundRuleArgs>[]>;
     /**
      * Collection of probe objects used in the load balancer.
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20200801.ProbeArgs>[]>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.v20200801.ProbeArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The load balancer SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200801.LoadBalancerSkuArgs>;
+    sku?: pulumi.Input<inputs.network.v20200801.LoadBalancerSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -123,37 +123,37 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the ipconfig.
      */
-    readonly ipConfigName?: pulumi.Input<string>;
+    ipConfigName?: pulumi.Input<string>;
     /**
      * Name of the Ip Configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The private IP address of the IP configuration.
      */
-    readonly privateIPAddress?: pulumi.Input<string>;
+    privateIPAddress?: pulumi.Input<string>;
     /**
      * The private IP address allocation method.
      */
-    readonly privateIPAllocationMethod?: pulumi.Input<string | enums.network.v20200501.IPAllocationMethod>;
+    privateIPAllocationMethod?: pulumi.Input<string | enums.network.v20200501.IPAllocationMethod>;
     /**
      * The reference to the public IP resource.
      */
-    readonly publicIPAddress?: pulumi.Input<inputs.network.v20200501.PublicIPAddressArgs>;
+    publicIPAddress?: pulumi.Input<inputs.network.v20200501.PublicIPAddressArgs>;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The reference to the subnet resource.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20200501.SubnetArgs>;
+    subnet?: pulumi.Input<inputs.network.v20200501.SubnetArgs>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: pulumi.Input<string>;
+    virtualHubName: pulumi.Input<string>;
 }

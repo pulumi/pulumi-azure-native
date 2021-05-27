@@ -27,11 +27,11 @@ export interface GetAzurePowerShellScriptArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the deployment script.
      */
-    readonly scriptName: string;
+    scriptName: string;
 }
 
 /**

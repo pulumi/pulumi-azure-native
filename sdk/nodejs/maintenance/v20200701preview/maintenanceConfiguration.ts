@@ -148,53 +148,53 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
      */
-    readonly duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string>;
     /**
      * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
      */
-    readonly expirationDateTime?: pulumi.Input<string>;
+    expirationDateTime?: pulumi.Input<string>;
     /**
      * Gets or sets extensionProperties of the maintenanceConfiguration
      */
-    readonly extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets location of the resource
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
-    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200701preview.MaintenanceScope>;
+    maintenanceScope?: pulumi.Input<string | enums.maintenance.v20200701preview.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
      */
-    readonly recurEvery?: pulumi.Input<string>;
+    recurEvery?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource Identifier
      */
-    readonly resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
      */
-    readonly startDateTime?: pulumi.Input<string>;
+    startDateTime?: pulumi.Input<string>;
     /**
      * Gets or sets tags of the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
     /**
      * Gets or sets the visibility of the configuration
      */
-    readonly visibility?: pulumi.Input<string | enums.maintenance.v20200701preview.Visibility>;
+    visibility?: pulumi.Input<string | enums.maintenance.v20200701preview.Visibility>;
 }

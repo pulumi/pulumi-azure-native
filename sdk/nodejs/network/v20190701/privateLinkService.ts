@@ -155,49 +155,49 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: pulumi.Input<inputs.network.v20190701.PrivateLinkServicePropertiesAutoApprovalArgs>;
+    autoApproval?: pulumi.Input<inputs.network.v20190701.PrivateLinkServicePropertiesAutoApprovalArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The list of Fqdn.
      */
-    readonly fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * An array of private link service IP configurations.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateLinkServiceIpConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateLinkServiceIpConfigurationArgs>[]>;
     /**
      * An array of references to the load balancer IP configurations.
      */
-    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.FrontendIPConfigurationArgs>[]>;
+    loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190701.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * An array of list about connections to the private endpoint.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateEndpointConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the private link service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: pulumi.Input<inputs.network.v20190701.PrivateLinkServicePropertiesVisibilityArgs>;
+    visibility?: pulumi.Input<inputs.network.v20190701.PrivateLinkServicePropertiesVisibilityArgs>;
 }

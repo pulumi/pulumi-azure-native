@@ -144,53 +144,53 @@ export interface WebAppDeploymentArgs {
     /**
      * True if deployment is currently active, false if completed and null if not started.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * Who authored the deployment.
      */
-    readonly author?: pulumi.Input<string>;
+    author?: pulumi.Input<string>;
     /**
      * Author email.
      */
-    readonly authorEmail?: pulumi.Input<string>;
+    authorEmail?: pulumi.Input<string>;
     /**
      * Who performed the deployment.
      */
-    readonly deployer?: pulumi.Input<string>;
+    deployer?: pulumi.Input<string>;
     /**
      * Details on deployment.
      */
-    readonly details?: pulumi.Input<string>;
+    details?: pulumi.Input<string>;
     /**
      * End time.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * Identifier for deployment.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Details about deployment status.
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Start time.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * Deployment status.
      */
-    readonly status?: pulumi.Input<number>;
+    status?: pulumi.Input<number>;
 }

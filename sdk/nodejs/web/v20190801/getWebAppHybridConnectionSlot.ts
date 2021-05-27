@@ -29,23 +29,23 @@ export interface GetWebAppHybridConnectionSlotArgs {
     /**
      * The name of the web app.
      */
-    readonly name: string;
+    name: string;
     /**
      * The namespace for this hybrid connection.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The relay name for this hybrid connection.
      */
-    readonly relayName: string;
+    relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the slot for the web app.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

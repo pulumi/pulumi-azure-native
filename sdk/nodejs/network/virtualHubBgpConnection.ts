@@ -117,29 +117,29 @@ export interface VirtualHubBgpConnectionArgs {
     /**
      * The name of the connection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Peer ASN.
      */
-    readonly peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * Peer IP.
      */
-    readonly peerIp?: pulumi.Input<string>;
+    peerIp?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the VirtualHub.
      */
-    readonly virtualHubName: pulumi.Input<string>;
+    virtualHubName: pulumi.Input<string>;
 }

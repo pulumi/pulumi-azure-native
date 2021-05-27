@@ -125,33 +125,33 @@ export interface OpenIdConnectProviderArgs {
     /**
      * Client ID of developer console which is the client application.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Client Secret of developer console which is the client application.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * User-friendly description of OpenID Connect Provider.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * User-friendly OpenID Connect Provider name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Metadata endpoint URI.
      */
-    readonly metadataEndpoint: pulumi.Input<string>;
+    metadataEndpoint: pulumi.Input<string>;
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    readonly opid?: pulumi.Input<string>;
+    opid?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

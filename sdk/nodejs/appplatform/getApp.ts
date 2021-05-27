@@ -29,19 +29,19 @@ export interface GetAppArgs {
     /**
      * The name of the App resource.
      */
-    readonly appName: string;
+    appName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Indicates whether sync status
      */
-    readonly syncStatus?: string;
+    syncStatus?: string;
 }
 
 /**

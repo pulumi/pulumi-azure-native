@@ -28,15 +28,15 @@ export interface GetCertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    readonly certificateName: string;
+    certificateName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Service resource.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

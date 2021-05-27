@@ -28,15 +28,15 @@ export interface GetCustomIPPrefixArgs {
     /**
      * The name of the custom IP prefix.
      */
-    readonly customIpPrefixName: string;
+    customIpPrefixName: string;
     /**
      * Expands referenced resources.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

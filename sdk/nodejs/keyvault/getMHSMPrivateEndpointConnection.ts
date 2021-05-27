@@ -28,15 +28,15 @@ export interface GetMHSMPrivateEndpointConnectionArgs {
     /**
      * Name of the managed HSM Pool
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the private endpoint connection associated with the managed hsm pool.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

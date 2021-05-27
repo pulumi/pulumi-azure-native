@@ -27,15 +27,15 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
-    readonly scopeName: string;
+    scopeName: string;
 }
 
 /**

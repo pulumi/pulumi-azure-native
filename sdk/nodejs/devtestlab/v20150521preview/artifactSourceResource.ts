@@ -146,61 +146,61 @@ export interface ArtifactSourceResourceArgs {
     /**
      * The branch reference of the artifact source.
      */
-    readonly branchRef?: pulumi.Input<string>;
+    branchRef?: pulumi.Input<string>;
     /**
      * The display name of the artifact source.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The folder path of the artifact source.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The security token of the artifact source.
      */
-    readonly securityToken?: pulumi.Input<string>;
+    securityToken?: pulumi.Input<string>;
     /**
      * The type of the artifact source.
      */
-    readonly sourceType?: pulumi.Input<string | enums.devtestlab.v20150521preview.SourceControlType>;
+    sourceType?: pulumi.Input<string | enums.devtestlab.v20150521preview.SourceControlType>;
     /**
      * The status of the artifact source.
      */
-    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
+    status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the resource.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The URI of the artifact source.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
 }

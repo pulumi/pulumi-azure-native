@@ -28,19 +28,19 @@ export interface GetChapSettingArgs {
     /**
      * The user name of chap to be fetched.
      */
-    readonly chapUserName: string;
+    chapUserName: string;
     /**
      * The device name.
      */
-    readonly deviceName: string;
+    deviceName: string;
     /**
      * The manager name
      */
-    readonly managerName: string;
+    managerName: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

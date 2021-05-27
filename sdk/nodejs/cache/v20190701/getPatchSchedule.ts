@@ -27,15 +27,15 @@ export interface GetPatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
      */
-    readonly default: string;
+    default: string;
     /**
      * The name of the redis cache.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -26,11 +26,11 @@ export interface ListIotDpsResourceKeysArgs {
     /**
      * The provisioning service name to get the shared access keys for.
      */
-    readonly provisioningServiceName: string;
+    provisioningServiceName: string;
     /**
      * resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -190,41 +190,41 @@ export interface DeviceArgs {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.v20200501preview.DataBoxEdgeDeviceStatus>;
+    dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.v20200501preview.DataBoxEdgeDeviceStatus>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The etag for the devices.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The Data Box Edge/Gateway device name.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The description of the Data Box Edge/Gateway device model.
      */
-    readonly modelDescription?: pulumi.Input<string>;
+    modelDescription?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU type.
      */
-    readonly sku?: pulumi.Input<inputs.databoxedge.v20200501preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.databoxedge.v20200501preview.SkuArgs>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

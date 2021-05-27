@@ -28,15 +28,15 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment.
      */
-    readonly assignmentName: string;
+    assignmentName: string;
     /**
      * The name of the hub.
      */
-    readonly hubName: string;
+    hubName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

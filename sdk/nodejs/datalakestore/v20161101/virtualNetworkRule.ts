@@ -94,17 +94,17 @@ export interface VirtualNetworkRuleArgs {
     /**
      * The name of the Data Lake Store account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource identifier for the subnet.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * The name of the virtual network rule to create or update.
      */
-    readonly virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string>;
 }

@@ -156,41 +156,41 @@ export interface LiveOutputArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
      */
-    readonly archiveWindowLength: pulumi.Input<string>;
+    archiveWindowLength: pulumi.Input<string>;
     /**
      * The asset name.
      */
-    readonly assetName: pulumi.Input<string>;
+    assetName: pulumi.Input<string>;
     /**
      * The description of the Live Output.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The HLS configuration.
      */
-    readonly hls?: pulumi.Input<inputs.media.v20180701.HlsArgs>;
+    hls?: pulumi.Input<inputs.media.v20180701.HlsArgs>;
     /**
      * The name of the Live Event.
      */
-    readonly liveEventName: pulumi.Input<string>;
+    liveEventName: pulumi.Input<string>;
     /**
      * The name of the Live Output.
      */
-    readonly liveOutputName?: pulumi.Input<string>;
+    liveOutputName?: pulumi.Input<string>;
     /**
      * The manifest file name.  If not provided, the service will generate one automatically.
      */
-    readonly manifestName?: pulumi.Input<string>;
+    manifestName?: pulumi.Input<string>;
     /**
      * The output snapshot time.
      */
-    readonly outputSnapTime?: pulumi.Input<number>;
+    outputSnapTime?: pulumi.Input<number>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

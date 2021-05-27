@@ -26,7 +26,7 @@ export interface ListIngestionSettingConnectionStringsArgs {
     /**
      * Name of the ingestion setting
      */
-    readonly ingestionSettingName: string;
+    ingestionSettingName: string;
 }
 
 /**

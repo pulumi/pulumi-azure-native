@@ -127,25 +127,25 @@ export interface CapacityDetailsArgs {
     /**
      * A collection of Dedicated capacity administrators
      */
-    readonly administration?: pulumi.Input<inputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsArgs>;
+    administration?: pulumi.Input<inputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsArgs>;
     /**
      * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    readonly dedicatedCapacityName?: pulumi.Input<string>;
+    dedicatedCapacityName?: pulumi.Input<string>;
     /**
      * Location of the PowerBI Dedicated resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
-    readonly sku: pulumi.Input<inputs.powerbidedicated.v20171001.ResourceSkuArgs>;
+    sku: pulumi.Input<inputs.powerbidedicated.v20171001.ResourceSkuArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

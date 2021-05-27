@@ -30,23 +30,23 @@ export interface GetTaskArgs {
     /**
      * Expand the response
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Name of the resource group
      */
-    readonly groupName: string;
+    groupName: string;
     /**
      * Name of the project
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the service
      */
-    readonly serviceName: string;
+    serviceName: string;
     /**
      * Name of the Task
      */
-    readonly taskName: string;
+    taskName: string;
 }
 
 /**

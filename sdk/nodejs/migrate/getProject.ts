@@ -27,11 +27,11 @@ export interface GetProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly projectName: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -145,45 +145,45 @@ export interface SyncGroupArgs {
     /**
      * Conflict resolution policy of the sync group.
      */
-    readonly conflictResolutionPolicy?: pulumi.Input<string | enums.sql.v20190601preview.SyncConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<string | enums.sql.v20190601preview.SyncConflictResolutionPolicy>;
     /**
      * The name of the database on which the sync group is hosted.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Password for the sync group hub database credential.
      */
-    readonly hubDatabasePassword?: pulumi.Input<string>;
+    hubDatabasePassword?: pulumi.Input<string>;
     /**
      * User name for the sync group hub database credential.
      */
-    readonly hubDatabaseUserName?: pulumi.Input<string>;
+    hubDatabaseUserName?: pulumi.Input<string>;
     /**
      * Sync interval of the sync group.
      */
-    readonly interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sync schema of the sync group.
      */
-    readonly schema?: pulumi.Input<inputs.sql.v20190601preview.SyncGroupSchemaArgs>;
+    schema?: pulumi.Input<inputs.sql.v20190601preview.SyncGroupSchemaArgs>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * ARM resource id of the sync database in the sync group.
      */
-    readonly syncDatabaseId?: pulumi.Input<string>;
+    syncDatabaseId?: pulumi.Input<string>;
     /**
      * The name of the sync group.
      */
-    readonly syncGroupName?: pulumi.Input<string>;
+    syncGroupName?: pulumi.Input<string>;
     /**
      * If use private link connection is enabled.
      */
-    readonly usePrivateLinkConnection?: pulumi.Input<boolean>;
+    usePrivateLinkConnection?: pulumi.Input<boolean>;
 }

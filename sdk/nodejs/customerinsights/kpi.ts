@@ -215,69 +215,69 @@ export interface KpiArgs {
     /**
      * The aliases.
      */
-    readonly aliases?: pulumi.Input<pulumi.Input<inputs.customerinsights.KpiAliasArgs>[]>;
+    aliases?: pulumi.Input<pulumi.Input<inputs.customerinsights.KpiAliasArgs>[]>;
     /**
      * The calculation window.
      */
-    readonly calculationWindow: pulumi.Input<enums.customerinsights.CalculationWindowTypes>;
+    calculationWindow: pulumi.Input<enums.customerinsights.CalculationWindowTypes>;
     /**
      * Name of calculation window field.
      */
-    readonly calculationWindowFieldName?: pulumi.Input<string>;
+    calculationWindowFieldName?: pulumi.Input<string>;
     /**
      * Localized description for the KPI.
      */
-    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the KPI.
      */
-    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The mapping entity type.
      */
-    readonly entityType: pulumi.Input<enums.customerinsights.EntityTypes>;
+    entityType: pulumi.Input<enums.customerinsights.EntityTypes>;
     /**
      * The mapping entity name.
      */
-    readonly entityTypeName: pulumi.Input<string>;
+    entityTypeName: pulumi.Input<string>;
     /**
      * The computation expression for the KPI.
      */
-    readonly expression: pulumi.Input<string>;
+    expression: pulumi.Input<string>;
     /**
      * The KPI extracts.
      */
-    readonly extracts?: pulumi.Input<pulumi.Input<inputs.customerinsights.KpiExtractArgs>[]>;
+    extracts?: pulumi.Input<pulumi.Input<inputs.customerinsights.KpiExtractArgs>[]>;
     /**
      * The filter expression for the KPI.
      */
-    readonly filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string>;
     /**
      * The computation function for the KPI.
      */
-    readonly function: pulumi.Input<enums.customerinsights.KpiFunctions>;
+    function: pulumi.Input<enums.customerinsights.KpiFunctions>;
     /**
      * the group by properties for the KPI.
      */
-    readonly groupBy?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBy?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the hub.
      */
-    readonly hubName: pulumi.Input<string>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the KPI.
      */
-    readonly kpiName?: pulumi.Input<string>;
+    kpiName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The KPI thresholds.
      */
-    readonly thresHolds?: pulumi.Input<inputs.customerinsights.KpiThresholdsArgs>;
+    thresHolds?: pulumi.Input<inputs.customerinsights.KpiThresholdsArgs>;
     /**
      * The unit of measurement for the KPI.
      */
-    readonly unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string>;
 }

@@ -149,45 +149,45 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * BootStrapConfigurationBlob storage URLs.
      */
-    readonly bootStrapConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
+    bootStrapConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * CloudInitConfigurationBlob storage URLs.
      */
-    readonly cloudInitConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudInitConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    readonly identity?: pulumi.Input<inputs.network.v20200401.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.network.v20200401.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly networkVirtualApplianceName?: pulumi.Input<string>;
+    networkVirtualApplianceName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Network Virtual Appliance SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200401.VirtualApplianceSkuPropertiesArgs>;
+    sku?: pulumi.Input<inputs.network.v20200401.VirtualApplianceSkuPropertiesArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VirtualAppliance ASN.
      */
-    readonly virtualApplianceAsn?: pulumi.Input<number>;
+    virtualApplianceAsn?: pulumi.Input<number>;
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
 }

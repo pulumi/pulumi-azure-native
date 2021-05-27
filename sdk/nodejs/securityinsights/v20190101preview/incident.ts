@@ -219,73 +219,73 @@ export interface IncidentArgs {
     /**
      * The reason the incident was closed
      */
-    readonly classification?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassification>;
+    classification?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassification>;
     /**
      * Describes the reason the incident was closed
      */
-    readonly classificationComment?: pulumi.Input<string>;
+    classificationComment?: pulumi.Input<string>;
     /**
      * The classification reason the incident was closed with
      */
-    readonly classificationReason?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassificationReason>;
+    classificationReason?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassificationReason>;
     /**
      * The description of the incident
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Etag of the azure resource
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The time of the first activity in the incident
      */
-    readonly firstActivityTimeUtc?: pulumi.Input<string>;
+    firstActivityTimeUtc?: pulumi.Input<string>;
     /**
      * Incident ID
      */
-    readonly incidentId?: pulumi.Input<string>;
+    incidentId?: pulumi.Input<string>;
     /**
      * List of labels relevant to this incident
      */
-    readonly labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.IncidentLabelArgs>[]>;
+    labels?: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.IncidentLabelArgs>[]>;
     /**
      * The time of the last activity in the incident
      */
-    readonly lastActivityTimeUtc?: pulumi.Input<string>;
+    lastActivityTimeUtc?: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
-    readonly operationalInsightsResourceProvider: pulumi.Input<string>;
+    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * Describes a user that the incident is assigned to
      */
-    readonly owner?: pulumi.Input<inputs.securityinsights.v20190101preview.IncidentOwnerInfoArgs>;
+    owner?: pulumi.Input<inputs.securityinsights.v20190101preview.IncidentOwnerInfoArgs>;
     /**
      * The incident ID assigned by the incident provider
      */
-    readonly providerIncidentId?: pulumi.Input<string>;
+    providerIncidentId?: pulumi.Input<string>;
     /**
      * The name of the source provider that generated the incident
      */
-    readonly providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The severity of the incident
      */
-    readonly severity: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentSeverity>;
+    severity: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentSeverity>;
     /**
      * The status of the incident
      */
-    readonly status: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentStatus>;
+    status: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentStatus>;
     /**
      * The title of the incident
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

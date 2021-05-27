@@ -27,11 +27,11 @@ export interface GetServiceArgs {
     /**
      * Name of the resource group
      */
-    readonly groupName: string;
+    groupName: string;
     /**
      * Name of the service
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

@@ -146,41 +146,41 @@ export interface ProjectArgs {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180331preview.DatabaseInfoArgs>[]>;
+    databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180331preview.DatabaseInfoArgs>[]>;
     /**
      * Name of the resource group
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the project
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * Name of the service
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
+    sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
     /**
      * Source platform for the project
      */
-    readonly sourcePlatform: pulumi.Input<string | enums.datamigration.v20180331preview.ProjectSourcePlatform>;
+    sourcePlatform: pulumi.Input<string | enums.datamigration.v20180331preview.ProjectSourcePlatform>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
+    targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
     /**
      * Target platform for the project
      */
-    readonly targetPlatform: pulumi.Input<string | enums.datamigration.v20180331preview.ProjectTargetPlatform>;
+    targetPlatform: pulumi.Input<string | enums.datamigration.v20180331preview.ProjectTargetPlatform>;
 }

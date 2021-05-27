@@ -25,19 +25,19 @@ export interface GetSkusNestedResourceTypeFirstArgs {
     /**
      * The first child resource type.
      */
-    readonly nestedResourceTypeFirst: string;
+    nestedResourceTypeFirst: string;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    readonly providerNamespace: string;
+    providerNamespace: string;
     /**
      * The resource type.
      */
-    readonly resourceType: string;
+    resourceType: string;
     /**
      * The SKU.
      */
-    readonly sku: string;
+    sku: string;
 }
 
 export interface GetSkusNestedResourceTypeFirstResult {

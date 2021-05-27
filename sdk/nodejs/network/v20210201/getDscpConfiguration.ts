@@ -26,11 +26,11 @@ export interface GetDscpConfigurationArgs {
     /**
      * The name of the resource.
      */
-    readonly dscpConfigurationName: string;
+    dscpConfigurationName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

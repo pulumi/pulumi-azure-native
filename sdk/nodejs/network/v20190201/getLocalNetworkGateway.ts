@@ -26,11 +26,11 @@ export interface GetLocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    readonly localNetworkGatewayName: string;
+    localNetworkGatewayName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -105,13 +105,13 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    readonly apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string>;
     /**
      * The integration service environment name.
      */
-    readonly integrationServiceEnvironmentName: pulumi.Input<string>;
+    integrationServiceEnvironmentName: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
 }

@@ -27,15 +27,15 @@ export interface GetChannelArgs {
     /**
      * Account Name
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Channel Name
      */
-    readonly channelName: string;
+    channelName: string;
     /**
      * Resource Group Name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

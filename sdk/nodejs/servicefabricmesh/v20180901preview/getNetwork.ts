@@ -26,11 +26,11 @@ export interface GetNetworkArgs {
     /**
      * The identity of the network.
      */
-    readonly networkResourceName: string;
+    networkResourceName: string;
     /**
      * Azure resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

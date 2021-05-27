@@ -109,26 +109,26 @@ export interface GuestDiagnosticsSettingArgs {
     /**
      * the array of data source object which are configured to collect and send data
      */
-    readonly dataSources?: pulumi.Input<pulumi.Input<inputs.insights.v20180601preview.DataSourceArgs>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<inputs.insights.v20180601preview.DataSourceArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */
-    readonly diagnosticSettingsName?: pulumi.Input<string>;
+    diagnosticSettingsName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Operating system type for the configuration
      */
-    readonly osType?: pulumi.Input<string>;
-    readonly proxySetting?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
+    proxySetting?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

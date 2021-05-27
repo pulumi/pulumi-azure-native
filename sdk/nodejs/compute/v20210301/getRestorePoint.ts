@@ -27,15 +27,15 @@ export interface GetRestorePointArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the restore point collection.
      */
-    readonly restorePointCollectionName: string;
+    restorePointCollectionName: string;
     /**
      * The name of the restore point.
      */
-    readonly restorePointName: string;
+    restorePointName: string;
 }
 
 /**

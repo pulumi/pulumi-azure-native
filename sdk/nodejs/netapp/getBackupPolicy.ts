@@ -28,15 +28,15 @@ export interface GetBackupPolicyArgs {
     /**
      * The name of the NetApp account
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    readonly backupPolicyName: string;
+    backupPolicyName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

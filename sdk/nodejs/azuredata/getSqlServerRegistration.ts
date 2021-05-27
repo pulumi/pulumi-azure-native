@@ -27,11 +27,11 @@ export interface GetSqlServerRegistrationArgs {
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the SQL Server registration.
      */
-    readonly sqlServerRegistrationName: string;
+    sqlServerRegistrationName: string;
 }
 
 /**

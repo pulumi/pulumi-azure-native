@@ -105,21 +105,21 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.insights.PrivateEndpointPropertyArgs>;
+    privateEndpoint?: pulumi.Input<inputs.insights.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    readonly privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
-    readonly scopeName: pulumi.Input<string>;
+    scopeName: pulumi.Input<string>;
 }

@@ -28,15 +28,15 @@ export interface GetDscNodeConfigurationArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * The Dsc node configuration name.
      */
-    readonly nodeConfigurationName: string;
+    nodeConfigurationName: string;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

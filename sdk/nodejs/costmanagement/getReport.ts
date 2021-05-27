@@ -26,7 +26,7 @@ export interface GetReportArgs {
     /**
      * Report Name.
      */
-    readonly reportName: string;
+    reportName: string;
 }
 
 /**

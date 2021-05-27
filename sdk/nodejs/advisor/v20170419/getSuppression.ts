@@ -27,15 +27,15 @@ export interface GetSuppressionArgs {
     /**
      * The name of the suppression.
      */
-    readonly name: string;
+    name: string;
     /**
      * The recommendation ID.
      */
-    readonly recommendationId: string;
+    recommendationId: string;
     /**
      * The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
      */
-    readonly resourceUri: string;
+    resourceUri: string;
 }
 
 /**

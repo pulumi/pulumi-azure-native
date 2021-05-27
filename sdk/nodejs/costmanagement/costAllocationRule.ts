@@ -89,13 +89,13 @@ export interface CostAllocationRuleArgs {
     /**
      * BillingAccount ID
      */
-    readonly billingAccountId: pulumi.Input<string>;
+    billingAccountId: pulumi.Input<string>;
     /**
      * Cost allocation rule properties
      */
-    readonly properties?: pulumi.Input<inputs.costmanagement.CostAllocationRulePropertiesArgs>;
+    properties?: pulumi.Input<inputs.costmanagement.CostAllocationRulePropertiesArgs>;
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
 }

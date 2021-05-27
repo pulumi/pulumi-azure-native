@@ -98,21 +98,21 @@ export interface DatabaseArgs {
     /**
      * The charset of the database.
      */
-    readonly charset?: pulumi.Input<string>;
+    charset?: pulumi.Input<string>;
     /**
      * The collation of the database.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

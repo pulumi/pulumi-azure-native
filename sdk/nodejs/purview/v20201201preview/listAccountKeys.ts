@@ -26,11 +26,11 @@ export interface ListAccountKeysArgs {
     /**
      * The name of the account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

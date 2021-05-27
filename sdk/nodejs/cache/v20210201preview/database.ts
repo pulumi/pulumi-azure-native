@@ -140,41 +140,41 @@ export interface DatabaseArgs {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
-    readonly clientProtocol?: pulumi.Input<string | enums.cache.v20210201preview.Protocol>;
+    clientProtocol?: pulumi.Input<string | enums.cache.v20210201preview.Protocol>;
     /**
      * The name of the RedisEnterprise cluster.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Clustering policy - default is OSSCluster. Specified at create time.
      */
-    readonly clusteringPolicy?: pulumi.Input<string | enums.cache.v20210201preview.ClusteringPolicy>;
+    clusteringPolicy?: pulumi.Input<string | enums.cache.v20210201preview.ClusteringPolicy>;
     /**
      * The name of the database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Redis eviction policy - default is VolatileLRU
      */
-    readonly evictionPolicy?: pulumi.Input<string | enums.cache.v20210201preview.EvictionPolicy>;
+    evictionPolicy?: pulumi.Input<string | enums.cache.v20210201preview.EvictionPolicy>;
     /**
      * Optional set of properties to configure geo replication for this database.
      */
-    readonly geoReplication?: pulumi.Input<inputs.cache.v20210201preview.DatabasePropertiesGeoReplicationArgs>;
+    geoReplication?: pulumi.Input<inputs.cache.v20210201preview.DatabasePropertiesGeoReplicationArgs>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    readonly modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210201preview.ModuleArgs>[]>;
+    modules?: pulumi.Input<pulumi.Input<inputs.cache.v20210201preview.ModuleArgs>[]>;
     /**
      * Persistence settings
      */
-    readonly persistence?: pulumi.Input<inputs.cache.v20210201preview.PersistenceArgs>;
+    persistence?: pulumi.Input<inputs.cache.v20210201preview.PersistenceArgs>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

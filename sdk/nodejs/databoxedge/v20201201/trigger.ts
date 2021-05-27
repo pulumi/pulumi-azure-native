@@ -105,17 +105,17 @@ export interface TriggerArgs {
     /**
      * Creates or updates a trigger
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Trigger Kind.
      */
-    readonly kind: pulumi.Input<string | enums.databoxedge.v20201201.TriggerEventType>;
+    kind: pulumi.Input<string | enums.databoxedge.v20201201.TriggerEventType>;
     /**
      * The trigger name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

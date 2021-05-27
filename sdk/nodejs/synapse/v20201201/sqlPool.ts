@@ -164,65 +164,65 @@ export interface SqlPoolArgs {
     /**
      * Collation mode
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * What is this?
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * Date the SQL pool was created
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum size in bytes
      */
-    readonly maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * Resource state
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * Backup database to restore from
      */
-    readonly recoverableDatabaseId?: pulumi.Input<string>;
+    recoverableDatabaseId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Snapshot time to restore
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * SQL pool SKU
      */
-    readonly sku?: pulumi.Input<inputs.synapse.v20201201.SkuArgs>;
+    sku?: pulumi.Input<inputs.synapse.v20201201.SkuArgs>;
     /**
      * Source database to create from
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * SQL pool name
      */
-    readonly sqlPoolName?: pulumi.Input<string>;
+    sqlPoolName?: pulumi.Input<string>;
     /**
      * Resource status
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The storage account type used to store backups for this sql pool.
      */
-    readonly storageAccountType?: pulumi.Input<string | enums.synapse.v20201201.StorageAccountType>;
+    storageAccountType?: pulumi.Input<string | enums.synapse.v20201201.StorageAccountType>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

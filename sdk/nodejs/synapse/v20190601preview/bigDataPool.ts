@@ -207,93 +207,93 @@ export interface BigDataPoolArgs {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.v20190601preview.AutoPausePropertiesArgs>;
+    autoPause?: pulumi.Input<inputs.synapse.v20190601preview.AutoPausePropertiesArgs>;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.v20190601preview.AutoScalePropertiesArgs>;
+    autoScale?: pulumi.Input<inputs.synapse.v20190601preview.AutoScalePropertiesArgs>;
     /**
      * Big Data pool name
      */
-    readonly bigDataPoolName?: pulumi.Input<string>;
+    bigDataPoolName?: pulumi.Input<string>;
     /**
      * The cache size
      */
-    readonly cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number>;
     /**
      * The time when the Big Data pool was created.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfoArgs>[]>;
+    customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfoArgs>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
-    readonly defaultSparkLogFolder?: pulumi.Input<string>;
+    defaultSparkLogFolder?: pulumi.Input<string>;
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20190601preview.DynamicExecutorAllocationArgs>;
+    dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20190601preview.DynamicExecutorAllocationArgs>;
     /**
      * Whether to stop any running jobs in the Big Data pool
      */
-    readonly force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean>;
     /**
      * Whether compute isolation is required or not.
      */
-    readonly isComputeIsolationEnabled?: pulumi.Input<boolean>;
+    isComputeIsolationEnabled?: pulumi.Input<boolean>;
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
+    libraryRequirements?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The number of nodes in the Big Data pool.
      */
-    readonly nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * The level of compute power that each node in the Big Data pool has.
      */
-    readonly nodeSize?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSize>;
+    nodeSize?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSize>;
     /**
      * The kind of nodes that the Big Data pool provides.
      */
-    readonly nodeSizeFamily?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSizeFamily>;
+    nodeSizeFamily?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSizeFamily>;
     /**
      * The state of the Big Data pool.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Whether session level packages enabled.
      */
-    readonly sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
+    sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
     /**
      * The Spark events folder
      */
-    readonly sparkEventsFolder?: pulumi.Input<string>;
+    sparkEventsFolder?: pulumi.Input<string>;
     /**
      * The Apache Spark version.
      */
-    readonly sparkVersion?: pulumi.Input<string>;
+    sparkVersion?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

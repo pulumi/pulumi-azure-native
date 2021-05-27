@@ -26,7 +26,7 @@ export interface GetDeploymentAtTenantScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName: string;
+    deploymentName: string;
 }
 
 /**

@@ -127,29 +127,29 @@ export interface PipelineArgs {
     /**
      * Configuration used to bootstrap the Pipeline.
      */
-    readonly bootstrapConfiguration: pulumi.Input<inputs.devops.v20190701preview.BootstrapConfigurationArgs>;
+    bootstrapConfiguration: pulumi.Input<inputs.devops.v20190701preview.BootstrapConfigurationArgs>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Reference to the Azure DevOps Organization containing the Pipeline.
      */
-    readonly organization: pulumi.Input<inputs.devops.v20190701preview.OrganizationReferenceArgs>;
+    organization: pulumi.Input<inputs.devops.v20190701preview.OrganizationReferenceArgs>;
     /**
      * The name of the Azure Pipeline resource in ARM.
      */
-    readonly pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * Reference to the Azure DevOps Project containing the Pipeline.
      */
-    readonly project: pulumi.Input<inputs.devops.v20190701preview.ProjectReferenceArgs>;
+    project: pulumi.Input<inputs.devops.v20190701preview.ProjectReferenceArgs>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource Tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

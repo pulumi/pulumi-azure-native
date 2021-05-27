@@ -106,14 +106,14 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The Media Services account name.
      */
-    readonly accountName: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.media.v20200501.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.media.v20200501.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

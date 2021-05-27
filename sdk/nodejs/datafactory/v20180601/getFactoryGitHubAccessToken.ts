@@ -29,23 +29,23 @@ export interface GetFactoryGitHubAccessTokenArgs {
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * GitHub access code.
      */
-    readonly gitHubAccessCode: string;
+    gitHubAccessCode: string;
     /**
      * GitHub access token base URL.
      */
-    readonly gitHubAccessTokenBaseUrl: string;
+    gitHubAccessTokenBaseUrl: string;
     /**
      * GitHub application client ID.
      */
-    readonly gitHubClientId?: string;
+    gitHubClientId?: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

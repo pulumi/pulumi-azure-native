@@ -27,15 +27,15 @@ export interface GetStorageTargetArgs {
     /**
      * Name of cache.
      */
-    readonly cacheName: string;
+    cacheName: string;
     /**
      * Target resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of storage target.
      */
-    readonly storageTargetName: string;
+    storageTargetName: string;
 }
 
 /**

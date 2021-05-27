@@ -256,100 +256,100 @@ export interface HostPoolArgs {
     /**
      * Custom rdp property of HostPool.
      */
-    readonly customRdpProperty?: pulumi.Input<string>;
+    customRdpProperty?: pulumi.Input<string>;
     /**
      * Description of HostPool.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name of HostPool.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The name of the host pool within the specified resource group
      */
-    readonly hostPoolName?: pulumi.Input<string>;
+    hostPoolName?: pulumi.Input<string>;
     /**
      * HostPool type for desktop.
      */
-    readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.HostPoolType>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
+    hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.HostPoolType>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The type of the load balancer.
      */
-    readonly loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.LoadBalancerType>;
+    loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.LoadBalancerType>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    readonly managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The max session limit of HostPool.
      */
-    readonly maxSessionLimit?: pulumi.Input<number>;
+    maxSessionLimit?: pulumi.Input<number>;
     /**
      * The registration info of HostPool.
      */
-    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.MigrationRequestPropertiesArgs>;
+    migrationRequest?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.MigrationRequestPropertiesArgs>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.PersonalDesktopAssignmentType>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlanArgs>;
+    personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.PersonalDesktopAssignmentType>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
-    readonly preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.PreferredAppGroupType>;
+    preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.PreferredAppGroupType>;
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.RegistrationInfoArgs>;
+    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ring number of HostPool.
      */
-    readonly ring?: pulumi.Input<number>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSkuArgs>;
+    ring?: pulumi.Input<number>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.v20210309preview.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
-    readonly ssoClientId?: pulumi.Input<string>;
+    ssoClientId?: pulumi.Input<string>;
     /**
      * Path to Azure KeyVault storing the secret used for communication to ADFS.
      */
-    readonly ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
+    ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
     /**
      * The type of single sign on Secret Type.
      */
-    readonly ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.SSOSecretType>;
+    ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20210309preview.SSOSecretType>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */
-    readonly ssoadfsAuthority?: pulumi.Input<string>;
+    ssoadfsAuthority?: pulumi.Input<string>;
     /**
      * The flag to turn on/off StartVMOnConnect feature.
      */
-    readonly startVMOnConnect?: pulumi.Input<boolean>;
+    startVMOnConnect?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is validation environment.
      */
-    readonly validationEnvironment?: pulumi.Input<boolean>;
+    validationEnvironment?: pulumi.Input<boolean>;
     /**
      * VM template for sessionhosts configuration within hostpool.
      */
-    readonly vmTemplate?: pulumi.Input<string>;
+    vmTemplate?: pulumi.Input<string>;
 }

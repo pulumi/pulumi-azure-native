@@ -110,25 +110,25 @@ export interface PeeringServicePrefixArgs {
     /**
      * The prefix learned type
      */
-    readonly learnedType?: pulumi.Input<string | enums.peering.v20190801preview.LearnedType>;
+    learnedType?: pulumi.Input<string | enums.peering.v20190801preview.LearnedType>;
     /**
      * The peering service name.
      */
-    readonly peeringServiceName: pulumi.Input<string>;
+    peeringServiceName: pulumi.Input<string>;
     /**
      * Valid route prefix
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
     /**
      * The prefix name
      */
-    readonly prefixName?: pulumi.Input<string>;
+    prefixName?: pulumi.Input<string>;
     /**
      * The prefix validation state
      */
-    readonly prefixValidationState?: pulumi.Input<string | enums.peering.v20190801preview.PrefixValidationState>;
+    prefixValidationState?: pulumi.Input<string | enums.peering.v20190801preview.PrefixValidationState>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

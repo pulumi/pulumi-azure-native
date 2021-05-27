@@ -163,45 +163,45 @@ export interface ClusterArgs {
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
-    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    enableDiskEncryption?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20190515.OptimizedAutoscaleArgs>;
+    optimizedAutoscale?: pulumi.Input<inputs.kusto.v20190515.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.v20190515.AzureSkuArgs>;
+    sku: pulumi.Input<inputs.kusto.v20190515.AzureSkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190515.TrustedExternalTenantArgs>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190515.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20190515.VirtualNetworkConfigurationArgs>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20190515.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

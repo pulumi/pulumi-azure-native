@@ -127,45 +127,45 @@ export interface SiteLogsConfigArgs {
     /**
      * Application logs configuration
      */
-    readonly applicationLogs?: pulumi.Input<inputs.web.v20150801.ApplicationLogsConfigArgs>;
+    applicationLogs?: pulumi.Input<inputs.web.v20150801.ApplicationLogsConfigArgs>;
     /**
      * Detailed error messages configuration
      */
-    readonly detailedErrorMessages?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
+    detailedErrorMessages?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
     /**
      * Failed requests tracing configuration
      */
-    readonly failedRequestsTracing?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
+    failedRequestsTracing?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
     /**
      * Http logs configuration
      */
-    readonly httpLogs?: pulumi.Input<inputs.web.v20150801.HttpLogsConfigArgs>;
+    httpLogs?: pulumi.Input<inputs.web.v20150801.HttpLogsConfigArgs>;
     /**
      * Resource Id
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

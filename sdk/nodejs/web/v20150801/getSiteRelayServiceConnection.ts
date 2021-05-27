@@ -27,15 +27,15 @@ export interface GetSiteRelayServiceConnectionArgs {
     /**
      * The name by which the Hybrid Connection is identified
      */
-    readonly entityName: string;
+    entityName: string;
     /**
      * The name of the web app
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource group name
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

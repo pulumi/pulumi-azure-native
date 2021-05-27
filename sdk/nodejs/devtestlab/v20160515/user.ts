@@ -127,37 +127,37 @@ export interface UserArgs {
     /**
      * The identity of the user.
      */
-    readonly identity?: pulumi.Input<inputs.devtestlab.v20160515.UserIdentityArgs>;
+    identity?: pulumi.Input<inputs.devtestlab.v20160515.UserIdentityArgs>;
     /**
      * The name of the lab.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the user profile.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The secret store of the user.
      */
-    readonly secretStore?: pulumi.Input<inputs.devtestlab.v20160515.UserSecretStoreArgs>;
+    secretStore?: pulumi.Input<inputs.devtestlab.v20160515.UserSecretStoreArgs>;
     /**
      * The tags of the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }

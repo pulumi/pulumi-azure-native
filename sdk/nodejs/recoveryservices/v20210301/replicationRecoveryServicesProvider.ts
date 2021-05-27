@@ -105,21 +105,21 @@ export interface ReplicationRecoveryServicesProviderArgs {
     /**
      * Fabric name.
      */
-    readonly fabricName: pulumi.Input<string>;
+    fabricName: pulumi.Input<string>;
     /**
      * The properties of an add provider request.
      */
-    readonly properties: pulumi.Input<inputs.recoveryservices.v20210301.AddRecoveryServicesProviderInputPropertiesArgs>;
+    properties: pulumi.Input<inputs.recoveryservices.v20210301.AddRecoveryServicesProviderInputPropertiesArgs>;
     /**
      * Recovery services provider name.
      */
-    readonly providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

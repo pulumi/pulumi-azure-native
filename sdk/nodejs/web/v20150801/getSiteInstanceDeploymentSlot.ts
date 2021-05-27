@@ -29,23 +29,23 @@ export interface GetSiteInstanceDeploymentSlotArgs {
     /**
      * Id of the deployment
      */
-    readonly id: string;
+    id: string;
     /**
      * Id of web app instance
      */
-    readonly instanceId: string;
+    instanceId: string;
     /**
      * Name of web app
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of resource group
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
-    readonly slot: string;
+    slot: string;
 }
 
 /**

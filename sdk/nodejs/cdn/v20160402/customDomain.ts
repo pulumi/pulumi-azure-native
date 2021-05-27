@@ -110,21 +110,21 @@ export interface CustomDomainArgs {
     /**
      * Name of the custom domain within an endpoint.
      */
-    readonly customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string>;
     /**
      * Name of the endpoint within the CDN profile.
      */
-    readonly endpointName: pulumi.Input<string>;
+    endpointName: pulumi.Input<string>;
     /**
      * The host name of the custom domain. Must be a domain name.
      */
-    readonly hostName: pulumi.Input<string>;
+    hostName: pulumi.Input<string>;
     /**
      * Name of the CDN profile within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

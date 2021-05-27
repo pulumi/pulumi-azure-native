@@ -135,30 +135,30 @@ export interface KustoDatabaseDataSetMappingArgs {
     /**
      * The name of the share account.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The id of the source data set.
      */
-    readonly dataSetId: pulumi.Input<string>;
+    dataSetId: pulumi.Input<string>;
     /**
      * The name of the data set mapping to be created.
      */
-    readonly dataSetMappingName?: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'KustoDatabase'.
      */
-    readonly kind: pulumi.Input<"KustoDatabase">;
+    kind: pulumi.Input<"KustoDatabase">;
     /**
      * Resource id of the sink kusto cluster.
      */
-    readonly kustoClusterResourceId: pulumi.Input<string>;
+    kustoClusterResourceId: pulumi.Input<string>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the share subscription which will hold the data set sink.
      */
-    readonly shareSubscriptionName: pulumi.Input<string>;
+    shareSubscriptionName: pulumi.Input<string>;
 }

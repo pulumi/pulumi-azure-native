@@ -26,7 +26,7 @@ export interface GetConsoleArgs {
     /**
      * The name of the console
      */
-    readonly consoleName: string;
+    consoleName: string;
 }
 
 /**

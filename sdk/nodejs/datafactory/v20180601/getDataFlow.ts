@@ -27,15 +27,15 @@ export interface GetDataFlowArgs {
     /**
      * The data flow name.
      */
-    readonly dataFlowName: string;
+    dataFlowName: string;
     /**
      * The factory name.
      */
-    readonly factoryName: string;
+    factoryName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

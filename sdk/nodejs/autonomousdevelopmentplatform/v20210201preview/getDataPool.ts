@@ -27,15 +27,15 @@ export interface GetDataPoolArgs {
     /**
      * The name of the ADP account
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Data Pool
      */
-    readonly dataPoolName: string;
+    dataPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

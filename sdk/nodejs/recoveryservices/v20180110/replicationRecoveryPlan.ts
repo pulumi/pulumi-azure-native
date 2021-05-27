@@ -101,17 +101,17 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * Recovery plan creation properties.
      */
-    readonly properties: pulumi.Input<inputs.recoveryservices.v20180110.CreateRecoveryPlanInputPropertiesArgs>;
+    properties: pulumi.Input<inputs.recoveryservices.v20180110.CreateRecoveryPlanInputPropertiesArgs>;
     /**
      * Recovery plan name.
      */
-    readonly recoveryPlanName?: pulumi.Input<string>;
+    recoveryPlanName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */
-    readonly resourceName: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
 }

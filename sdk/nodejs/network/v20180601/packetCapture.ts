@@ -128,34 +128,34 @@ export interface PacketCaptureArgs {
     /**
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
-    readonly bytesToCapturePerPacket?: pulumi.Input<number>;
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.network.v20180601.PacketCaptureFilterArgs>[]>;
+    bytesToCapturePerPacket?: pulumi.Input<number>;
+    filters?: pulumi.Input<pulumi.Input<inputs.network.v20180601.PacketCaptureFilterArgs>[]>;
     /**
      * The name of the network watcher.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    networkWatcherName: pulumi.Input<string>;
     /**
      * The name of the packet capture session.
      */
-    readonly packetCaptureName?: pulumi.Input<string>;
+    packetCaptureName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Describes the storage location for a packet capture session.
      */
-    readonly storageLocation: pulumi.Input<inputs.network.v20180601.PacketCaptureStorageLocationArgs>;
+    storageLocation: pulumi.Input<inputs.network.v20180601.PacketCaptureStorageLocationArgs>;
     /**
      * The ID of the targeted resource, only VM is currently supported.
      */
-    readonly target: pulumi.Input<string>;
+    target: pulumi.Input<string>;
     /**
      * Maximum duration of the capture session in seconds.
      */
-    readonly timeLimitInSeconds?: pulumi.Input<number>;
+    timeLimitInSeconds?: pulumi.Input<number>;
     /**
      * Maximum size of the capture output.
      */
-    readonly totalBytesPerSession?: pulumi.Input<number>;
+    totalBytesPerSession?: pulumi.Input<number>;
 }

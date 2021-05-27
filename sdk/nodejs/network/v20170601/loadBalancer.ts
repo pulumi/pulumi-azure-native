@@ -155,61 +155,61 @@ export interface LoadBalancerArgs {
     /**
      * Collection of backend address pools used by a load balancer
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.BackendAddressPoolArgs>[]>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.BackendAddressPoolArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Object representing the frontend IPs to be used for the load balancer
      */
-    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170601.FrontendIPConfigurationArgs>[]>;
+    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170601.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource ID.
      */
-    readonly id?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatPoolArgs>[]>;
+    inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatRuleArgs>[]>;
+    inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatRuleArgs>[]>;
     /**
      * The name of the load balancer.
      */
-    readonly loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * Object collection representing the load balancing rules Gets the provisioning 
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.LoadBalancingRuleArgs>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The outbound NAT rules.
      */
-    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.OutboundNatRuleArgs>[]>;
+    outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.OutboundNatRuleArgs>[]>;
     /**
      * Collection of probe objects used in the load balancer
      */
-    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20170601.ProbeArgs>[]>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.v20170601.ProbeArgs>[]>;
     /**
      * Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource GUID property of the load balancer resource.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

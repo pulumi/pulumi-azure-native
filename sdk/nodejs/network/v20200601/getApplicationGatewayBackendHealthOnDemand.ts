@@ -35,47 +35,47 @@ export interface GetApplicationGatewayBackendHealthOnDemandArgs {
     /**
      * The name of the application gateway.
      */
-    readonly applicationGatewayName: string;
+    applicationGatewayName: string;
     /**
      * Reference to backend pool of application gateway to which probe request will be sent.
      */
-    readonly backendAddressPool?: inputs.network.v20200601.SubResource;
+    backendAddressPool?: inputs.network.v20200601.SubResource;
     /**
      * Reference to backend http setting of application gateway to be used for test probe.
      */
-    readonly backendHttpSettings?: inputs.network.v20200601.SubResource;
+    backendHttpSettings?: inputs.network.v20200601.SubResource;
     /**
      * Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
      */
-    readonly expand?: string;
+    expand?: string;
     /**
      * Host name to send the probe to.
      */
-    readonly host?: string;
+    host?: string;
     /**
      * Criterion for classifying a healthy probe response.
      */
-    readonly match?: inputs.network.v20200601.ApplicationGatewayProbeHealthResponseMatch;
+    match?: inputs.network.v20200601.ApplicationGatewayProbeHealthResponseMatch;
     /**
      * Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
      */
-    readonly path?: string;
+    path?: string;
     /**
      * Whether the host header should be picked from the backend http settings. Default value is false.
      */
-    readonly pickHostNameFromBackendHttpSettings?: boolean;
+    pickHostNameFromBackendHttpSettings?: boolean;
     /**
      * The protocol used for the probe.
      */
-    readonly protocol?: string | enums.network.v20200601.ApplicationGatewayProtocol;
+    protocol?: string | enums.network.v20200601.ApplicationGatewayProtocol;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
      */
-    readonly timeout?: number;
+    timeout?: number;
 }
 
 /**

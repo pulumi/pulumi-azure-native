@@ -193,65 +193,65 @@ export interface SubscriptionArgs {
     /**
      * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
-    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    autoDeleteOnIdle?: pulumi.Input<string>;
     /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
-    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
+    deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether a subscription has dead letter support when a message expires.
      */
-    readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    defaultMessageTimeToLive?: pulumi.Input<string>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
     /**
      * Queue/Topic name to forward the messages
      */
-    readonly forwardTo?: pulumi.Input<string>;
+    forwardTo?: pulumi.Input<string>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
-    readonly lockDuration?: pulumi.Input<string>;
+    lockDuration?: pulumi.Input<string>;
     /**
      * Number of maximum deliveries.
      */
-    readonly maxDeliveryCount?: pulumi.Input<number>;
+    maxDeliveryCount?: pulumi.Input<number>;
     /**
      * The namespace name
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Value indicating if a subscription supports the concept of sessions.
      */
-    readonly requiresSession?: pulumi.Input<boolean>;
+    requiresSession?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<enums.servicebus.EntityStatus>;
+    status?: pulumi.Input<enums.servicebus.EntityStatus>;
     /**
      * The subscription name.
      */
-    readonly subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * The topic name.
      */
-    readonly topicName: pulumi.Input<string>;
+    topicName: pulumi.Input<string>;
 }

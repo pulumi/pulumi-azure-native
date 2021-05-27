@@ -104,29 +104,29 @@ export interface SqlResourceSqlRoleDefinitionArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
      */
-    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The set of operations allowed through this Role Definition.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.documentdb.v20200601preview.PermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.documentdb.v20200601preview.PermissionArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The GUID for the Role Definition.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */
-    readonly roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string>;
     /**
      * Indicates whether the Role Definition was built-in or user created.
      */
-    readonly type?: pulumi.Input<enums.documentdb.v20200601preview.RoleDefinitionType>;
+    type?: pulumi.Input<enums.documentdb.v20200601preview.RoleDefinitionType>;
 }

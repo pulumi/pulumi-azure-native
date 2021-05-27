@@ -129,37 +129,37 @@ export interface ServiceArgs {
     /**
      * Windows IoT Device Service OEM AAD domain
      */
-    readonly adminDomainName?: pulumi.Input<string>;
+    adminDomainName?: pulumi.Input<string>;
     /**
      * Windows IoT Device Service ODM AAD domain
      */
-    readonly billingDomainName?: pulumi.Input<string>;
+    billingDomainName?: pulumi.Input<string>;
     /**
      * The name of the Windows IoT Device Service.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Windows IoT Device Service notes.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * Windows IoT Device Service device allocation,
      */
-    readonly quantity?: pulumi.Input<number>;
+    quantity?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

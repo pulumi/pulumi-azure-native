@@ -119,29 +119,29 @@ export interface VariableArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Gets or sets the description of the variable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the encrypted flag of the variable.
      */
-    readonly isEncrypted?: pulumi.Input<boolean>;
+    isEncrypted?: pulumi.Input<boolean>;
     /**
      * Gets or sets the name of the variable.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Gets or sets the value of the variable.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * The variable name.
      */
-    readonly variableName?: pulumi.Input<string>;
+    variableName?: pulumi.Input<string>;
 }

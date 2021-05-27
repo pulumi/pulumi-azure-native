@@ -27,11 +27,11 @@ export interface GetAccountArgs {
     /**
      * Account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

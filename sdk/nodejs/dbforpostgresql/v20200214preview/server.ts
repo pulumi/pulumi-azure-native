@@ -216,79 +216,79 @@ export interface ServerArgs {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The administrator login password (required for server creation).
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * availability Zone information of the server.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The mode to create a new PostgreSQL server.
      */
-    readonly createMode?: pulumi.Input<string | enums.dbforpostgresql.v20200214preview.CreateMode>;
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.ServerPropertiesDelegatedSubnetArgumentsArgs>;
+    createMode?: pulumi.Input<string | enums.dbforpostgresql.v20200214preview.CreateMode>;
+    delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.ServerPropertiesDelegatedSubnetArgumentsArgs>;
     /**
      * The display name of a server.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * stand by count value can be either enabled or disabled
      */
-    readonly haEnabled?: pulumi.Input<enums.dbforpostgresql.v20200214preview.HAEnabledEnum>;
+    haEnabled?: pulumi.Input<enums.dbforpostgresql.v20200214preview.HAEnabledEnum>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.IdentityArgs>;
+    identity?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.MaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.MaintenanceWindowArgs>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
-    readonly pointInTimeUTC?: pulumi.Input<string>;
-    readonly privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.ServerPropertiesPrivateDnsZoneArgumentsArgs>;
+    pointInTimeUTC?: pulumi.Input<string>;
+    privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.ServerPropertiesPrivateDnsZoneArgumentsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.SkuArgs>;
     /**
      * The resource group name of source serve PostgreSQL server name to restore from.
      */
-    readonly sourceResourceGroupName?: pulumi.Input<string>;
+    sourceResourceGroupName?: pulumi.Input<string>;
     /**
      * The source PostgreSQL server name to restore from.
      */
-    readonly sourceServerName?: pulumi.Input<string>;
+    sourceServerName?: pulumi.Input<string>;
     /**
      * The subscription id of source serve PostgreSQL server name to restore from.
      */
-    readonly sourceSubscriptionId?: pulumi.Input<string>;
+    sourceSubscriptionId?: pulumi.Input<string>;
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.StorageProfileArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * PostgreSQL Server version.
      */
-    readonly version?: pulumi.Input<string | enums.dbforpostgresql.v20200214preview.ServerVersion>;
+    version?: pulumi.Input<string | enums.dbforpostgresql.v20200214preview.ServerVersion>;
 }

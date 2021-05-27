@@ -116,21 +116,21 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    readonly botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU of the HealthBot.
      */
-    readonly sku: pulumi.Input<inputs.healthbot.SkuArgs>;
+    sku: pulumi.Input<inputs.healthbot.SkuArgs>;
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

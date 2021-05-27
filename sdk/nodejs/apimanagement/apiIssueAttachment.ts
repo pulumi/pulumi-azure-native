@@ -121,33 +121,33 @@ export interface ApiIssueAttachmentArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * Attachment identifier within an Issue. Must be unique in the current Issue.
      */
-    readonly attachmentId?: pulumi.Input<string>;
+    attachmentId?: pulumi.Input<string>;
     /**
      * An HTTP link or Base64-encoded binary data.
      */
-    readonly content: pulumi.Input<string>;
+    content: pulumi.Input<string>;
     /**
      * Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
      */
-    readonly contentFormat: pulumi.Input<string>;
+    contentFormat: pulumi.Input<string>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    readonly issueId: pulumi.Input<string>;
+    issueId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Filename by which the binary data will be saved.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
 }

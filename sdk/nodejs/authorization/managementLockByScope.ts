@@ -104,21 +104,21 @@ export interface ManagementLockByScopeArgs {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: pulumi.Input<string | enums.authorization.LockLevel>;
+    level: pulumi.Input<string | enums.authorization.LockLevel>;
     /**
      * The name of lock.
      */
-    readonly lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * The owners of the lock.
      */
-    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[]>;
     /**
      * The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

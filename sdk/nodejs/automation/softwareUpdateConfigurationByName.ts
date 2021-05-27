@@ -147,29 +147,29 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * The name of the automation account.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Details of provisioning error
      */
-    readonly error?: pulumi.Input<inputs.automation.ErrorResponseArgs>;
+    error?: pulumi.Input<inputs.automation.ErrorResponseArgs>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Schedule information for the Software update configuration
      */
-    readonly scheduleInfo: pulumi.Input<inputs.automation.SUCSchedulePropertiesArgs>;
+    scheduleInfo: pulumi.Input<inputs.automation.SUCSchedulePropertiesArgs>;
     /**
      * The name of the software update configuration to be created.
      */
-    readonly softwareUpdateConfigurationName?: pulumi.Input<string>;
+    softwareUpdateConfigurationName?: pulumi.Input<string>;
     /**
      * Tasks information for the Software update configuration.
      */
-    readonly tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs>;
+    tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs>;
     /**
      * update specific properties for the Software update configuration
      */
-    readonly updateConfiguration: pulumi.Input<inputs.automation.UpdateConfigurationArgs>;
+    updateConfiguration: pulumi.Input<inputs.automation.UpdateConfigurationArgs>;
 }

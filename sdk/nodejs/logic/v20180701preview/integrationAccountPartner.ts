@@ -134,33 +134,33 @@ export interface IntegrationAccountPartnerArgs {
     /**
      * The partner content.
      */
-    readonly content: pulumi.Input<inputs.logic.v20180701preview.PartnerContentArgs>;
+    content: pulumi.Input<inputs.logic.v20180701preview.PartnerContentArgs>;
     /**
      * The integration account name.
      */
-    readonly integrationAccountName: pulumi.Input<string>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource location.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    readonly metadata?: any;
+    metadata?: any;
     /**
      * The integration account partner name.
      */
-    readonly partnerName?: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string>;
     /**
      * The partner type.
      */
-    readonly partnerType: pulumi.Input<string | enums.logic.v20180701preview.PartnerType>;
+    partnerType: pulumi.Input<string | enums.logic.v20180701preview.PartnerType>;
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

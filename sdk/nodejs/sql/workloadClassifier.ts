@@ -133,45 +133,45 @@ export interface WorkloadClassifierArgs {
     /**
      * The workload classifier context.
      */
-    readonly context?: pulumi.Input<string>;
+    context?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The workload classifier end time for classification.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The workload classifier importance.
      */
-    readonly importance?: pulumi.Input<string>;
+    importance?: pulumi.Input<string>;
     /**
      * The workload classifier label.
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * The workload classifier member name.
      */
-    readonly memberName: pulumi.Input<string>;
+    memberName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The workload classifier start time for classification.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * The name of the workload classifier to create/update.
      */
-    readonly workloadClassifierName?: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string>;
     /**
      * The name of the workload group from which to receive the classifier from.
      */
-    readonly workloadGroupName: pulumi.Input<string>;
+    workloadGroupName: pulumi.Input<string>;
 }

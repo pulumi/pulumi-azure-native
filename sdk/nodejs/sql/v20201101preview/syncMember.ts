@@ -159,53 +159,53 @@ export interface SyncMemberArgs {
     /**
      * Database name of the member database in the sync member.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Database type of the sync member.
      */
-    readonly databaseType?: pulumi.Input<string | enums.sql.v20201101preview.SyncMemberDbType>;
+    databaseType?: pulumi.Input<string | enums.sql.v20201101preview.SyncMemberDbType>;
     /**
      * Password of the member database in the sync member.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Server name of the member database in the sync member
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * SQL Server database id of the sync member.
      */
-    readonly sqlServerDatabaseId?: pulumi.Input<string>;
+    sqlServerDatabaseId?: pulumi.Input<string>;
     /**
      * ARM resource id of the sync agent in the sync member.
      */
-    readonly syncAgentId?: pulumi.Input<string>;
+    syncAgentId?: pulumi.Input<string>;
     /**
      * Sync direction of the sync member.
      */
-    readonly syncDirection?: pulumi.Input<string | enums.sql.v20201101preview.SyncDirection>;
+    syncDirection?: pulumi.Input<string | enums.sql.v20201101preview.SyncDirection>;
     /**
      * The name of the sync group on which the sync member is hosted.
      */
-    readonly syncGroupName: pulumi.Input<string>;
+    syncGroupName: pulumi.Input<string>;
     /**
      * ARM resource id of the sync member logical database, for sync members in Azure.
      */
-    readonly syncMemberAzureDatabaseResourceId?: pulumi.Input<string>;
+    syncMemberAzureDatabaseResourceId?: pulumi.Input<string>;
     /**
      * The name of the sync member.
      */
-    readonly syncMemberName?: pulumi.Input<string>;
+    syncMemberName?: pulumi.Input<string>;
     /**
      * Whether to use private link connection.
      */
-    readonly usePrivateLinkConnection?: pulumi.Input<boolean>;
+    usePrivateLinkConnection?: pulumi.Input<boolean>;
     /**
      * User name of the member database in the sync member.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

@@ -27,11 +27,11 @@ export interface GetQueryPackArgs {
     /**
      * The name of the Log Analytics QueryPack resource.
      */
-    readonly queryPackName: string;
+    queryPackName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

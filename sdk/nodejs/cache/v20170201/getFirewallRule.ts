@@ -27,15 +27,15 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the Redis cache.
      */
-    readonly cacheName: string;
+    cacheName: string;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the firewall rule.
      */
-    readonly ruleName: string;
+    ruleName: string;
 }
 
 /**

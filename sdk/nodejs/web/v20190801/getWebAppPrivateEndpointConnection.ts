@@ -27,12 +27,12 @@ export interface GetWebAppPrivateEndpointConnectionArgs {
     /**
      * Name of the site.
      */
-    readonly name: string;
-    readonly privateEndpointConnectionName: string;
+    name: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

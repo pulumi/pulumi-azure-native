@@ -148,41 +148,41 @@ export interface AssignmentArgs {
     /**
      * name of the assignment.
      */
-    readonly assignmentName?: pulumi.Input<string>;
+    assignmentName?: pulumi.Input<string>;
     /**
      * ID of the Blueprint definition resource.
      */
-    readonly blueprintId?: pulumi.Input<string>;
+    blueprintId?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Managed Service Identity for this Blueprint assignment
      */
-    readonly identity: pulumi.Input<inputs.blueprint.v20171111preview.ManagedServiceIdentityArgs>;
+    identity: pulumi.Input<inputs.blueprint.v20171111preview.ManagedServiceIdentityArgs>;
     /**
      * The location of this Blueprint assignment.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Defines how Blueprint-managed resources will be locked.
      */
-    readonly locks?: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentLockSettingsArgs>;
+    locks?: pulumi.Input<inputs.blueprint.v20171111preview.AssignmentLockSettingsArgs>;
     /**
      * Blueprint parameter values.
      */
-    readonly parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
+    parameters: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterValueBaseArgs>}>;
     /**
      * Names and locations of resource group placeholders.
      */
-    readonly resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValueArgs>}>;
+    resourceGroups: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupValueArgs>}>;
     /**
      * azure subscriptionId, which we assign the blueprint to.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
 }

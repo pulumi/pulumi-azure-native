@@ -105,26 +105,26 @@ export interface ConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    readonly connectionGatewayName?: pulumi.Input<string>;
+    connectionGatewayName?: pulumi.Input<string>;
     /**
      * Resource ETag
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.ConnectionGatewayDefinitionPropertiesArgs>;
+    location?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.web.ConnectionGatewayDefinitionPropertiesArgs>;
     /**
      * The resource group
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Subscription Id
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

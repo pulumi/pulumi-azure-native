@@ -27,11 +27,11 @@ export interface GetSystemTopicArgs {
     /**
      * The name of the resource group within the user's subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the system topic.
      */
-    readonly systemTopicName: string;
+    systemTopicName: string;
 }
 
 /**

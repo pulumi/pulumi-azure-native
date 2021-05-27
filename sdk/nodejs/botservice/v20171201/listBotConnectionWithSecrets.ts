@@ -27,15 +27,15 @@ export interface ListBotConnectionWithSecretsArgs {
     /**
      * The name of the Bot Service Connection Setting resource
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Bot resource.
      */
-    readonly resourceName: string;
+    resourceName: string;
 }
 
 /**

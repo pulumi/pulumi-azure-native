@@ -278,101 +278,101 @@ export interface DiskArgs {
     /**
      * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
      */
-    readonly burstingEnabled?: pulumi.Input<boolean>;
+    burstingEnabled?: pulumi.Input<boolean>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.CreationDataArgs>;
+    creationData: pulumi.Input<inputs.compute.CreationDataArgs>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
-    readonly diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string>;
     /**
      * The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
      */
-    readonly diskIOPSReadOnly?: pulumi.Input<number>;
+    diskIOPSReadOnly?: pulumi.Input<number>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
-    readonly diskIOPSReadWrite?: pulumi.Input<number>;
+    diskIOPSReadWrite?: pulumi.Input<number>;
     /**
      * The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
      */
-    readonly diskMBpsReadOnly?: pulumi.Input<number>;
+    diskMBpsReadOnly?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
      */
-    readonly diskMBpsReadWrite?: pulumi.Input<number>;
+    diskMBpsReadWrite?: pulumi.Input<number>;
     /**
      * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
-    readonly diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    readonly diskSizeGB?: pulumi.Input<number>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    readonly encryption?: pulumi.Input<inputs.compute.EncryptionArgs>;
+    encryption?: pulumi.Input<inputs.compute.EncryptionArgs>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.EncryptionSettingsCollectionArgs>;
+    encryptionSettingsCollection?: pulumi.Input<inputs.compute.EncryptionSettingsCollectionArgs>;
     /**
      * The extended location where the disk will be created. Extended location cannot be changed.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration>;
     /**
      * Resource location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */
-    readonly maxShares?: pulumi.Input<number>;
+    maxShares?: pulumi.Input<number>;
     /**
      * Policy for accessing the disk via network.
      */
-    readonly networkAccessPolicy?: pulumi.Input<string | enums.compute.NetworkAccessPolicy>;
+    networkAccessPolicy?: pulumi.Input<string | enums.compute.NetworkAccessPolicy>;
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<enums.compute.OperatingSystemTypes>;
+    osType?: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.PurchasePlanArgs>;
+    purchasePlan?: pulumi.Input<inputs.compute.PurchasePlanArgs>;
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Contains the security related information for the resource.
      */
-    readonly securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfileArgs>;
+    securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfileArgs>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.DiskSkuArgs>;
+    sku?: pulumi.Input<inputs.compute.DiskSkuArgs>;
     /**
      * Indicates the OS on a disk supports hibernation.
      */
-    readonly supportsHibernation?: pulumi.Input<boolean>;
+    supportsHibernation?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
     /**
      * The Logical zone list for Disk.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

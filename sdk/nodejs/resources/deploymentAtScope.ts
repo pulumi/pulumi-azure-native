@@ -104,21 +104,21 @@ export interface DeploymentAtScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * The location to store the deployment data.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The deployment properties.
      */
-    readonly properties: pulumi.Input<inputs.resources.DeploymentPropertiesArgs>;
+    properties: pulumi.Input<inputs.resources.DeploymentPropertiesArgs>;
     /**
      * The resource scope.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * Deployment tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -25,7 +25,7 @@ export interface GetManagementLockArgs {
     /**
      * Name of the management lock.
      */
-    readonly lockName: string;
+    lockName: string;
 }
 
 /**

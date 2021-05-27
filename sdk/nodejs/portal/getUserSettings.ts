@@ -26,7 +26,7 @@ export interface GetUserSettingsArgs {
     /**
      * The name of the user settings
      */
-    readonly userSettingsName: string;
+    userSettingsName: string;
 }
 
 /**

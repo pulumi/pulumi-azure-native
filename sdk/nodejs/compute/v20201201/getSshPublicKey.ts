@@ -26,11 +26,11 @@ export interface GetSshPublicKeyArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the SSH public key.
      */
-    readonly sshPublicKeyName: string;
+    sshPublicKeyName: string;
 }
 
 /**

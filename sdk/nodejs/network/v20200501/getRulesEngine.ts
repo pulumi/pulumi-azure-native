@@ -27,15 +27,15 @@ export interface GetRulesEngineArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly frontDoorName: string;
+    frontDoorName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    readonly rulesEngineName: string;
+    rulesEngineName: string;
 }
 
 /**

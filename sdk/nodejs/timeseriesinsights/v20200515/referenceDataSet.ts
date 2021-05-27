@@ -125,29 +125,29 @@ export interface ReferenceDataSetArgs {
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    readonly dataStringComparisonBehavior?: pulumi.Input<string | enums.timeseriesinsights.v20200515.DataStringComparisonBehavior>;
+    dataStringComparisonBehavior?: pulumi.Input<string | enums.timeseriesinsights.v20200515.DataStringComparisonBehavior>;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    readonly environmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * The list of key properties for the reference data set.
      */
-    readonly keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20200515.ReferenceDataSetKeyPropertyArgs>[]>;
+    keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20200515.ReferenceDataSetKeyPropertyArgs>[]>;
     /**
      * The location of the resource.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the reference data set.
      */
-    readonly referenceDataSetName?: pulumi.Input<string>;
+    referenceDataSetName?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

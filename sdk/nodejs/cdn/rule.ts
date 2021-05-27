@@ -136,33 +136,33 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    readonly conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
-    readonly matchProcessingBehavior?: pulumi.Input<string | enums.cdn.MatchProcessingBehavior>;
+    matchProcessingBehavior?: pulumi.Input<string | enums.cdn.MatchProcessingBehavior>;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    readonly order: pulumi.Input<number>;
+    order: pulumi.Input<number>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
-    readonly profileName: pulumi.Input<string>;
+    profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile.
      */
-    readonly ruleSetName: pulumi.Input<string>;
+    ruleSetName: pulumi.Input<string>;
 }

@@ -88,13 +88,13 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
  * The set of arguments for constructing a OutboundFirewallRule resource.
  */
 export interface OutboundFirewallRuleArgs {
-    readonly outboundRuleFqdn?: pulumi.Input<string>;
+    outboundRuleFqdn?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

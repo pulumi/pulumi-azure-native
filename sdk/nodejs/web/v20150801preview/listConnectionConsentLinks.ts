@@ -33,39 +33,39 @@ export interface ListConnectionConsentLinksArgs {
     /**
      * The connection name.
      */
-    readonly connectionName: string;
+    connectionName: string;
     /**
      * Resource Id
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Kind of resource
      */
-    readonly kind?: string;
+    kind?: string;
     /**
      * Resource Location
      */
-    readonly location?: string;
+    location?: string;
     /**
      * Resource Name
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Array of links
      */
-    readonly parameters?: inputs.web.v20150801preview.ConsentLinkInputParameter[];
+    parameters?: inputs.web.v20150801preview.ConsentLinkInputParameter[];
     /**
      * The resource group name.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Resource tags
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * Resource type
      */
-    readonly type?: string;
+    type?: string;
 }
 
 /**

@@ -27,15 +27,15 @@ export interface GetDatabaseAccountTableArgs {
     /**
      * Cosmos DB database account name.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * Name of an Azure resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Cosmos DB table name.
      */
-    readonly tableName: string;
+    tableName: string;
 }
 
 /**

@@ -27,11 +27,11 @@ export interface GetVirtualNetworkTapArgs {
     /**
      * The name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of virtual network tap.
      */
-    readonly tapName: string;
+    tapName: string;
 }
 
 /**

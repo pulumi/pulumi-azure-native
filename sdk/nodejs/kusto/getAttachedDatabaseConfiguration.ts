@@ -28,15 +28,15 @@ export interface GetAttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    readonly attachedDatabaseConfigurationName: string;
+    attachedDatabaseConfigurationName: string;
     /**
      * The name of the Kusto cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

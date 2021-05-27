@@ -28,19 +28,19 @@ export interface GetGlobalUserPersonalPreferencesArgs {
     /**
      * Enum indicating if user is adding or removing a favorite lab
      */
-    readonly addRemove?: string | enums.labservices.v20181015.AddRemove;
+    addRemove?: string | enums.labservices.v20181015.AddRemove;
     /**
      * Resource Id of the lab account
      */
-    readonly labAccountResourceId?: string;
+    labAccountResourceId?: string;
     /**
      * Resource Id of the lab to add/remove from the favorites list
      */
-    readonly labResourceId?: string;
+    labResourceId?: string;
     /**
      * The name of the user.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**
