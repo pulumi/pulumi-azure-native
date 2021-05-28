@@ -38,6 +38,18 @@ export interface GetOrchestratorInstanceServiceDetailsArgs {
  */
 export interface GetOrchestratorInstanceServiceDetailsResult {
     /**
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    readonly apiServerEndpoint?: string;
+    /**
+     * RootCA certificate of kubernetes cluster base64 encoded
+     */
+    readonly clusterRootCA?: string;
+    /**
+     * Properties of the controller.
+     */
+    readonly controllerDetails: outputs.delegatednetwork.v20210315.ControllerDetailsResponse;
+    /**
      * An identifier that represents the resource.
      */
     readonly id: string;
@@ -58,9 +70,25 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      */
     readonly name: string;
     /**
-     * Properties of the provision operation request.
+     * AAD ID used with apiserver
      */
-    readonly properties: outputs.delegatednetwork.v20210315.OrchestratorResourcePropertiesResponse;
+    readonly orchestratorAppId?: string;
+    /**
+     * TenantID of server App ID
+     */
+    readonly orchestratorTenantId?: string;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    readonly privateLinkResourceId?: string;
+    /**
+     * The current state of orchestratorInstance resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Resource guid.
+     */
+    readonly resourceGuid: string;
     /**
      * The resource tags.
      */

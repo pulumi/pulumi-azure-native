@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Resources
+
+- `botservice.PrivateEndpointConnection`
+- `securityinsights.Metadatum`
+
+#### New Functions
+
+- `botservice.getPrivateEndpointConnection`
+- `securityinsights.getMetadatum`
 
 ---
 

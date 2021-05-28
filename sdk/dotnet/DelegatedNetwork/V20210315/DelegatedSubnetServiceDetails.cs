@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        [Output("controllerDetails")]
+        public Output<Outputs.ControllerDetailsResponse?> ControllerDetails { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
@@ -28,10 +34,22 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current state of dnc delegated subnet resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DelegatedSubnetPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// subnet details
+        /// </summary>
+        [Output("subnetDetails")]
+        public Output<Outputs.SubnetDetailsResponse?> SubnetDetails { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -99,16 +117,16 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     public sealed class DelegatedSubnetServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        [Input("controllerDetails")]
+        public Input<Inputs.ControllerDetailsArgs>? ControllerDetails { get; set; }
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Properties of the provision operation request.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DelegatedSubnetPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -121,6 +139,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
+
+        /// <summary>
+        /// subnet details
+        /// </summary>
+        [Input("subnetDetails")]
+        public Input<Inputs.SubnetDetailsArgs>? SubnetDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

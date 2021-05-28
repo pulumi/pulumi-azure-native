@@ -39,6 +39,18 @@ export interface GetControllerDetailsArgs {
  */
 export interface GetControllerDetailsResult {
     /**
+     * dnc application id should be used by customer to authenticate with dnc gateway.
+     */
+    readonly dncAppId: string;
+    /**
+     * dnc endpoint url that customers can use to connect to
+     */
+    readonly dncEndpoint: string;
+    /**
+     * tenant id of dnc application id
+     */
+    readonly dncTenantId: string;
+    /**
      * An identifier that represents the resource.
      */
     readonly id: string;
@@ -51,9 +63,13 @@ export interface GetControllerDetailsResult {
      */
     readonly name: string;
     /**
-     * Properties of the provision operation request.
+     * The current state of dnc controller resource.
      */
-    readonly properties: outputs.delegatednetwork.DelegatedControllerPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Resource guid.
+     */
+    readonly resourceGuid: string;
     /**
      * The resource tags.
      */

@@ -43,6 +43,18 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     public sealed class GetOrchestratorInstanceServiceDetailsResult
     {
         /// <summary>
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        public readonly string? ApiServerEndpoint;
+        /// <summary>
+        /// RootCA certificate of kubernetes cluster base64 encoded
+        /// </summary>
+        public readonly string? ClusterRootCA;
+        /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        public readonly Outputs.ControllerDetailsResponse ControllerDetails;
+        /// <summary>
         /// An identifier that represents the resource.
         /// </summary>
         public readonly string Id;
@@ -63,9 +75,25 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// AAD ID used with apiserver
         /// </summary>
-        public readonly Outputs.OrchestratorResourcePropertiesResponse Properties;
+        public readonly string? OrchestratorAppId;
+        /// <summary>
+        /// TenantID of server App ID
+        /// </summary>
+        public readonly string? OrchestratorTenantId;
+        /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        public readonly string? PrivateLinkResourceId;
+        /// <summary>
+        /// The current state of orchestratorInstance resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -77,6 +105,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 
         [OutputConstructor]
         private GetOrchestratorInstanceServiceDetailsResult(
+            string? apiServerEndpoint,
+
+            string? clusterRootCA,
+
+            Outputs.ControllerDetailsResponse controllerDetails,
+
             string id,
 
             Outputs.OrchestratorIdentityResponse? identity,
@@ -87,18 +121,33 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 
             string name,
 
-            Outputs.OrchestratorResourcePropertiesResponse properties,
+            string? orchestratorAppId,
+
+            string? orchestratorTenantId,
+
+            string? privateLinkResourceId,
+
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ApiServerEndpoint = apiServerEndpoint;
+            ClusterRootCA = clusterRootCA;
+            ControllerDetails = controllerDetails;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            OrchestratorAppId = orchestratorAppId;
+            OrchestratorTenantId = orchestratorTenantId;
+            PrivateLinkResourceId = privateLinkResourceId;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

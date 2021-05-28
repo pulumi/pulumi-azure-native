@@ -27,6 +27,12 @@ type LookupOrchestratorInstanceServiceDetailsArgs struct {
 
 // Represents an instance of a orchestrator.
 type LookupOrchestratorInstanceServiceDetailsResult struct {
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
+	// RootCA certificate of kubernetes cluster base64 encoded
+	ClusterRootCA *string `pulumi:"clusterRootCA"`
+	// Properties of the controller.
+	ControllerDetails ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`
 	// The identity of the orchestrator
@@ -37,8 +43,16 @@ type LookupOrchestratorInstanceServiceDetailsResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties OrchestratorResourcePropertiesResponse `pulumi:"properties"`
+	// AAD ID used with apiserver
+	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
+	// TenantID of server App ID
+	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
+	// The current state of orchestratorInstance resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid string `pulumi:"resourceGuid"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of resource.

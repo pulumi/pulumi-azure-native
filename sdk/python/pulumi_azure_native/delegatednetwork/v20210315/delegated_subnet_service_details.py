@@ -16,25 +16,29 @@ __all__ = ['DelegatedSubnetServiceDetailsArgs', 'DelegatedSubnetServiceDetails']
 class DelegatedSubnetServiceDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 controller_details: Optional[pulumi.Input['ControllerDetailsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['DelegatedSubnetPropertiesArgs']] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 subnet_details: Optional[pulumi.Input['SubnetDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input['DelegatedSubnetPropertiesArgs'] properties: Properties of the provision operation request.
         :param pulumi.Input[str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input['SubnetDetailsArgs'] subnet_details: subnet details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if controller_details is not None:
+            pulumi.set(__self__, "controller_details", controller_details)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if subnet_details is not None:
+            pulumi.set(__self__, "subnet_details", subnet_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -51,6 +55,18 @@ class DelegatedSubnetServiceDetailsArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="controllerDetails")
+    def controller_details(self) -> Optional[pulumi.Input['ControllerDetailsArgs']]:
+        """
+        Properties of the controller.
+        """
+        return pulumi.get(self, "controller_details")
+
+    @controller_details.setter
+    def controller_details(self, value: Optional[pulumi.Input['ControllerDetailsArgs']]):
+        pulumi.set(self, "controller_details", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -63,18 +79,6 @@ class DelegatedSubnetServiceDetailsArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DelegatedSubnetPropertiesArgs']]:
-        """
-        Properties of the provision operation request.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DelegatedSubnetPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -85,6 +89,18 @@ class DelegatedSubnetServiceDetailsArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="subnetDetails")
+    def subnet_details(self) -> Optional[pulumi.Input['SubnetDetailsArgs']]:
+        """
+        subnet details
+        """
+        return pulumi.get(self, "subnet_details")
+
+    @subnet_details.setter
+    def subnet_details(self, value: Optional[pulumi.Input['SubnetDetailsArgs']]):
+        pulumi.set(self, "subnet_details", value)
 
     @property
     @pulumi.getter
@@ -104,10 +120,11 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DelegatedSubnetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 subnet_details: Optional[pulumi.Input[pulumi.InputType['SubnetDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -115,10 +132,11 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[pulumi.InputType['DelegatedSubnetPropertiesArgs']] properties: Properties of the provision operation request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        :param pulumi.Input[pulumi.InputType['SubnetDetailsArgs']] subnet_details: subnet details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         ...
@@ -145,10 +163,11 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DelegatedSubnetPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 subnet_details: Optional[pulumi.Input[pulumi.InputType['SubnetDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -162,14 +181,17 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DelegatedSubnetServiceDetailsArgs.__new__(DelegatedSubnetServiceDetailsArgs)
 
+            __props__.__dict__["controller_details"] = controller_details
             __props__.__dict__["location"] = location
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["subnet_details"] = subnet_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -195,12 +217,23 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         __props__ = DelegatedSubnetServiceDetailsArgs.__new__(DelegatedSubnetServiceDetailsArgs)
 
+        __props__.__dict__["controller_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["subnet_details"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DelegatedSubnetServiceDetails(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="controllerDetails")
+    def controller_details(self) -> pulumi.Output[Optional['outputs.ControllerDetailsResponse']]:
+        """
+        Properties of the controller.
+        """
+        return pulumi.get(self, "controller_details")
 
     @property
     @pulumi.getter
@@ -219,12 +252,28 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DelegatedSubnetPropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Properties of the provision operation request.
+        The current state of dnc delegated subnet resource.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Resource guid.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="subnetDetails")
+    def subnet_details(self) -> pulumi.Output[Optional['outputs.SubnetDetailsResponse']]:
+        """
+        subnet details
+        """
+        return pulumi.get(self, "subnet_details")
 
     @property
     @pulumi.getter

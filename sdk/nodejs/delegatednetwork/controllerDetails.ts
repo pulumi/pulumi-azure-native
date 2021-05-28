@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -37,6 +36,18 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /**
+     * dnc application id should be used by customer to authenticate with dnc gateway.
+     */
+    public /*out*/ readonly dncAppId!: pulumi.Output<string>;
+    /**
+     * dnc endpoint url that customers can use to connect to
+     */
+    public /*out*/ readonly dncEndpoint!: pulumi.Output<string>;
+    /**
+     * tenant id of dnc application id
+     */
+    public /*out*/ readonly dncTenantId!: pulumi.Output<string>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +56,13 @@ export class ControllerDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the provision operation request.
+     * The current state of dnc controller resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.delegatednetwork.DelegatedControllerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource guid.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
@@ -75,13 +90,21 @@ export class ControllerDetails extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["dncAppId"] = undefined /*out*/;
+            inputs["dncEndpoint"] = undefined /*out*/;
+            inputs["dncTenantId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["dncAppId"] = undefined /*out*/;
+            inputs["dncEndpoint"] = undefined /*out*/;
+            inputs["dncTenantId"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -11,9 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ControllerDetailsArgs',
-    'DelegatedSubnetPropertiesArgs',
     'OrchestratorIdentityArgs',
-    'OrchestratorResourcePropertiesArgs',
     'SubnetDetailsArgs',
 ]
 
@@ -42,46 +40,6 @@ class ControllerDetailsArgs:
 
 
 @pulumi.input_type
-class DelegatedSubnetPropertiesArgs:
-    def __init__(__self__, *,
-                 controller_details: Optional[pulumi.Input['ControllerDetailsArgs']] = None,
-                 subnet_details: Optional[pulumi.Input['SubnetDetailsArgs']] = None):
-        """
-        Properties of delegated subnet
-        :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
-        :param pulumi.Input['SubnetDetailsArgs'] subnet_details: subnet details
-        """
-        if controller_details is not None:
-            pulumi.set(__self__, "controller_details", controller_details)
-        if subnet_details is not None:
-            pulumi.set(__self__, "subnet_details", subnet_details)
-
-    @property
-    @pulumi.getter(name="controllerDetails")
-    def controller_details(self) -> Optional[pulumi.Input['ControllerDetailsArgs']]:
-        """
-        Properties of the controller.
-        """
-        return pulumi.get(self, "controller_details")
-
-    @controller_details.setter
-    def controller_details(self, value: Optional[pulumi.Input['ControllerDetailsArgs']]):
-        pulumi.set(self, "controller_details", value)
-
-    @property
-    @pulumi.getter(name="subnetDetails")
-    def subnet_details(self) -> Optional[pulumi.Input['SubnetDetailsArgs']]:
-        """
-        subnet details
-        """
-        return pulumi.get(self, "subnet_details")
-
-    @subnet_details.setter
-    def subnet_details(self, value: Optional[pulumi.Input['SubnetDetailsArgs']]):
-        pulumi.set(self, "subnet_details", value)
-
-
-@pulumi.input_type
 class OrchestratorIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
@@ -102,109 +60,6 @@ class OrchestratorIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class OrchestratorResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 controller_details: pulumi.Input['ControllerDetailsArgs'],
-                 api_server_endpoint: Optional[pulumi.Input[str]] = None,
-                 cluster_root_ca: Optional[pulumi.Input[str]] = None,
-                 orchestrator_app_id: Optional[pulumi.Input[str]] = None,
-                 orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of orchestrator
-        :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
-        :param pulumi.Input[str] api_server_endpoint: K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-        :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
-        :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
-        :param pulumi.Input[str] orchestrator_tenant_id: TenantID of server App ID
-        :param pulumi.Input[str] private_link_resource_id: private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-        """
-        pulumi.set(__self__, "controller_details", controller_details)
-        if api_server_endpoint is not None:
-            pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
-        if cluster_root_ca is not None:
-            pulumi.set(__self__, "cluster_root_ca", cluster_root_ca)
-        if orchestrator_app_id is not None:
-            pulumi.set(__self__, "orchestrator_app_id", orchestrator_app_id)
-        if orchestrator_tenant_id is not None:
-            pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
-        if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
-
-    @property
-    @pulumi.getter(name="controllerDetails")
-    def controller_details(self) -> pulumi.Input['ControllerDetailsArgs']:
-        """
-        Properties of the controller.
-        """
-        return pulumi.get(self, "controller_details")
-
-    @controller_details.setter
-    def controller_details(self, value: pulumi.Input['ControllerDetailsArgs']):
-        pulumi.set(self, "controller_details", value)
-
-    @property
-    @pulumi.getter(name="apiServerEndpoint")
-    def api_server_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-        """
-        return pulumi.get(self, "api_server_endpoint")
-
-    @api_server_endpoint.setter
-    def api_server_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "api_server_endpoint", value)
-
-    @property
-    @pulumi.getter(name="clusterRootCA")
-    def cluster_root_ca(self) -> Optional[pulumi.Input[str]]:
-        """
-        RootCA certificate of kubernetes cluster base64 encoded
-        """
-        return pulumi.get(self, "cluster_root_ca")
-
-    @cluster_root_ca.setter
-    def cluster_root_ca(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cluster_root_ca", value)
-
-    @property
-    @pulumi.getter(name="orchestratorAppId")
-    def orchestrator_app_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AAD ID used with apiserver
-        """
-        return pulumi.get(self, "orchestrator_app_id")
-
-    @orchestrator_app_id.setter
-    def orchestrator_app_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "orchestrator_app_id", value)
-
-    @property
-    @pulumi.getter(name="orchestratorTenantId")
-    def orchestrator_tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        TenantID of server App ID
-        """
-        return pulumi.get(self, "orchestrator_tenant_id")
-
-    @orchestrator_tenant_id.setter
-    def orchestrator_tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "orchestrator_tenant_id", value)
-
-    @property
-    @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
-        """
-        return pulumi.get(self, "private_link_resource_id")
-
-    @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_link_resource_id", value)
 
 
 @pulumi.input_type

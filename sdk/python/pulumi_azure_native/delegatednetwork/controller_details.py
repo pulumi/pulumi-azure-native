@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['ControllerDetailsArgs', 'ControllerDetails']
 
@@ -150,8 +149,12 @@ class ControllerDetails(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["dnc_app_id"] = None
+            __props__.__dict__["dnc_endpoint"] = None
+            __props__.__dict__["dnc_tenant_id"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20210315:ControllerDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -177,12 +180,40 @@ class ControllerDetails(pulumi.CustomResource):
 
         __props__ = ControllerDetailsArgs.__new__(ControllerDetailsArgs)
 
+        __props__.__dict__["dnc_app_id"] = None
+        __props__.__dict__["dnc_endpoint"] = None
+        __props__.__dict__["dnc_tenant_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ControllerDetails(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dncAppId")
+    def dnc_app_id(self) -> pulumi.Output[str]:
+        """
+        dnc application id should be used by customer to authenticate with dnc gateway.
+        """
+        return pulumi.get(self, "dnc_app_id")
+
+    @property
+    @pulumi.getter(name="dncEndpoint")
+    def dnc_endpoint(self) -> pulumi.Output[str]:
+        """
+        dnc endpoint url that customers can use to connect to
+        """
+        return pulumi.get(self, "dnc_endpoint")
+
+    @property
+    @pulumi.getter(name="dncTenantId")
+    def dnc_tenant_id(self) -> pulumi.Output[str]:
+        """
+        tenant id of dnc application id
+        """
+        return pulumi.get(self, "dnc_tenant_id")
 
     @property
     @pulumi.getter
@@ -201,12 +232,20 @@ class ControllerDetails(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DelegatedControllerPropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Properties of the provision operation request.
+        The current state of dnc controller resource.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Resource guid.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter

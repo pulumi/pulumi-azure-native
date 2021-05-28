@@ -26,14 +26,20 @@ type LookupDelegatedSubnetServiceDetailsArgs struct {
 
 // Represents an instance of a orchestrator.
 type LookupDelegatedSubnetServiceDetailsResult struct {
+	// Properties of the controller.
+	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties DelegatedSubnetPropertiesResponse `pulumi:"properties"`
+	// The current state of dnc delegated subnet resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid string `pulumi:"resourceGuid"`
+	// subnet details
+	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of resource.

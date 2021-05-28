@@ -36,6 +36,10 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /**
+     * Properties of the controller.
+     */
+    public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.v20210315.ControllerDetailsResponse | undefined>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -44,9 +48,17 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the provision operation request.
+     * The current state of dnc delegated subnet resource.
      */
-    public readonly properties!: pulumi.Output<outputs.delegatednetwork.v20210315.DelegatedSubnetPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource guid.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * subnet details
+     */
+    public readonly subnetDetails!: pulumi.Output<outputs.delegatednetwork.v20210315.SubnetDetailsResponse | undefined>;
     /**
      * The resource tags.
      */
@@ -70,17 +82,23 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["controllerDetails"] = args ? args.controllerDetails : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["subnetDetails"] = args ? args.subnetDetails : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["controllerDetails"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["subnetDetails"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -98,13 +116,13 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
  */
 export interface DelegatedSubnetServiceDetailsArgs {
     /**
+     * Properties of the controller.
+     */
+    controllerDetails?: pulumi.Input<inputs.delegatednetwork.v20210315.ControllerDetailsArgs>;
+    /**
      * Location of the resource.
      */
     location?: pulumi.Input<string>;
-    /**
-     * Properties of the provision operation request.
-     */
-    properties?: pulumi.Input<inputs.delegatednetwork.v20210315.DelegatedSubnetPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,6 +131,10 @@ export interface DelegatedSubnetServiceDetailsArgs {
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
     resourceName?: pulumi.Input<string>;
+    /**
+     * subnet details
+     */
+    subnetDetails?: pulumi.Input<inputs.delegatednetwork.v20210315.SubnetDetailsArgs>;
     /**
      * The resource tags.
      */

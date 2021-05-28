@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Output("apiServerEndpoint")]
+        public Output<string?> ApiServerEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// RootCA certificate of kubernetes cluster base64 encoded
+        /// </summary>
+        [Output("clusterRootCA")]
+        public Output<string?> ClusterRootCA { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        [Output("controllerDetails")]
+        public Output<Outputs.ControllerDetailsResponse> ControllerDetails { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the orchestrator
         /// </summary>
         [Output("identity")]
@@ -40,10 +58,34 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// AAD ID used with apiserver
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OrchestratorResourcePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("orchestratorAppId")]
+        public Output<string?> OrchestratorAppId { get; private set; } = null!;
+
+        /// <summary>
+        /// TenantID of server App ID
+        /// </summary>
+        [Output("orchestratorTenantId")]
+        public Output<string?> OrchestratorTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Output("privateLinkResourceId")]
+        public Output<string?> PrivateLinkResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of orchestratorInstance resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -111,6 +153,24 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
     public sealed class OrchestratorInstanceServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Input("apiServerEndpoint")]
+        public Input<string>? ApiServerEndpoint { get; set; }
+
+        /// <summary>
+        /// RootCA certificate of kubernetes cluster base64 encoded
+        /// </summary>
+        [Input("clusterRootCA")]
+        public Input<string>? ClusterRootCA { get; set; }
+
+        /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        [Input("controllerDetails", required: true)]
+        public Input<Inputs.ControllerDetailsArgs> ControllerDetails { get; set; } = null!;
+
+        /// <summary>
         /// The identity of the orchestrator
         /// </summary>
         [Input("identity")]
@@ -129,10 +189,22 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// AAD ID used with apiserver
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OrchestratorResourcePropertiesArgs>? Properties { get; set; }
+        [Input("orchestratorAppId")]
+        public Input<string>? OrchestratorAppId { get; set; }
+
+        /// <summary>
+        /// TenantID of server App ID
+        /// </summary>
+        [Input("orchestratorTenantId")]
+        public Input<string>? OrchestratorTenantId { get; set; }
+
+        /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Input("privateLinkResourceId")]
+        public Input<string>? PrivateLinkResourceId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

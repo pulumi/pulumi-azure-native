@@ -44,6 +44,18 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public sealed class GetControllerDetailsResult
     {
         /// <summary>
+        /// dnc application id should be used by customer to authenticate with dnc gateway.
+        /// </summary>
+        public readonly string DncAppId;
+        /// <summary>
+        /// dnc endpoint url that customers can use to connect to
+        /// </summary>
+        public readonly string DncEndpoint;
+        /// <summary>
+        /// tenant id of dnc application id
+        /// </summary>
+        public readonly string DncTenantId;
+        /// <summary>
         /// An identifier that represents the resource.
         /// </summary>
         public readonly string Id;
@@ -56,9 +68,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current state of dnc controller resource.
         /// </summary>
-        public readonly Outputs.DelegatedControllerPropertiesResponse Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -70,22 +86,34 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
         [OutputConstructor]
         private GetControllerDetailsResult(
+            string dncAppId,
+
+            string dncEndpoint,
+
+            string dncTenantId,
+
             string id,
 
             string? location,
 
             string name,
 
-            Outputs.DelegatedControllerPropertiesResponse properties,
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DncAppId = dncAppId;
+            DncEndpoint = dncEndpoint;
+            DncTenantId = dncTenantId;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

@@ -38,6 +38,10 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
  */
 export interface GetDelegatedSubnetServiceDetailsResult {
     /**
+     * Properties of the controller.
+     */
+    readonly controllerDetails?: outputs.delegatednetwork.v20210315.ControllerDetailsResponse;
+    /**
      * An identifier that represents the resource.
      */
     readonly id: string;
@@ -50,9 +54,17 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly name: string;
     /**
-     * Properties of the provision operation request.
+     * The current state of dnc delegated subnet resource.
      */
-    readonly properties: outputs.delegatednetwork.v20210315.DelegatedSubnetPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Resource guid.
+     */
+    readonly resourceGuid: string;
+    /**
+     * subnet details
+     */
+    readonly subnetDetails?: outputs.delegatednetwork.v20210315.SubnetDetailsResponse;
     /**
      * The resource tags.
      */

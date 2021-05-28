@@ -37,6 +37,18 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     }
 
     /**
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    public readonly apiServerEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * RootCA certificate of kubernetes cluster base64 encoded
+     */
+    public readonly clusterRootCA!: pulumi.Output<string | undefined>;
+    /**
+     * Properties of the controller.
+     */
+    public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse>;
+    /**
      * The identity of the orchestrator
      */
     public readonly identity!: pulumi.Output<outputs.delegatednetwork.OrchestratorIdentityResponse | undefined>;
@@ -53,9 +65,25 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the provision operation request.
+     * AAD ID used with apiserver
      */
-    public readonly properties!: pulumi.Output<outputs.delegatednetwork.OrchestratorResourcePropertiesResponse>;
+    public readonly orchestratorAppId!: pulumi.Output<string | undefined>;
+    /**
+     * TenantID of server App ID
+     */
+    public readonly orchestratorTenantId!: pulumi.Output<string | undefined>;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The current state of orchestratorInstance resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource guid.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
@@ -76,27 +104,44 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.controllerDetails === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'controllerDetails'");
+            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
+            inputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
+            inputs["controllerDetails"] = args ? args.controllerDetails : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
+            inputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
+            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["apiServerEndpoint"] = undefined /*out*/;
+            inputs["clusterRootCA"] = undefined /*out*/;
+            inputs["controllerDetails"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["orchestratorAppId"] = undefined /*out*/;
+            inputs["orchestratorTenantId"] = undefined /*out*/;
+            inputs["privateLinkResourceId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,6 +159,18 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
  */
 export interface OrchestratorInstanceServiceDetailsArgs {
     /**
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    apiServerEndpoint?: pulumi.Input<string>;
+    /**
+     * RootCA certificate of kubernetes cluster base64 encoded
+     */
+    clusterRootCA?: pulumi.Input<string>;
+    /**
+     * Properties of the controller.
+     */
+    controllerDetails: pulumi.Input<inputs.delegatednetwork.ControllerDetailsArgs>;
+    /**
      * The identity of the orchestrator
      */
     identity?: pulumi.Input<inputs.delegatednetwork.OrchestratorIdentityArgs>;
@@ -126,9 +183,17 @@ export interface OrchestratorInstanceServiceDetailsArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Properties of the provision operation request.
+     * AAD ID used with apiserver
      */
-    properties?: pulumi.Input<inputs.delegatednetwork.OrchestratorResourcePropertiesArgs>;
+    orchestratorAppId?: pulumi.Input<string>;
+    /**
+     * TenantID of server App ID
+     */
+    orchestratorTenantId?: pulumi.Input<string>;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    privateLinkResourceId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

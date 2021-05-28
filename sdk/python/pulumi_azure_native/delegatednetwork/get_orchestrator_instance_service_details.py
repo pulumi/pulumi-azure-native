@@ -20,7 +20,16 @@ class GetOrchestratorInstanceServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, private_link_resource_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if api_server_endpoint and not isinstance(api_server_endpoint, str):
+            raise TypeError("Expected argument 'api_server_endpoint' to be a str")
+        pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
+        if cluster_root_ca and not isinstance(cluster_root_ca, str):
+            raise TypeError("Expected argument 'cluster_root_ca' to be a str")
+        pulumi.set(__self__, "cluster_root_ca", cluster_root_ca)
+        if controller_details and not isinstance(controller_details, dict):
+            raise TypeError("Expected argument 'controller_details' to be a dict")
+        pulumi.set(__self__, "controller_details", controller_details)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,15 +45,51 @@ class GetOrchestratorInstanceServiceDetailsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if orchestrator_app_id and not isinstance(orchestrator_app_id, str):
+            raise TypeError("Expected argument 'orchestrator_app_id' to be a str")
+        pulumi.set(__self__, "orchestrator_app_id", orchestrator_app_id)
+        if orchestrator_tenant_id and not isinstance(orchestrator_tenant_id, str):
+            raise TypeError("Expected argument 'orchestrator_tenant_id' to be a str")
+        pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
+        if private_link_resource_id and not isinstance(private_link_resource_id, str):
+            raise TypeError("Expected argument 'private_link_resource_id' to be a str")
+        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="apiServerEndpoint")
+    def api_server_endpoint(self) -> Optional[str]:
+        """
+        K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "api_server_endpoint")
+
+    @property
+    @pulumi.getter(name="clusterRootCA")
+    def cluster_root_ca(self) -> Optional[str]:
+        """
+        RootCA certificate of kubernetes cluster base64 encoded
+        """
+        return pulumi.get(self, "cluster_root_ca")
+
+    @property
+    @pulumi.getter(name="controllerDetails")
+    def controller_details(self) -> 'outputs.ControllerDetailsResponse':
+        """
+        Properties of the controller.
+        """
+        return pulumi.get(self, "controller_details")
 
     @property
     @pulumi.getter
@@ -87,12 +132,44 @@ class GetOrchestratorInstanceServiceDetailsResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.OrchestratorResourcePropertiesResponse':
+    @pulumi.getter(name="orchestratorAppId")
+    def orchestrator_app_id(self) -> Optional[str]:
         """
-        Properties of the provision operation request.
+        AAD ID used with apiserver
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "orchestrator_app_id")
+
+    @property
+    @pulumi.getter(name="orchestratorTenantId")
+    def orchestrator_tenant_id(self) -> Optional[str]:
+        """
+        TenantID of server App ID
+        """
+        return pulumi.get(self, "orchestrator_tenant_id")
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[str]:
+        """
+        private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The current state of orchestratorInstance resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Resource guid.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter
@@ -117,12 +194,19 @@ class AwaitableGetOrchestratorInstanceServiceDetailsResult(GetOrchestratorInstan
         if False:
             yield self
         return GetOrchestratorInstanceServiceDetailsResult(
+            api_server_endpoint=self.api_server_endpoint,
+            cluster_root_ca=self.cluster_root_ca,
+            controller_details=self.controller_details,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            orchestrator_app_id=self.orchestrator_app_id,
+            orchestrator_tenant_id=self.orchestrator_tenant_id,
+            private_link_resource_id=self.private_link_resource_id,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -148,11 +232,18 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails', __args__, opts=opts, typ=GetOrchestratorInstanceServiceDetailsResult).value
 
     return AwaitableGetOrchestratorInstanceServiceDetailsResult(
+        api_server_endpoint=__ret__.api_server_endpoint,
+        cluster_root_ca=__ret__.cluster_root_ca,
+        controller_details=__ret__.controller_details,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        properties=__ret__.properties,
+        orchestrator_app_id=__ret__.orchestrator_app_id,
+        orchestrator_tenant_id=__ret__.orchestrator_tenant_id,
+        private_link_resource_id=__ret__.private_link_resource_id,
+        provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,
         type=__ret__.type)

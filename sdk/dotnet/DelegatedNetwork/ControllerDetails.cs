@@ -17,6 +17,24 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public partial class ControllerDetails : Pulumi.CustomResource
     {
         /// <summary>
+        /// dnc application id should be used by customer to authenticate with dnc gateway.
+        /// </summary>
+        [Output("dncAppId")]
+        public Output<string> DncAppId { get; private set; } = null!;
+
+        /// <summary>
+        /// dnc endpoint url that customers can use to connect to
+        /// </summary>
+        [Output("dncEndpoint")]
+        public Output<string> DncEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// tenant id of dnc application id
+        /// </summary>
+        [Output("dncTenantId")]
+        public Output<string> DncTenantId { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
@@ -29,10 +47,16 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current state of dnc controller resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DelegatedControllerPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

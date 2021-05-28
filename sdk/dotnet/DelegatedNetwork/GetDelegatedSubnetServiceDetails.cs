@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public sealed class GetDelegatedSubnetServiceDetailsResult
     {
         /// <summary>
+        /// Properties of the controller.
+        /// </summary>
+        public readonly Outputs.ControllerDetailsResponse? ControllerDetails;
+        /// <summary>
         /// An identifier that represents the resource.
         /// </summary>
         public readonly string Id;
@@ -56,9 +60,17 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current state of dnc delegated subnet resource.
         /// </summary>
-        public readonly Outputs.DelegatedSubnetPropertiesResponse Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource guid.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
+        /// subnet details
+        /// </summary>
+        public readonly Outputs.SubnetDetailsResponse? SubnetDetails;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -70,22 +82,31 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
         [OutputConstructor]
         private GetDelegatedSubnetServiceDetailsResult(
+            Outputs.ControllerDetailsResponse? controllerDetails,
+
             string id,
 
             string? location,
 
             string name,
 
-            Outputs.DelegatedSubnetPropertiesResponse properties,
+            string provisioningState,
+
+            string resourceGuid,
+
+            Outputs.SubnetDetailsResponse? subnetDetails,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ControllerDetails = controllerDetails;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            SubnetDetails = subnetDetails;
             Tags = tags;
             Type = type;
         }
