@@ -31,6 +31,10 @@ __all__ = [
     'MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed',
     'MTPDataConnectorDataTypesResponse',
     'MTPDataConnectorDataTypesResponseIncidents',
+    'MetadataAuthorResponse',
+    'MetadataDependenciesResponse',
+    'MetadataSourceResponse',
+    'MetadataSupportResponse',
     'OfficeDataConnectorDataTypesResponse',
     'OfficeDataConnectorDataTypesResponseExchange',
     'OfficeDataConnectorDataTypesResponseSharePoint',
@@ -913,6 +917,274 @@ class MTPDataConnectorDataTypesResponseIncidents(dict):
         Describe whether this data type connection is enabled or not.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class MetadataAuthorResponse(dict):
+    """
+    Publisher or creator of the content item.
+    """
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 link: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Publisher or creator of the content item.
+        :param str email: Email of author contact
+        :param str link: Link for author/vendor page
+        :param str name: Name of the author. Company or person.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email of author contact
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        Link for author/vendor page
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the author. Company or person.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MetadataDependenciesResponse(dict):
+    """
+    Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentId":
+            suggest = "content_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetadataDependenciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetadataDependenciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetadataDependenciesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_id: Optional[str] = None,
+                 criteria: Optional[Sequence['outputs.MetadataDependenciesResponse']] = None,
+                 kind: Optional[str] = None,
+                 name: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+        :param str content_id: Id of the content item we depend on
+        :param Sequence['MetadataDependenciesResponse'] criteria: This is the list of dependencies we must fulfill, according to the AND/OR operator
+        :param str kind: Type of the content item we depend on
+        :param str name: Name of the content item
+        :param str operator: Operator used for list of dependencies in criteria array.
+        :param str version: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+        if content_id is not None:
+            pulumi.set(__self__, "content_id", content_id)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="contentId")
+    def content_id(self) -> Optional[str]:
+        """
+        Id of the content item we depend on
+        """
+        return pulumi.get(self, "content_id")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional[Sequence['outputs.MetadataDependenciesResponse']]:
+        """
+        This is the list of dependencies we must fulfill, according to the AND/OR operator
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Type of the content item we depend on
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the content item
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Operator used for list of dependencies in criteria array.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class MetadataSourceResponse(dict):
+    """
+    The original source of the content item, where it comes from.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetadataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetadataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetadataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kind: str,
+                 name: Optional[str] = None,
+                 source_id: Optional[str] = None):
+        """
+        The original source of the content item, where it comes from.
+        :param str kind: Source type of the content
+        :param str name: Name of the content source.  The repo name, solution name, LA workspace name etc.
+        :param str source_id: ID of the content source.  The solution ID, workspace ID, etc
+        """
+        pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Source type of the content
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the content source.  The repo name, solution name, LA workspace name etc.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[str]:
+        """
+        ID of the content source.  The solution ID, workspace ID, etc
+        """
+        return pulumi.get(self, "source_id")
+
+
+@pulumi.output_type
+class MetadataSupportResponse(dict):
+    """
+    Support information for the content item.
+    """
+    def __init__(__self__, *,
+                 tier: str,
+                 email: Optional[str] = None,
+                 link: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Support information for the content item.
+        :param str tier: Type of support for content item
+        :param str email: Email of support contact
+        :param str link: Link for support help, like to support page to open a ticket etc.
+        :param str name: Name of the support contact. Company or person.
+        """
+        pulumi.set(__self__, "tier", tier)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Type of support for content item
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email of support contact
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        Link for support help, like to support page to open a ticket etc.
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the support contact. Company or person.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

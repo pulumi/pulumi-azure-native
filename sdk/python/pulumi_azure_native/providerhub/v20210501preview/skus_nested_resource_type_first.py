@@ -20,18 +20,22 @@ class SkusNestedResourceTypeFirstArgs:
                  provider_namespace: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
                  sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]],
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SkusNestedResourceTypeFirst resource.
         :param pulumi.Input[str] nested_resource_type_first: The first child resource type.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] resource_type: The resource type.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         :param pulumi.Input[str] sku: The SKU.
         """
         pulumi.set(__self__, "nested_resource_type_first", nested_resource_type_first)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "sku_settings", sku_settings)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
 
@@ -81,6 +85,18 @@ class SkusNestedResourceTypeFirstArgs:
         pulumi.set(self, "sku_settings", value)
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,6 +116,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  nested_resource_type_first: Optional[pulumi.Input[str]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SkuSettingArgs']]]]] = None,
@@ -110,6 +127,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] nested_resource_type_first: The first child resource type.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         :param pulumi.Input[str] resource_type: The resource type.
         :param pulumi.Input[str] sku: The SKU.
         """
@@ -138,6 +156,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  nested_resource_type_first: Optional[pulumi.Input[str]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SkuSettingArgs']]]]] = None,
@@ -159,6 +178,7 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type

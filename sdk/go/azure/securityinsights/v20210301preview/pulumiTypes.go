@@ -5742,6 +5742,1624 @@ func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) State() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Publisher or creator of the content item.
+type MetadataAuthor struct {
+	// Email of author contact
+	Email *string `pulumi:"email"`
+	// Link for author/vendor page
+	Link *string `pulumi:"link"`
+	// Name of the author. Company or person.
+	Name *string `pulumi:"name"`
+}
+
+// MetadataAuthorInput is an input type that accepts MetadataAuthorArgs and MetadataAuthorOutput values.
+// You can construct a concrete instance of `MetadataAuthorInput` via:
+//
+//          MetadataAuthorArgs{...}
+type MetadataAuthorInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorOutput() MetadataAuthorOutput
+	ToMetadataAuthorOutputWithContext(context.Context) MetadataAuthorOutput
+}
+
+// Publisher or creator of the content item.
+type MetadataAuthorArgs struct {
+	// Email of author contact
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// Link for author/vendor page
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// Name of the author. Company or person.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MetadataAuthorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthor)(nil)).Elem()
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorOutput() MetadataAuthorOutput {
+	return i.ToMetadataAuthorOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorOutputWithContext(ctx context.Context) MetadataAuthorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorOutput)
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return i.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorArgs) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorOutput).ToMetadataAuthorPtrOutputWithContext(ctx)
+}
+
+// MetadataAuthorPtrInput is an input type that accepts MetadataAuthorArgs, MetadataAuthorPtr and MetadataAuthorPtrOutput values.
+// You can construct a concrete instance of `MetadataAuthorPtrInput` via:
+//
+//          MetadataAuthorArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataAuthorPtrInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput
+	ToMetadataAuthorPtrOutputWithContext(context.Context) MetadataAuthorPtrOutput
+}
+
+type metadataAuthorPtrType MetadataAuthorArgs
+
+func MetadataAuthorPtr(v *MetadataAuthorArgs) MetadataAuthorPtrInput {
+	return (*metadataAuthorPtrType)(v)
+}
+
+func (*metadataAuthorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthor)(nil)).Elem()
+}
+
+func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return i.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorPtrOutput)
+}
+
+// Publisher or creator of the content item.
+type MetadataAuthorOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthor)(nil)).Elem()
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorOutput() MetadataAuthorOutput {
+	return o
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorOutputWithContext(ctx context.Context) MetadataAuthorOutput {
+	return o
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return o.ToMetadataAuthorPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *MetadataAuthor {
+		return &v
+	}).(MetadataAuthorPtrOutput)
+}
+
+// Email of author contact
+func (o MetadataAuthorOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Link for author/vendor page
+func (o MetadataAuthorOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// Name of the author. Company or person.
+func (o MetadataAuthorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MetadataAuthorPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthor)(nil)).Elem()
+}
+
+func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
+	return o
+}
+
+func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
+	return o
+}
+
+func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
+	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor { return *v }).(MetadataAuthorOutput)
+}
+
+// Email of author contact
+func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// Link for author/vendor page
+func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the author. Company or person.
+func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Publisher or creator of the content item.
+type MetadataAuthorResponse struct {
+	// Email of author contact
+	Email *string `pulumi:"email"`
+	// Link for author/vendor page
+	Link *string `pulumi:"link"`
+	// Name of the author. Company or person.
+	Name *string `pulumi:"name"`
+}
+
+// MetadataAuthorResponseInput is an input type that accepts MetadataAuthorResponseArgs and MetadataAuthorResponseOutput values.
+// You can construct a concrete instance of `MetadataAuthorResponseInput` via:
+//
+//          MetadataAuthorResponseArgs{...}
+type MetadataAuthorResponseInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorResponseOutput() MetadataAuthorResponseOutput
+	ToMetadataAuthorResponseOutputWithContext(context.Context) MetadataAuthorResponseOutput
+}
+
+// Publisher or creator of the content item.
+type MetadataAuthorResponseArgs struct {
+	// Email of author contact
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// Link for author/vendor page
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// Name of the author. Company or person.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MetadataAuthorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthorResponse)(nil)).Elem()
+}
+
+func (i MetadataAuthorResponseArgs) ToMetadataAuthorResponseOutput() MetadataAuthorResponseOutput {
+	return i.ToMetadataAuthorResponseOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorResponseArgs) ToMetadataAuthorResponseOutputWithContext(ctx context.Context) MetadataAuthorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorResponseOutput)
+}
+
+func (i MetadataAuthorResponseArgs) ToMetadataAuthorResponsePtrOutput() MetadataAuthorResponsePtrOutput {
+	return i.ToMetadataAuthorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataAuthorResponseArgs) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorResponseOutput).ToMetadataAuthorResponsePtrOutputWithContext(ctx)
+}
+
+// MetadataAuthorResponsePtrInput is an input type that accepts MetadataAuthorResponseArgs, MetadataAuthorResponsePtr and MetadataAuthorResponsePtrOutput values.
+// You can construct a concrete instance of `MetadataAuthorResponsePtrInput` via:
+//
+//          MetadataAuthorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataAuthorResponsePtrInput interface {
+	pulumi.Input
+
+	ToMetadataAuthorResponsePtrOutput() MetadataAuthorResponsePtrOutput
+	ToMetadataAuthorResponsePtrOutputWithContext(context.Context) MetadataAuthorResponsePtrOutput
+}
+
+type metadataAuthorResponsePtrType MetadataAuthorResponseArgs
+
+func MetadataAuthorResponsePtr(v *MetadataAuthorResponseArgs) MetadataAuthorResponsePtrInput {
+	return (*metadataAuthorResponsePtrType)(v)
+}
+
+func (*metadataAuthorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthorResponse)(nil)).Elem()
+}
+
+func (i *metadataAuthorResponsePtrType) ToMetadataAuthorResponsePtrOutput() MetadataAuthorResponsePtrOutput {
+	return i.ToMetadataAuthorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataAuthorResponsePtrType) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorResponsePtrOutput)
+}
+
+// Publisher or creator of the content item.
+type MetadataAuthorResponseOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataAuthorResponse)(nil)).Elem()
+}
+
+func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponseOutput() MetadataAuthorResponseOutput {
+	return o
+}
+
+func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponseOutputWithContext(ctx context.Context) MetadataAuthorResponseOutput {
+	return o
+}
+
+func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutput() MetadataAuthorResponsePtrOutput {
+	return o.ToMetadataAuthorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
+	return o.ApplyT(func(v MetadataAuthorResponse) *MetadataAuthorResponse {
+		return &v
+	}).(MetadataAuthorResponsePtrOutput)
+}
+
+// Email of author contact
+func (o MetadataAuthorResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Link for author/vendor page
+func (o MetadataAuthorResponseOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// Name of the author. Company or person.
+func (o MetadataAuthorResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MetadataAuthorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataAuthorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataAuthorResponse)(nil)).Elem()
+}
+
+func (o MetadataAuthorResponsePtrOutput) ToMetadataAuthorResponsePtrOutput() MetadataAuthorResponsePtrOutput {
+	return o
+}
+
+func (o MetadataAuthorResponsePtrOutput) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
+	return o
+}
+
+func (o MetadataAuthorResponsePtrOutput) Elem() MetadataAuthorResponseOutput {
+	return o.ApplyT(func(v *MetadataAuthorResponse) MetadataAuthorResponse { return *v }).(MetadataAuthorResponseOutput)
+}
+
+// Email of author contact
+func (o MetadataAuthorResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// Link for author/vendor page
+func (o MetadataAuthorResponsePtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the author. Company or person.
+func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependencies struct {
+	// Id of the content item we depend on
+	ContentId *string `pulumi:"contentId"`
+	// This is the list of dependencies we must fulfill, according to the AND/OR operator
+	Criteria []MetadataDependencies `pulumi:"criteria"`
+	// Type of the content item we depend on
+	Kind *string `pulumi:"kind"`
+	// Name of the content item
+	Name *string `pulumi:"name"`
+	// Operator used for list of dependencies in criteria array.
+	Operator *string `pulumi:"operator"`
+	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+	Version *string `pulumi:"version"`
+}
+
+// MetadataDependenciesInput is an input type that accepts MetadataDependenciesArgs and MetadataDependenciesOutput values.
+// You can construct a concrete instance of `MetadataDependenciesInput` via:
+//
+//          MetadataDependenciesArgs{...}
+type MetadataDependenciesInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesOutput() MetadataDependenciesOutput
+	ToMetadataDependenciesOutputWithContext(context.Context) MetadataDependenciesOutput
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependenciesArgs struct {
+	// Id of the content item we depend on
+	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
+	// This is the list of dependencies we must fulfill, according to the AND/OR operator
+	Criteria MetadataDependenciesArrayInput `pulumi:"criteria"`
+	// Type of the content item we depend on
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Name of the content item
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Operator used for list of dependencies in criteria array.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (MetadataDependenciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataDependencies)(nil)).Elem()
+}
+
+func (i MetadataDependenciesArgs) ToMetadataDependenciesOutput() MetadataDependenciesOutput {
+	return i.ToMetadataDependenciesOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesArgs) ToMetadataDependenciesOutputWithContext(ctx context.Context) MetadataDependenciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesOutput)
+}
+
+func (i MetadataDependenciesArgs) ToMetadataDependenciesPtrOutput() MetadataDependenciesPtrOutput {
+	return i.ToMetadataDependenciesPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesArgs) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesOutput).ToMetadataDependenciesPtrOutputWithContext(ctx)
+}
+
+// MetadataDependenciesPtrInput is an input type that accepts MetadataDependenciesArgs, MetadataDependenciesPtr and MetadataDependenciesPtrOutput values.
+// You can construct a concrete instance of `MetadataDependenciesPtrInput` via:
+//
+//          MetadataDependenciesArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataDependenciesPtrInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesPtrOutput() MetadataDependenciesPtrOutput
+	ToMetadataDependenciesPtrOutputWithContext(context.Context) MetadataDependenciesPtrOutput
+}
+
+type metadataDependenciesPtrType MetadataDependenciesArgs
+
+func MetadataDependenciesPtr(v *MetadataDependenciesArgs) MetadataDependenciesPtrInput {
+	return (*metadataDependenciesPtrType)(v)
+}
+
+func (*metadataDependenciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataDependencies)(nil)).Elem()
+}
+
+func (i *metadataDependenciesPtrType) ToMetadataDependenciesPtrOutput() MetadataDependenciesPtrOutput {
+	return i.ToMetadataDependenciesPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataDependenciesPtrType) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesPtrOutput)
+}
+
+// MetadataDependenciesArrayInput is an input type that accepts MetadataDependenciesArray and MetadataDependenciesArrayOutput values.
+// You can construct a concrete instance of `MetadataDependenciesArrayInput` via:
+//
+//          MetadataDependenciesArray{ MetadataDependenciesArgs{...} }
+type MetadataDependenciesArrayInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesArrayOutput() MetadataDependenciesArrayOutput
+	ToMetadataDependenciesArrayOutputWithContext(context.Context) MetadataDependenciesArrayOutput
+}
+
+type MetadataDependenciesArray []MetadataDependenciesInput
+
+func (MetadataDependenciesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetadataDependencies)(nil)).Elem()
+}
+
+func (i MetadataDependenciesArray) ToMetadataDependenciesArrayOutput() MetadataDependenciesArrayOutput {
+	return i.ToMetadataDependenciesArrayOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesArray) ToMetadataDependenciesArrayOutputWithContext(ctx context.Context) MetadataDependenciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesArrayOutput)
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependenciesOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataDependencies)(nil)).Elem()
+}
+
+func (o MetadataDependenciesOutput) ToMetadataDependenciesOutput() MetadataDependenciesOutput {
+	return o
+}
+
+func (o MetadataDependenciesOutput) ToMetadataDependenciesOutputWithContext(ctx context.Context) MetadataDependenciesOutput {
+	return o
+}
+
+func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutput() MetadataDependenciesPtrOutput {
+	return o.ToMetadataDependenciesPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *MetadataDependencies {
+		return &v
+	}).(MetadataDependenciesPtrOutput)
+}
+
+// Id of the content item we depend on
+func (o MetadataDependenciesOutput) ContentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *string { return v.ContentId }).(pulumi.StringPtrOutput)
+}
+
+// This is the list of dependencies we must fulfill, according to the AND/OR operator
+func (o MetadataDependenciesOutput) Criteria() MetadataDependenciesArrayOutput {
+	return o.ApplyT(func(v MetadataDependencies) []MetadataDependencies { return v.Criteria }).(MetadataDependenciesArrayOutput)
+}
+
+// Type of the content item we depend on
+func (o MetadataDependenciesOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the content item
+func (o MetadataDependenciesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Operator used for list of dependencies in criteria array.
+func (o MetadataDependenciesOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+func (o MetadataDependenciesOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependencies) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type MetadataDependenciesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataDependencies)(nil)).Elem()
+}
+
+func (o MetadataDependenciesPtrOutput) ToMetadataDependenciesPtrOutput() MetadataDependenciesPtrOutput {
+	return o
+}
+
+func (o MetadataDependenciesPtrOutput) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
+	return o
+}
+
+func (o MetadataDependenciesPtrOutput) Elem() MetadataDependenciesOutput {
+	return o.ApplyT(func(v *MetadataDependencies) MetadataDependencies { return *v }).(MetadataDependenciesOutput)
+}
+
+// Id of the content item we depend on
+func (o MetadataDependenciesPtrOutput) ContentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependencies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// This is the list of dependencies we must fulfill, according to the AND/OR operator
+func (o MetadataDependenciesPtrOutput) Criteria() MetadataDependenciesArrayOutput {
+	return o.ApplyT(func(v *MetadataDependencies) []MetadataDependencies {
+		if v == nil {
+			return nil
+		}
+		return v.Criteria
+	}).(MetadataDependenciesArrayOutput)
+}
+
+// Type of the content item we depend on
+func (o MetadataDependenciesPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependencies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the content item
+func (o MetadataDependenciesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependencies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operator used for list of dependencies in criteria array.
+func (o MetadataDependenciesPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependencies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+func (o MetadataDependenciesPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependencies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetadataDependenciesArrayOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetadataDependencies)(nil)).Elem()
+}
+
+func (o MetadataDependenciesArrayOutput) ToMetadataDependenciesArrayOutput() MetadataDependenciesArrayOutput {
+	return o
+}
+
+func (o MetadataDependenciesArrayOutput) ToMetadataDependenciesArrayOutputWithContext(ctx context.Context) MetadataDependenciesArrayOutput {
+	return o
+}
+
+func (o MetadataDependenciesArrayOutput) Index(i pulumi.IntInput) MetadataDependenciesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetadataDependencies {
+		return vs[0].([]MetadataDependencies)[vs[1].(int)]
+	}).(MetadataDependenciesOutput)
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependenciesResponse struct {
+	// Id of the content item we depend on
+	ContentId *string `pulumi:"contentId"`
+	// This is the list of dependencies we must fulfill, according to the AND/OR operator
+	Criteria []MetadataDependenciesResponse `pulumi:"criteria"`
+	// Type of the content item we depend on
+	Kind *string `pulumi:"kind"`
+	// Name of the content item
+	Name *string `pulumi:"name"`
+	// Operator used for list of dependencies in criteria array.
+	Operator *string `pulumi:"operator"`
+	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+	Version *string `pulumi:"version"`
+}
+
+// MetadataDependenciesResponseInput is an input type that accepts MetadataDependenciesResponseArgs and MetadataDependenciesResponseOutput values.
+// You can construct a concrete instance of `MetadataDependenciesResponseInput` via:
+//
+//          MetadataDependenciesResponseArgs{...}
+type MetadataDependenciesResponseInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesResponseOutput() MetadataDependenciesResponseOutput
+	ToMetadataDependenciesResponseOutputWithContext(context.Context) MetadataDependenciesResponseOutput
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependenciesResponseArgs struct {
+	// Id of the content item we depend on
+	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
+	// This is the list of dependencies we must fulfill, according to the AND/OR operator
+	Criteria MetadataDependenciesResponseArrayInput `pulumi:"criteria"`
+	// Type of the content item we depend on
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Name of the content item
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Operator used for list of dependencies in criteria array.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (MetadataDependenciesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (i MetadataDependenciesResponseArgs) ToMetadataDependenciesResponseOutput() MetadataDependenciesResponseOutput {
+	return i.ToMetadataDependenciesResponseOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesResponseArgs) ToMetadataDependenciesResponseOutputWithContext(ctx context.Context) MetadataDependenciesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesResponseOutput)
+}
+
+func (i MetadataDependenciesResponseArgs) ToMetadataDependenciesResponsePtrOutput() MetadataDependenciesResponsePtrOutput {
+	return i.ToMetadataDependenciesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesResponseArgs) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesResponseOutput).ToMetadataDependenciesResponsePtrOutputWithContext(ctx)
+}
+
+// MetadataDependenciesResponsePtrInput is an input type that accepts MetadataDependenciesResponseArgs, MetadataDependenciesResponsePtr and MetadataDependenciesResponsePtrOutput values.
+// You can construct a concrete instance of `MetadataDependenciesResponsePtrInput` via:
+//
+//          MetadataDependenciesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataDependenciesResponsePtrInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesResponsePtrOutput() MetadataDependenciesResponsePtrOutput
+	ToMetadataDependenciesResponsePtrOutputWithContext(context.Context) MetadataDependenciesResponsePtrOutput
+}
+
+type metadataDependenciesResponsePtrType MetadataDependenciesResponseArgs
+
+func MetadataDependenciesResponsePtr(v *MetadataDependenciesResponseArgs) MetadataDependenciesResponsePtrInput {
+	return (*metadataDependenciesResponsePtrType)(v)
+}
+
+func (*metadataDependenciesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (i *metadataDependenciesResponsePtrType) ToMetadataDependenciesResponsePtrOutput() MetadataDependenciesResponsePtrOutput {
+	return i.ToMetadataDependenciesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataDependenciesResponsePtrType) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesResponsePtrOutput)
+}
+
+// MetadataDependenciesResponseArrayInput is an input type that accepts MetadataDependenciesResponseArray and MetadataDependenciesResponseArrayOutput values.
+// You can construct a concrete instance of `MetadataDependenciesResponseArrayInput` via:
+//
+//          MetadataDependenciesResponseArray{ MetadataDependenciesResponseArgs{...} }
+type MetadataDependenciesResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetadataDependenciesResponseArrayOutput() MetadataDependenciesResponseArrayOutput
+	ToMetadataDependenciesResponseArrayOutputWithContext(context.Context) MetadataDependenciesResponseArrayOutput
+}
+
+type MetadataDependenciesResponseArray []MetadataDependenciesResponseInput
+
+func (MetadataDependenciesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (i MetadataDependenciesResponseArray) ToMetadataDependenciesResponseArrayOutput() MetadataDependenciesResponseArrayOutput {
+	return i.ToMetadataDependenciesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetadataDependenciesResponseArray) ToMetadataDependenciesResponseArrayOutputWithContext(ctx context.Context) MetadataDependenciesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesResponseArrayOutput)
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+type MetadataDependenciesResponseOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponseOutput() MetadataDependenciesResponseOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponseOutputWithContext(ctx context.Context) MetadataDependenciesResponseOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOutput() MetadataDependenciesResponsePtrOutput {
+	return o.ToMetadataDependenciesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *MetadataDependenciesResponse {
+		return &v
+	}).(MetadataDependenciesResponsePtrOutput)
+}
+
+// Id of the content item we depend on
+func (o MetadataDependenciesResponseOutput) ContentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.ContentId }).(pulumi.StringPtrOutput)
+}
+
+// This is the list of dependencies we must fulfill, according to the AND/OR operator
+func (o MetadataDependenciesResponseOutput) Criteria() MetadataDependenciesResponseArrayOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) []MetadataDependenciesResponse { return v.Criteria }).(MetadataDependenciesResponseArrayOutput)
+}
+
+// Type of the content item we depend on
+func (o MetadataDependenciesResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the content item
+func (o MetadataDependenciesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Operator used for list of dependencies in criteria array.
+func (o MetadataDependenciesResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+func (o MetadataDependenciesResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type MetadataDependenciesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (o MetadataDependenciesResponsePtrOutput) ToMetadataDependenciesResponsePtrOutput() MetadataDependenciesResponsePtrOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponsePtrOutput) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponsePtrOutput) Elem() MetadataDependenciesResponseOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) MetadataDependenciesResponse { return *v }).(MetadataDependenciesResponseOutput)
+}
+
+// Id of the content item we depend on
+func (o MetadataDependenciesResponsePtrOutput) ContentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// This is the list of dependencies we must fulfill, according to the AND/OR operator
+func (o MetadataDependenciesResponsePtrOutput) Criteria() MetadataDependenciesResponseArrayOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) []MetadataDependenciesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Criteria
+	}).(MetadataDependenciesResponseArrayOutput)
+}
+
+// Type of the content item we depend on
+func (o MetadataDependenciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the content item
+func (o MetadataDependenciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operator used for list of dependencies in criteria array.
+func (o MetadataDependenciesResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+func (o MetadataDependenciesResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetadataDependenciesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetadataDependenciesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetadataDependenciesResponse)(nil)).Elem()
+}
+
+func (o MetadataDependenciesResponseArrayOutput) ToMetadataDependenciesResponseArrayOutput() MetadataDependenciesResponseArrayOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponseArrayOutput) ToMetadataDependenciesResponseArrayOutputWithContext(ctx context.Context) MetadataDependenciesResponseArrayOutput {
+	return o
+}
+
+func (o MetadataDependenciesResponseArrayOutput) Index(i pulumi.IntInput) MetadataDependenciesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetadataDependenciesResponse {
+		return vs[0].([]MetadataDependenciesResponse)[vs[1].(int)]
+	}).(MetadataDependenciesResponseOutput)
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSource struct {
+	// Source type of the content
+	Kind string `pulumi:"kind"`
+	// Name of the content source.  The repo name, solution name, LA workspace name etc.
+	Name *string `pulumi:"name"`
+	// ID of the content source.  The solution ID, workspace ID, etc
+	SourceId *string `pulumi:"sourceId"`
+}
+
+// MetadataSourceInput is an input type that accepts MetadataSourceArgs and MetadataSourceOutput values.
+// You can construct a concrete instance of `MetadataSourceInput` via:
+//
+//          MetadataSourceArgs{...}
+type MetadataSourceInput interface {
+	pulumi.Input
+
+	ToMetadataSourceOutput() MetadataSourceOutput
+	ToMetadataSourceOutputWithContext(context.Context) MetadataSourceOutput
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSourceArgs struct {
+	// Source type of the content
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the content source.  The repo name, solution name, LA workspace name etc.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of the content source.  The solution ID, workspace ID, etc
+	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
+}
+
+func (MetadataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSource)(nil)).Elem()
+}
+
+func (i MetadataSourceArgs) ToMetadataSourceOutput() MetadataSourceOutput {
+	return i.ToMetadataSourceOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceArgs) ToMetadataSourceOutputWithContext(ctx context.Context) MetadataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceOutput)
+}
+
+func (i MetadataSourceArgs) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return i.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceArgs) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceOutput).ToMetadataSourcePtrOutputWithContext(ctx)
+}
+
+// MetadataSourcePtrInput is an input type that accepts MetadataSourceArgs, MetadataSourcePtr and MetadataSourcePtrOutput values.
+// You can construct a concrete instance of `MetadataSourcePtrInput` via:
+//
+//          MetadataSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataSourcePtrInput interface {
+	pulumi.Input
+
+	ToMetadataSourcePtrOutput() MetadataSourcePtrOutput
+	ToMetadataSourcePtrOutputWithContext(context.Context) MetadataSourcePtrOutput
+}
+
+type metadataSourcePtrType MetadataSourceArgs
+
+func MetadataSourcePtr(v *MetadataSourceArgs) MetadataSourcePtrInput {
+	return (*metadataSourcePtrType)(v)
+}
+
+func (*metadataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSource)(nil)).Elem()
+}
+
+func (i *metadataSourcePtrType) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return i.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSourcePtrType) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourcePtrOutput)
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSourceOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSource)(nil)).Elem()
+}
+
+func (o MetadataSourceOutput) ToMetadataSourceOutput() MetadataSourceOutput {
+	return o
+}
+
+func (o MetadataSourceOutput) ToMetadataSourceOutputWithContext(ctx context.Context) MetadataSourceOutput {
+	return o
+}
+
+func (o MetadataSourceOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return o.ToMetadataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return o.ApplyT(func(v MetadataSource) *MetadataSource {
+		return &v
+	}).(MetadataSourcePtrOutput)
+}
+
+// Source type of the content
+func (o MetadataSourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSource) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the content source.  The repo name, solution name, LA workspace name etc.
+func (o MetadataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of the content source.  The solution ID, workspace ID, etc
+func (o MetadataSourceOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+type MetadataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSource)(nil)).Elem()
+}
+
+func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
+	return o
+}
+
+func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
+	return o
+}
+
+func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
+	return o.ApplyT(func(v *MetadataSource) MetadataSource { return *v }).(MetadataSourceOutput)
+}
+
+// Source type of the content
+func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the content source.  The repo name, solution name, LA workspace name etc.
+func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the content source.  The solution ID, workspace ID, etc
+func (o MetadataSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSourceResponse struct {
+	// Source type of the content
+	Kind string `pulumi:"kind"`
+	// Name of the content source.  The repo name, solution name, LA workspace name etc.
+	Name *string `pulumi:"name"`
+	// ID of the content source.  The solution ID, workspace ID, etc
+	SourceId *string `pulumi:"sourceId"`
+}
+
+// MetadataSourceResponseInput is an input type that accepts MetadataSourceResponseArgs and MetadataSourceResponseOutput values.
+// You can construct a concrete instance of `MetadataSourceResponseInput` via:
+//
+//          MetadataSourceResponseArgs{...}
+type MetadataSourceResponseInput interface {
+	pulumi.Input
+
+	ToMetadataSourceResponseOutput() MetadataSourceResponseOutput
+	ToMetadataSourceResponseOutputWithContext(context.Context) MetadataSourceResponseOutput
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSourceResponseArgs struct {
+	// Source type of the content
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the content source.  The repo name, solution name, LA workspace name etc.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of the content source.  The solution ID, workspace ID, etc
+	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
+}
+
+func (MetadataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSourceResponse)(nil)).Elem()
+}
+
+func (i MetadataSourceResponseArgs) ToMetadataSourceResponseOutput() MetadataSourceResponseOutput {
+	return i.ToMetadataSourceResponseOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceResponseArgs) ToMetadataSourceResponseOutputWithContext(ctx context.Context) MetadataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceResponseOutput)
+}
+
+func (i MetadataSourceResponseArgs) ToMetadataSourceResponsePtrOutput() MetadataSourceResponsePtrOutput {
+	return i.ToMetadataSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSourceResponseArgs) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceResponseOutput).ToMetadataSourceResponsePtrOutputWithContext(ctx)
+}
+
+// MetadataSourceResponsePtrInput is an input type that accepts MetadataSourceResponseArgs, MetadataSourceResponsePtr and MetadataSourceResponsePtrOutput values.
+// You can construct a concrete instance of `MetadataSourceResponsePtrInput` via:
+//
+//          MetadataSourceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataSourceResponsePtrInput interface {
+	pulumi.Input
+
+	ToMetadataSourceResponsePtrOutput() MetadataSourceResponsePtrOutput
+	ToMetadataSourceResponsePtrOutputWithContext(context.Context) MetadataSourceResponsePtrOutput
+}
+
+type metadataSourceResponsePtrType MetadataSourceResponseArgs
+
+func MetadataSourceResponsePtr(v *MetadataSourceResponseArgs) MetadataSourceResponsePtrInput {
+	return (*metadataSourceResponsePtrType)(v)
+}
+
+func (*metadataSourceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSourceResponse)(nil)).Elem()
+}
+
+func (i *metadataSourceResponsePtrType) ToMetadataSourceResponsePtrOutput() MetadataSourceResponsePtrOutput {
+	return i.ToMetadataSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSourceResponsePtrType) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceResponsePtrOutput)
+}
+
+// The original source of the content item, where it comes from.
+type MetadataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSourceResponse)(nil)).Elem()
+}
+
+func (o MetadataSourceResponseOutput) ToMetadataSourceResponseOutput() MetadataSourceResponseOutput {
+	return o
+}
+
+func (o MetadataSourceResponseOutput) ToMetadataSourceResponseOutputWithContext(ctx context.Context) MetadataSourceResponseOutput {
+	return o
+}
+
+func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutput() MetadataSourceResponsePtrOutput {
+	return o.ToMetadataSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
+	return o.ApplyT(func(v MetadataSourceResponse) *MetadataSourceResponse {
+		return &v
+	}).(MetadataSourceResponsePtrOutput)
+}
+
+// Source type of the content
+func (o MetadataSourceResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSourceResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the content source.  The repo name, solution name, LA workspace name etc.
+func (o MetadataSourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of the content source.  The solution ID, workspace ID, etc
+func (o MetadataSourceResponseOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+type MetadataSourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSourceResponse)(nil)).Elem()
+}
+
+func (o MetadataSourceResponsePtrOutput) ToMetadataSourceResponsePtrOutput() MetadataSourceResponsePtrOutput {
+	return o
+}
+
+func (o MetadataSourceResponsePtrOutput) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
+	return o
+}
+
+func (o MetadataSourceResponsePtrOutput) Elem() MetadataSourceResponseOutput {
+	return o.ApplyT(func(v *MetadataSourceResponse) MetadataSourceResponse { return *v }).(MetadataSourceResponseOutput)
+}
+
+// Source type of the content
+func (o MetadataSourceResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the content source.  The repo name, solution name, LA workspace name etc.
+func (o MetadataSourceResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the content source.  The solution ID, workspace ID, etc
+func (o MetadataSourceResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Support information for the content item.
+type MetadataSupport struct {
+	// Email of support contact
+	Email *string `pulumi:"email"`
+	// Link for support help, like to support page to open a ticket etc.
+	Link *string `pulumi:"link"`
+	// Name of the support contact. Company or person.
+	Name *string `pulumi:"name"`
+	// Type of support for content item
+	Tier string `pulumi:"tier"`
+}
+
+// MetadataSupportInput is an input type that accepts MetadataSupportArgs and MetadataSupportOutput values.
+// You can construct a concrete instance of `MetadataSupportInput` via:
+//
+//          MetadataSupportArgs{...}
+type MetadataSupportInput interface {
+	pulumi.Input
+
+	ToMetadataSupportOutput() MetadataSupportOutput
+	ToMetadataSupportOutputWithContext(context.Context) MetadataSupportOutput
+}
+
+// Support information for the content item.
+type MetadataSupportArgs struct {
+	// Email of support contact
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// Link for support help, like to support page to open a ticket etc.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// Name of the support contact. Company or person.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of support for content item
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (MetadataSupportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupport)(nil)).Elem()
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportOutput() MetadataSupportOutput {
+	return i.ToMetadataSupportOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportOutputWithContext(ctx context.Context) MetadataSupportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportOutput)
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return i.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportArgs) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportOutput).ToMetadataSupportPtrOutputWithContext(ctx)
+}
+
+// MetadataSupportPtrInput is an input type that accepts MetadataSupportArgs, MetadataSupportPtr and MetadataSupportPtrOutput values.
+// You can construct a concrete instance of `MetadataSupportPtrInput` via:
+//
+//          MetadataSupportArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataSupportPtrInput interface {
+	pulumi.Input
+
+	ToMetadataSupportPtrOutput() MetadataSupportPtrOutput
+	ToMetadataSupportPtrOutputWithContext(context.Context) MetadataSupportPtrOutput
+}
+
+type metadataSupportPtrType MetadataSupportArgs
+
+func MetadataSupportPtr(v *MetadataSupportArgs) MetadataSupportPtrInput {
+	return (*metadataSupportPtrType)(v)
+}
+
+func (*metadataSupportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupport)(nil)).Elem()
+}
+
+func (i *metadataSupportPtrType) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return i.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSupportPtrType) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportPtrOutput)
+}
+
+// Support information for the content item.
+type MetadataSupportOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupport)(nil)).Elem()
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportOutput() MetadataSupportOutput {
+	return o
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportOutputWithContext(ctx context.Context) MetadataSupportOutput {
+	return o
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return o.ToMetadataSupportPtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *MetadataSupport {
+		return &v
+	}).(MetadataSupportPtrOutput)
+}
+
+// Email of support contact
+func (o MetadataSupportOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Link for support help, like to support page to open a ticket etc.
+func (o MetadataSupportOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// Name of the support contact. Company or person.
+func (o MetadataSupportOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupport) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of support for content item
+func (o MetadataSupportOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSupport) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type MetadataSupportPtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupport)(nil)).Elem()
+}
+
+func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
+	return o
+}
+
+func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
+	return o
+}
+
+func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
+	return o.ApplyT(func(v *MetadataSupport) MetadataSupport { return *v }).(MetadataSupportOutput)
+}
+
+// Email of support contact
+func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// Link for support help, like to support page to open a ticket etc.
+func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the support contact. Company or person.
+func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of support for content item
+func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Support information for the content item.
+type MetadataSupportResponse struct {
+	// Email of support contact
+	Email *string `pulumi:"email"`
+	// Link for support help, like to support page to open a ticket etc.
+	Link *string `pulumi:"link"`
+	// Name of the support contact. Company or person.
+	Name *string `pulumi:"name"`
+	// Type of support for content item
+	Tier string `pulumi:"tier"`
+}
+
+// MetadataSupportResponseInput is an input type that accepts MetadataSupportResponseArgs and MetadataSupportResponseOutput values.
+// You can construct a concrete instance of `MetadataSupportResponseInput` via:
+//
+//          MetadataSupportResponseArgs{...}
+type MetadataSupportResponseInput interface {
+	pulumi.Input
+
+	ToMetadataSupportResponseOutput() MetadataSupportResponseOutput
+	ToMetadataSupportResponseOutputWithContext(context.Context) MetadataSupportResponseOutput
+}
+
+// Support information for the content item.
+type MetadataSupportResponseArgs struct {
+	// Email of support contact
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// Link for support help, like to support page to open a ticket etc.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// Name of the support contact. Company or person.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of support for content item
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (MetadataSupportResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupportResponse)(nil)).Elem()
+}
+
+func (i MetadataSupportResponseArgs) ToMetadataSupportResponseOutput() MetadataSupportResponseOutput {
+	return i.ToMetadataSupportResponseOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportResponseArgs) ToMetadataSupportResponseOutputWithContext(ctx context.Context) MetadataSupportResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportResponseOutput)
+}
+
+func (i MetadataSupportResponseArgs) ToMetadataSupportResponsePtrOutput() MetadataSupportResponsePtrOutput {
+	return i.ToMetadataSupportResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MetadataSupportResponseArgs) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportResponseOutput).ToMetadataSupportResponsePtrOutputWithContext(ctx)
+}
+
+// MetadataSupportResponsePtrInput is an input type that accepts MetadataSupportResponseArgs, MetadataSupportResponsePtr and MetadataSupportResponsePtrOutput values.
+// You can construct a concrete instance of `MetadataSupportResponsePtrInput` via:
+//
+//          MetadataSupportResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MetadataSupportResponsePtrInput interface {
+	pulumi.Input
+
+	ToMetadataSupportResponsePtrOutput() MetadataSupportResponsePtrOutput
+	ToMetadataSupportResponsePtrOutputWithContext(context.Context) MetadataSupportResponsePtrOutput
+}
+
+type metadataSupportResponsePtrType MetadataSupportResponseArgs
+
+func MetadataSupportResponsePtr(v *MetadataSupportResponseArgs) MetadataSupportResponsePtrInput {
+	return (*metadataSupportResponsePtrType)(v)
+}
+
+func (*metadataSupportResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupportResponse)(nil)).Elem()
+}
+
+func (i *metadataSupportResponsePtrType) ToMetadataSupportResponsePtrOutput() MetadataSupportResponsePtrOutput {
+	return i.ToMetadataSupportResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *metadataSupportResponsePtrType) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportResponsePtrOutput)
+}
+
+// Support information for the content item.
+type MetadataSupportResponseOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetadataSupportResponse)(nil)).Elem()
+}
+
+func (o MetadataSupportResponseOutput) ToMetadataSupportResponseOutput() MetadataSupportResponseOutput {
+	return o
+}
+
+func (o MetadataSupportResponseOutput) ToMetadataSupportResponseOutputWithContext(ctx context.Context) MetadataSupportResponseOutput {
+	return o
+}
+
+func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutput() MetadataSupportResponsePtrOutput {
+	return o.ToMetadataSupportResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
+	return o.ApplyT(func(v MetadataSupportResponse) *MetadataSupportResponse {
+		return &v
+	}).(MetadataSupportResponsePtrOutput)
+}
+
+// Email of support contact
+func (o MetadataSupportResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Link for support help, like to support page to open a ticket etc.
+func (o MetadataSupportResponseOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// Name of the support contact. Company or person.
+func (o MetadataSupportResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of support for content item
+func (o MetadataSupportResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v MetadataSupportResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type MetadataSupportResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MetadataSupportResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetadataSupportResponse)(nil)).Elem()
+}
+
+func (o MetadataSupportResponsePtrOutput) ToMetadataSupportResponsePtrOutput() MetadataSupportResponsePtrOutput {
+	return o
+}
+
+func (o MetadataSupportResponsePtrOutput) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
+	return o
+}
+
+func (o MetadataSupportResponsePtrOutput) Elem() MetadataSupportResponseOutput {
+	return o.ApplyT(func(v *MetadataSupportResponse) MetadataSupportResponse { return *v }).(MetadataSupportResponseOutput)
+}
+
+// Email of support contact
+func (o MetadataSupportResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// Link for support help, like to support page to open a ticket etc.
+func (o MetadataSupportResponsePtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the support contact. Company or person.
+func (o MetadataSupportResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of support for content item
+func (o MetadataSupportResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetadataSupportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 // The available data types for office data connector.
 type OfficeDataConnectorDataTypes struct {
 	// Exchange data type connection.
@@ -9762,6 +11380,24 @@ func init() {
 	pulumi.RegisterOutputType(MTPDataConnectorDataTypesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MTPDataConnectorDataTypesResponseIncidentsOutput{})
 	pulumi.RegisterOutputType(MTPDataConnectorDataTypesResponseIncidentsPtrOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorPtrOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorResponseOutput{})
+	pulumi.RegisterOutputType(MetadataAuthorResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesPtrOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesArrayOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesResponseOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetadataDependenciesResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetadataSourceOutput{})
+	pulumi.RegisterOutputType(MetadataSourcePtrOutput{})
+	pulumi.RegisterOutputType(MetadataSourceResponseOutput{})
+	pulumi.RegisterOutputType(MetadataSourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetadataSupportOutput{})
+	pulumi.RegisterOutputType(MetadataSupportPtrOutput{})
+	pulumi.RegisterOutputType(MetadataSupportResponseOutput{})
+	pulumi.RegisterOutputType(MetadataSupportResponsePtrOutput{})
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesOutput{})
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesPtrOutput{})
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesExchangeOutput{})

@@ -605,6 +605,46 @@ func (e IncidentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The kind of content the metadata is for.
+type Kind pulumi.String
+
+const (
+	KindDataConnector        = Kind("dataConnector")
+	KindDataType             = Kind("dataType")
+	KindWorkbook             = Kind("workbook")
+	KindWorkbookTemplate     = Kind("workbookTemplate")
+	KindPlaybook             = Kind("playbook")
+	KindPlaybookTemplate     = Kind("playbookTemplate")
+	KindAnalyticRuleTemplate = Kind("analyticRuleTemplate")
+	KindAnalyticRule         = Kind("analyticRule")
+	KindHuntingQuery         = Kind("huntingQuery")
+	KindInvestigationQuery   = Kind("investigationQuery")
+	KindParser               = Kind("parser")
+	KindWatchlist            = Kind("watchlist")
+	KindWatchlistTemplate    = Kind("watchlistTemplate")
+	KindSolution             = Kind("solution")
+)
+
+func (Kind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Kind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The alerts' productName on which the cases will be generated
 type MicrosoftSecurityProductName pulumi.String
 
@@ -633,6 +673,34 @@ func (e MicrosoftSecurityProductName) ToStringPtrOutput() pulumi.StringPtrOutput
 }
 
 func (e MicrosoftSecurityProductName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Operator used for list of dependencies in criteria array.
+type Operator pulumi.String
+
+const (
+	OperatorAND = Operator("AND")
+	OperatorOR  = Operator("OR")
+)
+
+func (Operator) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Operator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Operator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Operator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Operator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -690,6 +758,65 @@ func (e Source) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e Source) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Source type of the content
+type SourceKind pulumi.String
+
+const (
+	SourceKindLocalWorkspace   = SourceKind("localWorkspace")
+	SourceKindCommunity        = SourceKind("community")
+	SourceKindSolution         = SourceKind("solution")
+	SourceKindSourceRepository = SourceKind("sourceRepository")
+)
+
+func (SourceKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SourceKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Type of support for content item
+type SupportTier pulumi.String
+
+const (
+	SupportTierMicrosoft = SupportTier("microsoft")
+	SupportTierDeveloper = SupportTier("developer")
+	SupportTierCommunity = SupportTier("community")
+)
+
+func (SupportTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SupportTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SupportTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SupportTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SupportTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

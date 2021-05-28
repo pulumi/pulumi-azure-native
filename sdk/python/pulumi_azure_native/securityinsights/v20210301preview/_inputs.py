@@ -30,6 +30,10 @@ __all__ = [
     'MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs',
     'MTPDataConnectorDataTypesArgs',
     'MTPDataConnectorDataTypesIncidentsArgs',
+    'MetadataAuthorArgs',
+    'MetadataDependenciesArgs',
+    'MetadataSourceArgs',
+    'MetadataSupportArgs',
     'OfficeDataConnectorDataTypesArgs',
     'OfficeDataConnectorDataTypesExchangeArgs',
     'OfficeDataConnectorDataTypesSharePointArgs',
@@ -874,6 +878,292 @@ class MTPDataConnectorDataTypesIncidentsArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class MetadataAuthorArgs:
+    def __init__(__self__, *,
+                 email: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Publisher or creator of the content item.
+        :param pulumi.Input[str] email: Email of author contact
+        :param pulumi.Input[str] link: Link for author/vendor page
+        :param pulumi.Input[str] name: Name of the author. Company or person.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email of author contact
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Link for author/vendor page
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the author. Company or person.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class MetadataDependenciesArgs:
+    def __init__(__self__, *,
+                 content_id: Optional[pulumi.Input[str]] = None,
+                 criteria: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
+        :param pulumi.Input[str] content_id: Id of the content item we depend on
+        :param pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]] criteria: This is the list of dependencies we must fulfill, according to the AND/OR operator
+        :param pulumi.Input[Union[str, 'Kind']] kind: Type of the content item we depend on
+        :param pulumi.Input[str] name: Name of the content item
+        :param pulumi.Input[Union[str, 'Operator']] operator: Operator used for list of dependencies in criteria array.
+        :param pulumi.Input[str] version: Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+        if content_id is not None:
+            pulumi.set(__self__, "content_id", content_id)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="contentId")
+    def content_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the content item we depend on
+        """
+        return pulumi.get(self, "content_id")
+
+    @content_id.setter
+    def content_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_id", value)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]]:
+        """
+        This is the list of dependencies we must fulfill, according to the AND/OR operator
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataDependenciesArgs']]]]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'Kind']]]:
+        """
+        Type of the content item we depend on
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'Kind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the content item
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
+        """
+        Operator used for list of dependencies in criteria array.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class MetadataSourceArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'SourceKind']],
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None):
+        """
+        The original source of the content item, where it comes from.
+        :param pulumi.Input[Union[str, 'SourceKind']] kind: Source type of the content
+        :param pulumi.Input[str] name: Name of the content source.  The repo name, solution name, LA workspace name etc.
+        :param pulumi.Input[str] source_id: ID of the content source.  The solution ID, workspace ID, etc
+        """
+        pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'SourceKind']]:
+        """
+        Source type of the content
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'SourceKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the content source.  The repo name, solution name, LA workspace name etc.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the content source.  The solution ID, workspace ID, etc
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_id", value)
+
+
+@pulumi.input_type
+class MetadataSupportArgs:
+    def __init__(__self__, *,
+                 tier: pulumi.Input[Union[str, 'SupportTier']],
+                 email: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Support information for the content item.
+        :param pulumi.Input[Union[str, 'SupportTier']] tier: Type of support for content item
+        :param pulumi.Input[str] email: Email of support contact
+        :param pulumi.Input[str] link: Link for support help, like to support page to open a ticket etc.
+        :param pulumi.Input[str] name: Name of the support contact. Company or person.
+        """
+        pulumi.set(__self__, "tier", tier)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[Union[str, 'SupportTier']]:
+        """
+        Type of support for content item
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[Union[str, 'SupportTier']]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email of support contact
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Link for support help, like to support page to open a ticket etc.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the support contact. Company or person.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

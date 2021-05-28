@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Storage.V20210401
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of object replication policy or 'default' if the policy ID is unknown.
+        /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         /// </summary>
         [Input("objectReplicationPolicyId", required: true)]
         public string ObjectReplicationPolicyId { get; set; } = null!;

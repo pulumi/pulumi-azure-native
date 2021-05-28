@@ -339,6 +339,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The provisioned state of the resource.
+    /// </summary>
     [EnumType]
     public readonly struct ProvisioningState : IEquatable<ProvisioningState>
     {

@@ -112,6 +112,80 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
     /// <summary>
+    /// The kind of content the metadata is for.
+    /// </summary>
+    [EnumType]
+    public readonly struct Kind : IEquatable<Kind>
+    {
+        private readonly string _value;
+
+        private Kind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Kind DataConnector { get; } = new Kind("dataConnector");
+        public static Kind DataType { get; } = new Kind("dataType");
+        public static Kind Workbook { get; } = new Kind("workbook");
+        public static Kind WorkbookTemplate { get; } = new Kind("workbookTemplate");
+        public static Kind Playbook { get; } = new Kind("playbook");
+        public static Kind PlaybookTemplate { get; } = new Kind("playbookTemplate");
+        public static Kind AnalyticRuleTemplate { get; } = new Kind("analyticRuleTemplate");
+        public static Kind AnalyticRule { get; } = new Kind("analyticRule");
+        public static Kind HuntingQuery { get; } = new Kind("huntingQuery");
+        public static Kind InvestigationQuery { get; } = new Kind("investigationQuery");
+        public static Kind Parser { get; } = new Kind("parser");
+        public static Kind Watchlist { get; } = new Kind("watchlist");
+        public static Kind WatchlistTemplate { get; } = new Kind("watchlistTemplate");
+        public static Kind Solution { get; } = new Kind("solution");
+
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+
+        public static explicit operator string(Kind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator used for list of dependencies in criteria array.
+    /// </summary>
+    [EnumType]
+    public readonly struct Operator : IEquatable<Operator>
+    {
+        private readonly string _value;
+
+        private Operator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Operator AND { get; } = new Operator("AND");
+        public static Operator OR { get; } = new Operator("OR");
+
+        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
+        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
+
+        public static explicit operator string(Operator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
+        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Permission provider scope
     /// </summary>
     [EnumType]
@@ -307,6 +381,71 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Source other && Equals(other);
         public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Source type of the content
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceKind : IEquatable<SourceKind>
+    {
+        private readonly string _value;
+
+        private SourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceKind LocalWorkspace { get; } = new SourceKind("localWorkspace");
+        public static SourceKind Community { get; } = new SourceKind("community");
+        public static SourceKind Solution { get; } = new SourceKind("solution");
+        public static SourceKind SourceRepository { get; } = new SourceKind("sourceRepository");
+
+        public static bool operator ==(SourceKind left, SourceKind right) => left.Equals(right);
+        public static bool operator !=(SourceKind left, SourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(SourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceKind other && Equals(other);
+        public bool Equals(SourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of support for content item
+    /// </summary>
+    [EnumType]
+    public readonly struct SupportTier : IEquatable<SupportTier>
+    {
+        private readonly string _value;
+
+        private SupportTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SupportTier Microsoft { get; } = new SupportTier("microsoft");
+        public static SupportTier Developer { get; } = new SupportTier("developer");
+        public static SupportTier Community { get; } = new SupportTier("community");
+
+        public static bool operator ==(SupportTier left, SupportTier right) => left.Equals(right);
+        public static bool operator !=(SupportTier left, SupportTier right) => !left.Equals(right);
+
+        public static explicit operator string(SupportTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SupportTier other && Equals(other);
+        public bool Equals(SupportTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

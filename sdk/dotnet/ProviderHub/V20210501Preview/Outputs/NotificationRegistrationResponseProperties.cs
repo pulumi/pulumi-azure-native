@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
         public readonly string? MessageScope;
         public readonly ImmutableArray<Outputs.NotificationEndpointResponse> NotificationEndpoints;
         public readonly string? NotificationMode;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private NotificationRegistrationResponseProperties(
@@ -26,12 +30,15 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
 
             ImmutableArray<Outputs.NotificationEndpointResponse> notificationEndpoints,
 
-            string? notificationMode)
+            string? notificationMode,
+
+            string? provisioningState)
         {
             IncludedEvents = includedEvents;
             MessageScope = messageScope;
             NotificationEndpoints = notificationEndpoints;
             NotificationMode = notificationMode;
+            ProvisioningState = provisioningState;
         }
     }
 }

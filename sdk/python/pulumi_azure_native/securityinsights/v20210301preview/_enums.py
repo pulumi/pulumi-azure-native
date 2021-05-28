@@ -8,12 +8,16 @@ __all__ = [
     'ConnectivityType',
     'DataConnectorKind',
     'DataTypeState',
+    'Kind',
+    'Operator',
     'PermissionProviderScope',
     'PollingFrequency',
     'ProviderName',
     'SettingKind',
     'SettingType',
     'Source',
+    'SourceKind',
+    'SupportTier',
     'UebaDataSources',
 ]
 
@@ -51,6 +55,34 @@ class DataTypeState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class Kind(str, Enum):
+    """
+    The kind of content the metadata is for.
+    """
+    DATA_CONNECTOR = "dataConnector"
+    DATA_TYPE = "dataType"
+    WORKBOOK = "workbook"
+    WORKBOOK_TEMPLATE = "workbookTemplate"
+    PLAYBOOK = "playbook"
+    PLAYBOOK_TEMPLATE = "playbookTemplate"
+    ANALYTIC_RULE_TEMPLATE = "analyticRuleTemplate"
+    ANALYTIC_RULE = "analyticRule"
+    HUNTING_QUERY = "huntingQuery"
+    INVESTIGATION_QUERY = "investigationQuery"
+    PARSER = "parser"
+    WATCHLIST = "watchlist"
+    WATCHLIST_TEMPLATE = "watchlistTemplate"
+    SOLUTION = "solution"
+
+
+class Operator(str, Enum):
+    """
+    Operator used for list of dependencies in criteria array.
+    """
+    AND_ = "AND"
+    OR_ = "OR"
 
 
 class PermissionProviderScope(str, Enum):
@@ -107,6 +139,25 @@ class Source(str, Enum):
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
+
+
+class SourceKind(str, Enum):
+    """
+    Source type of the content
+    """
+    LOCAL_WORKSPACE = "localWorkspace"
+    COMMUNITY = "community"
+    SOLUTION = "solution"
+    SOURCE_REPOSITORY = "sourceRepository"
+
+
+class SupportTier(str, Enum):
+    """
+    Type of support for content item
+    """
+    MICROSOFT = "microsoft"
+    DEVELOPER = "developer"
+    COMMUNITY = "community"
 
 
 class UebaDataSources(str, Enum):

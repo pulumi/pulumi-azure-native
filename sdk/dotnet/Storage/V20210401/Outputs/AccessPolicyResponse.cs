@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Storage.V20210401.Outputs
         /// <summary>
         /// Expiry time of the access policy
         /// </summary>
-        public readonly string? Expiry;
+        public readonly string? ExpiryTime;
         /// <summary>
         /// List of abbreviated permissions.
         /// </summary>
@@ -24,19 +24,19 @@ namespace Pulumi.AzureNative.Storage.V20210401.Outputs
         /// <summary>
         /// Start time of the access policy
         /// </summary>
-        public readonly string? Start;
+        public readonly string? StartTime;
 
         [OutputConstructor]
         private AccessPolicyResponse(
-            string? expiry,
+            string? expiryTime,
 
             string? permission,
 
-            string? start)
+            string? startTime)
         {
-            Expiry = expiry;
+            ExpiryTime = expiryTime;
             Permission = permission;
-            Start = start;
+            StartTime = startTime;
         }
     }
 }

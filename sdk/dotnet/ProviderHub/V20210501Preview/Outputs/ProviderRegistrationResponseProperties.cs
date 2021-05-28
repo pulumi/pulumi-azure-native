@@ -23,11 +23,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
         public readonly Outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata? ProviderHubMetadata;
         public readonly string? ProviderType;
         public readonly string? ProviderVersion;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
         public readonly Outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
         public readonly ImmutableArray<string> RequiredFeatures;
-        public readonly Outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? SubscriptionLifecycleNotificationSpecifications;
-        public readonly Outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions? TemplateDeploymentOptions;
 
         [OutputConstructor]
         private ProviderRegistrationResponseProperties(
@@ -55,11 +56,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
 
             Outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions? requestHeaderOptions,
 
-            ImmutableArray<string> requiredFeatures,
-
-            Outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? subscriptionLifecycleNotificationSpecifications,
-
-            Outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions? templateDeploymentOptions)
+            ImmutableArray<string> requiredFeatures)
         {
             Capabilities = capabilities;
             FeaturesRule = featuresRule;
@@ -74,8 +71,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
             ProvisioningState = provisioningState;
             RequestHeaderOptions = requestHeaderOptions;
             RequiredFeatures = requiredFeatures;
-            SubscriptionLifecycleNotificationSpecifications = subscriptionLifecycleNotificationSpecifications;
-            TemplateDeploymentOptions = templateDeploymentOptions;
         }
     }
 }

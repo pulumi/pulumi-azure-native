@@ -64,32 +64,32 @@ __all__ = [
 @pulumi.input_type
 class AccessPolicyArgs:
     def __init__(__self__, *,
-                 expiry: Optional[pulumi.Input[str]] = None,
+                 expiry_time: Optional[pulumi.Input[str]] = None,
                  permission: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None):
+                 start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: Expiry time of the access policy
+        :param pulumi.Input[str] expiry_time: Expiry time of the access policy
         :param pulumi.Input[str] permission: List of abbreviated permissions.
-        :param pulumi.Input[str] start: Start time of the access policy
+        :param pulumi.Input[str] start_time: Start time of the access policy
         """
-        if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
         if permission is not None:
             pulumi.set(__self__, "permission", permission)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
 
     @property
-    @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
         """
         Expiry time of the access policy
         """
-        return pulumi.get(self, "expiry")
+        return pulumi.get(self, "expiry_time")
 
-    @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expiry", value)
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
 
     @property
     @pulumi.getter
@@ -104,16 +104,16 @@ class AccessPolicyArgs:
         pulumi.set(self, "permission", value)
 
     @property
-    @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
         """
         Start time of the access policy
         """
-        return pulumi.get(self, "start")
+        return pulumi.get(self, "start_time")
 
-    @start.setter
-    def start(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start", value)
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type

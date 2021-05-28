@@ -331,6 +331,7 @@ func (e PreflightOption) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The provisioned state of the resource.
 type ProvisioningState pulumi.String
 
 const (

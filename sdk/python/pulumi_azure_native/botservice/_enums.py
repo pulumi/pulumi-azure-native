@@ -8,6 +8,7 @@ __all__ = [
     'EnterpriseChannelNodeState',
     'EnterpriseChannelState',
     'Kind',
+    'PrivateEndpointServiceConnectionStatus',
     'SkuName',
 ]
 
@@ -52,6 +53,15 @@ class Kind(str, Enum):
     DESIGNER = "designer"
     BOT = "bot"
     FUNCTION = "function"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class SkuName(str, Enum):

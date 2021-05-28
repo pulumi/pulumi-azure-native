@@ -14,9 +14,11 @@ from .get_bot import *
 from .get_bot_connection import *
 from .get_channel import *
 from .get_enterprise_channel import *
+from .get_private_endpoint_connection import *
 from .list_bot_connection_service_providers import *
 from .list_bot_connection_with_secrets import *
 from .list_channel_with_keys import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -26,9 +28,11 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.botservice.v20180712 as v20180712
     import pulumi_azure_native.botservice.v20200602 as v20200602
     import pulumi_azure_native.botservice.v20210301 as v20210301
+    import pulumi_azure_native.botservice.v20210501preview as v20210501preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.botservice.v20171201')
     v20180712 = _utilities.lazy_import('pulumi_azure_native.botservice.v20180712')
     v20200602 = _utilities.lazy_import('pulumi_azure_native.botservice.v20200602')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.botservice.v20210301')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.botservice.v20210501preview')
 

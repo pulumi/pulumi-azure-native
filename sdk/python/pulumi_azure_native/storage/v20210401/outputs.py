@@ -81,29 +81,48 @@ __all__ = [
 
 @pulumi.output_type
 class AccessPolicyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 expiry: Optional[str] = None,
+                 expiry_time: Optional[str] = None,
                  permission: Optional[str] = None,
-                 start: Optional[str] = None):
+                 start_time: Optional[str] = None):
         """
-        :param str expiry: Expiry time of the access policy
+        :param str expiry_time: Expiry time of the access policy
         :param str permission: List of abbreviated permissions.
-        :param str start: Start time of the access policy
+        :param str start_time: Start time of the access policy
         """
-        if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
         if permission is not None:
             pulumi.set(__self__, "permission", permission)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
 
     @property
-    @pulumi.getter
-    def expiry(self) -> Optional[str]:
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
         """
         Expiry time of the access policy
         """
-        return pulumi.get(self, "expiry")
+        return pulumi.get(self, "expiry_time")
 
     @property
     @pulumi.getter
@@ -114,12 +133,12 @@ class AccessPolicyResponse(dict):
         return pulumi.get(self, "permission")
 
     @property
-    @pulumi.getter
-    def start(self) -> Optional[str]:
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
         """
         Start time of the access policy
         """
-        return pulumi.get(self, "start")
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type

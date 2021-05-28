@@ -15,8 +15,8 @@ namespace Pulumi.AzureNative.Storage.V20210401.Inputs
         /// <summary>
         /// Expiry time of the access policy
         /// </summary>
-        [Input("expiry")]
-        public Input<string>? Expiry { get; set; }
+        [Input("expiryTime")]
+        public Input<string>? ExpiryTime { get; set; }
 
         /// <summary>
         /// List of abbreviated permissions.
@@ -27,8 +27,8 @@ namespace Pulumi.AzureNative.Storage.V20210401.Inputs
         /// <summary>
         /// Start time of the access policy
         /// </summary>
-        [Input("start")]
-        public Input<string>? Start { get; set; }
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
 
         public AccessPolicyArgs()
         {

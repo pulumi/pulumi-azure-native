@@ -36,7 +36,6 @@ __all__ = [
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgs',
     'ProviderRegistrationPropertiesArgs',
     'ProviderRegistrationPropertiesProviderHubMetadataArgs',
-    'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
     'ResourceConcurrencyControlOptionArgs',
     'ResourceProviderAuthorizationArgs',
     'ResourceProviderCapabilitiesArgs',
@@ -44,7 +43,6 @@ __all__ = [
     'ResourceProviderManifestPropertiesManagementArgs',
     'ResourceProviderManifestPropertiesProviderAuthenticationArgs',
     'ResourceProviderManifestPropertiesRequestHeaderOptionsArgs',
-    'ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs',
     'ResourceTypeEndpointArgs',
     'ResourceTypeEndpointFeaturesRuleArgs',
     'ResourceTypeExtensionArgs',
@@ -113,6 +111,7 @@ class DefaultRolloutPropertiesArgs:
                  status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None):
         """
         Properties of the rollout.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -124,6 +123,9 @@ class DefaultRolloutPropertiesArgs:
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
@@ -841,7 +843,11 @@ class NotificationRegistrationPropertiesArgs:
                  included_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message_scope: Optional[pulumi.Input[Union[str, 'MessageScope']]] = None,
                  notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]] = None,
-                 notification_mode: Optional[pulumi.Input[Union[str, 'NotificationMode']]] = None):
+                 notification_mode: Optional[pulumi.Input[Union[str, 'NotificationMode']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
+        """
         if included_events is not None:
             pulumi.set(__self__, "included_events", included_events)
         if message_scope is not None:
@@ -850,6 +856,8 @@ class NotificationRegistrationPropertiesArgs:
             pulumi.set(__self__, "notification_endpoints", notification_endpoints)
         if notification_mode is not None:
             pulumi.set(__self__, "notification_mode", notification_mode)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="includedEvents")
@@ -886,6 +894,18 @@ class NotificationRegistrationPropertiesArgs:
     @notification_mode.setter
     def notification_mode(self, value: Optional[pulumi.Input[Union[str, 'NotificationMode']]]):
         pulumi.set(self, "notification_mode", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1090,9 +1110,10 @@ class ProviderRegistrationPropertiesArgs:
                  provider_version: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  request_header_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']] = None,
-                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subscription_lifecycle_notification_specifications: Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
-                 template_deployment_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']] = None):
+                 required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
+        """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if features_rule is not None:
@@ -1119,10 +1140,6 @@ class ProviderRegistrationPropertiesArgs:
             pulumi.set(__self__, "request_header_options", request_header_options)
         if required_features is not None:
             pulumi.set(__self__, "required_features", required_features)
-        if subscription_lifecycle_notification_specifications is not None:
-            pulumi.set(__self__, "subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
-        if template_deployment_options is not None:
-            pulumi.set(__self__, "template_deployment_options", template_deployment_options)
 
     @property
     @pulumi.getter
@@ -1217,6 +1234,9 @@ class ProviderRegistrationPropertiesArgs:
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
@@ -1240,24 +1260,6 @@ class ProviderRegistrationPropertiesArgs:
     @required_features.setter
     def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "required_features", value)
-
-    @property
-    @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]:
-        return pulumi.get(self, "subscription_lifecycle_notification_specifications")
-
-    @subscription_lifecycle_notification_specifications.setter
-    def subscription_lifecycle_notification_specifications(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']]):
-        pulumi.set(self, "subscription_lifecycle_notification_specifications", value)
-
-    @property
-    @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]:
-        return pulumi.get(self, "template_deployment_options")
-
-    @template_deployment_options.setter
-    def template_deployment_options(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]):
-        pulumi.set(self, "template_deployment_options", value)
 
 
 @pulumi.input_type
@@ -1299,35 +1301,6 @@ class ProviderRegistrationPropertiesProviderHubMetadataArgs:
     @third_party_provider_authorization.setter
     def third_party_provider_authorization(self, value: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]):
         pulumi.set(self, "third_party_provider_authorization", value)
-
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[pulumi.Input[str]] = None,
-                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @soft_delete_ttl.setter
-    def soft_delete_ttl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "soft_delete_ttl", value)
-
-    @property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
-        return pulumi.get(self, "subscription_state_override_actions")
-
-    @subscription_state_override_actions.setter
-    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
-        pulumi.set(self, "subscription_state_override_actions", value)
 
 
 @pulumi.input_type
@@ -1578,35 +1551,6 @@ class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
 
 
 @pulumi.input_type
-class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
-    def __init__(__self__, *,
-                 preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
-                 preflight_supported: Optional[pulumi.Input[bool]] = None):
-        if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
-        if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
-
-    @property
-    @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]:
-        return pulumi.get(self, "preflight_options")
-
-    @preflight_options.setter
-    def preflight_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]):
-        pulumi.set(self, "preflight_options", value)
-
-    @property
-    @pulumi.getter(name="preflightSupported")
-    def preflight_supported(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "preflight_supported")
-
-    @preflight_supported.setter
-    def preflight_supported(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "preflight_supported", value)
-
-
-@pulumi.input_type
 class ResourceTypeEndpointArgs:
     def __init__(__self__, *,
                  api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1833,6 +1777,9 @@ class ResourceTypeRegistrationPropertiesArgs:
                  swagger_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]] = None,
                  template_deployment_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']] = None,
                  throttling_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
+        """
         if allowed_unauthorized_actions is not None:
             pulumi.set(__self__, "allowed_unauthorized_actions", allowed_unauthorized_actions)
         if authorization_action_mappings is not None:
@@ -2054,6 +2001,9 @@ class ResourceTypeRegistrationPropertiesArgs:
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter

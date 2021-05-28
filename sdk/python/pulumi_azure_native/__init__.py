@@ -2169,7 +2169,8 @@ _utilities.register(
    "azure-native:botservice:Bot": "Bot",
    "azure-native:botservice:BotConnection": "BotConnection",
    "azure-native:botservice:Channel": "Channel",
-   "azure-native:botservice:EnterpriseChannel": "EnterpriseChannel"
+   "azure-native:botservice:EnterpriseChannel": "EnterpriseChannel",
+   "azure-native:botservice:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -2211,6 +2212,17 @@ _utilities.register(
    "azure-native:botservice/v20210301:Bot": "Bot",
    "azure-native:botservice/v20210301:BotConnection": "BotConnection",
    "azure-native:botservice/v20210301:Channel": "Channel"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "botservice/v20210501preview",
+  "fqn": "pulumi_azure_native.botservice.v20210501preview",
+  "classes": {
+   "azure-native:botservice/v20210501preview:Bot": "Bot",
+   "azure-native:botservice/v20210501preview:BotConnection": "BotConnection",
+   "azure-native:botservice/v20210501preview:Channel": "Channel",
+   "azure-native:botservice/v20210501preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -12318,6 +12330,7 @@ _utilities.register(
    "azure-native:securityinsights:IncidentRelation": "IncidentRelation",
    "azure-native:securityinsights:MCASDataConnector": "MCASDataConnector",
    "azure-native:securityinsights:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights:Metadatum": "Metadatum",
    "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
    "azure-native:securityinsights:OfficeDataConnector": "OfficeDataConnector",
    "azure-native:securityinsights:ProductSetting": "ProductSetting",
@@ -12413,6 +12426,7 @@ _utilities.register(
    "azure-native:securityinsights/v20210301preview:MDATPDataConnector": "MDATPDataConnector",
    "azure-native:securityinsights/v20210301preview:MSTIDataConnector": "MSTIDataConnector",
    "azure-native:securityinsights/v20210301preview:MTPDataConnector": "MTPDataConnector",
+   "azure-native:securityinsights/v20210301preview:Metadatum": "Metadatum",
    "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector": "OfficeATPDataConnector",
    "azure-native:securityinsights/v20210301preview:OfficeDataConnector": "OfficeDataConnector",
    "azure-native:securityinsights/v20210301preview:ProductSetting": "ProductSetting",

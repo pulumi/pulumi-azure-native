@@ -38,6 +38,7 @@ export * from "./getIncidentComment";
 export * from "./getIncidentRelation";
 export * from "./getMCASDataConnector";
 export * from "./getMDATPDataConnector";
+export * from "./getMetadatum";
 export * from "./getMicrosoftSecurityIncidentCreationAlertRule";
 export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
@@ -53,6 +54,7 @@ export * from "./incidentComment";
 export * from "./incidentRelation";
 export * from "./mcasdataConnector";
 export * from "./mdatpdataConnector";
+export * from "./metadatum";
 export * from "./microsoftSecurityIncidentCreationAlertRule";
 export * from "./officeDataConnector";
 export * from "./productSetting";
@@ -97,6 +99,7 @@ import { IncidentComment } from "./incidentComment";
 import { IncidentRelation } from "./incidentRelation";
 import { MCASDataConnector } from "./mcasdataConnector";
 import { MDATPDataConnector } from "./mdatpdataConnector";
+import { Metadatum } from "./metadatum";
 import { MicrosoftSecurityIncidentCreationAlertRule } from "./microsoftSecurityIncidentCreationAlertRule";
 import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
@@ -148,6 +151,8 @@ const _module = {
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MDATPDataConnector":
                 return new MDATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:Metadatum":
+                return new Metadatum(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule":
                 return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:OfficeDataConnector":

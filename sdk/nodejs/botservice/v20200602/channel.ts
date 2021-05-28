@@ -109,7 +109,7 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20200602:Channel" }, { type: "azure-native:botservice:Channel" }, { type: "azure-nextgen:botservice:Channel" }, { type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-nextgen:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-nextgen:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-nextgen:botservice/v20210301:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20200602:Channel" }, { type: "azure-native:botservice:Channel" }, { type: "azure-nextgen:botservice:Channel" }, { type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-nextgen:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-nextgen:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-nextgen:botservice/v20210301:Channel" }, { type: "azure-native:botservice/v20210501preview:Channel" }, { type: "azure-nextgen:botservice/v20210501preview:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, inputs, opts);
     }

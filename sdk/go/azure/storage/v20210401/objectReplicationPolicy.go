@@ -150,7 +150,7 @@ type objectReplicationPolicyArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
 	DestinationAccount string `pulumi:"destinationAccount"`
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
 	ObjectReplicationPolicyId *string `pulumi:"objectReplicationPolicyId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -166,7 +166,7 @@ type ObjectReplicationPolicyArgs struct {
 	AccountName pulumi.StringInput
 	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
 	DestinationAccount pulumi.StringInput
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
 	ObjectReplicationPolicyId pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

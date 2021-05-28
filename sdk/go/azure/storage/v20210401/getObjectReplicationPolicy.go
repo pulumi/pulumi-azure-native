@@ -20,7 +20,7 @@ func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplic
 type LookupObjectReplicationPolicyArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// The ID of object replication policy or 'default' if the policy ID is unknown.
+	// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
 	ObjectReplicationPolicyId string `pulumi:"objectReplicationPolicyId"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

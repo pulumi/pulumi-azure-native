@@ -35,7 +35,6 @@ __all__ = [
     'ProviderHubMetadataResponseProviderAuthentication',
     'ProviderHubMetadataResponseThirdPartyProviderAuthorization',
     'ProviderRegistrationPropertiesResponseProviderHubMetadata',
-    'ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
     'ProviderRegistrationResponseProperties',
     'ResourceConcurrencyControlOptionResponse',
     'ResourceProviderAuthorizationResponse',
@@ -44,7 +43,6 @@ __all__ = [
     'ResourceProviderManifestPropertiesResponseManagement',
     'ResourceProviderManifestPropertiesResponseProviderAuthentication',
     'ResourceProviderManifestPropertiesResponseRequestHeaderOptions',
-    'ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions',
     'ResourceTypeEndpointResponse',
     'ResourceTypeEndpointResponseFeaturesRule',
     'ResourceTypeExtensionOptionsResponseResourceCreationBegin',
@@ -304,6 +302,7 @@ class DefaultRolloutResponseProperties(dict):
                  status: Optional['outputs.DefaultRolloutPropertiesResponseStatus'] = None):
         """
         Properties of the rollout.
+        :param str provisioning_state: The provisioned state of the resource.
         """
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -315,6 +314,9 @@ class DefaultRolloutResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -975,6 +977,8 @@ class NotificationRegistrationResponseProperties(dict):
             suggest = "notification_endpoints"
         elif key == "notificationMode":
             suggest = "notification_mode"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NotificationRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -991,7 +995,11 @@ class NotificationRegistrationResponseProperties(dict):
                  included_events: Optional[Sequence[str]] = None,
                  message_scope: Optional[str] = None,
                  notification_endpoints: Optional[Sequence['outputs.NotificationEndpointResponse']] = None,
-                 notification_mode: Optional[str] = None):
+                 notification_mode: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if included_events is not None:
             pulumi.set(__self__, "included_events", included_events)
         if message_scope is not None:
@@ -1000,6 +1008,8 @@ class NotificationRegistrationResponseProperties(dict):
             pulumi.set(__self__, "notification_endpoints", notification_endpoints)
         if notification_mode is not None:
             pulumi.set(__self__, "notification_mode", notification_mode)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="includedEvents")
@@ -1020,6 +1030,14 @@ class NotificationRegistrationResponseProperties(dict):
     @pulumi.getter(name="notificationMode")
     def notification_mode(self) -> Optional[str]:
         return pulumi.get(self, "notification_mode")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -1179,46 +1197,6 @@ class ProviderRegistrationPropertiesResponseProviderHubMetadata(dict):
 
 
 @pulumi.output_type
-class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "softDeleteTTL":
-            suggest = "soft_delete_ttl"
-        elif key == "subscriptionStateOverrideActions":
-            suggest = "subscription_state_override_actions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[str] = None,
-                 subscription_state_override_actions: Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']] = None):
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[str]:
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']]:
-        return pulumi.get(self, "subscription_state_override_actions")
-
-
-@pulumi.output_type
 class ProviderRegistrationResponseProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1241,10 +1219,6 @@ class ProviderRegistrationResponseProperties(dict):
             suggest = "request_header_options"
         elif key == "requiredFeatures":
             suggest = "required_features"
-        elif key == "subscriptionLifecycleNotificationSpecifications":
-            suggest = "subscription_lifecycle_notification_specifications"
-        elif key == "templateDeploymentOptions":
-            suggest = "template_deployment_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -1270,9 +1244,10 @@ class ProviderRegistrationResponseProperties(dict):
                  provider_version: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  request_header_options: Optional['outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions'] = None,
-                 required_features: Optional[Sequence[str]] = None,
-                 subscription_lifecycle_notification_specifications: Optional['outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications'] = None,
-                 template_deployment_options: Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions'] = None):
+                 required_features: Optional[Sequence[str]] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if features_rule is not None:
@@ -1299,10 +1274,6 @@ class ProviderRegistrationResponseProperties(dict):
             pulumi.set(__self__, "request_header_options", request_header_options)
         if required_features is not None:
             pulumi.set(__self__, "required_features", required_features)
-        if subscription_lifecycle_notification_specifications is not None:
-            pulumi.set(__self__, "subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
-        if template_deployment_options is not None:
-            pulumi.set(__self__, "template_deployment_options", template_deployment_options)
 
     @property
     @pulumi.getter
@@ -1357,6 +1328,9 @@ class ProviderRegistrationResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -1368,16 +1342,6 @@ class ProviderRegistrationResponseProperties(dict):
     @pulumi.getter(name="requiredFeatures")
     def required_features(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "required_features")
-
-    @property
-    @pulumi.getter(name="subscriptionLifecycleNotificationSpecifications")
-    def subscription_lifecycle_notification_specifications(self) -> Optional['outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications']:
-        return pulumi.get(self, "subscription_lifecycle_notification_specifications")
-
-    @property
-    @pulumi.getter(name="templateDeploymentOptions")
-    def template_deployment_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions']:
-        return pulumi.get(self, "template_deployment_options")
 
 
 @pulumi.output_type
@@ -1675,46 +1639,6 @@ class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
     @pulumi.getter(name="optInHeaders")
     def opt_in_headers(self) -> Optional[str]:
         return pulumi.get(self, "opt_in_headers")
-
-
-@pulumi.output_type
-class ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "preflightOptions":
-            suggest = "preflight_options"
-        elif key == "preflightSupported":
-            suggest = "preflight_supported"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 preflight_options: Optional[Sequence[str]] = None,
-                 preflight_supported: Optional[bool] = None):
-        if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
-        if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
-
-    @property
-    @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "preflight_options")
-
-    @property
-    @pulumi.getter(name="preflightSupported")
-    def preflight_supported(self) -> Optional[bool]:
-        return pulumi.get(self, "preflight_supported")
 
 
 @pulumi.output_type
@@ -2488,6 +2412,9 @@ class ResourceTypeRegistrationResponseProperties(dict):
                  swagger_specifications: Optional[Sequence['outputs.SwaggerSpecificationResponse']] = None,
                  template_deployment_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions'] = None,
                  throttling_rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if allowed_unauthorized_actions is not None:
             pulumi.set(__self__, "allowed_unauthorized_actions", allowed_unauthorized_actions)
         if authorization_action_mappings is not None:
@@ -2641,6 +2568,9 @@ class ResourceTypeRegistrationResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -2890,6 +2820,8 @@ class SkuResourceResponseProperties(dict):
         suggest = None
         if key == "skuSettings":
             suggest = "sku_settings"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SkuResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -2903,13 +2835,27 @@ class SkuResourceResponseProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sku_settings: Sequence['outputs.SkuSettingResponse']):
+                 sku_settings: Sequence['outputs.SkuSettingResponse'],
+                 provisioning_state: Optional[str] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         pulumi.set(__self__, "sku_settings", sku_settings)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="skuSettings")
     def sku_settings(self) -> Sequence['outputs.SkuSettingResponse']:
         return pulumi.get(self, "sku_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

@@ -29,7 +29,7 @@ export interface GetObjectReplicationPolicyArgs {
      */
     accountName: string;
     /**
-     * The ID of object replication policy or 'default' if the policy ID is unknown.
+     * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
     objectReplicationPolicyId: string;
     /**

@@ -517,6 +517,28 @@ export const IncidentStatus = {
  */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
+export const Kind = {
+    DataConnector: "dataConnector",
+    DataType: "dataType",
+    Workbook: "workbook",
+    WorkbookTemplate: "workbookTemplate",
+    Playbook: "playbook",
+    PlaybookTemplate: "playbookTemplate",
+    AnalyticRuleTemplate: "analyticRuleTemplate",
+    AnalyticRule: "analyticRule",
+    HuntingQuery: "huntingQuery",
+    InvestigationQuery: "investigationQuery",
+    Parser: "parser",
+    Watchlist: "watchlist",
+    WatchlistTemplate: "watchlistTemplate",
+    Solution: "solution",
+} as const;
+
+/**
+ * The kind of content the metadata is for.
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
 export const MicrosoftSecurityProductName = {
     Microsoft_Cloud_App_Security: "Microsoft Cloud App Security",
     Azure_Security_Center: "Azure Security Center",
@@ -529,6 +551,16 @@ export const MicrosoftSecurityProductName = {
  * The alerts' productName on which the cases will be generated
  */
 export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
+
+export const Operator = {
+    AND: "AND",
+    OR: "OR",
+} as const;
+
+/**
+ * Operator used for list of dependencies in criteria array.
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const SettingKind = {
     EyesOn: "EyesOn",
@@ -550,6 +582,29 @@ export const Source = {
  * The source of the watchlist
  */
 export type Source = (typeof Source)[keyof typeof Source];
+
+export const SourceKind = {
+    LocalWorkspace: "localWorkspace",
+    Community: "community",
+    Solution: "solution",
+    SourceRepository: "sourceRepository",
+} as const;
+
+/**
+ * Source type of the content
+ */
+export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
+
+export const SupportTier = {
+    Microsoft: "microsoft",
+    Developer: "developer",
+    Community: "community",
+} as const;
+
+/**
+ * Type of support for content item
+ */
+export type SupportTier = (typeof SupportTier)[keyof typeof SupportTier];
 
 export const ThreatIntelligenceResourceKind = {
     /**

@@ -98,6 +98,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         [Input("marketplaceType")]
         public Input<string>? MarketplaceType { get; set; }
 
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210501Preview.ProvisioningState>? ProvisioningState { get; set; }
 

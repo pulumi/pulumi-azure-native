@@ -12,11 +12,11 @@ import (
 
 type AccessPolicy struct {
 	// Expiry time of the access policy
-	Expiry *string `pulumi:"expiry"`
+	ExpiryTime *string `pulumi:"expiryTime"`
 	// List of abbreviated permissions.
 	Permission *string `pulumi:"permission"`
 	// Start time of the access policy
-	Start *string `pulumi:"start"`
+	StartTime *string `pulumi:"startTime"`
 }
 
 // AccessPolicyInput is an input type that accepts AccessPolicyArgs and AccessPolicyOutput values.
@@ -32,11 +32,11 @@ type AccessPolicyInput interface {
 
 type AccessPolicyArgs struct {
 	// Expiry time of the access policy
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
 	// List of abbreviated permissions.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
 	// Start time of the access policy
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {
@@ -117,8 +117,8 @@ func (o AccessPolicyOutput) ToAccessPolicyPtrOutputWithContext(ctx context.Conte
 }
 
 // Expiry time of the access policy
-func (o AccessPolicyOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+func (o AccessPolicyOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicy) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
 }
 
 // List of abbreviated permissions.
@@ -127,8 +127,8 @@ func (o AccessPolicyOutput) Permission() pulumi.StringPtrOutput {
 }
 
 // Start time of the access policy
-func (o AccessPolicyOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicy) *string { return v.Start }).(pulumi.StringPtrOutput)
+func (o AccessPolicyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicy) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 type AccessPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -150,12 +150,12 @@ func (o AccessPolicyPtrOutput) Elem() AccessPolicyOutput {
 }
 
 // Expiry time of the access policy
-func (o AccessPolicyPtrOutput) Expiry() pulumi.StringPtrOutput {
+func (o AccessPolicyPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicy) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Expiry
+		return v.ExpiryTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -170,22 +170,22 @@ func (o AccessPolicyPtrOutput) Permission() pulumi.StringPtrOutput {
 }
 
 // Start time of the access policy
-func (o AccessPolicyPtrOutput) Start() pulumi.StringPtrOutput {
+func (o AccessPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicy) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Start
+		return v.StartTime
 	}).(pulumi.StringPtrOutput)
 }
 
 type AccessPolicyResponse struct {
 	// Expiry time of the access policy
-	Expiry *string `pulumi:"expiry"`
+	ExpiryTime *string `pulumi:"expiryTime"`
 	// List of abbreviated permissions.
 	Permission *string `pulumi:"permission"`
 	// Start time of the access policy
-	Start *string `pulumi:"start"`
+	StartTime *string `pulumi:"startTime"`
 }
 
 // AccessPolicyResponseInput is an input type that accepts AccessPolicyResponseArgs and AccessPolicyResponseOutput values.
@@ -201,11 +201,11 @@ type AccessPolicyResponseInput interface {
 
 type AccessPolicyResponseArgs struct {
 	// Expiry time of the access policy
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
 	// List of abbreviated permissions.
 	Permission pulumi.StringPtrInput `pulumi:"permission"`
 	// Start time of the access policy
-	Start pulumi.StringPtrInput `pulumi:"start"`
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (AccessPolicyResponseArgs) ElementType() reflect.Type {
@@ -286,8 +286,8 @@ func (o AccessPolicyResponseOutput) ToAccessPolicyResponsePtrOutputWithContext(c
 }
 
 // Expiry time of the access policy
-func (o AccessPolicyResponseOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+func (o AccessPolicyResponseOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
 }
 
 // List of abbreviated permissions.
@@ -296,8 +296,8 @@ func (o AccessPolicyResponseOutput) Permission() pulumi.StringPtrOutput {
 }
 
 // Start time of the access policy
-func (o AccessPolicyResponseOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
+func (o AccessPolicyResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 type AccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -319,12 +319,12 @@ func (o AccessPolicyResponsePtrOutput) Elem() AccessPolicyResponseOutput {
 }
 
 // Expiry time of the access policy
-func (o AccessPolicyResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
+func (o AccessPolicyResponsePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Expiry
+		return v.ExpiryTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -339,12 +339,12 @@ func (o AccessPolicyResponsePtrOutput) Permission() pulumi.StringPtrOutput {
 }
 
 // Start time of the access policy
-func (o AccessPolicyResponsePtrOutput) Start() pulumi.StringPtrOutput {
+func (o AccessPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Start
+		return v.StartTime
 	}).(pulumi.StringPtrOutput)
 }
 

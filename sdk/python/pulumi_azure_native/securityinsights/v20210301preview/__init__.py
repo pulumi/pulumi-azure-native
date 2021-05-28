@@ -26,6 +26,7 @@ from .get_entity_analytics import *
 from .get_eyes_on import *
 from .get_mcas_data_connector import *
 from .get_mdatp_data_connector import *
+from .get_metadatum import *
 from .get_msti_data_connector import *
 from .get_mtp_data_connector import *
 from .get_office_atp_data_connector import *
@@ -39,6 +40,7 @@ from .get_watchlist import *
 from .get_watchlist_item import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
+from .metadatum import *
 from .msti_data_connector import *
 from .mtp_data_connector import *
 from .office_atp_data_connector import *

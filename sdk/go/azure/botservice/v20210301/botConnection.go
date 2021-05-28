@@ -74,6 +74,12 @@ func NewBotConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:BotConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20210501preview:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:botservice/v20210501preview:BotConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BotConnection

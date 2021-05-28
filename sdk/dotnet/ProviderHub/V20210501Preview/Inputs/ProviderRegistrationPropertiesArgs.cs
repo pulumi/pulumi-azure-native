@@ -52,6 +52,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
         [Input("providerVersion")]
         public Input<string>? ProviderVersion { get; set; }
 
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210501Preview.ProvisioningState>? ProvisioningState { get; set; }
 
@@ -65,12 +68,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Inputs
             get => _requiredFeatures ?? (_requiredFeatures = new InputList<string>());
             set => _requiredFeatures = value;
         }
-
-        [Input("subscriptionLifecycleNotificationSpecifications")]
-        public Input<Inputs.ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs>? SubscriptionLifecycleNotificationSpecifications { get; set; }
-
-        [Input("templateDeploymentOptions")]
-        public Input<Inputs.ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs>? TemplateDeploymentOptions { get; set; }
 
         public ProviderRegistrationPropertiesArgs()
         {

@@ -99,6 +99,8 @@ func (SkusState) ElementType() reflect.Type {
 type skusArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
@@ -110,6 +112,8 @@ type skusArgs struct {
 type SkusArgs struct {
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.

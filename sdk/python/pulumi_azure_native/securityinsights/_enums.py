@@ -20,9 +20,13 @@ __all__ = [
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
+    'Kind',
     'MicrosoftSecurityProductName',
+    'Operator',
     'SettingKind',
     'Source',
+    'SourceKind',
+    'SupportTier',
     'ThreatIntelligenceResourceKind',
     'TriggerOperator',
     'TriggersOn',
@@ -236,6 +240,26 @@ class IncidentStatus(str, Enum):
     CLOSED = "Closed"
 
 
+class Kind(str, Enum):
+    """
+    The kind of content the metadata is for.
+    """
+    DATA_CONNECTOR = "dataConnector"
+    DATA_TYPE = "dataType"
+    WORKBOOK = "workbook"
+    WORKBOOK_TEMPLATE = "workbookTemplate"
+    PLAYBOOK = "playbook"
+    PLAYBOOK_TEMPLATE = "playbookTemplate"
+    ANALYTIC_RULE_TEMPLATE = "analyticRuleTemplate"
+    ANALYTIC_RULE = "analyticRule"
+    HUNTING_QUERY = "huntingQuery"
+    INVESTIGATION_QUERY = "investigationQuery"
+    PARSER = "parser"
+    WATCHLIST = "watchlist"
+    WATCHLIST_TEMPLATE = "watchlistTemplate"
+    SOLUTION = "solution"
+
+
 class MicrosoftSecurityProductName(str, Enum):
     """
     The alerts' productName on which the cases will be generated
@@ -245,6 +269,14 @@ class MicrosoftSecurityProductName(str, Enum):
     AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
     AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
     AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
+
+
+class Operator(str, Enum):
+    """
+    Operator used for list of dependencies in criteria array.
+    """
+    AND_ = "AND"
+    OR_ = "OR"
 
 
 class SettingKind(str, Enum):
@@ -262,6 +294,25 @@ class Source(str, Enum):
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
+
+
+class SourceKind(str, Enum):
+    """
+    Source type of the content
+    """
+    LOCAL_WORKSPACE = "localWorkspace"
+    COMMUNITY = "community"
+    SOLUTION = "solution"
+    SOURCE_REPOSITORY = "sourceRepository"
+
+
+class SupportTier(str, Enum):
+    """
+    Type of support for content item
+    """
+    MICROSOFT = "microsoft"
+    DEVELOPER = "developer"
+    COMMUNITY = "community"
 
 
 class ThreatIntelligenceResourceKind(str, Enum):

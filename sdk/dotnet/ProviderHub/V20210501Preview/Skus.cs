@@ -87,6 +87,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
         public Input<string> ProviderNamespace { get; set; } = null!;
 
         /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210501Preview.ProvisioningState>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// The resource type.
         /// </summary>
         [Input("resourceType", required: true)]

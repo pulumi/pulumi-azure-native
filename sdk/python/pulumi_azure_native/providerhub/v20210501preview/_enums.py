@@ -112,6 +112,9 @@ class PreflightOption(str, Enum):
 
 
 class ProvisioningState(str, Enum):
+    """
+    The provisioned state of the resource.
+    """
     NOT_SPECIFIED = "NotSpecified"
     ACCEPTED = "Accepted"
     RUNNING = "Running"

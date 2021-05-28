@@ -30,6 +30,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
         public readonly ImmutableArray<Outputs.LoggingRuleResponse> LoggingRules;
         public readonly Outputs.ResourceTypeRegistrationPropertiesResponseManagement? Management;
         public readonly string? MarketplaceType;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
         public readonly string? Regionality;
         public readonly Outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
