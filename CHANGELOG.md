@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.9.0 (2020-05-31)
+
 #### New Resources
 
 - `botservice.PrivateEndpointConnection`
@@ -51,8 +57,6 @@ CHANGELOG
 - `securityinsights.getSourceControl`
 - `securityinsights.listSourceControlRepositories`
 - `sql.getOutboundFirewallRule`
-
----
 
 ## 1.8.0 (2020-05-25)
 
