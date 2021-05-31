@@ -9,31 +9,31 @@ import * as utilities from "../utilities";
  * Metadata resource definition.
  * API Version: 2021-03-01-preview.
  */
-export class Metadatum extends pulumi.CustomResource {
+export class Metadata extends pulumi.CustomResource {
     /**
-     * Get an existing Metadatum resource's state with the given name, ID, and optional extra
+     * Get an existing Metadata resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Metadatum {
-        return new Metadatum(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Metadata {
+        return new Metadata(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:securityinsights:Metadatum';
+    public static readonly __pulumiType = 'azure-native:securityinsights:Metadata';
 
     /**
-     * Returns true if the given object is an instance of Metadatum.  This is designed to work even
+     * Returns true if the given object is an instance of Metadata.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Metadatum {
+    public static isInstance(obj: any): obj is Metadata {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Metadatum.__pulumiType;
+        return obj['__pulumiType'] === Metadata.__pulumiType;
     }
 
     /**
@@ -86,13 +86,13 @@ export class Metadatum extends pulumi.CustomResource {
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
-     * Create a Metadatum resource with the given unique name, arguments, and options.
+     * Create a Metadata resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MetadatumArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MetadataArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -147,16 +147,16 @@ export class Metadatum extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Metadatum" }, { type: "azure-native:securityinsights/v20210301preview:Metadatum" }, { type: "azure-nextgen:securityinsights/v20210301preview:Metadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Metadata" }, { type: "azure-native:securityinsights/v20210301preview:Metadata" }, { type: "azure-nextgen:securityinsights/v20210301preview:Metadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Metadatum.__pulumiType, name, inputs, opts);
+        super(Metadata.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Metadatum resource.
+ * The set of arguments for constructing a Metadata resource.
  */
-export interface MetadatumArgs {
+export interface MetadataArgs {
     /**
      * The creator of the content item.
      */

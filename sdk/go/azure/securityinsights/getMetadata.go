@@ -9,16 +9,16 @@ import (
 
 // Metadata resource definition.
 // API Version: 2021-03-01-preview.
-func LookupMetadatum(ctx *pulumi.Context, args *LookupMetadatumArgs, opts ...pulumi.InvokeOption) (*LookupMetadatumResult, error) {
-	var rv LookupMetadatumResult
-	err := ctx.Invoke("azure-native:securityinsights:getMetadatum", args, &rv, opts...)
+func LookupMetadata(ctx *pulumi.Context, args *LookupMetadataArgs, opts ...pulumi.InvokeOption) (*LookupMetadataResult, error) {
+	var rv LookupMetadataResult
+	err := ctx.Invoke("azure-native:securityinsights:getMetadata", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupMetadatumArgs struct {
+type LookupMetadataArgs struct {
 	// The Metadata name.
 	MetadataName string `pulumi:"metadataName"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -30,7 +30,7 @@ type LookupMetadatumArgs struct {
 }
 
 // Metadata resource definition.
-type LookupMetadatumResult struct {
+type LookupMetadataResult struct {
 	// The creator of the content item.
 	Author *MetadataAuthorResponse `pulumi:"author"`
 	// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name

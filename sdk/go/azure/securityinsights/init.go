@@ -57,8 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MCASDataConnector{}
 	case "azure-native:securityinsights:MDATPDataConnector":
 		r = &MDATPDataConnector{}
-	case "azure-native:securityinsights:Metadatum":
-		r = &Metadatum{}
+	case "azure-native:securityinsights:Metadata":
+		r = &Metadata{}
 	case "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule":
 		r = &MicrosoftSecurityIncidentCreationAlertRule{}
 	case "azure-native:securityinsights:OfficeDataConnector":

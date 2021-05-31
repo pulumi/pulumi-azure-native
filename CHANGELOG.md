@@ -21,7 +21,7 @@ CHANGELOG
 - `machinelearningservices.ModelVersion`
 - `machinelearningservices.OnlineDeployment`
 - `machinelearningservices.OnlineEndpoint`
-- `securityinsights.Metadatum`
+- `securityinsights.Metadata`
 - `securityinsights.SourceControl`
 - `sql.OutboundFirewallRule`
 
@@ -47,7 +47,7 @@ CHANGELOG
 - `machinelearningservices.listBatchEndpointKeys`
 - `machinelearningservices.listDatastoreSecrets`
 - `machinelearningservices.listOnlineEndpointKeys`
-- `securityinsights.getMetadatum`
+- `securityinsights.getMetadata`
 - `securityinsights.getSourceControl`
 - `securityinsights.listSourceControlRepositories`
 - `sql.getOutboundFirewallRule`

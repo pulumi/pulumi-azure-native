@@ -9,17 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
-    public static class GetMetadatum
+    public static class GetMetadata
     {
         /// <summary>
         /// Metadata resource definition.
         /// </summary>
-        public static Task<GetMetadatumResult> InvokeAsync(GetMetadatumArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadatumResult>("azure-native:securityinsights/v20210301preview:getMetadatum", args ?? new GetMetadatumArgs(), options.WithVersion());
+        public static Task<GetMetadataResult> InvokeAsync(GetMetadataArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights/v20210301preview:getMetadata", args ?? new GetMetadataArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetMetadatumArgs : Pulumi.InvokeArgs
+    public sealed class GetMetadataArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Metadata name.
@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public GetMetadatumArgs()
+        public GetMetadataArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetMetadatumResult
+    public sealed class GetMetadataResult
     {
         /// <summary>
         /// The creator of the content item.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public readonly string? Version;
 
         [OutputConstructor]
-        private GetMetadatumResult(
+        private GetMetadataResult(
             Outputs.MetadataAuthorResponse? author,
 
             string contentId,

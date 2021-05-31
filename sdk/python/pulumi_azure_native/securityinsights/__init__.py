@@ -39,7 +39,7 @@ from .get_incident_comment import *
 from .get_incident_relation import *
 from .get_mcas_data_connector import *
 from .get_mdatp_data_connector import *
-from .get_metadatum import *
+from .get_metadata import *
 from .get_microsoft_security_incident_creation_alert_rule import *
 from .get_office_data_connector import *
 from .get_product_setting import *
@@ -57,7 +57,7 @@ from .incident_relation import *
 from .list_source_control_repositories import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
-from .metadatum import *
+from .metadata import *
 from .microsoft_security_incident_creation_alert_rule import *
 from .office_data_connector import *
 from .product_setting import *
