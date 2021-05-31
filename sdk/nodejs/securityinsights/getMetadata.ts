@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * Metadata resource definition.
  * API Version: 2021-03-01-preview.
  */
-export function getMetadatum(args: GetMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadatumResult> {
+export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,7 +17,7 @@ export function getMetadatum(args: GetMetadatumArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-native:securityinsights:getMetadatum", {
+    return pulumi.runtime.invoke("azure-native:securityinsights:getMetadata", {
         "metadataName": args.metadataName,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
@@ -25,7 +25,7 @@ export function getMetadatum(args: GetMetadatumArgs, opts?: pulumi.InvokeOptions
     }, opts);
 }
 
-export interface GetMetadatumArgs {
+export interface GetMetadataArgs {
     /**
      * The Metadata name.
      */
@@ -47,7 +47,7 @@ export interface GetMetadatumArgs {
 /**
  * Metadata resource definition.
  */
-export interface GetMetadatumResult {
+export interface GetMetadataResult {
     /**
      * The creator of the content item.
      */

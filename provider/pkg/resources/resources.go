@@ -192,10 +192,11 @@ func resourceProvider(path, defaultValue string) string {
 
 var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "", "CheckEntityExists", "")
 var wellKnownNames = map[string]string{
-	"Redis":               "Redis",
-	"Caches":              "Cache",
 	"AssessmentsMetadata": "AssessmentMetadata",
+	"Caches":              "Cache",
+	"Metadata":            "Metadata",
 	"Mediaservices":       "MediaService",
+	"Redis":               "Redis",
 }
 
 // ResourceName constructs a name of a resource based on Get or List operation ID,

@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['MetadatumArgs', 'Metadatum']
+__all__ = ['MetadataArgs', 'Metadata']
 
 @pulumi.input_type
-class MetadatumArgs:
+class MetadataArgs:
     def __init__(__self__, *,
                  content_id: pulumi.Input[str],
                  kind: pulumi.Input[Union[str, 'Kind']],
@@ -30,7 +30,7 @@ class MetadatumArgs:
                  support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a Metadatum resource.
+        The set of arguments for constructing a Metadata resource.
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of content the metadata is for.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -223,7 +223,7 @@ class MetadatumArgs:
         pulumi.set(self, "version", value)
 
 
-class Metadatum(pulumi.CustomResource):
+class Metadata(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -265,18 +265,18 @@ class Metadatum(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetadatumArgs,
+                 args: MetadataArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Metadata resource definition.
 
         :param str resource_name: The name of the resource.
-        :param MetadatumArgs args: The arguments to use to populate this resource's properties.
+        :param MetadataArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetadatumArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MetadataArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -308,7 +308,7 @@ class Metadatum(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetadatumArgs.__new__(MetadatumArgs)
+            __props__ = MetadataArgs.__new__(MetadataArgs)
 
             __props__.__dict__["author"] = author
             if content_id is None and not opts.urn:
@@ -338,10 +338,10 @@ class Metadatum(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Metadatum"), pulumi.Alias(type_="azure-native:securityinsights:Metadatum"), pulumi.Alias(type_="azure-nextgen:securityinsights:Metadatum")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Metadata"), pulumi.Alias(type_="azure-native:securityinsights:Metadata"), pulumi.Alias(type_="azure-nextgen:securityinsights:Metadata")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(Metadatum, __self__).__init__(
-            'azure-native:securityinsights/v20210301preview:Metadatum',
+        super(Metadata, __self__).__init__(
+            'azure-native:securityinsights/v20210301preview:Metadata',
             resource_name,
             __props__,
             opts)
@@ -349,9 +349,9 @@ class Metadatum(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'Metadatum':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Metadata':
         """
-        Get an existing Metadatum resource's state with the given name, id, and optional extra
+        Get an existing Metadata resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -360,7 +360,7 @@ class Metadatum(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = MetadatumArgs.__new__(MetadatumArgs)
+        __props__ = MetadataArgs.__new__(MetadataArgs)
 
         __props__.__dict__["author"] = None
         __props__.__dict__["content_id"] = None
@@ -374,7 +374,7 @@ class Metadatum(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
-        return Metadatum(resource_name, opts=opts, __props__=__props__)
+        return Metadata(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

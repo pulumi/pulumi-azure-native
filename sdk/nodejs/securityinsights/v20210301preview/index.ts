@@ -27,7 +27,7 @@ export * from "./getMCASDataConnector";
 export * from "./getMDATPDataConnector";
 export * from "./getMSTIDataConnector";
 export * from "./getMTPDataConnector";
-export * from "./getMetadatum";
+export * from "./getMetadata";
 export * from "./getOfficeATPDataConnector";
 export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
@@ -41,7 +41,7 @@ export * from "./getWatchlistItem";
 export * from "./listSourceControlRepositories";
 export * from "./mcasdataConnector";
 export * from "./mdatpdataConnector";
-export * from "./metadatum";
+export * from "./metadata";
 export * from "./mstidataConnector";
 export * from "./mtpdataConnector";
 export * from "./officeATPDataConnector";
@@ -72,7 +72,7 @@ import { MCASDataConnector } from "./mcasdataConnector";
 import { MDATPDataConnector } from "./mdatpdataConnector";
 import { MSTIDataConnector } from "./mstidataConnector";
 import { MTPDataConnector } from "./mtpdataConnector";
-import { Metadatum } from "./metadatum";
+import { Metadata } from "./metadata";
 import { OfficeATPDataConnector } from "./officeATPDataConnector";
 import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
@@ -114,8 +114,8 @@ const _module = {
                 return new MSTIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:MTPDataConnector":
                 return new MTPDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:Metadatum":
-                return new Metadatum(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:Metadata":
+                return new Metadata(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector":
                 return new OfficeATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:OfficeDataConnector":

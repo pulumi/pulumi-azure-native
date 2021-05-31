@@ -7,13 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
+namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Metadata resource definition.
+    /// API Version: 2021-03-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:securityinsights/v20210301preview:Metadatum")]
-    public partial class Metadatum : Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:securityinsights:Metadata")]
+    public partial class Metadata : Pulumi.CustomResource
     {
         /// <summary>
         /// The creator of the content item.
@@ -89,19 +90,19 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 
 
         /// <summary>
-        /// Create a Metadatum resource with the given unique name, arguments, and options.
+        /// Create a Metadata resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Metadatum(string name, MetadatumArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:securityinsights/v20210301preview:Metadatum", name, args ?? new MetadatumArgs(), MakeResourceOptions(options, ""))
+        public Metadata(string name, MetadataArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:securityinsights:Metadata", name, args ?? new MetadataArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Metadatum(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:securityinsights/v20210301preview:Metadatum", name, null, MakeResourceOptions(options, id))
+        private Metadata(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:securityinsights:Metadata", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,9 +113,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:Metadatum"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights:Metadatum"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Metadatum"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Metadata"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Metadata"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:Metadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,20 +124,20 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             return merged;
         }
         /// <summary>
-        /// Get an existing Metadatum resource's state with the given name, ID, and optional extra
+        /// Get an existing Metadata resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Metadatum Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static Metadata Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Metadatum(name, id, options);
+            return new Metadata(name, id, options);
         }
     }
 
-    public sealed class MetadatumArgs : Pulumi.ResourceArgs
+    public sealed class MetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The creator of the content item.
@@ -166,7 +167,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// The kind of content the metadata is for.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20210301Preview.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The Metadata name.
@@ -216,7 +217,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
-        public MetadatumArgs()
+        public MetadataArgs()
         {
         }
     }

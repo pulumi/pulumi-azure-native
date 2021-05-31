@@ -10,13 +10,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetMetadatumResult',
-    'AwaitableGetMetadatumResult',
-    'get_metadatum',
+    'GetMetadataResult',
+    'AwaitableGetMetadataResult',
+    'get_metadata',
 ]
 
 @pulumi.output_type
-class GetMetadatumResult:
+class GetMetadataResult:
     """
     Metadata resource definition.
     """
@@ -166,12 +166,12 @@ class GetMetadatumResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetMetadatumResult(GetMetadatumResult):
+class AwaitableGetMetadataResult(GetMetadataResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetMetadatumResult(
+        return GetMetadataResult(
             author=self.author,
             content_id=self.content_id,
             dependencies=self.dependencies,
@@ -187,11 +187,11 @@ class AwaitableGetMetadatumResult(GetMetadatumResult):
             version=self.version)
 
 
-def get_metadatum(metadata_name: Optional[str] = None,
-                  operational_insights_resource_provider: Optional[str] = None,
-                  resource_group_name: Optional[str] = None,
-                  workspace_name: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadatumResult:
+def get_metadata(metadata_name: Optional[str] = None,
+                 operational_insights_resource_provider: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 workspace_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataResult:
     """
     Metadata resource definition.
     API Version: 2021-03-01-preview.
@@ -211,9 +211,9 @@ def get_metadatum(metadata_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getMetadatum', __args__, opts=opts, typ=GetMetadatumResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getMetadata', __args__, opts=opts, typ=GetMetadataResult).value
 
-    return AwaitableGetMetadatumResult(
+    return AwaitableGetMetadataResult(
         author=__ret__.author,
         content_id=__ret__.content_id,
         dependencies=__ret__.dependencies,
