@@ -35276,6 +35276,21 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "global"
+        ],
+        "properties": null,
+        "resourceType": "migrateFromSmartDetection"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2019-05-05-preview",
           "2018-11-02-privatepreview"
         ],
@@ -50504,10 +50519,16 @@
     ]
   },
   {
-    "authorization": {
-      "applicationId": "408992c7-2af6-4ff1-92e3-65b73d2b5092",
-      "roleDefinitionId": "20FA3191-87CF-4C3D-9510-74CCB594A310"
-    },
+    "authorizations": [
+      {
+        "applicationId": "408992c7-2af6-4ff1-92e3-65b73d2b5092",
+        "roleDefinitionId": "20FA3191-87CF-4C3D-9510-74CCB594A310"
+      },
+      {
+        "applicationId": "880da380-985e-4198-81b9-e05b1cc53158",
+        "roleDefinitionId": "d2e67903-baaa-4696-926b-61ab86235aaf"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Search",
     "namespace": "Microsoft.Search",
     "registrationPolicy": "RegistrationRequired",
@@ -50517,6 +50538,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-Preview",
           "2020-08-01-Preview",
           "2020-08-01",
           "2020-03-13",
@@ -50580,6 +50602,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-Preview",
           "2020-08-01-Preview",
           "2020-08-01",
           "2020-03-13",
@@ -50597,6 +50620,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-Preview",
           "2020-08-01-Preview",
           "2020-08-01",
           "2020-03-13",
@@ -50644,6 +50668,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-Preview",
           "2020-08-01-Preview",
           "2020-08-01",
           "2020-03-13",
@@ -55050,7 +55075,10 @@
         "locations": [
           "East US 2",
           "East US",
-          "Canada Central"
+          "Canada Central",
+          "Central US",
+          "Canada East",
+          "West Europe"
         ],
         "properties": null,
         "resourceType": "SqlMigrationServices"
@@ -55067,7 +55095,10 @@
         "locations": [
           "East US 2",
           "East US",
-          "Canada Central"
+          "Canada Central",
+          "Central US",
+          "Canada East",
+          "West Europe"
         ],
         "properties": null,
         "resourceType": "DatabaseMigrations"
@@ -55084,7 +55115,10 @@
         "locations": [
           "East US 2",
           "East US",
-          "Canada Central"
+          "Canada Central",
+          "Central US",
+          "Canada East",
+          "West Europe"
         ],
         "properties": null,
         "resourceType": "Locations/OperationTypes"
@@ -70723,6 +70757,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-11-01-privatepreview",
           "2020-05-01",
           "2019-10-01-preview",
           "2018-11-01-preview"
@@ -84239,7 +84274,8 @@
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "resourceGroups"
@@ -84316,7 +84352,8 @@
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "subscriptions/resourceGroups"
