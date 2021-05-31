@@ -82,7 +82,7 @@ class GetClusterResult:
     @pulumi.getter(name="billingType")
     def billing_type(self) -> Optional[str]:
         """
-        Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        The cluster's billing type.
         """
         return pulumi.get(self, "billing_type")
 

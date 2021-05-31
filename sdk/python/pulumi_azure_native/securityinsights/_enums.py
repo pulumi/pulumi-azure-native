@@ -13,6 +13,7 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
     'CaseSeverity',
+    'ContentType',
     'DataConnectorKind',
     'DataTypeState',
     'EntityTimelineKind',
@@ -23,6 +24,7 @@ __all__ = [
     'Kind',
     'MicrosoftSecurityProductName',
     'Operator',
+    'RepoType',
     'SettingKind',
     'Source',
     'SourceKind',
@@ -170,6 +172,14 @@ class CaseSeverity(str, Enum):
     INFORMATIONAL = "Informational"
 
 
+class ContentType(str, Enum):
+    """
+    Content type.
+    """
+    ANALYTIC_RULE = "AnalyticRule"
+    WORKBOOK = "Workbook"
+
+
 class DataConnectorKind(str, Enum):
     """
     The data connector kind
@@ -277,6 +287,14 @@ class Operator(str, Enum):
     """
     AND_ = "AND"
     OR_ = "OR"
+
+
+class RepoType(str, Enum):
+    """
+    The repository type of the source control
+    """
+    GITHUB = "Github"
+    DEV_OPS = "DevOps"
 
 
 class SettingKind(str, Enum):

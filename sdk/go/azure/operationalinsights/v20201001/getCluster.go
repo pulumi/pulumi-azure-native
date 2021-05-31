@@ -28,7 +28,7 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The list of Log Analytics workspaces associated with the cluster
 	AssociatedWorkspaces []AssociatedWorkspaceResponse `pulumi:"associatedWorkspaces"`
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType *string `pulumi:"billingType"`
 	// Additional properties for capacity reservation
 	CapacityReservationProperties *CapacityReservationPropertiesResponse `pulumi:"capacityReservationProperties"`

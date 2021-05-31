@@ -2734,6 +2734,224 @@ func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The mapping of content type to a repo path.
+type ContentPathMap struct {
+	// Content type.
+	ContentType *string `pulumi:"contentType"`
+	// The path to the content.
+	Path *string `pulumi:"path"`
+}
+
+// ContentPathMapInput is an input type that accepts ContentPathMap and ContentPathMapOutput values.
+// You can construct a concrete instance of `ContentPathMapInput` via:
+//
+//          ContentPathMap{ "key": ContentPathArgs{...} }
+type ContentPathMapInput interface {
+	pulumi.Input
+
+	ToContentPathMapOutput() ContentPathMapOutput
+	ToContentPathMapOutputWithContext(context.Context) ContentPathMapOutput
+}
+
+// The mapping of content type to a repo path.
+type ContentPathMapArgs struct {
+	// Content type.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The path to the content.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ContentPathMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentPathMap)(nil)).Elem()
+}
+
+func (i ContentPathMapArgs) ToContentPathMapOutput() ContentPathMapOutput {
+	return i.ToContentPathMapOutputWithContext(context.Background())
+}
+
+func (i ContentPathMapArgs) ToContentPathMapOutputWithContext(ctx context.Context) ContentPathMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapOutput)
+}
+
+// ContentPathMapArrayInput is an input type that accepts ContentPathMapArray and ContentPathMapArrayOutput values.
+// You can construct a concrete instance of `ContentPathMapArrayInput` via:
+//
+//          ContentPathMapArray{ ContentPathMapArgs{...} }
+type ContentPathMapArrayInput interface {
+	pulumi.Input
+
+	ToContentPathMapArrayOutput() ContentPathMapArrayOutput
+	ToContentPathMapArrayOutputWithContext(context.Context) ContentPathMapArrayOutput
+}
+
+type ContentPathMapArray []ContentPathMapInput
+
+func (ContentPathMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentPathMap)(nil)).Elem()
+}
+
+func (i ContentPathMapArray) ToContentPathMapArrayOutput() ContentPathMapArrayOutput {
+	return i.ToContentPathMapArrayOutputWithContext(context.Background())
+}
+
+func (i ContentPathMapArray) ToContentPathMapArrayOutputWithContext(ctx context.Context) ContentPathMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapArrayOutput)
+}
+
+// The mapping of content type to a repo path.
+type ContentPathMapOutput struct{ *pulumi.OutputState }
+
+func (ContentPathMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentPathMap)(nil)).Elem()
+}
+
+func (o ContentPathMapOutput) ToContentPathMapOutput() ContentPathMapOutput {
+	return o
+}
+
+func (o ContentPathMapOutput) ToContentPathMapOutputWithContext(ctx context.Context) ContentPathMapOutput {
+	return o
+}
+
+// Content type.
+func (o ContentPathMapOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentPathMap) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The path to the content.
+func (o ContentPathMapOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentPathMap) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ContentPathMapArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentPathMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentPathMap)(nil)).Elem()
+}
+
+func (o ContentPathMapArrayOutput) ToContentPathMapArrayOutput() ContentPathMapArrayOutput {
+	return o
+}
+
+func (o ContentPathMapArrayOutput) ToContentPathMapArrayOutputWithContext(ctx context.Context) ContentPathMapArrayOutput {
+	return o
+}
+
+func (o ContentPathMapArrayOutput) Index(i pulumi.IntInput) ContentPathMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentPathMap {
+		return vs[0].([]ContentPathMap)[vs[1].(int)]
+	}).(ContentPathMapOutput)
+}
+
+// The mapping of content type to a repo path.
+type ContentPathMapResponse struct {
+	// Content type.
+	ContentType *string `pulumi:"contentType"`
+	// The path to the content.
+	Path *string `pulumi:"path"`
+}
+
+// ContentPathMapResponseInput is an input type that accepts ContentPathMapResponseArgs and ContentPathMapResponseOutput values.
+// You can construct a concrete instance of `ContentPathMapResponseInput` via:
+//
+//          ContentPathMapResponseArgs{...}
+type ContentPathMapResponseInput interface {
+	pulumi.Input
+
+	ToContentPathMapResponseOutput() ContentPathMapResponseOutput
+	ToContentPathMapResponseOutputWithContext(context.Context) ContentPathMapResponseOutput
+}
+
+// The mapping of content type to a repo path.
+type ContentPathMapResponseArgs struct {
+	// Content type.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The path to the content.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ContentPathMapResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentPathMapResponse)(nil)).Elem()
+}
+
+func (i ContentPathMapResponseArgs) ToContentPathMapResponseOutput() ContentPathMapResponseOutput {
+	return i.ToContentPathMapResponseOutputWithContext(context.Background())
+}
+
+func (i ContentPathMapResponseArgs) ToContentPathMapResponseOutputWithContext(ctx context.Context) ContentPathMapResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapResponseOutput)
+}
+
+// ContentPathMapResponseArrayInput is an input type that accepts ContentPathMapResponseArray and ContentPathMapResponseArrayOutput values.
+// You can construct a concrete instance of `ContentPathMapResponseArrayInput` via:
+//
+//          ContentPathMapResponseArray{ ContentPathMapResponseArgs{...} }
+type ContentPathMapResponseArrayInput interface {
+	pulumi.Input
+
+	ToContentPathMapResponseArrayOutput() ContentPathMapResponseArrayOutput
+	ToContentPathMapResponseArrayOutputWithContext(context.Context) ContentPathMapResponseArrayOutput
+}
+
+type ContentPathMapResponseArray []ContentPathMapResponseInput
+
+func (ContentPathMapResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentPathMapResponse)(nil)).Elem()
+}
+
+func (i ContentPathMapResponseArray) ToContentPathMapResponseArrayOutput() ContentPathMapResponseArrayOutput {
+	return i.ToContentPathMapResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContentPathMapResponseArray) ToContentPathMapResponseArrayOutputWithContext(ctx context.Context) ContentPathMapResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapResponseArrayOutput)
+}
+
+// The mapping of content type to a repo path.
+type ContentPathMapResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentPathMapResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentPathMapResponse)(nil)).Elem()
+}
+
+func (o ContentPathMapResponseOutput) ToContentPathMapResponseOutput() ContentPathMapResponseOutput {
+	return o
+}
+
+func (o ContentPathMapResponseOutput) ToContentPathMapResponseOutputWithContext(ctx context.Context) ContentPathMapResponseOutput {
+	return o
+}
+
+// Content type.
+func (o ContentPathMapResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The path to the content.
+func (o ContentPathMapResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ContentPathMapResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentPathMapResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentPathMapResponse)(nil)).Elem()
+}
+
+func (o ContentPathMapResponseArrayOutput) ToContentPathMapResponseArrayOutput() ContentPathMapResponseArrayOutput {
+	return o
+}
+
+func (o ContentPathMapResponseArrayOutput) ToContentPathMapResponseArrayOutputWithContext(ctx context.Context) ContentPathMapResponseArrayOutput {
+	return o
+}
+
+func (o ContentPathMapResponseArrayOutput) Index(i pulumi.IntInput) ContentPathMapResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentPathMapResponse {
+		return vs[0].([]ContentPathMapResponse)[vs[1].(int)]
+	}).(ContentPathMapResponseOutput)
+}
+
 // Common field for data type in data connectors.
 type DataConnectorDataTypeCommon struct {
 	// Describe whether this data type connection is enabled or not.
@@ -8041,6 +8259,468 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a repository.
+type RepoResponse struct {
+	// Array of branches.
+	Branches []string `pulumi:"branches"`
+	// The name of the repository.
+	FullName *string `pulumi:"fullName"`
+	// The url to access the repository.
+	RepoUrl *string `pulumi:"repoUrl"`
+}
+
+// RepoResponseInput is an input type that accepts RepoResponseArgs and RepoResponseOutput values.
+// You can construct a concrete instance of `RepoResponseInput` via:
+//
+//          RepoResponseArgs{...}
+type RepoResponseInput interface {
+	pulumi.Input
+
+	ToRepoResponseOutput() RepoResponseOutput
+	ToRepoResponseOutputWithContext(context.Context) RepoResponseOutput
+}
+
+// Represents a repository.
+type RepoResponseArgs struct {
+	// Array of branches.
+	Branches pulumi.StringArrayInput `pulumi:"branches"`
+	// The name of the repository.
+	FullName pulumi.StringPtrInput `pulumi:"fullName"`
+	// The url to access the repository.
+	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
+}
+
+func (RepoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepoResponse)(nil)).Elem()
+}
+
+func (i RepoResponseArgs) ToRepoResponseOutput() RepoResponseOutput {
+	return i.ToRepoResponseOutputWithContext(context.Background())
+}
+
+func (i RepoResponseArgs) ToRepoResponseOutputWithContext(ctx context.Context) RepoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepoResponseOutput)
+}
+
+// RepoResponseArrayInput is an input type that accepts RepoResponseArray and RepoResponseArrayOutput values.
+// You can construct a concrete instance of `RepoResponseArrayInput` via:
+//
+//          RepoResponseArray{ RepoResponseArgs{...} }
+type RepoResponseArrayInput interface {
+	pulumi.Input
+
+	ToRepoResponseArrayOutput() RepoResponseArrayOutput
+	ToRepoResponseArrayOutputWithContext(context.Context) RepoResponseArrayOutput
+}
+
+type RepoResponseArray []RepoResponseInput
+
+func (RepoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepoResponse)(nil)).Elem()
+}
+
+func (i RepoResponseArray) ToRepoResponseArrayOutput() RepoResponseArrayOutput {
+	return i.ToRepoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RepoResponseArray) ToRepoResponseArrayOutputWithContext(ctx context.Context) RepoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepoResponseArrayOutput)
+}
+
+// Represents a repository.
+type RepoResponseOutput struct{ *pulumi.OutputState }
+
+func (RepoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepoResponse)(nil)).Elem()
+}
+
+func (o RepoResponseOutput) ToRepoResponseOutput() RepoResponseOutput {
+	return o
+}
+
+func (o RepoResponseOutput) ToRepoResponseOutputWithContext(ctx context.Context) RepoResponseOutput {
+	return o
+}
+
+// Array of branches.
+func (o RepoResponseOutput) Branches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepoResponse) []string { return v.Branches }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository.
+func (o RepoResponseOutput) FullName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepoResponse) *string { return v.FullName }).(pulumi.StringPtrOutput)
+}
+
+// The url to access the repository.
+func (o RepoResponseOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepoResponse) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+type RepoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RepoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepoResponse)(nil)).Elem()
+}
+
+func (o RepoResponseArrayOutput) ToRepoResponseArrayOutput() RepoResponseArrayOutput {
+	return o
+}
+
+func (o RepoResponseArrayOutput) ToRepoResponseArrayOutputWithContext(ctx context.Context) RepoResponseArrayOutput {
+	return o
+}
+
+func (o RepoResponseArrayOutput) Index(i pulumi.IntInput) RepoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepoResponse {
+		return vs[0].([]RepoResponse)[vs[1].(int)]
+	}).(RepoResponseOutput)
+}
+
+// metadata of a repository.
+type Repository struct {
+	// Branch name of repository.
+	Branch *string `pulumi:"branch"`
+	// Dictionary of source control content type and path mapping.
+	PathMapping []ContentPathMap `pulumi:"pathMapping"`
+	// Url of repository.
+	Url *string `pulumi:"url"`
+}
+
+// RepositoryInput is an input type that accepts RepositoryArgs and RepositoryOutput values.
+// You can construct a concrete instance of `RepositoryInput` via:
+//
+//          RepositoryArgs{...}
+type RepositoryInput interface {
+	pulumi.Input
+
+	ToRepositoryOutput() RepositoryOutput
+	ToRepositoryOutputWithContext(context.Context) RepositoryOutput
+}
+
+// metadata of a repository.
+type RepositoryArgs struct {
+	// Branch name of repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Dictionary of source control content type and path mapping.
+	PathMapping ContentPathMapArrayInput `pulumi:"pathMapping"`
+	// Url of repository.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (RepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil)).Elem()
+}
+
+func (i RepositoryArgs) ToRepositoryOutput() RepositoryOutput {
+	return i.ToRepositoryOutputWithContext(context.Background())
+}
+
+func (i RepositoryArgs) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput)
+}
+
+func (i RepositoryArgs) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return i.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryArgs) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryOutput).ToRepositoryPtrOutputWithContext(ctx)
+}
+
+// RepositoryPtrInput is an input type that accepts RepositoryArgs, RepositoryPtr and RepositoryPtrOutput values.
+// You can construct a concrete instance of `RepositoryPtrInput` via:
+//
+//          RepositoryArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPtrOutput() RepositoryPtrOutput
+	ToRepositoryPtrOutputWithContext(context.Context) RepositoryPtrOutput
+}
+
+type repositoryPtrType RepositoryArgs
+
+func RepositoryPtr(v *RepositoryArgs) RepositoryPtrInput {
+	return (*repositoryPtrType)(v)
+}
+
+func (*repositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Repository)(nil)).Elem()
+}
+
+func (i *repositoryPtrType) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return i.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPtrType) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPtrOutput)
+}
+
+// metadata of a repository.
+type RepositoryOutput struct{ *pulumi.OutputState }
+
+func (RepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Repository)(nil)).Elem()
+}
+
+func (o RepositoryOutput) ToRepositoryOutput() RepositoryOutput {
+	return o
+}
+
+func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) RepositoryOutput {
+	return o
+}
+
+func (o RepositoryOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return o.ToRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return o.ApplyT(func(v Repository) *Repository {
+		return &v
+	}).(RepositoryPtrOutput)
+}
+
+// Branch name of repository.
+func (o RepositoryOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Repository) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of source control content type and path mapping.
+func (o RepositoryOutput) PathMapping() ContentPathMapArrayOutput {
+	return o.ApplyT(func(v Repository) []ContentPathMap { return v.PathMapping }).(ContentPathMapArrayOutput)
+}
+
+// Url of repository.
+func (o RepositoryOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Repository) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Repository)(nil)).Elem()
+}
+
+func (o RepositoryPtrOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
+	return o
+}
+
+func (o RepositoryPtrOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
+	return o
+}
+
+func (o RepositoryPtrOutput) Elem() RepositoryOutput {
+	return o.ApplyT(func(v *Repository) Repository { return *v }).(RepositoryOutput)
+}
+
+// Branch name of repository.
+func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of source control content type and path mapping.
+func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
+	return o.ApplyT(func(v *Repository) []ContentPathMap {
+		if v == nil {
+			return nil
+		}
+		return v.PathMapping
+	}).(ContentPathMapArrayOutput)
+}
+
+// Url of repository.
+func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// metadata of a repository.
+type RepositoryResponse struct {
+	// Branch name of repository.
+	Branch *string `pulumi:"branch"`
+	// Dictionary of source control content type and path mapping.
+	PathMapping []ContentPathMapResponse `pulumi:"pathMapping"`
+	// Url of repository.
+	Url *string `pulumi:"url"`
+}
+
+// RepositoryResponseInput is an input type that accepts RepositoryResponseArgs and RepositoryResponseOutput values.
+// You can construct a concrete instance of `RepositoryResponseInput` via:
+//
+//          RepositoryResponseArgs{...}
+type RepositoryResponseInput interface {
+	pulumi.Input
+
+	ToRepositoryResponseOutput() RepositoryResponseOutput
+	ToRepositoryResponseOutputWithContext(context.Context) RepositoryResponseOutput
+}
+
+// metadata of a repository.
+type RepositoryResponseArgs struct {
+	// Branch name of repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Dictionary of source control content type and path mapping.
+	PathMapping ContentPathMapResponseArrayInput `pulumi:"pathMapping"`
+	// Url of repository.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (RepositoryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryResponse)(nil)).Elem()
+}
+
+func (i RepositoryResponseArgs) ToRepositoryResponseOutput() RepositoryResponseOutput {
+	return i.ToRepositoryResponseOutputWithContext(context.Background())
+}
+
+func (i RepositoryResponseArgs) ToRepositoryResponseOutputWithContext(ctx context.Context) RepositoryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryResponseOutput)
+}
+
+func (i RepositoryResponseArgs) ToRepositoryResponsePtrOutput() RepositoryResponsePtrOutput {
+	return i.ToRepositoryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryResponseArgs) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryResponseOutput).ToRepositoryResponsePtrOutputWithContext(ctx)
+}
+
+// RepositoryResponsePtrInput is an input type that accepts RepositoryResponseArgs, RepositoryResponsePtr and RepositoryResponsePtrOutput values.
+// You can construct a concrete instance of `RepositoryResponsePtrInput` via:
+//
+//          RepositoryResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryResponsePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryResponsePtrOutput() RepositoryResponsePtrOutput
+	ToRepositoryResponsePtrOutputWithContext(context.Context) RepositoryResponsePtrOutput
+}
+
+type repositoryResponsePtrType RepositoryResponseArgs
+
+func RepositoryResponsePtr(v *RepositoryResponseArgs) RepositoryResponsePtrInput {
+	return (*repositoryResponsePtrType)(v)
+}
+
+func (*repositoryResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryResponse)(nil)).Elem()
+}
+
+func (i *repositoryResponsePtrType) ToRepositoryResponsePtrOutput() RepositoryResponsePtrOutput {
+	return i.ToRepositoryResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryResponsePtrType) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryResponsePtrOutput)
+}
+
+// metadata of a repository.
+type RepositoryResponseOutput struct{ *pulumi.OutputState }
+
+func (RepositoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryResponse)(nil)).Elem()
+}
+
+func (o RepositoryResponseOutput) ToRepositoryResponseOutput() RepositoryResponseOutput {
+	return o
+}
+
+func (o RepositoryResponseOutput) ToRepositoryResponseOutputWithContext(ctx context.Context) RepositoryResponseOutput {
+	return o
+}
+
+func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutput() RepositoryResponsePtrOutput {
+	return o.ToRepositoryResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
+	return o.ApplyT(func(v RepositoryResponse) *RepositoryResponse {
+		return &v
+	}).(RepositoryResponsePtrOutput)
+}
+
+// Branch name of repository.
+func (o RepositoryResponseOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of source control content type and path mapping.
+func (o RepositoryResponseOutput) PathMapping() ContentPathMapResponseArrayOutput {
+	return o.ApplyT(func(v RepositoryResponse) []ContentPathMapResponse { return v.PathMapping }).(ContentPathMapResponseArrayOutput)
+}
+
+// Url of repository.
+func (o RepositoryResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryResponse)(nil)).Elem()
+}
+
+func (o RepositoryResponsePtrOutput) ToRepositoryResponsePtrOutput() RepositoryResponsePtrOutput {
+	return o
+}
+
+func (o RepositoryResponsePtrOutput) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
+	return o
+}
+
+func (o RepositoryResponsePtrOutput) Elem() RepositoryResponseOutput {
+	return o.ApplyT(func(v *RepositoryResponse) RepositoryResponse { return *v }).(RepositoryResponseOutput)
+}
+
+// Branch name of repository.
+func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of source control content type and path mapping.
+func (o RepositoryResponsePtrOutput) PathMapping() ContentPathMapResponseArrayOutput {
+	return o.ApplyT(func(v *RepositoryResponse) []ContentPathMapResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PathMapping
+	}).(ContentPathMapResponseArrayOutput)
+}
+
+// Url of repository.
+func (o RepositoryResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents security alert timeline item.
 type SecurityAlertTimelineItemResponse struct {
 	// The name of the alert type.
@@ -10479,6 +11159,10 @@ func init() {
 	pulumi.RegisterOutputType(BookmarkTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentPathMapOutput{})
+	pulumi.RegisterOutputType(ContentPathMapArrayOutput{})
+	pulumi.RegisterOutputType(ContentPathMapResponseOutput{})
+	pulumi.RegisterOutputType(ContentPathMapResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorDataTypeCommonOutput{})
 	pulumi.RegisterOutputType(DataConnectorDataTypeCommonPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorDataTypeCommonResponseOutput{})
@@ -10547,6 +11231,12 @@ func init() {
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesSharePointPtrOutput{})
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesTeamsOutput{})
 	pulumi.RegisterOutputType(OfficeDataConnectorDataTypesTeamsPtrOutput{})
+	pulumi.RegisterOutputType(RepoResponseOutput{})
+	pulumi.RegisterOutputType(RepoResponseArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryOutput{})
+	pulumi.RegisterOutputType(RepositoryPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryResponseOutput{})
+	pulumi.RegisterOutputType(RepositoryResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecurityAlertTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})

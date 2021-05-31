@@ -10,6 +10,9 @@ export * from "./getSqlPoolsV3";
 export * from "./sqlDatabase";
 export * from "./sqlPoolsV3";
 
+// Export enums:
+export * from "../../types/enums/synapse/v20200401preview";
+
 // Import resources to register:
 import { SqlDatabase } from "./sqlDatabase";
 import { SqlPoolsV3 } from "./sqlPoolsV3";

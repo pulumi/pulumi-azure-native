@@ -20,6 +20,7 @@ __all__ = [
     'AutomationRuleTriggeringLogicArgs',
     'AwsCloudTrailDataConnectorDataTypesArgs',
     'AwsCloudTrailDataConnectorDataTypesLogsArgs',
+    'ContentPathMapArgs',
     'DataConnectorDataTypeCommonArgs',
     'IncidentInfoArgs',
     'IncidentLabelArgs',
@@ -33,6 +34,7 @@ __all__ = [
     'OfficeDataConnectorDataTypesExchangeArgs',
     'OfficeDataConnectorDataTypesSharePointArgs',
     'OfficeDataConnectorDataTypesTeamsArgs',
+    'RepositoryArgs',
     'TIDataConnectorDataTypesArgs',
     'TIDataConnectorDataTypesIndicatorsArgs',
     'ThreatIntelligenceExternalReferenceArgs',
@@ -565,6 +567,46 @@ class AwsCloudTrailDataConnectorDataTypesLogsArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class ContentPathMapArgs:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[Union[str, 'ContentType']]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        The mapping of content type to a repo path.
+        :param pulumi.Input[Union[str, 'ContentType']] content_type: Content type.
+        :param pulumi.Input[str] path: The path to the content.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[Union[str, 'ContentType']]]:
+        """
+        Content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[Union[str, 'ContentType']]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the content.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type
@@ -1210,6 +1252,62 @@ class OfficeDataConnectorDataTypesTeamsArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class RepositoryArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input[str]] = None,
+                 path_mapping: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        metadata of a repository.
+        :param pulumi.Input[str] branch: Branch name of repository.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]] path_mapping: Dictionary of source control content type and path mapping.
+        :param pulumi.Input[str] url: Url of repository.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if path_mapping is not None:
+            pulumi.set(__self__, "path_mapping", path_mapping)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Branch name of repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="pathMapping")
+    def path_mapping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]:
+        """
+        Dictionary of source control content type and path mapping.
+        """
+        return pulumi.get(self, "path_mapping")
+
+    @path_mapping.setter
+    def path_mapping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentPathMapArgs']]]]):
+        pulumi.set(self, "path_mapping", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Url of repository.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

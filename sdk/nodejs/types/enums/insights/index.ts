@@ -217,6 +217,16 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
+export const KnownDataCollectionEndpointResourceKind = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * The kind of the resource.
+ */
+export type KnownDataCollectionEndpointResourceKind = (typeof KnownDataCollectionEndpointResourceKind)[keyof typeof KnownDataCollectionEndpointResourceKind];
+
 export const KnownDataCollectionRuleResourceKind = {
     Linux: "Linux",
     Windows: "Windows",
@@ -253,6 +263,16 @@ export const KnownPerfCounterDataSourceStreams = {
 } as const;
 
 export type KnownPerfCounterDataSourceStreams = (typeof KnownPerfCounterDataSourceStreams)[keyof typeof KnownPerfCounterDataSourceStreams];
+
+export const KnownPublicNetworkAccessOptions = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The configuration to set whether network access from public internet to the endpoints are allowed.
+ */
+export type KnownPublicNetworkAccessOptions = (typeof KnownPublicNetworkAccessOptions)[keyof typeof KnownPublicNetworkAccessOptions];
 
 export const KnownSyslogDataSourceFacilityNames = {
     Auth: "auth",

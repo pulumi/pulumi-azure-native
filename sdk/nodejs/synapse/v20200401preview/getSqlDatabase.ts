@@ -71,6 +71,10 @@ export interface GetSqlDatabaseResult {
      */
     readonly status: string;
     /**
+     * Storage redundancy of the database.
+     */
+    readonly storageRedundancy?: string;
+    /**
      * SystemData of SqlDatabase.
      */
     readonly systemData: outputs.synapse.v20200401preview.SystemDataResponse;

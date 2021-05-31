@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.OperationalInsights.V20201001
 {
     /// <summary>
-    /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+    /// The cluster's billing type.
     /// </summary>
     [EnumType]
     public readonly struct BillingType : IEquatable<BillingType>

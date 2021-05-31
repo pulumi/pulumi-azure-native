@@ -44,6 +44,7 @@ export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
 export * from "./getScheduledAlertRule";
 export * from "./getSentinelOnboardingState";
+export * from "./getSourceControl";
 export * from "./getTIDataConnector";
 export * from "./getThreatIntelligenceIndicator";
 export * from "./getUeba";
@@ -52,6 +53,7 @@ export * from "./getWatchlistItem";
 export * from "./incident";
 export * from "./incidentComment";
 export * from "./incidentRelation";
+export * from "./listSourceControlRepositories";
 export * from "./mcasdataConnector";
 export * from "./mdatpdataConnector";
 export * from "./metadatum";
@@ -60,6 +62,7 @@ export * from "./officeDataConnector";
 export * from "./productSetting";
 export * from "./scheduledAlertRule";
 export * from "./sentinelOnboardingState";
+export * from "./sourceControl";
 export * from "./threatIntelligenceIndicator";
 export * from "./tidataConnector";
 export * from "./ueba";
@@ -105,6 +108,7 @@ import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
 import { ScheduledAlertRule } from "./scheduledAlertRule";
 import { SentinelOnboardingState } from "./sentinelOnboardingState";
+import { SourceControl } from "./sourceControl";
 import { TIDataConnector } from "./tidataConnector";
 import { ThreatIntelligenceIndicator } from "./threatIntelligenceIndicator";
 import { Ueba } from "./ueba";
@@ -163,6 +167,8 @@ const _module = {
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
             case "azure-native:securityinsights:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ThreatIntelligenceIndicator":

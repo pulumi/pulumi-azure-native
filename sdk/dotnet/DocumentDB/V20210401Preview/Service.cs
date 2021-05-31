@@ -59,6 +59,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210401preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

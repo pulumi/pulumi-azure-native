@@ -543,6 +543,37 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// Content type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentType : IEquatable<ContentType>
+    {
+        private readonly string _value;
+
+        private ContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentType AnalyticRule { get; } = new ContentType("AnalyticRule");
+        public static ContentType Workbook { get; } = new ContentType("Workbook");
+
+        public static bool operator ==(ContentType left, ContentType right) => left.Equals(right);
+        public static bool operator !=(ContentType left, ContentType right) => !left.Equals(right);
+
+        public static explicit operator string(ContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentType other && Equals(other);
+        public bool Equals(ContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The data connector kind
     /// </summary>
     [EnumType]
@@ -928,6 +959,37 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Operator other && Equals(other);
         public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The repository type of the source control
+    /// </summary>
+    [EnumType]
+    public readonly struct RepoType : IEquatable<RepoType>
+    {
+        private readonly string _value;
+
+        private RepoType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepoType Github { get; } = new RepoType("Github");
+        public static RepoType DevOps { get; } = new RepoType("DevOps");
+
+        public static bool operator ==(RepoType left, RepoType right) => left.Equals(right);
+        public static bool operator !=(RepoType left, RepoType right) => !left.Equals(right);
+
+        public static explicit operator string(RepoType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepoType other && Equals(other);
+        public bool Equals(RepoType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

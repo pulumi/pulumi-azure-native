@@ -6,12 +6,51 @@ CHANGELOG
 #### New Resources
 
 - `botservice.PrivateEndpointConnection`
+- `documentdb.Service`
+- `insights.DataCollectionEndpoint`
+- `machinelearningservices.BatchDeployment`
+- `machinelearningservices.BatchEndpoint`
+- `machinelearningservices.CodeContainer`
+- `machinelearningservices.CodeVersion`
+- `machinelearningservices.DataContainer`
+- `machinelearningservices.DataVersion`
+- `machinelearningservices.EnvironmentContainer`
+- `machinelearningservices.EnvironmentSpecificationVersion`
+- `machinelearningservices.Job`
+- `machinelearningservices.ModelContainer`
+- `machinelearningservices.ModelVersion`
+- `machinelearningservices.OnlineDeployment`
+- `machinelearningservices.OnlineEndpoint`
 - `securityinsights.Metadatum`
+- `securityinsights.SourceControl`
+- `sql.OutboundFirewallRule`
 
 #### New Functions
 
 - `botservice.getPrivateEndpointConnection`
+- `documentdb.getService`
+- `insights.getDataCollectionEndpoint`
+- `machinelearningservices.getBatchDeployment`
+- `machinelearningservices.getBatchEndpoint`
+- `machinelearningservices.getCodeContainer`
+- `machinelearningservices.getCodeVersion`
+- `machinelearningservices.getDataContainer`
+- `machinelearningservices.getDataVersion`
+- `machinelearningservices.getEnvironmentContainer`
+- `machinelearningservices.getEnvironmentSpecificationVersion`
+- `machinelearningservices.getJob`
+- `machinelearningservices.getModelContainer`
+- `machinelearningservices.getModelVersion`
+- `machinelearningservices.getOnlineDeployment`
+- `machinelearningservices.getOnlineDeploymentLogs`
+- `machinelearningservices.getOnlineEndpoint`
+- `machinelearningservices.listBatchEndpointKeys`
+- `machinelearningservices.listDatastoreSecrets`
+- `machinelearningservices.listOnlineEndpointKeys`
 - `securityinsights.getMetadatum`
+- `securityinsights.getSourceControl`
+- `securityinsights.listSourceControlRepositories`
+- `sql.getOutboundFirewallRule`
 
 ---
 

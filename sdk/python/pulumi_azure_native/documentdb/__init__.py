@@ -22,6 +22,7 @@ from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
 from .get_notebook_workspace import *
 from .get_private_endpoint_connection import *
+from .get_service import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
 from .get_sql_resource_sql_role_assignment import *
@@ -39,6 +40,7 @@ from .mongo_db_resource_mongo_db_collection import *
 from .mongo_db_resource_mongo_db_database import *
 from .notebook_workspace import *
 from .private_endpoint_connection import *
+from .service import *
 from .sql_resource_sql_container import *
 from .sql_resource_sql_database import *
 from .sql_resource_sql_role_assignment import *
@@ -69,6 +71,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.documentdb.v20210315 as v20210315
     import pulumi_azure_native.documentdb.v20210401preview as v20210401preview
     import pulumi_azure_native.documentdb.v20210415 as v20210415
+    import pulumi_azure_native.documentdb.v20210515 as v20210515
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150401')
     v20150408 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150408')
@@ -87,4 +90,5 @@ else:
     v20210315 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210315')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210401preview')
     v20210415 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210415')
+    v20210515 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210515')
 

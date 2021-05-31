@@ -153,7 +153,7 @@ class ModelContainer(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210301preview:ModelContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210301preview:ModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices:ModelContainer"), pulumi.Alias(type_="azure-nextgen:machinelearningservices:ModelContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ModelContainer, __self__).__init__(
             'azure-native:machinelearningservices/v20210301preview:ModelContainer',

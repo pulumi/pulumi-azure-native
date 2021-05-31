@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductSetting{}
 	case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
+	case "azure-native:securityinsights/v20210301preview:SourceControl":
+		r = &SourceControl{}
 	case "azure-native:securityinsights/v20210301preview:TIDataConnector":
 		r = &TIDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector":

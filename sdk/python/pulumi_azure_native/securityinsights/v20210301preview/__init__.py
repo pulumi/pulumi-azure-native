@@ -33,11 +33,13 @@ from .get_office_atp_data_connector import *
 from .get_office_data_connector import *
 from .get_product_setting import *
 from .get_sentinel_onboarding_state import *
+from .get_source_control import *
 from .get_ti_data_connector import *
 from .get_ti_taxii_data_connector import *
 from .get_ueba import *
 from .get_watchlist import *
 from .get_watchlist_item import *
+from .list_source_control_repositories import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
 from .metadatum import *
@@ -47,6 +49,7 @@ from .office_atp_data_connector import *
 from .office_data_connector import *
 from .product_setting import *
 from .sentinel_onboarding_state import *
+from .source_control import *
 from .ti_data_connector import *
 from .ti_taxii_data_connector import *
 from .ueba import *

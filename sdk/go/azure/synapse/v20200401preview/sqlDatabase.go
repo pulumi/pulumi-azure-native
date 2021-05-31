@@ -27,6 +27,8 @@ type SqlDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Storage redundancy of the database.
+	StorageRedundancy pulumi.StringPtrOutput `pulumi:"storageRedundancy"`
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -88,6 +90,8 @@ type sqlDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// Status of the database.
 	Status *string `pulumi:"status"`
+	// Storage redundancy of the database.
+	StorageRedundancy *string `pulumi:"storageRedundancy"`
 	// SystemData of SqlDatabase.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -109,6 +113,8 @@ type SqlDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// Status of the database.
 	Status pulumi.StringPtrInput
+	// Storage redundancy of the database.
+	StorageRedundancy pulumi.StringPtrInput
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
@@ -132,6 +138,8 @@ type sqlDatabaseArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the sql database.
 	SqlDatabaseName *string `pulumi:"sqlDatabaseName"`
+	// Storage redundancy of the database.
+	StorageRedundancy *string `pulumi:"storageRedundancy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workspace.
@@ -150,6 +158,8 @@ type SqlDatabaseArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the sql database.
 	SqlDatabaseName pulumi.StringPtrInput
+	// Storage redundancy of the database.
+	StorageRedundancy pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the workspace.

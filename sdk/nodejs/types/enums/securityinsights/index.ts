@@ -379,6 +379,16 @@ export const CaseSeverity = {
  */
 export type CaseSeverity = (typeof CaseSeverity)[keyof typeof CaseSeverity];
 
+export const ContentType = {
+    AnalyticRule: "AnalyticRule",
+    Workbook: "Workbook",
+} as const;
+
+/**
+ * Content type.
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",
@@ -561,6 +571,16 @@ export const Operator = {
  * Operator used for list of dependencies in criteria array.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
+
+export const RepoType = {
+    Github: "Github",
+    DevOps: "DevOps",
+} as const;
+
+/**
+ * The repository type of the source control
+ */
+export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const SettingKind = {
     EyesOn: "EyesOn",

@@ -18,6 +18,7 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210415 from "./v20210415";
+import * as v20210515 from "./v20210515";
 
 export {
     v20150401,
@@ -36,6 +37,7 @@ export {
     v20210315,
     v20210401preview,
     v20210415,
+    v20210515,
 };
 
 export const AuthenticationMethod = {
@@ -233,6 +235,27 @@ export const ServerVersion = {
  * Describes the ServerVersion of an a MongoDB account.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
+
+export const ServiceSize = {
+    Cosmos_D4s: "Cosmos.D4s",
+    Cosmos_D8s: "Cosmos.D8s",
+    Cosmos_D16s: "Cosmos.D16s",
+} as const;
+
+/**
+ * Instance type for the service.
+ */
+export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
+
+export const ServiceType = {
+    SqlDedicatedGateway: "SqlDedicatedGateway",
+    DataTransfer: "DataTransfer",
+} as const;
+
+/**
+ * ServiceType for the service.
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 export const SpatialType = {
     Point: "Point",

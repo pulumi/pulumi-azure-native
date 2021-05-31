@@ -526,6 +526,37 @@ namespace Pulumi.AzureNative.Insights
     /// The kind of the resource.
     /// </summary>
     [EnumType]
+    public readonly struct KnownDataCollectionEndpointResourceKind : IEquatable<KnownDataCollectionEndpointResourceKind>
+    {
+        private readonly string _value;
+
+        private KnownDataCollectionEndpointResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownDataCollectionEndpointResourceKind Linux { get; } = new KnownDataCollectionEndpointResourceKind("Linux");
+        public static KnownDataCollectionEndpointResourceKind Windows { get; } = new KnownDataCollectionEndpointResourceKind("Windows");
+
+        public static bool operator ==(KnownDataCollectionEndpointResourceKind left, KnownDataCollectionEndpointResourceKind right) => left.Equals(right);
+        public static bool operator !=(KnownDataCollectionEndpointResourceKind left, KnownDataCollectionEndpointResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(KnownDataCollectionEndpointResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownDataCollectionEndpointResourceKind other && Equals(other);
+        public bool Equals(KnownDataCollectionEndpointResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the resource.
+    /// </summary>
+    [EnumType]
     public readonly struct KnownDataCollectionRuleResourceKind : IEquatable<KnownDataCollectionRuleResourceKind>
     {
         private readonly string _value;
@@ -636,6 +667,37 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnownPerfCounterDataSourceStreams other && Equals(other);
         public bool Equals(KnownPerfCounterDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The configuration to set whether network access from public internet to the endpoints are allowed.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownPublicNetworkAccessOptions : IEquatable<KnownPublicNetworkAccessOptions>
+    {
+        private readonly string _value;
+
+        private KnownPublicNetworkAccessOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownPublicNetworkAccessOptions Enabled { get; } = new KnownPublicNetworkAccessOptions("Enabled");
+        public static KnownPublicNetworkAccessOptions Disabled { get; } = new KnownPublicNetworkAccessOptions("Disabled");
+
+        public static bool operator ==(KnownPublicNetworkAccessOptions left, KnownPublicNetworkAccessOptions right) => left.Equals(right);
+        public static bool operator !=(KnownPublicNetworkAccessOptions left, KnownPublicNetworkAccessOptions right) => !left.Equals(right);
+
+        public static explicit operator string(KnownPublicNetworkAccessOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownPublicNetworkAccessOptions other && Equals(other);
+        public bool Equals(KnownPublicNetworkAccessOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

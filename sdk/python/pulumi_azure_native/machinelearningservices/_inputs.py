@@ -21,8 +21,20 @@ __all__ = [
     'AksNetworkingConfigurationArgs',
     'AmlComputeArgs',
     'AmlComputePropertiesArgs',
+    'AmlTokenArgs',
     'AssignedUserArgs',
+    'AutoScaleSettingsArgs',
+    'BanditPolicyArgs',
+    'BatchDeploymentArgs',
+    'BatchEndpointArgs',
+    'BatchOutputConfigurationArgs',
+    'BatchRetrySettingsArgs',
+    'CodeConfigurationArgs',
+    'CodeContainerArgs',
+    'CodeVersionArgs',
+    'CommandJobArgs',
     'ComputeBindingArgs',
+    'ComputeConfigurationArgs',
     'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
@@ -30,9 +42,12 @@ __all__ = [
     'CosmosDbSettingsArgs',
     'CreateServiceRequestEnvironmentImageRequestArgs',
     'CreateServiceRequestKeysArgs',
+    'DataContainerArgs',
     'DataFactoryArgs',
     'DataLakeAnalyticsArgs',
     'DataLakeAnalyticsPropertiesArgs',
+    'DataPathAssetReferenceArgs',
+    'DataVersionArgs',
     'DatabricksArgs',
     'DatabricksPropertiesArgs',
     'DatasetCreateRequestDataPathArgs',
@@ -42,14 +57,25 @@ __all__ = [
     'DatasetCreateRequestRegistrationArgs',
     'DatasetCreateRequestTimeSeriesArgs',
     'DatasetReferenceArgs',
+    'DockerBuildArgs',
+    'DockerImageArgs',
+    'DockerImagePlatformArgs',
     'EncryptionPropertyArgs',
+    'EndpointAuthKeysArgs',
+    'EnvironmentContainerArgs',
     'EnvironmentImageRequestEnvironmentArgs',
     'EnvironmentImageRequestEnvironmentReferenceArgs',
+    'EnvironmentSpecificationVersionArgs',
+    'FlavorDataArgs',
     'HDInsightArgs',
     'HDInsightPropertiesArgs',
+    'IdAssetReferenceArgs',
     'IdentityArgs',
     'IdentityForCmkArgs',
     'ImageAssetArgs',
+    'InferenceContainerPropertiesArgs',
+    'InputDataBindingArgs',
+    'K8sOnlineDeploymentArgs',
     'KeyVaultPropertiesArgs',
     'LabelCategoryArgs',
     'LabelClassArgs',
@@ -60,17 +86,33 @@ __all__ = [
     'LinkedServicePropsArgs',
     'LinkedWorkspacePropsArgs',
     'MLAssistConfigurationArgs',
+    'ManagedIdentityArgs',
+    'ManagedOnlineDeploymentArgs',
+    'ManualScaleSettingsArgs',
+    'MedianStoppingPolicyArgs',
     'ModelArgs',
+    'ModelContainerArgs',
     'ModelDockerSectionBaseImageRegistryArgs',
     'ModelEnvironmentDefinitionDockerArgs',
     'ModelEnvironmentDefinitionPythonArgs',
     'ModelEnvironmentDefinitionRArgs',
     'ModelEnvironmentDefinitionSparkArgs',
+    'ModelVersionArgs',
+    'MpiArgs',
+    'ObjectiveArgs',
+    'OnlineEndpointArgs',
+    'OnlineRequestSettingsArgs',
+    'OutputDataBindingArgs',
+    'OutputPathAssetReferenceArgs',
     'PersonalComputeInstanceSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ProbeSettingsArgs',
+    'PyTorchArgs',
     'RCranPackageArgs',
     'RGitHubPackageArgs',
     'ResourceIdArgs',
+    'ResourceIdentityArgs',
+    'RouteArgs',
     'ScaleSettingsArgs',
     'ScriptReferenceArgs',
     'ScriptsToExecuteArgs',
@@ -80,7 +122,12 @@ __all__ = [
     'SkuArgs',
     'SparkMavenPackageArgs',
     'SslConfigurationArgs',
+    'SweepJobArgs',
+    'TensorFlowArgs',
+    'TrialComponentArgs',
+    'TruncationSelectionPolicyArgs',
     'UserAccountCredentialsArgs',
+    'UserAssignedIdentityMetaArgs',
     'VirtualMachineArgs',
     'VirtualMachineImageArgs',
     'VirtualMachinePropertiesArgs',
@@ -967,6 +1014,31 @@ class AmlComputePropertiesArgs:
 
 
 @pulumi.input_type
+class AmlTokenArgs:
+    def __init__(__self__, *,
+                 identity_type: pulumi.Input[str]):
+        """
+        AML Token identity configuration.
+        :param pulumi.Input[str] identity_type: Enum to determine identity framework.
+               Expected value is 'AMLToken'.
+        """
+        pulumi.set(__self__, "identity_type", 'AMLToken')
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine identity framework.
+        Expected value is 'AMLToken'.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_type", value)
+
+
+@pulumi.input_type
 class AssignedUserArgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str],
@@ -1002,6 +1074,1018 @@ class AssignedUserArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class AutoScaleSettingsArgs:
+    def __init__(__self__, *,
+                 scale_type: pulumi.Input[str],
+                 max_instances: Optional[pulumi.Input[int]] = None,
+                 min_instances: Optional[pulumi.Input[int]] = None,
+                 polling_interval: Optional[pulumi.Input[str]] = None,
+                 target_utilization_percentage: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] scale_type: 
+               Expected value is 'Auto'.
+        :param pulumi.Input[str] polling_interval: The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+        """
+        pulumi.set(__self__, "scale_type", 'Auto')
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if polling_interval is not None:
+            pulumi.set(__self__, "polling_interval", polling_interval)
+        if target_utilization_percentage is not None:
+            pulumi.set(__self__, "target_utilization_percentage", target_utilization_percentage)
+
+    @property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Auto'.
+        """
+        return pulumi.get(self, "scale_type")
+
+    @scale_type.setter
+    def scale_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scale_type", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_instances", value)
+
+    @property
+    @pulumi.getter(name="pollingInterval")
+    def polling_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+        """
+        return pulumi.get(self, "polling_interval")
+
+    @polling_interval.setter
+    def polling_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "polling_interval", value)
+
+    @property
+    @pulumi.getter(name="targetUtilizationPercentage")
+    def target_utilization_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "target_utilization_percentage")
+
+    @target_utilization_percentage.setter
+    def target_utilization_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_utilization_percentage", value)
+
+
+@pulumi.input_type
+class BanditPolicyArgs:
+    def __init__(__self__, *,
+                 policy_type: pulumi.Input[str],
+                 delay_evaluation: Optional[pulumi.Input[int]] = None,
+                 evaluation_interval: Optional[pulumi.Input[int]] = None,
+                 slack_amount: Optional[pulumi.Input[float]] = None,
+                 slack_factor: Optional[pulumi.Input[float]] = None):
+        """
+        Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+        :param pulumi.Input[str] policy_type: 
+               Expected value is 'Bandit'.
+        """
+        pulumi.set(__self__, "policy_type", 'Bandit')
+        if delay_evaluation is not None:
+            pulumi.set(__self__, "delay_evaluation", delay_evaluation)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+        if slack_amount is not None:
+            pulumi.set(__self__, "slack_amount", slack_amount)
+        if slack_factor is not None:
+            pulumi.set(__self__, "slack_factor", slack_factor)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Bandit'.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="delayEvaluation")
+    def delay_evaluation(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "delay_evaluation")
+
+    @delay_evaluation.setter
+    def delay_evaluation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay_evaluation", value)
+
+    @property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_interval", value)
+
+    @property
+    @pulumi.getter(name="slackAmount")
+    def slack_amount(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "slack_amount")
+
+    @slack_amount.setter
+    def slack_amount(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "slack_amount", value)
+
+    @property
+    @pulumi.getter(name="slackFactor")
+    def slack_factor(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "slack_factor")
+
+    @slack_factor.setter
+    def slack_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "slack_factor", value)
+
+
+@pulumi.input_type
+class BatchDeploymentArgs:
+    def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['CodeConfigurationArgs']] = None,
+                 compute: Optional[pulumi.Input['ComputeConfigurationArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 error_threshold: Optional[pulumi.Input[int]] = None,
+                 logging_level: Optional[pulumi.Input[Union[str, 'BatchLoggingLevel']]] = None,
+                 mini_batch_size: Optional[pulumi.Input[float]] = None,
+                 model: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]] = None,
+                 output_configuration: Optional[pulumi.Input['BatchOutputConfigurationArgs']] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 retry_settings: Optional[pulumi.Input['BatchRetrySettingsArgs']] = None):
+        """
+        Batch inference settings per deployment.
+        :param pulumi.Input['CodeConfigurationArgs'] code_configuration: Code configuration for the endpoint deployment.
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: Configuration for compute binding.
+        :param pulumi.Input[str] description: Description of the endpoint deployment.
+        :param pulumi.Input[str] environment_id: ARM resource ID of the environment specification for the endpoint deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables configuration for the deployment.
+        :param pulumi.Input[int] error_threshold: Error threshold, if the error count for the entire input goes above this value,
+               the batch inference will be aborted. Range is [-1, int.MaxValue].
+               For FileDataset, this value is the count of file failures.
+               For TabularDataset, this value is the count of record failures.
+               If set to -1 (the lower bound), all failures during batch inference will be ignored.
+        :param pulumi.Input[Union[str, 'BatchLoggingLevel']] logging_level: Logging level for batch inference operation.
+        :param pulumi.Input[float] mini_batch_size: Size of the mini-batch passed to each batch invocation.
+               For FileDataset, this is the number of files per mini-batch.
+               For TabularDataset, this is the size of the records in bytes, per mini-batch.
+        :param pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']] model: Reference to the model asset for the endpoint deployment.
+        :param pulumi.Input['BatchOutputConfigurationArgs'] output_configuration: Output configuration for the batch inference operation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_keys: Partition keys list used for Named partitioning.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param pulumi.Input['BatchRetrySettingsArgs'] retry_settings: Retry Settings for the batch inference operation.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if compute is not None:
+            pulumi.set(__self__, "compute", compute)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if error_threshold is not None:
+            pulumi.set(__self__, "error_threshold", error_threshold)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if mini_batch_size is not None:
+            pulumi.set(__self__, "mini_batch_size", mini_batch_size)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if output_configuration is not None:
+            pulumi.set(__self__, "output_configuration", output_configuration)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if retry_settings is not None:
+            pulumi.set(__self__, "retry_settings", retry_settings)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['CodeConfigurationArgs']]:
+        """
+        Code configuration for the endpoint deployment.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['CodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> Optional[pulumi.Input['ComputeConfigurationArgs']]:
+        """
+        Configuration for compute binding.
+        """
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: Optional[pulumi.Input['ComputeConfigurationArgs']]):
+        pulumi.set(self, "compute", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the endpoint deployment.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables configuration for the deployment.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="errorThreshold")
+    def error_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Error threshold, if the error count for the entire input goes above this value,
+        the batch inference will be aborted. Range is [-1, int.MaxValue].
+        For FileDataset, this value is the count of file failures.
+        For TabularDataset, this value is the count of record failures.
+        If set to -1 (the lower bound), all failures during batch inference will be ignored.
+        """
+        return pulumi.get(self, "error_threshold")
+
+    @error_threshold.setter
+    def error_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "error_threshold", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[Union[str, 'BatchLoggingLevel']]]:
+        """
+        Logging level for batch inference operation.
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[Union[str, 'BatchLoggingLevel']]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="miniBatchSize")
+    def mini_batch_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        Size of the mini-batch passed to each batch invocation.
+        For FileDataset, this is the number of files per mini-batch.
+        For TabularDataset, this is the size of the records in bytes, per mini-batch.
+        """
+        return pulumi.get(self, "mini_batch_size")
+
+    @mini_batch_size.setter
+    def mini_batch_size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "mini_batch_size", value)
+
+    @property
+    @pulumi.getter
+    def model(self) -> Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]:
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]):
+        pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> Optional[pulumi.Input['BatchOutputConfigurationArgs']]:
+        """
+        Output configuration for the batch inference operation.
+        """
+        return pulumi.get(self, "output_configuration")
+
+    @output_configuration.setter
+    def output_configuration(self, value: Optional[pulumi.Input['BatchOutputConfigurationArgs']]):
+        pulumi.set(self, "output_configuration", value)
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Partition keys list used for Named partitioning.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="retrySettings")
+    def retry_settings(self) -> Optional[pulumi.Input['BatchRetrySettingsArgs']]:
+        """
+        Retry Settings for the batch inference operation.
+        """
+        return pulumi.get(self, "retry_settings")
+
+    @retry_settings.setter
+    def retry_settings(self, value: Optional[pulumi.Input['BatchRetrySettingsArgs']]):
+        pulumi.set(self, "retry_settings", value)
+
+
+@pulumi.input_type
+class BatchEndpointArgs:
+    def __init__(__self__, *,
+                 auth_mode: Optional[pulumi.Input[Union[str, 'EndpointAuthMode']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 keys: Optional[pulumi.Input['EndpointAuthKeysArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
+        """
+        Batch endpoint configuration.
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Enum to determine endpoint authentication mode.
+        :param pulumi.Input[str] description: Description of the inference endpoint.
+        :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
+               This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] traffic: Traffic rules on how the traffic will be routed across deployments.
+        """
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if traffic is not None:
+            pulumi.set(__self__, "traffic", traffic)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'EndpointAuthMode']]]:
+        """
+        Enum to determine endpoint authentication mode.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'EndpointAuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the inference endpoint.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input['EndpointAuthKeysArgs']]:
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input['EndpointAuthKeysArgs']]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def traffic(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]:
+        """
+        Traffic rules on how the traffic will be routed across deployments.
+        """
+        return pulumi.get(self, "traffic")
+
+    @traffic.setter
+    def traffic(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]):
+        pulumi.set(self, "traffic", value)
+
+
+@pulumi.input_type
+class BatchOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 append_row_file_name: Optional[pulumi.Input[str]] = None,
+                 output_action: Optional[pulumi.Input[Union[str, 'BatchOutputAction']]] = None):
+        """
+        Batch inference output configuration.
+        :param pulumi.Input[str] append_row_file_name: Customized output file name for append_row output action.
+        :param pulumi.Input[Union[str, 'BatchOutputAction']] output_action: Indicates how the output will be organized.
+        """
+        if append_row_file_name is not None:
+            pulumi.set(__self__, "append_row_file_name", append_row_file_name)
+        if output_action is not None:
+            pulumi.set(__self__, "output_action", output_action)
+
+    @property
+    @pulumi.getter(name="appendRowFileName")
+    def append_row_file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customized output file name for append_row output action.
+        """
+        return pulumi.get(self, "append_row_file_name")
+
+    @append_row_file_name.setter
+    def append_row_file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "append_row_file_name", value)
+
+    @property
+    @pulumi.getter(name="outputAction")
+    def output_action(self) -> Optional[pulumi.Input[Union[str, 'BatchOutputAction']]]:
+        """
+        Indicates how the output will be organized.
+        """
+        return pulumi.get(self, "output_action")
+
+    @output_action.setter
+    def output_action(self, value: Optional[pulumi.Input[Union[str, 'BatchOutputAction']]]):
+        pulumi.set(self, "output_action", value)
+
+
+@pulumi.input_type
+class BatchRetrySettingsArgs:
+    def __init__(__self__, *,
+                 max_retries: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        Retry settings for a batch inference operation.
+        :param pulumi.Input[int] max_retries: Maximum retry count for a mini-batch
+        :param pulumi.Input[str] timeout: Invocation timeout for a mini-batch, in ISO 8601 format.
+        """
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum retry count for a mini-batch
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Invocation timeout for a mini-batch, in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class CodeConfigurationArgs:
+    def __init__(__self__, *,
+                 scoring_script: pulumi.Input[str],
+                 code_id: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration for a scoring code asset.
+        :param pulumi.Input[str] scoring_script: The script to execute on startup. eg. "score.py"
+        :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
+        """
+        pulumi.set(__self__, "scoring_script", scoring_script)
+        if code_id is not None:
+            pulumi.set(__self__, "code_id", code_id)
+
+    @property
+    @pulumi.getter(name="scoringScript")
+    def scoring_script(self) -> pulumi.Input[str]:
+        """
+        The script to execute on startup. eg. "score.py"
+        """
+        return pulumi.get(self, "scoring_script")
+
+    @scoring_script.setter
+    def scoring_script(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scoring_script", value)
+
+    @property
+    @pulumi.getter(name="codeId")
+    def code_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the code asset.
+        """
+        return pulumi.get(self, "code_id")
+
+    @code_id.setter
+    def code_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_id", value)
+
+
+@pulumi.input_type
+class CodeContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container for code asset versions.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class CodeVersionArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 datastore_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Code asset version details.
+        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "path", path)
+        if datastore_id is not None:
+            pulumi.set(__self__, "datastore_id", datastore_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path of the file/directory in the datastore.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="datastoreId")
+    def datastore_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        return pulumi.get(self, "datastore_id")
+
+    @datastore_id.setter
+    def datastore_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class CommandJobArgs:
+    def __init__(__self__, *,
+                 command: pulumi.Input[str],
+                 compute: pulumi.Input['ComputeConfigurationArgs'],
+                 job_type: pulumi.Input[str],
+                 code_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 distribution: Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]] = None,
+                 input_data_bindings: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]] = None,
+                 output_data_bindings: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        Command job definition.
+        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[str] job_type: Enum to determine the type of job.
+               Expected value is 'Command'.
+        :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']] distribution: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        :param pulumi.Input[str] environment_id: The ARM resource ID of the Environment specification for the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables included in the job.
+        :param pulumi.Input[str] experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        :param pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+               Defaults to AmlToken if null.
+        :param pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]] input_data_bindings: Mapping of input data bindings used in the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]] output_data_bindings: Mapping of output data bindings used in the job.
+        :param pulumi.Input[int] priority: Job priority for scheduling policy. Only applies to AMLCompute.
+               Private preview feature and only available to users on the allow list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param pulumi.Input[str] timeout: The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+        """
+        pulumi.set(__self__, "command", command)
+        pulumi.set(__self__, "compute", compute)
+        pulumi.set(__self__, "job_type", 'Command')
+        if code_id is not None:
+            pulumi.set(__self__, "code_id", code_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if input_data_bindings is not None:
+            pulumi.set(__self__, "input_data_bindings", input_data_bindings)
+        if output_data_bindings is not None:
+            pulumi.set(__self__, "output_data_bindings", output_data_bindings)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def command(self) -> pulumi.Input[str]:
+        """
+        The command to execute on startup of the job. eg. "python train.py"
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: pulumi.Input[str]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
+        """
+        Compute binding for the job.
+        """
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: pulumi.Input['ComputeConfigurationArgs']):
+        pulumi.set(self, "compute", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the type of job.
+        Expected value is 'Command'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter(name="codeId")
+    def code_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the code asset.
+        """
+        return pulumi.get(self, "code_id")
+
+    @code_id.setter
+    def code_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]]:
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]]):
+        pulumi.set(self, "distribution", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM resource ID of the Environment specification for the job.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables included in the job.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]]:
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, or null.
+        Defaults to AmlToken if null.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="inputDataBindings")
+    def input_data_bindings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]]:
+        """
+        Mapping of input data bindings used in the job.
+        """
+        return pulumi.get(self, "input_data_bindings")
+
+    @input_data_bindings.setter
+    def input_data_bindings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]]):
+        pulumi.set(self, "input_data_bindings", value)
+
+    @property
+    @pulumi.getter(name="outputDataBindings")
+    def output_data_bindings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]]:
+        """
+        Mapping of output data bindings used in the job.
+        """
+        return pulumi.get(self, "output_data_bindings")
+
+    @output_data_bindings.setter
+    def output_data_bindings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]]):
+        pulumi.set(self, "output_data_bindings", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Job priority for scheduling policy. Only applies to AMLCompute.
+        Private preview feature and only available to users on the allow list.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -1042,6 +2126,110 @@ class ComputeBindingArgs:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
+
+
+@pulumi.input_type
+class ComputeConfigurationArgs:
+    def __init__(__self__, *,
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 is_local: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration for compute binding.
+        :param pulumi.Input[int] instance_count: Number of instances or nodes.
+        :param pulumi.Input[str] instance_type: SKU type to run on.
+        :param pulumi.Input[bool] is_local: Set to true for jobs running on local compute.
+        :param pulumi.Input[str] location: Location for virtual cluster run.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Additional properties.
+        :param pulumi.Input[str] target: ARM resource ID of the compute resource.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if is_local is not None:
+            pulumi.set(__self__, "is_local", is_local)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of instances or nodes.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        SKU type to run on.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="isLocal")
+    def is_local(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true for jobs running on local compute.
+        """
+        return pulumi.get(self, "is_local")
+
+    @is_local.setter
+    def is_local(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_local", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for virtual cluster run.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the compute resource.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
@@ -1579,6 +2767,62 @@ class CreateServiceRequestKeysArgs:
 
 
 @pulumi.input_type
+class DataContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container for data asset versions.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class DataFactoryArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
@@ -1757,6 +3001,182 @@ class DataLakeAnalyticsPropertiesArgs:
     @data_lake_store_account_name.setter
     def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_store_account_name", value)
+
+
+@pulumi.input_type
+class DataPathAssetReferenceArgs:
+    def __init__(__self__, *,
+                 reference_type: pulumi.Input[str],
+                 datastore_id: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Reference to an asset via its path in a datastore.
+        :param pulumi.Input[str] reference_type: Enum to determine which reference method to use for an asset.
+               Expected value is 'DataPath'.
+        :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
+        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        """
+        pulumi.set(__self__, "reference_type", 'DataPath')
+        if datastore_id is not None:
+            pulumi.set(__self__, "datastore_id", datastore_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'DataPath'.
+        """
+        return pulumi.get(self, "reference_type")
+
+    @reference_type.setter
+    def reference_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_type", value)
+
+    @property
+    @pulumi.getter(name="datastoreId")
+    def datastore_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        return pulumi.get(self, "datastore_id")
+
+    @datastore_id.setter
+    def datastore_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the file/directory in the datastore.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class DataVersionArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 dataset_type: Optional[pulumi.Input[Union[str, 'DatasetType']]] = None,
+                 datastore_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Data asset version details.
+        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[Union[str, 'DatasetType']] dataset_type: The Format of dataset.
+        :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "path", path)
+        if dataset_type is not None:
+            pulumi.set(__self__, "dataset_type", dataset_type)
+        if datastore_id is not None:
+            pulumi.set(__self__, "datastore_id", datastore_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path of the file/directory in the datastore.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="datasetType")
+    def dataset_type(self) -> Optional[pulumi.Input[Union[str, 'DatasetType']]]:
+        """
+        The Format of dataset.
+        """
+        return pulumi.get(self, "dataset_type")
+
+    @dataset_type.setter
+    def dataset_type(self, value: Optional[pulumi.Input[Union[str, 'DatasetType']]]):
+        pulumi.set(self, "dataset_type", value)
+
+    @property
+    @pulumi.getter(name="datastoreId")
+    def datastore_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        return pulumi.get(self, "datastore_id")
+
+    @datastore_id.setter
+    def datastore_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -2244,6 +3664,165 @@ class DatasetReferenceArgs:
 
 
 @pulumi.input_type
+class DockerBuildArgs:
+    def __init__(__self__, *,
+                 docker_specification_type: pulumi.Input[str],
+                 dockerfile: pulumi.Input[str],
+                 context: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Build'.
+        :param pulumi.Input[str] dockerfile: Docker command line instructions to assemble an image.
+               <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        :param pulumi.Input[str] context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+               The path is relative to the asset path which must contain a single Blob URI value.
+               <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        :param pulumi.Input['DockerImagePlatformArgs'] platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_specification_type", 'Build')
+        pulumi.set(__self__, "dockerfile", dockerfile)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Build'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @docker_specification_type.setter
+    def docker_specification_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_specification_type", value)
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> pulumi.Input[str]:
+        """
+        Docker command line instructions to assemble an image.
+        <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @dockerfile.setter
+    def dockerfile(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dockerfile", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
+        The path is relative to the asset path which must contain a single Blob URI value.
+        <seealso href="https://docs.docker.com/engine/context/working-with-contexts/" />
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['DockerImagePlatformArgs']]:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['DockerImagePlatformArgs']]):
+        pulumi.set(self, "platform", value)
+
+
+@pulumi.input_type
+class DockerImageArgs:
+    def __init__(__self__, *,
+                 docker_image_uri: pulumi.Input[str],
+                 docker_specification_type: pulumi.Input[str],
+                 platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
+        """
+        Class to represent configuration settings for Docker Build
+        :param pulumi.Input[str] docker_image_uri: Image name of a custom base image.
+               <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
+               Expected value is 'Image'.
+        :param pulumi.Input['DockerImagePlatformArgs'] platform: The platform information of the docker image.
+        """
+        pulumi.set(__self__, "docker_image_uri", docker_image_uri)
+        pulumi.set(__self__, "docker_specification_type", 'Image')
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="dockerImageUri")
+    def docker_image_uri(self) -> pulumi.Input[str]:
+        """
+        Image name of a custom base image.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        return pulumi.get(self, "docker_image_uri")
+
+    @docker_image_uri.setter
+    def docker_image_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_image_uri", value)
+
+    @property
+    @pulumi.getter(name="dockerSpecificationType")
+    def docker_specification_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine docker specification type. Must be either Build or Image.
+        Expected value is 'Image'.
+        """
+        return pulumi.get(self, "docker_specification_type")
+
+    @docker_specification_type.setter
+    def docker_specification_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_specification_type", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['DockerImagePlatformArgs']]:
+        """
+        The platform information of the docker image.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['DockerImagePlatformArgs']]):
+        pulumi.set(self, "platform", value)
+
+
+@pulumi.input_type
+class DockerImagePlatformArgs:
+    def __init__(__self__, *,
+                 operating_system_type: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'OperatingSystemType']] operating_system_type: The OS type the Environment.
+        """
+        if operating_system_type is not None:
+            pulumi.set(__self__, "operating_system_type", operating_system_type)
+
+    @property
+    @pulumi.getter(name="operatingSystemType")
+    def operating_system_type(self) -> Optional[pulumi.Input[Union[str, 'OperatingSystemType']]]:
+        """
+        The OS type the Environment.
+        """
+        return pulumi.get(self, "operating_system_type")
+
+    @operating_system_type.setter
+    def operating_system_type(self, value: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]]):
+        pulumi.set(self, "operating_system_type", value)
+
+
+@pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
                  key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
@@ -2294,6 +3873,102 @@ class EncryptionPropertyArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityForCmkArgs']]):
         pulumi.set(self, "identity", value)
+
+
+@pulumi.input_type
+class EndpointAuthKeysArgs:
+    def __init__(__self__, *,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None):
+        """
+        Keys for endpoint authentication.
+        :param pulumi.Input[str] primary_key: The primary key.
+        :param pulumi.Input[str] secondary_key: The secondary key.
+        """
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+
+@pulumi.input_type
+class EnvironmentContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container for environment specification versions.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -2473,6 +4148,146 @@ class EnvironmentImageRequestEnvironmentReferenceArgs:
 
 
 @pulumi.input_type
+class EnvironmentSpecificationVersionArgs:
+    def __init__(__self__, *,
+                 conda_file: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 docker: Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]] = None,
+                 inference_container_properties: Optional[pulumi.Input['InferenceContainerPropertiesArgs']] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Environment specification version details.
+        <see href="https://repo2docker.readthedocs.io/en/latest/specification.html" />
+        :param pulumi.Input[str] conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+               <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']] docker: Configuration settings for Docker.
+        :param pulumi.Input['InferenceContainerPropertiesArgs'] inference_container_properties: Defines configuration specific to inference.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if conda_file is not None:
+            pulumi.set(__self__, "conda_file", conda_file)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if inference_container_properties is not None:
+            pulumi.set(__self__, "inference_container_properties", inference_container_properties)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="condaFile")
+    def conda_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        return pulumi.get(self, "conda_file")
+
+    @conda_file.setter
+    def conda_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conda_file", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]]:
+        """
+        Configuration settings for Docker.
+        """
+        return pulumi.get(self, "docker")
+
+    @docker.setter
+    def docker(self, value: Optional[pulumi.Input[Union['DockerBuildArgs', 'DockerImageArgs']]]):
+        pulumi.set(self, "docker", value)
+
+    @property
+    @pulumi.getter(name="inferenceContainerProperties")
+    def inference_container_properties(self) -> Optional[pulumi.Input['InferenceContainerPropertiesArgs']]:
+        """
+        Defines configuration specific to inference.
+        """
+        return pulumi.get(self, "inference_container_properties")
+
+    @inference_container_properties.setter
+    def inference_container_properties(self, value: Optional[pulumi.Input['InferenceContainerPropertiesArgs']]):
+        pulumi.set(self, "inference_container_properties", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class FlavorDataArgs:
+    def __init__(__self__, *,
+                 data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "data", value)
+
+
+@pulumi.input_type
 class HDInsightArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
@@ -2613,6 +4428,46 @@ class HDInsightPropertiesArgs:
 
 
 @pulumi.input_type
+class IdAssetReferenceArgs:
+    def __init__(__self__, *,
+                 asset_id: pulumi.Input[str],
+                 reference_type: pulumi.Input[str]):
+        """
+        Reference to an asset via its ARM resource ID.
+        :param pulumi.Input[str] asset_id: ARM resource ID of the asset.
+        :param pulumi.Input[str] reference_type: Enum to determine which reference method to use for an asset.
+               Expected value is 'Id'.
+        """
+        pulumi.set(__self__, "asset_id", asset_id)
+        pulumi.set(__self__, "reference_type", 'Id')
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> pulumi.Input[str]:
+        """
+        ARM resource ID of the asset.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @asset_id.setter
+    def asset_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "asset_id", value)
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'Id'.
+        """
+        return pulumi.get(self, "reference_type")
+
+    @reference_type.setter
+    def reference_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_type", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
@@ -2745,6 +4600,304 @@ class ImageAssetArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class InferenceContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 liveness_route: Optional[pulumi.Input['RouteArgs']] = None,
+                 readiness_route: Optional[pulumi.Input['RouteArgs']] = None,
+                 scoring_route: Optional[pulumi.Input['RouteArgs']] = None):
+        """
+        :param pulumi.Input['RouteArgs'] liveness_route: The route to check the liveness of the inference server container.
+        :param pulumi.Input['RouteArgs'] readiness_route: The route to check the readiness of the inference server container.
+        :param pulumi.Input['RouteArgs'] scoring_route: The port to send the scoring requests to, within the inference server container.
+        """
+        if liveness_route is not None:
+            pulumi.set(__self__, "liveness_route", liveness_route)
+        if readiness_route is not None:
+            pulumi.set(__self__, "readiness_route", readiness_route)
+        if scoring_route is not None:
+            pulumi.set(__self__, "scoring_route", scoring_route)
+
+    @property
+    @pulumi.getter(name="livenessRoute")
+    def liveness_route(self) -> Optional[pulumi.Input['RouteArgs']]:
+        """
+        The route to check the liveness of the inference server container.
+        """
+        return pulumi.get(self, "liveness_route")
+
+    @liveness_route.setter
+    def liveness_route(self, value: Optional[pulumi.Input['RouteArgs']]):
+        pulumi.set(self, "liveness_route", value)
+
+    @property
+    @pulumi.getter(name="readinessRoute")
+    def readiness_route(self) -> Optional[pulumi.Input['RouteArgs']]:
+        """
+        The route to check the readiness of the inference server container.
+        """
+        return pulumi.get(self, "readiness_route")
+
+    @readiness_route.setter
+    def readiness_route(self, value: Optional[pulumi.Input['RouteArgs']]):
+        pulumi.set(self, "readiness_route", value)
+
+    @property
+    @pulumi.getter(name="scoringRoute")
+    def scoring_route(self) -> Optional[pulumi.Input['RouteArgs']]:
+        """
+        The port to send the scoring requests to, within the inference server container.
+        """
+        return pulumi.get(self, "scoring_route")
+
+    @scoring_route.setter
+    def scoring_route(self, value: Optional[pulumi.Input['RouteArgs']]):
+        pulumi.set(self, "scoring_route", value)
+
+
+@pulumi.input_type
+class InputDataBindingArgs:
+    def __init__(__self__, *,
+                 data_id: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'DataBindingMode']]] = None,
+                 path_on_compute: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_id: ARM resource ID of the registered dataVersion.
+        :param pulumi.Input[Union[str, 'DataBindingMode']] mode: Mechanism for accessing the data artifact.
+        :param pulumi.Input[str] path_on_compute: Location of data inside the container process.
+        """
+        if data_id is not None:
+            pulumi.set(__self__, "data_id", data_id)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if path_on_compute is not None:
+            pulumi.set(__self__, "path_on_compute", path_on_compute)
+
+    @property
+    @pulumi.getter(name="dataId")
+    def data_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the registered dataVersion.
+        """
+        return pulumi.get(self, "data_id")
+
+    @data_id.setter
+    def data_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataBindingMode']]]:
+        """
+        Mechanism for accessing the data artifact.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataBindingMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="pathOnCompute")
+    def path_on_compute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of data inside the container process.
+        """
+        return pulumi.get(self, "path_on_compute")
+
+    @path_on_compute.setter
+    def path_on_compute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_on_compute", value)
+
+
+@pulumi.input_type
+class K8sOnlineDeploymentArgs:
+    def __init__(__self__, *,
+                 endpoint_compute_type: pulumi.Input[str],
+                 app_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 code_configuration: Optional[pulumi.Input['CodeConfigurationArgs']] = None,
+                 container_resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 liveness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
+                 model: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_settings: Optional[pulumi.Input['OnlineRequestSettingsArgs']] = None,
+                 scale_settings: Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]] = None):
+        """
+        :param pulumi.Input[str] endpoint_compute_type: Enum to determine endpoint compute type.
+               Expected value is 'K8S'.
+        :param pulumi.Input[bool] app_insights_enabled: If true, enables Application Insights logging.
+        :param pulumi.Input['CodeConfigurationArgs'] code_configuration: Code configuration for the endpoint deployment.
+        :param pulumi.Input['ContainerResourceRequirementsArgs'] container_resource_requirements: The resource requirements for the container (cpu and memory).
+        :param pulumi.Input[str] description: Description of the endpoint deployment.
+        :param pulumi.Input[str] environment_id: ARM resource ID of the environment specification for the endpoint deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables configuration for the deployment.
+        :param pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']] model: Reference to the model asset for the endpoint deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "endpoint_compute_type", 'K8S')
+        if app_insights_enabled is not None:
+            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_resource_requirements is not None:
+            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if request_settings is not None:
+            pulumi.set(__self__, "request_settings", request_settings)
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+
+    @property
+    @pulumi.getter(name="endpointComputeType")
+    def endpoint_compute_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'K8S'.
+        """
+        return pulumi.get(self, "endpoint_compute_type")
+
+    @endpoint_compute_type.setter
+    def endpoint_compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_compute_type", value)
+
+    @property
+    @pulumi.getter(name="appInsightsEnabled")
+    def app_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, enables Application Insights logging.
+        """
+        return pulumi.get(self, "app_insights_enabled")
+
+    @app_insights_enabled.setter
+    def app_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "app_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['CodeConfigurationArgs']]:
+        """
+        Code configuration for the endpoint deployment.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['CodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerResourceRequirements")
+    def container_resource_requirements(self) -> Optional[pulumi.Input['ContainerResourceRequirementsArgs']]:
+        """
+        The resource requirements for the container (cpu and memory).
+        """
+        return pulumi.get(self, "container_resource_requirements")
+
+    @container_resource_requirements.setter
+    def container_resource_requirements(self, value: Optional[pulumi.Input['ContainerResourceRequirementsArgs']]):
+        pulumi.set(self, "container_resource_requirements", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the endpoint deployment.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables configuration for the deployment.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter
+    def model(self) -> Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]:
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]):
+        pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="requestSettings")
+    def request_settings(self) -> Optional[pulumi.Input['OnlineRequestSettingsArgs']]:
+        return pulumi.get(self, "request_settings")
+
+    @request_settings.setter
+    def request_settings(self, value: Optional[pulumi.Input['OnlineRequestSettingsArgs']]):
+        pulumi.set(self, "request_settings", value)
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]]:
+        return pulumi.get(self, "scale_settings")
+
+    @scale_settings.setter
+    def scale_settings(self, value: Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]]):
+        pulumi.set(self, "scale_settings", value)
 
 
 @pulumi.input_type
@@ -3324,6 +5477,384 @@ class MLAssistConfigurationArgs:
 
 
 @pulumi.input_type
+class ManagedIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Managed identity configuration.
+        :param pulumi.Input[str] identity_type: Enum to determine identity framework.
+               Expected value is 'Managed'.
+        :param pulumi.Input[str] client_id: Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
+        :param pulumi.Input[str] object_id: Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.
+        :param pulumi.Input[str] resource_id: Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.
+        """
+        pulumi.set(__self__, "identity_type", 'Managed')
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine identity framework.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a user-assigned identity by client ID. For system-assigned, do not set this field.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a user-assigned identity by object ID. For system-assigned, do not set this field.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a user-assigned identity by ARM resource ID. For system-assigned, do not set this field.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class ManagedOnlineDeploymentArgs:
+    def __init__(__self__, *,
+                 endpoint_compute_type: pulumi.Input[str],
+                 app_insights_enabled: Optional[pulumi.Input[bool]] = None,
+                 code_configuration: Optional[pulumi.Input['CodeConfigurationArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 liveness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
+                 model: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 readiness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
+                 request_settings: Optional[pulumi.Input['OnlineRequestSettingsArgs']] = None,
+                 scale_settings: Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]] = None):
+        """
+        :param pulumi.Input[str] endpoint_compute_type: Enum to determine endpoint compute type.
+               Expected value is 'Managed'.
+        :param pulumi.Input[bool] app_insights_enabled: If true, enables Application Insights logging.
+        :param pulumi.Input['CodeConfigurationArgs'] code_configuration: Code configuration for the endpoint deployment.
+        :param pulumi.Input[str] description: Description of the endpoint deployment.
+        :param pulumi.Input[str] environment_id: ARM resource ID of the environment specification for the endpoint deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables configuration for the deployment.
+        :param pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']] model: Reference to the model asset for the endpoint deployment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "endpoint_compute_type", 'Managed')
+        if app_insights_enabled is not None:
+            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if request_settings is not None:
+            pulumi.set(__self__, "request_settings", request_settings)
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+
+    @property
+    @pulumi.getter(name="endpointComputeType")
+    def endpoint_compute_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine endpoint compute type.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "endpoint_compute_type")
+
+    @endpoint_compute_type.setter
+    def endpoint_compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_compute_type", value)
+
+    @property
+    @pulumi.getter(name="appInsightsEnabled")
+    def app_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, enables Application Insights logging.
+        """
+        return pulumi.get(self, "app_insights_enabled")
+
+    @app_insights_enabled.setter
+    def app_insights_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "app_insights_enabled", value)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['CodeConfigurationArgs']]:
+        """
+        Code configuration for the endpoint deployment.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['CodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the endpoint deployment.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the environment specification for the endpoint deployment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables configuration for the deployment.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter
+    def model(self) -> Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]:
+        """
+        Reference to the model asset for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: Optional[pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']]]):
+        pulumi.set(self, "model", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        return pulumi.get(self, "readiness_probe")
+
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="requestSettings")
+    def request_settings(self) -> Optional[pulumi.Input['OnlineRequestSettingsArgs']]:
+        return pulumi.get(self, "request_settings")
+
+    @request_settings.setter
+    def request_settings(self, value: Optional[pulumi.Input['OnlineRequestSettingsArgs']]):
+        pulumi.set(self, "request_settings", value)
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]]:
+        return pulumi.get(self, "scale_settings")
+
+    @scale_settings.setter
+    def scale_settings(self, value: Optional[pulumi.Input[Union['AutoScaleSettingsArgs', 'ManualScaleSettingsArgs']]]):
+        pulumi.set(self, "scale_settings", value)
+
+
+@pulumi.input_type
+class ManualScaleSettingsArgs:
+    def __init__(__self__, *,
+                 scale_type: pulumi.Input[str],
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 max_instances: Optional[pulumi.Input[int]] = None,
+                 min_instances: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] scale_type: 
+               Expected value is 'Manual'.
+        """
+        pulumi.set(__self__, "scale_type", 'Manual')
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+
+    @property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'Manual'.
+        """
+        return pulumi.get(self, "scale_type")
+
+    @scale_type.setter
+    def scale_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scale_type", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_instances", value)
+
+
+@pulumi.input_type
+class MedianStoppingPolicyArgs:
+    def __init__(__self__, *,
+                 policy_type: pulumi.Input[str],
+                 delay_evaluation: Optional[pulumi.Input[int]] = None,
+                 evaluation_interval: Optional[pulumi.Input[int]] = None):
+        """
+        Defines an early termination policy based on running averages of the primary metric of all runs
+        :param pulumi.Input[str] policy_type: 
+               Expected value is 'MedianStopping'.
+        """
+        pulumi.set(__self__, "policy_type", 'MedianStopping')
+        if delay_evaluation is not None:
+            pulumi.set(__self__, "delay_evaluation", delay_evaluation)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'MedianStopping'.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="delayEvaluation")
+    def delay_evaluation(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "delay_evaluation")
+
+    @delay_evaluation.setter
+    def delay_evaluation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay_evaluation", value)
+
+    @property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_interval", value)
+
+
+@pulumi.input_type
 class ModelArgs:
     def __init__(__self__, *,
                  mime_type: pulumi.Input[str],
@@ -3662,6 +6193,61 @@ class ModelArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ModelContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -4027,6 +6613,481 @@ class ModelEnvironmentDefinitionSparkArgs:
 
 
 @pulumi.input_type
+class ModelVersionArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 datastore_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 flavors: Optional[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Model asset version details.
+        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]] flavors: Mapping of model flavors to their properties.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "path", path)
+        if datastore_id is not None:
+            pulumi.set(__self__, "datastore_id", datastore_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if flavors is not None:
+            pulumi.set(__self__, "flavors", flavors)
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path of the file/directory in the datastore.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="datastoreId")
+    def datastore_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the datastore where the asset is located.
+        """
+        return pulumi.get(self, "datastore_id")
+
+    @datastore_id.setter
+    def datastore_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def flavors(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]]]:
+        """
+        Mapping of model flavors to their properties.
+        """
+        return pulumi.get(self, "flavors")
+
+    @flavors.setter
+    def flavors(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]]]):
+        pulumi.set(self, "flavors", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class MpiArgs:
+    def __init__(__self__, *,
+                 distribution_type: pulumi.Input[str],
+                 process_count_per_instance: Optional[pulumi.Input[int]] = None):
+        """
+        MPI distribution configuration.
+        :param pulumi.Input[str] distribution_type: Enum to determine the job distribution type.
+               Expected value is 'Mpi'.
+        """
+        pulumi.set(__self__, "distribution_type", 'Mpi')
+        if process_count_per_instance is not None:
+            pulumi.set(__self__, "process_count_per_instance", process_count_per_instance)
+
+    @property
+    @pulumi.getter(name="distributionType")
+    def distribution_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'Mpi'.
+        """
+        return pulumi.get(self, "distribution_type")
+
+    @distribution_type.setter
+    def distribution_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "distribution_type", value)
+
+    @property
+    @pulumi.getter(name="processCountPerInstance")
+    def process_count_per_instance(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "process_count_per_instance")
+
+    @process_count_per_instance.setter
+    def process_count_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "process_count_per_instance", value)
+
+
+@pulumi.input_type
+class ObjectiveArgs:
+    def __init__(__self__, *,
+                 goal: pulumi.Input[Union[str, 'Goal']],
+                 primary_metric: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Union[str, 'Goal']] goal: Defines supported metric goals for hyperparameter tuning
+        """
+        pulumi.set(__self__, "goal", goal)
+        pulumi.set(__self__, "primary_metric", primary_metric)
+
+    @property
+    @pulumi.getter
+    def goal(self) -> pulumi.Input[Union[str, 'Goal']]:
+        """
+        Defines supported metric goals for hyperparameter tuning
+        """
+        return pulumi.get(self, "goal")
+
+    @goal.setter
+    def goal(self, value: pulumi.Input[Union[str, 'Goal']]):
+        pulumi.set(self, "goal", value)
+
+    @property
+    @pulumi.getter(name="primaryMetric")
+    def primary_metric(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_metric")
+
+    @primary_metric.setter
+    def primary_metric(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_metric", value)
+
+
+@pulumi.input_type
+class OnlineEndpointArgs:
+    def __init__(__self__, *,
+                 auth_mode: pulumi.Input[Union[str, 'EndpointAuthMode']],
+                 description: Optional[pulumi.Input[str]] = None,
+                 keys: Optional[pulumi.Input['EndpointAuthKeysArgs']] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
+        """
+        Online endpoint configuration
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Inference endpoint authentication mode type
+        :param pulumi.Input[str] description: Description of the inference endpoint.
+        :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
+               This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param pulumi.Input[str] target: ARM resource ID of the compute if it exists.
+               optional
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] traffic: Traffic rules on how the traffic will be routed across deployments.
+        """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if traffic is not None:
+            pulumi.set(__self__, "traffic", traffic)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> pulumi.Input[Union[str, 'EndpointAuthMode']]:
+        """
+        Inference endpoint authentication mode type
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: pulumi.Input[Union[str, 'EndpointAuthMode']]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the inference endpoint.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input['EndpointAuthKeysArgs']]:
+        """
+        EndpointAuthKeys to set initially on an Endpoint.
+        This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input['EndpointAuthKeysArgs']]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the compute if it exists.
+        optional
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def traffic(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]:
+        """
+        Traffic rules on how the traffic will be routed across deployments.
+        """
+        return pulumi.get(self, "traffic")
+
+    @traffic.setter
+    def traffic(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]]):
+        pulumi.set(self, "traffic", value)
+
+
+@pulumi.input_type
+class OnlineRequestSettingsArgs:
+    def __init__(__self__, *,
+                 max_concurrent_requests_per_instance: Optional[pulumi.Input[int]] = None,
+                 max_queue_wait: Optional[pulumi.Input[str]] = None,
+                 request_timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] max_queue_wait: The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+        :param pulumi.Input[str] request_timeout: The request timeout in ISO 8601 format. Supports millisecond precision.
+        """
+        if max_concurrent_requests_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_requests_per_instance", max_concurrent_requests_per_instance)
+        if max_queue_wait is not None:
+            pulumi.set(__self__, "max_queue_wait", max_queue_wait)
+        if request_timeout is not None:
+            pulumi.set(__self__, "request_timeout", request_timeout)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRequestsPerInstance")
+    def max_concurrent_requests_per_instance(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_requests_per_instance")
+
+    @max_concurrent_requests_per_instance.setter
+    def max_concurrent_requests_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_requests_per_instance", value)
+
+    @property
+    @pulumi.getter(name="maxQueueWait")
+    def max_queue_wait(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
+        """
+        return pulumi.get(self, "max_queue_wait")
+
+    @max_queue_wait.setter
+    def max_queue_wait(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_queue_wait", value)
+
+    @property
+    @pulumi.getter(name="requestTimeout")
+    def request_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The request timeout in ISO 8601 format. Supports millisecond precision.
+        """
+        return pulumi.get(self, "request_timeout")
+
+    @request_timeout.setter
+    def request_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_timeout", value)
+
+
+@pulumi.input_type
+class OutputDataBindingArgs:
+    def __init__(__self__, *,
+                 datastore_id: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'DataBindingMode']]] = None,
+                 path_on_compute: Optional[pulumi.Input[str]] = None,
+                 path_on_datastore: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the data output will be stored.
+        :param pulumi.Input[Union[str, 'DataBindingMode']] mode: Mechanism for data movement to datastore.
+        :param pulumi.Input[str] path_on_compute: Location of data inside the container process.
+        :param pulumi.Input[str] path_on_datastore: Path within the datastore to the data.
+        """
+        if datastore_id is not None:
+            pulumi.set(__self__, "datastore_id", datastore_id)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if path_on_compute is not None:
+            pulumi.set(__self__, "path_on_compute", path_on_compute)
+        if path_on_datastore is not None:
+            pulumi.set(__self__, "path_on_datastore", path_on_datastore)
+
+    @property
+    @pulumi.getter(name="datastoreId")
+    def datastore_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the datastore where the data output will be stored.
+        """
+        return pulumi.get(self, "datastore_id")
+
+    @datastore_id.setter
+    def datastore_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datastore_id", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataBindingMode']]]:
+        """
+        Mechanism for data movement to datastore.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataBindingMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="pathOnCompute")
+    def path_on_compute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of data inside the container process.
+        """
+        return pulumi.get(self, "path_on_compute")
+
+    @path_on_compute.setter
+    def path_on_compute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_on_compute", value)
+
+    @property
+    @pulumi.getter(name="pathOnDatastore")
+    def path_on_datastore(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path within the datastore to the data.
+        """
+        return pulumi.get(self, "path_on_datastore")
+
+    @path_on_datastore.setter
+    def path_on_datastore(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_on_datastore", value)
+
+
+@pulumi.input_type
+class OutputPathAssetReferenceArgs:
+    def __init__(__self__, *,
+                 reference_type: pulumi.Input[str],
+                 job_id: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Reference to an asset via its path in a job output.
+        :param pulumi.Input[str] reference_type: Enum to determine which reference method to use for an asset.
+               Expected value is 'OutputPath'.
+        :param pulumi.Input[str] job_id: ARM resource ID of the job.
+        :param pulumi.Input[str] path: The path of the file/directory in the job output.
+        """
+        pulumi.set(__self__, "reference_type", 'OutputPath')
+        if job_id is not None:
+            pulumi.set(__self__, "job_id", job_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="referenceType")
+    def reference_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine which reference method to use for an asset.
+        Expected value is 'OutputPath'.
+        """
+        return pulumi.get(self, "reference_type")
+
+    @reference_type.setter
+    def reference_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_type", value)
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the job.
+        """
+        return pulumi.get(self, "job_id")
+
+    @job_id.setter
+    def job_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the file/directory in the job output.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class PersonalComputeInstanceSettingsArgs:
     def __init__(__self__, *,
                  assigned_user: Optional[pulumi.Input['AssignedUserArgs']] = None):
@@ -4104,6 +7165,134 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class ProbeSettingsArgs:
+    def __init__(__self__, *,
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
+                 initial_delay: Optional[pulumi.Input[str]] = None,
+                 period: Optional[pulumi.Input[str]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] failure_threshold: The number of failures to allow before returning an unhealthy status.
+        :param pulumi.Input[str] initial_delay: The delay before the first probe in ISO 8601 format.
+        :param pulumi.Input[str] period: The length of time between probes in ISO 8601 format.
+        :param pulumi.Input[int] success_threshold: The number of successful probes before returning a healthy status.
+        :param pulumi.Input[str] timeout: The probe timeout in ISO 8601 format.
+        """
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if success_threshold is not None:
+            pulumi.set(__self__, "success_threshold", success_threshold)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of failures to allow before returning an unhealthy status.
+        """
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delay before the first probe in ISO 8601 format.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @initial_delay.setter
+    def initial_delay(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_delay", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[str]]:
+        """
+        The length of time between probes in ISO 8601 format.
+        """
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of successful probes before returning a healthy status.
+        """
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The probe timeout in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class PyTorchArgs:
+    def __init__(__self__, *,
+                 distribution_type: pulumi.Input[str],
+                 process_count: Optional[pulumi.Input[int]] = None):
+        """
+        PyTorch distribution configuration.
+        :param pulumi.Input[str] distribution_type: Enum to determine the job distribution type.
+               Expected value is 'PyTorch'.
+        :param pulumi.Input[int] process_count: Total process count for the distributed job.
+        """
+        pulumi.set(__self__, "distribution_type", 'PyTorch')
+        if process_count is not None:
+            pulumi.set(__self__, "process_count", process_count)
+
+    @property
+    @pulumi.getter(name="distributionType")
+    def distribution_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'PyTorch'.
+        """
+        return pulumi.get(self, "distribution_type")
+
+    @distribution_type.setter
+    def distribution_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "distribution_type", value)
+
+    @property
+    @pulumi.getter(name="processCount")
+    def process_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Total process count for the distributed job.
+        """
+        return pulumi.get(self, "process_count")
+
+    @process_count.setter
+    def process_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "process_count", value)
 
 
 @pulumi.input_type
@@ -4205,6 +7394,83 @@ class ResourceIdArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ResourceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ResourceIdentityAssignment']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityMetaArgs']]]] = None):
+        """
+        Service identity associated with a resource.
+        :param pulumi.Input[Union[str, 'ResourceIdentityAssignment']] type: Defines values for a ResourceIdentity's type.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityMetaArgs']]] user_assigned_identities: Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ResourceIdentityAssignment']]]:
+        """
+        Defines values for a ResourceIdentity's type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityAssignment']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityMetaArgs']]]]:
+        """
+        Dictionary of the user assigned identities, key is ARM resource ID of the UAI.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityMetaArgs']]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class RouteArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] path: The path for the route.
+        :param pulumi.Input[int] port: The port for the route.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path for the route.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port for the route.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -4664,6 +7930,510 @@ class SslConfigurationArgs:
 
 
 @pulumi.input_type
+class SweepJobArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[Union[str, 'SamplingAlgorithm']],
+                 compute: pulumi.Input['ComputeConfigurationArgs'],
+                 job_type: pulumi.Input[str],
+                 objective: pulumi.Input['ObjectiveArgs'],
+                 search_space: pulumi.Input[Mapping[str, Any]],
+                 description: Optional[pulumi.Input[str]] = None,
+                 early_termination: Optional[pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]] = None,
+                 max_concurrent_trials: Optional[pulumi.Input[int]] = None,
+                 max_total_trials: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout: Optional[pulumi.Input[str]] = None,
+                 trial: Optional[pulumi.Input['TrialComponentArgs']] = None):
+        """
+        Sweep job definition.
+        :param pulumi.Input[Union[str, 'SamplingAlgorithm']] algorithm: Type of the hyperparameter sampling algorithms
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[str] job_type: Enum to determine the type of job.
+               Expected value is 'Sweep'.
+        :param pulumi.Input[Mapping[str, Any]] search_space: A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']] early_termination: Early termination policies enable canceling poor-performing runs before they complete
+        :param pulumi.Input[str] experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        :param pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+               Defaults to AmlToken if null.
+        :param pulumi.Input[int] priority: Job priority for scheduling policy. Only applies to AMLCompute.
+               Private preview feature and only available to users on the allow list.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param pulumi.Input[str] timeout: The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+        :param pulumi.Input['TrialComponentArgs'] trial: Trial component definition.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "compute", compute)
+        pulumi.set(__self__, "job_type", 'Sweep')
+        pulumi.set(__self__, "objective", objective)
+        pulumi.set(__self__, "search_space", search_space)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if early_termination is not None:
+            pulumi.set(__self__, "early_termination", early_termination)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if max_concurrent_trials is not None:
+            pulumi.set(__self__, "max_concurrent_trials", max_concurrent_trials)
+        if max_total_trials is not None:
+            pulumi.set(__self__, "max_total_trials", max_total_trials)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if trial is not None:
+            pulumi.set(__self__, "trial", trial)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[Union[str, 'SamplingAlgorithm']]:
+        """
+        Type of the hyperparameter sampling algorithms
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[Union[str, 'SamplingAlgorithm']]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
+        """
+        Compute binding for the job.
+        """
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: pulumi.Input['ComputeConfigurationArgs']):
+        pulumi.set(self, "compute", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the type of job.
+        Expected value is 'Sweep'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter
+    def objective(self) -> pulumi.Input['ObjectiveArgs']:
+        return pulumi.get(self, "objective")
+
+    @objective.setter
+    def objective(self, value: pulumi.Input['ObjectiveArgs']):
+        pulumi.set(self, "objective", value)
+
+    @property
+    @pulumi.getter(name="searchSpace")
+    def search_space(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        """
+        return pulumi.get(self, "search_space")
+
+    @search_space.setter
+    def search_space(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "search_space", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="earlyTermination")
+    def early_termination(self) -> Optional[pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']]]:
+        """
+        Early termination policies enable canceling poor-performing runs before they complete
+        """
+        return pulumi.get(self, "early_termination")
+
+    @early_termination.setter
+    def early_termination(self, value: Optional[pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']]]):
+        pulumi.set(self, "early_termination", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]]:
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[Union['AmlTokenArgs', 'ManagedIdentityArgs']]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentTrials")
+    def max_concurrent_trials(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_trials")
+
+    @max_concurrent_trials.setter
+    def max_concurrent_trials(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_trials", value)
+
+    @property
+    @pulumi.getter(name="maxTotalTrials")
+    def max_total_trials(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_total_trials")
+
+    @max_total_trials.setter
+    def max_total_trials(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_total_trials", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Job priority for scheduling policy. Only applies to AMLCompute.
+        Private preview feature and only available to users on the allow list.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The total timeout in ISO 8601 format. Only supports duration with precision as low as Minutes.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def trial(self) -> Optional[pulumi.Input['TrialComponentArgs']]:
+        """
+        Trial component definition.
+        """
+        return pulumi.get(self, "trial")
+
+    @trial.setter
+    def trial(self, value: Optional[pulumi.Input['TrialComponentArgs']]):
+        pulumi.set(self, "trial", value)
+
+
+@pulumi.input_type
+class TensorFlowArgs:
+    def __init__(__self__, *,
+                 distribution_type: pulumi.Input[str],
+                 parameter_server_count: Optional[pulumi.Input[int]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        TensorFlow distribution configuration.
+        :param pulumi.Input[str] distribution_type: Enum to determine the job distribution type.
+               Expected value is 'TensorFlow'.
+        :param pulumi.Input[int] worker_count: Number of workers. Overwrites the node count in compute binding.
+        """
+        pulumi.set(__self__, "distribution_type", 'TensorFlow')
+        if parameter_server_count is not None:
+            pulumi.set(__self__, "parameter_server_count", parameter_server_count)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="distributionType")
+    def distribution_type(self) -> pulumi.Input[str]:
+        """
+        Enum to determine the job distribution type.
+        Expected value is 'TensorFlow'.
+        """
+        return pulumi.get(self, "distribution_type")
+
+    @distribution_type.setter
+    def distribution_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "distribution_type", value)
+
+    @property
+    @pulumi.getter(name="parameterServerCount")
+    def parameter_server_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parameter_server_count")
+
+    @parameter_server_count.setter
+    def parameter_server_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parameter_server_count", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of workers. Overwrites the node count in compute binding.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class TrialComponentArgs:
+    def __init__(__self__, *,
+                 command: pulumi.Input[str],
+                 code_id: Optional[pulumi.Input[str]] = None,
+                 distribution: Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 input_data_bindings: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]] = None,
+                 output_data_bindings: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]] = None,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        Trial component definition.
+        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
+        :param pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']] distribution: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        :param pulumi.Input[str] environment_id: The ARM resource ID of the Environment specification for the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables included in the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]] input_data_bindings: Mapping of input data bindings used in the job.
+        :param pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]] output_data_bindings: Mapping of output data bindings used in the job.
+        :param pulumi.Input[str] timeout: The max run duration in ISO 8601 format, after which the trial component will be cancelled.
+               Only supports duration with precision as low as Seconds.
+        """
+        pulumi.set(__self__, "command", command)
+        if code_id is not None:
+            pulumi.set(__self__, "code_id", code_id)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if input_data_bindings is not None:
+            pulumi.set(__self__, "input_data_bindings", input_data_bindings)
+        if output_data_bindings is not None:
+            pulumi.set(__self__, "output_data_bindings", output_data_bindings)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def command(self) -> pulumi.Input[str]:
+        """
+        The command to execute on startup of the job. eg. "python train.py"
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: pulumi.Input[str]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter(name="codeId")
+    def code_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource ID of the code asset.
+        """
+        return pulumi.get(self, "code_id")
+
+    @code_id.setter
+    def code_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_id", value)
+
+    @property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]]:
+        """
+        Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
+        """
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']]]):
+        pulumi.set(self, "distribution", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM resource ID of the Environment specification for the job.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Environment variables included in the job.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="inputDataBindings")
+    def input_data_bindings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]]:
+        """
+        Mapping of input data bindings used in the job.
+        """
+        return pulumi.get(self, "input_data_bindings")
+
+    @input_data_bindings.setter
+    def input_data_bindings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputDataBindingArgs']]]]):
+        pulumi.set(self, "input_data_bindings", value)
+
+    @property
+    @pulumi.getter(name="outputDataBindings")
+    def output_data_bindings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]]:
+        """
+        Mapping of output data bindings used in the job.
+        """
+        return pulumi.get(self, "output_data_bindings")
+
+    @output_data_bindings.setter
+    def output_data_bindings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputDataBindingArgs']]]]):
+        pulumi.set(self, "output_data_bindings", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The max run duration in ISO 8601 format, after which the trial component will be cancelled.
+        Only supports duration with precision as low as Seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class TruncationSelectionPolicyArgs:
+    def __init__(__self__, *,
+                 policy_type: pulumi.Input[str],
+                 delay_evaluation: Optional[pulumi.Input[int]] = None,
+                 evaluation_interval: Optional[pulumi.Input[int]] = None,
+                 truncation_percentage: Optional[pulumi.Input[int]] = None):
+        """
+        Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
+        :param pulumi.Input[str] policy_type: 
+               Expected value is 'TruncationSelection'.
+        """
+        pulumi.set(__self__, "policy_type", 'TruncationSelection')
+        if delay_evaluation is not None:
+            pulumi.set(__self__, "delay_evaluation", delay_evaluation)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+        if truncation_percentage is not None:
+            pulumi.set(__self__, "truncation_percentage", truncation_percentage)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> pulumi.Input[str]:
+        """
+
+        Expected value is 'TruncationSelection'.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="delayEvaluation")
+    def delay_evaluation(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "delay_evaluation")
+
+    @delay_evaluation.setter
+    def delay_evaluation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delay_evaluation", value)
+
+    @property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_interval", value)
+
+    @property
+    @pulumi.getter(name="truncationPercentage")
+    def truncation_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "truncation_percentage")
+
+    @truncation_percentage.setter
+    def truncation_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "truncation_percentage", value)
+
+
+@pulumi.input_type
 class UserAccountCredentialsArgs:
     def __init__(__self__, *,
                  admin_user_name: pulumi.Input[str],
@@ -4716,6 +8486,46 @@ class UserAccountCredentialsArgs:
     @admin_user_ssh_public_key.setter
     def admin_user_ssh_public_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_user_ssh_public_key", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityMetaArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None):
+        """
+        User assigned identities associated with a resource.
+        :param pulumi.Input[str] client_id: Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
+        :param pulumi.Input[str] principal_id: The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Aka application ID, a unique identifier generated by Azure AD that is tied to an application and service principal during its initial provisioning.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
 
 
 @pulumi.input_type

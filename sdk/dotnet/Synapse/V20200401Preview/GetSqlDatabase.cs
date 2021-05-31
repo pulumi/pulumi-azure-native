@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Storage redundancy of the database.
+        /// </summary>
+        public readonly string? StorageRedundancy;
+        /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 
             string status,
 
+            string? storageRedundancy,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
             MaxSizeBytes = maxSizeBytes;
             Name = name;
             Status = status;
+            StorageRedundancy = storageRedundancy;
             SystemData = systemData;
             Tags = tags;
             Type = type;

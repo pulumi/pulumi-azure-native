@@ -478,6 +478,34 @@ func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 }
 
 // The kind of the resource.
+type KnownDataCollectionEndpointResourceKind pulumi.String
+
+const (
+	KnownDataCollectionEndpointResourceKindLinux   = KnownDataCollectionEndpointResourceKind("Linux")
+	KnownDataCollectionEndpointResourceKindWindows = KnownDataCollectionEndpointResourceKind("Windows")
+)
+
+func (KnownDataCollectionEndpointResourceKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The kind of the resource.
 type KnownDataCollectionRuleResourceKind pulumi.String
 
 const (
@@ -589,6 +617,34 @@ func (e KnownPerfCounterDataSourceStreams) ToStringPtrOutput() pulumi.StringPtrO
 }
 
 func (e KnownPerfCounterDataSourceStreams) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The configuration to set whether network access from public internet to the endpoints are allowed.
+type KnownPublicNetworkAccessOptions pulumi.String
+
+const (
+	KnownPublicNetworkAccessOptionsEnabled  = KnownPublicNetworkAccessOptions("Enabled")
+	KnownPublicNetworkAccessOptionsDisabled = KnownPublicNetworkAccessOptions("Disabled")
+)
+
+func (KnownPublicNetworkAccessOptions) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KnownPublicNetworkAccessOptions) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownPublicNetworkAccessOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownPublicNetworkAccessOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnownPublicNetworkAccessOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

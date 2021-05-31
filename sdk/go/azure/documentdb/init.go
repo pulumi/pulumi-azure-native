@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotebookWorkspace{}
 	case "azure-native:documentdb:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
+	case "azure-native:documentdb:Service":
+		r = &Service{}
 	case "azure-native:documentdb:SqlResourceSqlContainer":
 		r = &SqlResourceSqlContainer{}
 	case "azure-native:documentdb:SqlResourceSqlDatabase":

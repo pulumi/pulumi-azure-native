@@ -21,6 +21,7 @@ export * from "./getMongoDBResourceMongoDBCollection";
 export * from "./getMongoDBResourceMongoDBDatabase";
 export * from "./getNotebookWorkspace";
 export * from "./getPrivateEndpointConnection";
+export * from "./getService";
 export * from "./getSqlResourceSqlContainer";
 export * from "./getSqlResourceSqlDatabase";
 export * from "./getSqlResourceSqlRoleAssignment";
@@ -38,6 +39,7 @@ export * from "./mongoDBResourceMongoDBCollection";
 export * from "./mongoDBResourceMongoDBDatabase";
 export * from "./notebookWorkspace";
 export * from "./privateEndpointConnection";
+export * from "./service";
 export * from "./sqlResourceSqlContainer";
 export * from "./sqlResourceSqlDatabase";
 export * from "./sqlResourceSqlRoleAssignment";
@@ -68,6 +70,7 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210415 from "./v20210415";
+import * as v20210515 from "./v20210515";
 
 export {
     v20150401,
@@ -87,6 +90,7 @@ export {
     v20210315,
     v20210401preview,
     v20210415,
+    v20210515,
 };
 
 // Import resources to register:
@@ -101,6 +105,7 @@ import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollec
 import { MongoDBResourceMongoDBDatabase } from "./mongoDBResourceMongoDBDatabase";
 import { NotebookWorkspace } from "./notebookWorkspace";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { Service } from "./service";
 import { SqlResourceSqlContainer } from "./sqlResourceSqlContainer";
 import { SqlResourceSqlDatabase } from "./sqlResourceSqlDatabase";
 import { SqlResourceSqlRoleAssignment } from "./sqlResourceSqlRoleAssignment";
@@ -136,6 +141,8 @@ const _module = {
                 return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:documentdb:Service":
+                return new Service(name, <any>undefined, { urn })
             case "azure-native:documentdb:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
             case "azure-native:documentdb:SqlResourceSqlDatabase":

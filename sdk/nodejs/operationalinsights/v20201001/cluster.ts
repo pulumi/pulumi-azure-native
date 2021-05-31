@@ -40,7 +40,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedWorkspaces!: pulumi.Output<outputs.operationalinsights.v20201001.AssociatedWorkspaceResponse[] | undefined>;
     /**
-     * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+     * The cluster's billing type.
      */
     public readonly billingType!: pulumi.Output<string | undefined>;
     /**
@@ -159,7 +159,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
-     * Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+     * The cluster's billing type.
      */
     billingType?: pulumi.Input<string | enums.operationalinsights.v20201001.BillingType>;
     /**

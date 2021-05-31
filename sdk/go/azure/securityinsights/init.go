@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScheduledAlertRule{}
 	case "azure-native:securityinsights:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
+	case "azure-native:securityinsights:SourceControl":
+		r = &SourceControl{}
 	case "azure-native:securityinsights:TIDataConnector":
 		r = &TIDataConnector{}
 	case "azure-native:securityinsights:ThreatIntelligenceIndicator":

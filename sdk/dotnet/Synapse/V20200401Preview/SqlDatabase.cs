@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Storage redundancy of the database.
+        /// </summary>
+        [Output("storageRedundancy")]
+        public Output<string?> StorageRedundancy { get; private set; } = null!;
+
+        /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
         [Output("systemData")]
@@ -147,6 +153,12 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         [Input("sqlDatabaseName")]
         public Input<string>? SqlDatabaseName { get; set; }
+
+        /// <summary>
+        /// Storage redundancy of the database.
+        /// </summary>
+        [Input("storageRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.Synapse.V20200401Preview.SqlDatabaseStorageRedundancyType>? StorageRedundancy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

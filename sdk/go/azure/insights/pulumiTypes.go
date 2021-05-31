@@ -4870,6 +4870,779 @@ func (o CriteriaResponseArrayOutput) Index(i pulumi.IntInput) CriteriaResponseOu
 	}).(CriteriaResponseOutput)
 }
 
+// Network access control rules for the endpoints.
+type DataCollectionEndpointNetworkAcls struct {
+	// The configuration to set whether network access from public internet to the endpoints are allowed.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// DataCollectionEndpointNetworkAclsInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs and DataCollectionEndpointNetworkAclsOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointNetworkAclsInput` via:
+//
+//          DataCollectionEndpointNetworkAclsArgs{...}
+type DataCollectionEndpointNetworkAclsInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointNetworkAclsOutput() DataCollectionEndpointNetworkAclsOutput
+	ToDataCollectionEndpointNetworkAclsOutputWithContext(context.Context) DataCollectionEndpointNetworkAclsOutput
+}
+
+// Network access control rules for the endpoints.
+type DataCollectionEndpointNetworkAclsArgs struct {
+	// The configuration to set whether network access from public internet to the endpoints are allowed.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (DataCollectionEndpointNetworkAclsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointNetworkAcls)(nil)).Elem()
+}
+
+func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAclsOutput() DataCollectionEndpointNetworkAclsOutput {
+	return i.ToDataCollectionEndpointNetworkAclsOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointNetworkAclsOutput)
+}
+
+func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAclsPtrOutput() DataCollectionEndpointNetworkAclsPtrOutput {
+	return i.ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointNetworkAclsArgs) ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointNetworkAclsOutput).ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx)
+}
+
+// DataCollectionEndpointNetworkAclsPtrInput is an input type that accepts DataCollectionEndpointNetworkAclsArgs, DataCollectionEndpointNetworkAclsPtr and DataCollectionEndpointNetworkAclsPtrOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointNetworkAclsPtrInput` via:
+//
+//          DataCollectionEndpointNetworkAclsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionEndpointNetworkAclsPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointNetworkAclsPtrOutput() DataCollectionEndpointNetworkAclsPtrOutput
+	ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(context.Context) DataCollectionEndpointNetworkAclsPtrOutput
+}
+
+type dataCollectionEndpointNetworkAclsPtrType DataCollectionEndpointNetworkAclsArgs
+
+func DataCollectionEndpointNetworkAclsPtr(v *DataCollectionEndpointNetworkAclsArgs) DataCollectionEndpointNetworkAclsPtrInput {
+	return (*dataCollectionEndpointNetworkAclsPtrType)(v)
+}
+
+func (*dataCollectionEndpointNetworkAclsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointNetworkAcls)(nil)).Elem()
+}
+
+func (i *dataCollectionEndpointNetworkAclsPtrType) ToDataCollectionEndpointNetworkAclsPtrOutput() DataCollectionEndpointNetworkAclsPtrOutput {
+	return i.ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionEndpointNetworkAclsPtrType) ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointNetworkAclsPtrOutput)
+}
+
+// Network access control rules for the endpoints.
+type DataCollectionEndpointNetworkAclsOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointNetworkAclsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointNetworkAcls)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetworkAclsOutput() DataCollectionEndpointNetworkAclsOutput {
+	return o
+}
+
+func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsOutput {
+	return o
+}
+
+func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetworkAclsPtrOutput() DataCollectionEndpointNetworkAclsPtrOutput {
+	return o.ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointNetworkAcls) *DataCollectionEndpointNetworkAcls {
+		return &v
+	}).(DataCollectionEndpointNetworkAclsPtrOutput)
+}
+
+// The configuration to set whether network access from public internet to the endpoints are allowed.
+func (o DataCollectionEndpointNetworkAclsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointNetworkAcls) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type DataCollectionEndpointNetworkAclsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointNetworkAclsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointNetworkAcls)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointNetworkAclsPtrOutput) ToDataCollectionEndpointNetworkAclsPtrOutput() DataCollectionEndpointNetworkAclsPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointNetworkAclsPtrOutput) ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointNetworkAclsPtrOutput) Elem() DataCollectionEndpointNetworkAclsOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointNetworkAcls) DataCollectionEndpointNetworkAcls { return *v }).(DataCollectionEndpointNetworkAclsOutput)
+}
+
+// The configuration to set whether network access from public internet to the endpoints are allowed.
+func (o DataCollectionEndpointNetworkAclsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type DataCollectionEndpointResourceResponseSystemData struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// DataCollectionEndpointResourceResponseSystemDataInput is an input type that accepts DataCollectionEndpointResourceResponseSystemDataArgs and DataCollectionEndpointResourceResponseSystemDataOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResourceResponseSystemDataInput` via:
+//
+//          DataCollectionEndpointResourceResponseSystemDataArgs{...}
+type DataCollectionEndpointResourceResponseSystemDataInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResourceResponseSystemDataOutput() DataCollectionEndpointResourceResponseSystemDataOutput
+	ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(context.Context) DataCollectionEndpointResourceResponseSystemDataOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type DataCollectionEndpointResourceResponseSystemDataArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (DataCollectionEndpointResourceResponseSystemDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
+}
+
+func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataOutput() DataCollectionEndpointResourceResponseSystemDataOutput {
+	return i.ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataOutput)
+}
+
+func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return i.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataOutput).ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx)
+}
+
+// DataCollectionEndpointResourceResponseSystemDataPtrInput is an input type that accepts DataCollectionEndpointResourceResponseSystemDataArgs, DataCollectionEndpointResourceResponseSystemDataPtr and DataCollectionEndpointResourceResponseSystemDataPtrOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResourceResponseSystemDataPtrInput` via:
+//
+//          DataCollectionEndpointResourceResponseSystemDataArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionEndpointResourceResponseSystemDataPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput
+	ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput
+}
+
+type dataCollectionEndpointResourceResponseSystemDataPtrType DataCollectionEndpointResourceResponseSystemDataArgs
+
+func DataCollectionEndpointResourceResponseSystemDataPtr(v *DataCollectionEndpointResourceResponseSystemDataArgs) DataCollectionEndpointResourceResponseSystemDataPtrInput {
+	return (*dataCollectionEndpointResourceResponseSystemDataPtrType)(v)
+}
+
+func (*dataCollectionEndpointResourceResponseSystemDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
+}
+
+func (i *dataCollectionEndpointResourceResponseSystemDataPtrType) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return i.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionEndpointResourceResponseSystemDataPtrType) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type DataCollectionEndpointResourceResponseSystemDataOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResourceResponseSystemDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataOutput() DataCollectionEndpointResourceResponseSystemDataOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return o.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *DataCollectionEndpointResourceResponseSystemData {
+		return &v
+	}).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type DataCollectionEndpointResourceResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResourceResponseSystemDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) Elem() DataCollectionEndpointResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) DataCollectionEndpointResourceResponseSystemData {
+		return *v
+	}).(DataCollectionEndpointResourceResponseSystemDataOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint used by agents to access their configuration.
+type DataCollectionEndpointResponseConfigurationAccess struct {
+	// The endpoint. This property is READ-ONLY.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// DataCollectionEndpointResponseConfigurationAccessInput is an input type that accepts DataCollectionEndpointResponseConfigurationAccessArgs and DataCollectionEndpointResponseConfigurationAccessOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseConfigurationAccessInput` via:
+//
+//          DataCollectionEndpointResponseConfigurationAccessArgs{...}
+type DataCollectionEndpointResponseConfigurationAccessInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseConfigurationAccessOutput() DataCollectionEndpointResponseConfigurationAccessOutput
+	ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(context.Context) DataCollectionEndpointResponseConfigurationAccessOutput
+}
+
+// The endpoint used by agents to access their configuration.
+type DataCollectionEndpointResponseConfigurationAccessArgs struct {
+	// The endpoint. This property is READ-ONLY.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataCollectionEndpointResponseConfigurationAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
+}
+
+func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessOutput() DataCollectionEndpointResponseConfigurationAccessOutput {
+	return i.ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessOutput)
+}
+
+func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return i.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessOutput).ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx)
+}
+
+// DataCollectionEndpointResponseConfigurationAccessPtrInput is an input type that accepts DataCollectionEndpointResponseConfigurationAccessArgs, DataCollectionEndpointResponseConfigurationAccessPtr and DataCollectionEndpointResponseConfigurationAccessPtrOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseConfigurationAccessPtrInput` via:
+//
+//          DataCollectionEndpointResponseConfigurationAccessArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionEndpointResponseConfigurationAccessPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput
+	ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput
+}
+
+type dataCollectionEndpointResponseConfigurationAccessPtrType DataCollectionEndpointResponseConfigurationAccessArgs
+
+func DataCollectionEndpointResponseConfigurationAccessPtr(v *DataCollectionEndpointResponseConfigurationAccessArgs) DataCollectionEndpointResponseConfigurationAccessPtrInput {
+	return (*dataCollectionEndpointResponseConfigurationAccessPtrType)(v)
+}
+
+func (*dataCollectionEndpointResponseConfigurationAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
+}
+
+func (i *dataCollectionEndpointResponseConfigurationAccessPtrType) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return i.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionEndpointResponseConfigurationAccessPtrType) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
+}
+
+// The endpoint used by agents to access their configuration.
+type DataCollectionEndpointResponseConfigurationAccessOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseConfigurationAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessOutput() DataCollectionEndpointResponseConfigurationAccessOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return o.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseConfigurationAccess) *DataCollectionEndpointResponseConfigurationAccess {
+		return &v
+	}).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
+}
+
+// The endpoint. This property is READ-ONLY.
+func (o DataCollectionEndpointResponseConfigurationAccessOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseConfigurationAccess) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type DataCollectionEndpointResponseConfigurationAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseConfigurationAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Elem() DataCollectionEndpointResponseConfigurationAccessOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseConfigurationAccess) DataCollectionEndpointResponseConfigurationAccess {
+		return *v
+	}).(DataCollectionEndpointResponseConfigurationAccessOutput)
+}
+
+// The endpoint. This property is READ-ONLY.
+func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseConfigurationAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint used by clients to ingest logs.
+type DataCollectionEndpointResponseLogsIngestion struct {
+	// The endpoint. This property is READ-ONLY.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// DataCollectionEndpointResponseLogsIngestionInput is an input type that accepts DataCollectionEndpointResponseLogsIngestionArgs and DataCollectionEndpointResponseLogsIngestionOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseLogsIngestionInput` via:
+//
+//          DataCollectionEndpointResponseLogsIngestionArgs{...}
+type DataCollectionEndpointResponseLogsIngestionInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseLogsIngestionOutput() DataCollectionEndpointResponseLogsIngestionOutput
+	ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(context.Context) DataCollectionEndpointResponseLogsIngestionOutput
+}
+
+// The endpoint used by clients to ingest logs.
+type DataCollectionEndpointResponseLogsIngestionArgs struct {
+	// The endpoint. This property is READ-ONLY.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataCollectionEndpointResponseLogsIngestionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
+}
+
+func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionOutput() DataCollectionEndpointResponseLogsIngestionOutput {
+	return i.ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionOutput)
+}
+
+func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return i.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionOutput).ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx)
+}
+
+// DataCollectionEndpointResponseLogsIngestionPtrInput is an input type that accepts DataCollectionEndpointResponseLogsIngestionArgs, DataCollectionEndpointResponseLogsIngestionPtr and DataCollectionEndpointResponseLogsIngestionPtrOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseLogsIngestionPtrInput` via:
+//
+//          DataCollectionEndpointResponseLogsIngestionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionEndpointResponseLogsIngestionPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput
+	ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput
+}
+
+type dataCollectionEndpointResponseLogsIngestionPtrType DataCollectionEndpointResponseLogsIngestionArgs
+
+func DataCollectionEndpointResponseLogsIngestionPtr(v *DataCollectionEndpointResponseLogsIngestionArgs) DataCollectionEndpointResponseLogsIngestionPtrInput {
+	return (*dataCollectionEndpointResponseLogsIngestionPtrType)(v)
+}
+
+func (*dataCollectionEndpointResponseLogsIngestionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
+}
+
+func (i *dataCollectionEndpointResponseLogsIngestionPtrType) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return i.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionEndpointResponseLogsIngestionPtrType) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
+}
+
+// The endpoint used by clients to ingest logs.
+type DataCollectionEndpointResponseLogsIngestionOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseLogsIngestionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionOutput() DataCollectionEndpointResponseLogsIngestionOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return o.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseLogsIngestion) *DataCollectionEndpointResponseLogsIngestion {
+		return &v
+	}).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
+}
+
+// The endpoint. This property is READ-ONLY.
+func (o DataCollectionEndpointResponseLogsIngestionOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseLogsIngestion) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type DataCollectionEndpointResponseLogsIngestionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseLogsIngestionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Elem() DataCollectionEndpointResponseLogsIngestionOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseLogsIngestion) DataCollectionEndpointResponseLogsIngestion {
+		return *v
+	}).(DataCollectionEndpointResponseLogsIngestionOutput)
+}
+
+// The endpoint. This property is READ-ONLY.
+func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseLogsIngestion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network access control rules for the endpoints.
+type DataCollectionEndpointResponseNetworkAcls struct {
+	// The configuration to set whether network access from public internet to the endpoints are allowed.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// DataCollectionEndpointResponseNetworkAclsInput is an input type that accepts DataCollectionEndpointResponseNetworkAclsArgs and DataCollectionEndpointResponseNetworkAclsOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseNetworkAclsInput` via:
+//
+//          DataCollectionEndpointResponseNetworkAclsArgs{...}
+type DataCollectionEndpointResponseNetworkAclsInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseNetworkAclsOutput() DataCollectionEndpointResponseNetworkAclsOutput
+	ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(context.Context) DataCollectionEndpointResponseNetworkAclsOutput
+}
+
+// Network access control rules for the endpoints.
+type DataCollectionEndpointResponseNetworkAclsArgs struct {
+	// The configuration to set whether network access from public internet to the endpoints are allowed.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (DataCollectionEndpointResponseNetworkAclsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
+}
+
+func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsOutput() DataCollectionEndpointResponseNetworkAclsOutput {
+	return i.ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsOutput)
+}
+
+func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return i.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsOutput).ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx)
+}
+
+// DataCollectionEndpointResponseNetworkAclsPtrInput is an input type that accepts DataCollectionEndpointResponseNetworkAclsArgs, DataCollectionEndpointResponseNetworkAclsPtr and DataCollectionEndpointResponseNetworkAclsPtrOutput values.
+// You can construct a concrete instance of `DataCollectionEndpointResponseNetworkAclsPtrInput` via:
+//
+//          DataCollectionEndpointResponseNetworkAclsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCollectionEndpointResponseNetworkAclsPtrInput interface {
+	pulumi.Input
+
+	ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput
+	ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput
+}
+
+type dataCollectionEndpointResponseNetworkAclsPtrType DataCollectionEndpointResponseNetworkAclsArgs
+
+func DataCollectionEndpointResponseNetworkAclsPtr(v *DataCollectionEndpointResponseNetworkAclsArgs) DataCollectionEndpointResponseNetworkAclsPtrInput {
+	return (*dataCollectionEndpointResponseNetworkAclsPtrType)(v)
+}
+
+func (*dataCollectionEndpointResponseNetworkAclsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
+}
+
+func (i *dataCollectionEndpointResponseNetworkAclsPtrType) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return i.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCollectionEndpointResponseNetworkAclsPtrType) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
+}
+
+// Network access control rules for the endpoints.
+type DataCollectionEndpointResponseNetworkAclsOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseNetworkAclsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsOutput() DataCollectionEndpointResponseNetworkAclsOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return o.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseNetworkAcls) *DataCollectionEndpointResponseNetworkAcls {
+		return &v
+	}).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
+}
+
+// The configuration to set whether network access from public internet to the endpoints are allowed.
+func (o DataCollectionEndpointResponseNetworkAclsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCollectionEndpointResponseNetworkAcls) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type DataCollectionEndpointResponseNetworkAclsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCollectionEndpointResponseNetworkAclsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return o
+}
+
+func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) Elem() DataCollectionEndpointResponseNetworkAclsOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseNetworkAcls) DataCollectionEndpointResponseNetworkAcls {
+		return *v
+	}).(DataCollectionEndpointResponseNetworkAclsOutput)
+}
+
+// The configuration to set whether network access from public internet to the endpoints are allowed.
+func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpointResponseNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // The specification of data sources.
 // This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
 type DataCollectionRuleDataSources struct {
@@ -22354,6 +23127,16 @@ func init() {
 	pulumi.RegisterOutputType(CriteriaArrayOutput{})
 	pulumi.RegisterOutputType(CriteriaResponseOutput{})
 	pulumi.RegisterOutputType(CriteriaResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointNetworkAclsOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointNetworkAclsPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResourceResponseSystemDataOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResourceResponseSystemDataPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseConfigurationAccessOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseConfigurationAccessPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseLogsIngestionOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseLogsIngestionPtrOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseNetworkAclsOutput{})
+	pulumi.RegisterOutputType(DataCollectionEndpointResponseNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsOutput{})

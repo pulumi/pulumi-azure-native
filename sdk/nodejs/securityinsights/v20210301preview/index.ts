@@ -32,11 +32,13 @@ export * from "./getOfficeATPDataConnector";
 export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
 export * from "./getSentinelOnboardingState";
+export * from "./getSourceControl";
 export * from "./getTIDataConnector";
 export * from "./getTiTaxiiDataConnector";
 export * from "./getUeba";
 export * from "./getWatchlist";
 export * from "./getWatchlistItem";
+export * from "./listSourceControlRepositories";
 export * from "./mcasdataConnector";
 export * from "./mdatpdataConnector";
 export * from "./metadatum";
@@ -46,6 +48,7 @@ export * from "./officeATPDataConnector";
 export * from "./officeDataConnector";
 export * from "./productSetting";
 export * from "./sentinelOnboardingState";
+export * from "./sourceControl";
 export * from "./tiTaxiiDataConnector";
 export * from "./tidataConnector";
 export * from "./ueba";
@@ -74,6 +77,7 @@ import { OfficeATPDataConnector } from "./officeATPDataConnector";
 import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
 import { SentinelOnboardingState } from "./sentinelOnboardingState";
+import { SourceControl } from "./sourceControl";
 import { TIDataConnector } from "./tidataConnector";
 import { TiTaxiiDataConnector } from "./tiTaxiiDataConnector";
 import { Ueba } from "./ueba";
@@ -120,6 +124,8 @@ const _module = {
                 return new ProductSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector":

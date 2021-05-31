@@ -21,6 +21,7 @@ __all__ = [
     'CodelessUiConnectorConfigPropertiesResponseGraphQueries',
     'CodelessUiConnectorConfigPropertiesResponseInstructionSteps',
     'CodelessUiConnectorConfigPropertiesResponseSampleQueries',
+    'ContentPathMapResponse',
     'DataConnectorDataTypeCommonResponse',
     'Dynamics365DataConnectorDataTypesResponse',
     'Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities',
@@ -42,6 +43,8 @@ __all__ = [
     'PermissionsResponse',
     'PermissionsResponseCustoms',
     'PermissionsResponseResourceProvider',
+    'RepoResponse',
+    'RepositoryResponse',
     'RequiredPermissionsResponse',
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
@@ -557,6 +560,58 @@ class CodelessUiConnectorConfigPropertiesResponseSampleQueries(dict):
         the sample query
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class ContentPathMapResponse(dict):
+    """
+    The mapping of content type to a repo path.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentPathMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentPathMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentPathMapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        The mapping of content type to a repo path.
+        :param str content_type: Content type.
+        :param str path: The path to the content.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        """
+        Content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to the content.
+        """
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -1483,6 +1538,117 @@ class PermissionsResponseResourceProvider(dict):
         Permission provider scope
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class RepoResponse(dict):
+    """
+    Represents a repository.
+    """
+    def __init__(__self__, *,
+                 branches: Optional[Sequence[str]] = None,
+                 full_name: Optional[str] = None,
+                 repo_url: Optional[str] = None):
+        """
+        Represents a repository.
+        :param Sequence[str] branches: Array of branches.
+        :param str full_name: The name of the repository.
+        :param str repo_url: The url to access the repository.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if full_name is not None:
+            pulumi.set(__self__, "full_name", full_name)
+        if repo_url is not None:
+            pulumi.set(__self__, "repo_url", repo_url)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[Sequence[str]]:
+        """
+        Array of branches.
+        """
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> Optional[str]:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "full_name")
+
+    @property
+    @pulumi.getter(name="repoUrl")
+    def repo_url(self) -> Optional[str]:
+        """
+        The url to access the repository.
+        """
+        return pulumi.get(self, "repo_url")
+
+
+@pulumi.output_type
+class RepositoryResponse(dict):
+    """
+    metadata of a repository.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathMapping":
+            suggest = "path_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: Optional[str] = None,
+                 path_mapping: Optional[Sequence['outputs.ContentPathMapResponse']] = None,
+                 url: Optional[str] = None):
+        """
+        metadata of a repository.
+        :param str branch: Branch name of repository.
+        :param Sequence['ContentPathMapResponse'] path_mapping: Dictionary of source control content type and path mapping.
+        :param str url: Url of repository.
+        """
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if path_mapping is not None:
+            pulumi.set(__self__, "path_mapping", path_mapping)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        Branch name of repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="pathMapping")
+    def path_mapping(self) -> Optional[Sequence['outputs.ContentPathMapResponse']]:
+        """
+        Dictionary of source control content type and path mapping.
+        """
+        return pulumi.get(self, "path_mapping")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        Url of repository.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

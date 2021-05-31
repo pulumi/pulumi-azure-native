@@ -11,6 +11,16 @@ export const ConnectivityType = {
  */
 export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
 
+export const ContentType = {
+    AnalyticRule: "AnalyticRule",
+    Workbook: "Workbook",
+} as const;
+
+/**
+ * Content type.
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",
@@ -119,6 +129,16 @@ export const ProviderName = {
  * Provider name
  */
 export type ProviderName = (typeof ProviderName)[keyof typeof ProviderName];
+
+export const RepoType = {
+    Github: "Github",
+    DevOps: "DevOps",
+} as const;
+
+/**
+ * The repository type of the source control
+ */
+export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const SettingKind = {
     EyesOn: "EyesOn",

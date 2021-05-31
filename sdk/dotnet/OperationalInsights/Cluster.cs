@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<ImmutableArray<Outputs.AssociatedWorkspaceResponse>> AssociatedWorkspaces { get; private set; } = null!;
 
         /// <summary>
-        /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        /// The cluster's billing type.
         /// </summary>
         [Output("billingType")]
         public Output<string?> BillingType { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        /// The cluster's billing type.
         /// </summary>
         [Input("billingType")]
         public InputUnion<string, Pulumi.AzureNative.OperationalInsights.BillingType>? BillingType { get; set; }

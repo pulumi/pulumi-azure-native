@@ -18,7 +18,7 @@ type Cluster struct {
 
 	// The list of Log Analytics workspaces associated with the cluster
 	AssociatedWorkspaces AssociatedWorkspaceResponseArrayOutput `pulumi:"associatedWorkspaces"`
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType pulumi.StringPtrOutput `pulumi:"billingType"`
 	// Additional properties for capacity reservation
 	CapacityReservationProperties CapacityReservationPropertiesResponsePtrOutput `pulumi:"capacityReservationProperties"`
@@ -112,7 +112,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// The list of Log Analytics workspaces associated with the cluster
 	AssociatedWorkspaces []AssociatedWorkspaceResponse `pulumi:"associatedWorkspaces"`
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType *string `pulumi:"billingType"`
 	// Additional properties for capacity reservation
 	CapacityReservationProperties *CapacityReservationPropertiesResponse `pulumi:"capacityReservationProperties"`
@@ -145,7 +145,7 @@ type clusterState struct {
 type ClusterState struct {
 	// The list of Log Analytics workspaces associated with the cluster
 	AssociatedWorkspaces AssociatedWorkspaceResponseArrayInput
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType pulumi.StringPtrInput
 	// Additional properties for capacity reservation
 	CapacityReservationProperties CapacityReservationPropertiesResponsePtrInput
@@ -180,7 +180,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType *string `pulumi:"billingType"`
 	// The name of the Log Analytics cluster.
 	ClusterName *string `pulumi:"clusterName"`
@@ -204,7 +204,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+	// The cluster's billing type.
 	BillingType pulumi.StringPtrInput
 	// The name of the Log Analytics cluster.
 	ClusterName pulumi.StringPtrInput

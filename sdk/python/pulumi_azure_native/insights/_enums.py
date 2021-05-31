@@ -21,10 +21,12 @@ __all__ = [
     'ItemScope',
     'ItemType',
     'Kind',
+    'KnownDataCollectionEndpointResourceKind',
     'KnownDataCollectionRuleResourceKind',
     'KnownDataFlowStreams',
     'KnownExtensionDataSourceStreams',
     'KnownPerfCounterDataSourceStreams',
+    'KnownPublicNetworkAccessOptions',
     'KnownSyslogDataSourceFacilityNames',
     'KnownSyslogDataSourceLogLevels',
     'KnownSyslogDataSourceStreams',
@@ -193,6 +195,14 @@ class Kind(str, Enum):
     SHARED = "shared"
 
 
+class KnownDataCollectionEndpointResourceKind(str, Enum):
+    """
+    The kind of the resource.
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
+
+
 class KnownDataCollectionRuleResourceKind(str, Enum):
     """
     The kind of the resource.
@@ -220,6 +230,14 @@ class KnownExtensionDataSourceStreams(str, Enum):
 class KnownPerfCounterDataSourceStreams(str, Enum):
     MICROSOFT_PERF = "Microsoft-Perf"
     MICROSOFT_INSIGHTS_METRICS = "Microsoft-InsightsMetrics"
+
+
+class KnownPublicNetworkAccessOptions(str, Enum):
+    """
+    The configuration to set whether network access from public internet to the endpoints are allowed.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class KnownSyslogDataSourceFacilityNames(str, Enum):

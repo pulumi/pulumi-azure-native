@@ -25,8 +25,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ACIService{}
 	case "azure-native:machinelearningservices:AKSService":
 		r = &AKSService{}
+	case "azure-native:machinelearningservices:BatchDeployment":
+		r = &BatchDeployment{}
+	case "azure-native:machinelearningservices:BatchEndpoint":
+		r = &BatchEndpoint{}
+	case "azure-native:machinelearningservices:CodeContainer":
+		r = &CodeContainer{}
+	case "azure-native:machinelearningservices:CodeVersion":
+		r = &CodeVersion{}
+	case "azure-native:machinelearningservices:DataContainer":
+		r = &DataContainer{}
+	case "azure-native:machinelearningservices:DataVersion":
+		r = &DataVersion{}
 	case "azure-native:machinelearningservices:EndpointVariant":
 		r = &EndpointVariant{}
+	case "azure-native:machinelearningservices:EnvironmentContainer":
+		r = &EnvironmentContainer{}
+	case "azure-native:machinelearningservices:EnvironmentSpecificationVersion":
+		r = &EnvironmentSpecificationVersion{}
+	case "azure-native:machinelearningservices:Job":
+		r = &Job{}
 	case "azure-native:machinelearningservices:LabelingJob":
 		r = &LabelingJob{}
 	case "azure-native:machinelearningservices:LinkedService":
@@ -41,6 +59,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MachineLearningDatastore{}
 	case "azure-native:machinelearningservices:MachineLearningService":
 		r = &MachineLearningService{}
+	case "azure-native:machinelearningservices:ModelContainer":
+		r = &ModelContainer{}
+	case "azure-native:machinelearningservices:ModelVersion":
+		r = &ModelVersion{}
+	case "azure-native:machinelearningservices:OnlineDeployment":
+		r = &OnlineDeployment{}
+	case "azure-native:machinelearningservices:OnlineEndpoint":
+		r = &OnlineEndpoint{}
 	case "azure-native:machinelearningservices:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:machinelearningservices:Workspace":

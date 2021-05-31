@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ConnectivityType',
+    'ContentType',
     'DataConnectorKind',
     'DataTypeState',
     'Kind',
@@ -13,6 +14,7 @@ __all__ = [
     'PermissionProviderScope',
     'PollingFrequency',
     'ProviderName',
+    'RepoType',
     'SettingKind',
     'SettingType',
     'Source',
@@ -27,6 +29,14 @@ class ConnectivityType(str, Enum):
     type of connectivity
     """
     IS_CONNECTED_QUERY = "IsConnectedQuery"
+
+
+class ContentType(str, Enum):
+    """
+    Content type.
+    """
+    ANALYTIC_RULE = "AnalyticRule"
+    WORKBOOK = "Workbook"
 
 
 class DataConnectorKind(str, Enum):
@@ -113,6 +123,14 @@ class ProviderName(str, Enum):
     MICROSOFT_AADIAM_DIAGNOSTIC_SETTINGS = "microsoft.aadiam/diagnosticSettings"
     MICROSOFT_OPERATIONAL_INSIGHTS_WORKSPACES_SHARED_KEYS = "Microsoft.OperationalInsights/workspaces/sharedKeys"
     MICROSOFT_AUTHORIZATION_POLICY_ASSIGNMENTS = "Microsoft.Authorization/policyAssignments"
+
+
+class RepoType(str, Enum):
+    """
+    The repository type of the source control
+    """
+    GITHUB = "Github"
+    DEV_OPS = "DevOps"
 
 
 class SettingKind(str, Enum):

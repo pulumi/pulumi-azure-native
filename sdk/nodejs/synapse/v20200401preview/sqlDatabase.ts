@@ -60,6 +60,10 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Storage redundancy of the database.
+     */
+    public readonly storageRedundancy!: pulumi.Output<string | undefined>;
+    /**
      * SystemData of SqlDatabase.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.v20200401preview.SystemDataResponse>;
@@ -94,6 +98,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlDatabaseName"] = args ? args.sqlDatabaseName : undefined;
+            inputs["storageRedundancy"] = args ? args.storageRedundancy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["databaseGuid"] = undefined /*out*/;
@@ -108,6 +113,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["storageRedundancy"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface SqlDatabaseArgs {
      * The name of the sql database.
      */
     sqlDatabaseName?: pulumi.Input<string>;
+    /**
+     * Storage redundancy of the database.
+     */
+    storageRedundancy?: pulumi.Input<string | enums.synapse.v20200401preview.SqlDatabaseStorageRedundancyType>;
     /**
      * Resource tags.
      */

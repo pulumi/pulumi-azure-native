@@ -42,6 +42,8 @@ type LookupSqlDatabaseResult struct {
 	Name string `pulumi:"name"`
 	// Status of the database.
 	Status string `pulumi:"status"`
+	// Storage redundancy of the database.
+	StorageRedundancy *string `pulumi:"storageRedundancy"`
 	// SystemData of SqlDatabase.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

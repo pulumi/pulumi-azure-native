@@ -5577,6 +5577,7 @@ _utilities.register(
    "azure-native:documentdb:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
    "azure-native:documentdb:NotebookWorkspace": "NotebookWorkspace",
    "azure-native:documentdb:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb:Service": "Service",
    "azure-native:documentdb:SqlResourceSqlContainer": "SqlResourceSqlContainer",
    "azure-native:documentdb:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
    "azure-native:documentdb:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
@@ -5927,6 +5928,30 @@ _utilities.register(
    "azure-native:documentdb/v20210415:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20210415:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20210415:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20210515",
+  "fqn": "pulumi_azure_native.documentdb.v20210515",
+  "classes": {
+   "azure-native:documentdb/v20210515:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20210515:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20210515:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20210515:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20210515:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20210515:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20210515:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20210515:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20210515:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20210515:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20210515:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20210515:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20210515:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20210515:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -6663,6 +6688,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcompute/v20210520",
+  "fqn": "pulumi_azure_native.hybridcompute.v20210520",
+  "classes": {
+   "azure-native:hybridcompute/v20210520:Machine": "Machine",
+   "azure-native:hybridcompute/v20210520:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20210520:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20210520:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybriddata",
   "fqn": "pulumi_azure_native.hybriddata",
   "classes": {
@@ -6760,6 +6796,7 @@ _utilities.register(
    "azure-native:insights:Component": "Component",
    "azure-native:insights:ComponentCurrentBillingFeature": "ComponentCurrentBillingFeature",
    "azure-native:insights:ComponentLinkedStorageAccount": "ComponentLinkedStorageAccount",
+   "azure-native:insights:DataCollectionEndpoint": "DataCollectionEndpoint",
    "azure-native:insights:DataCollectionRule": "DataCollectionRule",
    "azure-native:insights:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
    "azure-native:insights:DiagnosticSetting": "DiagnosticSetting",
@@ -7727,7 +7764,16 @@ _utilities.register(
   "classes": {
    "azure-native:machinelearningservices:ACIService": "ACIService",
    "azure-native:machinelearningservices:AKSService": "AKSService",
+   "azure-native:machinelearningservices:BatchDeployment": "BatchDeployment",
+   "azure-native:machinelearningservices:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices:CodeContainer": "CodeContainer",
+   "azure-native:machinelearningservices:CodeVersion": "CodeVersion",
+   "azure-native:machinelearningservices:DataContainer": "DataContainer",
+   "azure-native:machinelearningservices:DataVersion": "DataVersion",
    "azure-native:machinelearningservices:EndpointVariant": "EndpointVariant",
+   "azure-native:machinelearningservices:EnvironmentContainer": "EnvironmentContainer",
+   "azure-native:machinelearningservices:EnvironmentSpecificationVersion": "EnvironmentSpecificationVersion",
+   "azure-native:machinelearningservices:Job": "Job",
    "azure-native:machinelearningservices:LabelingJob": "LabelingJob",
    "azure-native:machinelearningservices:LinkedService": "LinkedService",
    "azure-native:machinelearningservices:LinkedWorkspace": "LinkedWorkspace",
@@ -7735,6 +7781,10 @@ _utilities.register(
    "azure-native:machinelearningservices:MachineLearningDataset": "MachineLearningDataset",
    "azure-native:machinelearningservices:MachineLearningDatastore": "MachineLearningDatastore",
    "azure-native:machinelearningservices:MachineLearningService": "MachineLearningService",
+   "azure-native:machinelearningservices:ModelContainer": "ModelContainer",
+   "azure-native:machinelearningservices:ModelVersion": "ModelVersion",
+   "azure-native:machinelearningservices:OnlineDeployment": "OnlineDeployment",
+   "azure-native:machinelearningservices:OnlineEndpoint": "OnlineEndpoint",
    "azure-native:machinelearningservices:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:machinelearningservices:Workspace": "Workspace",
    "azure-native:machinelearningservices:WorkspaceConnection": "WorkspaceConnection"
@@ -12336,6 +12386,7 @@ _utilities.register(
    "azure-native:securityinsights:ProductSetting": "ProductSetting",
    "azure-native:securityinsights:ScheduledAlertRule": "ScheduledAlertRule",
    "azure-native:securityinsights:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights:SourceControl": "SourceControl",
    "azure-native:securityinsights:TIDataConnector": "TIDataConnector",
    "azure-native:securityinsights:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
    "azure-native:securityinsights:Ueba": "Ueba",
@@ -12431,6 +12482,7 @@ _utilities.register(
    "azure-native:securityinsights/v20210301preview:OfficeDataConnector": "OfficeDataConnector",
    "azure-native:securityinsights/v20210301preview:ProductSetting": "ProductSetting",
    "azure-native:securityinsights/v20210301preview:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20210301preview:SourceControl": "SourceControl",
    "azure-native:securityinsights/v20210301preview:TIDataConnector": "TIDataConnector",
    "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
    "azure-native:securityinsights/v20210301preview:Ueba": "Ueba",
@@ -12892,6 +12944,7 @@ _utilities.register(
    "azure-native:sql:ManagedInstanceKey": "ManagedInstanceKey",
    "azure-native:sql:ManagedInstancePrivateEndpointConnection": "ManagedInstancePrivateEndpointConnection",
    "azure-native:sql:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment",
+   "azure-native:sql:OutboundFirewallRule": "OutboundFirewallRule",
    "azure-native:sql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:sql:SensitivityLabel": "SensitivityLabel",
    "azure-native:sql:Server": "Server",

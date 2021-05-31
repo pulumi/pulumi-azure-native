@@ -50,6 +50,27 @@ export const ApplicationSharingPolicy = {
  */
 export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
 
+export const BatchLoggingLevel = {
+    Info: "Info",
+    Warning: "Warning",
+    Debug: "Debug",
+} as const;
+
+/**
+ * Logging level for batch inference operation.
+ */
+export type BatchLoggingLevel = (typeof BatchLoggingLevel)[keyof typeof BatchLoggingLevel];
+
+export const BatchOutputAction = {
+    SummaryOnly: "SummaryOnly",
+    AppendRow: "AppendRow",
+} as const;
+
+/**
+ * Indicates how the output will be organized.
+ */
+export type BatchOutputAction = (typeof BatchOutputAction)[keyof typeof BatchOutputAction];
+
 export const ClusterPurpose = {
     FastProd: "FastProd",
     DenseProd: "DenseProd",
@@ -96,6 +117,27 @@ export const ComputeType = {
  */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
+export const ContainerType = {
+    StorageInitializer: "StorageInitializer",
+    InferenceServer: "InferenceServer",
+} as const;
+
+/**
+ * The type of container to retrieve logs from.
+ */
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
+export const DataBindingMode = {
+    Mount: "Mount",
+    Download: "Download",
+    Upload: "Upload",
+} as const;
+
+/**
+ * Mechanism for data movement to datastore.
+ */
+export type DataBindingMode = (typeof DataBindingMode)[keyof typeof DataBindingMode];
+
 export const DatasetType = {
     Tabular: "tabular",
     File: "file",
@@ -122,6 +164,38 @@ export const DatastoreTypeArm = {
  */
 export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
 
+export const DistributionType = {
+    PyTorch: "PyTorch",
+    TensorFlow: "TensorFlow",
+    Mpi: "Mpi",
+} as const;
+
+/**
+ * Specifies the type of distribution framework.
+ */
+export type DistributionType = (typeof DistributionType)[keyof typeof DistributionType];
+
+export const DockerSpecificationType = {
+    Build: "Build",
+    Image: "Image",
+} as const;
+
+/**
+ * Docker specification must be either Build or Image
+ */
+export type DockerSpecificationType = (typeof DockerSpecificationType)[keyof typeof DockerSpecificationType];
+
+export const EarlyTerminationPolicyType = {
+    Bandit: "Bandit",
+    MedianStopping: "MedianStopping",
+    TruncationSelection: "TruncationSelection",
+} as const;
+
+/**
+ * Name of policy configuration
+ */
+export type EarlyTerminationPolicyType = (typeof EarlyTerminationPolicyType)[keyof typeof EarlyTerminationPolicyType];
+
 export const EncryptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -131,6 +205,38 @@ export const EncryptionStatus = {
  * Indicates whether or not the encryption is enabled for the workspace.
  */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+export const EndpointAuthMode = {
+    AMLToken: "AMLToken",
+    Key: "Key",
+    AADToken: "AADToken",
+} as const;
+
+/**
+ * Inference endpoint authentication mode type
+ */
+export type EndpointAuthMode = (typeof EndpointAuthMode)[keyof typeof EndpointAuthMode];
+
+export const EndpointComputeType = {
+    Managed: "Managed",
+    K8S: "K8S",
+    AzureMLCompute: "AzureMLCompute",
+} as const;
+
+/**
+ * The compute type of the endpoint.
+ */
+export type EndpointComputeType = (typeof EndpointComputeType)[keyof typeof EndpointComputeType];
+
+export const Goal = {
+    Minimize: "Minimize",
+    Maximize: "Maximize",
+} as const;
+
+/**
+ * Defines supported metric goals for hyperparameter tuning
+ */
+export type Goal = (typeof Goal)[keyof typeof Goal];
 
 export const Header = {
     All_files_have_same_headers: "all_files_have_same_headers",
@@ -144,6 +250,16 @@ export const Header = {
  */
 export type Header = (typeof Header)[keyof typeof Header];
 
+export const IdentityConfigurationType = {
+    Managed: "Managed",
+    AMLToken: "AMLToken",
+} as const;
+
+/**
+ * Specifies the type of identity framework.
+ */
+export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
+
 export const ImageAnnotationType = {
     Classification: "Classification",
     BoundingBox: "BoundingBox",
@@ -154,6 +270,17 @@ export const ImageAnnotationType = {
  * Annotation type of image labeling tasks.
  */
 export type ImageAnnotationType = (typeof ImageAnnotationType)[keyof typeof ImageAnnotationType];
+
+export const JobType = {
+    Command: "Command",
+    Sweep: "Sweep",
+    Labeling: "Labeling",
+} as const;
+
+/**
+ * Specifies the type of job.
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
 
 export const LinkedServiceLinkType = {
     Synapse: "Synapse",
@@ -173,6 +300,16 @@ export const MediaType = {
  * Media type of data asset.
  */
 export type MediaType = (typeof MediaType)[keyof typeof MediaType];
+
+export const OperatingSystemType = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * The OS type the Environment.
+ */
+export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 export const OsType = {
     Linux: "Linux",
@@ -197,6 +334,17 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const ReferenceType = {
+    Id: "Id",
+    DataPath: "DataPath",
+    OutputPath: "OutputPath",
+} as const;
+
+/**
+ * Specifies the type of asset reference.
+ */
+export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
+
 export const RemoteLoginPortPublicAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -207,6 +355,18 @@ export const RemoteLoginPortPublicAccess = {
  * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
  */
 export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
+
+export const ResourceIdentityAssignment = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Defines values for a ResourceIdentity's type.
+ */
+export type ResourceIdentityAssignment = (typeof ResourceIdentityAssignment)[keyof typeof ResourceIdentityAssignment];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -219,6 +379,24 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SamplingAlgorithm = {
+    Grid: "Grid",
+    Random: "Random",
+    Bayesian: "Bayesian",
+} as const;
+
+/**
+ * Type of the hyperparameter sampling algorithms
+ */
+export type SamplingAlgorithm = (typeof SamplingAlgorithm)[keyof typeof SamplingAlgorithm];
+
+export const ScaleType = {
+    Auto: "Auto",
+    Manual: "Manual",
+} as const;
+
+export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
 export const SourceType = {
     Delimited_files: "delimited_files",

@@ -20,7 +20,7 @@ class GetSqlDatabaseResult:
     """
     A sql database resource.
     """
-    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, max_size_bytes=None, name=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, max_size_bytes=None, name=None, status=None, storage_redundancy=None, system_data=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -42,6 +42,9 @@ class GetSqlDatabaseResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if storage_redundancy and not isinstance(storage_redundancy, str):
+            raise TypeError("Expected argument 'storage_redundancy' to be a str")
+        pulumi.set(__self__, "storage_redundancy", storage_redundancy)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -109,6 +112,14 @@ class GetSqlDatabaseResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="storageRedundancy")
+    def storage_redundancy(self) -> Optional[str]:
+        """
+        Storage redundancy of the database.
+        """
+        return pulumi.get(self, "storage_redundancy")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -146,6 +157,7 @@ class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
             max_size_bytes=self.max_size_bytes,
             name=self.name,
             status=self.status,
+            storage_redundancy=self.storage_redundancy,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -181,6 +193,7 @@ def get_sql_database(resource_group_name: Optional[str] = None,
         max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,
         status=__ret__.status,
+        storage_redundancy=__ret__.storage_redundancy,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
