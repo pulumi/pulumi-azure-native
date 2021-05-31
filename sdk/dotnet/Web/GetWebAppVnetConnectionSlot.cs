@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Virtual Network information contract.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());

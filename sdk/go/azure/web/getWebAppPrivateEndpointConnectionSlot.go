@@ -8,7 +8,7 @@ import (
 )
 
 // Remote Private Endpoint Connection ARM resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppPrivateEndpointConnectionSlot(ctx *pulumi.Context, args *LookupWebAppPrivateEndpointConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPrivateEndpointConnectionSlotResult, error) {
 	var rv LookupWebAppPrivateEndpointConnectionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppPrivateEndpointConnectionSlot", args, &rv, opts...)

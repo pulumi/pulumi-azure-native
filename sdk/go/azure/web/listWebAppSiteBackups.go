@@ -8,7 +8,7 @@ import (
 )
 
 // Collection of backup items.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppSiteBackups(ctx *pulumi.Context, args *ListWebAppSiteBackupsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsResult, error) {
 	var rv ListWebAppSiteBackupsResult
 	err := ctx.Invoke("azure-native:web:listWebAppSiteBackups", args, &rv, opts...)

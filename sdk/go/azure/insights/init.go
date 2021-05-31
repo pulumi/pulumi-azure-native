@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ComponentCurrentBillingFeature{}
 	case "azure-native:insights:ComponentLinkedStorageAccount":
 		r = &ComponentLinkedStorageAccount{}
+	case "azure-native:insights:DataCollectionEndpoint":
+		r = &DataCollectionEndpoint{}
 	case "azure-native:insights:DataCollectionRule":
 		r = &DataCollectionRule{}
 	case "azure-native:insights:DataCollectionRuleAssociation":

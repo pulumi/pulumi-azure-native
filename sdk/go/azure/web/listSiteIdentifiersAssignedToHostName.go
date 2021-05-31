@@ -8,7 +8,7 @@ import (
 )
 
 // Collection of identifiers.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteIdentifiersAssignedToHostNameArgs, opts ...pulumi.InvokeOption) (*ListSiteIdentifiersAssignedToHostNameResult, error) {
 	var rv ListSiteIdentifiersAssignedToHostNameResult
 	err := ctx.Invoke("azure-native:web:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)

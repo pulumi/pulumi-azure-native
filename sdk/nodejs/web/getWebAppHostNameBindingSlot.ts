@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A hostname binding object.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingSlotResult> {
     if (!opts) {

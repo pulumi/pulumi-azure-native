@@ -240,7 +240,7 @@ def get_web_app_function(function_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
     Function information.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str function_name: Function name.

@@ -20,10 +20,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
-        if extended_location and not isinstance(extended_location, dict):
-            raise TypeError("Expected argument 'extended_location' to be a dict")
-        pulumi.set(__self__, "extended_location", extended_location)
+    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
         if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
             raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
         pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
@@ -105,14 +102,6 @@ class GetAppServicePlanResult:
         if worker_tier_name and not isinstance(worker_tier_name, str):
             raise TypeError("Expected argument 'worker_tier_name' to be a str")
         pulumi.set(__self__, "worker_tier_name", worker_tier_name)
-
-    @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
-        """
-        Extended Location.
-        """
-        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
@@ -338,7 +327,6 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
-            extended_location=self.extended_location,
             free_offer_expiration_time=self.free_offer_expiration_time,
             geo_region=self.geo_region,
             hosting_environment_profile=self.hosting_environment_profile,
@@ -373,7 +361,7 @@ def get_app_service_plan(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
     App Service plan.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the App Service plan.
@@ -389,7 +377,6 @@ def get_app_service_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult).value
 
     return AwaitableGetAppServicePlanResult(
-        extended_location=__ret__.extended_location,
         free_offer_expiration_time=__ret__.free_offer_expiration_time,
         geo_region=__ret__.geo_region,
         hosting_environment_profile=__ret__.hosting_environment_profile,

@@ -8,7 +8,7 @@ import (
 )
 
 // Site Extension Information.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppSiteExtensionSlot(ctx *pulumi.Context, args *LookupWebAppSiteExtensionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionSlotResult, error) {
 	var rv LookupWebAppSiteExtensionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppSiteExtensionSlot", args, &rv, opts...)

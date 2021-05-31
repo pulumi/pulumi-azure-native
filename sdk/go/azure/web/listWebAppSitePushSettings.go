@@ -8,7 +8,7 @@ import (
 )
 
 // Push settings for the App.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppSitePushSettings(ctx *pulumi.Context, args *ListWebAppSitePushSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSitePushSettingsResult, error) {
 	var rv ListWebAppSitePushSettingsResult
 	err := ctx.Invoke("azure-native:web:listWebAppSitePushSettings", args, &rv, opts...)

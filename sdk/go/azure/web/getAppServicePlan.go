@@ -8,7 +8,7 @@ import (
 )
 
 // App Service plan.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
 	var rv LookupAppServicePlanResult
 	err := ctx.Invoke("azure-native:web:getAppServicePlan", args, &rv, opts...)
@@ -27,8 +27,6 @@ type LookupAppServicePlanArgs struct {
 
 // App Service plan.
 type LookupAppServicePlanResult struct {
-	// Extended Location.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
 	// Geographical location for the App Service plan.

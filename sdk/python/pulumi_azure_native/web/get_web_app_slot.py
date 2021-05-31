@@ -20,7 +20,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, extended_location=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -54,9 +54,6 @@ class GetWebAppSlotResult:
         if enabled_host_names and not isinstance(enabled_host_names, list):
             raise TypeError("Expected argument 'enabled_host_names' to be a list")
         pulumi.set(__self__, "enabled_host_names", enabled_host_names)
-        if extended_location and not isinstance(extended_location, dict):
-            raise TypeError("Expected argument 'extended_location' to be a dict")
-        pulumi.set(__self__, "extended_location", extended_location)
         if host_name_ssl_states and not isinstance(host_name_ssl_states, list):
             raise TypeError("Expected argument 'host_name_ssl_states' to be a list")
         pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
@@ -257,14 +254,6 @@ class GetWebAppSlotResult:
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
-
-    @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
-        """
-        Extended Location.
-        """
-        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostNameSslStates")
@@ -576,7 +565,6 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             default_host_name=self.default_host_name,
             enabled=self.enabled,
             enabled_host_names=self.enabled_host_names,
-            extended_location=self.extended_location,
             host_name_ssl_states=self.host_name_ssl_states,
             host_names=self.host_names,
             host_names_disabled=self.host_names_disabled,
@@ -621,7 +609,7 @@ def get_web_app_slot(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -650,7 +638,6 @@ def get_web_app_slot(name: Optional[str] = None,
         default_host_name=__ret__.default_host_name,
         enabled=__ret__.enabled,
         enabled_host_names=__ret__.enabled_host_names,
-        extended_location=__ret__.extended_location,
         host_name_ssl_states=__ret__.host_name_ssl_states,
         host_names=__ret__.host_names,
         host_names_disabled=__ret__.host_names_disabled,

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
     if (!opts) {

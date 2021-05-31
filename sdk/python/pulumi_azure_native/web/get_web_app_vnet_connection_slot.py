@@ -171,7 +171,7 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionSlotResult:
     """
     Virtual Network information contract.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

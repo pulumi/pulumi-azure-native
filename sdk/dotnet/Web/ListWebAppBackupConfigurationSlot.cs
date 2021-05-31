@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description of a backup which will be performed.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppBackupConfigurationSlotResult> InvokeAsync(ListWebAppBackupConfigurationSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupConfigurationSlotResult>("azure-native:web:listWebAppBackupConfigurationSlot", args ?? new ListWebAppBackupConfigurationSlotArgs(), options.WithVersion());

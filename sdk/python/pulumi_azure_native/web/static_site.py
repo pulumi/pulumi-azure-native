@@ -266,7 +266,7 @@ class StaticSite(pulumi.CustomResource):
                  __props__=None):
         """
         Static Site ARM resource.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,7 +293,7 @@ class StaticSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site ARM resource.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteArgs args: The arguments to use to populate this resource's properties.

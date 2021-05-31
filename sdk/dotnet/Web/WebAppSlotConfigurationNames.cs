@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Slot Config names azure resource.
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlotConfigurationNames")]
     public partial class WebAppSlotConfigurationNames : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteSecretsResult, error) {
 	var rv ListStaticSiteSecretsResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteSecrets", args, &rv, opts...)

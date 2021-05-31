@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Arc PrivateLinkScope definition.
-// API Version: 2021-04-22-preview.
+// API Version: 2021-03-25-preview.
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 

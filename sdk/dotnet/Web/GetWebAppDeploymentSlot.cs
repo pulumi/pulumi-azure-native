@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// User credentials used for publishing activity.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppDeploymentSlotResult> InvokeAsync(GetWebAppDeploymentSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentSlotResult>("azure-native:web:getWebAppDeploymentSlot", args ?? new GetWebAppDeploymentSlotArgs(), options.WithVersion());

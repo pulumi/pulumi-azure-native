@@ -14,6 +14,7 @@ from .autoscale_setting import *
 from .component import *
 from .component_current_billing_feature import *
 from .component_linked_storage_account import *
+from .data_collection_endpoint import *
 from .data_collection_rule import *
 from .data_collection_rule_association import *
 from .diagnostic_setting import *
@@ -27,6 +28,7 @@ from .get_autoscale_setting import *
 from .get_component import *
 from .get_component_current_billing_feature import *
 from .get_component_linked_storage_account import *
+from .get_data_collection_endpoint import *
 from .get_data_collection_rule import *
 from .get_data_collection_rule_association import *
 from .get_diagnostic_setting import *

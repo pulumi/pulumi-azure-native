@@ -179,7 +179,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +201,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsV2SlotArgs args: The arguments to use to populate this resource's properties.

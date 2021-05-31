@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// User credentials used for publishing activity.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsResult> InvokeAsync(ListWebAppPublishingCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithVersion());

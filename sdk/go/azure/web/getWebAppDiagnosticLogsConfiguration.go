@@ -8,7 +8,7 @@ import (
 )
 
 // Configuration of App Service site logs.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWebAppDiagnosticLogsConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDiagnosticLogsConfigurationResult, error) {
 	var rv LookupWebAppDiagnosticLogsConfigurationResult
 	err := ctx.Invoke("azure-native:web:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)

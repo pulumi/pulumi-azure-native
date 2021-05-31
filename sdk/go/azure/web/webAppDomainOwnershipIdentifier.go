@@ -12,7 +12,7 @@ import (
 )
 
 // A domain specific resource identifier.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type WebAppDomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 

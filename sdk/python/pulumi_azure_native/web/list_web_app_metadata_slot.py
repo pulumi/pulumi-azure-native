@@ -96,7 +96,7 @@ def list_web_app_metadata_slot(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppMetadataSlotResult:
     """
     String dictionary resource.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

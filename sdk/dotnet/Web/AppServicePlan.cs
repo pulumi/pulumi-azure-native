@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service plan.
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Extended Location.
-        /// </summary>
-        [Output("extendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
-
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>
@@ -246,12 +240,6 @@ namespace Pulumi.AzureNative.Web
 
     public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Extended Location.
-        /// </summary>
-        [Input("extendedLocation")]
-        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
-
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>

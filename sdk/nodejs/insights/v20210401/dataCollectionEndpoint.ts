@@ -135,7 +135,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20210401:DataCollectionEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20210401:DataCollectionEndpoint" }, { type: "azure-native:insights:DataCollectionEndpoint" }, { type: "azure-nextgen:insights:DataCollectionEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionEndpoint.__pulumiType, name, inputs, opts);
     }

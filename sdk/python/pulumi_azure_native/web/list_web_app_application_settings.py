@@ -95,7 +95,7 @@ def list_web_app_application_settings(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppApplicationSettingsResult:
     """
     String dictionary resource.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function information.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
     if (!opts) {

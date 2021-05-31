@@ -12,12 +12,10 @@ import (
 )
 
 // App Service plan.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type AppServicePlan struct {
 	pulumi.CustomResourceState
 
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime pulumi.StringPtrOutput `pulumi:"freeOfferExpirationTime"`
 	// Geographical location for the App Service plan.
@@ -177,8 +175,6 @@ func GetAppServicePlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServicePlan resources.
 type appServicePlanState struct {
-	// Extended Location.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
 	// Geographical location for the App Service plan.
@@ -235,8 +231,6 @@ type appServicePlanState struct {
 }
 
 type AppServicePlanState struct {
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime pulumi.StringPtrInput
 	// Geographical location for the App Service plan.
@@ -297,8 +291,6 @@ func (AppServicePlanState) ElementType() reflect.Type {
 }
 
 type appServicePlanArgs struct {
-	// Extended Location.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
 	// Specification for the App Service Environment to use for the App Service plan.
@@ -342,8 +334,6 @@ type appServicePlanArgs struct {
 
 // The set of arguments for constructing a AppServicePlan resource.
 type AppServicePlanArgs struct {
-	// Extended Location.
-	ExtendedLocation ExtendedLocationPtrInput
 	// The time when the server farm free offer expires.
 	FreeOfferExpirationTime pulumi.StringPtrInput
 	// Specification for the App Service Environment to use for the App Service plan.

@@ -8,7 +8,7 @@ import (
 )
 
 // Function information.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppInstanceFunctionSlot(ctx *pulumi.Context, args *LookupWebAppInstanceFunctionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppInstanceFunctionSlotResult, error) {
 	var rv LookupWebAppInstanceFunctionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppInstanceFunctionSlot", args, &rv, opts...)

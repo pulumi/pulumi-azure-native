@@ -8,7 +8,7 @@ import (
 )
 
 // A domain specific resource identifier.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierResult
 	err := ctx.Invoke("azure-native:web:getWebAppDomainOwnershipIdentifier", args, &rv, opts...)

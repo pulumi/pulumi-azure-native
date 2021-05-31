@@ -8,7 +8,7 @@ import (
 )
 
 // Virtual Network information contract.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppVnetConnectionSlot(ctx *pulumi.Context, args *LookupWebAppVnetConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionSlotResult, error) {
 	var rv LookupWebAppVnetConnectionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppVnetConnectionSlot", args, &rv, opts...)

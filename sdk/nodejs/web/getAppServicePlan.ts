@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     if (!opts) {
@@ -38,10 +38,6 @@ export interface GetAppServicePlanArgs {
  * App Service plan.
  */
 export interface GetAppServicePlanResult {
-    /**
-     * Extended Location.
-     */
-    readonly extendedLocation?: outputs.web.ExtendedLocationResponse;
     /**
      * The time when the server farm free offer expires.
      */

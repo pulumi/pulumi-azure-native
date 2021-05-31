@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Virtual Network information contract.
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : Pulumi.CustomResource

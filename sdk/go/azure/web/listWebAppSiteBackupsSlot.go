@@ -8,7 +8,7 @@ import (
 )
 
 // Collection of backup items.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppSiteBackupsSlot(ctx *pulumi.Context, args *ListWebAppSiteBackupsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppSiteBackupsSlotResult, error) {
 	var rv ListWebAppSiteBackupsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppSiteBackupsSlot", args, &rv, opts...)

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// App Service plan.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
@@ -43,10 +43,6 @@ namespace Pulumi.AzureNative.Web
     [OutputType]
     public sealed class GetAppServicePlanResult
     {
-        /// <summary>
-        /// Extended Location.
-        /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// The time when the server farm free offer expires.
         /// </summary>
@@ -159,8 +155,6 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetAppServicePlanResult(
-            Outputs.ExtendedLocationResponse? extendedLocation,
-
             string? freeOfferExpirationTime,
 
             string geoRegion,
@@ -215,7 +209,6 @@ namespace Pulumi.AzureNative.Web
 
             string? workerTierName)
         {
-            ExtendedLocation = extendedLocation;
             FreeOfferExpirationTime = freeOfferExpirationTime;
             GeoRegion = geoRegion;
             HostingEnvironmentProfile = hostingEnvironmentProfile;

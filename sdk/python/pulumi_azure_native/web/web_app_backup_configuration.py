@@ -162,7 +162,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Description of a backup which will be performed.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a backup which will be performed.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppBackupConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -101,6 +101,7 @@ var cutoffProviderVersions = map[string]string{
 	"databox":                 "v20201101",
 	"devices":                 "v20200831",
 	"documentdb":              "v20210315",
+	"hybridcompute":           "v20210325preview",
 	"insights":                "v20201020",
 	"kubernetesconfiguration": "v20210301",
 	"machinelearningservices": "v20210101",
@@ -112,6 +113,7 @@ var cutoffProviderVersions = map[string]string{
 	"sql":                     "v20201101preview",
 	"storage":                 "v20210201",
 	"storagepool":             "v20200315preview",
+	"web":                     "v20201201",
 }
 
 var lockedTypeVersions = map[string]string{
@@ -275,11 +277,6 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 	latestResources = map[string]*ResourceSpec{}
 	knownResources := codegen.NewStringSet()
 	for _, version := range versions {
-		if cutoffVersion, ok := cutoffProviderVersions[strings.ToLower(provider)]; ok && version > cutoffVersion {
-			// Ignore all the versions that are newer than the cutoff version for this provider.
-			continue
-		}
-
 		items := versionMap[version]
 		res := items.Resources
 		if invokes {
@@ -297,6 +294,14 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 			}
 
 			normalizedPath := normalizePath(r.Path)
+			if cutoffVersion, ok := cutoffProviderVersions[strings.ToLower(provider)]; ok && version > cutoffVersion {
+				if _, exists := pathTypeNames[normalizedPath]; exists {
+					// Ignore all the versions that are newer than the cutoff version for this provider,
+					// given that a pre-cutoff version exists.
+					continue
+				}
+			}
+
 			isKnown := c.isKnown(provider, r.Path, version)
 			if !isKnown && knownResources.Has(normalizedPath) {
 				continue

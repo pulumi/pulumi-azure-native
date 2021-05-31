@@ -111,7 +111,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         Static Site Custom Domain Overview ARM resource.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site Custom Domain Overview ARM resource.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteCustomDomainArgs args: The arguments to use to populate this resource's properties.

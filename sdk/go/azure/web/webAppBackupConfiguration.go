@@ -12,7 +12,7 @@ import (
 )
 
 // Description of a backup which will be performed.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type WebAppBackupConfiguration struct {
 	pulumi.CustomResourceState
 

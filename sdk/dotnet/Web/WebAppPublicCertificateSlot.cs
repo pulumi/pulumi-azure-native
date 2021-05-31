@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Public certificate object
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPublicCertificateSlot")]
     public partial class WebAppPublicCertificateSlot : Pulumi.CustomResource

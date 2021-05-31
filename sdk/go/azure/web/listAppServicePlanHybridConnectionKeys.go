@@ -8,7 +8,7 @@ import (
 )
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppServicePlanHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListAppServicePlanHybridConnectionKeysResult, error) {
 	var rv ListAppServicePlanHybridConnectionKeysResult
 	err := ctx.Invoke("azure-native:web:listAppServicePlanHybridConnectionKeys", args, &rv, opts...)

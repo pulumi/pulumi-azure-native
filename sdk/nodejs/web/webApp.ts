@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export class WebApp extends pulumi.CustomResource {
     /**
@@ -84,10 +84,6 @@ export class WebApp extends pulumi.CustomResource {
      * the app is not served on those hostnames.
      */
     public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
-    /**
-     * Extended Location.
-     */
-    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
@@ -256,7 +252,6 @@ export class WebApp extends pulumi.CustomResource {
             inputs["customDomainVerificationId"] = args ? args.customDomainVerificationId : undefined;
             inputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
             inputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
             inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
@@ -308,7 +303,6 @@ export class WebApp extends pulumi.CustomResource {
             inputs["defaultHostName"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["enabledHostNames"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
             inputs["hostNameSslStates"] = undefined /*out*/;
             inputs["hostNames"] = undefined /*out*/;
             inputs["hostNamesDisabled"] = undefined /*out*/;
@@ -397,10 +391,6 @@ export interface WebAppArgs {
      * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Extended Location.
-     */
-    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */

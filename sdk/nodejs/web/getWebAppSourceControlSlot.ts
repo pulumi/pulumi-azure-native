@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Source control configuration for an app.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
     if (!opts) {

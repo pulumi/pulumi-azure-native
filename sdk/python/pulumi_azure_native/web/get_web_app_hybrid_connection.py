@@ -182,7 +182,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: The name of the web app.

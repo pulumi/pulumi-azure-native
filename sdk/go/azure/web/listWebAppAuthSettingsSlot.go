@@ -8,7 +8,7 @@ import (
 )
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppAuthSettingsSlot(ctx *pulumi.Context, args *ListWebAppAuthSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAuthSettingsSlotResult, error) {
 	var rv ListWebAppAuthSettingsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppAuthSettingsSlot", args, &rv, opts...)

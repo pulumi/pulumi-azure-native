@@ -170,7 +170,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,7 +196,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanRouteForVnetArgs args: The arguments to use to populate this resource's properties.

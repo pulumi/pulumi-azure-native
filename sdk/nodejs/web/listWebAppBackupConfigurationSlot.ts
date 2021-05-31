@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a backup which will be performed.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppBackupConfigurationSlot(args: ListWebAppBackupConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationSlotResult> {
     if (!opts) {

@@ -8,7 +8,7 @@ import (
 )
 
 // SSL certificate for an app.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:web:getCertificate", args, &rv, opts...)

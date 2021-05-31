@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A domain specific resource identifier.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
     if (!opts) {

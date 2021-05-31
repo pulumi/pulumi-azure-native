@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppMetadataSlot(args: ListWebAppMetadataSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataSlotResult> {
     if (!opts) {

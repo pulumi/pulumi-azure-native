@@ -8,7 +8,7 @@ import (
 )
 
 // Static Site ARM resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupStaticSite(ctx *pulumi.Context, args *LookupStaticSiteArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteResult, error) {
 	var rv LookupStaticSiteResult
 	err := ctx.Invoke("azure-native:web:getStaticSite", args, &rv, opts...)

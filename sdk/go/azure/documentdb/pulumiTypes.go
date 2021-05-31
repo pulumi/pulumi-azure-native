@@ -5945,6 +5945,305 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeRespo
 	}).(SeedNodeResponseArrayOutput)
 }
 
+// Resource for a regional service location.
+type DataTransferRegionalServiceResourceResponse struct {
+	// The location name.
+	Location string `pulumi:"location"`
+	// The regional service name.
+	Name string `pulumi:"name"`
+	// Describes the status of a service.
+	Status string `pulumi:"status"`
+}
+
+// DataTransferRegionalServiceResourceResponseInput is an input type that accepts DataTransferRegionalServiceResourceResponseArgs and DataTransferRegionalServiceResourceResponseOutput values.
+// You can construct a concrete instance of `DataTransferRegionalServiceResourceResponseInput` via:
+//
+//          DataTransferRegionalServiceResourceResponseArgs{...}
+type DataTransferRegionalServiceResourceResponseInput interface {
+	pulumi.Input
+
+	ToDataTransferRegionalServiceResourceResponseOutput() DataTransferRegionalServiceResourceResponseOutput
+	ToDataTransferRegionalServiceResourceResponseOutputWithContext(context.Context) DataTransferRegionalServiceResourceResponseOutput
+}
+
+// Resource for a regional service location.
+type DataTransferRegionalServiceResourceResponseArgs struct {
+	// The location name.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The regional service name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes the status of a service.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DataTransferRegionalServiceResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (i DataTransferRegionalServiceResourceResponseArgs) ToDataTransferRegionalServiceResourceResponseOutput() DataTransferRegionalServiceResourceResponseOutput {
+	return i.ToDataTransferRegionalServiceResourceResponseOutputWithContext(context.Background())
+}
+
+func (i DataTransferRegionalServiceResourceResponseArgs) ToDataTransferRegionalServiceResourceResponseOutputWithContext(ctx context.Context) DataTransferRegionalServiceResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransferRegionalServiceResourceResponseOutput)
+}
+
+// DataTransferRegionalServiceResourceResponseArrayInput is an input type that accepts DataTransferRegionalServiceResourceResponseArray and DataTransferRegionalServiceResourceResponseArrayOutput values.
+// You can construct a concrete instance of `DataTransferRegionalServiceResourceResponseArrayInput` via:
+//
+//          DataTransferRegionalServiceResourceResponseArray{ DataTransferRegionalServiceResourceResponseArgs{...} }
+type DataTransferRegionalServiceResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataTransferRegionalServiceResourceResponseArrayOutput() DataTransferRegionalServiceResourceResponseArrayOutput
+	ToDataTransferRegionalServiceResourceResponseArrayOutputWithContext(context.Context) DataTransferRegionalServiceResourceResponseArrayOutput
+}
+
+type DataTransferRegionalServiceResourceResponseArray []DataTransferRegionalServiceResourceResponseInput
+
+func (DataTransferRegionalServiceResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataTransferRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (i DataTransferRegionalServiceResourceResponseArray) ToDataTransferRegionalServiceResourceResponseArrayOutput() DataTransferRegionalServiceResourceResponseArrayOutput {
+	return i.ToDataTransferRegionalServiceResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataTransferRegionalServiceResourceResponseArray) ToDataTransferRegionalServiceResourceResponseArrayOutputWithContext(ctx context.Context) DataTransferRegionalServiceResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransferRegionalServiceResourceResponseArrayOutput)
+}
+
+// Resource for a regional service location.
+type DataTransferRegionalServiceResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (DataTransferRegionalServiceResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (o DataTransferRegionalServiceResourceResponseOutput) ToDataTransferRegionalServiceResourceResponseOutput() DataTransferRegionalServiceResourceResponseOutput {
+	return o
+}
+
+func (o DataTransferRegionalServiceResourceResponseOutput) ToDataTransferRegionalServiceResourceResponseOutputWithContext(ctx context.Context) DataTransferRegionalServiceResourceResponseOutput {
+	return o
+}
+
+// The location name.
+func (o DataTransferRegionalServiceResourceResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The regional service name.
+func (o DataTransferRegionalServiceResourceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the status of a service.
+func (o DataTransferRegionalServiceResourceResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferRegionalServiceResourceResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DataTransferRegionalServiceResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataTransferRegionalServiceResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataTransferRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (o DataTransferRegionalServiceResourceResponseArrayOutput) ToDataTransferRegionalServiceResourceResponseArrayOutput() DataTransferRegionalServiceResourceResponseArrayOutput {
+	return o
+}
+
+func (o DataTransferRegionalServiceResourceResponseArrayOutput) ToDataTransferRegionalServiceResourceResponseArrayOutputWithContext(ctx context.Context) DataTransferRegionalServiceResourceResponseArrayOutput {
+	return o
+}
+
+func (o DataTransferRegionalServiceResourceResponseArrayOutput) Index(i pulumi.IntInput) DataTransferRegionalServiceResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataTransferRegionalServiceResourceResponse {
+		return vs[0].([]DataTransferRegionalServiceResourceResponse)[vs[1].(int)]
+	}).(DataTransferRegionalServiceResourceResponseOutput)
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourceProperties struct {
+	// Instance count for the service.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize *string `pulumi:"instanceSize"`
+	// ServiceType for the service.
+	// Expected value is 'DataTransferServiceResourceProperties'.
+	ServiceType string `pulumi:"serviceType"`
+}
+
+// DataTransferServiceResourcePropertiesInput is an input type that accepts DataTransferServiceResourcePropertiesArgs and DataTransferServiceResourcePropertiesOutput values.
+// You can construct a concrete instance of `DataTransferServiceResourcePropertiesInput` via:
+//
+//          DataTransferServiceResourcePropertiesArgs{...}
+type DataTransferServiceResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput
+	ToDataTransferServiceResourcePropertiesOutputWithContext(context.Context) DataTransferServiceResourcePropertiesOutput
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourcePropertiesArgs struct {
+	// Instance count for the service.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
+	// ServiceType for the service.
+	// Expected value is 'DataTransferServiceResourceProperties'.
+	ServiceType pulumi.StringInput `pulumi:"serviceType"`
+}
+
+func (DataTransferServiceResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferServiceResourceProperties)(nil)).Elem()
+}
+
+func (i DataTransferServiceResourcePropertiesArgs) ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput {
+	return i.ToDataTransferServiceResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i DataTransferServiceResourcePropertiesArgs) ToDataTransferServiceResourcePropertiesOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransferServiceResourcePropertiesOutput)
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataTransferServiceResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferServiceResourceProperties)(nil)).Elem()
+}
+
+func (o DataTransferServiceResourcePropertiesOutput) ToDataTransferServiceResourcePropertiesOutput() DataTransferServiceResourcePropertiesOutput {
+	return o
+}
+
+func (o DataTransferServiceResourcePropertiesOutput) ToDataTransferServiceResourcePropertiesOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesOutput {
+	return o
+}
+
+// Instance count for the service.
+func (o DataTransferServiceResourcePropertiesOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataTransferServiceResourceProperties) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Instance type for the service.
+func (o DataTransferServiceResourcePropertiesOutput) InstanceSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataTransferServiceResourceProperties) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
+}
+
+// ServiceType for the service.
+// Expected value is 'DataTransferServiceResourceProperties'.
+func (o DataTransferServiceResourcePropertiesOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferServiceResourceProperties) string { return v.ServiceType }).(pulumi.StringOutput)
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourcePropertiesResponse struct {
+	// Time of the last state change (ISO-8601 format).
+	CreationTime string `pulumi:"creationTime"`
+	// Instance count for the service.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize *string `pulumi:"instanceSize"`
+	// An array that contains all of the locations for the service.
+	Locations []DataTransferRegionalServiceResourceResponse `pulumi:"locations"`
+	// ServiceType for the service.
+	// Expected value is 'DataTransferServiceResourceProperties'.
+	ServiceType string `pulumi:"serviceType"`
+	// Describes the status of a service.
+	Status string `pulumi:"status"`
+}
+
+// DataTransferServiceResourcePropertiesResponseInput is an input type that accepts DataTransferServiceResourcePropertiesResponseArgs and DataTransferServiceResourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `DataTransferServiceResourcePropertiesResponseInput` via:
+//
+//          DataTransferServiceResourcePropertiesResponseArgs{...}
+type DataTransferServiceResourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDataTransferServiceResourcePropertiesResponseOutput() DataTransferServiceResourcePropertiesResponseOutput
+	ToDataTransferServiceResourcePropertiesResponseOutputWithContext(context.Context) DataTransferServiceResourcePropertiesResponseOutput
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourcePropertiesResponseArgs struct {
+	// Time of the last state change (ISO-8601 format).
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// Instance count for the service.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
+	// An array that contains all of the locations for the service.
+	Locations DataTransferRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
+	// ServiceType for the service.
+	// Expected value is 'DataTransferServiceResourceProperties'.
+	ServiceType pulumi.StringInput `pulumi:"serviceType"`
+	// Describes the status of a service.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DataTransferServiceResourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferServiceResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i DataTransferServiceResourcePropertiesResponseArgs) ToDataTransferServiceResourcePropertiesResponseOutput() DataTransferServiceResourcePropertiesResponseOutput {
+	return i.ToDataTransferServiceResourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DataTransferServiceResourcePropertiesResponseArgs) ToDataTransferServiceResourcePropertiesResponseOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransferServiceResourcePropertiesResponseOutput)
+}
+
+// Properties for DataTransferServiceResource.
+type DataTransferServiceResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DataTransferServiceResourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransferServiceResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o DataTransferServiceResourcePropertiesResponseOutput) ToDataTransferServiceResourcePropertiesResponseOutput() DataTransferServiceResourcePropertiesResponseOutput {
+	return o
+}
+
+func (o DataTransferServiceResourcePropertiesResponseOutput) ToDataTransferServiceResourcePropertiesResponseOutputWithContext(ctx context.Context) DataTransferServiceResourcePropertiesResponseOutput {
+	return o
+}
+
+// Time of the last state change (ISO-8601 format).
+func (o DataTransferServiceResourcePropertiesResponseOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Instance count for the service.
+func (o DataTransferServiceResourcePropertiesResponseOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Instance type for the service.
+func (o DataTransferServiceResourcePropertiesResponseOutput) InstanceSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains all of the locations for the service.
+func (o DataTransferServiceResourcePropertiesResponseOutput) Locations() DataTransferRegionalServiceResourceResponseArrayOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) []DataTransferRegionalServiceResourceResponse {
+		return v.Locations
+	}).(DataTransferRegionalServiceResourceResponseArrayOutput)
+}
+
+// ServiceType for the service.
+// Expected value is 'DataTransferServiceResourceProperties'.
+func (o DataTransferServiceResourcePropertiesResponseOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.ServiceType }).(pulumi.StringOutput)
+}
+
+// Describes the status of a service.
+func (o DataTransferServiceResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransferServiceResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
 // Connection string for the Cosmos DB account
 type DatabaseAccountConnectionStringResponse struct {
 	// Value of the connection string
@@ -14398,6 +14697,336 @@ func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Resource for a regional service location.
+type SqlDedicatedGatewayRegionalServiceResourceResponse struct {
+	// The location name.
+	Location string `pulumi:"location"`
+	// The regional service name.
+	Name string `pulumi:"name"`
+	// The regional endpoint for SqlDedicatedGateway.
+	SqlDedicatedGatewayEndpoint string `pulumi:"sqlDedicatedGatewayEndpoint"`
+	// Describes the status of a service.
+	Status string `pulumi:"status"`
+}
+
+// SqlDedicatedGatewayRegionalServiceResourceResponseInput is an input type that accepts SqlDedicatedGatewayRegionalServiceResourceResponseArgs and SqlDedicatedGatewayRegionalServiceResourceResponseOutput values.
+// You can construct a concrete instance of `SqlDedicatedGatewayRegionalServiceResourceResponseInput` via:
+//
+//          SqlDedicatedGatewayRegionalServiceResourceResponseArgs{...}
+type SqlDedicatedGatewayRegionalServiceResourceResponseInput interface {
+	pulumi.Input
+
+	ToSqlDedicatedGatewayRegionalServiceResourceResponseOutput() SqlDedicatedGatewayRegionalServiceResourceResponseOutput
+	ToSqlDedicatedGatewayRegionalServiceResourceResponseOutputWithContext(context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseOutput
+}
+
+// Resource for a regional service location.
+type SqlDedicatedGatewayRegionalServiceResourceResponseArgs struct {
+	// The location name.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The regional service name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The regional endpoint for SqlDedicatedGateway.
+	SqlDedicatedGatewayEndpoint pulumi.StringInput `pulumi:"sqlDedicatedGatewayEndpoint"`
+	// Describes the status of a service.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SqlDedicatedGatewayRegionalServiceResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (i SqlDedicatedGatewayRegionalServiceResourceResponseArgs) ToSqlDedicatedGatewayRegionalServiceResourceResponseOutput() SqlDedicatedGatewayRegionalServiceResourceResponseOutput {
+	return i.ToSqlDedicatedGatewayRegionalServiceResourceResponseOutputWithContext(context.Background())
+}
+
+func (i SqlDedicatedGatewayRegionalServiceResourceResponseArgs) ToSqlDedicatedGatewayRegionalServiceResourceResponseOutputWithContext(ctx context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayRegionalServiceResourceResponseOutput)
+}
+
+// SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput is an input type that accepts SqlDedicatedGatewayRegionalServiceResourceResponseArray and SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput values.
+// You can construct a concrete instance of `SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput` via:
+//
+//          SqlDedicatedGatewayRegionalServiceResourceResponseArray{ SqlDedicatedGatewayRegionalServiceResourceResponseArgs{...} }
+type SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput() SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput
+	ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutputWithContext(context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput
+}
+
+type SqlDedicatedGatewayRegionalServiceResourceResponseArray []SqlDedicatedGatewayRegionalServiceResourceResponseInput
+
+func (SqlDedicatedGatewayRegionalServiceResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlDedicatedGatewayRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (i SqlDedicatedGatewayRegionalServiceResourceResponseArray) ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput() SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
+	return i.ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SqlDedicatedGatewayRegionalServiceResourceResponseArray) ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutputWithContext(ctx context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput)
+}
+
+// Resource for a regional service location.
+type SqlDedicatedGatewayRegionalServiceResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlDedicatedGatewayRegionalServiceResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) ToSqlDedicatedGatewayRegionalServiceResourceResponseOutput() SqlDedicatedGatewayRegionalServiceResourceResponseOutput {
+	return o
+}
+
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) ToSqlDedicatedGatewayRegionalServiceResourceResponseOutputWithContext(ctx context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseOutput {
+	return o
+}
+
+// The location name.
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The regional service name.
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The regional endpoint for SqlDedicatedGateway.
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) SqlDedicatedGatewayEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string {
+		return v.SqlDedicatedGatewayEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// Describes the status of a service.
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayRegionalServiceResourceResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlDedicatedGatewayRegionalServiceResourceResponse)(nil)).Elem()
+}
+
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput() SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
+	return o
+}
+
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) ToSqlDedicatedGatewayRegionalServiceResourceResponseArrayOutputWithContext(ctx context.Context) SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
+	return o
+}
+
+func (o SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput) Index(i pulumi.IntInput) SqlDedicatedGatewayRegionalServiceResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlDedicatedGatewayRegionalServiceResourceResponse {
+		return vs[0].([]SqlDedicatedGatewayRegionalServiceResourceResponse)[vs[1].(int)]
+	}).(SqlDedicatedGatewayRegionalServiceResourceResponseOutput)
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourceProperties struct {
+	// Instance count for the service.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize *string `pulumi:"instanceSize"`
+	// ServiceType for the service.
+	// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+	ServiceType string `pulumi:"serviceType"`
+	// SqlDedicatedGateway endpoint for the service.
+	SqlDedicatedGatewayEndpoint *string `pulumi:"sqlDedicatedGatewayEndpoint"`
+}
+
+// SqlDedicatedGatewayServiceResourcePropertiesInput is an input type that accepts SqlDedicatedGatewayServiceResourcePropertiesArgs and SqlDedicatedGatewayServiceResourcePropertiesOutput values.
+// You can construct a concrete instance of `SqlDedicatedGatewayServiceResourcePropertiesInput` via:
+//
+//          SqlDedicatedGatewayServiceResourcePropertiesArgs{...}
+type SqlDedicatedGatewayServiceResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput
+	ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourcePropertiesArgs struct {
+	// Instance count for the service.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
+	// ServiceType for the service.
+	// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+	ServiceType pulumi.StringInput `pulumi:"serviceType"`
+	// SqlDedicatedGateway endpoint for the service.
+	SqlDedicatedGatewayEndpoint pulumi.StringPtrInput `pulumi:"sqlDedicatedGatewayEndpoint"`
+}
+
+func (SqlDedicatedGatewayServiceResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourceProperties)(nil)).Elem()
+}
+
+func (i SqlDedicatedGatewayServiceResourcePropertiesArgs) ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput {
+	return i.ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i SqlDedicatedGatewayServiceResourcePropertiesArgs) ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayServiceResourcePropertiesOutput)
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SqlDedicatedGatewayServiceResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourceProperties)(nil)).Elem()
+}
+
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ToSqlDedicatedGatewayServiceResourcePropertiesOutput() SqlDedicatedGatewayServiceResourcePropertiesOutput {
+	return o
+}
+
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ToSqlDedicatedGatewayServiceResourcePropertiesOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesOutput {
+	return o
+}
+
+// Instance count for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Instance type for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) InstanceSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
+}
+
+// ServiceType for the service.
+// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) string { return v.ServiceType }).(pulumi.StringOutput)
+}
+
+// SqlDedicatedGateway endpoint for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesOutput) SqlDedicatedGatewayEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourceProperties) *string { return v.SqlDedicatedGatewayEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourcePropertiesResponse struct {
+	// Time of the last state change (ISO-8601 format).
+	CreationTime string `pulumi:"creationTime"`
+	// Instance count for the service.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize *string `pulumi:"instanceSize"`
+	// An array that contains all of the locations for the service.
+	Locations []SqlDedicatedGatewayRegionalServiceResourceResponse `pulumi:"locations"`
+	// ServiceType for the service.
+	// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+	ServiceType string `pulumi:"serviceType"`
+	// SqlDedicatedGateway endpoint for the service.
+	SqlDedicatedGatewayEndpoint *string `pulumi:"sqlDedicatedGatewayEndpoint"`
+	// Describes the status of a service.
+	Status string `pulumi:"status"`
+}
+
+// SqlDedicatedGatewayServiceResourcePropertiesResponseInput is an input type that accepts SqlDedicatedGatewayServiceResourcePropertiesResponseArgs and SqlDedicatedGatewayServiceResourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `SqlDedicatedGatewayServiceResourcePropertiesResponseInput` via:
+//
+//          SqlDedicatedGatewayServiceResourcePropertiesResponseArgs{...}
+type SqlDedicatedGatewayServiceResourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutput() SqlDedicatedGatewayServiceResourcePropertiesResponseOutput
+	ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutputWithContext(context.Context) SqlDedicatedGatewayServiceResourcePropertiesResponseOutput
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourcePropertiesResponseArgs struct {
+	// Time of the last state change (ISO-8601 format).
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// Instance count for the service.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Instance type for the service.
+	InstanceSize pulumi.StringPtrInput `pulumi:"instanceSize"`
+	// An array that contains all of the locations for the service.
+	Locations SqlDedicatedGatewayRegionalServiceResourceResponseArrayInput `pulumi:"locations"`
+	// ServiceType for the service.
+	// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+	ServiceType pulumi.StringInput `pulumi:"serviceType"`
+	// SqlDedicatedGateway endpoint for the service.
+	SqlDedicatedGatewayEndpoint pulumi.StringPtrInput `pulumi:"sqlDedicatedGatewayEndpoint"`
+	// Describes the status of a service.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SqlDedicatedGatewayServiceResourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i SqlDedicatedGatewayServiceResourcePropertiesResponseArgs) ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutput() SqlDedicatedGatewayServiceResourcePropertiesResponseOutput {
+	return i.ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SqlDedicatedGatewayServiceResourcePropertiesResponseArgs) ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayServiceResourcePropertiesResponseOutput)
+}
+
+// Properties for SqlDedicatedGatewayServiceResource.
+type SqlDedicatedGatewayServiceResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDedicatedGatewayServiceResourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutput() SqlDedicatedGatewayServiceResourcePropertiesResponseOutput {
+	return o
+}
+
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ToSqlDedicatedGatewayServiceResourcePropertiesResponseOutputWithContext(ctx context.Context) SqlDedicatedGatewayServiceResourcePropertiesResponseOutput {
+	return o
+}
+
+// Time of the last state change (ISO-8601 format).
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Instance count for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Instance type for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) InstanceSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *string { return v.InstanceSize }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains all of the locations for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) Locations() SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) []SqlDedicatedGatewayRegionalServiceResourceResponse {
+		return v.Locations
+	}).(SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput)
+}
+
+// ServiceType for the service.
+// Expected value is 'SqlDedicatedGatewayServiceResourceProperties'.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.ServiceType }).(pulumi.StringOutput)
+}
+
+// SqlDedicatedGateway endpoint for the service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) SqlDedicatedGatewayEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) *string {
+		return v.SqlDedicatedGatewayEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the status of a service.
+func (o SqlDedicatedGatewayServiceResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDedicatedGatewayServiceResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
 type SqlStoredProcedureGetPropertiesResponseResource struct {
 	// Body of the Stored Procedure
 	Body *string `pulumi:"body"`
@@ -16883,6 +17512,10 @@ func init() {
 	pulumi.RegisterOutputType(DataCenterResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataTransferRegionalServiceResourceResponseOutput{})
+	pulumi.RegisterOutputType(DataTransferRegionalServiceResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataTransferServiceResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(DataTransferServiceResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
@@ -16995,6 +17628,10 @@ func init() {
 	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourcePtrOutput{})
+	pulumi.RegisterOutputType(SqlDedicatedGatewayRegionalServiceResourceResponseOutput{})
+	pulumi.RegisterOutputType(SqlDedicatedGatewayRegionalServiceResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SqlDedicatedGatewayServiceResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(SqlDedicatedGatewayServiceResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourceOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureResourceOutput{})

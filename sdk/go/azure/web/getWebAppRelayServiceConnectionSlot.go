@@ -8,7 +8,7 @@ import (
 )
 
 // Hybrid Connection for an App Service app.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionSlotResult, error) {
 	var rv LookupWebAppRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppRelayServiceConnectionSlot", args, &rv, opts...)

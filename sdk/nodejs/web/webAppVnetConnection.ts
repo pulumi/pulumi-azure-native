@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network information contract.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppVnetConnection extends pulumi.CustomResource {
     /**

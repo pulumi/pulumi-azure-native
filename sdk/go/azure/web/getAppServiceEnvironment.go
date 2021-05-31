@@ -8,7 +8,7 @@ import (
 )
 
 // App Service Environment ARM resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceEnvironmentResult, error) {
 	var rv LookupAppServiceEnvironmentResult
 	err := ctx.Invoke("azure-native:web:getAppServiceEnvironment", args, &rv, opts...)

@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppApplicationSettings(ctx *pulumi.Context, args *ListWebAppApplicationSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsResult, error) {
 	var rv ListWebAppApplicationSettingsResult
 	err := ctx.Invoke("azure-native:web:listWebAppApplicationSettings", args, &rv, opts...)

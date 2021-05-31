@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public certificate object
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
     if (!opts) {

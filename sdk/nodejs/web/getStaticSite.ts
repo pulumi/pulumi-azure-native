@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site ARM resource.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
     if (!opts) {

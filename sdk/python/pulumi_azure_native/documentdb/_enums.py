@@ -23,6 +23,8 @@ __all__ = [
     'ResourceIdentityType',
     'RoleDefinitionType',
     'ServerVersion',
+    'ServiceSize',
+    'ServiceType',
     'SpatialType',
     'TriggerOperation',
     'TriggerType',
@@ -187,6 +189,23 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
+
+
+class ServiceSize(str, Enum):
+    """
+    Instance type for the service.
+    """
+    COSMOS_D4S = "Cosmos.D4s"
+    COSMOS_D8S = "Cosmos.D8s"
+    COSMOS_D16S = "Cosmos.D16s"
+
+
+class ServiceType(str, Enum):
+    """
+    ServiceType for the service.
+    """
+    SQL_DEDICATED_GATEWAY = "SqlDedicatedGateway"
+    DATA_TRANSFER = "DataTransfer"
 
 
 class SpatialType(str, Enum):

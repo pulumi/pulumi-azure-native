@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppMetadata(ctx *pulumi.Context, args *ListWebAppMetadataArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataResult, error) {
 	var rv ListWebAppMetadataResult
 	err := ctx.Invoke("azure-native:web:listWebAppMetadata", args, &rv, opts...)

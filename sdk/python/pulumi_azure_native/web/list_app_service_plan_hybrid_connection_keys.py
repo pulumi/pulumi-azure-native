@@ -109,7 +109,7 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
     Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the App Service plan.

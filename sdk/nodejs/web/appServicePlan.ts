@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -36,10 +36,6 @@ export class AppServicePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServicePlan.__pulumiType;
     }
 
-    /**
-     * Extended Location.
-     */
-    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * The time when the server farm free offer expires.
      */
@@ -160,7 +156,6 @@ export class AppServicePlan extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
             inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
             inputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
@@ -189,7 +184,6 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["subscription"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["extendedLocation"] = undefined /*out*/;
             inputs["freeOfferExpirationTime"] = undefined /*out*/;
             inputs["geoRegion"] = undefined /*out*/;
             inputs["hostingEnvironmentProfile"] = undefined /*out*/;
@@ -230,10 +224,6 @@ export class AppServicePlan extends pulumi.CustomResource {
  * The set of arguments for constructing a AppServicePlan resource.
  */
 export interface AppServicePlanArgs {
-    /**
-     * Extended Location.
-     */
-    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
     /**
      * The time when the server farm free offer expires.
      */

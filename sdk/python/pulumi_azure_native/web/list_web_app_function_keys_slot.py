@@ -97,7 +97,7 @@ def list_web_app_function_keys_slot(function_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionKeysSlotResult:
     """
     String dictionary resource.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str function_name: Function name.

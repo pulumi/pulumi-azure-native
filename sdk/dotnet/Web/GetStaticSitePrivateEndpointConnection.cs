@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Remote Private Endpoint Connection ARM resource.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStaticSitePrivateEndpointConnectionResult> InvokeAsync(GetStaticSitePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithVersion());

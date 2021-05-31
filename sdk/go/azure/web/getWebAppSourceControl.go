@@ -8,7 +8,7 @@ import (
 )
 
 // Source control configuration for an app.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppSourceControl(ctx *pulumi.Context, args *LookupWebAppSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlResult, error) {
 	var rv LookupWebAppSourceControlResult
 	err := ctx.Invoke("azure-native:web:getWebAppSourceControl", args, &rv, opts...)

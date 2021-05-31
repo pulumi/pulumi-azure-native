@@ -7,10 +7,27 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./aciservice";
 export * from "./aksservice";
+export * from "./batchDeployment";
+export * from "./batchEndpoint";
+export * from "./codeContainer";
+export * from "./codeVersion";
+export * from "./dataContainer";
+export * from "./dataVersion";
 export * from "./endpointVariant";
+export * from "./environmentContainer";
+export * from "./environmentSpecificationVersion";
 export * from "./getACIService";
 export * from "./getAKSService";
+export * from "./getBatchDeployment";
+export * from "./getBatchEndpoint";
+export * from "./getCodeContainer";
+export * from "./getCodeVersion";
+export * from "./getDataContainer";
+export * from "./getDataVersion";
 export * from "./getEndpointVariant";
+export * from "./getEnvironmentContainer";
+export * from "./getEnvironmentSpecificationVersion";
+export * from "./getJob";
 export * from "./getLabelingJob";
 export * from "./getLinkedService";
 export * from "./getLinkedWorkspace";
@@ -18,15 +35,24 @@ export * from "./getMachineLearningCompute";
 export * from "./getMachineLearningDataset";
 export * from "./getMachineLearningDatastore";
 export * from "./getMachineLearningService";
+export * from "./getModelContainer";
+export * from "./getModelVersion";
+export * from "./getOnlineDeployment";
+export * from "./getOnlineDeploymentLogs";
+export * from "./getOnlineEndpoint";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getWorkspaceConnection";
+export * from "./job";
 export * from "./labelingJob";
 export * from "./linkedService";
 export * from "./linkedWorkspace";
+export * from "./listBatchEndpointKeys";
+export * from "./listDatastoreSecrets";
 export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
 export * from "./listNotebookKeys";
+export * from "./listOnlineEndpointKeys";
 export * from "./listStorageAccountKeys";
 export * from "./listWorkspaceKeys";
 export * from "./listWorkspaceNotebookAccessToken";
@@ -34,6 +60,10 @@ export * from "./machineLearningCompute";
 export * from "./machineLearningDataset";
 export * from "./machineLearningDatastore";
 export * from "./machineLearningService";
+export * from "./modelContainer";
+export * from "./modelVersion";
+export * from "./onlineDeployment";
+export * from "./onlineEndpoint";
 export * from "./privateEndpointConnection";
 export * from "./workspace";
 export * from "./workspaceConnection";
@@ -83,7 +113,16 @@ export {
 // Import resources to register:
 import { ACIService } from "./aciservice";
 import { AKSService } from "./aksservice";
+import { BatchDeployment } from "./batchDeployment";
+import { BatchEndpoint } from "./batchEndpoint";
+import { CodeContainer } from "./codeContainer";
+import { CodeVersion } from "./codeVersion";
+import { DataContainer } from "./dataContainer";
+import { DataVersion } from "./dataVersion";
 import { EndpointVariant } from "./endpointVariant";
+import { EnvironmentContainer } from "./environmentContainer";
+import { EnvironmentSpecificationVersion } from "./environmentSpecificationVersion";
+import { Job } from "./job";
 import { LabelingJob } from "./labelingJob";
 import { LinkedService } from "./linkedService";
 import { LinkedWorkspace } from "./linkedWorkspace";
@@ -91,6 +130,10 @@ import { MachineLearningCompute } from "./machineLearningCompute";
 import { MachineLearningDataset } from "./machineLearningDataset";
 import { MachineLearningDatastore } from "./machineLearningDatastore";
 import { MachineLearningService } from "./machineLearningService";
+import { ModelContainer } from "./modelContainer";
+import { ModelVersion } from "./modelVersion";
+import { OnlineDeployment } from "./onlineDeployment";
+import { OnlineEndpoint } from "./onlineEndpoint";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Workspace } from "./workspace";
 import { WorkspaceConnection } from "./workspaceConnection";
@@ -103,8 +146,26 @@ const _module = {
                 return new ACIService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:AKSService":
                 return new AKSService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:BatchDeployment":
+                return new BatchDeployment(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:BatchEndpoint":
+                return new BatchEndpoint(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:CodeContainer":
+                return new CodeContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:CodeVersion":
+                return new CodeVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:DataContainer":
+                return new DataContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:DataVersion":
+                return new DataVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:EndpointVariant":
                 return new EndpointVariant(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:EnvironmentContainer":
+                return new EnvironmentContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:EnvironmentSpecificationVersion":
+                return new EnvironmentSpecificationVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Job":
+                return new Job(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LinkedService":
@@ -119,6 +180,14 @@ const _module = {
                 return new MachineLearningDatastore(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:MachineLearningService":
                 return new MachineLearningService(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ModelContainer":
+                return new ModelContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ModelVersion":
+                return new ModelVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:OnlineDeployment":
+                return new OnlineDeployment(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:OnlineEndpoint":
+                return new OnlineEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Workspace":

@@ -6,21 +6,38 @@ from enum import Enum
 
 __all__ = [
     'ApplicationSharingPolicy',
+    'BatchLoggingLevel',
+    'BatchOutputAction',
     'ClusterPurpose',
     'ComputeEnvironmentType',
     'ComputeInstanceAuthorizationType',
     'ComputeType',
+    'ContainerType',
+    'DataBindingMode',
     'DatasetType',
     'DatastoreTypeArm',
+    'DistributionType',
+    'DockerSpecificationType',
+    'EarlyTerminationPolicyType',
     'EncryptionStatus',
+    'EndpointAuthMode',
+    'EndpointComputeType',
+    'Goal',
     'Header',
+    'IdentityConfigurationType',
     'ImageAnnotationType',
+    'JobType',
     'LinkedServiceLinkType',
     'MediaType',
+    'OperatingSystemType',
     'OsType',
     'PrivateEndpointServiceConnectionStatus',
+    'ReferenceType',
     'RemoteLoginPortPublicAccess',
+    'ResourceIdentityAssignment',
     'ResourceIdentityType',
+    'SamplingAlgorithm',
+    'ScaleType',
     'SourceType',
     'SshPublicAccess',
     'ValueFormat',
@@ -35,6 +52,23 @@ class ApplicationSharingPolicy(str, Enum):
     """
     PERSONAL = "Personal"
     SHARED = "Shared"
+
+
+class BatchLoggingLevel(str, Enum):
+    """
+    Logging level for batch inference operation.
+    """
+    INFO = "Info"
+    WARNING = "Warning"
+    DEBUG = "Debug"
+
+
+class BatchOutputAction(str, Enum):
+    """
+    Indicates how the output will be organized.
+    """
+    SUMMARY_ONLY = "SummaryOnly"
+    APPEND_ROW = "AppendRow"
 
 
 class ClusterPurpose(str, Enum):
@@ -75,6 +109,23 @@ class ComputeType(str, Enum):
     DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
 
 
+class ContainerType(str, Enum):
+    """
+    The type of container to retrieve logs from.
+    """
+    STORAGE_INITIALIZER = "StorageInitializer"
+    INFERENCE_SERVER = "InferenceServer"
+
+
+class DataBindingMode(str, Enum):
+    """
+    Mechanism for data movement to datastore.
+    """
+    MOUNT = "Mount"
+    DOWNLOAD = "Download"
+    UPLOAD = "Upload"
+
+
 class DatasetType(str, Enum):
     """
     Specifies dataset type.
@@ -97,12 +148,64 @@ class DatastoreTypeArm(str, Enum):
     PSQLDB = "psqldb"
 
 
+class DistributionType(str, Enum):
+    """
+    Specifies the type of distribution framework.
+    """
+    PY_TORCH = "PyTorch"
+    TENSOR_FLOW = "TensorFlow"
+    MPI = "Mpi"
+
+
+class DockerSpecificationType(str, Enum):
+    """
+    Docker specification must be either Build or Image
+    """
+    BUILD = "Build"
+    IMAGE = "Image"
+
+
+class EarlyTerminationPolicyType(str, Enum):
+    """
+    Name of policy configuration
+    """
+    BANDIT = "Bandit"
+    MEDIAN_STOPPING = "MedianStopping"
+    TRUNCATION_SELECTION = "TruncationSelection"
+
+
 class EncryptionStatus(str, Enum):
     """
     Indicates whether or not the encryption is enabled for the workspace.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class EndpointAuthMode(str, Enum):
+    """
+    Inference endpoint authentication mode type
+    """
+    AML_TOKEN = "AMLToken"
+    KEY = "Key"
+    AAD_TOKEN = "AADToken"
+
+
+class EndpointComputeType(str, Enum):
+    """
+    The compute type of the endpoint.
+    """
+    MANAGED = "Managed"
+    K8_S = "K8S"
+    AZURE_ML_COMPUTE = "AzureMLCompute"
+
+
+class Goal(str, Enum):
+    """
+    Defines supported metric goals for hyperparameter tuning
+    """
+    MINIMIZE = "Minimize"
+    MAXIMIZE = "Maximize"
 
 
 class Header(str, Enum):
@@ -115,6 +218,14 @@ class Header(str, Enum):
     COMBINE_ALL_FILES_HEADERS = "combine_all_files_headers"
 
 
+class IdentityConfigurationType(str, Enum):
+    """
+    Specifies the type of identity framework.
+    """
+    MANAGED = "Managed"
+    AML_TOKEN = "AMLToken"
+
+
 class ImageAnnotationType(str, Enum):
     """
     Annotation type of image labeling tasks.
@@ -122,6 +233,15 @@ class ImageAnnotationType(str, Enum):
     CLASSIFICATION = "Classification"
     BOUNDING_BOX = "BoundingBox"
     INSTANCE_SEGMENTATION = "InstanceSegmentation"
+
+
+class JobType(str, Enum):
+    """
+    Specifies the type of job.
+    """
+    COMMAND = "Command"
+    SWEEP = "Sweep"
+    LABELING = "Labeling"
 
 
 class LinkedServiceLinkType(str, Enum):
@@ -137,6 +257,14 @@ class MediaType(str, Enum):
     """
     IMAGE = "Image"
     TEXT = "Text"
+
+
+class OperatingSystemType(str, Enum):
+    """
+    The OS type the Environment.
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
 
 
 class OsType(str, Enum):
@@ -158,6 +286,15 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     TIMEOUT = "Timeout"
 
 
+class ReferenceType(str, Enum):
+    """
+    Specifies the type of asset reference.
+    """
+    ID = "Id"
+    DATA_PATH = "DataPath"
+    OUTPUT_PATH = "OutputPath"
+
+
 class RemoteLoginPortPublicAccess(str, Enum):
     """
     State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
@@ -165,6 +302,16 @@ class RemoteLoginPortPublicAccess(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     NOT_SPECIFIED = "NotSpecified"
+
+
+class ResourceIdentityAssignment(str, Enum):
+    """
+    Defines values for a ResourceIdentity's type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+    NONE = "None"
 
 
 class ResourceIdentityType(str, Enum):
@@ -175,6 +322,20 @@ class ResourceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
     USER_ASSIGNED = "UserAssigned"
     NONE = "None"
+
+
+class SamplingAlgorithm(str, Enum):
+    """
+    Type of the hyperparameter sampling algorithms
+    """
+    GRID = "Grid"
+    RANDOM = "Random"
+    BAYESIAN = "Bayesian"
+
+
+class ScaleType(str, Enum):
+    AUTO = "Auto"
+    MANUAL = "Manual"
 
 
 class SourceType(str, Enum):

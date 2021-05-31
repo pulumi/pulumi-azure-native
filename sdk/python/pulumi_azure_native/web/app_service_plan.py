@@ -16,7 +16,6 @@ __all__ = ['AppServicePlanArgs', 'AppServicePlan']
 class AppServicePlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -38,7 +37,6 @@ class AppServicePlanArgs:
         """
         The set of arguments for constructing a AppServicePlan resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input['HostingEnvironmentProfileArgs'] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
@@ -60,8 +58,6 @@ class AppServicePlanArgs:
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
         if free_offer_expiration_time is not None:
             pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
         if hosting_environment_profile is not None:
@@ -118,18 +114,6 @@ class AppServicePlanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
-        """
-        Extended Location.
-        """
-        return pulumi.get(self, "extended_location")
-
-    @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
-        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
@@ -354,7 +338,6 @@ class AppServicePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -377,11 +360,10 @@ class AppServicePlan(pulumi.CustomResource):
                  __props__=None):
         """
         App Service plan.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Extended Location.
         :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
         :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
         :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
@@ -411,7 +393,7 @@ class AppServicePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App Service plan.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.
@@ -428,7 +410,6 @@ class AppServicePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  hyper_v: Optional[pulumi.Input[bool]] = None,
@@ -460,7 +441,6 @@ class AppServicePlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
-            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["free_offer_expiration_time"] = free_offer_expiration_time
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
             if hyper_v is None:
@@ -522,7 +502,6 @@ class AppServicePlan(pulumi.CustomResource):
 
         __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
-        __props__.__dict__["extended_location"] = None
         __props__.__dict__["free_offer_expiration_time"] = None
         __props__.__dict__["geo_region"] = None
         __props__.__dict__["hosting_environment_profile"] = None
@@ -550,14 +529,6 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_tier_name"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
-        """
-        Extended Location.
-        """
-        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")

@@ -8,7 +8,7 @@ import (
 )
 
 // Functions host level keys.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppHostKeysSlot(ctx *pulumi.Context, args *ListWebAppHostKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysSlotResult, error) {
 	var rv ListWebAppHostKeysSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppHostKeysSlot", args, &rv, opts...)

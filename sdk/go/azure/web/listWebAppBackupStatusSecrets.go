@@ -8,7 +8,7 @@ import (
 )
 
 // Backup description.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
 	var rv ListWebAppBackupStatusSecretsResult
 	err := ctx.Invoke("azure-native:web:listWebAppBackupStatusSecrets", args, &rv, opts...)

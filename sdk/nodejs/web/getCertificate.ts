@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * SSL certificate for an app.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {

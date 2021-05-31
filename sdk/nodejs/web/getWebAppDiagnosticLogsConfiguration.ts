@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration of App Service site logs.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationResult> {
     if (!opts) {

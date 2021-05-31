@@ -143,7 +143,7 @@ def list_web_app_publishing_credentials(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsResult:
     """
     User credentials used for publishing activity.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

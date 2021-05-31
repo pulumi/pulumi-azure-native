@@ -8,7 +8,7 @@ import (
 )
 
 // A hostname binding object.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingResult, error) {
 	var rv LookupWebAppHostNameBindingResult
 	err := ctx.Invoke("azure-native:web:getWebAppHostNameBinding", args, &rv, opts...)

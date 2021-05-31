@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Remote Private Endpoint Connection ARM resource.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppPrivateEndpointConnection(args: GetWebAppPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionResult> {
     if (!opts) {

@@ -8,7 +8,7 @@ import (
 )
 
 // Collection of static site custom users.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteUsersResult, error) {
 	var rv ListStaticSiteUsersResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteUsers", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // AzureStorageInfo dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type WebAppAzureStorageAccounts struct {
 	pulumi.CustomResourceState
 

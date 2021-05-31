@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Functions host level keys.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppHostKeys(args: ListWebAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHostKeysResult> {
     if (!opts) {

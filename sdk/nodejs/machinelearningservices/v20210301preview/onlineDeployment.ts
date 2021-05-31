@@ -110,7 +110,7 @@ export class OnlineDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20210301preview:OnlineDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20210301preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices:OnlineDeployment" }, { type: "azure-nextgen:machinelearningservices:OnlineDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineDeployment.__pulumiType, name, inputs, opts);
     }

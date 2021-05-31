@@ -95,7 +95,7 @@ def list_static_site_configured_roles(name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteConfiguredRolesResult:
     """
     String list resource.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the static site.

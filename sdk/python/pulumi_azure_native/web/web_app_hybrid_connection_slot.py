@@ -245,7 +245,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,7 +272,7 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
-        API Version: 2021-01-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppHybridConnectionSlotArgs args: The arguments to use to populate this resource's properties.

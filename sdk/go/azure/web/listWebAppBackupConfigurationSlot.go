@@ -8,7 +8,7 @@ import (
 )
 
 // Description of a backup which will be performed.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppBackupConfigurationSlot(ctx *pulumi.Context, args *ListWebAppBackupConfigurationSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationSlotResult, error) {
 	var rv ListWebAppBackupConfigurationSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppBackupConfigurationSlot", args, &rv, opts...)

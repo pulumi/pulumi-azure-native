@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysSlotResult, error) {
 	var rv ListWebAppFunctionKeysSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppFunctionKeysSlot", args, &rv, opts...)

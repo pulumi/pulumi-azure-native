@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

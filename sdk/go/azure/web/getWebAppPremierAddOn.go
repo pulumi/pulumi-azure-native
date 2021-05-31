@@ -8,7 +8,7 @@ import (
 )
 
 // Premier add-on.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebAppPremierAddOn(ctx *pulumi.Context, args *LookupWebAppPremierAddOnArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnResult, error) {
 	var rv LookupWebAppPremierAddOnResult
 	err := ctx.Invoke("azure-native:web:getWebAppPremierAddOn", args, &rv, opts...)

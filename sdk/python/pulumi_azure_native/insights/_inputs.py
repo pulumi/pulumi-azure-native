@@ -27,6 +27,7 @@ __all__ = [
     'AzureAppPushReceiverArgs',
     'AzureFunctionReceiverArgs',
     'CriteriaArgs',
+    'DataCollectionEndpointNetworkAclsArgs',
     'DataCollectionRuleDataSourcesArgs',
     'DataCollectionRuleDestinationsArgs',
     'DataFlowArgs',
@@ -1173,6 +1174,30 @@ class CriteriaArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
+
+
+@pulumi.input_type
+class DataCollectionEndpointNetworkAclsArgs:
+    def __init__(__self__, *,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']]] = None):
+        """
+        Network access control rules for the endpoints.
+        :param pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']] public_network_access: The configuration to set whether network access from public internet to the endpoints are allowed.
+        """
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']]]:
+        """
+        The configuration to set whether network access from public internet to the endpoints are allowed.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'KnownPublicNetworkAccessOptions']]]):
+        pulumi.set(self, "public_network_access", value)
 
 
 @pulumi.input_type

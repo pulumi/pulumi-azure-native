@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListStaticSiteBuildAppSettings(ctx *pulumi.Context, args *ListStaticSiteBuildAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteBuildAppSettingsResult, error) {
 	var rv ListStaticSiteBuildAppSettingsResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteBuildAppSettings", args, &rv, opts...)

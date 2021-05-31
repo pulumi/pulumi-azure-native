@@ -96,7 +96,7 @@ def list_static_site_build_function_app_settings(environment_name: Optional[str]
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteBuildFunctionAppSettingsResult:
     """
     String dictionary resource.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str environment_name: The stage site identifier.

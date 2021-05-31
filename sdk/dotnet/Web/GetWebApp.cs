@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// A web app, a mobile app backend, or an API app.
-        /// API Version: 2021-01-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppArgs(), options.WithVersion());
@@ -91,10 +91,6 @@ namespace Pulumi.AzureNative.Web
         /// the app is not served on those hostnames.
         /// </summary>
         public readonly ImmutableArray<string> EnabledHostNames;
-        /// <summary>
-        /// Extended Location.
-        /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
@@ -268,8 +264,6 @@ namespace Pulumi.AzureNative.Web
 
             ImmutableArray<string> enabledHostNames,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
-
             ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
 
             ImmutableArray<string> hostNames,
@@ -353,7 +347,6 @@ namespace Pulumi.AzureNative.Web
             DefaultHostName = defaultHostName;
             Enabled = enabled;
             EnabledHostNames = enabledHostNames;
-            ExtendedLocation = extendedLocation;
             HostNameSslStates = hostNameSslStates;
             HostNames = hostNames;
             HostNamesDisabled = hostNamesDisabled;

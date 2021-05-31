@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service Environment ARM resource.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**

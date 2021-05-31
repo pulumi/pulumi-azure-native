@@ -193,7 +193,7 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHostNameBindingSlotResult:
     """
     A hostname binding object.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str host_name: Hostname in the hostname binding.

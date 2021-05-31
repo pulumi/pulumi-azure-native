@@ -12,7 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 
@@ -42,8 +42,6 @@ type WebAppSlot struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames pulumi.StringArrayOutput `pulumi:"enabledHostNames"`
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates HostNameSslStateResponseArrayOutput `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.
@@ -259,8 +257,6 @@ type webAppSlotState struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames []string `pulumi:"enabledHostNames"`
-	// Extended Location.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.
@@ -364,8 +360,6 @@ type WebAppSlotState struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames pulumi.StringArrayInput
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrInput
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates HostNameSslStateResponseArrayInput
 	// Hostnames associated with the app.
@@ -468,8 +462,6 @@ type webAppSlotArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
 	Enabled *bool `pulumi:"enabled"`
-	// Extended Location.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
 	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
@@ -540,8 +532,6 @@ type WebAppSlotArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
 	Enabled pulumi.BoolPtrInput
-	// Extended Location.
-	ExtendedLocation ExtendedLocationPtrInput
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates HostNameSslStateArrayInput
 	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.

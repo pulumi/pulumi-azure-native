@@ -8,7 +8,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func LookupWebApp(ctx *pulumi.Context, args *LookupWebAppArgs, opts ...pulumi.InvokeOption) (*LookupWebAppResult, error) {
 	var rv LookupWebAppResult
 	err := ctx.Invoke("azure-native:web:getWebApp", args, &rv, opts...)
@@ -53,8 +53,6 @@ type LookupWebAppResult struct {
 	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
 	// the app is not served on those hostnames.
 	EnabledHostNames []string `pulumi:"enabledHostNames"`
-	// Extended Location.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
 	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.

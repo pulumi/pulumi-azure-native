@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
     if (!opts) {
@@ -86,10 +86,6 @@ export interface GetWebAppResult {
      * the app is not served on those hostnames.
      */
     readonly enabledHostNames: string[];
-    /**
-     * Extended Location.
-     */
-    readonly extendedLocation?: outputs.web.ExtendedLocationResponse;
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */

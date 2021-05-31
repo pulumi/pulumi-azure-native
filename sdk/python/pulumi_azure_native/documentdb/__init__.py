@@ -22,6 +22,7 @@ from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
 from .get_notebook_workspace import *
 from .get_private_endpoint_connection import *
+from .get_service import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
 from .get_sql_resource_sql_role_assignment import *
@@ -39,6 +40,7 @@ from .mongo_db_resource_mongo_db_collection import *
 from .mongo_db_resource_mongo_db_database import *
 from .notebook_workspace import *
 from .private_endpoint_connection import *
+from .service import *
 from .sql_resource_sql_container import *
 from .sql_resource_sql_database import *
 from .sql_resource_sql_role_assignment import *

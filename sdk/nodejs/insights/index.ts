@@ -13,6 +13,7 @@ export * from "./autoscaleSetting";
 export * from "./component";
 export * from "./componentCurrentBillingFeature";
 export * from "./componentLinkedStorageAccount";
+export * from "./dataCollectionEndpoint";
 export * from "./dataCollectionRule";
 export * from "./dataCollectionRuleAssociation";
 export * from "./diagnosticSetting";
@@ -26,6 +27,7 @@ export * from "./getAutoscaleSetting";
 export * from "./getComponent";
 export * from "./getComponentCurrentBillingFeature";
 export * from "./getComponentLinkedStorageAccount";
+export * from "./getDataCollectionEndpoint";
 export * from "./getDataCollectionRule";
 export * from "./getDataCollectionRuleAssociation";
 export * from "./getDiagnosticSetting";
@@ -139,6 +141,7 @@ import { AutoscaleSetting } from "./autoscaleSetting";
 import { Component } from "./component";
 import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature";
 import { ComponentLinkedStorageAccount } from "./componentLinkedStorageAccount";
+import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
 import { DataCollectionRule } from "./dataCollectionRule";
 import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
 import { DiagnosticSetting } from "./diagnosticSetting";
@@ -180,6 +183,8 @@ const _module = {
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
             case "azure-native:insights:ComponentLinkedStorageAccount":
                 return new ComponentLinkedStorageAccount(name, <any>undefined, { urn })
+            case "azure-native:insights:DataCollectionEndpoint":
+                return new DataCollectionEndpoint(name, <any>undefined, { urn })
             case "azure-native:insights:DataCollectionRule":
                 return new DataCollectionRule(name, <any>undefined, { urn })
             case "azure-native:insights:DataCollectionRuleAssociation":

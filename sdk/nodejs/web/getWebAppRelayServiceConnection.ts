@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
     if (!opts) {

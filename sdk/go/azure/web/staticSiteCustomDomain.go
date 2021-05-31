@@ -12,7 +12,7 @@ import (
 )
 
 // Static Site Custom Domain Overview ARM resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 type StaticSiteCustomDomain struct {
 	pulumi.CustomResourceState
 

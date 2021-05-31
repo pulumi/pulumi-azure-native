@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// User credentials used for publishing activity.
-    /// API Version: 2021-01-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDeploymentSlot")]
     public partial class WebAppDeploymentSlot : Pulumi.CustomResource

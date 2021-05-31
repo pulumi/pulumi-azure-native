@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
- * API Version: 2021-01-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
     if (!opts) {

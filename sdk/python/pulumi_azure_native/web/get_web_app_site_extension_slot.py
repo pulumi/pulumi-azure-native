@@ -322,7 +322,7 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionSlotResult:
     """
     Site Extension Information.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Site name.

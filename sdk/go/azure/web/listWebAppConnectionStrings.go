@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2021-01-01.
+// API Version: 2020-12-01.
 func ListWebAppConnectionStrings(ctx *pulumi.Context, args *ListWebAppConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsResult, error) {
 	var rv ListWebAppConnectionStringsResult
 	err := ctx.Invoke("azure-native:web:listWebAppConnectionStrings", args, &rv, opts...)

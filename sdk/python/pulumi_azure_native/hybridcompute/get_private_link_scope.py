@@ -120,7 +120,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     An Azure Arc PrivateLinkScope definition.
-    API Version: 2021-04-22-preview.
+    API Version: 2021-03-25-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

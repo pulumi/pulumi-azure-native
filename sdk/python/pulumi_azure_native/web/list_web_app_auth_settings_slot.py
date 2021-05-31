@@ -592,7 +592,7 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
-    API Version: 2021-01-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
