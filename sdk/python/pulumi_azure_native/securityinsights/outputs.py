@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActivityEntityQueriesPropertiesResponseQueryDefinitions',
     'ActivityTimelineItemResponse',
     'AlertsDataTypeOfDataConnectorResponse',
     'AutomationRuleModifyPropertiesActionResponse',
@@ -57,6 +58,29 @@ __all__ = [
     'UserInfoResponse',
     'WatchlistUserInfoResponse',
 ]
+
+@pulumi.output_type
+class ActivityEntityQueriesPropertiesResponseQueryDefinitions(dict):
+    """
+    The Activity query definitions
+    """
+    def __init__(__self__, *,
+                 query: Optional[str] = None):
+        """
+        The Activity query definitions
+        :param str query: The Activity query to run on a given entity
+        """
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        The Activity query to run on a given entity
+        """
+        return pulumi.get(self, "query")
+
 
 @pulumi.output_type
 class ActivityTimelineItemResponse(dict):

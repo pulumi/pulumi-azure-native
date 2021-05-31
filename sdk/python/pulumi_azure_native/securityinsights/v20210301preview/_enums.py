@@ -7,8 +7,10 @@ from enum import Enum
 __all__ = [
     'ConnectivityType',
     'ContentType',
+    'CustomEntityQueryKind',
     'DataConnectorKind',
     'DataTypeState',
+    'EntityType',
     'Kind',
     'Operator',
     'PermissionProviderScope',
@@ -39,6 +41,13 @@ class ContentType(str, Enum):
     WORKBOOK = "Workbook"
 
 
+class CustomEntityQueryKind(str, Enum):
+    """
+    the entity query kind
+    """
+    ACTIVITY = "Activity"
+
+
 class DataConnectorKind(str, Enum):
     """
     The data connector kind
@@ -65,6 +74,33 @@ class DataTypeState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class EntityType(str, Enum):
+    """
+    The type of the query's source entity
+    """
+    ACCOUNT = "Account"
+    HOST = "Host"
+    FILE = "File"
+    AZURE_RESOURCE = "AzureResource"
+    CLOUD_APPLICATION = "CloudApplication"
+    DNS = "DNS"
+    FILE_HASH = "FileHash"
+    IP = "IP"
+    MALWARE = "Malware"
+    PROCESS = "Process"
+    REGISTRY_KEY = "RegistryKey"
+    REGISTRY_VALUE = "RegistryValue"
+    SECURITY_GROUP = "SecurityGroup"
+    URL = "URL"
+    IO_T_DEVICE = "IoTDevice"
+    SECURITY_ALERT = "SecurityAlert"
+    HUNTING_BOOKMARK = "HuntingBookmark"
+    MAIL_CLUSTER = "MailCluster"
+    MAIL_MESSAGE = "MailMessage"
+    MAILBOX = "Mailbox"
+    SUBMISSION_MAIL = "SubmissionMail"
 
 
 class Kind(str, Enum):

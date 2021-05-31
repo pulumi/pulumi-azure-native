@@ -10,6 +10,278 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesQueryDefinitions struct {
+	// The Activity query to run on a given entity
+	Query *string `pulumi:"query"`
+}
+
+// ActivityEntityQueriesPropertiesQueryDefinitionsInput is an input type that accepts ActivityEntityQueriesPropertiesQueryDefinitionsArgs and ActivityEntityQueriesPropertiesQueryDefinitionsOutput values.
+// You can construct a concrete instance of `ActivityEntityQueriesPropertiesQueryDefinitionsInput` via:
+//
+//          ActivityEntityQueriesPropertiesQueryDefinitionsArgs{...}
+type ActivityEntityQueriesPropertiesQueryDefinitionsInput interface {
+	pulumi.Input
+
+	ToActivityEntityQueriesPropertiesQueryDefinitionsOutput() ActivityEntityQueriesPropertiesQueryDefinitionsOutput
+	ToActivityEntityQueriesPropertiesQueryDefinitionsOutputWithContext(context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsOutput
+}
+
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesQueryDefinitionsArgs struct {
+	// The Activity query to run on a given entity
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEntityQueriesPropertiesQueryDefinitions)(nil)).Elem()
+}
+
+func (i ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesQueryDefinitionsOutput() ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
+	return i.ToActivityEntityQueriesPropertiesQueryDefinitionsOutputWithContext(context.Background())
+}
+
+func (i ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesQueryDefinitionsOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput)
+}
+
+func (i ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return i.ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput).ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx)
+}
+
+// ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput is an input type that accepts ActivityEntityQueriesPropertiesQueryDefinitionsArgs, ActivityEntityQueriesPropertiesQueryDefinitionsPtr and ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput values.
+// You can construct a concrete instance of `ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput` via:
+//
+//          ActivityEntityQueriesPropertiesQueryDefinitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput interface {
+	pulumi.Input
+
+	ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput
+	ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput
+}
+
+type activityEntityQueriesPropertiesQueryDefinitionsPtrType ActivityEntityQueriesPropertiesQueryDefinitionsArgs
+
+func ActivityEntityQueriesPropertiesQueryDefinitionsPtr(v *ActivityEntityQueriesPropertiesQueryDefinitionsArgs) ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput {
+	return (*activityEntityQueriesPropertiesQueryDefinitionsPtrType)(v)
+}
+
+func (*activityEntityQueriesPropertiesQueryDefinitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEntityQueriesPropertiesQueryDefinitions)(nil)).Elem()
+}
+
+func (i *activityEntityQueriesPropertiesQueryDefinitionsPtrType) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return i.ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *activityEntityQueriesPropertiesQueryDefinitionsPtrType) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
+}
+
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesQueryDefinitionsOutput struct{ *pulumi.OutputState }
+
+func (ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEntityQueriesPropertiesQueryDefinitions)(nil)).Elem()
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsOutput() ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return o.ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *ActivityEntityQueriesPropertiesQueryDefinitions {
+		return &v
+	}).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
+}
+
+// The Activity query to run on a given entity
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEntityQueriesPropertiesQueryDefinitions)(nil)).Elem()
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
+	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) ActivityEntityQueriesPropertiesQueryDefinitions {
+		return *v
+	}).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput)
+}
+
+// The Activity query to run on a given entity
+func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesResponseQueryDefinitions struct {
+	// The Activity query to run on a given entity
+	Query *string `pulumi:"query"`
+}
+
+// ActivityEntityQueriesPropertiesResponseQueryDefinitionsInput is an input type that accepts ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs and ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput values.
+// You can construct a concrete instance of `ActivityEntityQueriesPropertiesResponseQueryDefinitionsInput` via:
+//
+//          ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs{...}
+type ActivityEntityQueriesPropertiesResponseQueryDefinitionsInput interface {
+	pulumi.Input
+
+	ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput
+	ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutputWithContext(context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput
+}
+
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs struct {
+	// The Activity query to run on a given entity
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEntityQueriesPropertiesResponseQueryDefinitions)(nil)).Elem()
+}
+
+func (i ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
+	return i.ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutputWithContext(context.Background())
+}
+
+func (i ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput)
+}
+
+func (i ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return i.ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput).ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx)
+}
+
+// ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrInput is an input type that accepts ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs, ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtr and ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput values.
+// You can construct a concrete instance of `ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrInput` via:
+//
+//          ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrInput interface {
+	pulumi.Input
+
+	ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput
+	ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput
+}
+
+type activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs
+
+func ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtr(v *ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrInput {
+	return (*activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType)(v)
+}
+
+func (*activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEntityQueriesPropertiesResponseQueryDefinitions)(nil)).Elem()
+}
+
+func (i *activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return i.ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
+}
+
+// The Activity query definitions
+type ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput struct{ *pulumi.OutputState }
+
+func (ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityEntityQueriesPropertiesResponseQueryDefinitions)(nil)).Elem()
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return o.ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *ActivityEntityQueriesPropertiesResponseQueryDefinitions {
+		return &v
+	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
+}
+
+// The Activity query to run on a given entity
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActivityEntityQueriesPropertiesResponseQueryDefinitions)(nil)).Elem()
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return o
+}
+
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
+	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) ActivityEntityQueriesPropertiesResponseQueryDefinitions {
+		return *v
+	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput)
+}
+
+// The Activity query to run on a given entity
+func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents Activity timeline item.
 type ActivityTimelineItemResponse struct {
 	// The grouping bucket end time.
@@ -11125,6 +11397,10 @@ func (o WatchlistUserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesQueryDefinitionsOutput{})
+	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput{})
+	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput{})
+	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(ActivityTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorPtrOutput{})

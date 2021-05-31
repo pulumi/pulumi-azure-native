@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AATPDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:ASCDataConnector":
 		r = &ASCDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery":
+		r = &ActivityCustomEntityQuery{}
 	case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
 		r = &AwsCloudTrailDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dynamics365DataConnector{}
 	case "azure-native:securityinsights/v20210301preview:EntityAnalytics":
 		r = &EntityAnalytics{}
+	case "azure-native:securityinsights/v20210301preview:EntityQuery":
+		r = &EntityQuery{}
 	case "azure-native:securityinsights/v20210301preview:EyesOn":
 		r = &EyesOn{}
 	case "azure-native:securityinsights/v20210301preview:MCASDataConnector":

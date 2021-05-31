@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ActivityEntityQueriesPropertiesQueryDefinitionsArgs',
     'AlertsDataTypeOfDataConnectorArgs',
     'AutomationRuleModifyPropertiesActionArgs',
     'AutomationRuleModifyPropertiesActionActionConfigurationArgs',
@@ -45,6 +46,30 @@ __all__ = [
     'UserInfoArgs',
     'WatchlistUserInfoArgs',
 ]
+
+@pulumi.input_type
+class ActivityEntityQueriesPropertiesQueryDefinitionsArgs:
+    def __init__(__self__, *,
+                 query: Optional[pulumi.Input[str]] = None):
+        """
+        The Activity query definitions
+        :param pulumi.Input[str] query: The Activity query to run on a given entity
+        """
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Activity query to run on a given entity
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
 
 @pulumi.input_type
 class AlertsDataTypeOfDataConnectorArgs:

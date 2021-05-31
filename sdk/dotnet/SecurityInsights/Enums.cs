@@ -574,6 +574,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// the entity query kind
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomEntityQueryKind : IEquatable<CustomEntityQueryKind>
+    {
+        private readonly string _value;
+
+        private CustomEntityQueryKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomEntityQueryKind Activity { get; } = new CustomEntityQueryKind("Activity");
+
+        public static bool operator ==(CustomEntityQueryKind left, CustomEntityQueryKind right) => left.Equals(right);
+        public static bool operator !=(CustomEntityQueryKind left, CustomEntityQueryKind right) => !left.Equals(right);
+
+        public static explicit operator string(CustomEntityQueryKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomEntityQueryKind other && Equals(other);
+        public bool Equals(CustomEntityQueryKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The data connector kind
     /// </summary>
     [EnumType]
@@ -675,6 +705,119 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EntityTimelineKind other && Equals(other);
         public bool Equals(EntityTimelineKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the query's source entity
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityType : IEquatable<EntityType>
+    {
+        private readonly string _value;
+
+        private EntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Entity represents account in the system.
+        /// </summary>
+        public static EntityType Account { get; } = new EntityType("Account");
+        /// <summary>
+        /// Entity represents host in the system.
+        /// </summary>
+        public static EntityType Host { get; } = new EntityType("Host");
+        /// <summary>
+        /// Entity represents file in the system.
+        /// </summary>
+        public static EntityType File { get; } = new EntityType("File");
+        /// <summary>
+        /// Entity represents azure resource in the system.
+        /// </summary>
+        public static EntityType AzureResource { get; } = new EntityType("AzureResource");
+        /// <summary>
+        /// Entity represents cloud application in the system.
+        /// </summary>
+        public static EntityType CloudApplication { get; } = new EntityType("CloudApplication");
+        /// <summary>
+        /// Entity represents dns in the system.
+        /// </summary>
+        public static EntityType DNS { get; } = new EntityType("DNS");
+        /// <summary>
+        /// Entity represents file hash in the system.
+        /// </summary>
+        public static EntityType FileHash { get; } = new EntityType("FileHash");
+        /// <summary>
+        /// Entity represents ip in the system.
+        /// </summary>
+        public static EntityType IP { get; } = new EntityType("IP");
+        /// <summary>
+        /// Entity represents malware in the system.
+        /// </summary>
+        public static EntityType Malware { get; } = new EntityType("Malware");
+        /// <summary>
+        /// Entity represents process in the system.
+        /// </summary>
+        public static EntityType Process { get; } = new EntityType("Process");
+        /// <summary>
+        /// Entity represents registry key in the system.
+        /// </summary>
+        public static EntityType RegistryKey { get; } = new EntityType("RegistryKey");
+        /// <summary>
+        /// Entity represents registry value in the system.
+        /// </summary>
+        public static EntityType RegistryValue { get; } = new EntityType("RegistryValue");
+        /// <summary>
+        /// Entity represents security group in the system.
+        /// </summary>
+        public static EntityType SecurityGroup { get; } = new EntityType("SecurityGroup");
+        /// <summary>
+        /// Entity represents url in the system.
+        /// </summary>
+        public static EntityType URL { get; } = new EntityType("URL");
+        /// <summary>
+        /// Entity represents IoT device in the system.
+        /// </summary>
+        public static EntityType IoTDevice { get; } = new EntityType("IoTDevice");
+        /// <summary>
+        /// Entity represents security alert in the system.
+        /// </summary>
+        public static EntityType SecurityAlert { get; } = new EntityType("SecurityAlert");
+        /// <summary>
+        /// Entity represents HuntingBookmark in the system.
+        /// </summary>
+        public static EntityType HuntingBookmark { get; } = new EntityType("HuntingBookmark");
+        /// <summary>
+        /// Entity represents mail cluster in the system.
+        /// </summary>
+        public static EntityType MailCluster { get; } = new EntityType("MailCluster");
+        /// <summary>
+        /// Entity represents mail message in the system.
+        /// </summary>
+        public static EntityType MailMessage { get; } = new EntityType("MailMessage");
+        /// <summary>
+        /// Entity represents mailbox in the system.
+        /// </summary>
+        public static EntityType Mailbox { get; } = new EntityType("Mailbox");
+        /// <summary>
+        /// Entity represents submission mail in the system.
+        /// </summary>
+        public static EntityType SubmissionMail { get; } = new EntityType("SubmissionMail");
+
+        public static bool operator ==(EntityType left, EntityType right) => left.Equals(right);
+        public static bool operator !=(EntityType left, EntityType right) => !left.Equals(right);
+
+        public static explicit operator string(EntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityType other && Equals(other);
+        public bool Equals(EntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

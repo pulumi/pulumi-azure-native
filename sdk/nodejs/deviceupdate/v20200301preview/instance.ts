@@ -40,6 +40,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * Enables or Disables the diagnostic logs collection
+     */
+    public readonly enableDiagnostics!: pulumi.Output<boolean | undefined>;
+    /**
      * List of IoT Hubs associated with the account.
      */
     public readonly iotHubs!: pulumi.Output<outputs.deviceupdate.v20200301preview.IotHubSettingsResponse[] | undefined>;
@@ -86,6 +90,7 @@ export class Instance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["enableDiagnostics"] = args ? args.enableDiagnostics : undefined;
             inputs["instanceName"] = args ? args.instanceName : undefined;
             inputs["iotHubs"] = args ? args.iotHubs : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -97,6 +102,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["accountName"] = undefined /*out*/;
+            inputs["enableDiagnostics"] = undefined /*out*/;
             inputs["iotHubs"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface InstanceArgs {
      * Account name.
      */
     accountName: pulumi.Input<string>;
+    /**
+     * Enables or Disables the diagnostic logs collection
+     */
+    enableDiagnostics?: pulumi.Input<boolean>;
     /**
      * Instance name.
      */

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ASCDataConnector{}
 	case "azure-native:securityinsights:Action":
 		r = &Action{}
+	case "azure-native:securityinsights:ActivityCustomEntityQuery":
+		r = &ActivityCustomEntityQuery{}
 	case "azure-native:securityinsights:AlertRule":
 		r = &AlertRule{}
 	case "azure-native:securityinsights:AutomationRule":
@@ -43,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnector{}
 	case "azure-native:securityinsights:EntityAnalytics":
 		r = &EntityAnalytics{}
+	case "azure-native:securityinsights:EntityQuery":
+		r = &EntityQuery{}
 	case "azure-native:securityinsights:EyesOn":
 		r = &EyesOn{}
 	case "azure-native:securityinsights:FusionAlertRule":

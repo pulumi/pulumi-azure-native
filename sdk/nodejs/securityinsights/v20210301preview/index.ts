@@ -7,21 +7,25 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./aaddataConnector";
 export * from "./aatpdataConnector";
+export * from "./activityCustomEntityQuery";
 export * from "./ascdataConnector";
 export * from "./awsCloudTrailDataConnector";
 export * from "./codelessUiDataConnector";
 export * from "./dataConnector";
 export * from "./dynamics365DataConnector";
 export * from "./entityAnalytics";
+export * from "./entityQuery";
 export * from "./eyesOn";
 export * from "./getAADDataConnector";
 export * from "./getAATPDataConnector";
 export * from "./getASCDataConnector";
+export * from "./getActivityCustomEntityQuery";
 export * from "./getAwsCloudTrailDataConnector";
 export * from "./getCodelessUiDataConnector";
 export * from "./getDataConnector";
 export * from "./getDynamics365DataConnector";
 export * from "./getEntityAnalytics";
+export * from "./getEntityQuery";
 export * from "./getEyesOn";
 export * from "./getMCASDataConnector";
 export * from "./getMDATPDataConnector";
@@ -62,11 +66,13 @@ export * from "../../types/enums/securityinsights/v20210301preview";
 import { AADDataConnector } from "./aaddataConnector";
 import { AATPDataConnector } from "./aatpdataConnector";
 import { ASCDataConnector } from "./ascdataConnector";
+import { ActivityCustomEntityQuery } from "./activityCustomEntityQuery";
 import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { CodelessUiDataConnector } from "./codelessUiDataConnector";
 import { DataConnector } from "./dataConnector";
 import { Dynamics365DataConnector } from "./dynamics365DataConnector";
 import { EntityAnalytics } from "./entityAnalytics";
+import { EntityQuery } from "./entityQuery";
 import { EyesOn } from "./eyesOn";
 import { MCASDataConnector } from "./mcasdataConnector";
 import { MDATPDataConnector } from "./mdatpdataConnector";
@@ -94,6 +100,8 @@ const _module = {
                 return new AATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:ASCDataConnector":
                 return new ASCDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery":
+                return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":
@@ -104,6 +112,8 @@ const _module = {
                 return new Dynamics365DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:EntityAnalytics":
                 return new EntityAnalytics(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:EntityQuery":
+                return new EntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:EyesOn":
                 return new EyesOn(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:MCASDataConnector":

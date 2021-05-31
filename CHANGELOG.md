@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Resources
+
+- `securityinsights:ActivityCustomEntityQuery`
+- `securityinsights:EntityQuery`
+
+#### New Functions
+
+- `securityinsights:getActivityCustomEntityQuery`
+- `securityinsights:getEntityQuery`
 
 ---
 

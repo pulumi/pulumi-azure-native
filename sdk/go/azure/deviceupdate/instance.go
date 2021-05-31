@@ -18,6 +18,8 @@ type Instance struct {
 
 	// Parent Device Update Account name which Instance belongs to.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics pulumi.BoolPtrOutput `pulumi:"enableDiagnostics"`
 	// List of IoT Hubs associated with the account.
 	IotHubs IotHubSettingsResponseArrayOutput `pulumi:"iotHubs"`
 	// The geo-location where the resource lives
@@ -83,6 +85,8 @@ func GetInstance(ctx *pulumi.Context,
 type instanceState struct {
 	// Parent Device Update Account name which Instance belongs to.
 	AccountName *string `pulumi:"accountName"`
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics *bool `pulumi:"enableDiagnostics"`
 	// List of IoT Hubs associated with the account.
 	IotHubs []IotHubSettingsResponse `pulumi:"iotHubs"`
 	// The geo-location where the resource lives
@@ -102,6 +106,8 @@ type instanceState struct {
 type InstanceState struct {
 	// Parent Device Update Account name which Instance belongs to.
 	AccountName pulumi.StringPtrInput
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics pulumi.BoolPtrInput
 	// List of IoT Hubs associated with the account.
 	IotHubs IotHubSettingsResponseArrayInput
 	// The geo-location where the resource lives
@@ -125,6 +131,8 @@ func (InstanceState) ElementType() reflect.Type {
 type instanceArgs struct {
 	// Account name.
 	AccountName string `pulumi:"accountName"`
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics *bool `pulumi:"enableDiagnostics"`
 	// Instance name.
 	InstanceName *string `pulumi:"instanceName"`
 	// List of IoT Hubs associated with the account.
@@ -141,6 +149,8 @@ type instanceArgs struct {
 type InstanceArgs struct {
 	// Account name.
 	AccountName pulumi.StringInput
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics pulumi.BoolPtrInput
 	// Instance name.
 	InstanceName pulumi.StringPtrInput
 	// List of IoT Hubs associated with the account.

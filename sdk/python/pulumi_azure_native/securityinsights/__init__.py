@@ -9,6 +9,7 @@ from ._enums import *
 from .aad_data_connector import *
 from .aatp_data_connector import *
 from .action import *
+from .activity_custom_entity_query import *
 from .alert_rule import *
 from .asc_data_connector import *
 from .automation_rule import *
@@ -17,11 +18,13 @@ from .bookmark import *
 from .bookmark_relation import *
 from .data_connector import *
 from .entity_analytics import *
+from .entity_query import *
 from .eyes_on import *
 from .fusion_alert_rule import *
 from .get_aad_data_connector import *
 from .get_aatp_data_connector import *
 from .get_action import *
+from .get_activity_custom_entity_query import *
 from .get_alert_rule import *
 from .get_asc_data_connector import *
 from .get_automation_rule import *
@@ -32,6 +35,7 @@ from .get_data_connector import *
 from .get_entities_get_timeline import *
 from .get_entity_analytics import *
 from .get_entity_insights import *
+from .get_entity_query import *
 from .get_eyes_on import *
 from .get_fusion_alert_rule import *
 from .get_incident import *

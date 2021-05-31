@@ -17,6 +17,7 @@ class InstanceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] account_name: Account name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
         :param pulumi.Input[str] instance_name: Instance name.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]] iot_hubs: List of IoT Hubs associated with the account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -32,6 +34,8 @@ class InstanceArgs:
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if enable_diagnostics is not None:
+            pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if iot_hubs is not None:
@@ -64,6 +68,18 @@ class InstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="enableDiagnostics")
+    def enable_diagnostics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or Disables the diagnostic logs collection
+        """
+        return pulumi.get(self, "enable_diagnostics")
+
+    @enable_diagnostics.setter
+    def enable_diagnostics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_diagnostics", value)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -120,6 +136,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -133,6 +150,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input[bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
         :param pulumi.Input[str] instance_name: Instance name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]] iot_hubs: List of IoT Hubs associated with the account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -165,6 +183,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 enable_diagnostics: Optional[pulumi.Input[bool]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubSettingsArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -185,6 +204,7 @@ class Instance(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["enable_diagnostics"] = enable_diagnostics
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["iot_hubs"] = iot_hubs
             __props__.__dict__["location"] = location
@@ -221,6 +241,7 @@ class Instance(pulumi.CustomResource):
         __props__ = InstanceArgs.__new__(InstanceArgs)
 
         __props__.__dict__["account_name"] = None
+        __props__.__dict__["enable_diagnostics"] = None
         __props__.__dict__["iot_hubs"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -237,6 +258,14 @@ class Instance(pulumi.CustomResource):
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="enableDiagnostics")
+    def enable_diagnostics(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables or Disables the diagnostic logs collection
+        """
+        return pulumi.get(self, "enable_diagnostics")
 
     @property
     @pulumi.getter(name="iotHubs")

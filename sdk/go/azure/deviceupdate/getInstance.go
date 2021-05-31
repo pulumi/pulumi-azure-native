@@ -31,6 +31,8 @@ type LookupInstanceArgs struct {
 type LookupInstanceResult struct {
 	// Parent Device Update Account name which Instance belongs to.
 	AccountName string `pulumi:"accountName"`
+	// Enables or Disables the diagnostic logs collection
+	EnableDiagnostics *bool `pulumi:"enableDiagnostics"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// List of IoT Hubs associated with the account.

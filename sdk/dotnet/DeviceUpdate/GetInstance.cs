@@ -54,6 +54,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string AccountName;
         /// <summary>
+        /// Enables or Disables the diagnostic logs collection
+        /// </summary>
+        public readonly bool? EnableDiagnostics;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         private GetInstanceResult(
             string accountName,
 
+            bool? enableDiagnostics,
+
             string id,
 
             ImmutableArray<Outputs.IotHubSettingsResponse> iotHubs,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
             string type)
         {
             AccountName = accountName;
+            EnableDiagnostics = enableDiagnostics;
             Id = id;
             IotHubs = iotHubs;
             Location = location;

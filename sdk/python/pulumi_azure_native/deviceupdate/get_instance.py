@@ -20,10 +20,13 @@ class GetInstanceResult:
     """
     Device Update instance details.
     """
-    def __init__(__self__, account_name=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_name=None, enable_diagnostics=None, id=None, iot_hubs=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if enable_diagnostics and not isinstance(enable_diagnostics, bool):
+            raise TypeError("Expected argument 'enable_diagnostics' to be a bool")
+        pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,6 +59,14 @@ class GetInstanceResult:
         Parent Device Update Account name which Instance belongs to.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="enableDiagnostics")
+    def enable_diagnostics(self) -> Optional[bool]:
+        """
+        Enables or Disables the diagnostic logs collection
+        """
+        return pulumi.get(self, "enable_diagnostics")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             yield self
         return GetInstanceResult(
             account_name=self.account_name,
+            enable_diagnostics=self.enable_diagnostics,
             id=self.id,
             iot_hubs=self.iot_hubs,
             location=self.location,
@@ -164,6 +176,7 @@ def get_instance(account_name: Optional[str] = None,
 
     return AwaitableGetInstanceResult(
         account_name=__ret__.account_name,
+        enable_diagnostics=__ret__.enable_diagnostics,
         id=__ret__.id,
         iot_hubs=__ret__.iot_hubs,
         location=__ret__.location,

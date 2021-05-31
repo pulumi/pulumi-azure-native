@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./aaddataConnector";
 export * from "./aatpdataConnector";
 export * from "./action";
+export * from "./activityCustomEntityQuery";
 export * from "./alertRule";
 export * from "./ascdataConnector";
 export * from "./automationRule";
@@ -16,12 +17,14 @@ export * from "./bookmark";
 export * from "./bookmarkRelation";
 export * from "./dataConnector";
 export * from "./entityAnalytics";
+export * from "./entityQuery";
 export * from "./eyesOn";
 export * from "./fusionAlertRule";
 export * from "./getAADDataConnector";
 export * from "./getAATPDataConnector";
 export * from "./getASCDataConnector";
 export * from "./getAction";
+export * from "./getActivityCustomEntityQuery";
 export * from "./getAlertRule";
 export * from "./getAutomationRule";
 export * from "./getAwsCloudTrailDataConnector";
@@ -31,6 +34,7 @@ export * from "./getDataConnector";
 export * from "./getEntitiesGetTimeline";
 export * from "./getEntityAnalytics";
 export * from "./getEntityInsights";
+export * from "./getEntityQuery";
 export * from "./getEyesOn";
 export * from "./getFusionAlertRule";
 export * from "./getIncident";
@@ -88,6 +92,7 @@ import { AADDataConnector } from "./aaddataConnector";
 import { AATPDataConnector } from "./aatpdataConnector";
 import { ASCDataConnector } from "./ascdataConnector";
 import { Action } from "./action";
+import { ActivityCustomEntityQuery } from "./activityCustomEntityQuery";
 import { AlertRule } from "./alertRule";
 import { AutomationRule } from "./automationRule";
 import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
@@ -95,6 +100,7 @@ import { Bookmark } from "./bookmark";
 import { BookmarkRelation } from "./bookmarkRelation";
 import { DataConnector } from "./dataConnector";
 import { EntityAnalytics } from "./entityAnalytics";
+import { EntityQuery } from "./entityQuery";
 import { EyesOn } from "./eyesOn";
 import { FusionAlertRule } from "./fusionAlertRule";
 import { Incident } from "./incident";
@@ -127,6 +133,8 @@ const _module = {
                 return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Action":
                 return new Action(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:ActivityCustomEntityQuery":
+                return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AutomationRule":
@@ -141,6 +149,8 @@ const _module = {
                 return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:EntityAnalytics":
                 return new EntityAnalytics(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:EntityQuery":
+                return new EntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights:EyesOn":
                 return new EyesOn(name, <any>undefined, { urn })
             case "azure-native:securityinsights:FusionAlertRule":

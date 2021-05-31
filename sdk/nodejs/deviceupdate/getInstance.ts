@@ -48,6 +48,10 @@ export interface GetInstanceResult {
      */
     readonly accountName: string;
     /**
+     * Enables or Disables the diagnostic logs collection
+     */
+    readonly enableDiagnostics?: boolean;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;

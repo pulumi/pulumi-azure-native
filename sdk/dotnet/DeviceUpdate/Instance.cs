@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// Enables or Disables the diagnostic logs collection
+        /// </summary>
+        [Output("enableDiagnostics")]
+        public Output<bool?> EnableDiagnostics { get; private set; } = null!;
+
+        /// <summary>
         /// List of IoT Hubs associated with the account.
         /// </summary>
         [Output("iotHubs")]
@@ -120,6 +126,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// Enables or Disables the diagnostic logs collection
+        /// </summary>
+        [Input("enableDiagnostics")]
+        public Input<bool>? EnableDiagnostics { get; set; }
 
         /// <summary>
         /// Instance name.

@@ -21,6 +21,15 @@ export const ContentType = {
  */
 export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
+export const CustomEntityQueryKind = {
+    Activity: "Activity",
+} as const;
+
+/**
+ * the entity query kind
+ */
+export type CustomEntityQueryKind = (typeof CustomEntityQueryKind)[keyof typeof CustomEntityQueryKind];
+
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
     AzureSecurityCenter: "AzureSecurityCenter",
@@ -52,6 +61,98 @@ export const DataTypeState = {
  * Describe whether this data type connection is enabled or not.
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
+
+export const EntityType = {
+    /**
+     * Entity represents account in the system.
+     */
+    Account: "Account",
+    /**
+     * Entity represents host in the system.
+     */
+    Host: "Host",
+    /**
+     * Entity represents file in the system.
+     */
+    File: "File",
+    /**
+     * Entity represents azure resource in the system.
+     */
+    AzureResource: "AzureResource",
+    /**
+     * Entity represents cloud application in the system.
+     */
+    CloudApplication: "CloudApplication",
+    /**
+     * Entity represents dns in the system.
+     */
+    DNS: "DNS",
+    /**
+     * Entity represents file hash in the system.
+     */
+    FileHash: "FileHash",
+    /**
+     * Entity represents ip in the system.
+     */
+    IP: "IP",
+    /**
+     * Entity represents malware in the system.
+     */
+    Malware: "Malware",
+    /**
+     * Entity represents process in the system.
+     */
+    Process: "Process",
+    /**
+     * Entity represents registry key in the system.
+     */
+    RegistryKey: "RegistryKey",
+    /**
+     * Entity represents registry value in the system.
+     */
+    RegistryValue: "RegistryValue",
+    /**
+     * Entity represents security group in the system.
+     */
+    SecurityGroup: "SecurityGroup",
+    /**
+     * Entity represents url in the system.
+     */
+    URL: "URL",
+    /**
+     * Entity represents IoT device in the system.
+     */
+    IoTDevice: "IoTDevice",
+    /**
+     * Entity represents security alert in the system.
+     */
+    SecurityAlert: "SecurityAlert",
+    /**
+     * Entity represents HuntingBookmark in the system.
+     */
+    HuntingBookmark: "HuntingBookmark",
+    /**
+     * Entity represents mail cluster in the system.
+     */
+    MailCluster: "MailCluster",
+    /**
+     * Entity represents mail message in the system.
+     */
+    MailMessage: "MailMessage",
+    /**
+     * Entity represents mailbox in the system.
+     */
+    Mailbox: "Mailbox",
+    /**
+     * Entity represents submission mail in the system.
+     */
+    SubmissionMail: "SubmissionMail",
+} as const;
+
+/**
+ * The type of the query's source entity
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 export const Kind = {
     DataConnector: "dataConnector",

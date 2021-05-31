@@ -405,6 +405,33 @@ func (e ContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// the entity query kind
+type CustomEntityQueryKind pulumi.String
+
+const (
+	CustomEntityQueryKindActivity = CustomEntityQueryKind("Activity")
+)
+
+func (CustomEntityQueryKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CustomEntityQueryKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomEntityQueryKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomEntityQueryKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomEntityQueryKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The data connector kind
 type DataConnectorKind pulumi.String
 
@@ -496,6 +523,74 @@ func (e EntityTimelineKind) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e EntityTimelineKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of the query's source entity
+type EntityType pulumi.String
+
+const (
+	// Entity represents account in the system.
+	EntityTypeAccount = EntityType("Account")
+	// Entity represents host in the system.
+	EntityTypeHost = EntityType("Host")
+	// Entity represents file in the system.
+	EntityTypeFile = EntityType("File")
+	// Entity represents azure resource in the system.
+	EntityTypeAzureResource = EntityType("AzureResource")
+	// Entity represents cloud application in the system.
+	EntityTypeCloudApplication = EntityType("CloudApplication")
+	// Entity represents dns in the system.
+	EntityTypeDNS = EntityType("DNS")
+	// Entity represents file hash in the system.
+	EntityTypeFileHash = EntityType("FileHash")
+	// Entity represents ip in the system.
+	EntityTypeIP = EntityType("IP")
+	// Entity represents malware in the system.
+	EntityTypeMalware = EntityType("Malware")
+	// Entity represents process in the system.
+	EntityTypeProcess = EntityType("Process")
+	// Entity represents registry key in the system.
+	EntityTypeRegistryKey = EntityType("RegistryKey")
+	// Entity represents registry value in the system.
+	EntityTypeRegistryValue = EntityType("RegistryValue")
+	// Entity represents security group in the system.
+	EntityTypeSecurityGroup = EntityType("SecurityGroup")
+	// Entity represents url in the system.
+	EntityTypeURL = EntityType("URL")
+	// Entity represents IoT device in the system.
+	EntityTypeIoTDevice = EntityType("IoTDevice")
+	// Entity represents security alert in the system.
+	EntityTypeSecurityAlert = EntityType("SecurityAlert")
+	// Entity represents HuntingBookmark in the system.
+	EntityTypeHuntingBookmark = EntityType("HuntingBookmark")
+	// Entity represents mail cluster in the system.
+	EntityTypeMailCluster = EntityType("MailCluster")
+	// Entity represents mail message in the system.
+	EntityTypeMailMessage = EntityType("MailMessage")
+	// Entity represents mailbox in the system.
+	EntityTypeMailbox = EntityType("Mailbox")
+	// Entity represents submission mail in the system.
+	EntityTypeSubmissionMail = EntityType("SubmissionMail")
+)
+
+func (EntityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EntityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
