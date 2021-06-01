@@ -6975,6 +6975,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20200202",
+  "fqn": "pulumi_azure_native.insights.v20200202",
+  "classes": {
+   "azure-native:insights/v20200202:Component": "Component"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "insights/v20200202preview",
   "fqn": "pulumi_azure_native.insights.v20200202preview",
   "classes": {

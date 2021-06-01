@@ -184,6 +184,8 @@ namespace Pulumi.AzureNative.Insights
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Component"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180501preview:Component"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200202:Component"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20200202:Component"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200202preview:Component"},
                 },

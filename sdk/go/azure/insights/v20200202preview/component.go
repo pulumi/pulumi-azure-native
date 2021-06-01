@@ -127,6 +127,12 @@ func NewComponent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180501preview:Component"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20200202:Component"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20200202:Component"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Component
