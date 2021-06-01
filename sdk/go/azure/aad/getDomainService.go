@@ -8,7 +8,7 @@ import (
 )
 
 // Domain service.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
 	err := ctx.Invoke("azure-native:aad:getDomainService", args, &rv, opts...)
@@ -27,8 +27,6 @@ type LookupDomainServiceArgs struct {
 
 // Domain service.
 type LookupDomainServiceResult struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics *ConfigDiagnosticsResponse `pulumi:"configDiagnostics"`
 	// Deployment Id
 	DeploymentId string `pulumi:"deploymentId"`
 	// Domain Configuration Type

@@ -20,10 +20,7 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, config_diagnostics=None, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
-        if config_diagnostics and not isinstance(config_diagnostics, dict):
-            raise TypeError("Expected argument 'config_diagnostics' to be a dict")
-        pulumi.set(__self__, "config_diagnostics", config_diagnostics)
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -90,14 +87,6 @@ class GetDomainServiceResult:
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="configDiagnostics")
-    def config_diagnostics(self) -> Optional['outputs.ConfigDiagnosticsResponse']:
-        """
-        Configuration diagnostics data containing latest execution from client.
-        """
-        return pulumi.get(self, "config_diagnostics")
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -282,7 +271,6 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
-            config_diagnostics=self.config_diagnostics,
             deployment_id=self.deployment_id,
             domain_configuration_type=self.domain_configuration_type,
             domain_name=self.domain_name,
@@ -312,7 +300,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     Domain service.
-    API Version: 2021-05-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -328,7 +316,6 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aad:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
-        config_diagnostics=__ret__.config_diagnostics,
         deployment_id=__ret__.deployment_id,
         domain_configuration_type=__ret__.domain_configuration_type,
         domain_name=__ret__.domain_name,

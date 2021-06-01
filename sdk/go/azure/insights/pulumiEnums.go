@@ -922,36 +922,6 @@ func (e Operator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The network access type for accessing Application Insights query.
-type PublicNetworkAccessType pulumi.String
-
-const (
-	// Enables connectivity to Application Insights through public DNS.
-	PublicNetworkAccessTypeEnabled = PublicNetworkAccessType("Enabled")
-	// Disables public connectivity to Application Insights through public DNS.
-	PublicNetworkAccessTypeDisabled = PublicNetworkAccessType("Disabled")
-)
-
-func (PublicNetworkAccessType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e PublicNetworkAccessType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublicNetworkAccessType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PublicNetworkAccessType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PublicNetworkAccessType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Set value to 'ResultCount' .
 type QueryType pulumi.String
 

@@ -999,43 +999,6 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// The network access type for accessing Application Insights query.
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccessType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Enables connectivity to Application Insights through public DNS.
-        /// </summary>
-        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
-        /// <summary>
-        /// Disables public connectivity to Application Insights through public DNS.
-        /// </summary>
-        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
-
-        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccessType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
-        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Set value to 'ResultCount' .
     /// </summary>
     [EnumType]

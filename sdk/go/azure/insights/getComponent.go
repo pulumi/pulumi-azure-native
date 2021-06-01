@@ -8,7 +8,7 @@ import (
 )
 
 // An Application Insights component definition.
-// API Version: 2020-02-02.
+// API Version: 2015-05-01.
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
 	var rv LookupComponentResult
 	err := ctx.Invoke("azure-native:insights:getComponent", args, &rv, opts...)
@@ -39,14 +39,8 @@ type LookupComponentResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Disable IP masking.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
-	// Disable Non-AAD based Auth.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
 	FlowType *string `pulumi:"flowType"`
-	// Force users to create their own storage account for profiler and debugger.
-	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -61,8 +55,6 @@ type LookupComponentResult struct {
 	InstrumentationKey string `pulumi:"instrumentationKey"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind string `pulumi:"kind"`
-	// The date which the component got migrated to LA, in ISO 8601 format.
-	LaMigrationDate string `pulumi:"laMigrationDate"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name
@@ -71,14 +63,10 @@ type LookupComponentResult struct {
 	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The network access type for accessing Application Insights ingestion.
-	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
-	// The network access type for accessing Application Insights query.
-	PublicNetworkAccessForQuery *string `pulumi:"publicNetworkAccessForQuery"`
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource *string `pulumi:"requestSource"`
 	// Retention period in days.
-	RetentionInDays int `pulumi:"retentionInDays"`
+	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
@@ -87,6 +75,4 @@ type LookupComponentResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// Azure resource type
 	Type string `pulumi:"type"`
-	// Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
-	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }

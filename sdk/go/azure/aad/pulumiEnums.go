@@ -234,38 +234,6 @@ func (e NtlmV1) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Status for individual validator after running diagnostics.
-type Status pulumi.String
-
-const (
-	StatusNone    = Status("None")
-	StatusRunning = Status("Running")
-	StatusOK      = Status("OK")
-	StatusFailure = Status("Failure")
-	StatusWarning = Status("Warning")
-	StatusSkipped = Status("Skipped")
-)
-
-func (Status) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Status) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Status) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Status) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Status) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
 type SyncKerberosPasswords pulumi.String
 

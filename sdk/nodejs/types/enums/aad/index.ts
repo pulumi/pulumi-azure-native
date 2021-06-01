@@ -96,20 +96,6 @@ export const NtlmV1 = {
  */
 export type NtlmV1 = (typeof NtlmV1)[keyof typeof NtlmV1];
 
-export const Status = {
-    None: "None",
-    Running: "Running",
-    OK: "OK",
-    Failure: "Failure",
-    Warning: "Warning",
-    Skipped: "Skipped",
-} as const;
-
-/**
- * Status for individual validator after running diagnostics.
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
 export const SyncKerberosPasswords = {
     Enabled: "Enabled",
     Disabled: "Disabled",

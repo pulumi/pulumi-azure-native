@@ -94,6 +94,7 @@ var ignoredProviderVersions = map[string][]string{
 // We reset this map every time we release a new major version.
 // Currently populated for 1.* series.
 var cutoffProviderVersions = map[string]string{
+	"aad":                     "v20210301",
 	"alertsmanagement":        "v20200804preview",
 	"appconfiguration":        "v20200701preview",
 	"cognitiveservices":       "v20170418",
@@ -131,6 +132,8 @@ var lockedTypeVersions = map[string]string{
 	"compute:SshPublicKey":                              "v20201201",
 	"compute:getLogAnalyticExportRequestRateByInterval": "v20201201",
 	"compute:getLogAnalyticExportThrottledRequests":     "v20201201",
+
+	"insights:Component": "v20150501",
 
 	"maintenance:MaintenanceConfiguration":    "v20200401",
 	"maintenance:getMaintenanceConfiguration": "v20200401",

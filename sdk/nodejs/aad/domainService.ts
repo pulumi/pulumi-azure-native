@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class DomainService extends pulumi.CustomResource {
     /**
@@ -36,10 +36,6 @@ export class DomainService extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainService.__pulumiType;
     }
 
-    /**
-     * Configuration diagnostics data containing latest execution from client.
-     */
-    public readonly configDiagnostics!: pulumi.Output<outputs.aad.ConfigDiagnosticsResponse | undefined>;
     /**
      * Deployment Id
      */
@@ -139,7 +135,6 @@ export class DomainService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
             inputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
@@ -164,7 +159,6 @@ export class DomainService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         } else {
-            inputs["configDiagnostics"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;
             inputs["domainConfigurationType"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
@@ -200,10 +194,6 @@ export class DomainService extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainService resource.
  */
 export interface DomainServiceArgs {
-    /**
-     * Configuration diagnostics data containing latest execution from client.
-     */
-    configDiagnostics?: pulumi.Input<inputs.aad.ConfigDiagnosticsArgs>;
     /**
      * Domain Configuration Type
      */

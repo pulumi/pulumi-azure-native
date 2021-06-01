@@ -13,7 +13,6 @@ __all__ = [
     'NotifyDcAdmins',
     'NotifyGlobalAdmins',
     'NtlmV1',
-    'Status',
     'SyncKerberosPasswords',
     'SyncNtlmPasswords',
     'SyncOnPremPasswords',
@@ -83,18 +82,6 @@ class NtlmV1(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class Status(str, Enum):
-    """
-    Status for individual validator after running diagnostics.
-    """
-    NONE = "None"
-    RUNNING = "Running"
-    OK = "OK"
-    FAILURE = "Failure"
-    WARNING = "Warning"
-    SKIPPED = "Skipped"
 
 
 class SyncKerberosPasswords(str, Enum):

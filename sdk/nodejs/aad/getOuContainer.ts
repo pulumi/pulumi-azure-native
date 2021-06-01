@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for OuContainer.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
     if (!opts) {

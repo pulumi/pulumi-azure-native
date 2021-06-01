@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights component definition.
- * API Version: 2020-02-02.
+ * API Version: 2015-05-01.
  */
 export class Component extends pulumi.CustomResource {
     /**
@@ -61,21 +61,9 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
-     * Disable Non-AAD based Auth.
-     */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
-    /**
-     * Resource etag
-     */
-    public readonly etag!: pulumi.Output<string | undefined>;
-    /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     public readonly flowType!: pulumi.Output<string | undefined>;
-    /**
-     * Force users to create their own storage account for profiler and debugger.
-     */
-    public readonly forceCustomerStorageForProfiler!: pulumi.Output<boolean | undefined>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -101,10 +89,6 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string>;
     /**
-     * The date which the component got migrated to LA, in ISO 8601 format.
-     */
-    public /*out*/ readonly laMigrationDate!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -121,21 +105,13 @@ export class Component extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The network access type for accessing Application Insights ingestion.
-     */
-    public readonly publicNetworkAccessForIngestion!: pulumi.Output<string | undefined>;
-    /**
-     * The network access type for accessing Application Insights query.
-     */
-    public readonly publicNetworkAccessForQuery!: pulumi.Output<string | undefined>;
-    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     public readonly requestSource!: pulumi.Output<string | undefined>;
     /**
      * Retention period in days.
      */
-    public /*out*/ readonly retentionInDays!: pulumi.Output<number>;
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
@@ -152,10 +128,6 @@ export class Component extends pulumi.CustomResource {
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
-     */
-    public readonly workspaceResourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -179,34 +151,27 @@ export class Component extends pulumi.CustomResource {
             }
             inputs["applicationType"] = (args ? args.applicationType : undefined) ?? "web";
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            inputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["flowType"] = (args ? args.flowType : undefined) ?? "Bluefield";
-            inputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
             inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
             inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
-            inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "LogAnalytics";
+            inputs["ingestionMode"] = (args ? args.ingestionMode : undefined) ?? "ApplicationInsights";
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
             inputs["requestSource"] = (args ? args.requestSource : undefined) ?? "rest";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["retentionInDays"] = (args ? args.retentionInDays : undefined) ?? 90;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
             inputs["appId"] = undefined /*out*/;
             inputs["applicationId"] = undefined /*out*/;
             inputs["connectionString"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
-            inputs["laMigrationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["retentionInDays"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -216,30 +181,23 @@ export class Component extends pulumi.CustomResource {
             inputs["connectionString"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["disableIpMasking"] = undefined /*out*/;
-            inputs["disableLocalAuth"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
             inputs["flowType"] = undefined /*out*/;
-            inputs["forceCustomerStorageForProfiler"] = undefined /*out*/;
             inputs["hockeyAppId"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
             inputs["immediatePurgeDataOn30Days"] = undefined /*out*/;
             inputs["ingestionMode"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["laMigrationDate"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
-            inputs["publicNetworkAccessForQuery"] = undefined /*out*/;
             inputs["requestSource"] = undefined /*out*/;
             inputs["retentionInDays"] = undefined /*out*/;
             inputs["samplingPercentage"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["workspaceResourceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -263,21 +221,9 @@ export interface ComponentArgs {
      */
     disableIpMasking?: pulumi.Input<boolean>;
     /**
-     * Disable Non-AAD based Auth.
-     */
-    disableLocalAuth?: pulumi.Input<boolean>;
-    /**
-     * Resource etag
-     */
-    etag?: pulumi.Input<string>;
-    /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
     flowType?: pulumi.Input<string | enums.insights.FlowType>;
-    /**
-     * Force users to create their own storage account for profiler and debugger.
-     */
-    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -299,14 +245,6 @@ export interface ComponentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The network access type for accessing Application Insights ingestion.
-     */
-    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.insights.PublicNetworkAccessType>;
-    /**
-     * The network access type for accessing Application Insights query.
-     */
-    publicNetworkAccessForQuery?: pulumi.Input<string | enums.insights.PublicNetworkAccessType>;
-    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     requestSource?: pulumi.Input<string | enums.insights.RequestSource>;
@@ -319,6 +257,10 @@ export interface ComponentArgs {
      */
     resourceName?: pulumi.Input<string>;
     /**
+     * Retention period in days.
+     */
+    retentionInDays?: pulumi.Input<number>;
+    /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
     samplingPercentage?: pulumi.Input<number>;
@@ -326,8 +268,4 @@ export interface ComponentArgs {
      * Resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
-     */
-    workspaceResourceId?: pulumi.Input<string>;
 }

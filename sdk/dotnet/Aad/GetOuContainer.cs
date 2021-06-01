@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad
     {
         /// <summary>
         /// Resource for OuContainer.
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());

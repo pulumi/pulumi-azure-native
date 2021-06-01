@@ -12,12 +12,10 @@ import (
 )
 
 // Domain service.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type DomainService struct {
 	pulumi.CustomResourceState
 
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics ConfigDiagnosticsResponsePtrOutput `pulumi:"configDiagnostics"`
 	// Deployment Id
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// Domain Configuration Type
@@ -130,8 +128,6 @@ func GetDomainService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainService resources.
 type domainServiceState struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics *ConfigDiagnosticsResponse `pulumi:"configDiagnostics"`
 	// Deployment Id
 	DeploymentId *string `pulumi:"deploymentId"`
 	// Domain Configuration Type
@@ -177,8 +173,6 @@ type domainServiceState struct {
 }
 
 type DomainServiceState struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics ConfigDiagnosticsResponsePtrInput
 	// Deployment Id
 	DeploymentId pulumi.StringPtrInput
 	// Domain Configuration Type
@@ -228,8 +222,6 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics *ConfigDiagnostics `pulumi:"configDiagnostics"`
 	// Domain Configuration Type
 	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
@@ -262,8 +254,6 @@ type domainServiceArgs struct {
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics ConfigDiagnosticsPtrInput
 	// Domain Configuration Type
 	DomainConfigurationType pulumi.StringPtrInput
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
