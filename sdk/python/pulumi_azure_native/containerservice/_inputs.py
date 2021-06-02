@@ -764,21 +764,17 @@ class ManagedClusterAPIServerAccessProfileArgs:
     def __init__(__self__, *,
                  authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_private_cluster: Optional[pulumi.Input[bool]] = None,
-                 enable_private_cluster_public_fqdn: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone: Optional[pulumi.Input[str]] = None):
         """
         Access profile for managed cluster API server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[bool] enable_private_cluster: Whether to create the cluster as a private cluster or not.
-        :param pulumi.Input[bool] enable_private_cluster_public_fqdn: Whether to create additional public FQDN for private cluster or not.
         :param pulumi.Input[str] private_dns_zone: Private dns zone mode for private cluster. 
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
         if enable_private_cluster is not None:
             pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
-        if enable_private_cluster_public_fqdn is not None:
-            pulumi.set(__self__, "enable_private_cluster_public_fqdn", enable_private_cluster_public_fqdn)
         if private_dns_zone is not None:
             pulumi.set(__self__, "private_dns_zone", private_dns_zone)
 
@@ -805,18 +801,6 @@ class ManagedClusterAPIServerAccessProfileArgs:
     @enable_private_cluster.setter
     def enable_private_cluster(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_private_cluster", value)
-
-    @property
-    @pulumi.getter(name="enablePrivateClusterPublicFQDN")
-    def enable_private_cluster_public_fqdn(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to create additional public FQDN for private cluster or not.
-        """
-        return pulumi.get(self, "enable_private_cluster_public_fqdn")
-
-    @enable_private_cluster_public_fqdn.setter
-    def enable_private_cluster_public_fqdn(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_private_cluster_public_fqdn", value)
 
     @property
     @pulumi.getter(name="privateDNSZone")
@@ -880,7 +864,6 @@ class ManagedClusterAgentPoolProfileArgs:
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
@@ -911,12 +894,11 @@ class ManagedClusterAgentPoolProfileArgs:
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
         :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[bool] enable_ultra_ssd: Whether to enable UltraSSD
         :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param pulumi.Input['KubeletConfigArgs'] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -957,8 +939,6 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
-        if enable_ultra_ssd is not None:
-            pulumi.set(__self__, "enable_ultra_ssd", enable_ultra_ssd)
         if gpu_instance_profile is not None:
             pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
         if kubelet_config is not None:
@@ -1040,7 +1020,7 @@ class ManagedClusterAgentPoolProfileArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
@@ -1095,18 +1075,6 @@ class ManagedClusterAgentPoolProfileArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
-
-    @property
-    @pulumi.getter(name="enableUltraSSD")
-    def enable_ultra_ssd(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable UltraSSD
-        """
-        return pulumi.get(self, "enable_ultra_ssd")
-
-    @enable_ultra_ssd.setter
-    def enable_ultra_ssd(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_ultra_ssd", value)
 
     @property
     @pulumi.getter(name="gpuInstanceProfile")

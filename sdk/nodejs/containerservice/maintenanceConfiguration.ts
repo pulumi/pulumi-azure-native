@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * maintenance configuration.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

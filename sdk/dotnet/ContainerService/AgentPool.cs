@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Agent Pool.
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         /// </summary>
         [Output("count")]
         public Output<int?> Count { get; private set; } = null!;
@@ -51,12 +51,6 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("enableNodePublicIP")]
         public Output<bool?> EnableNodePublicIP { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether to enable UltraSSD
-        /// </summary>
-        [Output("enableUltraSSD")]
-        public Output<bool?> EnableUltraSSD { get; private set; } = null!;
 
         /// <summary>
         /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
@@ -342,7 +336,7 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
-        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
@@ -370,12 +364,6 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("enableNodePublicIP")]
         public Input<bool>? EnableNodePublicIP { get; set; }
-
-        /// <summary>
-        /// Whether to enable UltraSSD
-        /// </summary>
-        [Input("enableUltraSSD")]
-        public Input<bool>? EnableUltraSSD { get; set; }
 
         /// <summary>
         /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.

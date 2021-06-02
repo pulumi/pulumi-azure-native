@@ -12,13 +12,13 @@ import (
 )
 
 // Agent Pool.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrOutput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
@@ -28,8 +28,6 @@ type AgentPool struct {
 	EnableFIPS pulumi.BoolPtrOutput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrOutput `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD pulumi.BoolPtrOutput `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile pulumi.StringPtrOutput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -243,7 +241,7 @@ func GetAgentPool(ctx *pulumi.Context,
 type agentPoolState struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -253,8 +251,6 @@ type agentPoolState struct {
 	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -320,7 +316,7 @@ type agentPoolState struct {
 type AgentPoolState struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrInput
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -330,8 +326,6 @@ type AgentPoolState struct {
 	EnableFIPS pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
-	// Whether to enable UltraSSD
-	EnableUltraSSD pulumi.BoolPtrInput
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile pulumi.StringPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -403,7 +397,7 @@ type agentPoolArgs struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -413,8 +407,6 @@ type agentPoolArgs struct {
 	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -479,7 +471,7 @@ type AgentPoolArgs struct {
 	AgentPoolName pulumi.StringPtrInput
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrInput
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -489,8 +481,6 @@ type AgentPoolArgs struct {
 	EnableFIPS pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
-	// Whether to enable UltraSSD
-	EnableUltraSSD pulumi.BoolPtrInput
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile pulumi.StringPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
     if (!opts) {
@@ -48,7 +48,7 @@ export interface GetAgentPoolResult {
      */
     readonly availabilityZones?: string[];
     /**
-     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
      */
     readonly count?: number;
     /**
@@ -67,10 +67,6 @@ export interface GetAgentPoolResult {
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: boolean;
-    /**
-     * Whether to enable UltraSSD
-     */
-    readonly enableUltraSSD?: boolean;
     /**
      * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
      */

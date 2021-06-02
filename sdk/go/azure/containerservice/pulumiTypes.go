@@ -3985,8 +3985,6 @@ type ManagedClusterAPIServerAccessProfile struct {
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
-	// Whether to create additional public FQDN for private cluster or not.
-	EnablePrivateClusterPublicFQDN *bool `pulumi:"enablePrivateClusterPublicFQDN"`
 	// Private dns zone mode for private cluster.
 	PrivateDNSZone *string `pulumi:"privateDNSZone"`
 }
@@ -4008,8 +4006,6 @@ type ManagedClusterAPIServerAccessProfileArgs struct {
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
-	// Whether to create additional public FQDN for private cluster or not.
-	EnablePrivateClusterPublicFQDN pulumi.BoolPtrInput `pulumi:"enablePrivateClusterPublicFQDN"`
 	// Private dns zone mode for private cluster.
 	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
 }
@@ -4102,11 +4098,6 @@ func (o ManagedClusterAPIServerAccessProfileOutput) EnablePrivateCluster() pulum
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to create additional public FQDN for private cluster or not.
-func (o ManagedClusterAPIServerAccessProfileOutput) EnablePrivateClusterPublicFQDN() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *bool { return v.EnablePrivateClusterPublicFQDN }).(pulumi.BoolPtrOutput)
-}
-
 // Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfileOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
@@ -4150,16 +4141,6 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateCluster() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether to create additional public FQDN for private cluster or not.
-func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateClusterPublicFQDN() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnablePrivateClusterPublicFQDN
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfilePtrOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) *string {
@@ -4176,8 +4157,6 @@ type ManagedClusterAPIServerAccessProfileResponse struct {
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
-	// Whether to create additional public FQDN for private cluster or not.
-	EnablePrivateClusterPublicFQDN *bool `pulumi:"enablePrivateClusterPublicFQDN"`
 	// Private dns zone mode for private cluster.
 	PrivateDNSZone *string `pulumi:"privateDNSZone"`
 }
@@ -4199,8 +4178,6 @@ type ManagedClusterAPIServerAccessProfileResponseArgs struct {
 	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
 	// Whether to create the cluster as a private cluster or not.
 	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
-	// Whether to create additional public FQDN for private cluster or not.
-	EnablePrivateClusterPublicFQDN pulumi.BoolPtrInput `pulumi:"enablePrivateClusterPublicFQDN"`
 	// Private dns zone mode for private cluster.
 	PrivateDNSZone pulumi.StringPtrInput `pulumi:"privateDNSZone"`
 }
@@ -4293,11 +4270,6 @@ func (o ManagedClusterAPIServerAccessProfileResponseOutput) EnablePrivateCluster
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to create additional public FQDN for private cluster or not.
-func (o ManagedClusterAPIServerAccessProfileResponseOutput) EnablePrivateClusterPublicFQDN() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *bool { return v.EnablePrivateClusterPublicFQDN }).(pulumi.BoolPtrOutput)
-}
-
 // Private dns zone mode for private cluster.
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) PrivateDNSZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *string { return v.PrivateDNSZone }).(pulumi.StringPtrOutput)
@@ -4340,16 +4312,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 			return nil
 		}
 		return v.EnablePrivateCluster
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to create additional public FQDN for private cluster or not.
-func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClusterPublicFQDN() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnablePrivateClusterPublicFQDN
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -4669,7 +4631,7 @@ func (o ManagedClusterAddonProfileResponseIdentityOutput) ResourceId() pulumi.St
 type ManagedClusterAgentPoolProfile struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -4679,8 +4641,6 @@ type ManagedClusterAgentPoolProfile struct {
 	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -4752,7 +4712,7 @@ type ManagedClusterAgentPoolProfileInput interface {
 type ManagedClusterAgentPoolProfileArgs struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
@@ -4762,8 +4722,6 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD pulumi.BoolPtrInput `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -4877,7 +4835,7 @@ func (o ManagedClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringA
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 func (o ManagedClusterAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -4900,11 +4858,6 @@ func (o ManagedClusterAgentPoolProfileOutput) EnableFIPS() pulumi.BoolPtrOutput 
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to enable UltraSSD
-func (o ManagedClusterAgentPoolProfileOutput) EnableUltraSSD() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableUltraSSD }).(pulumi.BoolPtrOutput)
 }
 
 // GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
@@ -5066,7 +5019,7 @@ func (o ManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Mana
 type ManagedClusterAgentPoolProfileResponse struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -5076,8 +5029,6 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -5155,7 +5106,7 @@ type ManagedClusterAgentPoolProfileResponseInput interface {
 type ManagedClusterAgentPoolProfileResponseArgs struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
@@ -5165,8 +5116,6 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD pulumi.BoolPtrInput `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -5286,7 +5235,7 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) AvailabilityZones() pulumi
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -5309,11 +5258,6 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) EnableFIPS() pulumi.BoolPt
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to enable UltraSSD
-func (o ManagedClusterAgentPoolProfileResponseOutput) EnableUltraSSD() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableUltraSSD }).(pulumi.BoolPtrOutput)
 }
 
 // GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.

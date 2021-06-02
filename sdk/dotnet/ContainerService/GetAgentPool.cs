@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Agent Pool.
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         /// </summary>
         public readonly int? Count;
         /// <summary>
@@ -73,10 +73,6 @@ namespace Pulumi.AzureNative.ContainerService
         /// Enable public IP for nodes
         /// </summary>
         public readonly bool? EnableNodePublicIP;
-        /// <summary>
-        /// Whether to enable UltraSSD
-        /// </summary>
-        public readonly bool? EnableUltraSSD;
         /// <summary>
         /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         /// </summary>
@@ -216,8 +212,6 @@ namespace Pulumi.AzureNative.ContainerService
 
             bool? enableNodePublicIP,
 
-            bool? enableUltraSSD,
-
             string? gpuInstanceProfile,
 
             string id,
@@ -286,7 +280,6 @@ namespace Pulumi.AzureNative.ContainerService
             EnableEncryptionAtHost = enableEncryptionAtHost;
             EnableFIPS = enableFIPS;
             EnableNodePublicIP = enableNodePublicIP;
-            EnableUltraSSD = enableUltraSSD;
             GpuInstanceProfile = gpuInstanceProfile;
             Id = id;
             KubeletConfig = kubeletConfig;

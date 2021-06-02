@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? EnablePrivateCluster { get; set; }
 
         /// <summary>
-        /// Whether to create additional public FQDN for private cluster or not.
-        /// </summary>
-        [Input("enablePrivateClusterPublicFQDN")]
-        public Input<bool>? EnablePrivateClusterPublicFQDN { get; set; }
-
-        /// <summary>
         /// Private dns zone mode for private cluster. 
         /// </summary>
         [Input("privateDNSZone")]

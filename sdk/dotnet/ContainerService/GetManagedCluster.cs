@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Managed cluster.
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());

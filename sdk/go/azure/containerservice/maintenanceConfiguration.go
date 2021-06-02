@@ -12,7 +12,7 @@ import (
 )
 
 // maintenance configuration.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 

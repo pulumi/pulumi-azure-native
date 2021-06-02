@@ -25,7 +25,6 @@ class AgentPoolArgs:
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
@@ -58,12 +57,11 @@ class AgentPoolArgs:
         :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
         :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[bool] enable_ultra_ssd: Whether to enable UltraSSD
         :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param pulumi.Input['KubeletConfigArgs'] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -107,8 +105,6 @@ class AgentPoolArgs:
             pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
-        if enable_ultra_ssd is not None:
-            pulumi.set(__self__, "enable_ultra_ssd", enable_ultra_ssd)
         if gpu_instance_profile is not None:
             pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
         if kubelet_config is not None:
@@ -214,7 +210,7 @@ class AgentPoolArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
@@ -269,18 +265,6 @@ class AgentPoolArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
-
-    @property
-    @pulumi.getter(name="enableUltraSSD")
-    def enable_ultra_ssd(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable UltraSSD
-        """
-        return pulumi.get(self, "enable_ultra_ssd")
-
-    @enable_ultra_ssd.setter
-    def enable_ultra_ssd(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_ultra_ssd", value)
 
     @property
     @pulumi.getter(name="gpuInstanceProfile")
@@ -607,7 +591,6 @@ class AgentPool(pulumi.CustomResource):
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
@@ -639,18 +622,17 @@ class AgentPool(pulumi.CustomResource):
                  __props__=None):
         """
         Agent Pool.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
         :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[bool] enable_ultra_ssd: Whether to enable UltraSSD
         :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -688,7 +670,7 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Agent Pool.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -712,7 +694,6 @@ class AgentPool(pulumi.CustomResource):
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 enable_ultra_ssd: Optional[pulumi.Input[bool]] = None,
                  gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
@@ -760,7 +741,6 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
             __props__.__dict__["enable_fips"] = enable_fips
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
-            __props__.__dict__["enable_ultra_ssd"] = enable_ultra_ssd
             __props__.__dict__["gpu_instance_profile"] = gpu_instance_profile
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
@@ -827,7 +807,6 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["enable_encryption_at_host"] = None
         __props__.__dict__["enable_fips"] = None
         __props__.__dict__["enable_node_public_ip"] = None
-        __props__.__dict__["enable_ultra_ssd"] = None
         __props__.__dict__["gpu_instance_profile"] = None
         __props__.__dict__["kubelet_config"] = None
         __props__.__dict__["kubelet_disk_type"] = None
@@ -872,7 +851,7 @@ class AgentPool(pulumi.CustomResource):
     @pulumi.getter
     def count(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
@@ -907,14 +886,6 @@ class AgentPool(pulumi.CustomResource):
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
-
-    @property
-    @pulumi.getter(name="enableUltraSSD")
-    def enable_ultra_ssd(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to enable UltraSSD
-        """
-        return pulumi.get(self, "enable_ultra_ssd")
 
     @property
     @pulumi.getter(name="gpuInstanceProfile")

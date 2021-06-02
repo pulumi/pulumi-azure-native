@@ -8,7 +8,7 @@ import (
 )
 
 // Managed cluster.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice:getManagedCluster", args, &rv, opts...)

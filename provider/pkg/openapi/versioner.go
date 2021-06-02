@@ -98,6 +98,7 @@ var cutoffProviderVersions = map[string]string{
 	"alertsmanagement":        "v20200804preview",
 	"appconfiguration":        "v20200701preview",
 	"cognitiveservices":       "v20170418",
+	"containerservice":        "v20210301",
 	"costmanagement":          "v20200601",
 	"databox":                 "v20201101",
 	"devices":                 "v20200831",

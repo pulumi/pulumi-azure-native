@@ -521,7 +521,7 @@ class ManagedCluster(pulumi.CustomResource):
                  __props__=None):
         """
         Managed cluster.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -563,7 +563,7 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed cluster.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

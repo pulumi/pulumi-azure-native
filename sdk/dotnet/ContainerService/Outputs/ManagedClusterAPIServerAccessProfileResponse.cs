@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnablePrivateCluster;
         /// <summary>
-        /// Whether to create additional public FQDN for private cluster or not.
-        /// </summary>
-        public readonly bool? EnablePrivateClusterPublicFQDN;
-        /// <summary>
         /// Private dns zone mode for private cluster. 
         /// </summary>
         public readonly string? PrivateDNSZone;
@@ -36,13 +32,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             bool? enablePrivateCluster,
 
-            bool? enablePrivateClusterPublicFQDN,
-
             string? privateDNSZone)
         {
             AuthorizedIPRanges = authorizedIPRanges;
             EnablePrivateCluster = enablePrivateCluster;
-            EnablePrivateClusterPublicFQDN = enablePrivateClusterPublicFQDN;
             PrivateDNSZone = privateDNSZone;
         }
     }

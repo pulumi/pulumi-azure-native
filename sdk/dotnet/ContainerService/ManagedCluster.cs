@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Managed cluster.
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource

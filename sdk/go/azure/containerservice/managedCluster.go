@@ -12,7 +12,7 @@ import (
 )
 
 // Managed cluster.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

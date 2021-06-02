@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     if (!opts) {

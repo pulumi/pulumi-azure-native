@@ -8,7 +8,7 @@ import (
 )
 
 // Agent Pool.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
 	err := ctx.Invoke("azure-native:containerservice:getAgentPool", args, &rv, opts...)
@@ -31,7 +31,7 @@ type LookupAgentPoolArgs struct {
 type LookupAgentPoolResult struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
 	Count *int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -41,8 +41,6 @@ type LookupAgentPoolResult struct {
 	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Whether to enable UltraSSD
-	EnableUltraSSD *bool `pulumi:"enableUltraSSD"`
 	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
 	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// Resource ID.

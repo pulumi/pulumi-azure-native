@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         /// </summary>
         public readonly int? Count;
         /// <summary>
@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// Enable public IP for nodes
         /// </summary>
         public readonly bool? EnableNodePublicIP;
-        /// <summary>
-        /// Whether to enable UltraSSD
-        /// </summary>
-        public readonly bool? EnableUltraSSD;
         /// <summary>
         /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         /// </summary>
@@ -176,8 +172,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             bool? enableNodePublicIP,
 
-            bool? enableUltraSSD,
-
             string? gpuInstanceProfile,
 
             Outputs.KubeletConfigResponse? kubeletConfig,
@@ -244,7 +238,6 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             EnableEncryptionAtHost = enableEncryptionAtHost;
             EnableFIPS = enableFIPS;
             EnableNodePublicIP = enableNodePublicIP;
-            EnableUltraSSD = enableUltraSSD;
             GpuInstanceProfile = gpuInstanceProfile;
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;

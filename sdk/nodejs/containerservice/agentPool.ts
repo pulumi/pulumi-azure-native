@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
-     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
      */
     public readonly count!: pulumi.Output<number | undefined>;
     /**
@@ -60,10 +60,6 @@ export class AgentPool extends pulumi.CustomResource {
      * Enable public IP for nodes
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether to enable UltraSSD
-     */
-    public readonly enableUltraSSD!: pulumi.Output<boolean | undefined>;
     /**
      * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
      */
@@ -209,7 +205,6 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
             inputs["enableFIPS"] = args ? args.enableFIPS : undefined;
             inputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
-            inputs["enableUltraSSD"] = args ? args.enableUltraSSD : undefined;
             inputs["gpuInstanceProfile"] = args ? args.gpuInstanceProfile : undefined;
             inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
             inputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
@@ -249,7 +244,6 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["enableEncryptionAtHost"] = undefined /*out*/;
             inputs["enableFIPS"] = undefined /*out*/;
             inputs["enableNodePublicIP"] = undefined /*out*/;
-            inputs["enableUltraSSD"] = undefined /*out*/;
             inputs["gpuInstanceProfile"] = undefined /*out*/;
             inputs["kubeletConfig"] = undefined /*out*/;
             inputs["kubeletDiskType"] = undefined /*out*/;
@@ -303,7 +297,7 @@ export interface AgentPoolArgs {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
      */
     count?: pulumi.Input<number>;
     /**
@@ -322,10 +316,6 @@ export interface AgentPoolArgs {
      * Enable public IP for nodes
      */
     enableNodePublicIP?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable UltraSSD
-     */
-    enableUltraSSD?: pulumi.Input<boolean>;
     /**
      * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
      */
