@@ -147,6 +147,9 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static FunctionType Avg { get; } = new FunctionType("Avg");
+        public static FunctionType Max { get; } = new FunctionType("Max");
+        public static FunctionType Min { get; } = new FunctionType("Min");
         public static FunctionType Sum { get; } = new FunctionType("Sum");
 
         public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);

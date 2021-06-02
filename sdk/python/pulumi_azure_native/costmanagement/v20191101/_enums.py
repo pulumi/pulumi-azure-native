@@ -65,6 +65,9 @@ class FunctionType(str, Enum):
     """
     The name of the aggregation function to use.
     """
+    AVG = "Avg"
+    MAX = "Max"
+    MIN = "Min"
     SUM = "Sum"
 
 

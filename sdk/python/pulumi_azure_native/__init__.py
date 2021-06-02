@@ -3714,6 +3714,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20210501",
+  "fqn": "pulumi_azure_native.containerservice.v20210501",
+  "classes": {
+   "azure-native:containerservice/v20210501:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20210501:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20210501:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20210501:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
@@ -5379,6 +5390,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20210701preview",
+  "fqn": "pulumi_azure_native.devices.v20210701preview",
+  "classes": {
+   "azure-native:devices/v20210701preview:Certificate": "Certificate",
+   "azure-native:devices/v20210701preview:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210701preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
@@ -6684,6 +6706,17 @@ _utilities.register(
    "azure-native:hybridcompute/v20210422preview:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20210422preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20210517preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20210517preview",
+  "classes": {
+   "azure-native:hybridcompute/v20210517preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20210517preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20210517preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {

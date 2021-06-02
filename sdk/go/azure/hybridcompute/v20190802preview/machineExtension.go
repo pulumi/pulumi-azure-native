@@ -111,6 +111,12 @@ func NewMachineExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20210422preview:MachineExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20210517preview:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute/v20210517preview:MachineExtension"),
+		},
+		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210520:MachineExtension"),
 		},
 		{

@@ -216,6 +216,9 @@ func (e FormatType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 type FunctionType pulumi.String
 
 const (
+	FunctionTypeAvg = FunctionType("Avg")
+	FunctionTypeMax = FunctionType("Max")
+	FunctionTypeMin = FunctionType("Min")
 	FunctionTypeSum = FunctionType("Sum")
 )
 

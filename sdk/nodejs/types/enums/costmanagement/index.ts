@@ -111,6 +111,9 @@ export const FormatType = {
 export type FormatType = (typeof FormatType)[keyof typeof FormatType];
 
 export const FunctionType = {
+    Avg: "Avg",
+    Max: "Max",
+    Min: "Min",
     Sum: "Sum",
 } as const;
 

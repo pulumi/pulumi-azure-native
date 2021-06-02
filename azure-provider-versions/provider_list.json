@@ -38384,7 +38384,8 @@
           "WEST EUROPE",
           "CANADA CENTRAL",
           "CENTRAL US",
-          "EAST US"
+          "EAST US",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "flexibleServers",
@@ -38613,7 +38614,8 @@
           "WEST EUROPE",
           "CANADA CENTRAL",
           "CENTRAL US",
-          "EAST US"
+          "EAST US",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "locations/capabilities"
@@ -38695,7 +38697,8 @@
           "WEST EUROPE",
           "CANADA CENTRAL",
           "CENTRAL US",
-          "EAST US"
+          "EAST US",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "locations/checkVirtualNetworkSubnetUsage"
