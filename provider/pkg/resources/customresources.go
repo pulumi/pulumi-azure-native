@@ -54,6 +54,8 @@ func BuildCustomResources(env *azure.Environment, subscriptionID string, bearerA
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
+		// Experimental ARM template component.
+		newArmTemplate(),
 	}
 
 	result := map[string]*CustomResource{}

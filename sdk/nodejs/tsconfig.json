@@ -6332,6 +6332,8 @@
         "extendedlocation/v20210315preview/customLocation.ts",
         "extendedlocation/v20210315preview/getcustomLocation.ts",
         "extendedlocation/v20210315preview/index.ts",
+        "extensions/armTemplate.ts",
+        "extensions/index.ts",
         "guestconfiguration/getGuestConfigurationAssignment.ts",
         "guestconfiguration/getGuestConfigurationHCRPAssignment.ts",
         "guestconfiguration/guestConfigurationAssignment.ts",

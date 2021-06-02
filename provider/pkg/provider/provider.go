@@ -38,6 +38,8 @@ import (
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+
+	goprovider "github.com/pulumi/pulumi/sdk/v3/go/pulumi/provider"
 )
 
 const (
@@ -154,6 +156,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
+		AcceptSecrets: true,
 	}, nil
 }
 
@@ -1137,8 +1140,8 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 }
 
 // Construct creates a new component resource.
-func (k *azureNativeProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "Construct is not yet implemented")
+func (k *azureNativeProvider) Construct(ctx context.Context, req *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
+	return goprovider.Construct(ctx, req, k.host.EngineConn(), k.construct)
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.

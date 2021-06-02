@@ -85,6 +85,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.eventgrid as eventgrid
     import pulumi_azure_native.eventhub as eventhub
     import pulumi_azure_native.extendedlocation as extendedlocation
+    import pulumi_azure_native.extensions as extensions
     import pulumi_azure_native.guestconfiguration as guestconfiguration
     import pulumi_azure_native.hanaonazure as hanaonazure
     import pulumi_azure_native.hardwaresecuritymodules as hardwaresecuritymodules
@@ -254,6 +255,7 @@ else:
     eventgrid = _utilities.lazy_import('pulumi_azure_native.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure_native.eventhub')
     extendedlocation = _utilities.lazy_import('pulumi_azure_native.extendedlocation')
+    extensions = _utilities.lazy_import('pulumi_azure_native.extensions')
     guestconfiguration = _utilities.lazy_import('pulumi_azure_native.guestconfiguration')
     hanaonazure = _utilities.lazy_import('pulumi_azure_native.hanaonazure')
     hardwaresecuritymodules = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules')
@@ -6378,6 +6380,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.extendedlocation.v20210315preview",
   "classes": {
    "azure-native:extendedlocation/v20210315preview:customLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "extensions",
+  "fqn": "pulumi_azure_native.extensions",
+  "classes": {
+   "azure-native:extensions:ArmTemplate": "ArmTemplate"
   }
  },
  {
