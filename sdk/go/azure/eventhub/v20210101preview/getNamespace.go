@@ -56,6 +56,8 @@ type LookupNamespaceResult struct {
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku *SkuResponse `pulumi:"sku"`
+	// Status of the Namespace.
+	Status string `pulumi:"status"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

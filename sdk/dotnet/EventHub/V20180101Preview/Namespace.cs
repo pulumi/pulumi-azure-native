@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]

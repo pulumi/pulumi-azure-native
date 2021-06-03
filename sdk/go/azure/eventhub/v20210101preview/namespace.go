@@ -43,6 +43,8 @@ type Namespace struct {
 	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Status of the Namespace.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -151,6 +153,8 @@ type namespaceState struct {
 	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku *SkuResponse `pulumi:"sku"`
+	// Status of the Namespace.
+	Status *string `pulumi:"status"`
 	// The system meta data relating to this resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -192,6 +196,8 @@ type NamespaceState struct {
 	ServiceBusEndpoint pulumi.StringPtrInput
 	// Properties of sku resource
 	Sku SkuResponsePtrInput
+	// Status of the Namespace.
+	Status pulumi.StringPtrInput
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.

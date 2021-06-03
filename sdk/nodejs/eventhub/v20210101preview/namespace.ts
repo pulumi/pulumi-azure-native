@@ -92,6 +92,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.eventhub.v20210101preview.SkuResponse | undefined>;
     /**
+     * Status of the Namespace.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
      * The system meta data relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.v20210101preview.SystemDataResponse>;
@@ -144,6 +148,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
@@ -162,6 +167,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

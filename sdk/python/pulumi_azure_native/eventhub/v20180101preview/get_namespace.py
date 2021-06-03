@@ -20,7 +20,7 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, cluster_arm_id=None, created_at=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, cluster_arm_id=None, created_at=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if cluster_arm_id and not isinstance(cluster_arm_id, str):
             raise TypeError("Expected argument 'cluster_arm_id' to be a str")
         pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
@@ -63,6 +63,9 @@ class GetNamespaceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -190,6 +193,14 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Namespace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         Resource tags.
@@ -241,6 +252,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             provisioning_state=self.provisioning_state,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
             tags=self.tags,
             type=self.type,
             updated_at=self.updated_at,
@@ -281,6 +293,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
+        status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_at=__ret__.updated_at,

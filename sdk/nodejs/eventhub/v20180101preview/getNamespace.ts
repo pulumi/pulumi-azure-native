@@ -94,6 +94,10 @@ export interface GetNamespaceResult {
      */
     readonly sku?: outputs.eventhub.v20180101preview.SkuResponse;
     /**
+     * Status of the Namespace.
+     */
+    readonly status: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

@@ -20,7 +20,7 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, cluster_arm_id=None, created_at=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, service_bus_endpoint=None, sku=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, cluster_arm_id=None, created_at=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if cluster_arm_id and not isinstance(cluster_arm_id, str):
             raise TypeError("Expected argument 'cluster_arm_id' to be a str")
         pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
@@ -66,6 +66,9 @@ class GetNamespaceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -203,6 +206,14 @@ class GetNamespaceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Namespace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -264,6 +275,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             provisioning_state=self.provisioning_state,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
@@ -306,6 +318,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
+        status=__ret__.status,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,

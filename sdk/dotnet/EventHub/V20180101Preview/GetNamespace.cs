@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
 
             Outputs.SkuResponse? sku,
 
+            string status,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
             ProvisioningState = provisioningState;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;

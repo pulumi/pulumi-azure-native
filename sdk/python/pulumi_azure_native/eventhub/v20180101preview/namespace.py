@@ -315,6 +315,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_bus_endpoint"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:Namespace"), pulumi.Alias(type_="azure-native:eventhub:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:Namespace"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:Namespace"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210101preview:Namespace")])
@@ -354,6 +355,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_bus_endpoint"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
@@ -463,6 +465,14 @@ class Namespace(pulumi.CustomResource):
         Properties of sku resource
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Status of the Namespace.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
