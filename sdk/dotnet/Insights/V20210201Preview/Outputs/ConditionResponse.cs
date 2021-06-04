@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Outputs
         /// <summary>
         /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        public readonly string Operator;
+        public readonly string? Operator;
         /// <summary>
         /// Log query alert
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Outputs
         /// <summary>
         /// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        public readonly double Threshold;
+        public readonly double? Threshold;
         /// <summary>
         /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        public readonly string TimeAggregation;
+        public readonly string? TimeAggregation;
 
         [OutputConstructor]
         private ConditionResponse(
@@ -60,15 +60,15 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Outputs
 
             string? metricName,
 
-            string @operator,
+            string? @operator,
 
             string? query,
 
             string? resourceIdColumn,
 
-            double threshold,
+            double? threshold,
 
-            string timeAggregation)
+            string? timeAggregation)
         {
             Dimensions = dimensions;
             FailingPeriods = failingPeriods;

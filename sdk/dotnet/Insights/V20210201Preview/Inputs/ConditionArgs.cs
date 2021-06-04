@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Inputs
         /// <summary>
         /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Insights.V20210201Preview.ConditionOperator> Operator { get; set; } = null!;
+        [Input("operator")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20210201Preview.ConditionOperator>? Operator { get; set; }
 
         /// <summary>
         /// Log query alert
@@ -66,14 +66,14 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview.Inputs
         /// <summary>
         /// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
+        [Input("threshold")]
+        public Input<double>? Threshold { get; set; }
 
         /// <summary>
         /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
         /// </summary>
-        [Input("timeAggregation", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Insights.V20210201Preview.TimeAggregation> TimeAggregation { get; set; } = null!;
+        [Input("timeAggregation")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20210201Preview.TimeAggregation>? TimeAggregation { get; set; }
 
         public ConditionArgs()
         {

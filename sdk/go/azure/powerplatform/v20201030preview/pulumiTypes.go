@@ -2860,6 +2860,8 @@ func (o VirtualNetworkPropertiesArrayOutput) Index(i pulumi.IntInput) VirtualNet
 
 // A list of private link resources
 type VirtualNetworkPropertiesList struct {
+	// Next page link if any.
+	NextLink *string `pulumi:"nextLink"`
 	// Array of virtual networks.
 	Value []VirtualNetworkProperties `pulumi:"value"`
 }
@@ -2877,6 +2879,8 @@ type VirtualNetworkPropertiesListInput interface {
 
 // A list of private link resources
 type VirtualNetworkPropertiesListArgs struct {
+	// Next page link if any.
+	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
 	// Array of virtual networks.
 	Value VirtualNetworkPropertiesArrayInput `pulumi:"value"`
 }
@@ -2959,6 +2963,11 @@ func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOut
 	}).(VirtualNetworkPropertiesListPtrOutput)
 }
 
+// Next page link if any.
+func (o VirtualNetworkPropertiesListOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesList) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
 // Array of virtual networks.
 func (o VirtualNetworkPropertiesListOutput) Value() VirtualNetworkPropertiesArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesList) []VirtualNetworkProperties { return v.Value }).(VirtualNetworkPropertiesArrayOutput)
@@ -2982,6 +2991,16 @@ func (o VirtualNetworkPropertiesListPtrOutput) Elem() VirtualNetworkPropertiesLi
 	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList { return *v }).(VirtualNetworkPropertiesListOutput)
 }
 
+// Next page link if any.
+func (o VirtualNetworkPropertiesListPtrOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextLink
+	}).(pulumi.StringPtrOutput)
+}
+
 // Array of virtual networks.
 func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesList) []VirtualNetworkProperties {
@@ -2994,6 +3013,8 @@ func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesA
 
 // A list of private link resources
 type VirtualNetworkPropertiesListResponse struct {
+	// Next page link if any.
+	NextLink *string `pulumi:"nextLink"`
 	// Array of virtual networks.
 	Value []VirtualNetworkPropertiesResponse `pulumi:"value"`
 }
@@ -3011,6 +3032,8 @@ type VirtualNetworkPropertiesListResponseInput interface {
 
 // A list of private link resources
 type VirtualNetworkPropertiesListResponseArgs struct {
+	// Next page link if any.
+	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
 	// Array of virtual networks.
 	Value VirtualNetworkPropertiesResponseArrayInput `pulumi:"value"`
 }
@@ -3093,6 +3116,11 @@ func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesLi
 	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
+// Next page link if any.
+func (o VirtualNetworkPropertiesListResponseOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) *string { return v.NextLink }).(pulumi.StringPtrOutput)
+}
+
 // Array of virtual networks.
 func (o VirtualNetworkPropertiesListResponseOutput) Value() VirtualNetworkPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) []VirtualNetworkPropertiesResponse { return v.Value }).(VirtualNetworkPropertiesResponseArrayOutput)
@@ -3114,6 +3142,16 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) ToVirtualNetworkPropertie
 
 func (o VirtualNetworkPropertiesListResponsePtrOutput) Elem() VirtualNetworkPropertiesListResponseOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse { return *v }).(VirtualNetworkPropertiesListResponseOutput)
+}
+
+// Next page link if any.
+func (o VirtualNetworkPropertiesListResponsePtrOutput) NextLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextLink
+	}).(pulumi.StringPtrOutput)
 }
 
 // Array of virtual networks.

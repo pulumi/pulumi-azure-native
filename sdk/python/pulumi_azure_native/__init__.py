@@ -7266,6 +7266,7 @@ _utilities.register(
   "mod": "keyvault/v20210401preview",
   "fqn": "pulumi_azure_native.keyvault.v20210401preview",
   "classes": {
+   "azure-native:keyvault/v20210401preview:Key": "Key",
    "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
    "azure-native:keyvault/v20210401preview:ManagedHsm": "ManagedHsm",
    "azure-native:keyvault/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
@@ -11413,6 +11414,7 @@ _utilities.register(
   "mod": "powerplatform",
   "fqn": "pulumi_azure_native.powerplatform",
   "classes": {
+   "azure-native:powerplatform:Account": "Account",
    "azure-native:powerplatform:EnterprisePolicy": "EnterprisePolicy",
    "azure-native:powerplatform:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
@@ -11422,6 +11424,7 @@ _utilities.register(
   "mod": "powerplatform/v20201030preview",
   "fqn": "pulumi_azure_native.powerplatform.v20201030preview",
   "classes": {
+   "azure-native:powerplatform/v20201030preview:Account": "Account",
    "azure-native:powerplatform/v20201030preview:EnterprisePolicy": "EnterprisePolicy",
    "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }

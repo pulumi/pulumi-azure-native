@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public string? ServerFqdn { get; set; }
+
         public ListManagedClusterMonitoringUserCredentialsArgs()
         {
         }

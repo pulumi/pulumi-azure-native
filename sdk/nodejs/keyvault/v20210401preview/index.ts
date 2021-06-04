@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getKey";
 export * from "./getMHSMPrivateEndpointConnection";
 export * from "./getManagedHsm";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSecret";
 export * from "./getVault";
+export * from "./key";
 export * from "./managedHsm";
 export * from "./mhsmprivateEndpointConnection";
 export * from "./privateEndpointConnection";
@@ -20,6 +22,7 @@ export * from "./vault";
 export * from "../../types/enums/keyvault/v20210401preview";
 
 // Import resources to register:
+import { Key } from "./key";
 import { MHSMPrivateEndpointConnection } from "./mhsmprivateEndpointConnection";
 import { ManagedHsm } from "./managedHsm";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
@@ -30,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:keyvault/v20210401preview:Key":
+                return new Key(name, <any>undefined, { urn })
             case "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection":
                 return new MHSMPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:keyvault/v20210401preview:ManagedHsm":

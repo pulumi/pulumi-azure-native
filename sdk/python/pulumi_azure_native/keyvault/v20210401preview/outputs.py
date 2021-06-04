@@ -12,7 +12,11 @@ from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryResponse',
+    'ActionResponse',
     'IPRuleResponse',
+    'KeyAttributesResponse',
+    'KeyRotationPolicyAttributesResponse',
+    'LifetimeActionResponse',
     'MHSMIPRuleResponse',
     'MHSMNetworkRuleSetResponse',
     'MHSMPrivateEndpointConnectionItemResponse',
@@ -26,10 +30,12 @@ __all__ = [
     'PrivateEndpointConnectionItemResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'RotationPolicyResponse',
     'SecretAttributesResponse',
     'SecretPropertiesResponse',
     'SkuResponse',
     'SystemDataResponse',
+    'TriggerResponse',
     'VaultPropertiesResponse',
     'VirtualNetworkRuleResponse',
 ]
@@ -112,6 +118,25 @@ class AccessPolicyEntryResponse(dict):
 
 
 @pulumi.output_type
+class ActionResponse(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class IPRuleResponse(dict):
     """
     A rule governing the accessibility of a vault from a specific ip address or ip range.
@@ -131,6 +156,194 @@ class IPRuleResponse(dict):
         An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class KeyAttributesResponse(dict):
+    """
+    The object attributes managed by the Azure Key Vault service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryLevel":
+            suggest = "recovery_level"
+        elif key == "notBefore":
+            suggest = "not_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyAttributesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyAttributesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyAttributesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created: float,
+                 recovery_level: str,
+                 updated: float,
+                 enabled: Optional[bool] = None,
+                 expires: Optional[float] = None,
+                 not_before: Optional[float] = None):
+        """
+        The object attributes managed by the Azure Key Vault service.
+        :param float created: Creation time in seconds since 1970-01-01T00:00:00Z.
+        :param str recovery_level: The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+        :param float updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
+        :param bool enabled: Determines whether or not the object is enabled.
+        :param float expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param float not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "recovery_level", recovery_level)
+        pulumi.set(__self__, "updated", updated)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter
+    def created(self) -> float:
+        """
+        Creation time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="recoveryLevel")
+    def recovery_level(self) -> str:
+        """
+        The deletion recovery level currently in effect for the object. If it contains 'Purgeable', then the object can be permanently deleted by a privileged user; otherwise, only the system can purge the object at the end of the retention interval.
+        """
+        return pulumi.get(self, "recovery_level")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> float:
+        """
+        Last updated time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Determines whether or not the object is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[float]:
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[float]:
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "not_before")
+
+
+@pulumi.output_type
+class KeyRotationPolicyAttributesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiryTime":
+            suggest = "expiry_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyRotationPolicyAttributesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyRotationPolicyAttributesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyRotationPolicyAttributesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created: float,
+                 updated: float,
+                 expiry_time: Optional[str] = None):
+        """
+        :param float created: Creation time in seconds since 1970-01-01T00:00:00Z.
+        :param float updated: Last updated time in seconds since 1970-01-01T00:00:00Z.
+        :param str expiry_time: The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "updated", updated)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+
+    @property
+    @pulumi.getter
+    def created(self) -> float:
+        """
+        Creation time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> float:
+        """
+        Last updated time in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "expiry_time")
+
+
+@pulumi.output_type
+class LifetimeActionResponse(dict):
+    def __init__(__self__, *,
+                 action: Optional['outputs.ActionResponse'] = None,
+                 trigger: Optional['outputs.TriggerResponse'] = None):
+        """
+        :param 'ActionResponse' action: The action of key rotation policy lifetimeAction.
+        :param 'TriggerResponse' trigger: The trigger of key rotation policy lifetimeAction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.ActionResponse']:
+        """
+        The action of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional['outputs.TriggerResponse']:
+        """
+        The trigger of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "trigger")
 
 
 @pulumi.output_type
@@ -969,6 +1182,54 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class RotationPolicyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifetimeActions":
+            suggest = "lifetime_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RotationPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RotationPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RotationPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes: Optional['outputs.KeyRotationPolicyAttributesResponse'] = None,
+                 lifetime_actions: Optional[Sequence['outputs.LifetimeActionResponse']] = None):
+        """
+        :param 'KeyRotationPolicyAttributesResponse' attributes: The attributes of key rotation policy.
+        :param Sequence['LifetimeActionResponse'] lifetime_actions: The lifetimeActions for key rotation action.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if lifetime_actions is not None:
+            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.KeyRotationPolicyAttributesResponse']:
+        """
+        The attributes of key rotation policy.
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="lifetimeActions")
+    def lifetime_actions(self) -> Optional[Sequence['outputs.LifetimeActionResponse']]:
+        """
+        The lifetimeActions for key rotation action.
+        """
+        return pulumi.get(self, "lifetime_actions")
+
+
+@pulumi.output_type
 class SecretAttributesResponse(dict):
     """
     The secret management attributes.
@@ -1285,6 +1546,56 @@ class SystemDataResponse(dict):
         The type of identity that last modified the key vault resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TriggerResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAfterCreate":
+            suggest = "time_after_create"
+        elif key == "timeBeforeExpiry":
+            suggest = "time_before_expiry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_after_create: Optional[str] = None,
+                 time_before_expiry: Optional[str] = None):
+        """
+        :param str time_after_create: The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        :param str time_before_expiry: The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        if time_after_create is not None:
+            pulumi.set(__self__, "time_after_create", time_after_create)
+        if time_before_expiry is not None:
+            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+
+    @property
+    @pulumi.getter(name="timeAfterCreate")
+    def time_after_create(self) -> Optional[str]:
+        """
+        The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_after_create")
+
+    @property
+    @pulumi.getter(name="timeBeforeExpiry")
+    def time_before_expiry(self) -> Optional[str]:
+        """
+        The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_before_expiry")
 
 
 @pulumi.output_type

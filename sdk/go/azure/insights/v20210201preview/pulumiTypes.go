@@ -239,15 +239,15 @@ type Condition struct {
 	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 	MetricName *string `pulumi:"metricName"`
 	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator string `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// Log query alert
 	Query *string `pulumi:"query"`
 	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
 	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold float64 `pulumi:"threshold"`
+	Threshold *float64 `pulumi:"threshold"`
 	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	TimeAggregation *string `pulumi:"timeAggregation"`
 }
 
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
@@ -272,15 +272,15 @@ type ConditionArgs struct {
 	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// Log query alert
 	Query pulumi.StringPtrInput `pulumi:"query"`
 	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
 	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
 }
 
 func (ConditionArgs) ElementType() reflect.Type {
@@ -356,8 +356,8 @@ func (o ConditionOutput) MetricName() pulumi.StringPtrOutput {
 }
 
 // The criteria operator. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v Condition) string { return v.Operator }).(pulumi.StringOutput)
+func (o ConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // Log query alert
@@ -371,13 +371,13 @@ func (o ConditionOutput) ResourceIdColumn() pulumi.StringPtrOutput {
 }
 
 // the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v Condition) float64 { return v.Threshold }).(pulumi.Float64Output)
+func (o ConditionOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Condition) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 // Aggregation type. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v Condition) string { return v.TimeAggregation }).(pulumi.StringOutput)
+func (o ConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Condition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
 
 type ConditionArrayOutput struct{ *pulumi.OutputState }
@@ -564,15 +564,15 @@ type ConditionResponse struct {
 	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 	MetricName *string `pulumi:"metricName"`
 	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator string `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// Log query alert
 	Query *string `pulumi:"query"`
 	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
 	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold float64 `pulumi:"threshold"`
+	Threshold *float64 `pulumi:"threshold"`
 	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	TimeAggregation *string `pulumi:"timeAggregation"`
 }
 
 // ConditionResponseInput is an input type that accepts ConditionResponseArgs and ConditionResponseOutput values.
@@ -597,15 +597,15 @@ type ConditionResponseArgs struct {
 	// The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// The criteria operator. Relevant and required only for rules of the kind LogAlert.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// Log query alert
 	Query pulumi.StringPtrInput `pulumi:"query"`
 	// The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
 	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
 	// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// Aggregation type. Relevant and required only for rules of the kind LogAlert.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
 }
 
 func (ConditionResponseArgs) ElementType() reflect.Type {
@@ -681,8 +681,8 @@ func (o ConditionResponseOutput) MetricName() pulumi.StringPtrOutput {
 }
 
 // The criteria operator. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionResponseOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ConditionResponse) string { return v.Operator }).(pulumi.StringOutput)
+func (o ConditionResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // Log query alert
@@ -696,13 +696,13 @@ func (o ConditionResponseOutput) ResourceIdColumn() pulumi.StringPtrOutput {
 }
 
 // the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionResponseOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+func (o ConditionResponseOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 // Aggregation type. Relevant and required only for rules of the kind LogAlert.
-func (o ConditionResponseOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v ConditionResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
+func (o ConditionResponseOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionResponse) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
 
 type ConditionResponseArrayOutput struct{ *pulumi.OutputState }

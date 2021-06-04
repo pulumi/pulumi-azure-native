@@ -22,6 +22,8 @@ type ListManagedClusterUserCredentialsArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
+	// server fqdn type for credentials to be returned
+	ServerFqdn *string `pulumi:"serverFqdn"`
 }
 
 // The list of credential result response.

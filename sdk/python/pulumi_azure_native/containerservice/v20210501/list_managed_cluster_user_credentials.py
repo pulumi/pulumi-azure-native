@@ -45,6 +45,7 @@ class AwaitableListManagedClusterUserCredentialsResult(ListManagedClusterUserCre
 
 def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = None,
                                           resource_name: Optional[str] = None,
+                                          server_fqdn: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterUserCredentialsResult:
     """
     The list of credential result response.
@@ -52,10 +53,12 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
+    :param str server_fqdn: server fqdn type for credentials to be returned
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
+    __args__['serverFqdn'] = server_fqdn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

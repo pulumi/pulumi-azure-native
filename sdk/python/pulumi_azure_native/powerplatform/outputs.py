@@ -498,14 +498,43 @@ class VirtualNetworkPropertiesListResponse(dict):
     """
     A list of private link resources
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextLink":
+            suggest = "next_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPropertiesListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkPropertiesListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkPropertiesListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 next_link: Optional[str] = None,
                  value: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
         """
         A list of private link resources
+        :param str next_link: Next page link if any.
         :param Sequence['VirtualNetworkPropertiesResponse'] value: Array of virtual networks.
         """
+        if next_link is not None:
+            pulumi.set(__self__, "next_link", next_link)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[str]:
+        """
+        Next page link if any.
+        """
+        return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter

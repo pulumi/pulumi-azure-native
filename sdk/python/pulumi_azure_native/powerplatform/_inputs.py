@@ -337,13 +337,29 @@ class VirtualNetworkPropertiesArgs:
 @pulumi.input_type
 class VirtualNetworkPropertiesListArgs:
     def __init__(__self__, *,
+                 next_link: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
         """
         A list of private link resources
+        :param pulumi.Input[str] next_link: Next page link if any.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] value: Array of virtual networks.
         """
+        if next_link is not None:
+            pulumi.set(__self__, "next_link", next_link)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Next page link if any.
+        """
+        return pulumi.get(self, "next_link")
+
+    @next_link.setter
+    def next_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_link", value)
 
     @property
     @pulumi.getter

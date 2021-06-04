@@ -19,6 +19,7 @@ export function listManagedClusterUserCredentials(args: ListManagedClusterUserCr
     return pulumi.runtime.invoke("azure-native:containerservice/v20210501:listManagedClusterUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "serverFqdn": args.serverFqdn,
     }, opts);
 }
 
@@ -31,6 +32,10 @@ export interface ListManagedClusterUserCredentialsArgs {
      * The name of the managed cluster resource.
      */
     resourceName: string;
+    /**
+     * server fqdn type for credentials to be returned
+     */
+    serverFqdn?: string;
 }
 
 /**

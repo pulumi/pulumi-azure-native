@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:powerplatform/v20201030preview:Account":
+		r = &Account{}
 	case "azure-native:powerplatform/v20201030preview:EnterprisePolicy":
 		r = &EnterprisePolicy{}
 	case "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection":

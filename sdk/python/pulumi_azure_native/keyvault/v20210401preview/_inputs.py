@@ -11,7 +11,12 @@ from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryArgs',
+    'ActionArgs',
     'IPRuleArgs',
+    'KeyAttributesArgs',
+    'KeyPropertiesArgs',
+    'KeyRotationPolicyAttributesArgs',
+    'LifetimeActionArgs',
     'MHSMIPRuleArgs',
     'MHSMNetworkRuleSetArgs',
     'MHSMPrivateLinkServiceConnectionStateArgs',
@@ -21,9 +26,11 @@ __all__ = [
     'NetworkRuleSetArgs',
     'PermissionsArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RotationPolicyArgs',
     'SecretAttributesArgs',
     'SecretPropertiesArgs',
     'SkuArgs',
+    'TriggerArgs',
     'VaultPropertiesArgs',
     'VirtualNetworkRuleArgs',
 ]
@@ -98,6 +105,29 @@ class AccessPolicyEntryArgs:
 
 
 @pulumi.input_type
+class ActionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None):
+        """
+        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['KeyRotationPolicyActionType']]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['KeyRotationPolicyActionType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
@@ -118,6 +148,224 @@ class IPRuleArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class KeyAttributesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 expires: Optional[pulumi.Input[float]] = None,
+                 not_before: Optional[pulumi.Input[float]] = None):
+        """
+        The object attributes managed by the Azure Key Vault service.
+        :param pulumi.Input[bool] enabled: Determines whether or not the object is enabled.
+        :param pulumi.Input[float] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[float] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expires is not None:
+            pulumi.set(__self__, "expires", expires)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether or not the object is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def expires(self) -> Optional[pulumi.Input[float]]:
+        """
+        Expiry date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "expires")
+
+    @expires.setter
+    def expires(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expires", value)
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[pulumi.Input[float]]:
+        """
+        Not before date in seconds since 1970-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "not_before")
+
+    @not_before.setter
+    def not_before(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "not_before", value)
+
+
+@pulumi.input_type
+class KeyPropertiesArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input['KeyAttributesArgs']] = None,
+                 curve_name: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]] = None,
+                 key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None,
+                 rotation_policy: Optional[pulumi.Input['RotationPolicyArgs']] = None):
+        """
+        The properties of the key.
+        :param pulumi.Input['KeyAttributesArgs'] attributes: The attributes of the key.
+        :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        :param pulumi.Input[Union[str, 'JsonWebKeyType']] kty: The type of the key. For valid values, see JsonWebKeyType.
+        :param pulumi.Input['RotationPolicyArgs'] rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if curve_name is not None:
+            pulumi.set(__self__, "curve_name", curve_name)
+        if key_ops is not None:
+            pulumi.set(__self__, "key_ops", key_ops)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if kty is not None:
+            pulumi.set(__self__, "kty", kty)
+        if rotation_policy is not None:
+            pulumi.set(__self__, "rotation_policy", rotation_policy)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['KeyAttributesArgs']]:
+        """
+        The attributes of the key.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['KeyAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="curveName")
+    def curve_name(self) -> Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]:
+        """
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        """
+        return pulumi.get(self, "curve_name")
+
+    @curve_name.setter
+    def curve_name(self, value: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]):
+        pulumi.set(self, "curve_name", value)
+
+    @property
+    @pulumi.getter(name="keyOps")
+    def key_ops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]:
+        return pulumi.get(self, "key_ops")
+
+    @key_ops.setter
+    def key_ops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]):
+        pulumi.set(self, "key_ops", value)
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        """
+        return pulumi.get(self, "key_size")
+
+    @key_size.setter
+    def key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_size", value)
+
+    @property
+    @pulumi.getter
+    def kty(self) -> Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]]:
+        """
+        The type of the key. For valid values, see JsonWebKeyType.
+        """
+        return pulumi.get(self, "kty")
+
+    @kty.setter
+    def kty(self, value: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]]):
+        pulumi.set(self, "kty", value)
+
+    @property
+    @pulumi.getter(name="rotationPolicy")
+    def rotation_policy(self) -> Optional[pulumi.Input['RotationPolicyArgs']]:
+        """
+        Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "rotation_policy")
+
+    @rotation_policy.setter
+    def rotation_policy(self, value: Optional[pulumi.Input['RotationPolicyArgs']]):
+        pulumi.set(self, "rotation_policy", value)
+
+
+@pulumi.input_type
+class KeyRotationPolicyAttributesArgs:
+    def __init__(__self__, *,
+                 expiry_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] expiry_time: The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+
+@pulumi.input_type
+class LifetimeActionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['ActionArgs']] = None,
+                 trigger: Optional[pulumi.Input['TriggerArgs']] = None):
+        """
+        :param pulumi.Input['ActionArgs'] action: The action of key rotation policy lifetimeAction.
+        :param pulumi.Input['TriggerArgs'] trigger: The trigger of key rotation policy lifetimeAction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['ActionArgs']]:
+        """
+        The action of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['ActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional[pulumi.Input['TriggerArgs']]:
+        """
+        The trigger of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: Optional[pulumi.Input['TriggerArgs']]):
+        pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
@@ -675,6 +923,45 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class RotationPolicyArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']] = None,
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]] = None):
+        """
+        :param pulumi.Input['KeyRotationPolicyAttributesArgs'] attributes: The attributes of key rotation policy.
+        :param pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]] lifetime_actions: The lifetimeActions for key rotation action.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if lifetime_actions is not None:
+            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]:
+        """
+        The attributes of key rotation policy.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="lifetimeActions")
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]:
+        """
+        The lifetimeActions for key rotation action.
+        """
+        return pulumi.get(self, "lifetime_actions")
+
+    @lifetime_actions.setter
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]):
+        pulumi.set(self, "lifetime_actions", value)
+
+
+@pulumi.input_type
 class SecretAttributesArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -822,6 +1109,45 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TriggerArgs:
+    def __init__(__self__, *,
+                 time_after_create: Optional[pulumi.Input[str]] = None,
+                 time_before_expiry: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] time_after_create: The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        :param pulumi.Input[str] time_before_expiry: The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        if time_after_create is not None:
+            pulumi.set(__self__, "time_after_create", time_after_create)
+        if time_before_expiry is not None:
+            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+
+    @property
+    @pulumi.getter(name="timeAfterCreate")
+    def time_after_create(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_after_create")
+
+    @time_after_create.setter
+    def time_after_create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_after_create", value)
+
+    @property
+    @pulumi.getter(name="timeBeforeExpiry")
+    def time_before_expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time duration before key expiring to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_before_expiry")
+
+    @time_before_expiry.setter
+    def time_before_expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_before_expiry", value)
 
 
 @pulumi.input_type

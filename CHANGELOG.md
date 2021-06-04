@@ -5,11 +5,13 @@ CHANGELOG
 
 #### New Resources
 
+- `powerplatform:Account`
 - `securityinsights:ActivityCustomEntityQuery`
 - `securityinsights:EntityQuery`
 
 #### New Functions
 
+- `powerplatform:getAccount`
 - `securityinsights:getActivityCustomEntityQuery`
 - `securityinsights:getEntityQuery`
 

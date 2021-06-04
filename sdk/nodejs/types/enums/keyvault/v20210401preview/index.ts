@@ -42,6 +42,45 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const JsonWebKeyCurveName = {
+    P_256: "P-256",
+    P_384: "P-384",
+    P_521: "P-521",
+    P_256K: "P-256K",
+} as const;
+
+/**
+ * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+ */
+export type JsonWebKeyCurveName = (typeof JsonWebKeyCurveName)[keyof typeof JsonWebKeyCurveName];
+
+export const JsonWebKeyOperation = {
+    Encrypt: "encrypt",
+    Decrypt: "decrypt",
+    Sign: "sign",
+    Verify: "verify",
+    WrapKey: "wrapKey",
+    UnwrapKey: "unwrapKey",
+    Import: "import",
+} as const;
+
+/**
+ * The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+ */
+export type JsonWebKeyOperation = (typeof JsonWebKeyOperation)[keyof typeof JsonWebKeyOperation];
+
+export const JsonWebKeyType = {
+    EC: "EC",
+    EC_HSM: "EC-HSM",
+    RSA: "RSA",
+    RSA_HSM: "RSA-HSM",
+} as const;
+
+/**
+ * The type of the key. For valid values, see JsonWebKeyType.
+ */
+export type JsonWebKeyType = (typeof JsonWebKeyType)[keyof typeof JsonWebKeyType];
+
 export const KeyPermissions = {
     Encrypt: "encrypt",
     Decrypt: "decrypt",
@@ -62,6 +101,16 @@ export const KeyPermissions = {
 } as const;
 
 export type KeyPermissions = (typeof KeyPermissions)[keyof typeof KeyPermissions];
+
+export const KeyRotationPolicyActionType = {
+    Rotate: "rotate",
+    Notify: "notify",
+} as const;
+
+/**
+ * The type of action.
+ */
+export type KeyRotationPolicyActionType = (typeof KeyRotationPolicyActionType)[keyof typeof KeyRotationPolicyActionType];
 
 export const ManagedHsmSkuFamily = {
     B: "B",

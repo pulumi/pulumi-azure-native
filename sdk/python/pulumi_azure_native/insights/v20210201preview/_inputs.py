@@ -60,30 +60,27 @@ class ActionArgs:
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
-                 operator: pulumi.Input[Union[str, 'ConditionOperator']],
-                 threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[Union[str, 'TimeAggregation']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
                  failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
                  metric_measure_column: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'ConditionOperator']]] = None,
                  query: Optional[pulumi.Input[str]] = None,
-                 resource_id_column: Optional[pulumi.Input[str]] = None):
+                 resource_id_column: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 time_aggregation: Optional[pulumi.Input[Union[str, 'TimeAggregation']]] = None):
         """
         A condition of the scheduled query rule.
-        :param pulumi.Input[Union[str, 'ConditionOperator']] operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
-        :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-        :param pulumi.Input[Union[str, 'TimeAggregation']] time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
         :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param pulumi.Input[Union[str, 'ConditionOperator']] operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[str] query: Log query alert
         :param pulumi.Input[str] resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        :param pulumi.Input[Union[str, 'TimeAggregation']] time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if failing_periods is not None:
@@ -92,46 +89,16 @@ class ConditionArgs:
             pulumi.set(__self__, "metric_measure_column", metric_measure_column)
         if metric_name is not None:
             pulumi.set(__self__, "metric_name", metric_name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if resource_id_column is not None:
             pulumi.set(__self__, "resource_id_column", resource_id_column)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[Union[str, 'ConditionOperator']]:
-        """
-        The criteria operator. Relevant and required only for rules of the kind LogAlert.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[Union[str, 'ConditionOperator']]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
-        """
-        the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
-        """
-        return pulumi.get(self, "threshold")
-
-    @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "threshold", value)
-
-    @property
-    @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[Union[str, 'TimeAggregation']]:
-        """
-        Aggregation type. Relevant and required only for rules of the kind LogAlert.
-        """
-        return pulumi.get(self, "time_aggregation")
-
-    @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[Union[str, 'TimeAggregation']]):
-        pulumi.set(self, "time_aggregation", value)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if time_aggregation is not None:
+            pulumi.set(__self__, "time_aggregation", time_aggregation)
 
     @property
     @pulumi.getter
@@ -183,6 +150,18 @@ class ConditionArgs:
 
     @property
     @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionOperator']]]:
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionOperator']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
         Log query alert
@@ -204,6 +183,30 @@ class ConditionArgs:
     @resource_id_column.setter
     def resource_id_column(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id_column", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Optional[pulumi.Input[Union[str, 'TimeAggregation']]]:
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: Optional[pulumi.Input[Union[str, 'TimeAggregation']]]):
+        pulumi.set(self, "time_aggregation", value)
 
 
 @pulumi.input_type

@@ -8,7 +8,11 @@ __all__ = [
     'ActionsRequired',
     'CertificatePermissions',
     'CreateMode',
+    'JsonWebKeyCurveName',
+    'JsonWebKeyOperation',
+    'JsonWebKeyType',
     'KeyPermissions',
+    'KeyRotationPolicyActionType',
     'ManagedHsmSkuFamily',
     'ManagedHsmSkuName',
     'NetworkRuleAction',
@@ -57,6 +61,39 @@ class CreateMode(str, Enum):
     DEFAULT = "default"
 
 
+class JsonWebKeyCurveName(str, Enum):
+    """
+    The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+    """
+    P_256 = "P-256"
+    P_384 = "P-384"
+    P_521 = "P-521"
+    P_256_K = "P-256K"
+
+
+class JsonWebKeyOperation(str, Enum):
+    """
+    The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+    """
+    ENCRYPT = "encrypt"
+    DECRYPT = "decrypt"
+    SIGN = "sign"
+    VERIFY = "verify"
+    WRAP_KEY = "wrapKey"
+    UNWRAP_KEY = "unwrapKey"
+    IMPORT_ = "import"
+
+
+class JsonWebKeyType(str, Enum):
+    """
+    The type of the key. For valid values, see JsonWebKeyType.
+    """
+    EC = "EC"
+    E_C_HSM = "EC-HSM"
+    RSA = "RSA"
+    RS_A_HSM = "RSA-HSM"
+
+
 class KeyPermissions(str, Enum):
     ENCRYPT = "encrypt"
     DECRYPT = "decrypt"
@@ -74,6 +111,14 @@ class KeyPermissions(str, Enum):
     RESTORE = "restore"
     RECOVER = "recover"
     PURGE = "purge"
+
+
+class KeyRotationPolicyActionType(str, Enum):
+    """
+    The type of action.
+    """
+    ROTATE = "rotate"
+    NOTIFY = "notify"
 
 
 class ManagedHsmSkuFamily(str, Enum):

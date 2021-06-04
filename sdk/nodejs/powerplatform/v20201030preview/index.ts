@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./account";
 export * from "./enterprisePolicy";
+export * from "./getAccount";
 export * from "./getEnterprisePolicy";
 export * from "./getPrivateEndpointConnection";
 export * from "./privateEndpointConnection";
@@ -14,6 +16,7 @@ export * from "./privateEndpointConnection";
 export * from "../../types/enums/powerplatform/v20201030preview";
 
 // Import resources to register:
+import { Account } from "./account";
 import { EnterprisePolicy } from "./enterprisePolicy";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
@@ -21,6 +24,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:powerplatform/v20201030preview:Account":
+                return new Account(name, <any>undefined, { urn })
             case "azure-native:powerplatform/v20201030preview:EnterprisePolicy":
                 return new EnterprisePolicy(name, <any>undefined, { urn })
             case "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection":

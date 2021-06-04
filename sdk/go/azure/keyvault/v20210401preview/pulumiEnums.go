@@ -106,6 +106,99 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+type JsonWebKeyCurveName pulumi.String
+
+const (
+	JsonWebKeyCurveName_P_256  = JsonWebKeyCurveName("P-256")
+	JsonWebKeyCurveName_P_384  = JsonWebKeyCurveName("P-384")
+	JsonWebKeyCurveName_P_521  = JsonWebKeyCurveName("P-521")
+	JsonWebKeyCurveName_P_256K = JsonWebKeyCurveName("P-256K")
+)
+
+func (JsonWebKeyCurveName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e JsonWebKeyCurveName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyCurveName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyCurveName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JsonWebKeyCurveName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+type JsonWebKeyOperation pulumi.String
+
+const (
+	JsonWebKeyOperationEncrypt   = JsonWebKeyOperation("encrypt")
+	JsonWebKeyOperationDecrypt   = JsonWebKeyOperation("decrypt")
+	JsonWebKeyOperationSign      = JsonWebKeyOperation("sign")
+	JsonWebKeyOperationVerify    = JsonWebKeyOperation("verify")
+	JsonWebKeyOperationWrapKey   = JsonWebKeyOperation("wrapKey")
+	JsonWebKeyOperationUnwrapKey = JsonWebKeyOperation("unwrapKey")
+	JsonWebKeyOperationImport    = JsonWebKeyOperation("import")
+)
+
+func (JsonWebKeyOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e JsonWebKeyOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JsonWebKeyOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of the key. For valid values, see JsonWebKeyType.
+type JsonWebKeyType pulumi.String
+
+const (
+	JsonWebKeyTypeEC       = JsonWebKeyType("EC")
+	JsonWebKeyType_EC_HSM  = JsonWebKeyType("EC-HSM")
+	JsonWebKeyTypeRSA      = JsonWebKeyType("RSA")
+	JsonWebKeyType_RSA_HSM = JsonWebKeyType("RSA-HSM")
+)
+
+func (JsonWebKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e JsonWebKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JsonWebKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type KeyPermissions pulumi.String
 
 const (
@@ -144,6 +237,34 @@ func (e KeyPermissions) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e KeyPermissions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of action.
+type KeyRotationPolicyActionType pulumi.String
+
+const (
+	KeyRotationPolicyActionTypeRotate = KeyRotationPolicyActionType("rotate")
+	KeyRotationPolicyActionTypeNotify = KeyRotationPolicyActionType("notify")
+)
+
+func (KeyRotationPolicyActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KeyRotationPolicyActionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyRotationPolicyActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyRotationPolicyActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyRotationPolicyActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

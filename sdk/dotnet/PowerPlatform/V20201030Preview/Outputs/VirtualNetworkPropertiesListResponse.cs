@@ -14,13 +14,21 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
     public sealed class VirtualNetworkPropertiesListResponse
     {
         /// <summary>
+        /// Next page link if any.
+        /// </summary>
+        public readonly string? NextLink;
+        /// <summary>
         /// Array of virtual networks.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkPropertiesResponse> Value;
 
         [OutputConstructor]
-        private VirtualNetworkPropertiesListResponse(ImmutableArray<Outputs.VirtualNetworkPropertiesResponse> value)
+        private VirtualNetworkPropertiesListResponse(
+            string? nextLink,
+
+            ImmutableArray<Outputs.VirtualNetworkPropertiesResponse> value)
         {
+            NextLink = nextLink;
             Value = value;
         }
     }

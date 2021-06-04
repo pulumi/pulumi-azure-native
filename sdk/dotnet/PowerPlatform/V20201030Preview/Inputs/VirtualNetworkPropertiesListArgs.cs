@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
     /// </summary>
     public sealed class VirtualNetworkPropertiesListArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Next page link if any.
+        /// </summary>
+        [Input("nextLink")]
+        public Input<string>? NextLink { get; set; }
+
         [Input("value")]
         private InputList<Inputs.VirtualNetworkPropertiesArgs>? _value;
 

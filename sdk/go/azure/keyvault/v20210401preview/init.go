@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:keyvault/v20210401preview:Key":
+		r = &Key{}
 	case "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection":
 		r = &MHSMPrivateEndpointConnection{}
 	case "azure-native:keyvault/v20210401preview:ManagedHsm":
