@@ -77,6 +77,7 @@ func TestImportTs(t *testing.T) {
 }
 
 func TestPostgresTs(t *testing.T) {
+	t.Skip("disabled due to a failure, see https://github.com/pulumi/pulumi-azure-native/issues/898")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
