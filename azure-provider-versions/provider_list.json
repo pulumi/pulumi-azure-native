@@ -15534,11 +15534,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -15791,11 +15787,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -15994,11 +15986,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -17069,11 +17057,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -18041,11 +18025,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -22354,11 +22334,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -23744,156 +23720,7 @@
         ],
         "properties": null,
         "resourceType": "virtualMachines",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -24050,156 +23877,7 @@
         ],
         "properties": null,
         "resourceType": "virtualMachineScaleSets",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -25945,6 +25623,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -25999,6 +25678,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26052,6 +25732,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26105,6 +25786,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26158,6 +25840,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26275,156 +25958,7 @@
         ],
         "properties": null,
         "resourceType": "disks",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -26722,156 +26256,7 @@
         ],
         "properties": null,
         "resourceType": "cloudServices",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -27455,156 +26840,7 @@
         ],
         "properties": null,
         "resourceType": "hostGroups",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -27660,156 +26896,7 @@
         ],
         "properties": null,
         "resourceType": "hostGroups/hosts",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       }
     ]
   },
@@ -67465,80 +66552,6 @@
     ]
   },
   {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/LiveArena.Broadcast",
-    "namespace": "LiveArena.Broadcast",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US",
-          "North Europe",
-          "Japan West",
-          "Japan East",
-          "East Asia",
-          "West Europe",
-          "East US",
-          "Southeast Asia",
-          "Central US"
-        ],
-        "properties": null,
-        "resourceType": "services",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference",
-        "zoneMappings": null
-      }
-    ]
-  },
-  {
     "authorizations": [
       {
         "applicationId": "443155a6-77f3-45e3-882b-22b3a8d431fb",
@@ -68305,10 +67318,6 @@
       },
       {
         "applicationId": "9581bc0e-c952-4fd3-8d99-e777877718b1",
-        "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
-      },
-      {
-        "applicationId": "17724442-aa9a-46cc-bf09-c47bb1a98518",
         "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
       }
     ],
@@ -83924,6 +82933,68 @@
   {
     "authorizations": [
       {
+        "applicationId": "54b9b9be-c365-4548-95c6-d2f2011f48f4",
+        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
+      },
+      {
+        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
+        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
+    "namespace": "Microsoft.MobileNetwork",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
         "applicationId": "12fb057d-b751-47cd-857c-f2934bb677b4",
         "roleDefinitionId": "e4796bef-6b6d-4cbc-ba1e-27f1a308d860"
       },
@@ -88098,7 +87169,7 @@
         "apiVersions": [
           "2020-12-01-preview"
         ],
-        "capabilities": "None",
+        "capabilities": "SystemAssignedResourceIdentity",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -88110,6 +87181,26 @@
         ],
         "properties": null,
         "resourceType": "accounts/jobs",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2020-12-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "Central US",
+          "South Central US",
+          "West Europe",
+          "West US 2",
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "accounts/models",
         "zoneMappings": null
       },
       {
