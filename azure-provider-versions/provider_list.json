@@ -60759,6 +60759,58 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Europe",
+          "North Europe",
+          "France Central",
+          "UK South",
+          "UK West",
+          "France South",
+          "Switzerland North",
+          "Switzerland West",
+          "Norway East",
+          "Norway West",
+          "Germany West Central"
+        ],
+        "properties": null,
+        "resourceType": "sourceControls",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Europe",
+          "North Europe",
+          "France Central",
+          "UK South",
+          "UK West",
+          "France South",
+          "Switzerland North",
+          "Switzerland West",
+          "Norway East",
+          "Norway West",
+          "Germany West Central"
+        ],
+        "properties": null,
+        "resourceType": "listrepositories",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2021-03-01-preview",
           "2019-01-01-preview"
         ],
@@ -60806,6 +60858,32 @@
         ],
         "properties": null,
         "resourceType": "onboardingStates",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Europe",
+          "North Europe",
+          "France Central",
+          "UK South",
+          "UK West",
+          "France South",
+          "Switzerland North",
+          "Switzerland West",
+          "Norway East",
+          "Norway West",
+          "Germany West Central"
+        ],
+        "properties": null,
+        "resourceType": "metadata",
         "zoneMappings": null
       }
     ]
@@ -67465,80 +67543,6 @@
     ]
   },
   {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/LiveArena.Broadcast",
-    "namespace": "LiveArena.Broadcast",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US",
-          "North Europe",
-          "Japan West",
-          "Japan East",
-          "East Asia",
-          "West Europe",
-          "East US",
-          "Southeast Asia",
-          "Central US"
-        ],
-        "properties": null,
-        "resourceType": "services",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference",
-        "zoneMappings": null
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference",
-        "zoneMappings": null
-      }
-    ]
-  },
-  {
     "authorizations": [
       {
         "applicationId": "443155a6-77f3-45e3-882b-22b3a8d431fb",
@@ -68305,10 +68309,6 @@
       },
       {
         "applicationId": "9581bc0e-c952-4fd3-8d99-e777877718b1",
-        "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
-      },
-      {
-        "applicationId": "17724442-aa9a-46cc-bf09-c47bb1a98518",
         "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
       }
     ],
@@ -69747,7 +69747,7 @@
         "apiVersions": [
           "2020-05-01"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -70533,6 +70533,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-06-01-preview",
           "2017-06-01"
         ],
@@ -83924,6 +83925,68 @@
   {
     "authorizations": [
       {
+        "applicationId": "54b9b9be-c365-4548-95c6-d2f2011f48f4",
+        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
+      },
+      {
+        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
+        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
+    "namespace": "Microsoft.MobileNetwork",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
         "applicationId": "12fb057d-b751-47cd-857c-f2934bb677b4",
         "roleDefinitionId": "e4796bef-6b6d-4cbc-ba1e-27f1a308d860"
       },
@@ -88098,7 +88161,7 @@
         "apiVersions": [
           "2020-12-01-preview"
         ],
-        "capabilities": "None",
+        "capabilities": "SystemAssignedResourceIdentity",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -88110,6 +88173,26 @@
         ],
         "properties": null,
         "resourceType": "accounts/jobs",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2020-12-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "Central US",
+          "South Central US",
+          "West Europe",
+          "West US 2",
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "accounts/models",
         "zoneMappings": null
       },
       {
@@ -88781,7 +88864,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "SqlVirtualMachineGroups",
@@ -88832,7 +88916,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "SqlVirtualMachines",
@@ -88883,7 +88968,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "SqlVirtualMachineGroups/AvailabilityGroupListeners",
@@ -88934,7 +89020,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "operations",
@@ -88985,7 +89072,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations",
@@ -89036,7 +89124,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations/OperationTypes",
@@ -89087,7 +89176,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations/sqlVirtualMachineOperationResults",
@@ -89138,7 +89228,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations/sqlVirtualMachineGroupOperationResults",
@@ -89189,7 +89280,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations/availabilityGroupListenerOperationResults",
@@ -89240,7 +89332,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "Locations/registerSqlVmCandidate",
