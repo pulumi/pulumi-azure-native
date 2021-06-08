@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace active directory administrator
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
     /**

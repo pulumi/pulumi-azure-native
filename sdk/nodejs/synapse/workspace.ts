@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class Workspace extends pulumi.CustomResource {
      * Connectivity endpoints
      */
     public readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Initial workspace AAD admin properties for a CSP subscription
-     */
-    public readonly cspWorkspaceAdminProperties!: pulumi.Output<outputs.synapse.CspWorkspaceAdminPropertiesResponse | undefined>;
     /**
      * Workspace default data lake storage account details
      */
@@ -144,7 +140,6 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
-            inputs["cspWorkspaceAdminProperties"] = args ? args.cspWorkspaceAdminProperties : undefined;
             inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -171,7 +166,6 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             inputs["adlaResourceId"] = undefined /*out*/;
             inputs["connectivityEndpoints"] = undefined /*out*/;
-            inputs["cspWorkspaceAdminProperties"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
             inputs["extraProperties"] = undefined /*out*/;
@@ -210,10 +204,6 @@ export interface WorkspaceArgs {
      * Connectivity endpoints
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Initial workspace AAD admin properties for a CSP subscription
-     */
-    cspWorkspaceAdminProperties?: pulumi.Input<inputs.synapse.CspWorkspaceAdminPropertiesArgs>;
     /**
      * Workspace default data lake storage account details
      */

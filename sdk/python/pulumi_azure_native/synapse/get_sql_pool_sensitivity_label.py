@@ -193,7 +193,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
     A sensitivity label.
-    API Version: 2021-05-01.
+    API Version: 2021-03-01.
 
 
     :param str column_name: The name of the column.

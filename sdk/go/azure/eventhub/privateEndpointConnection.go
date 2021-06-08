@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the PrivateEndpointConnection.
-// API Version: 2021-01-01-preview.
+// API Version: 2018-01-01-preview.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,6 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState ConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -91,8 +89,6 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -106,8 +102,6 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState ConnectionStateResponsePtrInput
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

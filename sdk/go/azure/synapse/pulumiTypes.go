@@ -1326,278 +1326,8 @@ func (o ComponentSetupResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentSetupResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminProperties struct {
-	// AAD object ID of initial workspace admin
-	InitialWorkspaceAdminObjectId *string `pulumi:"initialWorkspaceAdminObjectId"`
-}
-
-// CspWorkspaceAdminPropertiesInput is an input type that accepts CspWorkspaceAdminPropertiesArgs and CspWorkspaceAdminPropertiesOutput values.
-// You can construct a concrete instance of `CspWorkspaceAdminPropertiesInput` via:
-//
-//          CspWorkspaceAdminPropertiesArgs{...}
-type CspWorkspaceAdminPropertiesInput interface {
-	pulumi.Input
-
-	ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput
-	ToCspWorkspaceAdminPropertiesOutputWithContext(context.Context) CspWorkspaceAdminPropertiesOutput
-}
-
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminPropertiesArgs struct {
-	// AAD object ID of initial workspace admin
-	InitialWorkspaceAdminObjectId pulumi.StringPtrInput `pulumi:"initialWorkspaceAdminObjectId"`
-}
-
-func (CspWorkspaceAdminPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CspWorkspaceAdminProperties)(nil)).Elem()
-}
-
-func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput {
-	return i.ToCspWorkspaceAdminPropertiesOutputWithContext(context.Background())
-}
-
-func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesOutput)
-}
-
-func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
-	return i.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CspWorkspaceAdminPropertiesArgs) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesOutput).ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx)
-}
-
-// CspWorkspaceAdminPropertiesPtrInput is an input type that accepts CspWorkspaceAdminPropertiesArgs, CspWorkspaceAdminPropertiesPtr and CspWorkspaceAdminPropertiesPtrOutput values.
-// You can construct a concrete instance of `CspWorkspaceAdminPropertiesPtrInput` via:
-//
-//          CspWorkspaceAdminPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CspWorkspaceAdminPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput
-	ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Context) CspWorkspaceAdminPropertiesPtrOutput
-}
-
-type cspWorkspaceAdminPropertiesPtrType CspWorkspaceAdminPropertiesArgs
-
-func CspWorkspaceAdminPropertiesPtr(v *CspWorkspaceAdminPropertiesArgs) CspWorkspaceAdminPropertiesPtrInput {
-	return (*cspWorkspaceAdminPropertiesPtrType)(v)
-}
-
-func (*cspWorkspaceAdminPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CspWorkspaceAdminProperties)(nil)).Elem()
-}
-
-func (i *cspWorkspaceAdminPropertiesPtrType) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
-	return i.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *cspWorkspaceAdminPropertiesPtrType) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesPtrOutput)
-}
-
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CspWorkspaceAdminPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CspWorkspaceAdminProperties)(nil)).Elem()
-}
-
-func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesOutput() CspWorkspaceAdminPropertiesOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
-	return o.ToCspWorkspaceAdminPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CspWorkspaceAdminPropertiesOutput) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
-	return o.ApplyT(func(v CspWorkspaceAdminProperties) *CspWorkspaceAdminProperties {
-		return &v
-	}).(CspWorkspaceAdminPropertiesPtrOutput)
-}
-
-// AAD object ID of initial workspace admin
-func (o CspWorkspaceAdminPropertiesOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CspWorkspaceAdminProperties) *string { return v.InitialWorkspaceAdminObjectId }).(pulumi.StringPtrOutput)
-}
-
-type CspWorkspaceAdminPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CspWorkspaceAdminPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CspWorkspaceAdminProperties)(nil)).Elem()
-}
-
-func (o CspWorkspaceAdminPropertiesPtrOutput) ToCspWorkspaceAdminPropertiesPtrOutput() CspWorkspaceAdminPropertiesPtrOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesPtrOutput) ToCspWorkspaceAdminPropertiesPtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesPtrOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesPtrOutput) Elem() CspWorkspaceAdminPropertiesOutput {
-	return o.ApplyT(func(v *CspWorkspaceAdminProperties) CspWorkspaceAdminProperties { return *v }).(CspWorkspaceAdminPropertiesOutput)
-}
-
-// AAD object ID of initial workspace admin
-func (o CspWorkspaceAdminPropertiesPtrOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CspWorkspaceAdminProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InitialWorkspaceAdminObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminPropertiesResponse struct {
-	// AAD object ID of initial workspace admin
-	InitialWorkspaceAdminObjectId *string `pulumi:"initialWorkspaceAdminObjectId"`
-}
-
-// CspWorkspaceAdminPropertiesResponseInput is an input type that accepts CspWorkspaceAdminPropertiesResponseArgs and CspWorkspaceAdminPropertiesResponseOutput values.
-// You can construct a concrete instance of `CspWorkspaceAdminPropertiesResponseInput` via:
-//
-//          CspWorkspaceAdminPropertiesResponseArgs{...}
-type CspWorkspaceAdminPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCspWorkspaceAdminPropertiesResponseOutput() CspWorkspaceAdminPropertiesResponseOutput
-	ToCspWorkspaceAdminPropertiesResponseOutputWithContext(context.Context) CspWorkspaceAdminPropertiesResponseOutput
-}
-
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminPropertiesResponseArgs struct {
-	// AAD object ID of initial workspace admin
-	InitialWorkspaceAdminObjectId pulumi.StringPtrInput `pulumi:"initialWorkspaceAdminObjectId"`
-}
-
-func (CspWorkspaceAdminPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
-}
-
-func (i CspWorkspaceAdminPropertiesResponseArgs) ToCspWorkspaceAdminPropertiesResponseOutput() CspWorkspaceAdminPropertiesResponseOutput {
-	return i.ToCspWorkspaceAdminPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CspWorkspaceAdminPropertiesResponseArgs) ToCspWorkspaceAdminPropertiesResponseOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesResponseOutput)
-}
-
-func (i CspWorkspaceAdminPropertiesResponseArgs) ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return i.ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CspWorkspaceAdminPropertiesResponseArgs) ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesResponseOutput).ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// CspWorkspaceAdminPropertiesResponsePtrInput is an input type that accepts CspWorkspaceAdminPropertiesResponseArgs, CspWorkspaceAdminPropertiesResponsePtr and CspWorkspaceAdminPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `CspWorkspaceAdminPropertiesResponsePtrInput` via:
-//
-//          CspWorkspaceAdminPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CspWorkspaceAdminPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput
-	ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput
-}
-
-type cspWorkspaceAdminPropertiesResponsePtrType CspWorkspaceAdminPropertiesResponseArgs
-
-func CspWorkspaceAdminPropertiesResponsePtr(v *CspWorkspaceAdminPropertiesResponseArgs) CspWorkspaceAdminPropertiesResponsePtrInput {
-	return (*cspWorkspaceAdminPropertiesResponsePtrType)(v)
-}
-
-func (*cspWorkspaceAdminPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
-}
-
-func (i *cspWorkspaceAdminPropertiesResponsePtrType) ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return i.ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cspWorkspaceAdminPropertiesResponsePtrType) ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CspWorkspaceAdminPropertiesResponsePtrOutput)
-}
-
-// Initial workspace AAD admin properties for a CSP subscription
-type CspWorkspaceAdminPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (CspWorkspaceAdminPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
-}
-
-func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponseOutput() CspWorkspaceAdminPropertiesResponseOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponseOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponseOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return o.ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CspWorkspaceAdminPropertiesResponseOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CspWorkspaceAdminPropertiesResponse) *CspWorkspaceAdminPropertiesResponse {
-		return &v
-	}).(CspWorkspaceAdminPropertiesResponsePtrOutput)
-}
-
-// AAD object ID of initial workspace admin
-func (o CspWorkspaceAdminPropertiesResponseOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CspWorkspaceAdminPropertiesResponse) *string { return v.InitialWorkspaceAdminObjectId }).(pulumi.StringPtrOutput)
-}
-
-type CspWorkspaceAdminPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CspWorkspaceAdminPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CspWorkspaceAdminPropertiesResponse)(nil)).Elem()
-}
-
-func (o CspWorkspaceAdminPropertiesResponsePtrOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutput() CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesResponsePtrOutput) ToCspWorkspaceAdminPropertiesResponsePtrOutputWithContext(ctx context.Context) CspWorkspaceAdminPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CspWorkspaceAdminPropertiesResponsePtrOutput) Elem() CspWorkspaceAdminPropertiesResponseOutput {
-	return o.ApplyT(func(v *CspWorkspaceAdminPropertiesResponse) CspWorkspaceAdminPropertiesResponse { return *v }).(CspWorkspaceAdminPropertiesResponseOutput)
-}
-
-// AAD object ID of initial workspace admin
-func (o CspWorkspaceAdminPropertiesResponsePtrOutput) InitialWorkspaceAdminObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CspWorkspaceAdminPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InitialWorkspaceAdminObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetails struct {
-	// Key encryption key
-	KekIdentity *KekIdentityProperties `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key *WorkspaceKeyDetails `pulumi:"key"`
 }
@@ -1615,8 +1345,6 @@ type CustomerManagedKeyDetailsInput interface {
 
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsArgs struct {
-	// Key encryption key
-	KekIdentity KekIdentityPropertiesPtrInput `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key WorkspaceKeyDetailsPtrInput `pulumi:"key"`
 }
@@ -1699,11 +1427,6 @@ func (o CustomerManagedKeyDetailsOutput) ToCustomerManagedKeyDetailsPtrOutputWit
 	}).(CustomerManagedKeyDetailsPtrOutput)
 }
 
-// Key encryption key
-func (o CustomerManagedKeyDetailsOutput) KekIdentity() KekIdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v CustomerManagedKeyDetails) *KekIdentityProperties { return v.KekIdentity }).(KekIdentityPropertiesPtrOutput)
-}
-
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsOutput) Key() WorkspaceKeyDetailsPtrOutput {
 	return o.ApplyT(func(v CustomerManagedKeyDetails) *WorkspaceKeyDetails { return v.Key }).(WorkspaceKeyDetailsPtrOutput)
@@ -1727,16 +1450,6 @@ func (o CustomerManagedKeyDetailsPtrOutput) Elem() CustomerManagedKeyDetailsOutp
 	return o.ApplyT(func(v *CustomerManagedKeyDetails) CustomerManagedKeyDetails { return *v }).(CustomerManagedKeyDetailsOutput)
 }
 
-// Key encryption key
-func (o CustomerManagedKeyDetailsPtrOutput) KekIdentity() KekIdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v *CustomerManagedKeyDetails) *KekIdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.KekIdentity
-	}).(KekIdentityPropertiesPtrOutput)
-}
-
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedKeyDetails) *WorkspaceKeyDetails {
@@ -1749,8 +1462,6 @@ func (o CustomerManagedKeyDetailsPtrOutput) Key() WorkspaceKeyDetailsPtrOutput {
 
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponse struct {
-	// Key encryption key
-	KekIdentity *KekIdentityPropertiesResponse `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key *WorkspaceKeyDetailsResponse `pulumi:"key"`
 	// The customer managed key status on the workspace
@@ -1770,8 +1481,6 @@ type CustomerManagedKeyDetailsResponseInput interface {
 
 // Details of the customer managed key associated with the workspace
 type CustomerManagedKeyDetailsResponseArgs struct {
-	// Key encryption key
-	KekIdentity KekIdentityPropertiesResponsePtrInput `pulumi:"kekIdentity"`
 	// The key object of the workspace
 	Key WorkspaceKeyDetailsResponsePtrInput `pulumi:"key"`
 	// The customer managed key status on the workspace
@@ -1856,11 +1565,6 @@ func (o CustomerManagedKeyDetailsResponseOutput) ToCustomerManagedKeyDetailsResp
 	}).(CustomerManagedKeyDetailsResponsePtrOutput)
 }
 
-// Key encryption key
-func (o CustomerManagedKeyDetailsResponseOutput) KekIdentity() KekIdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *KekIdentityPropertiesResponse { return v.KekIdentity }).(KekIdentityPropertiesResponsePtrOutput)
-}
-
 // The key object of the workspace
 func (o CustomerManagedKeyDetailsResponseOutput) Key() WorkspaceKeyDetailsResponsePtrOutput {
 	return o.ApplyT(func(v CustomerManagedKeyDetailsResponse) *WorkspaceKeyDetailsResponse { return v.Key }).(WorkspaceKeyDetailsResponsePtrOutput)
@@ -1887,16 +1591,6 @@ func (o CustomerManagedKeyDetailsResponsePtrOutput) ToCustomerManagedKeyDetailsR
 
 func (o CustomerManagedKeyDetailsResponsePtrOutput) Elem() CustomerManagedKeyDetailsResponseOutput {
 	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) CustomerManagedKeyDetailsResponse { return *v }).(CustomerManagedKeyDetailsResponseOutput)
-}
-
-// Key encryption key
-func (o CustomerManagedKeyDetailsResponsePtrOutput) KekIdentity() KekIdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *CustomerManagedKeyDetailsResponse) *KekIdentityPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.KekIdentity
-	}).(KekIdentityPropertiesResponsePtrOutput)
 }
 
 // The key object of the workspace
@@ -6035,312 +5729,6 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) VNetId() pulumi.Strin
 			return nil
 		}
 		return v.VNetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key encryption key properties
-type KekIdentityProperties struct {
-	// Boolean specifying whether to use system assigned identity or not
-	UseSystemAssignedIdentity interface{} `pulumi:"useSystemAssignedIdentity"`
-	// User assigned identity resource Id
-	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
-}
-
-// KekIdentityPropertiesInput is an input type that accepts KekIdentityPropertiesArgs and KekIdentityPropertiesOutput values.
-// You can construct a concrete instance of `KekIdentityPropertiesInput` via:
-//
-//          KekIdentityPropertiesArgs{...}
-type KekIdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput
-	ToKekIdentityPropertiesOutputWithContext(context.Context) KekIdentityPropertiesOutput
-}
-
-// Key encryption key properties
-type KekIdentityPropertiesArgs struct {
-	// Boolean specifying whether to use system assigned identity or not
-	UseSystemAssignedIdentity pulumi.Input `pulumi:"useSystemAssignedIdentity"`
-	// User assigned identity resource Id
-	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
-}
-
-func (KekIdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KekIdentityProperties)(nil)).Elem()
-}
-
-func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput {
-	return i.ToKekIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesOutputWithContext(ctx context.Context) KekIdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesOutput)
-}
-
-func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
-	return i.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KekIdentityPropertiesArgs) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesOutput).ToKekIdentityPropertiesPtrOutputWithContext(ctx)
-}
-
-// KekIdentityPropertiesPtrInput is an input type that accepts KekIdentityPropertiesArgs, KekIdentityPropertiesPtr and KekIdentityPropertiesPtrOutput values.
-// You can construct a concrete instance of `KekIdentityPropertiesPtrInput` via:
-//
-//          KekIdentityPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KekIdentityPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput
-	ToKekIdentityPropertiesPtrOutputWithContext(context.Context) KekIdentityPropertiesPtrOutput
-}
-
-type kekIdentityPropertiesPtrType KekIdentityPropertiesArgs
-
-func KekIdentityPropertiesPtr(v *KekIdentityPropertiesArgs) KekIdentityPropertiesPtrInput {
-	return (*kekIdentityPropertiesPtrType)(v)
-}
-
-func (*kekIdentityPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KekIdentityProperties)(nil)).Elem()
-}
-
-func (i *kekIdentityPropertiesPtrType) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
-	return i.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *kekIdentityPropertiesPtrType) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesPtrOutput)
-}
-
-// Key encryption key properties
-type KekIdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KekIdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KekIdentityProperties)(nil)).Elem()
-}
-
-func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesOutput() KekIdentityPropertiesOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesOutputWithContext(ctx context.Context) KekIdentityPropertiesOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
-	return o.ToKekIdentityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KekIdentityPropertiesOutput) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v KekIdentityProperties) *KekIdentityProperties {
-		return &v
-	}).(KekIdentityPropertiesPtrOutput)
-}
-
-// Boolean specifying whether to use system assigned identity or not
-func (o KekIdentityPropertiesOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
-	return o.ApplyT(func(v KekIdentityProperties) interface{} { return v.UseSystemAssignedIdentity }).(pulumi.AnyOutput)
-}
-
-// User assigned identity resource Id
-func (o KekIdentityPropertiesOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KekIdentityProperties) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
-}
-
-type KekIdentityPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KekIdentityPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KekIdentityProperties)(nil)).Elem()
-}
-
-func (o KekIdentityPropertiesPtrOutput) ToKekIdentityPropertiesPtrOutput() KekIdentityPropertiesPtrOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesPtrOutput) ToKekIdentityPropertiesPtrOutputWithContext(ctx context.Context) KekIdentityPropertiesPtrOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesPtrOutput) Elem() KekIdentityPropertiesOutput {
-	return o.ApplyT(func(v *KekIdentityProperties) KekIdentityProperties { return *v }).(KekIdentityPropertiesOutput)
-}
-
-// Boolean specifying whether to use system assigned identity or not
-func (o KekIdentityPropertiesPtrOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
-	return o.ApplyT(func(v *KekIdentityProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.UseSystemAssignedIdentity
-	}).(pulumi.AnyOutput)
-}
-
-// User assigned identity resource Id
-func (o KekIdentityPropertiesPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KekIdentityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key encryption key properties
-type KekIdentityPropertiesResponse struct {
-	// Boolean specifying whether to use system assigned identity or not
-	UseSystemAssignedIdentity interface{} `pulumi:"useSystemAssignedIdentity"`
-	// User assigned identity resource Id
-	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
-}
-
-// KekIdentityPropertiesResponseInput is an input type that accepts KekIdentityPropertiesResponseArgs and KekIdentityPropertiesResponseOutput values.
-// You can construct a concrete instance of `KekIdentityPropertiesResponseInput` via:
-//
-//          KekIdentityPropertiesResponseArgs{...}
-type KekIdentityPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKekIdentityPropertiesResponseOutput() KekIdentityPropertiesResponseOutput
-	ToKekIdentityPropertiesResponseOutputWithContext(context.Context) KekIdentityPropertiesResponseOutput
-}
-
-// Key encryption key properties
-type KekIdentityPropertiesResponseArgs struct {
-	// Boolean specifying whether to use system assigned identity or not
-	UseSystemAssignedIdentity pulumi.Input `pulumi:"useSystemAssignedIdentity"`
-	// User assigned identity resource Id
-	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
-}
-
-func (KekIdentityPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KekIdentityPropertiesResponse)(nil)).Elem()
-}
-
-func (i KekIdentityPropertiesResponseArgs) ToKekIdentityPropertiesResponseOutput() KekIdentityPropertiesResponseOutput {
-	return i.ToKekIdentityPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KekIdentityPropertiesResponseArgs) ToKekIdentityPropertiesResponseOutputWithContext(ctx context.Context) KekIdentityPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesResponseOutput)
-}
-
-func (i KekIdentityPropertiesResponseArgs) ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput {
-	return i.ToKekIdentityPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KekIdentityPropertiesResponseArgs) ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) KekIdentityPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesResponseOutput).ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// KekIdentityPropertiesResponsePtrInput is an input type that accepts KekIdentityPropertiesResponseArgs, KekIdentityPropertiesResponsePtr and KekIdentityPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `KekIdentityPropertiesResponsePtrInput` via:
-//
-//          KekIdentityPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KekIdentityPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput
-	ToKekIdentityPropertiesResponsePtrOutputWithContext(context.Context) KekIdentityPropertiesResponsePtrOutput
-}
-
-type kekIdentityPropertiesResponsePtrType KekIdentityPropertiesResponseArgs
-
-func KekIdentityPropertiesResponsePtr(v *KekIdentityPropertiesResponseArgs) KekIdentityPropertiesResponsePtrInput {
-	return (*kekIdentityPropertiesResponsePtrType)(v)
-}
-
-func (*kekIdentityPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KekIdentityPropertiesResponse)(nil)).Elem()
-}
-
-func (i *kekIdentityPropertiesResponsePtrType) ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput {
-	return i.ToKekIdentityPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *kekIdentityPropertiesResponsePtrType) ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) KekIdentityPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KekIdentityPropertiesResponsePtrOutput)
-}
-
-// Key encryption key properties
-type KekIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KekIdentityPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KekIdentityPropertiesResponse)(nil)).Elem()
-}
-
-func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponseOutput() KekIdentityPropertiesResponseOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponseOutputWithContext(ctx context.Context) KekIdentityPropertiesResponseOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput {
-	return o.ToKekIdentityPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KekIdentityPropertiesResponseOutput) ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) KekIdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KekIdentityPropertiesResponse) *KekIdentityPropertiesResponse {
-		return &v
-	}).(KekIdentityPropertiesResponsePtrOutput)
-}
-
-// Boolean specifying whether to use system assigned identity or not
-func (o KekIdentityPropertiesResponseOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
-	return o.ApplyT(func(v KekIdentityPropertiesResponse) interface{} { return v.UseSystemAssignedIdentity }).(pulumi.AnyOutput)
-}
-
-// User assigned identity resource Id
-func (o KekIdentityPropertiesResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KekIdentityPropertiesResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
-}
-
-type KekIdentityPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KekIdentityPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KekIdentityPropertiesResponse)(nil)).Elem()
-}
-
-func (o KekIdentityPropertiesResponsePtrOutput) ToKekIdentityPropertiesResponsePtrOutput() KekIdentityPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesResponsePtrOutput) ToKekIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) KekIdentityPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KekIdentityPropertiesResponsePtrOutput) Elem() KekIdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *KekIdentityPropertiesResponse) KekIdentityPropertiesResponse { return *v }).(KekIdentityPropertiesResponseOutput)
-}
-
-// Boolean specifying whether to use system assigned identity or not
-func (o KekIdentityPropertiesResponsePtrOutput) UseSystemAssignedIdentity() pulumi.AnyOutput {
-	return o.ApplyT(func(v *KekIdentityPropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.UseSystemAssignedIdentity
-	}).(pulumi.AnyOutput)
-}
-
-// User assigned identity resource Id
-func (o KekIdentityPropertiesResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KekIdentityPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13909,10 +13297,6 @@ func init() {
 	pulumi.RegisterOutputType(CmdkeySetupResponseOutput{})
 	pulumi.RegisterOutputType(ComponentSetupOutput{})
 	pulumi.RegisterOutputType(ComponentSetupResponseOutput{})
-	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesOutput{})
-	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(CspWorkspaceAdminPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyDetailsResponseOutput{})
@@ -13965,10 +13349,6 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeVNetPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(KekIdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(KekIdentityPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KekIdentityPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KekIdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LibraryInfoOutput{})
 	pulumi.RegisterOutputType(LibraryInfoArrayOutput{})
 	pulumi.RegisterOutputType(LibraryInfoResponseOutput{})

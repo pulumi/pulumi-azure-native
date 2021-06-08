@@ -8,7 +8,7 @@ import (
 )
 
 // IP firewall rule
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
 	err := ctx.Invoke("azure-native:synapse:getIpFirewallRule", args, &rv, opts...)

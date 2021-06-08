@@ -8,7 +8,7 @@ import (
 )
 
 // A SQL Analytics pool
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupSqlPool(ctx *pulumi.Context, args *LookupSqlPoolArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolResult, error) {
 	var rv LookupSqlPoolResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPool", args, &rv, opts...)

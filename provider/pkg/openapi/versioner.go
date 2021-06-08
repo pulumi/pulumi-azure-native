@@ -103,6 +103,7 @@ var cutoffProviderVersions = map[string]string{
 	"databox":                 "v20201101",
 	"devices":                 "v20200831",
 	"documentdb":              "v20210315",
+	"eventhub":                "v20180101preview",
 	"hybridcompute":           "v20210325preview",
 	"insights":                "v20201020",
 	"kubernetesconfiguration": "v20210301",
@@ -116,6 +117,7 @@ var cutoffProviderVersions = map[string]string{
 	"sql":                     "v20201101preview",
 	"storage":                 "v20210201",
 	"storagepool":             "v20200315preview",
+	"synapse":                 "v20210301",
 	"web":                     "v20201201",
 }
 

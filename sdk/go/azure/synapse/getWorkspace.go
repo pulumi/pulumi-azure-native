@@ -8,7 +8,7 @@ import (
 )
 
 // A workspace
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:synapse:getWorkspace", args, &rv, opts...)
@@ -31,8 +31,6 @@ type LookupWorkspaceResult struct {
 	AdlaResourceId string `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties *CspWorkspaceAdminPropertiesResponse `pulumi:"cspWorkspaceAdminProperties"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
 	// The encryption details of the workspace

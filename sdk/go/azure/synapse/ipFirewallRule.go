@@ -12,7 +12,7 @@ import (
 )
 
 // IP firewall rule
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type IpFirewallRule struct {
 	pulumi.CustomResourceState
 

@@ -5,15 +5,21 @@ CHANGELOG
 
 #### New Resources
 
+- `marketplace:PrivateStoreCollection`
+- `marketplace:PrivateStoreCollectionOffer`
 - `powerplatform:Account`
 - `securityinsights:ActivityCustomEntityQuery`
 - `securityinsights:EntityQuery`
+- `testbase:CustomerEvent`
 
 #### New Functions
 
+- `marketplace:getPrivateStoreCollection`
+- `marketplace:getPrivateStoreCollectionOffer`
 - `powerplatform:getAccount`
 - `securityinsights:getActivityCustomEntityQuery`
 - `securityinsights:getEntityQuery`
+- `testbase:getCustomerEvent`
 
 ---
 

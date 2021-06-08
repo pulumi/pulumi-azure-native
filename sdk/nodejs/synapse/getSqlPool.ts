@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Analytics pool
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
     if (!opts) {

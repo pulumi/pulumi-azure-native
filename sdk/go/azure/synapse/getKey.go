@@ -8,7 +8,7 @@ import (
 )
 
 // A workspace key
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
 	err := ctx.Invoke("azure-native:synapse:getKey", args, &rv, opts...)

@@ -94,7 +94,7 @@ class IntegrationRuntime(pulumi.CustomResource):
                  __props__=None):
         """
         Integration runtime resource type.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class IntegrationRuntime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Integration runtime resource type.
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeArgs args: The arguments to use to populate this resource's properties.

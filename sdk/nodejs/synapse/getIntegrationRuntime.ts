@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Integration runtime resource type.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeResult> {
     if (!opts) {

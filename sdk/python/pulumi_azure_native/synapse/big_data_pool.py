@@ -418,7 +418,7 @@ class BigDataPool(pulumi.CustomResource):
                  __props__=None):
         """
         A Big Data pool
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -454,7 +454,7 @@ class BigDataPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Big Data pool
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param BigDataPoolArgs args: The arguments to use to populate this resource's properties.

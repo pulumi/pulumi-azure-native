@@ -109,7 +109,7 @@ class Key(pulumi.CustomResource):
                  __props__=None):
         """
         A workspace key
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A workspace key
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

@@ -12,7 +12,7 @@ import (
 )
 
 // A sensitivity label.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 

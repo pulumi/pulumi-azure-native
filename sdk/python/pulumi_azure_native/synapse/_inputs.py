@@ -15,7 +15,6 @@ __all__ = [
     'AzureSkuArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
-    'CspWorkspaceAdminPropertiesArgs',
     'CustomerManagedKeyDetailsArgs',
     'DataLakeStorageAccountDetailsArgs',
     'DynamicExecutorAllocationArgs',
@@ -29,7 +28,6 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisPropertiesArgs',
     'IntegrationRuntimeVNetPropertiesArgs',
-    'KekIdentityPropertiesArgs',
     'LibraryInfoArgs',
     'LibraryRequirementsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
@@ -327,55 +325,15 @@ class ComponentSetupArgs:
 
 
 @pulumi.input_type
-class CspWorkspaceAdminPropertiesArgs:
-    def __init__(__self__, *,
-                 initial_workspace_admin_object_id: Optional[pulumi.Input[str]] = None):
-        """
-        Initial workspace AAD admin properties for a CSP subscription
-        :param pulumi.Input[str] initial_workspace_admin_object_id: AAD object ID of initial workspace admin
-        """
-        if initial_workspace_admin_object_id is not None:
-            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
-
-    @property
-    @pulumi.getter(name="initialWorkspaceAdminObjectId")
-    def initial_workspace_admin_object_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AAD object ID of initial workspace admin
-        """
-        return pulumi.get(self, "initial_workspace_admin_object_id")
-
-    @initial_workspace_admin_object_id.setter
-    def initial_workspace_admin_object_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "initial_workspace_admin_object_id", value)
-
-
-@pulumi.input_type
 class CustomerManagedKeyDetailsArgs:
     def __init__(__self__, *,
-                 kek_identity: Optional[pulumi.Input['KekIdentityPropertiesArgs']] = None,
                  key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None):
         """
         Details of the customer managed key associated with the workspace
-        :param pulumi.Input['KekIdentityPropertiesArgs'] kek_identity: Key encryption key
         :param pulumi.Input['WorkspaceKeyDetailsArgs'] key: The key object of the workspace
         """
-        if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
         if key is not None:
             pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter(name="kekIdentity")
-    def kek_identity(self) -> Optional[pulumi.Input['KekIdentityPropertiesArgs']]:
-        """
-        Key encryption key
-        """
-        return pulumi.get(self, "kek_identity")
-
-    @kek_identity.setter
-    def kek_identity(self, value: Optional[pulumi.Input['KekIdentityPropertiesArgs']]):
-        pulumi.set(self, "kek_identity", value)
 
     @property
     @pulumi.getter
@@ -1059,46 +1017,6 @@ class IntegrationRuntimeVNetPropertiesArgs:
     @v_net_id.setter
     def v_net_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "v_net_id", value)
-
-
-@pulumi.input_type
-class KekIdentityPropertiesArgs:
-    def __init__(__self__, *,
-                 use_system_assigned_identity: Optional[Any] = None,
-                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
-        """
-        Key encryption key properties
-        :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
-        :param pulumi.Input[str] user_assigned_identity: User assigned identity resource Id
-        """
-        if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="useSystemAssignedIdentity")
-    def use_system_assigned_identity(self) -> Optional[Any]:
-        """
-        Boolean specifying whether to use system assigned identity or not
-        """
-        return pulumi.get(self, "use_system_assigned_identity")
-
-    @use_system_assigned_identity.setter
-    def use_system_assigned_identity(self, value: Optional[Any]):
-        pulumi.set(self, "use_system_assigned_identity", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        User assigned identity resource Id
-        """
-        return pulumi.get(self, "user_assigned_identity")
-
-    @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type

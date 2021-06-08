@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Represents a Sql pool transparent data encryption configuration.
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolTransparentDataEncryption")]
     public partial class SqlPoolTransparentDataEncryption : Pulumi.CustomResource

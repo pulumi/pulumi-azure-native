@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Workload group operations for a sql pool
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : Pulumi.CustomResource

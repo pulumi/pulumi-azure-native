@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Sql pool transparent data encryption configuration.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
     if (!opts) {

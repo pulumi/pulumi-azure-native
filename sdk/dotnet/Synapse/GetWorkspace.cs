@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// A workspace
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
@@ -51,10 +51,6 @@ namespace Pulumi.AzureNative.Synapse
         /// Connectivity endpoints
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
-        /// <summary>
-        /// Initial workspace AAD admin properties for a CSP subscription
-        /// </summary>
-        public readonly Outputs.CspWorkspaceAdminPropertiesResponse? CspWorkspaceAdminProperties;
         /// <summary>
         /// Workspace default data lake storage account details
         /// </summary>
@@ -146,8 +142,6 @@ namespace Pulumi.AzureNative.Synapse
 
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
-            Outputs.CspWorkspaceAdminPropertiesResponse? cspWorkspaceAdminProperties,
-
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
 
             Outputs.EncryptionDetailsResponse? encryption,
@@ -192,7 +186,6 @@ namespace Pulumi.AzureNative.Synapse
         {
             AdlaResourceId = adlaResourceId;
             ConnectivityEndpoints = connectivityEndpoints;
-            CspWorkspaceAdminProperties = cspWorkspaceAdminProperties;
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;
             ExtraProperties = extraProperties;

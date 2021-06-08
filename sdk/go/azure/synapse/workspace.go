@@ -12,7 +12,7 @@ import (
 )
 
 // A workspace
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type Workspace struct {
 	AdlaResourceId pulumi.StringOutput `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties CspWorkspaceAdminPropertiesResponsePtrOutput `pulumi:"cspWorkspaceAdminProperties"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrOutput `pulumi:"defaultDataLakeStorage"`
 	// The encryption details of the workspace
@@ -136,8 +134,6 @@ type workspaceState struct {
 	AdlaResourceId *string `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties *CspWorkspaceAdminPropertiesResponse `pulumi:"cspWorkspaceAdminProperties"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
 	// The encryption details of the workspace
@@ -185,8 +181,6 @@ type WorkspaceState struct {
 	AdlaResourceId pulumi.StringPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties CspWorkspaceAdminPropertiesResponsePtrInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrInput
 	// The encryption details of the workspace
@@ -236,8 +230,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 type workspaceArgs struct {
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties *CspWorkspaceAdminProperties `pulumi:"cspWorkspaceAdminProperties"`
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage *DataLakeStorageAccountDetails `pulumi:"defaultDataLakeStorage"`
 	// The encryption details of the workspace
@@ -278,8 +270,6 @@ type workspaceArgs struct {
 type WorkspaceArgs struct {
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
-	// Initial workspace AAD admin properties for a CSP subscription
-	CspWorkspaceAdminProperties CspWorkspaceAdminPropertiesPtrInput
 	// Workspace default data lake storage account details
 	DefaultDataLakeStorage DataLakeStorageAccountDetailsPtrInput
 	// The encryption details of the workspace

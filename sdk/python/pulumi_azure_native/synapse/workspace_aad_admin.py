@@ -126,7 +126,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceAadAdminArgs args: The arguments to use to populate this resource's properties.

@@ -12,7 +12,7 @@ import (
 )
 
 // A workspace key
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type Key struct {
 	pulumi.CustomResourceState
 

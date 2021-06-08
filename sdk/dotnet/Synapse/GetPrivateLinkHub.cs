@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// A privateLinkHub
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());

@@ -119,7 +119,7 @@ def get_workspace_sql_aad_admin(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSqlAadAdminResult:
     """
     Workspace active directory administrator
-    API Version: 2021-05-01.
+    API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A privateLinkHub
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:PrivateLinkHub")]
     public partial class PrivateLinkHub : Pulumi.CustomResource

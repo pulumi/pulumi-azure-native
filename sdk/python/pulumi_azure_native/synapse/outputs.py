@@ -16,7 +16,6 @@ __all__ = [
     'AzureSkuResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
-    'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
     'DatabaseStatisticsResponse',
@@ -31,7 +30,6 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
-    'KekIdentityPropertiesResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
@@ -375,80 +373,19 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
-class CspWorkspaceAdminPropertiesResponse(dict):
-    """
-    Initial workspace AAD admin properties for a CSP subscription
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "initialWorkspaceAdminObjectId":
-            suggest = "initial_workspace_admin_object_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CspWorkspaceAdminPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 initial_workspace_admin_object_id: Optional[str] = None):
-        """
-        Initial workspace AAD admin properties for a CSP subscription
-        :param str initial_workspace_admin_object_id: AAD object ID of initial workspace admin
-        """
-        if initial_workspace_admin_object_id is not None:
-            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
-
-    @property
-    @pulumi.getter(name="initialWorkspaceAdminObjectId")
-    def initial_workspace_admin_object_id(self) -> Optional[str]:
-        """
-        AAD object ID of initial workspace admin
-        """
-        return pulumi.get(self, "initial_workspace_admin_object_id")
-
-
-@pulumi.output_type
 class CustomerManagedKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "kekIdentity":
-            suggest = "kek_identity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CustomerManagedKeyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CustomerManagedKeyDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CustomerManagedKeyDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  status: str,
-                 kek_identity: Optional['outputs.KekIdentityPropertiesResponse'] = None,
                  key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
         """
         Details of the customer managed key associated with the workspace
         :param str status: The customer managed key status on the workspace
-        :param 'KekIdentityPropertiesResponse' kek_identity: Key encryption key
         :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
         """
         pulumi.set(__self__, "status", status)
-        if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -459,14 +396,6 @@ class CustomerManagedKeyDetailsResponse(dict):
         The customer managed key status on the workspace
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="kekIdentity")
-    def kek_identity(self) -> Optional['outputs.KekIdentityPropertiesResponse']:
-        """
-        Key encryption key
-        """
-        return pulumi.get(self, "kek_identity")
 
     @property
     @pulumi.getter
@@ -1293,60 +1222,6 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         The ID of the VNet that this integration runtime will join.
         """
         return pulumi.get(self, "v_net_id")
-
-
-@pulumi.output_type
-class KekIdentityPropertiesResponse(dict):
-    """
-    Key encryption key properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "useSystemAssignedIdentity":
-            suggest = "use_system_assigned_identity"
-        elif key == "userAssignedIdentity":
-            suggest = "user_assigned_identity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KekIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KekIdentityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KekIdentityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 use_system_assigned_identity: Optional[Any] = None,
-                 user_assigned_identity: Optional[str] = None):
-        """
-        Key encryption key properties
-        :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
-        :param str user_assigned_identity: User assigned identity resource Id
-        """
-        if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="useSystemAssignedIdentity")
-    def use_system_assigned_identity(self) -> Optional[Any]:
-        """
-        Boolean specifying whether to use system assigned identity or not
-        """
-        return pulumi.get(self, "use_system_assigned_identity")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[str]:
-        """
-        User assigned identity resource Id
-        """
-        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type

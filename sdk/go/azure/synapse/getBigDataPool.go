@@ -8,7 +8,7 @@ import (
 )
 
 // A Big Data pool
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupBigDataPoolResult, error) {
 	var rv LookupBigDataPoolResult
 	err := ctx.Invoke("azure-native:synapse:getBigDataPool", args, &rv, opts...)

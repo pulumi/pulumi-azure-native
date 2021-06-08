@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Connection information for encrypting the on-premises data source credentials.
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
     if (!opts) {

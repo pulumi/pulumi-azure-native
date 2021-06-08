@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -46,10 +46,6 @@ export interface GetWorkspaceResult {
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};
-    /**
-     * Initial workspace AAD admin properties for a CSP subscription
-     */
-    readonly cspWorkspaceAdminProperties?: outputs.synapse.CspWorkspaceAdminPropertiesResponse;
     /**
      * Workspace default data lake storage account details
      */

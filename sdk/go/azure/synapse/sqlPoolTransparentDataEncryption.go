@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Sql pool transparent data encryption configuration.
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 type SqlPoolTransparentDataEncryption struct {
 	pulumi.CustomResourceState
 

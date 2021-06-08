@@ -120,7 +120,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkHubResult:
     """
     A privateLinkHub
-    API Version: 2021-05-01.
+    API Version: 2021-03-01.
 
 
     :param str private_link_hub_name: Name of the privateLinkHub

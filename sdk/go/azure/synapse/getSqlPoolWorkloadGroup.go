@@ -8,7 +8,7 @@ import (
 )
 
 // Workload group operations for a sql pool
-// API Version: 2021-05-01.
+// API Version: 2021-03-01.
 func LookupSqlPoolWorkloadGroup(ctx *pulumi.Context, args *LookupSqlPoolWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadGroupResult, error) {
 	var rv LookupSqlPoolWorkloadGroupResult
 	err := ctx.Invoke("azure-native:synapse:getSqlPoolWorkloadGroup", args, &rv, opts...)

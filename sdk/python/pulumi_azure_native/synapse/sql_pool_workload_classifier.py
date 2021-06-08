@@ -208,7 +208,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  __props__=None):
         """
         Workload classifier operations for a data warehouse
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,7 +232,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload classifier operations for a data warehouse
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadClassifierArgs args: The arguments to use to populate this resource's properties.

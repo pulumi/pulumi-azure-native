@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace key
- * API Version: 2021-05-01.
+ * API Version: 2021-03-01.
  */
 export class Key extends pulumi.CustomResource {
     /**

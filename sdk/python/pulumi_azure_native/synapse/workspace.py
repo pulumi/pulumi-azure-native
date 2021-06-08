@@ -18,7 +18,6 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 csp_workspace_admin_properties: Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']] = None,
                  default_data_lake_storage: Optional[pulumi.Input['DataLakeStorageAccountDetailsArgs']] = None,
                  encryption: Optional[pulumi.Input['EncryptionDetailsArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
@@ -39,7 +38,6 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
-        :param pulumi.Input['CspWorkspaceAdminPropertiesArgs'] csp_workspace_admin_properties: Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input['DataLakeStorageAccountDetailsArgs'] default_data_lake_storage: Workspace default data lake storage account details
         :param pulumi.Input['EncryptionDetailsArgs'] encryption: The encryption details of the workspace
         :param pulumi.Input['ManagedIdentityArgs'] identity: Identity of the workspace
@@ -60,8 +58,6 @@ class WorkspaceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connectivity_endpoints is not None:
             pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
-        if csp_workspace_admin_properties is not None:
-            pulumi.set(__self__, "csp_workspace_admin_properties", csp_workspace_admin_properties)
         if default_data_lake_storage is not None:
             pulumi.set(__self__, "default_data_lake_storage", default_data_lake_storage)
         if encryption is not None:
@@ -118,18 +114,6 @@ class WorkspaceArgs:
     @connectivity_endpoints.setter
     def connectivity_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "connectivity_endpoints", value)
-
-    @property
-    @pulumi.getter(name="cspWorkspaceAdminProperties")
-    def csp_workspace_admin_properties(self) -> Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']]:
-        """
-        Initial workspace AAD admin properties for a CSP subscription
-        """
-        return pulumi.get(self, "csp_workspace_admin_properties")
-
-    @csp_workspace_admin_properties.setter
-    def csp_workspace_admin_properties(self, value: Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']]):
-        pulumi.set(self, "csp_workspace_admin_properties", value)
 
     @property
     @pulumi.getter(name="defaultDataLakeStorage")
@@ -330,7 +314,6 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 csp_workspace_admin_properties: Optional[pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
@@ -351,12 +334,11 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         A workspace
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
-        :param pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']] csp_workspace_admin_properties: Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']] default_data_lake_storage: Workspace default data lake storage account details
         :param pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']] encryption: The encryption details of the workspace
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity of the workspace
@@ -383,7 +365,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A workspace
-        API Version: 2021-05-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -401,7 +383,6 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 csp_workspace_admin_properties: Optional[pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
@@ -432,7 +413,6 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
-            __props__.__dict__["csp_workspace_admin_properties"] = csp_workspace_admin_properties
             __props__.__dict__["default_data_lake_storage"] = default_data_lake_storage
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
@@ -484,7 +464,6 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["adla_resource_id"] = None
         __props__.__dict__["connectivity_endpoints"] = None
-        __props__.__dict__["csp_workspace_admin_properties"] = None
         __props__.__dict__["default_data_lake_storage"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["extra_properties"] = None
@@ -522,14 +501,6 @@ class Workspace(pulumi.CustomResource):
         Connectivity endpoints
         """
         return pulumi.get(self, "connectivity_endpoints")
-
-    @property
-    @pulumi.getter(name="cspWorkspaceAdminProperties")
-    def csp_workspace_admin_properties(self) -> pulumi.Output[Optional['outputs.CspWorkspaceAdminPropertiesResponse']]:
-        """
-        Initial workspace AAD admin properties for a CSP subscription
-        """
-        return pulumi.get(self, "csp_workspace_admin_properties")
 
     @property
     @pulumi.getter(name="defaultDataLakeStorage")

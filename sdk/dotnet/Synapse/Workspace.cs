@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace
-    /// API Version: 2021-05-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("connectivityEndpoints")]
         public Output<ImmutableDictionary<string, string>?> ConnectivityEndpoints { get; private set; } = null!;
-
-        /// <summary>
-        /// Initial workspace AAD admin properties for a CSP subscription
-        /// </summary>
-        [Output("cspWorkspaceAdminProperties")]
-        public Output<Outputs.CspWorkspaceAdminPropertiesResponse?> CspWorkspaceAdminProperties { get; private set; } = null!;
 
         /// <summary>
         /// Workspace default data lake storage account details
@@ -224,12 +218,6 @@ namespace Pulumi.AzureNative.Synapse
             get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
             set => _connectivityEndpoints = value;
         }
-
-        /// <summary>
-        /// Initial workspace AAD admin properties for a CSP subscription
-        /// </summary>
-        [Input("cspWorkspaceAdminProperties")]
-        public Input<Inputs.CspWorkspaceAdminPropertiesArgs>? CspWorkspaceAdminProperties { get; set; }
 
         /// <summary>
         /// Workspace default data lake storage account details
