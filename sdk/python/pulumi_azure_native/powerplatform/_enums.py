@@ -5,10 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'EnterprisePolicyKind',
     'PrivateEndpointServiceConnectionStatus',
     'ResourceIdentityType',
     'State',
 ]
+
+
+class EnterprisePolicyKind(str, Enum):
+    """
+    The kind (type) of Enterprise Policy.
+    """
+    LOCKBOX = "Lockbox"
+    PRIVATE_ENDPOINT = "PrivateEndpoint"
+    ENCRYPTION = "Encryption"
+    NETWORK_INJECTION = "NetworkInjection"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

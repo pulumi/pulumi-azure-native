@@ -93,6 +93,9 @@ namespace Pulumi.AzureNative.DataProtection
 
     public sealed class BackupPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the policy
+        /// </summary>
         [Input("backupPolicyName")]
         public Input<string>? BackupPolicyName { get; set; }
 

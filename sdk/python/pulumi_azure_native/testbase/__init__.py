@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .customer_event import *
 from .favorite_process import *
+from .get_customer_event import *
 from .get_favorite_process import *
 from .get_package import *
 from .get_package_download_url import *

@@ -8,6 +8,18 @@ export {
     v20201030preview,
 };
 
+export const EnterprisePolicyKind = {
+    Lockbox: "Lockbox",
+    PrivateEndpoint: "PrivateEndpoint",
+    Encryption: "Encryption",
+    NetworkInjection: "NetworkInjection",
+} as const;
+
+/**
+ * The kind (type) of Enterprise Policy.
+ */
+export type EnterprisePolicyKind = (typeof EnterprisePolicyKind)[keyof typeof EnterprisePolicyKind];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

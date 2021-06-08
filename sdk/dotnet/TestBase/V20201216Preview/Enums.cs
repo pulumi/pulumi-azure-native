@@ -117,7 +117,6 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Tier Basic { get; } = new Tier("Basic");
         public static Tier Standard { get; } = new Tier("Standard");
 
         public static bool operator ==(Tier left, Tier right) => left.Equals(right);

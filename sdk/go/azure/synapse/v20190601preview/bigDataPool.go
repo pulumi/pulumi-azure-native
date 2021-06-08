@@ -102,6 +102,12 @@ func NewBigDataPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:BigDataPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210501:BigDataPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210501:BigDataPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BigDataPool

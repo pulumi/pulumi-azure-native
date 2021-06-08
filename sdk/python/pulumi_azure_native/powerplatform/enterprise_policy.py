@@ -16,6 +16,7 @@ __all__ = ['EnterprisePolicyArgs', 'EnterprisePolicy']
 @pulumi.input_type
 class EnterprisePolicyArgs:
     def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'EnterprisePolicyKind']],
                  resource_group_name: pulumi.Input[str],
                  encryption: Optional[pulumi.Input['PropertiesEncryptionArgs']] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class EnterprisePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnterprisePolicy resource.
+        :param pulumi.Input[Union[str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PropertiesEncryptionArgs'] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
@@ -35,6 +37,7 @@ class EnterprisePolicyArgs:
         :param pulumi.Input['PropertiesNetworkInjectionArgs'] network_injection: Settings concerning network injection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -50,6 +53,18 @@ class EnterprisePolicyArgs:
             pulumi.set(__self__, "network_injection", network_injection)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'EnterprisePolicyKind']]:
+        """
+        The kind (type) of Enterprise Policy.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'EnterprisePolicyKind']]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +171,7 @@ class EnterprisePolicy(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'EnterprisePolicyKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lockbox: Optional[pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']]] = None,
                  network_injection: Optional[pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']]] = None,
@@ -171,6 +187,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
+        :param pulumi.Input[Union[str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']] lockbox: Settings concerning lockbox.
         :param pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']] network_injection: Settings concerning network injection.
@@ -205,6 +222,7 @@ class EnterprisePolicy(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']]] = None,
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'EnterprisePolicyKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lockbox: Optional[pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']]] = None,
                  network_injection: Optional[pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']]] = None,
@@ -225,6 +243,9 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["enterprise_policy_name"] = enterprise_policy_name
             __props__.__dict__["identity"] = identity
+            if kind is None and not opts.urn:
+                raise TypeError("Missing required property 'kind'")
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["lockbox"] = lockbox
             __props__.__dict__["network_injection"] = network_injection
@@ -261,6 +282,7 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["lockbox"] = None
         __props__.__dict__["name"] = None
@@ -285,6 +307,14 @@ class EnterprisePolicy(pulumi.CustomResource):
         The identity of the EnterprisePolicy.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        The kind (type) of Enterprise Policy.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

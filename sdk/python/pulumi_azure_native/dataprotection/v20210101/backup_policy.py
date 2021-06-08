@@ -24,6 +24,7 @@ class BackupPolicyArgs:
         The set of arguments for constructing a BackupPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
+        :param pulumi.Input[str] backup_policy_name: Name of the policy
         :param pulumi.Input['BackupPolicyArgs'] properties: BaseBackupPolicyResource properties
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -60,6 +61,9 @@ class BackupPolicyArgs:
     @property
     @pulumi.getter(name="backupPolicyName")
     def backup_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the policy
+        """
         return pulumi.get(self, "backup_policy_name")
 
     @backup_policy_name.setter
@@ -94,6 +98,7 @@ class BackupPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_policy_name: Name of the policy
         :param pulumi.Input[pulumi.InputType['BackupPolicyArgs']] properties: BaseBackupPolicyResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.

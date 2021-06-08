@@ -372,6 +372,846 @@ func (o CommandResponseArrayOutput) Index(i pulumi.IntInput) CommandResponseOutp
 	}).(CommandResponseOutput)
 }
 
+// The user object receiver value.
+type DistributionGroupListReceiverValue struct {
+	// The list of distribution groups.
+	DistributionGroups []string `pulumi:"distributionGroups"`
+}
+
+// DistributionGroupListReceiverValueInput is an input type that accepts DistributionGroupListReceiverValueArgs and DistributionGroupListReceiverValueOutput values.
+// You can construct a concrete instance of `DistributionGroupListReceiverValueInput` via:
+//
+//          DistributionGroupListReceiverValueArgs{...}
+type DistributionGroupListReceiverValueInput interface {
+	pulumi.Input
+
+	ToDistributionGroupListReceiverValueOutput() DistributionGroupListReceiverValueOutput
+	ToDistributionGroupListReceiverValueOutputWithContext(context.Context) DistributionGroupListReceiverValueOutput
+}
+
+// The user object receiver value.
+type DistributionGroupListReceiverValueArgs struct {
+	// The list of distribution groups.
+	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
+}
+
+func (DistributionGroupListReceiverValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGroupListReceiverValue)(nil)).Elem()
+}
+
+func (i DistributionGroupListReceiverValueArgs) ToDistributionGroupListReceiverValueOutput() DistributionGroupListReceiverValueOutput {
+	return i.ToDistributionGroupListReceiverValueOutputWithContext(context.Background())
+}
+
+func (i DistributionGroupListReceiverValueArgs) ToDistributionGroupListReceiverValueOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueOutput)
+}
+
+func (i DistributionGroupListReceiverValueArgs) ToDistributionGroupListReceiverValuePtrOutput() DistributionGroupListReceiverValuePtrOutput {
+	return i.ToDistributionGroupListReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i DistributionGroupListReceiverValueArgs) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueOutput).ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx)
+}
+
+// DistributionGroupListReceiverValuePtrInput is an input type that accepts DistributionGroupListReceiverValueArgs, DistributionGroupListReceiverValuePtr and DistributionGroupListReceiverValuePtrOutput values.
+// You can construct a concrete instance of `DistributionGroupListReceiverValuePtrInput` via:
+//
+//          DistributionGroupListReceiverValueArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionGroupListReceiverValuePtrInput interface {
+	pulumi.Input
+
+	ToDistributionGroupListReceiverValuePtrOutput() DistributionGroupListReceiverValuePtrOutput
+	ToDistributionGroupListReceiverValuePtrOutputWithContext(context.Context) DistributionGroupListReceiverValuePtrOutput
+}
+
+type distributionGroupListReceiverValuePtrType DistributionGroupListReceiverValueArgs
+
+func DistributionGroupListReceiverValuePtr(v *DistributionGroupListReceiverValueArgs) DistributionGroupListReceiverValuePtrInput {
+	return (*distributionGroupListReceiverValuePtrType)(v)
+}
+
+func (*distributionGroupListReceiverValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGroupListReceiverValue)(nil)).Elem()
+}
+
+func (i *distributionGroupListReceiverValuePtrType) ToDistributionGroupListReceiverValuePtrOutput() DistributionGroupListReceiverValuePtrOutput {
+	return i.ToDistributionGroupListReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i *distributionGroupListReceiverValuePtrType) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+type DistributionGroupListReceiverValueOutput struct{ *pulumi.OutputState }
+
+func (DistributionGroupListReceiverValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGroupListReceiverValue)(nil)).Elem()
+}
+
+func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValueOutput() DistributionGroupListReceiverValueOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValueOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValuePtrOutput() DistributionGroupListReceiverValuePtrOutput {
+	return o.ToDistributionGroupListReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
+	return o.ApplyT(func(v DistributionGroupListReceiverValue) *DistributionGroupListReceiverValue {
+		return &v
+	}).(DistributionGroupListReceiverValuePtrOutput)
+}
+
+// The list of distribution groups.
+func (o DistributionGroupListReceiverValueOutput) DistributionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionGroupListReceiverValue) []string { return v.DistributionGroups }).(pulumi.StringArrayOutput)
+}
+
+type DistributionGroupListReceiverValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionGroupListReceiverValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGroupListReceiverValue)(nil)).Elem()
+}
+
+func (o DistributionGroupListReceiverValuePtrOutput) ToDistributionGroupListReceiverValuePtrOutput() DistributionGroupListReceiverValuePtrOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValuePtrOutput) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValuePtrOutput) Elem() DistributionGroupListReceiverValueOutput {
+	return o.ApplyT(func(v *DistributionGroupListReceiverValue) DistributionGroupListReceiverValue { return *v }).(DistributionGroupListReceiverValueOutput)
+}
+
+// The list of distribution groups.
+func (o DistributionGroupListReceiverValuePtrOutput) DistributionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionGroupListReceiverValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DistributionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The user object receiver value.
+type DistributionGroupListReceiverValueResponse struct {
+	// The list of distribution groups.
+	DistributionGroups []string `pulumi:"distributionGroups"`
+}
+
+// DistributionGroupListReceiverValueResponseInput is an input type that accepts DistributionGroupListReceiverValueResponseArgs and DistributionGroupListReceiverValueResponseOutput values.
+// You can construct a concrete instance of `DistributionGroupListReceiverValueResponseInput` via:
+//
+//          DistributionGroupListReceiverValueResponseArgs{...}
+type DistributionGroupListReceiverValueResponseInput interface {
+	pulumi.Input
+
+	ToDistributionGroupListReceiverValueResponseOutput() DistributionGroupListReceiverValueResponseOutput
+	ToDistributionGroupListReceiverValueResponseOutputWithContext(context.Context) DistributionGroupListReceiverValueResponseOutput
+}
+
+// The user object receiver value.
+type DistributionGroupListReceiverValueResponseArgs struct {
+	// The list of distribution groups.
+	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
+}
+
+func (DistributionGroupListReceiverValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGroupListReceiverValueResponse)(nil)).Elem()
+}
+
+func (i DistributionGroupListReceiverValueResponseArgs) ToDistributionGroupListReceiverValueResponseOutput() DistributionGroupListReceiverValueResponseOutput {
+	return i.ToDistributionGroupListReceiverValueResponseOutputWithContext(context.Background())
+}
+
+func (i DistributionGroupListReceiverValueResponseArgs) ToDistributionGroupListReceiverValueResponseOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueResponseOutput)
+}
+
+func (i DistributionGroupListReceiverValueResponseArgs) ToDistributionGroupListReceiverValueResponsePtrOutput() DistributionGroupListReceiverValueResponsePtrOutput {
+	return i.ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DistributionGroupListReceiverValueResponseArgs) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueResponseOutput).ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx)
+}
+
+// DistributionGroupListReceiverValueResponsePtrInput is an input type that accepts DistributionGroupListReceiverValueResponseArgs, DistributionGroupListReceiverValueResponsePtr and DistributionGroupListReceiverValueResponsePtrOutput values.
+// You can construct a concrete instance of `DistributionGroupListReceiverValueResponsePtrInput` via:
+//
+//          DistributionGroupListReceiverValueResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionGroupListReceiverValueResponsePtrInput interface {
+	pulumi.Input
+
+	ToDistributionGroupListReceiverValueResponsePtrOutput() DistributionGroupListReceiverValueResponsePtrOutput
+	ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(context.Context) DistributionGroupListReceiverValueResponsePtrOutput
+}
+
+type distributionGroupListReceiverValueResponsePtrType DistributionGroupListReceiverValueResponseArgs
+
+func DistributionGroupListReceiverValueResponsePtr(v *DistributionGroupListReceiverValueResponseArgs) DistributionGroupListReceiverValueResponsePtrInput {
+	return (*distributionGroupListReceiverValueResponsePtrType)(v)
+}
+
+func (*distributionGroupListReceiverValueResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGroupListReceiverValueResponse)(nil)).Elem()
+}
+
+func (i *distributionGroupListReceiverValueResponsePtrType) ToDistributionGroupListReceiverValueResponsePtrOutput() DistributionGroupListReceiverValueResponsePtrOutput {
+	return i.ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *distributionGroupListReceiverValueResponsePtrType) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+type DistributionGroupListReceiverValueResponseOutput struct{ *pulumi.OutputState }
+
+func (DistributionGroupListReceiverValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGroupListReceiverValueResponse)(nil)).Elem()
+}
+
+func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponseOutput() DistributionGroupListReceiverValueResponseOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponseOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponseOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponsePtrOutput() DistributionGroupListReceiverValueResponsePtrOutput {
+	return o.ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v DistributionGroupListReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
+		return &v
+	}).(DistributionGroupListReceiverValueResponsePtrOutput)
+}
+
+// The list of distribution groups.
+func (o DistributionGroupListReceiverValueResponseOutput) DistributionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionGroupListReceiverValueResponse) []string { return v.DistributionGroups }).(pulumi.StringArrayOutput)
+}
+
+type DistributionGroupListReceiverValueResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionGroupListReceiverValueResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGroupListReceiverValueResponse)(nil)).Elem()
+}
+
+func (o DistributionGroupListReceiverValueResponsePtrOutput) ToDistributionGroupListReceiverValueResponsePtrOutput() DistributionGroupListReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueResponsePtrOutput) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o DistributionGroupListReceiverValueResponsePtrOutput) Elem() DistributionGroupListReceiverValueResponseOutput {
+	return o.ApplyT(func(v *DistributionGroupListReceiverValueResponse) DistributionGroupListReceiverValueResponse {
+		return *v
+	}).(DistributionGroupListReceiverValueResponseOutput)
+}
+
+// The list of distribution groups.
+func (o DistributionGroupListReceiverValueResponsePtrOutput) DistributionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionGroupListReceiverValueResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DistributionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// A notification event receivers.
+type NotificationEventReceiver struct {
+	// The type of the notification event receiver.
+	ReceiverType *string `pulumi:"receiverType"`
+	// The notification event receiver value.
+	ReceiverValue *NotificationReceiverValue `pulumi:"receiverValue"`
+}
+
+// NotificationEventReceiverInput is an input type that accepts NotificationEventReceiverArgs and NotificationEventReceiverOutput values.
+// You can construct a concrete instance of `NotificationEventReceiverInput` via:
+//
+//          NotificationEventReceiverArgs{...}
+type NotificationEventReceiverInput interface {
+	pulumi.Input
+
+	ToNotificationEventReceiverOutput() NotificationEventReceiverOutput
+	ToNotificationEventReceiverOutputWithContext(context.Context) NotificationEventReceiverOutput
+}
+
+// A notification event receivers.
+type NotificationEventReceiverArgs struct {
+	// The type of the notification event receiver.
+	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
+	// The notification event receiver value.
+	ReceiverValue NotificationReceiverValuePtrInput `pulumi:"receiverValue"`
+}
+
+func (NotificationEventReceiverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationEventReceiver)(nil)).Elem()
+}
+
+func (i NotificationEventReceiverArgs) ToNotificationEventReceiverOutput() NotificationEventReceiverOutput {
+	return i.ToNotificationEventReceiverOutputWithContext(context.Background())
+}
+
+func (i NotificationEventReceiverArgs) ToNotificationEventReceiverOutputWithContext(ctx context.Context) NotificationEventReceiverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverOutput)
+}
+
+// NotificationEventReceiverArrayInput is an input type that accepts NotificationEventReceiverArray and NotificationEventReceiverArrayOutput values.
+// You can construct a concrete instance of `NotificationEventReceiverArrayInput` via:
+//
+//          NotificationEventReceiverArray{ NotificationEventReceiverArgs{...} }
+type NotificationEventReceiverArrayInput interface {
+	pulumi.Input
+
+	ToNotificationEventReceiverArrayOutput() NotificationEventReceiverArrayOutput
+	ToNotificationEventReceiverArrayOutputWithContext(context.Context) NotificationEventReceiverArrayOutput
+}
+
+type NotificationEventReceiverArray []NotificationEventReceiverInput
+
+func (NotificationEventReceiverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationEventReceiver)(nil)).Elem()
+}
+
+func (i NotificationEventReceiverArray) ToNotificationEventReceiverArrayOutput() NotificationEventReceiverArrayOutput {
+	return i.ToNotificationEventReceiverArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationEventReceiverArray) ToNotificationEventReceiverArrayOutputWithContext(ctx context.Context) NotificationEventReceiverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverArrayOutput)
+}
+
+// A notification event receivers.
+type NotificationEventReceiverOutput struct{ *pulumi.OutputState }
+
+func (NotificationEventReceiverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationEventReceiver)(nil)).Elem()
+}
+
+func (o NotificationEventReceiverOutput) ToNotificationEventReceiverOutput() NotificationEventReceiverOutput {
+	return o
+}
+
+func (o NotificationEventReceiverOutput) ToNotificationEventReceiverOutputWithContext(ctx context.Context) NotificationEventReceiverOutput {
+	return o
+}
+
+// The type of the notification event receiver.
+func (o NotificationEventReceiverOutput) ReceiverType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationEventReceiver) *string { return v.ReceiverType }).(pulumi.StringPtrOutput)
+}
+
+// The notification event receiver value.
+func (o NotificationEventReceiverOutput) ReceiverValue() NotificationReceiverValuePtrOutput {
+	return o.ApplyT(func(v NotificationEventReceiver) *NotificationReceiverValue { return v.ReceiverValue }).(NotificationReceiverValuePtrOutput)
+}
+
+type NotificationEventReceiverArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationEventReceiverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationEventReceiver)(nil)).Elem()
+}
+
+func (o NotificationEventReceiverArrayOutput) ToNotificationEventReceiverArrayOutput() NotificationEventReceiverArrayOutput {
+	return o
+}
+
+func (o NotificationEventReceiverArrayOutput) ToNotificationEventReceiverArrayOutputWithContext(ctx context.Context) NotificationEventReceiverArrayOutput {
+	return o
+}
+
+func (o NotificationEventReceiverArrayOutput) Index(i pulumi.IntInput) NotificationEventReceiverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationEventReceiver {
+		return vs[0].([]NotificationEventReceiver)[vs[1].(int)]
+	}).(NotificationEventReceiverOutput)
+}
+
+// A notification event receivers.
+type NotificationEventReceiverResponse struct {
+	// The type of the notification event receiver.
+	ReceiverType *string `pulumi:"receiverType"`
+	// The notification event receiver value.
+	ReceiverValue *NotificationReceiverValueResponse `pulumi:"receiverValue"`
+}
+
+// NotificationEventReceiverResponseInput is an input type that accepts NotificationEventReceiverResponseArgs and NotificationEventReceiverResponseOutput values.
+// You can construct a concrete instance of `NotificationEventReceiverResponseInput` via:
+//
+//          NotificationEventReceiverResponseArgs{...}
+type NotificationEventReceiverResponseInput interface {
+	pulumi.Input
+
+	ToNotificationEventReceiverResponseOutput() NotificationEventReceiverResponseOutput
+	ToNotificationEventReceiverResponseOutputWithContext(context.Context) NotificationEventReceiverResponseOutput
+}
+
+// A notification event receivers.
+type NotificationEventReceiverResponseArgs struct {
+	// The type of the notification event receiver.
+	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
+	// The notification event receiver value.
+	ReceiverValue NotificationReceiverValueResponsePtrInput `pulumi:"receiverValue"`
+}
+
+func (NotificationEventReceiverResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationEventReceiverResponse)(nil)).Elem()
+}
+
+func (i NotificationEventReceiverResponseArgs) ToNotificationEventReceiverResponseOutput() NotificationEventReceiverResponseOutput {
+	return i.ToNotificationEventReceiverResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationEventReceiverResponseArgs) ToNotificationEventReceiverResponseOutputWithContext(ctx context.Context) NotificationEventReceiverResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverResponseOutput)
+}
+
+// NotificationEventReceiverResponseArrayInput is an input type that accepts NotificationEventReceiverResponseArray and NotificationEventReceiverResponseArrayOutput values.
+// You can construct a concrete instance of `NotificationEventReceiverResponseArrayInput` via:
+//
+//          NotificationEventReceiverResponseArray{ NotificationEventReceiverResponseArgs{...} }
+type NotificationEventReceiverResponseArrayInput interface {
+	pulumi.Input
+
+	ToNotificationEventReceiverResponseArrayOutput() NotificationEventReceiverResponseArrayOutput
+	ToNotificationEventReceiverResponseArrayOutputWithContext(context.Context) NotificationEventReceiverResponseArrayOutput
+}
+
+type NotificationEventReceiverResponseArray []NotificationEventReceiverResponseInput
+
+func (NotificationEventReceiverResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationEventReceiverResponse)(nil)).Elem()
+}
+
+func (i NotificationEventReceiverResponseArray) ToNotificationEventReceiverResponseArrayOutput() NotificationEventReceiverResponseArrayOutput {
+	return i.ToNotificationEventReceiverResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationEventReceiverResponseArray) ToNotificationEventReceiverResponseArrayOutputWithContext(ctx context.Context) NotificationEventReceiverResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverResponseArrayOutput)
+}
+
+// A notification event receivers.
+type NotificationEventReceiverResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationEventReceiverResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationEventReceiverResponse)(nil)).Elem()
+}
+
+func (o NotificationEventReceiverResponseOutput) ToNotificationEventReceiverResponseOutput() NotificationEventReceiverResponseOutput {
+	return o
+}
+
+func (o NotificationEventReceiverResponseOutput) ToNotificationEventReceiverResponseOutputWithContext(ctx context.Context) NotificationEventReceiverResponseOutput {
+	return o
+}
+
+// The type of the notification event receiver.
+func (o NotificationEventReceiverResponseOutput) ReceiverType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationEventReceiverResponse) *string { return v.ReceiverType }).(pulumi.StringPtrOutput)
+}
+
+// The notification event receiver value.
+func (o NotificationEventReceiverResponseOutput) ReceiverValue() NotificationReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v NotificationEventReceiverResponse) *NotificationReceiverValueResponse { return v.ReceiverValue }).(NotificationReceiverValueResponsePtrOutput)
+}
+
+type NotificationEventReceiverResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationEventReceiverResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationEventReceiverResponse)(nil)).Elem()
+}
+
+func (o NotificationEventReceiverResponseArrayOutput) ToNotificationEventReceiverResponseArrayOutput() NotificationEventReceiverResponseArrayOutput {
+	return o
+}
+
+func (o NotificationEventReceiverResponseArrayOutput) ToNotificationEventReceiverResponseArrayOutputWithContext(ctx context.Context) NotificationEventReceiverResponseArrayOutput {
+	return o
+}
+
+func (o NotificationEventReceiverResponseArrayOutput) Index(i pulumi.IntInput) NotificationEventReceiverResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationEventReceiverResponse {
+		return vs[0].([]NotificationEventReceiverResponse)[vs[1].(int)]
+	}).(NotificationEventReceiverResponseOutput)
+}
+
+// A notification event receiver value.
+type NotificationReceiverValue struct {
+	// The user object receiver value.
+	DistributionGroupListReceiverValue *DistributionGroupListReceiverValue `pulumi:"distributionGroupListReceiverValue"`
+	// The user object receiver value.
+	SubscriptionReceiverValue *SubscriptionReceiverValue `pulumi:"subscriptionReceiverValue"`
+	// The user object receiver value.
+	UserObjectReceiverValue *UserObjectReceiverValue `pulumi:"userObjectReceiverValue"`
+}
+
+// NotificationReceiverValueInput is an input type that accepts NotificationReceiverValueArgs and NotificationReceiverValueOutput values.
+// You can construct a concrete instance of `NotificationReceiverValueInput` via:
+//
+//          NotificationReceiverValueArgs{...}
+type NotificationReceiverValueInput interface {
+	pulumi.Input
+
+	ToNotificationReceiverValueOutput() NotificationReceiverValueOutput
+	ToNotificationReceiverValueOutputWithContext(context.Context) NotificationReceiverValueOutput
+}
+
+// A notification event receiver value.
+type NotificationReceiverValueArgs struct {
+	// The user object receiver value.
+	DistributionGroupListReceiverValue DistributionGroupListReceiverValuePtrInput `pulumi:"distributionGroupListReceiverValue"`
+	// The user object receiver value.
+	SubscriptionReceiverValue SubscriptionReceiverValuePtrInput `pulumi:"subscriptionReceiverValue"`
+	// The user object receiver value.
+	UserObjectReceiverValue UserObjectReceiverValuePtrInput `pulumi:"userObjectReceiverValue"`
+}
+
+func (NotificationReceiverValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationReceiverValue)(nil)).Elem()
+}
+
+func (i NotificationReceiverValueArgs) ToNotificationReceiverValueOutput() NotificationReceiverValueOutput {
+	return i.ToNotificationReceiverValueOutputWithContext(context.Background())
+}
+
+func (i NotificationReceiverValueArgs) ToNotificationReceiverValueOutputWithContext(ctx context.Context) NotificationReceiverValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueOutput)
+}
+
+func (i NotificationReceiverValueArgs) ToNotificationReceiverValuePtrOutput() NotificationReceiverValuePtrOutput {
+	return i.ToNotificationReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationReceiverValueArgs) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueOutput).ToNotificationReceiverValuePtrOutputWithContext(ctx)
+}
+
+// NotificationReceiverValuePtrInput is an input type that accepts NotificationReceiverValueArgs, NotificationReceiverValuePtr and NotificationReceiverValuePtrOutput values.
+// You can construct a concrete instance of `NotificationReceiverValuePtrInput` via:
+//
+//          NotificationReceiverValueArgs{...}
+//
+//  or:
+//
+//          nil
+type NotificationReceiverValuePtrInput interface {
+	pulumi.Input
+
+	ToNotificationReceiverValuePtrOutput() NotificationReceiverValuePtrOutput
+	ToNotificationReceiverValuePtrOutputWithContext(context.Context) NotificationReceiverValuePtrOutput
+}
+
+type notificationReceiverValuePtrType NotificationReceiverValueArgs
+
+func NotificationReceiverValuePtr(v *NotificationReceiverValueArgs) NotificationReceiverValuePtrInput {
+	return (*notificationReceiverValuePtrType)(v)
+}
+
+func (*notificationReceiverValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationReceiverValue)(nil)).Elem()
+}
+
+func (i *notificationReceiverValuePtrType) ToNotificationReceiverValuePtrOutput() NotificationReceiverValuePtrOutput {
+	return i.ToNotificationReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationReceiverValuePtrType) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValuePtrOutput)
+}
+
+// A notification event receiver value.
+type NotificationReceiverValueOutput struct{ *pulumi.OutputState }
+
+func (NotificationReceiverValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationReceiverValue)(nil)).Elem()
+}
+
+func (o NotificationReceiverValueOutput) ToNotificationReceiverValueOutput() NotificationReceiverValueOutput {
+	return o
+}
+
+func (o NotificationReceiverValueOutput) ToNotificationReceiverValueOutputWithContext(ctx context.Context) NotificationReceiverValueOutput {
+	return o
+}
+
+func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutput() NotificationReceiverValuePtrOutput {
+	return o.ToNotificationReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValue) *NotificationReceiverValue {
+		return &v
+	}).(NotificationReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValuePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValue) *DistributionGroupListReceiverValue {
+		return v.DistributionGroupListReceiverValue
+	}).(DistributionGroupListReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueOutput) SubscriptionReceiverValue() SubscriptionReceiverValuePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValue) *SubscriptionReceiverValue { return v.SubscriptionReceiverValue }).(SubscriptionReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueOutput) UserObjectReceiverValue() UserObjectReceiverValuePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValue) *UserObjectReceiverValue { return v.UserObjectReceiverValue }).(UserObjectReceiverValuePtrOutput)
+}
+
+type NotificationReceiverValuePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationReceiverValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationReceiverValue)(nil)).Elem()
+}
+
+func (o NotificationReceiverValuePtrOutput) ToNotificationReceiverValuePtrOutput() NotificationReceiverValuePtrOutput {
+	return o
+}
+
+func (o NotificationReceiverValuePtrOutput) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
+	return o
+}
+
+func (o NotificationReceiverValuePtrOutput) Elem() NotificationReceiverValueOutput {
+	return o.ApplyT(func(v *NotificationReceiverValue) NotificationReceiverValue { return *v }).(NotificationReceiverValueOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValuePtrOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValuePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValue) *DistributionGroupListReceiverValue {
+		if v == nil {
+			return nil
+		}
+		return v.DistributionGroupListReceiverValue
+	}).(DistributionGroupListReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValuePtrOutput) SubscriptionReceiverValue() SubscriptionReceiverValuePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValue) *SubscriptionReceiverValue {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionReceiverValue
+	}).(SubscriptionReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValuePtrOutput) UserObjectReceiverValue() UserObjectReceiverValuePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValue) *UserObjectReceiverValue {
+		if v == nil {
+			return nil
+		}
+		return v.UserObjectReceiverValue
+	}).(UserObjectReceiverValuePtrOutput)
+}
+
+// A notification event receiver value.
+type NotificationReceiverValueResponse struct {
+	// The user object receiver value.
+	DistributionGroupListReceiverValue *DistributionGroupListReceiverValueResponse `pulumi:"distributionGroupListReceiverValue"`
+	// The user object receiver value.
+	SubscriptionReceiverValue *SubscriptionReceiverValueResponse `pulumi:"subscriptionReceiverValue"`
+	// The user object receiver value.
+	UserObjectReceiverValue *UserObjectReceiverValueResponse `pulumi:"userObjectReceiverValue"`
+}
+
+// NotificationReceiverValueResponseInput is an input type that accepts NotificationReceiverValueResponseArgs and NotificationReceiverValueResponseOutput values.
+// You can construct a concrete instance of `NotificationReceiverValueResponseInput` via:
+//
+//          NotificationReceiverValueResponseArgs{...}
+type NotificationReceiverValueResponseInput interface {
+	pulumi.Input
+
+	ToNotificationReceiverValueResponseOutput() NotificationReceiverValueResponseOutput
+	ToNotificationReceiverValueResponseOutputWithContext(context.Context) NotificationReceiverValueResponseOutput
+}
+
+// A notification event receiver value.
+type NotificationReceiverValueResponseArgs struct {
+	// The user object receiver value.
+	DistributionGroupListReceiverValue DistributionGroupListReceiverValueResponsePtrInput `pulumi:"distributionGroupListReceiverValue"`
+	// The user object receiver value.
+	SubscriptionReceiverValue SubscriptionReceiverValueResponsePtrInput `pulumi:"subscriptionReceiverValue"`
+	// The user object receiver value.
+	UserObjectReceiverValue UserObjectReceiverValueResponsePtrInput `pulumi:"userObjectReceiverValue"`
+}
+
+func (NotificationReceiverValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationReceiverValueResponse)(nil)).Elem()
+}
+
+func (i NotificationReceiverValueResponseArgs) ToNotificationReceiverValueResponseOutput() NotificationReceiverValueResponseOutput {
+	return i.ToNotificationReceiverValueResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationReceiverValueResponseArgs) ToNotificationReceiverValueResponseOutputWithContext(ctx context.Context) NotificationReceiverValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueResponseOutput)
+}
+
+func (i NotificationReceiverValueResponseArgs) ToNotificationReceiverValueResponsePtrOutput() NotificationReceiverValueResponsePtrOutput {
+	return i.ToNotificationReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationReceiverValueResponseArgs) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueResponseOutput).ToNotificationReceiverValueResponsePtrOutputWithContext(ctx)
+}
+
+// NotificationReceiverValueResponsePtrInput is an input type that accepts NotificationReceiverValueResponseArgs, NotificationReceiverValueResponsePtr and NotificationReceiverValueResponsePtrOutput values.
+// You can construct a concrete instance of `NotificationReceiverValueResponsePtrInput` via:
+//
+//          NotificationReceiverValueResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NotificationReceiverValueResponsePtrInput interface {
+	pulumi.Input
+
+	ToNotificationReceiverValueResponsePtrOutput() NotificationReceiverValueResponsePtrOutput
+	ToNotificationReceiverValueResponsePtrOutputWithContext(context.Context) NotificationReceiverValueResponsePtrOutput
+}
+
+type notificationReceiverValueResponsePtrType NotificationReceiverValueResponseArgs
+
+func NotificationReceiverValueResponsePtr(v *NotificationReceiverValueResponseArgs) NotificationReceiverValueResponsePtrInput {
+	return (*notificationReceiverValueResponsePtrType)(v)
+}
+
+func (*notificationReceiverValueResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationReceiverValueResponse)(nil)).Elem()
+}
+
+func (i *notificationReceiverValueResponsePtrType) ToNotificationReceiverValueResponsePtrOutput() NotificationReceiverValueResponsePtrOutput {
+	return i.ToNotificationReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationReceiverValueResponsePtrType) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueResponsePtrOutput)
+}
+
+// A notification event receiver value.
+type NotificationReceiverValueResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationReceiverValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationReceiverValueResponse)(nil)).Elem()
+}
+
+func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponseOutput() NotificationReceiverValueResponseOutput {
+	return o
+}
+
+func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponseOutputWithContext(ctx context.Context) NotificationReceiverValueResponseOutput {
+	return o
+}
+
+func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponsePtrOutput() NotificationReceiverValueResponsePtrOutput {
+	return o.ToNotificationReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValueResponse) *NotificationReceiverValueResponse {
+		return &v
+	}).(NotificationReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponseOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
+		return v.DistributionGroupListReceiverValue
+	}).(DistributionGroupListReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponseOutput) SubscriptionReceiverValue() SubscriptionReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValueResponse) *SubscriptionReceiverValueResponse {
+		return v.SubscriptionReceiverValue
+	}).(SubscriptionReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponseOutput) UserObjectReceiverValue() UserObjectReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v NotificationReceiverValueResponse) *UserObjectReceiverValueResponse {
+		return v.UserObjectReceiverValue
+	}).(UserObjectReceiverValueResponsePtrOutput)
+}
+
+type NotificationReceiverValueResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationReceiverValueResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationReceiverValueResponse)(nil)).Elem()
+}
+
+func (o NotificationReceiverValueResponsePtrOutput) ToNotificationReceiverValueResponsePtrOutput() NotificationReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o NotificationReceiverValueResponsePtrOutput) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o NotificationReceiverValueResponsePtrOutput) Elem() NotificationReceiverValueResponseOutput {
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) NotificationReceiverValueResponse { return *v }).(NotificationReceiverValueResponseOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponsePtrOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DistributionGroupListReceiverValue
+	}).(DistributionGroupListReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponsePtrOutput) SubscriptionReceiverValue() SubscriptionReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) *SubscriptionReceiverValueResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionReceiverValue
+	}).(SubscriptionReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+func (o NotificationReceiverValueResponsePtrOutput) UserObjectReceiverValue() UserObjectReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) *UserObjectReceiverValueResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserObjectReceiverValue
+	}).(UserObjectReceiverValueResponsePtrOutput)
+}
+
 // The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponse struct {
 	// Error information.
@@ -488,6 +1328,350 @@ func (o PackageValidationResultResponseArrayOutput) Index(i pulumi.IntInput) Pac
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PackageValidationResultResponse {
 		return vs[0].([]PackageValidationResultResponse)[vs[1].(int)]
 	}).(PackageValidationResultResponseOutput)
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValue struct {
+	// The role of the notification receiver.
+	Role *string `pulumi:"role"`
+	// The subscription id of the notification receiver.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The subscription name of the notification receiver.
+	SubscriptionName *string `pulumi:"subscriptionName"`
+}
+
+// SubscriptionReceiverValueInput is an input type that accepts SubscriptionReceiverValueArgs and SubscriptionReceiverValueOutput values.
+// You can construct a concrete instance of `SubscriptionReceiverValueInput` via:
+//
+//          SubscriptionReceiverValueArgs{...}
+type SubscriptionReceiverValueInput interface {
+	pulumi.Input
+
+	ToSubscriptionReceiverValueOutput() SubscriptionReceiverValueOutput
+	ToSubscriptionReceiverValueOutputWithContext(context.Context) SubscriptionReceiverValueOutput
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValueArgs struct {
+	// The role of the notification receiver.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The subscription id of the notification receiver.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The subscription name of the notification receiver.
+	SubscriptionName pulumi.StringPtrInput `pulumi:"subscriptionName"`
+}
+
+func (SubscriptionReceiverValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionReceiverValue)(nil)).Elem()
+}
+
+func (i SubscriptionReceiverValueArgs) ToSubscriptionReceiverValueOutput() SubscriptionReceiverValueOutput {
+	return i.ToSubscriptionReceiverValueOutputWithContext(context.Background())
+}
+
+func (i SubscriptionReceiverValueArgs) ToSubscriptionReceiverValueOutputWithContext(ctx context.Context) SubscriptionReceiverValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueOutput)
+}
+
+func (i SubscriptionReceiverValueArgs) ToSubscriptionReceiverValuePtrOutput() SubscriptionReceiverValuePtrOutput {
+	return i.ToSubscriptionReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionReceiverValueArgs) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueOutput).ToSubscriptionReceiverValuePtrOutputWithContext(ctx)
+}
+
+// SubscriptionReceiverValuePtrInput is an input type that accepts SubscriptionReceiverValueArgs, SubscriptionReceiverValuePtr and SubscriptionReceiverValuePtrOutput values.
+// You can construct a concrete instance of `SubscriptionReceiverValuePtrInput` via:
+//
+//          SubscriptionReceiverValueArgs{...}
+//
+//  or:
+//
+//          nil
+type SubscriptionReceiverValuePtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionReceiverValuePtrOutput() SubscriptionReceiverValuePtrOutput
+	ToSubscriptionReceiverValuePtrOutputWithContext(context.Context) SubscriptionReceiverValuePtrOutput
+}
+
+type subscriptionReceiverValuePtrType SubscriptionReceiverValueArgs
+
+func SubscriptionReceiverValuePtr(v *SubscriptionReceiverValueArgs) SubscriptionReceiverValuePtrInput {
+	return (*subscriptionReceiverValuePtrType)(v)
+}
+
+func (*subscriptionReceiverValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionReceiverValue)(nil)).Elem()
+}
+
+func (i *subscriptionReceiverValuePtrType) ToSubscriptionReceiverValuePtrOutput() SubscriptionReceiverValuePtrOutput {
+	return i.ToSubscriptionReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionReceiverValuePtrType) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValuePtrOutput)
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValueOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionReceiverValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionReceiverValue)(nil)).Elem()
+}
+
+func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValueOutput() SubscriptionReceiverValueOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValueOutputWithContext(ctx context.Context) SubscriptionReceiverValueOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutput() SubscriptionReceiverValuePtrOutput {
+	return o.ToSubscriptionReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValue) *SubscriptionReceiverValue {
+		return &v
+	}).(SubscriptionReceiverValuePtrOutput)
+}
+
+// The role of the notification receiver.
+func (o SubscriptionReceiverValueOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of the notification receiver.
+func (o SubscriptionReceiverValueOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The subscription name of the notification receiver.
+func (o SubscriptionReceiverValueOutput) SubscriptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.SubscriptionName }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionReceiverValuePtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionReceiverValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionReceiverValue)(nil)).Elem()
+}
+
+func (o SubscriptionReceiverValuePtrOutput) ToSubscriptionReceiverValuePtrOutput() SubscriptionReceiverValuePtrOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValuePtrOutput) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValuePtrOutput) Elem() SubscriptionReceiverValueOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValue) SubscriptionReceiverValue { return *v }).(SubscriptionReceiverValueOutput)
+}
+
+// The role of the notification receiver.
+func (o SubscriptionReceiverValuePtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of the notification receiver.
+func (o SubscriptionReceiverValuePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription name of the notification receiver.
+func (o SubscriptionReceiverValuePtrOutput) SubscriptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValueResponse struct {
+	// The role of the notification receiver.
+	Role *string `pulumi:"role"`
+	// The subscription id of the notification receiver.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The subscription name of the notification receiver.
+	SubscriptionName *string `pulumi:"subscriptionName"`
+}
+
+// SubscriptionReceiverValueResponseInput is an input type that accepts SubscriptionReceiverValueResponseArgs and SubscriptionReceiverValueResponseOutput values.
+// You can construct a concrete instance of `SubscriptionReceiverValueResponseInput` via:
+//
+//          SubscriptionReceiverValueResponseArgs{...}
+type SubscriptionReceiverValueResponseInput interface {
+	pulumi.Input
+
+	ToSubscriptionReceiverValueResponseOutput() SubscriptionReceiverValueResponseOutput
+	ToSubscriptionReceiverValueResponseOutputWithContext(context.Context) SubscriptionReceiverValueResponseOutput
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValueResponseArgs struct {
+	// The role of the notification receiver.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The subscription id of the notification receiver.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The subscription name of the notification receiver.
+	SubscriptionName pulumi.StringPtrInput `pulumi:"subscriptionName"`
+}
+
+func (SubscriptionReceiverValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionReceiverValueResponse)(nil)).Elem()
+}
+
+func (i SubscriptionReceiverValueResponseArgs) ToSubscriptionReceiverValueResponseOutput() SubscriptionReceiverValueResponseOutput {
+	return i.ToSubscriptionReceiverValueResponseOutputWithContext(context.Background())
+}
+
+func (i SubscriptionReceiverValueResponseArgs) ToSubscriptionReceiverValueResponseOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueResponseOutput)
+}
+
+func (i SubscriptionReceiverValueResponseArgs) ToSubscriptionReceiverValueResponsePtrOutput() SubscriptionReceiverValueResponsePtrOutput {
+	return i.ToSubscriptionReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionReceiverValueResponseArgs) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueResponseOutput).ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx)
+}
+
+// SubscriptionReceiverValueResponsePtrInput is an input type that accepts SubscriptionReceiverValueResponseArgs, SubscriptionReceiverValueResponsePtr and SubscriptionReceiverValueResponsePtrOutput values.
+// You can construct a concrete instance of `SubscriptionReceiverValueResponsePtrInput` via:
+//
+//          SubscriptionReceiverValueResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubscriptionReceiverValueResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionReceiverValueResponsePtrOutput() SubscriptionReceiverValueResponsePtrOutput
+	ToSubscriptionReceiverValueResponsePtrOutputWithContext(context.Context) SubscriptionReceiverValueResponsePtrOutput
+}
+
+type subscriptionReceiverValueResponsePtrType SubscriptionReceiverValueResponseArgs
+
+func SubscriptionReceiverValueResponsePtr(v *SubscriptionReceiverValueResponseArgs) SubscriptionReceiverValueResponsePtrInput {
+	return (*subscriptionReceiverValueResponsePtrType)(v)
+}
+
+func (*subscriptionReceiverValueResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionReceiverValueResponse)(nil)).Elem()
+}
+
+func (i *subscriptionReceiverValueResponsePtrType) ToSubscriptionReceiverValueResponsePtrOutput() SubscriptionReceiverValueResponsePtrOutput {
+	return i.ToSubscriptionReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionReceiverValueResponsePtrType) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueResponsePtrOutput)
+}
+
+// The subscription role receiver value.
+type SubscriptionReceiverValueResponseOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionReceiverValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionReceiverValueResponse)(nil)).Elem()
+}
+
+func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponseOutput() SubscriptionReceiverValueResponseOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponseOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponseOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponsePtrOutput() SubscriptionReceiverValueResponsePtrOutput {
+	return o.ToSubscriptionReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *SubscriptionReceiverValueResponse {
+		return &v
+	}).(SubscriptionReceiverValueResponsePtrOutput)
+}
+
+// The role of the notification receiver.
+func (o SubscriptionReceiverValueResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of the notification receiver.
+func (o SubscriptionReceiverValueResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The subscription name of the notification receiver.
+func (o SubscriptionReceiverValueResponseOutput) SubscriptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.SubscriptionName }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionReceiverValueResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionReceiverValueResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionReceiverValueResponse)(nil)).Elem()
+}
+
+func (o SubscriptionReceiverValueResponsePtrOutput) ToSubscriptionReceiverValueResponsePtrOutput() SubscriptionReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueResponsePtrOutput) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o SubscriptionReceiverValueResponsePtrOutput) Elem() SubscriptionReceiverValueResponseOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) SubscriptionReceiverValueResponse { return *v }).(SubscriptionReceiverValueResponseOutput)
+}
+
+// The role of the notification receiver.
+func (o SubscriptionReceiverValueResponsePtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of the notification receiver.
+func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription name of the notification receiver.
+func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -1692,13 +2876,297 @@ func (o TestResponseArrayOutput) Index(i pulumi.IntInput) TestResponseOutput {
 	}).(TestResponseOutput)
 }
 
+// The user object receiver value.
+type UserObjectReceiverValue struct {
+	// user object ids.
+	UserObjectIds []string `pulumi:"userObjectIds"`
+}
+
+// UserObjectReceiverValueInput is an input type that accepts UserObjectReceiverValueArgs and UserObjectReceiverValueOutput values.
+// You can construct a concrete instance of `UserObjectReceiverValueInput` via:
+//
+//          UserObjectReceiverValueArgs{...}
+type UserObjectReceiverValueInput interface {
+	pulumi.Input
+
+	ToUserObjectReceiverValueOutput() UserObjectReceiverValueOutput
+	ToUserObjectReceiverValueOutputWithContext(context.Context) UserObjectReceiverValueOutput
+}
+
+// The user object receiver value.
+type UserObjectReceiverValueArgs struct {
+	// user object ids.
+	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
+}
+
+func (UserObjectReceiverValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserObjectReceiverValue)(nil)).Elem()
+}
+
+func (i UserObjectReceiverValueArgs) ToUserObjectReceiverValueOutput() UserObjectReceiverValueOutput {
+	return i.ToUserObjectReceiverValueOutputWithContext(context.Background())
+}
+
+func (i UserObjectReceiverValueArgs) ToUserObjectReceiverValueOutputWithContext(ctx context.Context) UserObjectReceiverValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueOutput)
+}
+
+func (i UserObjectReceiverValueArgs) ToUserObjectReceiverValuePtrOutput() UserObjectReceiverValuePtrOutput {
+	return i.ToUserObjectReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i UserObjectReceiverValueArgs) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueOutput).ToUserObjectReceiverValuePtrOutputWithContext(ctx)
+}
+
+// UserObjectReceiverValuePtrInput is an input type that accepts UserObjectReceiverValueArgs, UserObjectReceiverValuePtr and UserObjectReceiverValuePtrOutput values.
+// You can construct a concrete instance of `UserObjectReceiverValuePtrInput` via:
+//
+//          UserObjectReceiverValueArgs{...}
+//
+//  or:
+//
+//          nil
+type UserObjectReceiverValuePtrInput interface {
+	pulumi.Input
+
+	ToUserObjectReceiverValuePtrOutput() UserObjectReceiverValuePtrOutput
+	ToUserObjectReceiverValuePtrOutputWithContext(context.Context) UserObjectReceiverValuePtrOutput
+}
+
+type userObjectReceiverValuePtrType UserObjectReceiverValueArgs
+
+func UserObjectReceiverValuePtr(v *UserObjectReceiverValueArgs) UserObjectReceiverValuePtrInput {
+	return (*userObjectReceiverValuePtrType)(v)
+}
+
+func (*userObjectReceiverValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserObjectReceiverValue)(nil)).Elem()
+}
+
+func (i *userObjectReceiverValuePtrType) ToUserObjectReceiverValuePtrOutput() UserObjectReceiverValuePtrOutput {
+	return i.ToUserObjectReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (i *userObjectReceiverValuePtrType) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValuePtrOutput)
+}
+
+// The user object receiver value.
+type UserObjectReceiverValueOutput struct{ *pulumi.OutputState }
+
+func (UserObjectReceiverValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserObjectReceiverValue)(nil)).Elem()
+}
+
+func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValueOutput() UserObjectReceiverValueOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValueOutputWithContext(ctx context.Context) UserObjectReceiverValueOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutput() UserObjectReceiverValuePtrOutput {
+	return o.ToUserObjectReceiverValuePtrOutputWithContext(context.Background())
+}
+
+func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
+	return o.ApplyT(func(v UserObjectReceiverValue) *UserObjectReceiverValue {
+		return &v
+	}).(UserObjectReceiverValuePtrOutput)
+}
+
+// user object ids.
+func (o UserObjectReceiverValueOutput) UserObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserObjectReceiverValue) []string { return v.UserObjectIds }).(pulumi.StringArrayOutput)
+}
+
+type UserObjectReceiverValuePtrOutput struct{ *pulumi.OutputState }
+
+func (UserObjectReceiverValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserObjectReceiverValue)(nil)).Elem()
+}
+
+func (o UserObjectReceiverValuePtrOutput) ToUserObjectReceiverValuePtrOutput() UserObjectReceiverValuePtrOutput {
+	return o
+}
+
+func (o UserObjectReceiverValuePtrOutput) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
+	return o
+}
+
+func (o UserObjectReceiverValuePtrOutput) Elem() UserObjectReceiverValueOutput {
+	return o.ApplyT(func(v *UserObjectReceiverValue) UserObjectReceiverValue { return *v }).(UserObjectReceiverValueOutput)
+}
+
+// user object ids.
+func (o UserObjectReceiverValuePtrOutput) UserObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserObjectReceiverValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The user object receiver value.
+type UserObjectReceiverValueResponse struct {
+	// user object ids.
+	UserObjectIds []string `pulumi:"userObjectIds"`
+}
+
+// UserObjectReceiverValueResponseInput is an input type that accepts UserObjectReceiverValueResponseArgs and UserObjectReceiverValueResponseOutput values.
+// You can construct a concrete instance of `UserObjectReceiverValueResponseInput` via:
+//
+//          UserObjectReceiverValueResponseArgs{...}
+type UserObjectReceiverValueResponseInput interface {
+	pulumi.Input
+
+	ToUserObjectReceiverValueResponseOutput() UserObjectReceiverValueResponseOutput
+	ToUserObjectReceiverValueResponseOutputWithContext(context.Context) UserObjectReceiverValueResponseOutput
+}
+
+// The user object receiver value.
+type UserObjectReceiverValueResponseArgs struct {
+	// user object ids.
+	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
+}
+
+func (UserObjectReceiverValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserObjectReceiverValueResponse)(nil)).Elem()
+}
+
+func (i UserObjectReceiverValueResponseArgs) ToUserObjectReceiverValueResponseOutput() UserObjectReceiverValueResponseOutput {
+	return i.ToUserObjectReceiverValueResponseOutputWithContext(context.Background())
+}
+
+func (i UserObjectReceiverValueResponseArgs) ToUserObjectReceiverValueResponseOutputWithContext(ctx context.Context) UserObjectReceiverValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueResponseOutput)
+}
+
+func (i UserObjectReceiverValueResponseArgs) ToUserObjectReceiverValueResponsePtrOutput() UserObjectReceiverValueResponsePtrOutput {
+	return i.ToUserObjectReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserObjectReceiverValueResponseArgs) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueResponseOutput).ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx)
+}
+
+// UserObjectReceiverValueResponsePtrInput is an input type that accepts UserObjectReceiverValueResponseArgs, UserObjectReceiverValueResponsePtr and UserObjectReceiverValueResponsePtrOutput values.
+// You can construct a concrete instance of `UserObjectReceiverValueResponsePtrInput` via:
+//
+//          UserObjectReceiverValueResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserObjectReceiverValueResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserObjectReceiverValueResponsePtrOutput() UserObjectReceiverValueResponsePtrOutput
+	ToUserObjectReceiverValueResponsePtrOutputWithContext(context.Context) UserObjectReceiverValueResponsePtrOutput
+}
+
+type userObjectReceiverValueResponsePtrType UserObjectReceiverValueResponseArgs
+
+func UserObjectReceiverValueResponsePtr(v *UserObjectReceiverValueResponseArgs) UserObjectReceiverValueResponsePtrInput {
+	return (*userObjectReceiverValueResponsePtrType)(v)
+}
+
+func (*userObjectReceiverValueResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserObjectReceiverValueResponse)(nil)).Elem()
+}
+
+func (i *userObjectReceiverValueResponsePtrType) ToUserObjectReceiverValueResponsePtrOutput() UserObjectReceiverValueResponsePtrOutput {
+	return i.ToUserObjectReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userObjectReceiverValueResponsePtrType) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueResponsePtrOutput)
+}
+
+// The user object receiver value.
+type UserObjectReceiverValueResponseOutput struct{ *pulumi.OutputState }
+
+func (UserObjectReceiverValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserObjectReceiverValueResponse)(nil)).Elem()
+}
+
+func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponseOutput() UserObjectReceiverValueResponseOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponseOutputWithContext(ctx context.Context) UserObjectReceiverValueResponseOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponsePtrOutput() UserObjectReceiverValueResponsePtrOutput {
+	return o.ToUserObjectReceiverValueResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
+	return o.ApplyT(func(v UserObjectReceiverValueResponse) *UserObjectReceiverValueResponse {
+		return &v
+	}).(UserObjectReceiverValueResponsePtrOutput)
+}
+
+// user object ids.
+func (o UserObjectReceiverValueResponseOutput) UserObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserObjectReceiverValueResponse) []string { return v.UserObjectIds }).(pulumi.StringArrayOutput)
+}
+
+type UserObjectReceiverValueResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserObjectReceiverValueResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserObjectReceiverValueResponse)(nil)).Elem()
+}
+
+func (o UserObjectReceiverValueResponsePtrOutput) ToUserObjectReceiverValueResponsePtrOutput() UserObjectReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueResponsePtrOutput) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
+	return o
+}
+
+func (o UserObjectReceiverValueResponsePtrOutput) Elem() UserObjectReceiverValueResponseOutput {
+	return o.ApplyT(func(v *UserObjectReceiverValueResponse) UserObjectReceiverValueResponse { return *v }).(UserObjectReceiverValueResponseOutput)
+}
+
+// user object ids.
+func (o UserObjectReceiverValueResponsePtrOutput) UserObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserObjectReceiverValueResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommandOutput{})
 	pulumi.RegisterOutputType(CommandArrayOutput{})
 	pulumi.RegisterOutputType(CommandResponseOutput{})
 	pulumi.RegisterOutputType(CommandResponseArrayOutput{})
+	pulumi.RegisterOutputType(DistributionGroupListReceiverValueOutput{})
+	pulumi.RegisterOutputType(DistributionGroupListReceiverValuePtrOutput{})
+	pulumi.RegisterOutputType(DistributionGroupListReceiverValueResponseOutput{})
+	pulumi.RegisterOutputType(DistributionGroupListReceiverValueResponsePtrOutput{})
+	pulumi.RegisterOutputType(NotificationEventReceiverOutput{})
+	pulumi.RegisterOutputType(NotificationEventReceiverArrayOutput{})
+	pulumi.RegisterOutputType(NotificationEventReceiverResponseOutput{})
+	pulumi.RegisterOutputType(NotificationEventReceiverResponseArrayOutput{})
+	pulumi.RegisterOutputType(NotificationReceiverValueOutput{})
+	pulumi.RegisterOutputType(NotificationReceiverValuePtrOutput{})
+	pulumi.RegisterOutputType(NotificationReceiverValueResponseOutput{})
+	pulumi.RegisterOutputType(NotificationReceiverValueResponsePtrOutput{})
 	pulumi.RegisterOutputType(PackageValidationResultResponseOutput{})
 	pulumi.RegisterOutputType(PackageValidationResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionReceiverValueOutput{})
+	pulumi.RegisterOutputType(SubscriptionReceiverValuePtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionReceiverValueResponseOutput{})
+	pulumi.RegisterOutputType(SubscriptionReceiverValueResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetOSInfoOutput{})
@@ -1715,4 +3183,8 @@ func init() {
 	pulumi.RegisterOutputType(TestBaseAccountSKUResponsePtrOutput{})
 	pulumi.RegisterOutputType(TestResponseOutput{})
 	pulumi.RegisterOutputType(TestResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserObjectReceiverValueOutput{})
+	pulumi.RegisterOutputType(UserObjectReceiverValuePtrOutput{})
+	pulumi.RegisterOutputType(UserObjectReceiverValueResponseOutput{})
+	pulumi.RegisterOutputType(UserObjectReceiverValueResponsePtrOutput{})
 }

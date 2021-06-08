@@ -11,9 +11,14 @@ from ._enums import *
 
 __all__ = [
     'CommandArgs',
+    'DistributionGroupListReceiverValueArgs',
+    'NotificationEventReceiverArgs',
+    'NotificationReceiverValueArgs',
+    'SubscriptionReceiverValueArgs',
     'TargetOSInfoArgs',
     'TestArgs',
     'TestBaseAccountSKUArgs',
+    'UserObjectReceiverValueArgs',
 ]
 
 @pulumi.input_type
@@ -181,6 +186,182 @@ class CommandArgs:
 
 
 @pulumi.input_type
+class DistributionGroupListReceiverValueArgs:
+    def __init__(__self__, *,
+                 distribution_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The user object receiver value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] distribution_groups: The list of distribution groups.
+        """
+        if distribution_groups is not None:
+            pulumi.set(__self__, "distribution_groups", distribution_groups)
+
+    @property
+    @pulumi.getter(name="distributionGroups")
+    def distribution_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of distribution groups.
+        """
+        return pulumi.get(self, "distribution_groups")
+
+    @distribution_groups.setter
+    def distribution_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "distribution_groups", value)
+
+
+@pulumi.input_type
+class NotificationEventReceiverArgs:
+    def __init__(__self__, *,
+                 receiver_type: Optional[pulumi.Input[str]] = None,
+                 receiver_value: Optional[pulumi.Input['NotificationReceiverValueArgs']] = None):
+        """
+        A notification event receivers.
+        :param pulumi.Input[str] receiver_type: The type of the notification event receiver.
+        :param pulumi.Input['NotificationReceiverValueArgs'] receiver_value: The notification event receiver value.
+        """
+        if receiver_type is not None:
+            pulumi.set(__self__, "receiver_type", receiver_type)
+        if receiver_value is not None:
+            pulumi.set(__self__, "receiver_value", receiver_value)
+
+    @property
+    @pulumi.getter(name="receiverType")
+    def receiver_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the notification event receiver.
+        """
+        return pulumi.get(self, "receiver_type")
+
+    @receiver_type.setter
+    def receiver_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "receiver_type", value)
+
+    @property
+    @pulumi.getter(name="receiverValue")
+    def receiver_value(self) -> Optional[pulumi.Input['NotificationReceiverValueArgs']]:
+        """
+        The notification event receiver value.
+        """
+        return pulumi.get(self, "receiver_value")
+
+    @receiver_value.setter
+    def receiver_value(self, value: Optional[pulumi.Input['NotificationReceiverValueArgs']]):
+        pulumi.set(self, "receiver_value", value)
+
+
+@pulumi.input_type
+class NotificationReceiverValueArgs:
+    def __init__(__self__, *,
+                 distribution_group_list_receiver_value: Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']] = None,
+                 subscription_receiver_value: Optional[pulumi.Input['SubscriptionReceiverValueArgs']] = None,
+                 user_object_receiver_value: Optional[pulumi.Input['UserObjectReceiverValueArgs']] = None):
+        """
+        A notification event receiver value.
+        :param pulumi.Input['DistributionGroupListReceiverValueArgs'] distribution_group_list_receiver_value: The user object receiver value.
+        :param pulumi.Input['SubscriptionReceiverValueArgs'] subscription_receiver_value: The user object receiver value.
+        :param pulumi.Input['UserObjectReceiverValueArgs'] user_object_receiver_value: The user object receiver value.
+        """
+        if distribution_group_list_receiver_value is not None:
+            pulumi.set(__self__, "distribution_group_list_receiver_value", distribution_group_list_receiver_value)
+        if subscription_receiver_value is not None:
+            pulumi.set(__self__, "subscription_receiver_value", subscription_receiver_value)
+        if user_object_receiver_value is not None:
+            pulumi.set(__self__, "user_object_receiver_value", user_object_receiver_value)
+
+    @property
+    @pulumi.getter(name="distributionGroupListReceiverValue")
+    def distribution_group_list_receiver_value(self) -> Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']]:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "distribution_group_list_receiver_value")
+
+    @distribution_group_list_receiver_value.setter
+    def distribution_group_list_receiver_value(self, value: Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']]):
+        pulumi.set(self, "distribution_group_list_receiver_value", value)
+
+    @property
+    @pulumi.getter(name="subscriptionReceiverValue")
+    def subscription_receiver_value(self) -> Optional[pulumi.Input['SubscriptionReceiverValueArgs']]:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "subscription_receiver_value")
+
+    @subscription_receiver_value.setter
+    def subscription_receiver_value(self, value: Optional[pulumi.Input['SubscriptionReceiverValueArgs']]):
+        pulumi.set(self, "subscription_receiver_value", value)
+
+    @property
+    @pulumi.getter(name="userObjectReceiverValue")
+    def user_object_receiver_value(self) -> Optional[pulumi.Input['UserObjectReceiverValueArgs']]:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "user_object_receiver_value")
+
+    @user_object_receiver_value.setter
+    def user_object_receiver_value(self, value: Optional[pulumi.Input['UserObjectReceiverValueArgs']]):
+        pulumi.set(self, "user_object_receiver_value", value)
+
+
+@pulumi.input_type
+class SubscriptionReceiverValueArgs:
+    def __init__(__self__, *,
+                 role: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 subscription_name: Optional[pulumi.Input[str]] = None):
+        """
+        The subscription role receiver value.
+        :param pulumi.Input[str] role: The role of the notification receiver.
+        :param pulumi.Input[str] subscription_id: The subscription id of the notification receiver.
+        :param pulumi.Input[str] subscription_name: The subscription name of the notification receiver.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if subscription_name is not None:
+            pulumi.set(__self__, "subscription_name", subscription_name)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the notification receiver.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription id of the notification receiver.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionName")
+    def subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription name of the notification receiver.
+        """
+        return pulumi.get(self, "subscription_name")
+
+    @subscription_name.setter
+    def subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_name", value)
+
+
+@pulumi.input_type
 class TargetOSInfoArgs:
     def __init__(__self__, *,
                  os_update_type: pulumi.Input[str],
@@ -340,5 +521,29 @@ class TestBaseAccountSKUArgs:
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
+
+
+@pulumi.input_type
+class UserObjectReceiverValueArgs:
+    def __init__(__self__, *,
+                 user_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The user object receiver value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_object_ids: user object ids.
+        """
+        if user_object_ids is not None:
+            pulumi.set(__self__, "user_object_ids", user_object_ids)
+
+    @property
+    @pulumi.getter(name="userObjectIds")
+    def user_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        user object ids.
+        """
+        return pulumi.get(self, "user_object_ids")
+
+    @user_object_ids.setter
+    def user_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_object_ids", value)
 
 

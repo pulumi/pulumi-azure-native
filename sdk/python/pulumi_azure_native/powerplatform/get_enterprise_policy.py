@@ -20,7 +20,7 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -30,6 +30,9 @@ class GetEnterprisePolicyResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,6 +78,14 @@ class GetEnterprisePolicyResult:
         The identity of the EnterprisePolicy.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind (type) of Enterprise Policy.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
             encryption=self.encryption,
             id=self.id,
             identity=self.identity,
+            kind=self.kind,
             location=self.location,
             lockbox=self.lockbox,
             name=self.name,
@@ -175,6 +187,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
         encryption=__ret__.encryption,
         id=__ret__.id,
         identity=__ret__.identity,
+        kind=__ret__.kind,
         location=__ret__.location,
         lockbox=__ret__.lockbox,
         name=__ret__.name,

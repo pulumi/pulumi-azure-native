@@ -44,5 +44,4 @@ class Tier(str, Enum):
     """
     The tier of this particular SKU.
     """
-    BASIC = "Basic"
     STANDARD = "Standard"

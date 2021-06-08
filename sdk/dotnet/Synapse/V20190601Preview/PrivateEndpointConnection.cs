@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

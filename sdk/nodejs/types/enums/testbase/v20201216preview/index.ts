@@ -37,7 +37,6 @@ export const TestType = {
 export type TestType = (typeof TestType)[keyof typeof TestType];
 
 export const Tier = {
-    Basic: "Basic",
     Standard: "Standard",
 } as const;
 

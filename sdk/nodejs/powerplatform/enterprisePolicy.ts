@@ -45,6 +45,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.powerplatform.EnterprisePolicyIdentityResponse | undefined>;
     /**
+     * The kind (type) of Enterprise Policy.
+     */
+    public readonly kind!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -84,12 +88,16 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'kind'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["lockbox"] = args ? args.lockbox : undefined;
             inputs["networkInjection"] = args ? args.networkInjection : undefined;
@@ -101,6 +109,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         } else {
             inputs["encryption"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["lockbox"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -134,6 +143,10 @@ export interface EnterprisePolicyArgs {
      * The identity of the EnterprisePolicy.
      */
     identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentityArgs>;
+    /**
+     * The kind (type) of Enterprise Policy.
+     */
+    kind: pulumi.Input<string | enums.powerplatform.EnterprisePolicyKind>;
     /**
      * The geo-location where the resource lives
      */

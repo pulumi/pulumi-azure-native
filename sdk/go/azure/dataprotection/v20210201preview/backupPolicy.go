@@ -104,6 +104,7 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
+	// Name of the policy
 	BackupPolicyName *string `pulumi:"backupPolicyName"`
 	// BaseBackupPolicyResource properties
 	Properties *BackupPolicyType `pulumi:"properties"`
@@ -115,6 +116,7 @@ type backupPolicyArgs struct {
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
+	// Name of the policy
 	BackupPolicyName pulumi.StringPtrInput
 	// BaseBackupPolicyResource properties
 	Properties BackupPolicyTypePtrInput

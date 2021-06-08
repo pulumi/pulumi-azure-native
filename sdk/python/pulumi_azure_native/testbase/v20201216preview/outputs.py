@@ -12,12 +12,17 @@ from ._enums import *
 
 __all__ = [
     'CommandResponse',
+    'DistributionGroupListReceiverValueResponse',
+    'NotificationEventReceiverResponse',
+    'NotificationReceiverValueResponse',
     'PackageValidationResultResponse',
+    'SubscriptionReceiverValueResponse',
     'SystemDataResponse',
     'TargetOSInfoResponse',
     'TestBaseAccountSKUCapabilityResponse',
     'TestBaseAccountSKUResponse',
     'TestResponse',
+    'UserObjectReceiverValueResponse',
 ]
 
 @pulumi.output_type
@@ -177,6 +182,168 @@ class CommandResponse(dict):
 
 
 @pulumi.output_type
+class DistributionGroupListReceiverValueResponse(dict):
+    """
+    The user object receiver value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distributionGroups":
+            suggest = "distribution_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionGroupListReceiverValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionGroupListReceiverValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionGroupListReceiverValueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 distribution_groups: Optional[Sequence[str]] = None):
+        """
+        The user object receiver value.
+        :param Sequence[str] distribution_groups: The list of distribution groups.
+        """
+        if distribution_groups is not None:
+            pulumi.set(__self__, "distribution_groups", distribution_groups)
+
+    @property
+    @pulumi.getter(name="distributionGroups")
+    def distribution_groups(self) -> Optional[Sequence[str]]:
+        """
+        The list of distribution groups.
+        """
+        return pulumi.get(self, "distribution_groups")
+
+
+@pulumi.output_type
+class NotificationEventReceiverResponse(dict):
+    """
+    A notification event receivers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "receiverType":
+            suggest = "receiver_type"
+        elif key == "receiverValue":
+            suggest = "receiver_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationEventReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationEventReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationEventReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 receiver_type: Optional[str] = None,
+                 receiver_value: Optional['outputs.NotificationReceiverValueResponse'] = None):
+        """
+        A notification event receivers.
+        :param str receiver_type: The type of the notification event receiver.
+        :param 'NotificationReceiverValueResponse' receiver_value: The notification event receiver value.
+        """
+        if receiver_type is not None:
+            pulumi.set(__self__, "receiver_type", receiver_type)
+        if receiver_value is not None:
+            pulumi.set(__self__, "receiver_value", receiver_value)
+
+    @property
+    @pulumi.getter(name="receiverType")
+    def receiver_type(self) -> Optional[str]:
+        """
+        The type of the notification event receiver.
+        """
+        return pulumi.get(self, "receiver_type")
+
+    @property
+    @pulumi.getter(name="receiverValue")
+    def receiver_value(self) -> Optional['outputs.NotificationReceiverValueResponse']:
+        """
+        The notification event receiver value.
+        """
+        return pulumi.get(self, "receiver_value")
+
+
+@pulumi.output_type
+class NotificationReceiverValueResponse(dict):
+    """
+    A notification event receiver value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distributionGroupListReceiverValue":
+            suggest = "distribution_group_list_receiver_value"
+        elif key == "subscriptionReceiverValue":
+            suggest = "subscription_receiver_value"
+        elif key == "userObjectReceiverValue":
+            suggest = "user_object_receiver_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationReceiverValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationReceiverValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationReceiverValueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 distribution_group_list_receiver_value: Optional['outputs.DistributionGroupListReceiverValueResponse'] = None,
+                 subscription_receiver_value: Optional['outputs.SubscriptionReceiverValueResponse'] = None,
+                 user_object_receiver_value: Optional['outputs.UserObjectReceiverValueResponse'] = None):
+        """
+        A notification event receiver value.
+        :param 'DistributionGroupListReceiverValueResponse' distribution_group_list_receiver_value: The user object receiver value.
+        :param 'SubscriptionReceiverValueResponse' subscription_receiver_value: The user object receiver value.
+        :param 'UserObjectReceiverValueResponse' user_object_receiver_value: The user object receiver value.
+        """
+        if distribution_group_list_receiver_value is not None:
+            pulumi.set(__self__, "distribution_group_list_receiver_value", distribution_group_list_receiver_value)
+        if subscription_receiver_value is not None:
+            pulumi.set(__self__, "subscription_receiver_value", subscription_receiver_value)
+        if user_object_receiver_value is not None:
+            pulumi.set(__self__, "user_object_receiver_value", user_object_receiver_value)
+
+    @property
+    @pulumi.getter(name="distributionGroupListReceiverValue")
+    def distribution_group_list_receiver_value(self) -> Optional['outputs.DistributionGroupListReceiverValueResponse']:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "distribution_group_list_receiver_value")
+
+    @property
+    @pulumi.getter(name="subscriptionReceiverValue")
+    def subscription_receiver_value(self) -> Optional['outputs.SubscriptionReceiverValueResponse']:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "subscription_receiver_value")
+
+    @property
+    @pulumi.getter(name="userObjectReceiverValue")
+    def user_object_receiver_value(self) -> Optional['outputs.UserObjectReceiverValueResponse']:
+        """
+        The user object receiver value.
+        """
+        return pulumi.get(self, "user_object_receiver_value")
+
+
+@pulumi.output_type
 class PackageValidationResultResponse(dict):
     """
     The validation results. There's validation on package when it's created or updated.
@@ -237,6 +404,72 @@ class PackageValidationResultResponse(dict):
         Validation name.
         """
         return pulumi.get(self, "validation_name")
+
+
+@pulumi.output_type
+class SubscriptionReceiverValueResponse(dict):
+    """
+    The subscription role receiver value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "subscriptionName":
+            suggest = "subscription_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionReceiverValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionReceiverValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionReceiverValueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
+                 subscription_name: Optional[str] = None):
+        """
+        The subscription role receiver value.
+        :param str role: The role of the notification receiver.
+        :param str subscription_id: The subscription id of the notification receiver.
+        :param str subscription_name: The subscription name of the notification receiver.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if subscription_name is not None:
+            pulumi.set(__self__, "subscription_name", subscription_name)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role of the notification receiver.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        The subscription id of the notification receiver.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="subscriptionName")
+    def subscription_name(self) -> Optional[str]:
+        """
+        The subscription name of the notification receiver.
+        """
+        return pulumi.get(self, "subscription_name")
 
 
 @pulumi.output_type
@@ -594,5 +827,45 @@ class TestResponse(dict):
         Indicates if this test is active.It doesn't schedule test for not active Test.
         """
         return pulumi.get(self, "is_active")
+
+
+@pulumi.output_type
+class UserObjectReceiverValueResponse(dict):
+    """
+    The user object receiver value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userObjectIds":
+            suggest = "user_object_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserObjectReceiverValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserObjectReceiverValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserObjectReceiverValueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_object_ids: Optional[Sequence[str]] = None):
+        """
+        The user object receiver value.
+        :param Sequence[str] user_object_ids: user object ids.
+        """
+        if user_object_ids is not None:
+            pulumi.set(__self__, "user_object_ids", user_object_ids)
+
+    @property
+    @pulumi.getter(name="userObjectIds")
+    def user_object_ids(self) -> Optional[Sequence[str]]:
+        """
+        user object ids.
+        """
+        return pulumi.get(self, "user_object_ids")
 
 

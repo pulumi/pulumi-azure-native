@@ -29,6 +29,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
 
         public TemporaryDiskArgs()
         {
+            MountPath = "/tmp";
         }
     }
 }

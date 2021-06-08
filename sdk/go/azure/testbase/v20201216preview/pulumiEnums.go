@@ -102,7 +102,6 @@ func (e TestType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type Tier pulumi.String
 
 const (
-	TierBasic    = Tier("Basic")
 	TierStandard = Tier("Standard")
 )
 

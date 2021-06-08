@@ -116,6 +116,12 @@ func NewBackup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp/v20201201:Backup"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20210401:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20210401:Backup"),
+		},
+		{
 			Type: pulumi.String("azure-native:netapp/v20210401preview:Backup"),
 		},
 		{

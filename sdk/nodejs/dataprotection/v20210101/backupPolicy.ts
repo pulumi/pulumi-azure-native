@@ -95,6 +95,9 @@ export class BackupPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupPolicy resource.
  */
 export interface BackupPolicyArgs {
+    /**
+     * Name of the policy
+     */
     backupPolicyName?: pulumi.Input<string>;
     /**
      * BaseBackupPolicyResource properties

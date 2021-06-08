@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Output<Outputs.EnterprisePolicyIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The kind (type) of Enterprise Policy.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -138,6 +144,12 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         [Input("identity")]
         public Input<Inputs.EnterprisePolicyIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The kind (type) of Enterprise Policy.
+        /// </summary>
+        [Input("kind", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.PowerPlatform.EnterprisePolicyKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

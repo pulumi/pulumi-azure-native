@@ -1861,6 +1861,8 @@ class TemporaryDiskResponse(dict):
         :param str mount_path: Mount path of the temporary disk
         :param int size_in_gb: Size of the temporary disk in GB
         """
+        if mount_path is None:
+            mount_path = '/tmp'
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
         if size_in_gb is not None:

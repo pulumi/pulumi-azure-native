@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const EnterprisePolicyKind = {
+    Lockbox: "Lockbox",
+    PrivateEndpoint: "PrivateEndpoint",
+    Encryption: "Encryption",
+    NetworkInjection: "NetworkInjection",
+} as const;
+
+/**
+ * The kind (type) of Enterprise Policy.
+ */
+export type EnterprisePolicyKind = (typeof EnterprisePolicyKind)[keyof typeof EnterprisePolicyKind];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

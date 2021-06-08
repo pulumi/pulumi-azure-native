@@ -104,6 +104,12 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp/v20210201:SnapshotPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20210401:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20210401:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:netapp/v20210401preview:SnapshotPolicy"),
 		},
 		{

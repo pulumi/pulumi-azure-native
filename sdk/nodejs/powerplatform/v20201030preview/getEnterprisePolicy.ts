@@ -50,6 +50,10 @@ export interface GetEnterprisePolicyResult {
      */
     readonly identity?: outputs.powerplatform.v20201030preview.EnterprisePolicyIdentityResponse;
     /**
+     * The kind (type) of Enterprise Policy.
+     */
+    readonly kind: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

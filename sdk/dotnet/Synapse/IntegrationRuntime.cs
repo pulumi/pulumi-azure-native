@@ -74,6 +74,8 @@ namespace Pulumi.AzureNative.Synapse
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:IntegrationRuntime"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

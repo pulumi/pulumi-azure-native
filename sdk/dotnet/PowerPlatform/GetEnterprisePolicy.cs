@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.EnterprisePolicyIdentityResponse? Identity;
         /// <summary>
+        /// The kind (type) of Enterprise Policy.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             Outputs.EnterprisePolicyIdentityResponse? identity,
 
+            string kind,
+
             string location,
 
             Outputs.PropertiesResponseLockbox? lockbox,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNative.PowerPlatform
             Encryption = encryption;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             Lockbox = lockbox;
             Name = name;

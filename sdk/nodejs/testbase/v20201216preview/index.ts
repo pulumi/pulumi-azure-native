@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./customerEvent";
 export * from "./favoriteProcess";
+export * from "./getCustomerEvent";
 export * from "./getFavoriteProcess";
 export * from "./getPackage";
 export * from "./getPackageDownloadURL";
@@ -20,6 +22,7 @@ export * from "./testBaseAccount";
 export * from "../../types/enums/testbase/v20201216preview";
 
 // Import resources to register:
+import { CustomerEvent } from "./customerEvent";
 import { FavoriteProcess } from "./favoriteProcess";
 import { Package } from "./package";
 import { TestBaseAccount } from "./testBaseAccount";
@@ -28,6 +31,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:testbase/v20201216preview:CustomerEvent":
+                return new CustomerEvent(name, <any>undefined, { urn })
             case "azure-native:testbase/v20201216preview:FavoriteProcess":
                 return new FavoriteProcess(name, <any>undefined, { urn })
             case "azure-native:testbase/v20201216preview:Package":

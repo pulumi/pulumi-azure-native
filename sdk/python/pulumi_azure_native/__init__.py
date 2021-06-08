@@ -4906,6 +4906,27 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20210601",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20210601",
+  "classes": {
+   "azure-native:dbforpostgresql/v20210601:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20210601:Database": "Database",
+   "azure-native:dbforpostgresql/v20210601:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20210601:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20210601preview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20210601preview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20210601preview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20210601preview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20210601preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {
@@ -8357,6 +8378,8 @@ _utilities.register(
   "mod": "marketplace",
   "fqn": "pulumi_azure_native.marketplace",
   "classes": {
+   "azure-native:marketplace:PrivateStoreCollection": "PrivateStoreCollection",
+   "azure-native:marketplace:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer",
    "azure-native:marketplace:PrivateStoreOffer": "PrivateStoreOffer"
   }
  },
@@ -8366,6 +8389,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.marketplace.v20200101",
   "classes": {
    "azure-native:marketplace/v20200101:PrivateStoreOffer": "PrivateStoreOffer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "marketplace/v20210601",
+  "fqn": "pulumi_azure_native.marketplace.v20210601",
+  "classes": {
+   "azure-native:marketplace/v20210601:PrivateStoreCollection": "PrivateStoreCollection",
+   "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer"
   }
  },
  {
@@ -8871,6 +8903,20 @@ _utilities.register(
    "azure-native:netapp/v20210201:Snapshot": "Snapshot",
    "azure-native:netapp/v20210201:SnapshotPolicy": "SnapshotPolicy",
    "azure-native:netapp/v20210201:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20210401",
+  "fqn": "pulumi_azure_native.netapp.v20210401",
+  "classes": {
+   "azure-native:netapp/v20210401:Account": "Account",
+   "azure-native:netapp/v20210401:Backup": "Backup",
+   "azure-native:netapp/v20210401:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20210401:Pool": "Pool",
+   "azure-native:netapp/v20210401:Snapshot": "Snapshot",
+   "azure-native:netapp/v20210401:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20210401:Volume": "Volume"
   }
  },
  {
@@ -14098,9 +14144,34 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "synapse/v20210501",
+  "fqn": "pulumi_azure_native.synapse.v20210501",
+  "classes": {
+   "azure-native:synapse/v20210501:BigDataPool": "BigDataPool",
+   "azure-native:synapse/v20210501:IntegrationRuntime": "IntegrationRuntime",
+   "azure-native:synapse/v20210501:IpFirewallRule": "IpFirewallRule",
+   "azure-native:synapse/v20210501:Key": "Key",
+   "azure-native:synapse/v20210501:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:synapse/v20210501:PrivateLinkHub": "PrivateLinkHub",
+   "azure-native:synapse/v20210501:SqlPool": "SqlPool",
+   "azure-native:synapse/v20210501:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",
+   "azure-native:synapse/v20210501:SqlPoolTransparentDataEncryption": "SqlPoolTransparentDataEncryption",
+   "azure-native:synapse/v20210501:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment",
+   "azure-native:synapse/v20210501:SqlPoolVulnerabilityAssessmentRuleBaseline": "SqlPoolVulnerabilityAssessmentRuleBaseline",
+   "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier",
+   "azure-native:synapse/v20210501:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup",
+   "azure-native:synapse/v20210501:Workspace": "Workspace",
+   "azure-native:synapse/v20210501:WorkspaceAadAdmin": "WorkspaceAadAdmin",
+   "azure-native:synapse/v20210501:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
+   "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "testbase",
   "fqn": "pulumi_azure_native.testbase",
   "classes": {
+   "azure-native:testbase:CustomerEvent": "CustomerEvent",
    "azure-native:testbase:FavoriteProcess": "FavoriteProcess",
    "azure-native:testbase:Package": "Package",
    "azure-native:testbase:TestBaseAccount": "TestBaseAccount"
@@ -14111,6 +14182,7 @@ _utilities.register(
   "mod": "testbase/v20201216preview",
   "fqn": "pulumi_azure_native.testbase.v20201216preview",
   "classes": {
+   "azure-native:testbase/v20201216preview:CustomerEvent": "CustomerEvent",
    "azure-native:testbase/v20201216preview:FavoriteProcess": "FavoriteProcess",
    "azure-native:testbase/v20201216preview:Package": "Package",
    "azure-native:testbase/v20201216preview:TestBaseAccount": "TestBaseAccount"

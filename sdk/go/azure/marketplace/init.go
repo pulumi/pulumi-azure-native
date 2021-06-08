@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:marketplace:PrivateStoreCollection":
+		r = &PrivateStoreCollection{}
+	case "azure-native:marketplace:PrivateStoreCollectionOffer":
+		r = &PrivateStoreCollectionOffer{}
 	case "azure-native:marketplace:PrivateStoreOffer":
 		r = &PrivateStoreOffer{}
 	default:

@@ -118,6 +118,8 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolSensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:SqlPoolSensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

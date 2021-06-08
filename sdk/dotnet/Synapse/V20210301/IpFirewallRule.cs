@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:IpFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

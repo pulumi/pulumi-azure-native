@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20200101 from "./v20200101";
+import * as v20210601 from "./v20210601";
 
 export {
     v20200101,
+    v20210601,
 };
 
 export const Accessibility = {

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:testbase:CustomerEvent":
+		r = &CustomerEvent{}
 	case "azure-native:testbase:FavoriteProcess":
 		r = &FavoriteProcess{}
 	case "azure-native:testbase:Package":

@@ -70,6 +70,12 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:WorkspaceSqlAadAdmin"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210501:WorkspaceSqlAadAdmin"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceSqlAadAdmin

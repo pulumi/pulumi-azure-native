@@ -20,6 +20,8 @@ type EnterprisePolicy struct {
 	Encryption PropertiesResponseEncryptionPtrOutput `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrOutput `pulumi:"identity"`
+	// The kind (type) of Enterprise Policy.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Settings concerning lockbox.
@@ -43,6 +45,9 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -84,6 +89,8 @@ type enterprisePolicyState struct {
 	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
+	// The kind (type) of Enterprise Policy.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Settings concerning lockbox.
@@ -105,6 +112,8 @@ type EnterprisePolicyState struct {
 	Encryption PropertiesResponseEncryptionPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrInput
+	// The kind (type) of Enterprise Policy.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Settings concerning lockbox.
@@ -132,6 +141,8 @@ type enterprisePolicyArgs struct {
 	EnterprisePolicyName *string `pulumi:"enterprisePolicyName"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
+	// The kind (type) of Enterprise Policy.
+	Kind string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Settings concerning lockbox.
@@ -152,6 +163,8 @@ type EnterprisePolicyArgs struct {
 	EnterprisePolicyName pulumi.StringPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityPtrInput
+	// The kind (type) of Enterprise Policy.
+	Kind pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Settings concerning lockbox.

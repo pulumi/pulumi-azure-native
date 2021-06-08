@@ -5,7 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getPrivateStoreCollection";
+export * from "./getPrivateStoreCollectionOffer";
 export * from "./getPrivateStoreOffer";
+export * from "./privateStoreCollection";
+export * from "./privateStoreCollectionOffer";
 export * from "./privateStoreOffer";
 
 // Export enums:
@@ -13,18 +17,26 @@ export * from "../types/enums/marketplace";
 
 // Export sub-modules:
 import * as v20200101 from "./v20200101";
+import * as v20210601 from "./v20210601";
 
 export {
     v20200101,
+    v20210601,
 };
 
 // Import resources to register:
+import { PrivateStoreCollection } from "./privateStoreCollection";
+import { PrivateStoreCollectionOffer } from "./privateStoreCollectionOffer";
 import { PrivateStoreOffer } from "./privateStoreOffer";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:marketplace:PrivateStoreCollection":
+                return new PrivateStoreCollection(name, <any>undefined, { urn })
+            case "azure-native:marketplace:PrivateStoreCollectionOffer":
+                return new PrivateStoreCollectionOffer(name, <any>undefined, { urn })
             case "azure-native:marketplace:PrivateStoreOffer":
                 return new PrivateStoreOffer(name, <any>undefined, { urn })
             default:

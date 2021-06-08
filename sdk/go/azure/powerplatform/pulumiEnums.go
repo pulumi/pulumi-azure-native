@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The kind (type) of Enterprise Policy.
+type EnterprisePolicyKind pulumi.String
+
+const (
+	EnterprisePolicyKindLockbox          = EnterprisePolicyKind("Lockbox")
+	EnterprisePolicyKindPrivateEndpoint  = EnterprisePolicyKind("PrivateEndpoint")
+	EnterprisePolicyKindEncryption       = EnterprisePolicyKind("Encryption")
+	EnterprisePolicyKindNetworkInjection = EnterprisePolicyKind("NetworkInjection")
+)
+
+func (EnterprisePolicyKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EnterprisePolicyKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnterprisePolicyKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnterprisePolicyKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnterprisePolicyKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus pulumi.String
 

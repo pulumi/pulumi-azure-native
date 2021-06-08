@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AzureNative.PowerPlatform
 {
     /// <summary>
+    /// The kind (type) of Enterprise Policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnterprisePolicyKind : IEquatable<EnterprisePolicyKind>
+    {
+        private readonly string _value;
+
+        private EnterprisePolicyKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnterprisePolicyKind Lockbox { get; } = new EnterprisePolicyKind("Lockbox");
+        public static EnterprisePolicyKind PrivateEndpoint { get; } = new EnterprisePolicyKind("PrivateEndpoint");
+        public static EnterprisePolicyKind Encryption { get; } = new EnterprisePolicyKind("Encryption");
+        public static EnterprisePolicyKind NetworkInjection { get; } = new EnterprisePolicyKind("NetworkInjection");
+
+        public static bool operator ==(EnterprisePolicyKind left, EnterprisePolicyKind right) => left.Equals(right);
+        public static bool operator !=(EnterprisePolicyKind left, EnterprisePolicyKind right) => !left.Equals(right);
+
+        public static explicit operator string(EnterprisePolicyKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnterprisePolicyKind other && Equals(other);
+        public bool Equals(EnterprisePolicyKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]
