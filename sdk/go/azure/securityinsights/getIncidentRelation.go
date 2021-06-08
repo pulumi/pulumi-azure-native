@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a relation between two resources
-// API Version: 2021-04-01.
+// API Version: 2019-01-01-preview.
 func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArgs, opts ...pulumi.InvokeOption) (*LookupIncidentRelationResult, error) {
 	var rv LookupIncidentRelationResult
 	err := ctx.Invoke("azure-native:securityinsights:getIncidentRelation", args, &rv, opts...)
@@ -21,6 +21,8 @@ func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArg
 type LookupIncidentRelationArgs struct {
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Relation Name
 	RelationName string `pulumi:"relationName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -45,8 +47,6 @@ type LookupIncidentRelationResult struct {
 	RelatedResourceName string `pulumi:"relatedResourceName"`
 	// The resource type of the related resource
 	RelatedResourceType string `pulumi:"relatedResourceType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 }

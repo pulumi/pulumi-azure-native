@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a relation between two resources
-// API Version: 2021-04-01.
+// API Version: 2019-01-01-preview.
 type IncidentRelation struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,6 @@ type IncidentRelation struct {
 	RelatedResourceName pulumi.StringOutput `pulumi:"relatedResourceName"`
 	// The resource type of the related resource
 	RelatedResourceType pulumi.StringOutput `pulumi:"relatedResourceType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -44,6 +42,9 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	if args.IncidentId == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentId'")
 	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
 	if args.RelatedResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'RelatedResourceId'")
 	}
@@ -56,6 +57,12 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights:IncidentRelation"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:IncidentRelation"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:IncidentRelation"),
 		},
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210401:IncidentRelation"),
@@ -99,8 +106,6 @@ type incidentRelationState struct {
 	RelatedResourceName *string `pulumi:"relatedResourceName"`
 	// The resource type of the related resource
 	RelatedResourceType *string `pulumi:"relatedResourceType"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -118,8 +123,6 @@ type IncidentRelationState struct {
 	RelatedResourceName pulumi.StringPtrInput
 	// The resource type of the related resource
 	RelatedResourceType pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -133,6 +136,8 @@ type incidentRelationArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The resource ID of the related resource
 	RelatedResourceId string `pulumi:"relatedResourceId"`
 	// Relation Name
@@ -149,6 +154,8 @@ type IncidentRelationArgs struct {
 	Etag pulumi.StringPtrInput
 	// Incident ID
 	IncidentId pulumi.StringInput
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput
 	// The resource ID of the related resource
 	RelatedResourceId pulumi.StringInput
 	// Relation Name

@@ -20,7 +20,7 @@ class GetIncidentCommentResult:
     """
     Represents an incident comment
     """
-    def __init__(__self__, author=None, created_time_utc=None, etag=None, id=None, last_modified_time_utc=None, message=None, name=None, system_data=None, type=None):
+    def __init__(__self__, author=None, created_time_utc=None, etag=None, id=None, last_modified_time_utc=None, message=None, name=None, type=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
@@ -42,9 +42,6 @@ class GetIncidentCommentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -106,14 +103,6 @@ class GetIncidentCommentResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -135,28 +124,30 @@ class AwaitableGetIncidentCommentResult(GetIncidentCommentResult):
             last_modified_time_utc=self.last_modified_time_utc,
             message=self.message,
             name=self.name,
-            system_data=self.system_data,
             type=self.type)
 
 
 def get_incident_comment(incident_comment_id: Optional[str] = None,
                          incident_id: Optional[str] = None,
+                         operational_insights_resource_provider: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentCommentResult:
     """
     Represents an incident comment
-    API Version: 2021-04-01.
+    API Version: 2019-01-01-preview.
 
 
     :param str incident_comment_id: Incident comment ID
     :param str incident_id: Incident ID
+    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['incidentCommentId'] = incident_comment_id
     __args__['incidentId'] = incident_id
+    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:
@@ -173,5 +164,4 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         message=__ret__.message,
         name=__ret__.name,
-        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -180,7 +180,7 @@ class AlertRule(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:AlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:AlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:AlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:AlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertRule, __self__).__init__(
             'azure-native:securityinsights:AlertRule',

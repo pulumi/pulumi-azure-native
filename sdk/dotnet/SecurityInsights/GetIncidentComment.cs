@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Represents an incident comment
-        /// API Version: 2021-04-01.
+        /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithVersion());
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("incidentId", required: true)]
         public string IncidentId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -84,10 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
@@ -108,8 +110,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Author = author;
@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.SecurityInsights
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Message = message;
             Name = name;
-            SystemData = systemData;
             Type = type;
         }
     }

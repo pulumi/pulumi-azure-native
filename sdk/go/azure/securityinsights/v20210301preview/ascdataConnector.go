@@ -57,10 +57,22 @@ func NewASCDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:ASCDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights:ASCDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:ASCDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:ASCDataConnector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ASCDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:ASCDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:ASCDataConnector"),
 		},
 	})
 	opts = append(opts, aliases)

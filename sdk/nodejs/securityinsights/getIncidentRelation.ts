@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2021-04-01.
+ * API Version: 2019-01-01-preview.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
     if (!opts) {
@@ -19,6 +19,7 @@ export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azure-native:securityinsights:getIncidentRelation", {
         "incidentId": args.incidentId,
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "relationName": args.relationName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -30,6 +31,10 @@ export interface GetIncidentRelationArgs {
      * Incident ID
      */
     incidentId: string;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: string;
     /**
      * Relation Name
      */
@@ -76,10 +81,6 @@ export interface GetIncidentRelationResult {
      * The resource type of the related resource
      */
     readonly relatedResourceType: string;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * Azure resource type
      */

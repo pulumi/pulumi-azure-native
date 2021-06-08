@@ -12,7 +12,7 @@ import (
 )
 
 // Represents an incident comment
-// API Version: 2021-04-01.
+// API Version: 2019-01-01-preview.
 type IncidentComment struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,6 @@ type IncidentComment struct {
 	Message pulumi.StringOutput `pulumi:"message"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -47,6 +45,9 @@ func NewIncidentComment(ctx *pulumi.Context,
 	if args.Message == nil {
 		return nil, errors.New("invalid value for required argument 'Message'")
 	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -56,6 +57,12 @@ func NewIncidentComment(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights:IncidentComment"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:IncidentComment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:IncidentComment"),
 		},
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210401:IncidentComment"),
@@ -99,8 +106,6 @@ type incidentCommentState struct {
 	Message *string `pulumi:"message"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -118,8 +123,6 @@ type IncidentCommentState struct {
 	Message pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -137,6 +140,8 @@ type incidentCommentArgs struct {
 	IncidentId string `pulumi:"incidentId"`
 	// The comment message
 	Message string `pulumi:"message"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -153,6 +158,8 @@ type IncidentCommentArgs struct {
 	IncidentId pulumi.StringInput
 	// The comment message
 	Message pulumi.StringInput
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.

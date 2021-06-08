@@ -313,6 +313,12 @@ func init() {
 // convert to the same canonical path are considered to represent the same resource.
 func normalizePath(path string) string {
 	lowerPath := strings.ReplaceAll(strings.ToLower(strings.TrimSuffix(path, "/")), "-", "")
+
+	// Work around an odd version v2019-01-01-preview of SecurityInsights where they have a parameter for the provider.
+	// This breaks all path matching for that version which includes quite a lot of resources. Instead of providing
+	// a value per each resource, let's replace this path segment while normalizing.
+	lowerPath = strings.ReplaceAll(lowerPath, "providers/{operationalinsightsresourceprovider}", "providers/microsoft.operationalinsights")
+
 	parts := strings.Split(lowerPath, "/")
 	newParts := make([]string, len(parts))
 	for i, part := range parts {

@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:MTPDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MTPDataConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:MTPDataConnector"},
                 },

@@ -8,7 +8,7 @@ import (
 )
 
 // Represents an incident comment
-// API Version: 2021-04-01.
+// API Version: 2019-01-01-preview.
 func LookupIncidentComment(ctx *pulumi.Context, args *LookupIncidentCommentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCommentResult, error) {
 	var rv LookupIncidentCommentResult
 	err := ctx.Invoke("azure-native:securityinsights:getIncidentComment", args, &rv, opts...)
@@ -23,6 +23,8 @@ type LookupIncidentCommentArgs struct {
 	IncidentCommentId string `pulumi:"incidentCommentId"`
 	// Incident ID
 	IncidentId string `pulumi:"incidentId"`
+	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -45,8 +47,6 @@ type LookupIncidentCommentResult struct {
 	Message string `pulumi:"message"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 }

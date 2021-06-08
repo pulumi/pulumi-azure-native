@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Represents a relation between two resources
-        /// API Version: 2021-04-01.
+        /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithVersion());
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("incidentId", required: true)]
         public string IncidentId { get; set; } = null!;
+
+        /// <summary>
+        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        /// </summary>
+        [Input("operationalInsightsResourceProvider", required: true)]
+        public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// Relation Name
@@ -84,10 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string RelatedResourceType;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
@@ -108,8 +110,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string relatedResourceType,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Etag = etag;
@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.SecurityInsights
             RelatedResourceKind = relatedResourceKind;
             RelatedResourceName = relatedResourceName;
             RelatedResourceType = relatedResourceType;
-            SystemData = systemData;
             Type = type;
         }
     }

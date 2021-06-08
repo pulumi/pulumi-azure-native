@@ -241,7 +241,7 @@ class Dynamics365DataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Dynamics365DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Dynamics365DataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Dynamics365DataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Dynamics365DataConnector"), pulumi.Alias(type_="azure-native:securityinsights:Dynamics365DataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights:Dynamics365DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Dynamics365DataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Dynamics365DataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Dynamics365DataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:Dynamics365DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dynamics365DataConnector, __self__).__init__(
             'azure-native:securityinsights/v20210301preview:Dynamics365DataConnector',

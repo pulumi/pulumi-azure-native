@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident comment
- * API Version: 2021-04-01.
+ * API Version: 2019-01-01-preview.
  */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
     if (!opts) {
@@ -20,6 +20,7 @@ export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("azure-native:securityinsights:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,
         "incidentId": args.incidentId,
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -34,6 +35,10 @@ export interface GetIncidentCommentArgs {
      * Incident ID
      */
     incidentId: string;
+    /**
+     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+     */
+    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -76,10 +81,6 @@ export interface GetIncidentCommentResult {
      * Azure resource name
      */
     readonly name: string;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * Azure resource type
      */

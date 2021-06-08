@@ -241,7 +241,7 @@ class MCASDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:MCASDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MCASDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:MCASDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:MCASDataConnector"), pulumi.Alias(type_="azure-native:securityinsights:MCASDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights:MCASDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MCASDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:MCASDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MCASDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:MCASDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MCASDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20210301preview:MCASDataConnector',
