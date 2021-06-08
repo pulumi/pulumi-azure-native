@@ -240,7 +240,7 @@ class OfficeATPDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:OfficeATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:OfficeATPDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:OfficeATPDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:OfficeATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights:OfficeATPDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights:OfficeATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:OfficeATPDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:OfficeATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:OfficeATPDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:OfficeATPDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OfficeATPDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20210301preview:OfficeATPDataConnector',

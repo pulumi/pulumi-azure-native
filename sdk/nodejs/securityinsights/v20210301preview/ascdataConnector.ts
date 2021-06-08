@@ -111,7 +111,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:ASCDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights:ASCDataConnector" }, { type: "azure-nextgen:securityinsights:ASCDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20200101:ASCDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:ASCDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ASCDataConnector.__pulumiType, name, inputs, opts);
     }

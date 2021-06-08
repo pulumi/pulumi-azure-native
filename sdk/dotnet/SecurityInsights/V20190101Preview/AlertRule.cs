@@ -66,6 +66,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:AlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -360,7 +360,7 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule"), pulumi.Alias(type_="azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights:MicrosoftSecurityIncidentCreationAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MicrosoftSecurityIncidentCreationAlertRule, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule',

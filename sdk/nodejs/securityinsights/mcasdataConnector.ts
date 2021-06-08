@@ -102,7 +102,7 @@ export class MCASDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:MCASDataConnector" }, { type: "azure-native:securityinsights/v20200101:MCASDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:MCASDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:MCASDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MCASDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:MCASDataConnector" }, { type: "azure-native:securityinsights/v20200101:MCASDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:MCASDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MCASDataConnector" }, { type: "azure-nextgen:securityinsights/v20210301preview:MCASDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MCASDataConnector.__pulumiType, name, inputs, opts);
     }

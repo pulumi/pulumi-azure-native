@@ -63,10 +63,22 @@ func NewDynamics365DataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:Dynamics365DataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights:Dynamics365DataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:Dynamics365DataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:Dynamics365DataConnector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:Dynamics365DataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:Dynamics365DataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Dynamics365DataConnector"),
 		},
 	})
 	opts = append(opts, aliases)

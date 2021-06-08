@@ -112,6 +112,7 @@ var cutoffProviderVersions = map[string]string{
 	"media":                   "v20200501",
 	"netapp":                  "v20201201",
 	"recoveryservices":        "v20210201preview",
+	"securityinsights":        "v20210301preview",
 	"sql":                     "v20201101preview",
 	"storage":                 "v20210201",
 	"storagepool":             "v20200315preview",

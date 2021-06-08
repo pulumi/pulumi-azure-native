@@ -65,10 +65,22 @@ func NewTIDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:TIDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights:TIDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights:TIDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:TIDataConnector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:TIDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:TIDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:TIDataConnector"),
 		},
 	})
 	opts = append(opts, aliases)

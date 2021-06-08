@@ -117,7 +117,7 @@ export class OfficeDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:OfficeDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights:OfficeDataConnector" }, { type: "azure-nextgen:securityinsights:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:OfficeDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeDataConnector.__pulumiType, name, inputs, opts);
     }

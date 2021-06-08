@@ -12540,6 +12540,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "securityinsights/v20210401",
+  "fqn": "pulumi_azure_native.securityinsights.v20210401",
+  "classes": {
+   "azure-native:securityinsights/v20210401:Incident": "Incident",
+   "azure-native:securityinsights/v20210401:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20210401:IncidentRelation": "IncidentRelation"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "serialconsole",
   "fqn": "pulumi_azure_native.serialconsole",
   "classes": {

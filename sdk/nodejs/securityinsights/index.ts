@@ -80,11 +80,13 @@ export * from "../types/enums/securityinsights";
 import * as v20190101preview from "./v20190101preview";
 import * as v20200101 from "./v20200101";
 import * as v20210301preview from "./v20210301preview";
+import * as v20210401 from "./v20210401";
 
 export {
     v20190101preview,
     v20200101,
     v20210301preview,
+    v20210401,
 };
 
 // Import resources to register:

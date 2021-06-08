@@ -49,6 +49,12 @@ func NewAlertRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityinsights:AlertRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20190101preview:AlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20200101:AlertRule"),
 		},
 		{
