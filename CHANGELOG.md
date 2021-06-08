@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.10.0 (2020-06-08)
+
 #### New Resources
 
 - `marketplace:PrivateStoreCollection`
@@ -20,8 +26,6 @@ CHANGELOG
 - `securityinsights:getActivityCustomEntityQuery`
 - `securityinsights:getEntityQuery`
 - `testbase:getCustomerEvent`
-
----
 
 ## 1.9.0 (2020-05-31)
 
