@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Flag that indicate if data should be exported.
         /// </summary>
         [Input("enableDataExport")]

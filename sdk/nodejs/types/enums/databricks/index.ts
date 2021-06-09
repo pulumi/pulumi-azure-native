@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20180401 from "./v20180401";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20180401,
+    v20210401preview,
 };
 
 export const KeySource = {

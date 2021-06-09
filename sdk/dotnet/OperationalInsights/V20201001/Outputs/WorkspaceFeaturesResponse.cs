@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001.Outputs
         /// </summary>
         public readonly string? ClusterResourceId;
         /// <summary>
+        /// Disable Non-AAD based Auth.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// Flag that indicate if data should be exported.
         /// </summary>
         public readonly bool? EnableDataExport;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001.Outputs
         private WorkspaceFeaturesResponse(
             string? clusterResourceId,
 
+            bool? disableLocalAuth,
+
             bool? enableDataExport,
 
             bool? enableLogAccessUsingOnlyResourcePermissions,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001.Outputs
             bool? immediatePurgeDataOn30Days)
         {
             ClusterResourceId = clusterResourceId;
+            DisableLocalAuth = disableLocalAuth;
             EnableDataExport = enableDataExport;
             EnableLogAccessUsingOnlyResourcePermissions = enableLogAccessUsingOnlyResourcePermissions;
             ImmediatePurgeDataOn30Days = immediatePurgeDataOn30Days;

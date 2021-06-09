@@ -26,6 +26,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.autonomousdevelopmentplatform as autonomousdevelopmentplatform
     import pulumi_azure_native.avs as avs
     import pulumi_azure_native.azureactivedirectory as azureactivedirectory
+    import pulumi_azure_native.azurearcdata as azurearcdata
     import pulumi_azure_native.azuredata as azuredata
     import pulumi_azure_native.azurestack as azurestack
     import pulumi_azure_native.azurestackhci as azurestackhci
@@ -195,6 +196,7 @@ else:
     autonomousdevelopmentplatform = _utilities.lazy_import('pulumi_azure_native.autonomousdevelopmentplatform')
     avs = _utilities.lazy_import('pulumi_azure_native.avs')
     azureactivedirectory = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory')
+    azurearcdata = _utilities.lazy_import('pulumi_azure_native.azurearcdata')
     azuredata = _utilities.lazy_import('pulumi_azure_native.azuredata')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
     azurestackhci = _utilities.lazy_import('pulumi_azure_native.azurestackhci')
@@ -1811,6 +1813,28 @@ _utilities.register(
   "fqn": "pulumi_azure_native.azureactivedirectory.v20200501preview",
   "classes": {
    "azure-native:azureactivedirectory/v20200501preview:GuestUsage": "GuestUsage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurearcdata",
+  "fqn": "pulumi_azure_native.azurearcdata",
+  "classes": {
+   "azure-native:azurearcdata:DataController": "DataController",
+   "azure-native:azurearcdata:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurearcdata/v20210601preview",
+  "fqn": "pulumi_azure_native.azurearcdata.v20210601preview",
+  "classes": {
+   "azure-native:azurearcdata/v20210601preview:DataController": "DataController",
+   "azure-native:azurearcdata/v20210601preview:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata/v20210601preview:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20210601preview:SqlServerInstance": "SqlServerInstance"
   }
  },
  {
@@ -4194,6 +4218,14 @@ _utilities.register(
   "classes": {
    "azure-native:databricks/v20180401:Workspace": "Workspace",
    "azure-native:databricks/v20180401:vNetPeering": "VNetPeering"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databricks/v20210401preview",
+  "fqn": "pulumi_azure_native.databricks.v20210401preview",
+  "classes": {
+   "azure-native:databricks/v20210401preview:Workspace": "Workspace"
   }
  },
  {

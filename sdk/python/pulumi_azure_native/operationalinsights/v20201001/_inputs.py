@@ -197,18 +197,22 @@ class WorkspaceCappingArgs:
 class WorkspaceFeaturesArgs:
     def __init__(__self__, *,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_data_export: Optional[pulumi.Input[bool]] = None,
                  enable_log_access_using_only_resource_permissions: Optional[pulumi.Input[bool]] = None,
                  immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None):
         """
         Workspace features.
         :param pulumi.Input[str] cluster_resource_id: Dedicated LA cluster resourceId that is linked to the workspaces.
+        :param pulumi.Input[bool] disable_local_auth: Disable Non-AAD based Auth.
         :param pulumi.Input[bool] enable_data_export: Flag that indicate if data should be exported.
         :param pulumi.Input[bool] enable_log_access_using_only_resource_permissions: Flag that indicate which permission to use - resource or workspace or both.
         :param pulumi.Input[bool] immediate_purge_data_on30_days: Flag that describes if we want to remove the data after 30 days.
         """
         if cluster_resource_id is not None:
             pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if enable_data_export is not None:
             pulumi.set(__self__, "enable_data_export", enable_data_export)
         if enable_log_access_using_only_resource_permissions is not None:
@@ -227,6 +231,18 @@ class WorkspaceFeaturesArgs:
     @cluster_resource_id.setter
     def cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable Non-AAD based Auth.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
 
     @property
     @pulumi.getter(name="enableDataExport")

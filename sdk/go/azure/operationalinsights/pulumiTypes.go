@@ -3383,6 +3383,8 @@ func (o WorkspaceCappingResponsePtrOutput) QuotaNextResetTime() pulumi.StringPtr
 type WorkspaceFeatures struct {
 	// Dedicated LA cluster resourceId that is linked to the workspaces.
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Flag that indicate if data should be exported.
 	EnableDataExport *bool `pulumi:"enableDataExport"`
 	// Flag that indicate which permission to use - resource or workspace or both.
@@ -3406,6 +3408,8 @@ type WorkspaceFeaturesInput interface {
 type WorkspaceFeaturesArgs struct {
 	// Dedicated LA cluster resourceId that is linked to the workspaces.
 	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
 	// Flag that indicate if data should be exported.
 	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
 	// Flag that indicate which permission to use - resource or workspace or both.
@@ -3497,6 +3501,11 @@ func (o WorkspaceFeaturesOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Disable Non-AAD based Auth.
+func (o WorkspaceFeaturesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeatures) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
@@ -3540,6 +3549,16 @@ func (o WorkspaceFeaturesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Disable Non-AAD based Auth.
+func (o WorkspaceFeaturesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesPtrOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceFeatures) *bool {
@@ -3574,6 +3593,8 @@ func (o WorkspaceFeaturesPtrOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrO
 type WorkspaceFeaturesResponse struct {
 	// Dedicated LA cluster resourceId that is linked to the workspaces.
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Flag that indicate if data should be exported.
 	EnableDataExport *bool `pulumi:"enableDataExport"`
 	// Flag that indicate which permission to use - resource or workspace or both.
@@ -3597,6 +3618,8 @@ type WorkspaceFeaturesResponseInput interface {
 type WorkspaceFeaturesResponseArgs struct {
 	// Dedicated LA cluster resourceId that is linked to the workspaces.
 	ClusterResourceId pulumi.StringPtrInput `pulumi:"clusterResourceId"`
+	// Disable Non-AAD based Auth.
+	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
 	// Flag that indicate if data should be exported.
 	EnableDataExport pulumi.BoolPtrInput `pulumi:"enableDataExport"`
 	// Flag that indicate which permission to use - resource or workspace or both.
@@ -3688,6 +3711,11 @@ func (o WorkspaceFeaturesResponseOutput) ClusterResourceId() pulumi.StringPtrOut
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *string { return v.ClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Disable Non-AAD based Auth.
+func (o WorkspaceFeaturesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // Flag that indicate if data should be exported.
 func (o WorkspaceFeaturesResponseOutput) EnableDataExport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspaceFeaturesResponse) *bool { return v.EnableDataExport }).(pulumi.BoolPtrOutput)
@@ -3729,6 +3757,16 @@ func (o WorkspaceFeaturesResponsePtrOutput) ClusterResourceId() pulumi.StringPtr
 		}
 		return v.ClusterResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Disable Non-AAD based Auth.
+func (o WorkspaceFeaturesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Flag that indicate if data should be exported.

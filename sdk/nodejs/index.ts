@@ -25,6 +25,7 @@ import * as automation from "./automation";
 import * as autonomousdevelopmentplatform from "./autonomousdevelopmentplatform";
 import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
+import * as azurearcdata from "./azurearcdata";
 import * as azuredata from "./azuredata";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
@@ -196,6 +197,7 @@ export {
     autonomousdevelopmentplatform,
     avs,
     azureactivedirectory,
+    azurearcdata,
     azuredata,
     azurestack,
     azurestackhci,

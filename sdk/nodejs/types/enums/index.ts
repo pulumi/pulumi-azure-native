@@ -15,6 +15,7 @@ import * as automanage from "./automanage";
 import * as automation from "./automation";
 import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
+import * as azurearcdata from "./azurearcdata";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
 import * as batch from "./batch";
@@ -162,6 +163,7 @@ export {
     automation,
     avs,
     azureactivedirectory,
+    azurearcdata,
     azurestack,
     azurestackhci,
     batch,

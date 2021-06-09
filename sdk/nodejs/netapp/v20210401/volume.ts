@@ -206,7 +206,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throughputMibps"] = (args ? args.throughputMibps : undefined) ?? 0;
-            inputs["unixPermissions"] = (args ? args.unixPermissions : undefined) ?? "0770";
+            inputs["unixPermissions"] = args ? args.unixPermissions : undefined;
             inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;

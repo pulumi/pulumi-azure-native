@@ -138,8 +138,6 @@ class VolumeArgs:
             throughput_mibps = 0
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
-        if unix_permissions is None:
-            unix_permissions = '0770'
         if unix_permissions is not None:
             pulumi.set(__self__, "unix_permissions", unix_permissions)
         if volume_name is not None:
@@ -664,8 +662,6 @@ class Volume(pulumi.CustomResource):
             if throughput_mibps is None:
                 throughput_mibps = 0
             __props__.__dict__["throughput_mibps"] = throughput_mibps
-            if unix_permissions is None:
-                unix_permissions = '0770'
             __props__.__dict__["unix_permissions"] = unix_permissions
             if usage_threshold is None:
                 usage_threshold = 107374182400
