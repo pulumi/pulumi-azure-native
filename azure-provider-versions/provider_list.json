@@ -15534,7 +15534,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -15787,7 +15791,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -15986,7 +15994,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -17057,7 +17069,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -18025,7 +18041,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -22334,7 +22354,11 @@
           },
           {
             "location": "West US 3",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Norway East",
@@ -62082,6 +62106,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62115,6 +62141,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62148,6 +62176,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62181,6 +62211,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62214,6 +62246,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62247,6 +62281,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62280,6 +62316,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62313,6 +62351,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62346,6 +62386,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62379,6 +62421,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62412,6 +62456,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "UK South",
+          "UK West",
           "North Europe",
           "West Europe",
           "East US",
@@ -62424,7 +62470,7 @@
           "Central US"
         ],
         "properties": null,
-        "resourceType": "scalingPlans",
+        "resourceType": "scalingplans",
         "zoneMappings": null
       },
       {
