@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.11.0 (2020-06-09)
+
 #### New Resources
 
 - `azurearcdata.DataController`
@@ -16,8 +22,6 @@ CHANGELOG
 - `azurearcdata.getPostgresInstance`
 - `azurearcdata.getSqlManagedInstance`
 - `azurearcdata.getSqlServerInstance`
-
----
 
 ## 1.10.0 (2020-06-08)
 
