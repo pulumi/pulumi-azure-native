@@ -3,7 +3,19 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Resources
+
+- `azurearcdata.DataController`
+- `azurearcdata.PostgresInstance`
+- `azurearcdata.SqlManagedInstance`
+- `azurearcdata.SqlServerInstance`
+
+#### New Functions
+
+- `azurearcdata.getDataController`
+- `azurearcdata.getPostgresInstance`
+- `azurearcdata.getSqlManagedInstance`
+- `azurearcdata.getSqlServerInstance`
 
 ---
 
