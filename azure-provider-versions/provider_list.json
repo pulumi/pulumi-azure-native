@@ -14575,6 +14575,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14633,6 +14634,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14693,6 +14695,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14747,6 +14750,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14825,6 +14829,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14883,6 +14888,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14935,6 +14941,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -14987,6 +14994,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -15039,6 +15047,7 @@
           "France South",
           "Norway West",
           "West US 3",
+          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -25945,7 +25954,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26000,7 +26008,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26054,7 +26061,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26108,7 +26114,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26162,7 +26167,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -29705,6 +29709,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -29788,6 +29793,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -29869,6 +29875,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -29952,6 +29959,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -29977,6 +29985,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "West US",
           "Australia East",
           "Brazil South",
@@ -30086,6 +30095,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -30169,6 +30179,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -30219,6 +30230,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -30243,6 +30255,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -30319,6 +30332,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -30343,6 +30357,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -30566,6 +30581,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -30681,6 +30697,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "West US 2",
           "East US 2",
           "East US",
@@ -30756,6 +30773,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "West US 2",
           "East US 2",
           "East US",
@@ -30836,6 +30854,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -30916,6 +30935,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -30996,6 +31016,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -31076,6 +31097,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -31185,6 +31207,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -31243,6 +31266,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -31328,6 +31352,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -31417,6 +31442,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -31505,6 +31531,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -31778,6 +31805,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -31861,6 +31889,7 @@
         "locationMappings": null,
         "locations": [
           "South Central US",
+          "West US 3",
           "South Africa North",
           "East US 2",
           "East US",
@@ -31896,152 +31925,7 @@
         ],
         "properties": null,
         "resourceType": "hostingEnvironments",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -32093,6 +31977,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -32179,6 +32064,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -32342,6 +32228,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -32399,6 +32286,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -32482,6 +32370,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "East Asia",
           "Japan East",
           "Australia East",
@@ -32605,6 +32494,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -33361,6 +33251,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -33445,6 +33336,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -33528,6 +33420,7 @@
           "West US 2",
           "France Central",
           "South Africa North",
+          "West US 3",
           "Australia Central",
           "Switzerland North",
           "Germany West Central",
@@ -33570,6 +33463,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -33644,6 +33538,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -33717,6 +33612,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "Australia East",
           "Brazil South",
           "Southeast Asia",
@@ -33794,6 +33690,7 @@
           "Canada East",
           "UK West",
           "South Africa North",
+          "West US 3",
           "East US 2",
           "East US",
           "UK South",
@@ -33858,6 +33755,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "West US",
           "Australia East",
           "Brazil South",
@@ -33928,6 +33826,7 @@
         "locations": [
           "South Central US",
           "South Africa North",
+          "West US 3",
           "West US",
           "Australia East",
           "Brazil South",
@@ -34801,156 +34700,7 @@
         ],
         "properties": null,
         "resourceType": "Redis",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -35332,7 +35082,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus",
@@ -35430,96 +35181,12 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "redisEnterprise",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -35545,7 +35212,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies",
@@ -35575,7 +35243,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate",
@@ -35605,7 +35274,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults",
@@ -35635,7 +35305,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections",
@@ -35665,7 +35336,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults",
@@ -35695,7 +35367,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateLinkResources",
@@ -35725,7 +35398,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "redisEnterprise/databases",
@@ -35755,7 +35429,8 @@
           "Australia East",
           "North Europe",
           "Central US",
-          "Central India"
+          "Central India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability",
@@ -82662,6 +82337,23 @@
         ],
         "properties": null,
         "resourceType": "locations/deviceGroups",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "locations/deviceGroups/devices",
         "zoneMappings": null
       },
       {
