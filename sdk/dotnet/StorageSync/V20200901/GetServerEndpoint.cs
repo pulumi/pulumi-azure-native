@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// </summary>
         public readonly string? InitialDownloadPolicy;
         /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        public readonly string? InitialUploadPolicy;
+        /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         public readonly string LastOperationName;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
             string? initialDownloadPolicy,
 
+            string? initialUploadPolicy,
+
             string lastOperationName,
 
             string lastWorkflowId,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
             FriendlyName = friendlyName;
             Id = id;
             InitialDownloadPolicy = initialDownloadPolicy;
+            InitialUploadPolicy = initialUploadPolicy;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;
             LocalCacheMode = localCacheMode;

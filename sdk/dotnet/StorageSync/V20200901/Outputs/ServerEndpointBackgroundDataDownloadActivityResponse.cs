@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901.Outputs
         /// </summary>
         public readonly int PercentProgress;
         /// <summary>
+        /// Timestamp when the operation started
+        /// </summary>
+        public readonly string StartedTimestamp;
+        /// <summary>
         /// Timestamp when properties were updated
         /// </summary>
         public readonly string Timestamp;
@@ -32,10 +36,13 @@ namespace Pulumi.AzureNative.StorageSync.V20200901.Outputs
 
             int percentProgress,
 
+            string startedTimestamp,
+
             string timestamp)
         {
             DownloadedBytes = downloadedBytes;
             PercentProgress = percentProgress;
+            StartedTimestamp = startedTimestamp;
             Timestamp = timestamp;
         }
     }

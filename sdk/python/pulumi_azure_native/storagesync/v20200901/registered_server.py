@@ -397,7 +397,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="discoveryEndpointUri")
-    def discovery_endpoint_uri(self) -> pulumi.Output[str]:
+    def discovery_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Resource discoveryEndpointUri
         """
@@ -413,7 +413,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastHeartBeat")
-    def last_heart_beat(self) -> pulumi.Output[str]:
+    def last_heart_beat(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server last heart beat
         """
@@ -421,7 +421,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> pulumi.Output[str]:
+    def last_operation_name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Last Operation Name
         """
@@ -429,7 +429,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> pulumi.Output[str]:
+    def last_workflow_id(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server lastWorkflowId
         """
@@ -437,7 +437,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementEndpointUri")
-    def management_endpoint_uri(self) -> pulumi.Output[str]:
+    def management_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Management Endpoint Uri
         """
@@ -445,7 +445,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> pulumi.Output[str]:
+    def monitoring_configuration(self) -> pulumi.Output[Optional[str]]:
         """
         Monitoring Configuration
         """
@@ -453,7 +453,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringEndpointUri")
-    def monitoring_endpoint_uri(self) -> pulumi.Output[str]:
+    def monitoring_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Telemetry Endpoint Uri
         """
@@ -469,7 +469,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server Provisioning State
         """
@@ -477,7 +477,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> pulumi.Output[str]:
+    def resource_location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -501,7 +501,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverManagementErrorCode")
-    def server_management_error_code(self) -> pulumi.Output[int]:
+    def server_management_error_code(self) -> pulumi.Output[Optional[int]]:
         """
         Registered Server Management Error Code
         """
@@ -533,7 +533,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLocation")
-    def service_location(self) -> pulumi.Output[str]:
+    def service_location(self) -> pulumi.Output[Optional[str]]:
         """
         Service Location
         """
@@ -541,7 +541,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceUid")
-    def storage_sync_service_uid(self) -> pulumi.Output[str]:
+    def storage_sync_service_uid(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server storageSyncServiceUid
         """

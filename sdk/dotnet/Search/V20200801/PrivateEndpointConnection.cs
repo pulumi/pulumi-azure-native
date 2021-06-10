@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.Search.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20210401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -34,6 +34,8 @@ type LookupCloudEndpointResult struct {
 	AzureFileShareName *string `pulumi:"azureFileShareName"`
 	// Backup Enabled
 	BackupEnabled string `pulumi:"backupEnabled"`
+	// Cloud endpoint change enumeration status
+	ChangeEnumerationStatus CloudEndpointChangeEnumerationStatusResponse `pulumi:"changeEnumerationStatus"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

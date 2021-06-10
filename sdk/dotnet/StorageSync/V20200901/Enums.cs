@@ -102,6 +102,37 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
     }
 
     /// <summary>
+    /// Policy for how the initial upload sync session is performed.
+    /// </summary>
+    [EnumType]
+    public readonly struct InitialUploadPolicy : IEquatable<InitialUploadPolicy>
+    {
+        private readonly string _value;
+
+        private InitialUploadPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InitialUploadPolicy ServerAuthoritative { get; } = new InitialUploadPolicy("ServerAuthoritative");
+        public static InitialUploadPolicy Merge { get; } = new InitialUploadPolicy("Merge");
+
+        public static bool operator ==(InitialUploadPolicy left, InitialUploadPolicy right) => left.Equals(right);
+        public static bool operator !=(InitialUploadPolicy left, InitialUploadPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(InitialUploadPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InitialUploadPolicy other && Equals(other);
+        public bool Equals(InitialUploadPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
     /// </summary>
     [EnumType]

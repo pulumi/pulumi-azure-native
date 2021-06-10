@@ -26,6 +26,7 @@ namespace Pulumi.AzureNative.Peering
         public static DirectPeeringType Internal { get; } = new DirectPeeringType("Internal");
         public static DirectPeeringType Ix { get; } = new DirectPeeringType("Ix");
         public static DirectPeeringType IxRs { get; } = new DirectPeeringType("IxRs");
+        public static DirectPeeringType Voice { get; } = new DirectPeeringType("Voice");
 
         public static bool operator ==(DirectPeeringType left, DirectPeeringType right) => left.Equals(right);
         public static bool operator !=(DirectPeeringType left, DirectPeeringType right) => !left.Equals(right);

@@ -63,6 +63,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// </summary>
         public readonly string BackupEnabled;
         /// <summary>
+        /// Cloud endpoint change enumeration status
+        /// </summary>
+        public readonly Outputs.CloudEndpointChangeEnumerationStatusResponse ChangeEnumerationStatus;
+        /// <summary>
         /// Friendly Name
         /// </summary>
         public readonly string? FriendlyName;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
             string backupEnabled,
 
+            Outputs.CloudEndpointChangeEnumerationStatusResponse changeEnumerationStatus,
+
             string? friendlyName,
 
             string id,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         {
             AzureFileShareName = azureFileShareName;
             BackupEnabled = backupEnabled;
+            ChangeEnumerationStatus = changeEnumerationStatus;
             FriendlyName = friendlyName;
             Id = id;
             LastOperationName = lastOperationName;

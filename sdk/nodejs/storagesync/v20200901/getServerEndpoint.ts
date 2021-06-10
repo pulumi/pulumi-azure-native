@@ -68,6 +68,10 @@ export interface GetServerEndpointResult {
      */
     readonly initialDownloadPolicy?: string;
     /**
+     * Policy for how the initial upload sync session is performed.
+     */
+    readonly initialUploadPolicy?: string;
+    /**
      * Resource Last Operation Name
      */
     readonly lastOperationName: string;

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = ['CloudEndpointArgs', 'CloudEndpoint']
 
@@ -230,6 +231,7 @@ class CloudEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["backup_enabled"] = None
+            __props__.__dict__["change_enumeration_status"] = None
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
             __props__.__dict__["name"] = None
@@ -262,6 +264,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["azure_file_share_name"] = None
         __props__.__dict__["backup_enabled"] = None
+        __props__.__dict__["change_enumeration_status"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["last_operation_name"] = None
         __props__.__dict__["last_workflow_id"] = None
@@ -288,6 +291,14 @@ class CloudEndpoint(pulumi.CustomResource):
         Backup Enabled
         """
         return pulumi.get(self, "backup_enabled")
+
+    @property
+    @pulumi.getter(name="changeEnumerationStatus")
+    def change_enumeration_status(self) -> pulumi.Output['outputs.CloudEndpointChangeEnumerationStatusResponse']:
+        """
+        Cloud endpoint change enumeration status
+        """
+        return pulumi.get(self, "change_enumeration_status")
 
     @property
     @pulumi.getter(name="friendlyName")

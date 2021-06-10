@@ -95,6 +95,34 @@ func (e InitialDownloadPolicy) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Policy for how the initial upload sync session is performed.
+type InitialUploadPolicy pulumi.String
+
+const (
+	InitialUploadPolicyServerAuthoritative = InitialUploadPolicy("ServerAuthoritative")
+	InitialUploadPolicyMerge               = InitialUploadPolicy("Merge")
+)
+
+func (InitialUploadPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e InitialUploadPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InitialUploadPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InitialUploadPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InitialUploadPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 type LocalCacheMode pulumi.String
 

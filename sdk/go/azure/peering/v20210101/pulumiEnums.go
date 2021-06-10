@@ -20,6 +20,7 @@ const (
 	DirectPeeringTypeInternal = DirectPeeringType("Internal")
 	DirectPeeringTypeIx       = DirectPeeringType("Ix")
 	DirectPeeringTypeIxRs     = DirectPeeringType("IxRs")
+	DirectPeeringTypeVoice    = DirectPeeringType("Voice")
 )
 
 func (DirectPeeringType) ElementType() reflect.Type {

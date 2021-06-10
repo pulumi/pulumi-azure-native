@@ -56,6 +56,10 @@ export interface GetCloudEndpointResult {
      */
     readonly backupEnabled: string;
     /**
+     * Cloud endpoint change enumeration status
+     */
+    readonly changeEnumerationStatus: outputs.storagesync.v20200901.CloudEndpointChangeEnumerationStatusResponse;
+    /**
      * Friendly Name
      */
     readonly friendlyName?: string;

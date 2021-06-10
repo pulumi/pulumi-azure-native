@@ -26,6 +26,7 @@ class DirectPeeringType(str, Enum):
     INTERNAL = "Internal"
     IX = "Ix"
     IX_RS = "IxRs"
+    VOICE = "Voice"
 
 
 class Family(str, Enum):

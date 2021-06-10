@@ -12313,6 +12313,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "search/v20210401preview",
+  "fqn": "pulumi_azure_native.search.v20210401preview",
+  "classes": {
+   "azure-native:search/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:search/v20210401preview:Service": "Service",
+   "azure-native:search/v20210401preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "security",
   "fqn": "pulumi_azure_native.security",
   "classes": {

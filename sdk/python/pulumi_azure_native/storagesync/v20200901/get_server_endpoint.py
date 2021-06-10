@@ -20,7 +20,7 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, initial_upload_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
         pulumi.set(__self__, "cloud_tiering", cloud_tiering)
@@ -36,6 +36,9 @@ class GetServerEndpointResult:
         if initial_download_policy and not isinstance(initial_download_policy, str):
             raise TypeError("Expected argument 'initial_download_policy' to be a str")
         pulumi.set(__self__, "initial_download_policy", initial_download_policy)
+        if initial_upload_policy and not isinstance(initial_upload_policy, str):
+            raise TypeError("Expected argument 'initial_upload_policy' to be a str")
+        pulumi.set(__self__, "initial_upload_policy", initial_upload_policy)
         if last_operation_name and not isinstance(last_operation_name, str):
             raise TypeError("Expected argument 'last_operation_name' to be a str")
         pulumi.set(__self__, "last_operation_name", last_operation_name)
@@ -127,6 +130,14 @@ class GetServerEndpointResult:
         Policy for how namespace and files are recalled during FastDr.
         """
         return pulumi.get(self, "initial_download_policy")
+
+    @property
+    @pulumi.getter(name="initialUploadPolicy")
+    def initial_upload_policy(self) -> Optional[str]:
+        """
+        Policy for how the initial upload sync session is performed.
+        """
+        return pulumi.get(self, "initial_upload_policy")
 
     @property
     @pulumi.getter(name="lastOperationName")
@@ -276,6 +287,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             friendly_name=self.friendly_name,
             id=self.id,
             initial_download_policy=self.initial_download_policy,
+            initial_upload_policy=self.initial_upload_policy,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
             local_cache_mode=self.local_cache_mode,
@@ -326,6 +338,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         friendly_name=__ret__.friendly_name,
         id=__ret__.id,
         initial_download_policy=__ret__.initial_download_policy,
+        initial_upload_policy=__ret__.initial_upload_policy,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,
         local_cache_mode=__ret__.local_cache_mode,

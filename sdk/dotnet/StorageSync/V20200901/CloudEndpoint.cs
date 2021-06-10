@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         public Output<string> BackupEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Cloud endpoint change enumeration status
+        /// </summary>
+        [Output("changeEnumerationStatus")]
+        public Output<Outputs.CloudEndpointChangeEnumerationStatusResponse> ChangeEnumerationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Friendly Name
         /// </summary>
         [Output("friendlyName")]

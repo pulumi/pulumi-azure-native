@@ -26,33 +26,33 @@ type RegisteredServer struct {
 	// Registered Server clusterName
 	ClusterName pulumi.StringPtrOutput `pulumi:"clusterName"`
 	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri pulumi.StringOutput `pulumi:"discoveryEndpointUri"`
+	DiscoveryEndpointUri pulumi.StringPtrOutput `pulumi:"discoveryEndpointUri"`
 	// Friendly Name
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringOutput `pulumi:"lastHeartBeat"`
+	LastHeartBeat pulumi.StringPtrOutput `pulumi:"lastHeartBeat"`
 	// Resource Last Operation Name
-	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
+	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
 	// Registered Server lastWorkflowId
-	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
+	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
 	// Management Endpoint Uri
-	ManagementEndpointUri pulumi.StringOutput `pulumi:"managementEndpointUri"`
+	ManagementEndpointUri pulumi.StringPtrOutput `pulumi:"managementEndpointUri"`
 	// Monitoring Configuration
-	MonitoringConfiguration pulumi.StringOutput `pulumi:"monitoringConfiguration"`
+	MonitoringConfiguration pulumi.StringPtrOutput `pulumi:"monitoringConfiguration"`
 	// Telemetry Endpoint Uri
-	MonitoringEndpointUri pulumi.StringOutput `pulumi:"monitoringEndpointUri"`
+	MonitoringEndpointUri pulumi.StringPtrOutput `pulumi:"monitoringEndpointUri"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Registered Server Provisioning State
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource Location
-	ResourceLocation pulumi.StringOutput `pulumi:"resourceLocation"`
+	ResourceLocation pulumi.StringPtrOutput `pulumi:"resourceLocation"`
 	// Registered Server Certificate
 	ServerCertificate pulumi.StringPtrOutput `pulumi:"serverCertificate"`
 	// Registered Server serverId
 	ServerId pulumi.StringPtrOutput `pulumi:"serverId"`
 	// Registered Server Management Error Code
-	ServerManagementErrorCode pulumi.IntOutput `pulumi:"serverManagementErrorCode"`
+	ServerManagementErrorCode pulumi.IntPtrOutput `pulumi:"serverManagementErrorCode"`
 	// Server name
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// Registered Server OS Version
@@ -60,9 +60,9 @@ type RegisteredServer struct {
 	// Registered Server serverRole
 	ServerRole pulumi.StringPtrOutput `pulumi:"serverRole"`
 	// Service Location
-	ServiceLocation pulumi.StringOutput `pulumi:"serviceLocation"`
+	ServiceLocation pulumi.StringPtrOutput `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
+	StorageSyncServiceUid pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }

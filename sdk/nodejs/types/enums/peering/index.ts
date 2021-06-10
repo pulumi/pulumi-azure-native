@@ -25,6 +25,7 @@ export const DirectPeeringType = {
     Internal: "Internal",
     Ix: "Ix",
     IxRs: "IxRs",
+    Voice: "Voice",
 } as const;
 
 /**

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         public Output<string?> InitialDownloadPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        [Output("initialUploadPolicy")]
+        public Output<string?> InitialUploadPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         [Output("lastOperationName")]
@@ -229,6 +235,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200901.InitialDownloadPolicy>? InitialDownloadPolicy { get; set; }
 
         /// <summary>
+        /// Policy for how the initial upload sync session is performed.
+        /// </summary>
+        [Input("initialUploadPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200901.InitialUploadPolicy>? InitialUploadPolicy { get; set; }
+
+        /// <summary>
         /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         /// </summary>
         [Input("localCacheMode")]
@@ -296,6 +308,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
         public ServerEndpointArgs()
         {
+            InitialDownloadPolicy = "NamespaceThenModifiedFiles";
+            InitialUploadPolicy = "Merge";
+            LocalCacheMode = "UpdateLocallyCachedFiles";
+            VolumeFreeSpacePercent = 20;
         }
     }
 }

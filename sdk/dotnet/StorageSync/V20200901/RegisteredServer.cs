@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// Resource discoveryEndpointUri
         /// </summary>
         [Output("discoveryEndpointUri")]
-        public Output<string> DiscoveryEndpointUri { get; private set; } = null!;
+        public Output<string?> DiscoveryEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// Friendly Name
@@ -61,37 +61,37 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// Registered Server last heart beat
         /// </summary>
         [Output("lastHeartBeat")]
-        public Output<string> LastHeartBeat { get; private set; } = null!;
+        public Output<string?> LastHeartBeat { get; private set; } = null!;
 
         /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         [Output("lastOperationName")]
-        public Output<string> LastOperationName { get; private set; } = null!;
+        public Output<string?> LastOperationName { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server lastWorkflowId
         /// </summary>
         [Output("lastWorkflowId")]
-        public Output<string> LastWorkflowId { get; private set; } = null!;
+        public Output<string?> LastWorkflowId { get; private set; } = null!;
 
         /// <summary>
         /// Management Endpoint Uri
         /// </summary>
         [Output("managementEndpointUri")]
-        public Output<string> ManagementEndpointUri { get; private set; } = null!;
+        public Output<string?> ManagementEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// Monitoring Configuration
         /// </summary>
         [Output("monitoringConfiguration")]
-        public Output<string> MonitoringConfiguration { get; private set; } = null!;
+        public Output<string?> MonitoringConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Telemetry Endpoint Uri
         /// </summary>
         [Output("monitoringEndpointUri")]
-        public Output<string> MonitoringEndpointUri { get; private set; } = null!;
+        public Output<string?> MonitoringEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -103,13 +103,13 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// Registered Server Provisioning State
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
         /// </summary>
         [Output("resourceLocation")]
-        public Output<string> ResourceLocation { get; private set; } = null!;
+        public Output<string?> ResourceLocation { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server Certificate
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// Registered Server Management Error Code
         /// </summary>
         [Output("serverManagementErrorCode")]
-        public Output<int> ServerManagementErrorCode { get; private set; } = null!;
+        public Output<int?> ServerManagementErrorCode { get; private set; } = null!;
 
         /// <summary>
         /// Server name
@@ -151,13 +151,13 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// Service Location
         /// </summary>
         [Output("serviceLocation")]
-        public Output<string> ServiceLocation { get; private set; } = null!;
+        public Output<string?> ServiceLocation { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server storageSyncServiceUid
         /// </summary>
         [Output("storageSyncServiceUid")]
-        public Output<string> StorageSyncServiceUid { get; private set; } = null!;
+        public Output<string?> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

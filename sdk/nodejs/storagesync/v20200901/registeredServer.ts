@@ -57,7 +57,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Resource discoveryEndpointUri
      */
-    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * Friendly Name
      */
@@ -65,27 +65,27 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server last heart beat
      */
-    public readonly lastHeartBeat!: pulumi.Output<string>;
+    public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
     /**
      * Registered Server lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
     /**
      * Management Endpoint Uri
      */
-    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * Monitoring Configuration
      */
-    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string>;
+    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Telemetry Endpoint Uri
      */
-    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -93,11 +93,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly resourceLocation!: pulumi.Output<string>;
+    public /*out*/ readonly resourceLocation!: pulumi.Output<string | undefined>;
     /**
      * Registered Server Certificate
      */
@@ -109,7 +109,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Management Error Code
      */
-    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number>;
+    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number | undefined>;
     /**
      * Server name
      */
@@ -125,11 +125,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Service Location
      */
-    public /*out*/ readonly serviceLocation!: pulumi.Output<string>;
+    public /*out*/ readonly serviceLocation!: pulumi.Output<string | undefined>;
     /**
      * Registered Server storageSyncServiceUid
      */
-    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

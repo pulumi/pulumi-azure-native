@@ -91,6 +91,8 @@ class NodeSizeFamily(str, Enum):
     """
     NONE = "None"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+    HARDWARE_ACCELERATED_FPGA = "HardwareAcceleratedFPGA"
+    HARDWARE_ACCELERATED_GPU = "HardwareAcceleratedGPU"
 
 
 class ResourceIdentityType(str, Enum):

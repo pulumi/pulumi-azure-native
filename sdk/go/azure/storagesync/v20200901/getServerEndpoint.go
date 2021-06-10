@@ -40,6 +40,8 @@ type LookupServerEndpointResult struct {
 	Id string `pulumi:"id"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
+	// Policy for how the initial upload sync session is performed.
+	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName string `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId

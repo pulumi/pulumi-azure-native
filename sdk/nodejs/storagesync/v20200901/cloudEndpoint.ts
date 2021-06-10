@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -42,6 +43,10 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * Backup Enabled
      */
     public /*out*/ readonly backupEnabled!: pulumi.Output<string>;
+    /**
+     * Cloud endpoint change enumeration status
+     */
+    public /*out*/ readonly changeEnumerationStatus!: pulumi.Output<outputs.storagesync.v20200901.CloudEndpointChangeEnumerationStatusResponse>;
     /**
      * Friendly Name
      */
@@ -108,6 +113,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             inputs["backupEnabled"] = undefined /*out*/;
+            inputs["changeEnumerationStatus"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -117,6 +123,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
         } else {
             inputs["azureFileShareName"] = undefined /*out*/;
             inputs["backupEnabled"] = undefined /*out*/;
+            inputs["changeEnumerationStatus"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;

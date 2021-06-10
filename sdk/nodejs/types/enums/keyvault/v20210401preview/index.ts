@@ -98,6 +98,7 @@ export const KeyPermissions = {
     Restore: "restore",
     Recover: "recover",
     Purge: "purge",
+    Release: "release",
 } as const;
 
 export type KeyPermissions = (typeof KeyPermissions)[keyof typeof KeyPermissions];

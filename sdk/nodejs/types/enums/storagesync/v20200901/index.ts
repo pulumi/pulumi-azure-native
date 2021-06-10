@@ -33,6 +33,16 @@ export const InitialDownloadPolicy = {
  */
 export type InitialDownloadPolicy = (typeof InitialDownloadPolicy)[keyof typeof InitialDownloadPolicy];
 
+export const InitialUploadPolicy = {
+    ServerAuthoritative: "ServerAuthoritative",
+    Merge: "Merge",
+} as const;
+
+/**
+ * Policy for how the initial upload sync session is performed.
+ */
+export type InitialUploadPolicy = (typeof InitialUploadPolicy)[keyof typeof InitialUploadPolicy];
+
 export const LocalCacheMode = {
     DownloadNewAndModifiedFiles: "DownloadNewAndModifiedFiles",
     UpdateLocallyCachedFiles: "UpdateLocallyCachedFiles",

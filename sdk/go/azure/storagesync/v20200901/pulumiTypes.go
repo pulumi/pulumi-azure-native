@@ -10,6 +10,779 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Cloud endpoint change enumeration activity object
+type CloudEndpointChangeEnumerationActivityResponse struct {
+	// Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+	DeletesProgressPercent int `pulumi:"deletesProgressPercent"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Estimate of time remaining for the enumeration run
+	MinutesRemaining int `pulumi:"minutesRemaining"`
+	// Change enumeration operation state
+	OperationState string `pulumi:"operationState"`
+	// Count of directories processed
+	ProcessedDirectoriesCount float64 `pulumi:"processedDirectoriesCount"`
+	// Count of files processed
+	ProcessedFilesCount float64 `pulumi:"processedFilesCount"`
+	// Progress percentage for change enumeration run, excluding processing of deletes
+	ProgressPercent int `pulumi:"progressPercent"`
+	// Timestamp when change enumeration started
+	StartedTimestamp string `pulumi:"startedTimestamp"`
+	// When non-zero, indicates an issue that is delaying change enumeration
+	StatusCode int `pulumi:"statusCode"`
+	// Change enumeration total counts state
+	TotalCountsState string `pulumi:"totalCountsState"`
+	// Total count of directories enumerated
+	TotalDirectoriesCount float64 `pulumi:"totalDirectoriesCount"`
+	// Total count of files enumerated
+	TotalFilesCount float64 `pulumi:"totalFilesCount"`
+	// Total enumerated size in bytes
+	TotalSizeBytes float64 `pulumi:"totalSizeBytes"`
+}
+
+// CloudEndpointChangeEnumerationActivityResponseInput is an input type that accepts CloudEndpointChangeEnumerationActivityResponseArgs and CloudEndpointChangeEnumerationActivityResponseOutput values.
+// You can construct a concrete instance of `CloudEndpointChangeEnumerationActivityResponseInput` via:
+//
+//          CloudEndpointChangeEnumerationActivityResponseArgs{...}
+type CloudEndpointChangeEnumerationActivityResponseInput interface {
+	pulumi.Input
+
+	ToCloudEndpointChangeEnumerationActivityResponseOutput() CloudEndpointChangeEnumerationActivityResponseOutput
+	ToCloudEndpointChangeEnumerationActivityResponseOutputWithContext(context.Context) CloudEndpointChangeEnumerationActivityResponseOutput
+}
+
+// Cloud endpoint change enumeration activity object
+type CloudEndpointChangeEnumerationActivityResponseArgs struct {
+	// Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+	DeletesProgressPercent pulumi.IntInput `pulumi:"deletesProgressPercent"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Estimate of time remaining for the enumeration run
+	MinutesRemaining pulumi.IntInput `pulumi:"minutesRemaining"`
+	// Change enumeration operation state
+	OperationState pulumi.StringInput `pulumi:"operationState"`
+	// Count of directories processed
+	ProcessedDirectoriesCount pulumi.Float64Input `pulumi:"processedDirectoriesCount"`
+	// Count of files processed
+	ProcessedFilesCount pulumi.Float64Input `pulumi:"processedFilesCount"`
+	// Progress percentage for change enumeration run, excluding processing of deletes
+	ProgressPercent pulumi.IntInput `pulumi:"progressPercent"`
+	// Timestamp when change enumeration started
+	StartedTimestamp pulumi.StringInput `pulumi:"startedTimestamp"`
+	// When non-zero, indicates an issue that is delaying change enumeration
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+	// Change enumeration total counts state
+	TotalCountsState pulumi.StringInput `pulumi:"totalCountsState"`
+	// Total count of directories enumerated
+	TotalDirectoriesCount pulumi.Float64Input `pulumi:"totalDirectoriesCount"`
+	// Total count of files enumerated
+	TotalFilesCount pulumi.Float64Input `pulumi:"totalFilesCount"`
+	// Total enumerated size in bytes
+	TotalSizeBytes pulumi.Float64Input `pulumi:"totalSizeBytes"`
+}
+
+func (CloudEndpointChangeEnumerationActivityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointChangeEnumerationActivityResponse)(nil)).Elem()
+}
+
+func (i CloudEndpointChangeEnumerationActivityResponseArgs) ToCloudEndpointChangeEnumerationActivityResponseOutput() CloudEndpointChangeEnumerationActivityResponseOutput {
+	return i.ToCloudEndpointChangeEnumerationActivityResponseOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointChangeEnumerationActivityResponseArgs) ToCloudEndpointChangeEnumerationActivityResponseOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationActivityResponseOutput)
+}
+
+func (i CloudEndpointChangeEnumerationActivityResponseArgs) ToCloudEndpointChangeEnumerationActivityResponsePtrOutput() CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return i.ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointChangeEnumerationActivityResponseArgs) ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationActivityResponseOutput).ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(ctx)
+}
+
+// CloudEndpointChangeEnumerationActivityResponsePtrInput is an input type that accepts CloudEndpointChangeEnumerationActivityResponseArgs, CloudEndpointChangeEnumerationActivityResponsePtr and CloudEndpointChangeEnumerationActivityResponsePtrOutput values.
+// You can construct a concrete instance of `CloudEndpointChangeEnumerationActivityResponsePtrInput` via:
+//
+//          CloudEndpointChangeEnumerationActivityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudEndpointChangeEnumerationActivityResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudEndpointChangeEnumerationActivityResponsePtrOutput() CloudEndpointChangeEnumerationActivityResponsePtrOutput
+	ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(context.Context) CloudEndpointChangeEnumerationActivityResponsePtrOutput
+}
+
+type cloudEndpointChangeEnumerationActivityResponsePtrType CloudEndpointChangeEnumerationActivityResponseArgs
+
+func CloudEndpointChangeEnumerationActivityResponsePtr(v *CloudEndpointChangeEnumerationActivityResponseArgs) CloudEndpointChangeEnumerationActivityResponsePtrInput {
+	return (*cloudEndpointChangeEnumerationActivityResponsePtrType)(v)
+}
+
+func (*cloudEndpointChangeEnumerationActivityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointChangeEnumerationActivityResponse)(nil)).Elem()
+}
+
+func (i *cloudEndpointChangeEnumerationActivityResponsePtrType) ToCloudEndpointChangeEnumerationActivityResponsePtrOutput() CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return i.ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudEndpointChangeEnumerationActivityResponsePtrType) ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationActivityResponsePtrOutput)
+}
+
+// Cloud endpoint change enumeration activity object
+type CloudEndpointChangeEnumerationActivityResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointChangeEnumerationActivityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointChangeEnumerationActivityResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ToCloudEndpointChangeEnumerationActivityResponseOutput() CloudEndpointChangeEnumerationActivityResponseOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ToCloudEndpointChangeEnumerationActivityResponseOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponseOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ToCloudEndpointChangeEnumerationActivityResponsePtrOutput() CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return o.ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) *CloudEndpointChangeEnumerationActivityResponse {
+		return &v
+	}).(CloudEndpointChangeEnumerationActivityResponsePtrOutput)
+}
+
+// Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) DeletesProgressPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) int { return v.DeletesProgressPercent }).(pulumi.IntOutput)
+}
+
+// Last updated timestamp
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Estimate of time remaining for the enumeration run
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) MinutesRemaining() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) int { return v.MinutesRemaining }).(pulumi.IntOutput)
+}
+
+// Change enumeration operation state
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) OperationState() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) string { return v.OperationState }).(pulumi.StringOutput)
+}
+
+// Count of directories processed
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ProcessedDirectoriesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) float64 { return v.ProcessedDirectoriesCount }).(pulumi.Float64Output)
+}
+
+// Count of files processed
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ProcessedFilesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) float64 { return v.ProcessedFilesCount }).(pulumi.Float64Output)
+}
+
+// Progress percentage for change enumeration run, excluding processing of deletes
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) ProgressPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) int { return v.ProgressPercent }).(pulumi.IntOutput)
+}
+
+// Timestamp when change enumeration started
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) StartedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) string { return v.StartedTimestamp }).(pulumi.StringOutput)
+}
+
+// When non-zero, indicates an issue that is delaying change enumeration
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+// Change enumeration total counts state
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) TotalCountsState() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) string { return v.TotalCountsState }).(pulumi.StringOutput)
+}
+
+// Total count of directories enumerated
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) TotalDirectoriesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) float64 { return v.TotalDirectoriesCount }).(pulumi.Float64Output)
+}
+
+// Total count of files enumerated
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) TotalFilesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) float64 { return v.TotalFilesCount }).(pulumi.Float64Output)
+}
+
+// Total enumerated size in bytes
+func (o CloudEndpointChangeEnumerationActivityResponseOutput) TotalSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationActivityResponse) float64 { return v.TotalSizeBytes }).(pulumi.Float64Output)
+}
+
+type CloudEndpointChangeEnumerationActivityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointChangeEnumerationActivityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointChangeEnumerationActivityResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) ToCloudEndpointChangeEnumerationActivityResponsePtrOutput() CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) ToCloudEndpointChangeEnumerationActivityResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) Elem() CloudEndpointChangeEnumerationActivityResponseOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) CloudEndpointChangeEnumerationActivityResponse {
+		return *v
+	}).(CloudEndpointChangeEnumerationActivityResponseOutput)
+}
+
+// Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) DeletesProgressPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DeletesProgressPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Last updated timestamp
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) LastUpdatedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdatedTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Estimate of time remaining for the enumeration run
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) MinutesRemaining() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinutesRemaining
+	}).(pulumi.IntPtrOutput)
+}
+
+// Change enumeration operation state
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) OperationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Count of directories processed
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) ProcessedDirectoriesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ProcessedDirectoriesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Count of files processed
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) ProcessedFilesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ProcessedFilesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Progress percentage for change enumeration run, excluding processing of deletes
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) ProgressPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProgressPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when change enumeration started
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) StartedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartedTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// When non-zero, indicates an issue that is delaying change enumeration
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// Change enumeration total counts state
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) TotalCountsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalCountsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Total count of directories enumerated
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) TotalDirectoriesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalDirectoriesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Total count of files enumerated
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) TotalFilesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalFilesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Total enumerated size in bytes
+func (o CloudEndpointChangeEnumerationActivityResponsePtrOutput) TotalSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationActivityResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalSizeBytes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointChangeEnumerationStatusResponse struct {
+	// Change enumeration activity
+	Activity CloudEndpointChangeEnumerationActivityResponse `pulumi:"activity"`
+	// Status of last completed change enumeration
+	LastEnumerationStatus CloudEndpointLastChangeEnumerationStatusResponse `pulumi:"lastEnumerationStatus"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+}
+
+// CloudEndpointChangeEnumerationStatusResponseInput is an input type that accepts CloudEndpointChangeEnumerationStatusResponseArgs and CloudEndpointChangeEnumerationStatusResponseOutput values.
+// You can construct a concrete instance of `CloudEndpointChangeEnumerationStatusResponseInput` via:
+//
+//          CloudEndpointChangeEnumerationStatusResponseArgs{...}
+type CloudEndpointChangeEnumerationStatusResponseInput interface {
+	pulumi.Input
+
+	ToCloudEndpointChangeEnumerationStatusResponseOutput() CloudEndpointChangeEnumerationStatusResponseOutput
+	ToCloudEndpointChangeEnumerationStatusResponseOutputWithContext(context.Context) CloudEndpointChangeEnumerationStatusResponseOutput
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointChangeEnumerationStatusResponseArgs struct {
+	// Change enumeration activity
+	Activity CloudEndpointChangeEnumerationActivityResponseInput `pulumi:"activity"`
+	// Status of last completed change enumeration
+	LastEnumerationStatus CloudEndpointLastChangeEnumerationStatusResponseInput `pulumi:"lastEnumerationStatus"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+}
+
+func (CloudEndpointChangeEnumerationStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (i CloudEndpointChangeEnumerationStatusResponseArgs) ToCloudEndpointChangeEnumerationStatusResponseOutput() CloudEndpointChangeEnumerationStatusResponseOutput {
+	return i.ToCloudEndpointChangeEnumerationStatusResponseOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointChangeEnumerationStatusResponseArgs) ToCloudEndpointChangeEnumerationStatusResponseOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationStatusResponseOutput)
+}
+
+func (i CloudEndpointChangeEnumerationStatusResponseArgs) ToCloudEndpointChangeEnumerationStatusResponsePtrOutput() CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return i.ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointChangeEnumerationStatusResponseArgs) ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationStatusResponseOutput).ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(ctx)
+}
+
+// CloudEndpointChangeEnumerationStatusResponsePtrInput is an input type that accepts CloudEndpointChangeEnumerationStatusResponseArgs, CloudEndpointChangeEnumerationStatusResponsePtr and CloudEndpointChangeEnumerationStatusResponsePtrOutput values.
+// You can construct a concrete instance of `CloudEndpointChangeEnumerationStatusResponsePtrInput` via:
+//
+//          CloudEndpointChangeEnumerationStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudEndpointChangeEnumerationStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudEndpointChangeEnumerationStatusResponsePtrOutput() CloudEndpointChangeEnumerationStatusResponsePtrOutput
+	ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(context.Context) CloudEndpointChangeEnumerationStatusResponsePtrOutput
+}
+
+type cloudEndpointChangeEnumerationStatusResponsePtrType CloudEndpointChangeEnumerationStatusResponseArgs
+
+func CloudEndpointChangeEnumerationStatusResponsePtr(v *CloudEndpointChangeEnumerationStatusResponseArgs) CloudEndpointChangeEnumerationStatusResponsePtrInput {
+	return (*cloudEndpointChangeEnumerationStatusResponsePtrType)(v)
+}
+
+func (*cloudEndpointChangeEnumerationStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (i *cloudEndpointChangeEnumerationStatusResponsePtrType) ToCloudEndpointChangeEnumerationStatusResponsePtrOutput() CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return i.ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudEndpointChangeEnumerationStatusResponsePtrType) ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointChangeEnumerationStatusResponsePtrOutput)
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointChangeEnumerationStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointChangeEnumerationStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) ToCloudEndpointChangeEnumerationStatusResponseOutput() CloudEndpointChangeEnumerationStatusResponseOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) ToCloudEndpointChangeEnumerationStatusResponseOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponseOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) ToCloudEndpointChangeEnumerationStatusResponsePtrOutput() CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return o.ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationStatusResponse) *CloudEndpointChangeEnumerationStatusResponse {
+		return &v
+	}).(CloudEndpointChangeEnumerationStatusResponsePtrOutput)
+}
+
+// Change enumeration activity
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) Activity() CloudEndpointChangeEnumerationActivityResponseOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationStatusResponse) CloudEndpointChangeEnumerationActivityResponse {
+		return v.Activity
+	}).(CloudEndpointChangeEnumerationActivityResponseOutput)
+}
+
+// Status of last completed change enumeration
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) LastEnumerationStatus() CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationStatusResponse) CloudEndpointLastChangeEnumerationStatusResponse {
+		return v.LastEnumerationStatus
+	}).(CloudEndpointLastChangeEnumerationStatusResponseOutput)
+}
+
+// Last updated timestamp
+func (o CloudEndpointChangeEnumerationStatusResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointChangeEnumerationStatusResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+type CloudEndpointChangeEnumerationStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointChangeEnumerationStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) ToCloudEndpointChangeEnumerationStatusResponsePtrOutput() CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) ToCloudEndpointChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointChangeEnumerationStatusResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) Elem() CloudEndpointChangeEnumerationStatusResponseOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationStatusResponse) CloudEndpointChangeEnumerationStatusResponse {
+		return *v
+	}).(CloudEndpointChangeEnumerationStatusResponseOutput)
+}
+
+// Change enumeration activity
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) Activity() CloudEndpointChangeEnumerationActivityResponsePtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationStatusResponse) *CloudEndpointChangeEnumerationActivityResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Activity
+	}).(CloudEndpointChangeEnumerationActivityResponsePtrOutput)
+}
+
+// Status of last completed change enumeration
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) LastEnumerationStatus() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationStatusResponse) *CloudEndpointLastChangeEnumerationStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LastEnumerationStatus
+	}).(CloudEndpointLastChangeEnumerationStatusResponsePtrOutput)
+}
+
+// Last updated timestamp
+func (o CloudEndpointChangeEnumerationStatusResponsePtrOutput) LastUpdatedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointChangeEnumerationStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdatedTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointLastChangeEnumerationStatusResponse struct {
+	// Timestamp when change enumeration completed
+	CompletedTimestamp string `pulumi:"completedTimestamp"`
+	// Count of directories in the namespace
+	NamespaceDirectoriesCount float64 `pulumi:"namespaceDirectoriesCount"`
+	// Count of files in the namespace
+	NamespaceFilesCount float64 `pulumi:"namespaceFilesCount"`
+	// Namespace size in bytes
+	NamespaceSizeBytes float64 `pulumi:"namespaceSizeBytes"`
+	// Timestamp of when change enumeration is expected to run again
+	NextRunTimestamp string `pulumi:"nextRunTimestamp"`
+	// Timestamp when change enumeration started
+	StartedTimestamp string `pulumi:"startedTimestamp"`
+}
+
+// CloudEndpointLastChangeEnumerationStatusResponseInput is an input type that accepts CloudEndpointLastChangeEnumerationStatusResponseArgs and CloudEndpointLastChangeEnumerationStatusResponseOutput values.
+// You can construct a concrete instance of `CloudEndpointLastChangeEnumerationStatusResponseInput` via:
+//
+//          CloudEndpointLastChangeEnumerationStatusResponseArgs{...}
+type CloudEndpointLastChangeEnumerationStatusResponseInput interface {
+	pulumi.Input
+
+	ToCloudEndpointLastChangeEnumerationStatusResponseOutput() CloudEndpointLastChangeEnumerationStatusResponseOutput
+	ToCloudEndpointLastChangeEnumerationStatusResponseOutputWithContext(context.Context) CloudEndpointLastChangeEnumerationStatusResponseOutput
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointLastChangeEnumerationStatusResponseArgs struct {
+	// Timestamp when change enumeration completed
+	CompletedTimestamp pulumi.StringInput `pulumi:"completedTimestamp"`
+	// Count of directories in the namespace
+	NamespaceDirectoriesCount pulumi.Float64Input `pulumi:"namespaceDirectoriesCount"`
+	// Count of files in the namespace
+	NamespaceFilesCount pulumi.Float64Input `pulumi:"namespaceFilesCount"`
+	// Namespace size in bytes
+	NamespaceSizeBytes pulumi.Float64Input `pulumi:"namespaceSizeBytes"`
+	// Timestamp of when change enumeration is expected to run again
+	NextRunTimestamp pulumi.StringInput `pulumi:"nextRunTimestamp"`
+	// Timestamp when change enumeration started
+	StartedTimestamp pulumi.StringInput `pulumi:"startedTimestamp"`
+}
+
+func (CloudEndpointLastChangeEnumerationStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointLastChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (i CloudEndpointLastChangeEnumerationStatusResponseArgs) ToCloudEndpointLastChangeEnumerationStatusResponseOutput() CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return i.ToCloudEndpointLastChangeEnumerationStatusResponseOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointLastChangeEnumerationStatusResponseArgs) ToCloudEndpointLastChangeEnumerationStatusResponseOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointLastChangeEnumerationStatusResponseOutput)
+}
+
+func (i CloudEndpointLastChangeEnumerationStatusResponseArgs) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutput() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return i.ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudEndpointLastChangeEnumerationStatusResponseArgs) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointLastChangeEnumerationStatusResponseOutput).ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(ctx)
+}
+
+// CloudEndpointLastChangeEnumerationStatusResponsePtrInput is an input type that accepts CloudEndpointLastChangeEnumerationStatusResponseArgs, CloudEndpointLastChangeEnumerationStatusResponsePtr and CloudEndpointLastChangeEnumerationStatusResponsePtrOutput values.
+// You can construct a concrete instance of `CloudEndpointLastChangeEnumerationStatusResponsePtrInput` via:
+//
+//          CloudEndpointLastChangeEnumerationStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudEndpointLastChangeEnumerationStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutput() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput
+	ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(context.Context) CloudEndpointLastChangeEnumerationStatusResponsePtrOutput
+}
+
+type cloudEndpointLastChangeEnumerationStatusResponsePtrType CloudEndpointLastChangeEnumerationStatusResponseArgs
+
+func CloudEndpointLastChangeEnumerationStatusResponsePtr(v *CloudEndpointLastChangeEnumerationStatusResponseArgs) CloudEndpointLastChangeEnumerationStatusResponsePtrInput {
+	return (*cloudEndpointLastChangeEnumerationStatusResponsePtrType)(v)
+}
+
+func (*cloudEndpointLastChangeEnumerationStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointLastChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (i *cloudEndpointLastChangeEnumerationStatusResponsePtrType) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutput() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return i.ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudEndpointLastChangeEnumerationStatusResponsePtrType) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointLastChangeEnumerationStatusResponsePtrOutput)
+}
+
+// Cloud endpoint change enumeration status object
+type CloudEndpointLastChangeEnumerationStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointLastChangeEnumerationStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudEndpointLastChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) ToCloudEndpointLastChangeEnumerationStatusResponseOutput() CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return o
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) ToCloudEndpointLastChangeEnumerationStatusResponseOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return o
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutput() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return o.ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) *CloudEndpointLastChangeEnumerationStatusResponse {
+		return &v
+	}).(CloudEndpointLastChangeEnumerationStatusResponsePtrOutput)
+}
+
+// Timestamp when change enumeration completed
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) CompletedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) string { return v.CompletedTimestamp }).(pulumi.StringOutput)
+}
+
+// Count of directories in the namespace
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) NamespaceDirectoriesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) float64 { return v.NamespaceDirectoriesCount }).(pulumi.Float64Output)
+}
+
+// Count of files in the namespace
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) NamespaceFilesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) float64 { return v.NamespaceFilesCount }).(pulumi.Float64Output)
+}
+
+// Namespace size in bytes
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) NamespaceSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) float64 { return v.NamespaceSizeBytes }).(pulumi.Float64Output)
+}
+
+// Timestamp of when change enumeration is expected to run again
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) NextRunTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) string { return v.NextRunTimestamp }).(pulumi.StringOutput)
+}
+
+// Timestamp when change enumeration started
+func (o CloudEndpointLastChangeEnumerationStatusResponseOutput) StartedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudEndpointLastChangeEnumerationStatusResponse) string { return v.StartedTimestamp }).(pulumi.StringOutput)
+}
+
+type CloudEndpointLastChangeEnumerationStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudEndpointLastChangeEnumerationStatusResponse)(nil)).Elem()
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutput() CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) ToCloudEndpointLastChangeEnumerationStatusResponsePtrOutputWithContext(ctx context.Context) CloudEndpointLastChangeEnumerationStatusResponsePtrOutput {
+	return o
+}
+
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) Elem() CloudEndpointLastChangeEnumerationStatusResponseOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) CloudEndpointLastChangeEnumerationStatusResponse {
+		return *v
+	}).(CloudEndpointLastChangeEnumerationStatusResponseOutput)
+}
+
+// Timestamp when change enumeration completed
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) CompletedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CompletedTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Count of directories in the namespace
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) NamespaceDirectoriesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.NamespaceDirectoriesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Count of files in the namespace
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) NamespaceFilesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.NamespaceFilesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Namespace size in bytes
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) NamespaceSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.NamespaceSizeBytes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Timestamp of when change enumeration is expected to run again
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) NextRunTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NextRunTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when change enumeration started
+func (o CloudEndpointLastChangeEnumerationStatusResponsePtrOutput) StartedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpointLastChangeEnumerationStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartedTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
 // Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponse struct {
 	// Count of bytes that were served from the local server
@@ -1671,6 +2444,8 @@ type ServerEndpointBackgroundDataDownloadActivityResponse struct {
 	DownloadedBytes float64 `pulumi:"downloadedBytes"`
 	// Progress percentage
 	PercentProgress int `pulumi:"percentProgress"`
+	// Timestamp when the operation started
+	StartedTimestamp string `pulumi:"startedTimestamp"`
 	// Timestamp when properties were updated
 	Timestamp string `pulumi:"timestamp"`
 }
@@ -1692,6 +2467,8 @@ type ServerEndpointBackgroundDataDownloadActivityResponseArgs struct {
 	DownloadedBytes pulumi.Float64Input `pulumi:"downloadedBytes"`
 	// Progress percentage
 	PercentProgress pulumi.IntInput `pulumi:"percentProgress"`
+	// Timestamp when the operation started
+	StartedTimestamp pulumi.StringInput `pulumi:"startedTimestamp"`
 	// Timestamp when properties were updated
 	Timestamp pulumi.StringInput `pulumi:"timestamp"`
 }
@@ -1784,6 +2561,11 @@ func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) PercentProgr
 	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) int { return v.PercentProgress }).(pulumi.IntOutput)
 }
 
+// Timestamp when the operation started
+func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) StartedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) string { return v.StartedTimestamp }).(pulumi.StringOutput)
+}
+
 // Timestamp when properties were updated
 func (o ServerEndpointBackgroundDataDownloadActivityResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerEndpointBackgroundDataDownloadActivityResponse) string { return v.Timestamp }).(pulumi.StringOutput)
@@ -1827,6 +2609,16 @@ func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) PercentPr
 		}
 		return &v.PercentProgress
 	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when the operation started
+func (o ServerEndpointBackgroundDataDownloadActivityResponsePtrOutput) StartedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointBackgroundDataDownloadActivityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartedTimestamp
+	}).(pulumi.StringPtrOutput)
 }
 
 // Timestamp when properties were updated
@@ -2561,6 +3353,8 @@ type ServerEndpointSyncActivityStatusResponse struct {
 	AppliedItemCount float64 `pulumi:"appliedItemCount"`
 	// Per item error count
 	PerItemErrorCount float64 `pulumi:"perItemErrorCount"`
+	// Session minutes remaining (if available)
+	SessionMinutesRemaining int `pulumi:"sessionMinutesRemaining"`
 	// Sync mode
 	SyncMode string `pulumi:"syncMode"`
 	// Timestamp when properties were updated
@@ -2590,6 +3384,8 @@ type ServerEndpointSyncActivityStatusResponseArgs struct {
 	AppliedItemCount pulumi.Float64Input `pulumi:"appliedItemCount"`
 	// Per item error count
 	PerItemErrorCount pulumi.Float64Input `pulumi:"perItemErrorCount"`
+	// Session minutes remaining (if available)
+	SessionMinutesRemaining pulumi.IntInput `pulumi:"sessionMinutesRemaining"`
 	// Sync mode
 	SyncMode pulumi.StringInput `pulumi:"syncMode"`
 	// Timestamp when properties were updated
@@ -2693,6 +3489,11 @@ func (o ServerEndpointSyncActivityStatusResponseOutput) PerItemErrorCount() pulu
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) float64 { return v.PerItemErrorCount }).(pulumi.Float64Output)
 }
 
+// Session minutes remaining (if available)
+func (o ServerEndpointSyncActivityStatusResponseOutput) SessionMinutesRemaining() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) int { return v.SessionMinutesRemaining }).(pulumi.IntOutput)
+}
+
 // Sync mode
 func (o ServerEndpointSyncActivityStatusResponseOutput) SyncMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) string { return v.SyncMode }).(pulumi.StringOutput)
@@ -2759,6 +3560,16 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) PerItemErrorCount() p
 		}
 		return &v.PerItemErrorCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Session minutes remaining (if available)
+func (o ServerEndpointSyncActivityStatusResponsePtrOutput) SessionMinutesRemaining() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionMinutesRemaining
+	}).(pulumi.IntPtrOutput)
 }
 
 // Sync mode
@@ -3424,6 +4235,12 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) UploadStatus() ServerEndpoint
 }
 
 func init() {
+	pulumi.RegisterOutputType(CloudEndpointChangeEnumerationActivityResponseOutput{})
+	pulumi.RegisterOutputType(CloudEndpointChangeEnumerationActivityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudEndpointChangeEnumerationStatusResponseOutput{})
+	pulumi.RegisterOutputType(CloudEndpointChangeEnumerationStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudEndpointLastChangeEnumerationStatusResponseOutput{})
+	pulumi.RegisterOutputType(CloudEndpointLastChangeEnumerationStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudTieringCachePerformanceResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringCachePerformanceResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudTieringDatePolicyStatusResponseOutput{})

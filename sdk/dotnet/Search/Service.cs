@@ -148,6 +148,8 @@ namespace Pulumi.AzureNative.Search
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20210401preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

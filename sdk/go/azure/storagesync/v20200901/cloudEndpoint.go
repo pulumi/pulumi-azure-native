@@ -19,6 +19,8 @@ type CloudEndpoint struct {
 	AzureFileShareName pulumi.StringPtrOutput `pulumi:"azureFileShareName"`
 	// Backup Enabled
 	BackupEnabled pulumi.StringOutput `pulumi:"backupEnabled"`
+	// Cloud endpoint change enumeration status
+	ChangeEnumerationStatus CloudEndpointChangeEnumerationStatusResponseOutput `pulumi:"changeEnumerationStatus"`
 	// Friendly Name
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Resource Last Operation Name
@@ -147,6 +149,8 @@ type cloudEndpointState struct {
 	AzureFileShareName *string `pulumi:"azureFileShareName"`
 	// Backup Enabled
 	BackupEnabled *string `pulumi:"backupEnabled"`
+	// Cloud endpoint change enumeration status
+	ChangeEnumerationStatus *CloudEndpointChangeEnumerationStatusResponse `pulumi:"changeEnumerationStatus"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Resource Last Operation Name
@@ -172,6 +176,8 @@ type CloudEndpointState struct {
 	AzureFileShareName pulumi.StringPtrInput
 	// Backup Enabled
 	BackupEnabled pulumi.StringPtrInput
+	// Cloud endpoint change enumeration status
+	ChangeEnumerationStatus CloudEndpointChangeEnumerationStatusResponsePtrInput
 	// Friendly Name
 	FriendlyName pulumi.StringPtrInput
 	// Resource Last Operation Name
