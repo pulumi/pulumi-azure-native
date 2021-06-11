@@ -19,3 +19,15 @@ export const KeySource = {
  * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
  */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const PrivateLinkServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status of a private endpoint connection
+ */
+export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];

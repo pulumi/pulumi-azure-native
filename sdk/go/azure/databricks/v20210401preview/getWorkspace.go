@@ -44,8 +44,14 @@ type LookupWorkspaceResult struct {
 	Name string `pulumi:"name"`
 	// The workspace's custom parameters.
 	Parameters *WorkspaceCustomParametersResponse `pulumi:"parameters"`
+	// Private endpoint connections created on the workspace
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The workspace provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules *string `pulumi:"requiredNsgRules"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The details of Managed Identity of Storage Account

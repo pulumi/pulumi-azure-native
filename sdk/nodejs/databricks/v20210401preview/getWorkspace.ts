@@ -74,9 +74,21 @@ export interface GetWorkspaceResult {
      */
     readonly parameters?: outputs.databricks.v20210401preview.WorkspaceCustomParametersResponse;
     /**
+     * Private endpoint connections created on the workspace
+     */
+    readonly privateEndpointConnections: outputs.databricks.v20210401preview.PrivateEndpointConnectionResponse[];
+    /**
      * The workspace provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     */
+    readonly requiredNsgRules?: string;
     /**
      * The SKU of the resource.
      */

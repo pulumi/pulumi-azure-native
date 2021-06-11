@@ -3,7 +3,13 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Resources
+
+- `databricks.PrivateEndpointConnection`
+
+#### New Functions
+
+- `databricks.getPrivateEndpointConnection`
 
 ---
 

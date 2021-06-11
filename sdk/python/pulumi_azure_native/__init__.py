@@ -4207,6 +4207,7 @@ _utilities.register(
   "mod": "databricks",
   "fqn": "pulumi_azure_native.databricks",
   "classes": {
+   "azure-native:databricks:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks:Workspace": "Workspace",
    "azure-native:databricks:vNetPeering": "VNetPeering"
   }
@@ -4225,6 +4226,7 @@ _utilities.register(
   "mod": "databricks/v20210401preview",
   "fqn": "pulumi_azure_native.databricks.v20210401preview",
   "classes": {
+   "azure-native:databricks/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks/v20210401preview:Workspace": "Workspace"
   }
  },

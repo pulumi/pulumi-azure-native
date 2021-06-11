@@ -68,9 +68,21 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.databricks.v20210401preview.WorkspaceCustomParametersResponse | undefined>;
     /**
+     * Private endpoint connections created on the workspace
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.databricks.v20210401preview.PrivateEndpointConnectionResponse[]>;
+    /**
      * The workspace provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     */
+    public readonly requiredNsgRules!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the resource.
      */
@@ -130,6 +142,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["requiredNsgRules"] = args ? args.requiredNsgRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -138,6 +152,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["createdBy"] = undefined /*out*/;
             inputs["createdDateTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["storageAccountIdentity"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -154,7 +169,10 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedResourceGroupId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["parameters"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["requiredNsgRules"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["storageAccountIdentity"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -198,6 +216,14 @@ export interface WorkspaceArgs {
      * The workspace's custom parameters.
      */
     parameters?: pulumi.Input<inputs.databricks.v20210401preview.WorkspaceCustomParametersArgs>;
+    /**
+     * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.databricks.v20210401preview.PublicNetworkAccess>;
+    /**
+     * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+     */
+    requiredNsgRules?: pulumi.Input<string | enums.databricks.v20210401preview.RequiredNsgRules>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

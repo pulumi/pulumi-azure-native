@@ -31,8 +31,14 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The workspace's custom parameters.
 	Parameters WorkspaceCustomParametersResponsePtrOutput `pulumi:"parameters"`
+	// Private endpoint connections created on the workspace
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The workspace provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules pulumi.StringPtrOutput `pulumi:"requiredNsgRules"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The details of Managed Identity of Storage Account
@@ -122,8 +128,14 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// The workspace's custom parameters.
 	Parameters *WorkspaceCustomParametersResponse `pulumi:"parameters"`
+	// Private endpoint connections created on the workspace
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The workspace provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules *string `pulumi:"requiredNsgRules"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The details of Managed Identity of Storage Account
@@ -161,8 +173,14 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The workspace's custom parameters.
 	Parameters WorkspaceCustomParametersResponsePtrInput
+	// Private endpoint connections created on the workspace
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// The workspace provisioning state.
 	ProvisioningState pulumi.StringPtrInput
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess pulumi.StringPtrInput
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules pulumi.StringPtrInput
 	// The SKU of the resource.
 	Sku SkuResponsePtrInput
 	// The details of Managed Identity of Storage Account
@@ -198,6 +216,10 @@ type workspaceArgs struct {
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// The workspace's custom parameters.
 	Parameters *WorkspaceCustomParameters `pulumi:"parameters"`
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules *string `pulumi:"requiredNsgRules"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
@@ -222,6 +244,10 @@ type WorkspaceArgs struct {
 	ManagedResourceGroupId pulumi.StringInput
 	// The workspace's custom parameters.
 	Parameters WorkspaceCustomParametersPtrInput
+	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+	PublicNetworkAccess pulumi.StringPtrInput
+	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+	RequiredNsgRules pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.

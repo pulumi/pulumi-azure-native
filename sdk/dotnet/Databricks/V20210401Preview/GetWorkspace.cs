@@ -79,9 +79,21 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
         /// </summary>
         public readonly Outputs.WorkspaceCustomParametersResponse? Parameters;
         /// <summary>
+        /// Private endpoint connections created on the workspace
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The workspace provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+        /// </summary>
+        public readonly string? RequiredNsgRules;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -139,7 +151,13 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
 
             Outputs.WorkspaceCustomParametersResponse? parameters,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
+
+            string? requiredNsgRules,
 
             Outputs.SkuResponse? sku,
 
@@ -168,7 +186,10 @@ namespace Pulumi.AzureNative.Databricks.V20210401Preview
             ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
             Parameters = parameters;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            RequiredNsgRules = requiredNsgRules;
             Sku = sku;
             StorageAccountIdentity = storageAccountIdentity;
             SystemData = systemData;

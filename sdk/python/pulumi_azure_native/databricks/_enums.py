@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'KeySource',
+    'PrivateLinkServiceConnectionStatus',
 ]
 
 
@@ -15,3 +16,13 @@ class KeySource(str, Enum):
     """
     DEFAULT = "Default"
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+
+
+class PrivateLinkServiceConnectionStatus(str, Enum):
+    """
+    The status of a private endpoint connection
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"

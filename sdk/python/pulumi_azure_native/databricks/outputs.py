@@ -15,6 +15,9 @@ __all__ = [
     'CreatedByResponse',
     'EncryptionResponse',
     'ManagedIdentityConfigurationResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'SkuResponse',
     'VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork',
     'VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork',
@@ -272,6 +275,157 @@ class ManagedIdentityConfigurationResponse(dict):
         The type of Identity created. It can be either SystemAssigned or UserAssigned.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    The properties of a private endpoint connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The properties of a private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private endpoint connection state
+        :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        Private endpoint connection state
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        Private endpoint
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint property of a private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The private endpoint property of a private endpoint connection
+        :param str id: The resource identifier.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    The current state of a private endpoint connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionRequired":
+            suggest = "action_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 action_required: Optional[str] = None,
+                 description: Optional[str] = None):
+        """
+        The current state of a private endpoint connection
+        :param str status: The status of a private endpoint connection
+        :param str action_required: Actions required for a private endpoint connection
+        :param str description: The description for the current state of a private endpoint connection
+        """
+        pulumi.set(__self__, "status", status)
+        if action_required is not None:
+            pulumi.set(__self__, "action_required", action_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of a private endpoint connection
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="actionRequired")
+    def action_required(self) -> Optional[str]:
+        """
+        Actions required for a private endpoint connection
+        """
+        return pulumi.get(self, "action_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for the current state of a private endpoint connection
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
