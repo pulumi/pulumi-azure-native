@@ -2879,7 +2879,9 @@
           "UAE North",
           "UAE Central",
           "Norway East",
-          "Norway West"
+          "Norway West",
+          "West US 3",
+          "Australia Central 2"
         ],
         "properties": null,
         "resourceType": "managedClusters",
@@ -3000,6 +3002,8 @@
           "South Africa North",
           "Brazil South",
           "Brazil Southeast",
+          "Australia Central 2",
+          "West US 3",
           "Germany North",
           "Germany West Central",
           "Switzerland North",
@@ -3054,6 +3058,8 @@
           "South Africa North",
           "Brazil South",
           "Brazil Southeast",
+          "Australia Central 2",
+          "West US 3",
           "Germany North",
           "Germany West Central",
           "Switzerland North",
@@ -3145,6 +3151,8 @@
           "South Africa North",
           "Brazil South",
           "Brazil Southeast",
+          "Australia Central 2",
+          "West US 3",
           "Germany North",
           "Germany West Central",
           "Switzerland North",
@@ -3199,6 +3207,8 @@
           "South Africa North",
           "Brazil South",
           "Brazil Southeast",
+          "Australia Central 2",
+          "West US 3",
           "Germany North",
           "Germany West Central",
           "Switzerland North",
@@ -13484,7 +13494,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices",
@@ -13563,7 +13574,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/assets",
@@ -13618,7 +13630,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/contentKeyPolicies",
@@ -13673,7 +13686,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/streamingLocators",
@@ -13728,7 +13742,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/streamingPolicies",
@@ -13780,7 +13795,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/eventGridFilters",
@@ -13835,7 +13851,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/transforms",
@@ -13890,7 +13907,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/transforms/jobs",
@@ -13946,7 +13964,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/streamingEndpoints",
@@ -14002,7 +14021,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/liveEvents",
@@ -14058,7 +14078,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/liveEvents/liveOutputs",
@@ -14114,7 +14135,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/streamingEndpointOperations",
@@ -14170,7 +14192,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/liveEventOperations",
@@ -14226,7 +14249,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/liveOutputOperations",
@@ -14279,7 +14303,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/assets/assetFilters",
@@ -14332,7 +14357,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "mediaservices/accountFilters",
@@ -14520,7 +14546,8 @@
           "Germany North",
           "Switzerland West",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability",
@@ -15543,11 +15570,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -15800,11 +15823,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -16003,11 +16022,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -17078,11 +17093,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -18050,11 +18061,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -22363,11 +22370,7 @@
           },
           {
             "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
+            "zones": []
           },
           {
             "location": "Norway East",
@@ -25954,6 +25957,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26008,6 +26012,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26061,6 +26066,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26114,6 +26120,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -26167,6 +26174,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-09-30",
           "2019-12-01",
           "2019-07-01",
@@ -42324,16 +42332,23 @@
         "locationMappings": null,
         "locations": [
           "Australia East",
+          "Australia Southeast",
           "Brazil South",
           "Canada Central",
           "Central US",
           "East US",
           "East US 2",
           "France Central",
+          "Korea Central",
           "Japan East",
           "North Europe",
+          "Norway East",
+          "South Africa North",
           "Southeast Asia",
+          "Switzerland North",
+          "UAE North",
           "UK South",
+          "West US",
           "West US 2",
           "West Europe"
         ],
@@ -42429,6 +42444,10 @@
             ]
           },
           {
+            "location": "South Africa North",
+            "zones": []
+          },
+          {
             "location": "Canada Central",
             "zones": [
               "2",
@@ -42443,6 +42462,14 @@
               "3",
               "1"
             ]
+          },
+          {
+            "location": "Korea Central",
+            "zones": []
+          },
+          {
+            "location": "Norway East",
+            "zones": []
           }
         ]
       },
@@ -42469,11 +42496,13 @@
           "Germany West Central",
           "Japan East",
           "Japan West",
+          "Korea Central",
           "North Europe",
           "Norway East",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
+          "Switzerland North",
           "UAE North",
           "UK South",
           "West Europe",
@@ -42507,11 +42536,13 @@
           "Germany West Central",
           "Japan East",
           "Japan West",
+          "Korea Central",
           "North Europe",
           "Norway East",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
+          "Switzerland North",
           "UAE North",
           "UK South",
           "West Europe",
@@ -43003,12 +43034,14 @@
           "Germany West Central",
           "Japan West",
           "Japan East",
+          "Korea Central",
           "North Central US",
           "North Europe",
           "Norway East",
           "South Africa North",
           "South Central US",
           "Southeast Asia",
+          "Switzerland North",
           "UAE North",
           "UK South",
           "West Europe",
@@ -60247,6 +60280,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01",
           "2021-03-01-preview",
           "2020-01-01",
           "2019-01-01-preview"
@@ -60478,6 +60512,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01",
           "2021-03-01-preview",
           "2020-01-01",
           "2019-01-01-preview"
@@ -76287,6 +76322,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-13-preview",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -76303,6 +76339,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-13-preview",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -76310,7 +76347,8 @@
         "locationMappings": null,
         "locations": [
           "East US 2 EUAP",
-          "East US"
+          "East US",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "Locations/operationstatuses",
@@ -76320,17 +76358,32 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-13-preview",
           "2020-12-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East US 2 EUAP",
-          "East US"
+          "East US",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "Ledgers",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-05-13-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-05-13-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "checkNameAvailability",
         "zoneMappings": null
       }
     ]
@@ -81197,6 +81250,254 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
+    "authorizations": [],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Fidalgo",
+    "namespace": "Microsoft.Fidalgo",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP",
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "devcenters",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "devcenters/catalogs/items",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "devcenters/environmentTypes",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "projects",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "projects/environments",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "devcenters/catalogs",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "devcenters/mappings",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "projects/CatalogItems",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "projects/environmentTypes",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-06-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "West US",
+          "Southeast Asia",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "projects/environments/deployments",
         "zoneMappings": null
       }
     ]
