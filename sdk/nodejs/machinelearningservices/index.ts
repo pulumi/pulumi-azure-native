@@ -40,6 +40,7 @@ export * from "./getModelVersion";
 export * from "./getOnlineDeployment";
 export * from "./getOnlineDeploymentLogs";
 export * from "./getOnlineEndpoint";
+export * from "./getOnlineEndpointToken";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getWorkspaceConnection";

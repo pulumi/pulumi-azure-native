@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./getNamespace";
 export * from "./getNotificationHub";
+export * from "./getNotificationHubPnsCredentials";
 export * from "./listNamespaceKeys";
 export * from "./listNotificationHubKeys";
 export * from "./namespace";

@@ -30,10 +30,13 @@ export * from "./getComponentLinkedStorageAccount";
 export * from "./getDataCollectionEndpoint";
 export * from "./getDataCollectionRule";
 export * from "./getDataCollectionRuleAssociation";
+export * from "./getDiagnosticServiceTokenReadOnly";
+export * from "./getDiagnosticServiceTokenReadWrite";
 export * from "./getDiagnosticSetting";
 export * from "./getExportConfiguration";
 export * from "./getFavorite";
 export * from "./getGuestDiagnosticsSettingsAssociation";
+export * from "./getLiveToken";
 export * from "./getLogProfile";
 export * from "./getManagementGroupDiagnosticSetting";
 export * from "./getMetricAlert";
@@ -93,11 +96,13 @@ import * as v20200202preview from "./v20200202preview";
 import * as v20200210preview from "./v20200210preview";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200501preview from "./v20200501preview";
+import * as v20200602preview from "./v20200602preview";
 import * as v20201001 from "./v20201001";
 import * as v20201005preview from "./v20201005preview";
 import * as v20201020 from "./v20201020";
 import * as v20201120 from "./v20201120";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210303preview from "./v20210303preview";
 import * as v20210308 from "./v20210308";
 import * as v20210401 from "./v20210401";
 
@@ -125,11 +130,13 @@ export {
     v20200210preview,
     v20200301preview,
     v20200501preview,
+    v20200602preview,
     v20201001,
     v20201005preview,
     v20201020,
     v20201120,
     v20210201preview,
+    v20210303preview,
     v20210308,
     v20210401,
 };

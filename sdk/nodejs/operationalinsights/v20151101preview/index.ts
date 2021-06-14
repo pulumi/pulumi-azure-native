@@ -10,6 +10,7 @@ export * from "./getDataSource";
 export * from "./getLinkedService";
 export * from "./getMachineGroup";
 export * from "./getWorkspace";
+export * from "./getWorkspaceSharedKeys";
 export * from "./linkedService";
 export * from "./machineGroup";
 export * from "./workspace";

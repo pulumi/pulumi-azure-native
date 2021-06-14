@@ -58,6 +58,7 @@ export * from "./getTagByApi";
 export * from "./getTagByOperation";
 export * from "./getTagByProduct";
 export * from "./getUser";
+export * from "./getUserSharedAccessToken";
 export * from "./group";
 export * from "./groupUser";
 export * from "./identityProvider";

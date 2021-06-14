@@ -2,14 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
-import * as utilities from "../utilities";
+import { input as inputs, output as outputs, enums } from "../../types";
+import * as utilities from "../../utilities";
 
 /**
  * The shared keys for a workspace.
- * API Version: 2015-03-20.
  */
-export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+export function getSharedKeys(args: GetSharedKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedKeysResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,19 +16,19 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-native:operationalinsights:listWorkspaceKeys", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getSharedKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
-export interface ListWorkspaceKeysArgs {
+export interface GetSharedKeysArgs {
     /**
-     * The Resource Group name.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * The Log Analytics Workspace name.
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -37,7 +36,7 @@ export interface ListWorkspaceKeysArgs {
 /**
  * The shared keys for a workspace.
  */
-export interface ListWorkspaceKeysResult {
+export interface GetSharedKeysResult {
     /**
      * The primary shared key of a workspace.
      */

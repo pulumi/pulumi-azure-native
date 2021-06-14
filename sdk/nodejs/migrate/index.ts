@@ -15,6 +15,7 @@ export * from "./getMoveCollection";
 export * from "./getMoveResource";
 export * from "./getPrivateEndpointConnection";
 export * from "./getProject";
+export * from "./getProjectKeys";
 export * from "./getServerCollector";
 export * from "./getSolution";
 export * from "./getSolutionConfig";
