@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The max size of the database expressed in bytes.
-        /// </summary>
-        [Output("maxSizeBytes")]
-        public Output<double?> MaxSizeBytes { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -135,12 +129,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The max size of the database expressed in bytes.
-        /// </summary>
-        [Input("maxSizeBytes")]
-        public Input<double>? MaxSizeBytes { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

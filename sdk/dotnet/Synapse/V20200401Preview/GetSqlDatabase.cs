@@ -65,10 +65,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The max size of the database expressed in bytes.
-        /// </summary>
-        public readonly double? MaxSizeBytes;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -103,8 +99,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 
             string location,
 
-            double? maxSizeBytes,
-
             string name,
 
             string status,
@@ -121,7 +115,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
             DatabaseGuid = databaseGuid;
             Id = id;
             Location = location;
-            MaxSizeBytes = maxSizeBytes;
             Name = name;
             Status = status;
             StorageRedundancy = storageRedundancy;

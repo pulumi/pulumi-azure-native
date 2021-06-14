@@ -48,10 +48,6 @@ export class SqlDatabase extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The max size of the database expressed in bytes.
-     */
-    public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -95,7 +91,6 @@ export class SqlDatabase extends pulumi.CustomResource {
             }
             inputs["collation"] = args ? args.collation : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlDatabaseName"] = args ? args.sqlDatabaseName : undefined;
             inputs["storageRedundancy"] = args ? args.storageRedundancy : undefined;
@@ -110,7 +105,6 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["collation"] = undefined /*out*/;
             inputs["databaseGuid"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageRedundancy"] = undefined /*out*/;
@@ -139,10 +133,6 @@ export interface SqlDatabaseArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The max size of the database expressed in bytes.
-     */
-    maxSizeBytes?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -59,10 +59,6 @@ export interface GetSqlDatabaseResult {
      */
     readonly location: string;
     /**
-     * The max size of the database expressed in bytes.
-     */
-    readonly maxSizeBytes?: number;
-    /**
      * The name of the resource
      */
     readonly name: string;

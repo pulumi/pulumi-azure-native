@@ -979,7 +979,7 @@ namespace Pulumi.AzureNative.Compute.V20210301
     }
 
     /// <summary>
-    /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
     /// </summary>
     [EnumType]
     public readonly struct StorageAccountTypes : IEquatable<StorageAccountTypes>

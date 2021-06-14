@@ -14763,7 +14763,7 @@ type ManagedDiskParameters struct {
 	DiskEncryptionSet *DiskEncryptionSetParameters `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -14784,7 +14784,7 @@ type ManagedDiskParametersArgs struct {
 	DiskEncryptionSet DiskEncryptionSetParametersPtrInput `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -14876,7 +14876,7 @@ func (o ManagedDiskParametersOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParameters) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParameters) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -14919,7 +14919,7 @@ func (o ManagedDiskParametersPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskParameters) *string {
 		if v == nil {
@@ -14935,7 +14935,7 @@ type ManagedDiskParametersResponse struct {
 	DiskEncryptionSet *DiskEncryptionSetParametersResponse `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -14956,7 +14956,7 @@ type ManagedDiskParametersResponseArgs struct {
 	DiskEncryptionSet DiskEncryptionSetParametersResponsePtrInput `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -15048,7 +15048,7 @@ func (o ManagedDiskParametersResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParametersResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParametersResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -15091,7 +15091,7 @@ func (o ManagedDiskParametersResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskParametersResponse) *string {
 		if v == nil {

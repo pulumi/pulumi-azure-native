@@ -2560,7 +2560,7 @@ class ManagedDiskParametersResponse(dict):
         The parameters of a managed disk.
         :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed disk.
         :param str id: Resource Id
-        :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        :param str storage_account_type: Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
         if disk_encryption_set is not None:
             pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
@@ -2589,7 +2589,7 @@ class ManagedDiskParametersResponse(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[str]:
         """
-        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
         return pulumi.get(self, "storage_account_type")
 

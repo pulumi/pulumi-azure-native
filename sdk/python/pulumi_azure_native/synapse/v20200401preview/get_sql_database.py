@@ -20,7 +20,7 @@ class GetSqlDatabaseResult:
     """
     A sql database resource.
     """
-    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, max_size_bytes=None, name=None, status=None, storage_redundancy=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, name=None, status=None, storage_redundancy=None, system_data=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -33,9 +33,6 @@ class GetSqlDatabaseResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_size_bytes and not isinstance(max_size_bytes, float):
-            raise TypeError("Expected argument 'max_size_bytes' to be a float")
-        pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -86,14 +83,6 @@ class GetSqlDatabaseResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[float]:
-        """
-        The max size of the database expressed in bytes.
-        """
-        return pulumi.get(self, "max_size_bytes")
 
     @property
     @pulumi.getter
@@ -154,7 +143,6 @@ class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
             database_guid=self.database_guid,
             id=self.id,
             location=self.location,
-            max_size_bytes=self.max_size_bytes,
             name=self.name,
             status=self.status,
             storage_redundancy=self.storage_redundancy,
@@ -190,7 +178,6 @@ def get_sql_database(resource_group_name: Optional[str] = None,
         database_guid=__ret__.database_guid,
         id=__ret__.id,
         location=__ret__.location,
-        max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,
         status=__ret__.status,
         storage_redundancy=__ret__.storage_redundancy,

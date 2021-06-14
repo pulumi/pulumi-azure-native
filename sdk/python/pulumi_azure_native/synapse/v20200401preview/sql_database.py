@@ -19,7 +19,6 @@ class SqlDatabaseArgs:
                  workspace_name: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
                  storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -29,7 +28,6 @@ class SqlDatabaseArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[str] sql_database_name: The name of the sql database.
         :param pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']] storage_redundancy: Storage redundancy of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -40,8 +38,6 @@ class SqlDatabaseArgs:
             pulumi.set(__self__, "collation", collation)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if max_size_bytes is not None:
-            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if sql_database_name is not None:
             pulumi.set(__self__, "sql_database_name", sql_database_name)
         if storage_redundancy is not None:
@@ -98,18 +94,6 @@ class SqlDatabaseArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[pulumi.Input[float]]:
-        """
-        The max size of the database expressed in bytes.
-        """
-        return pulumi.get(self, "max_size_bytes")
-
-    @max_size_bytes.setter
-    def max_size_bytes(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "max_size_bytes", value)
-
-    @property
     @pulumi.getter(name="sqlDatabaseName")
     def sql_database_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -153,7 +137,6 @@ class SqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
                  storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
@@ -167,7 +150,6 @@ class SqlDatabase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_database_name: The name of the sql database.
         :param pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']] storage_redundancy: Storage redundancy of the database.
@@ -200,7 +182,6 @@ class SqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_database_name: Optional[pulumi.Input[str]] = None,
                  storage_redundancy: Optional[pulumi.Input[Union[str, 'SqlDatabaseStorageRedundancyType']]] = None,
@@ -220,7 +201,6 @@ class SqlDatabase(pulumi.CustomResource):
 
             __props__.__dict__["collation"] = collation
             __props__.__dict__["location"] = location
-            __props__.__dict__["max_size_bytes"] = max_size_bytes
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -262,7 +242,6 @@ class SqlDatabase(pulumi.CustomResource):
         __props__.__dict__["collation"] = None
         __props__.__dict__["database_guid"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["max_size_bytes"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_redundancy"] = None
@@ -294,14 +273,6 @@ class SqlDatabase(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
-        """
-        The max size of the database expressed in bytes.
-        """
-        return pulumi.get(self, "max_size_bytes")
 
     @property
     @pulumi.getter
