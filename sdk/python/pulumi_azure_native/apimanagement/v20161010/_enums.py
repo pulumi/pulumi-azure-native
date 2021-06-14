@@ -14,6 +14,7 @@ __all__ = [
     'GroupTypeContract',
     'HostnameType',
     'IdentityProviderNameType',
+    'KeyTypeContract',
     'LoggerTypeContract',
     'MethodContract',
     'ProductStateContract',
@@ -91,6 +92,14 @@ class IdentityProviderNameType(str, Enum):
     TWITTER = "twitter"
     AAD = "aad"
     AAD_B2_C = "aadB2C"
+
+
+class KeyTypeContract(str, Enum):
+    """
+    The Key to be used to generate token for user.
+    """
+    PRIMARY = "primary"
+    SECONDARY = "secondary"
 
 
 class LoggerTypeContract(str, Enum):

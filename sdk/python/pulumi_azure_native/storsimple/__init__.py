@@ -15,6 +15,7 @@ from .get_backup_policy import *
 from .get_backup_schedule import *
 from .get_bandwidth_setting import *
 from .get_manager import *
+from .get_manager_device_public_encryption_key import *
 from .get_manager_extended_info import *
 from .get_storage_account_credential import *
 from .get_volume import *

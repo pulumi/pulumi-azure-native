@@ -11,6 +11,7 @@ from .get_protected_item import *
 from .get_protection_container import *
 from .get_protection_intent import *
 from .get_protection_policy import *
+from .get_recovery_point_access_token import *
 from .get_replication_fabric import *
 from .get_replication_migration_item import *
 from .get_replication_network_mapping import *
@@ -51,6 +52,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.recoveryservices.v20170701 as v20170701
     import pulumi_azure_native.recoveryservices.v20180110 as v20180110
     import pulumi_azure_native.recoveryservices.v20180710 as v20180710
+    import pulumi_azure_native.recoveryservices.v20181220 as v20181220
     import pulumi_azure_native.recoveryservices.v20190513 as v20190513
     import pulumi_azure_native.recoveryservices.v20190615 as v20190615
     import pulumi_azure_native.recoveryservices.v20200202 as v20200202
@@ -69,6 +71,7 @@ else:
     v20170701 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20170701')
     v20180110 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20180110')
     v20180710 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20180710')
+    v20181220 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20181220')
     v20190513 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20190513')
     v20190615 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20190615')
     v20200202 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20200202')

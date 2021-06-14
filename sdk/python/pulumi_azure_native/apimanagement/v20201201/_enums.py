@@ -22,6 +22,7 @@ __all__ = [
     'HostnameType',
     'HttpCorrelationProtocol',
     'IdentityProviderType',
+    'KeyType',
     'LoggerType',
     'OperationNameFormat',
     'PolicyContentFormat',
@@ -188,6 +189,14 @@ class IdentityProviderType(str, Enum):
     TWITTER = "twitter"
     AAD = "aad"
     AAD_B2_C = "aadB2C"
+
+
+class KeyType(str, Enum):
+    """
+    The Key to be used to generate token for user.
+    """
+    PRIMARY = "primary"
+    SECONDARY = "secondary"
 
 
 class LoggerType(str, Enum):

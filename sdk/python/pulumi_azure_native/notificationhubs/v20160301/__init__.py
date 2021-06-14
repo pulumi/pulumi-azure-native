@@ -10,6 +10,7 @@ from .get_namespace import *
 from .get_namespace_authorization_rule import *
 from .get_notification_hub import *
 from .get_notification_hub_authorization_rule import *
+from .get_notification_hub_pns_credentials import *
 from .list_namespace_keys import *
 from .list_notification_hub_keys import *
 from .namespace import *
