@@ -74,6 +74,7 @@ from .get_tag_by_api import *
 from .get_tag_by_operation import *
 from .get_tag_by_product import *
 from .get_user import *
+from .get_user_shared_access_token import *
 from .group import *
 from .group_user import *
 from .identity_provider import *

@@ -14,6 +14,7 @@ export * from "./getBackupPolicy";
 export * from "./getBackupSchedule";
 export * from "./getBandwidthSetting";
 export * from "./getManager";
+export * from "./getManagerDevicePublicEncryptionKey";
 export * from "./getManagerExtendedInfo";
 export * from "./getStorageAccountCredential";
 export * from "./getVolume";

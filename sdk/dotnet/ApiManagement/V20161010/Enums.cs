@@ -284,6 +284,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20161010
     }
 
     /// <summary>
+    /// The Key to be used to generate token for user.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyTypeContract : IEquatable<KeyTypeContract>
+    {
+        private readonly string _value;
+
+        private KeyTypeContract(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyTypeContract Primary { get; } = new KeyTypeContract("primary");
+        public static KeyTypeContract Secondary { get; } = new KeyTypeContract("secondary");
+
+        public static bool operator ==(KeyTypeContract left, KeyTypeContract right) => left.Equals(right);
+        public static bool operator !=(KeyTypeContract left, KeyTypeContract right) => !left.Equals(right);
+
+        public static explicit operator string(KeyTypeContract value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyTypeContract other && Equals(other);
+        public bool Equals(KeyTypeContract other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Logger type.
     /// </summary>
     [EnumType]

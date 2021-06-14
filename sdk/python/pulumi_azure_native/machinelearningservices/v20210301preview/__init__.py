@@ -40,6 +40,7 @@ from .get_model_version import *
 from .get_online_deployment import *
 from .get_online_deployment_logs import *
 from .get_online_endpoint import *
+from .get_online_endpoint_token import *
 from .get_private_endpoint_connection import *
 from .get_workspace import *
 from .get_workspace_connection import *

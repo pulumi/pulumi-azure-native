@@ -9,7 +9,23 @@ CHANGELOG
 
 #### New Functions
 
+- `apimanagement.getUserSharedAccessToken`
 - `databricks.getPrivateEndpointConnection`
+- `insights.getDiagnosticServiceTokenReadOnly`
+- `insights.getDiagnosticServiceTokenReadWrite`
+- `insights.getLiveToken`
+- `machinelearningservices.getOnlineEndpointToken`
+- `migrate.getProjectKeys`
+- `notificationhubs.getNotificationHubPnsCredentials`
+- `operationalinsights.getSharedKeys`
+- `recoveryservices.getRecoveryPointAccessToken`
+- `storsimple.getManagerDevicePublicEncryptionKey`
+
+#### Removed Functions
+
+- `operationalinsights.listWorkspaceKeys` - this function was deprecated on
+  the Azure side, and the API doesn't work anymore. Use `operationalinsights.getSharedKeys`
+  instead. See [#882](https://github.com/pulumi/pulumi-azure-native/issues/882).
 
 ---
 

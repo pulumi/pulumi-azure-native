@@ -11,6 +11,7 @@ from .get_data_source import *
 from .get_linked_service import *
 from .get_machine_group import *
 from .get_workspace import *
+from .get_workspace_shared_keys import *
 from .linked_service import *
 from .machine_group import *
 from .workspace import *

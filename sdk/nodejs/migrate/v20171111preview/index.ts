@@ -9,6 +9,7 @@ export * from "./assessment";
 export * from "./getAssessment";
 export * from "./getGroup";
 export * from "./getProject";
+export * from "./getProjectKeys";
 export * from "./group";
 export * from "./project";
 

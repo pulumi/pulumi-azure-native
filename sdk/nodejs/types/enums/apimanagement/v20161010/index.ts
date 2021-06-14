@@ -89,6 +89,16 @@ export const IdentityProviderNameType = {
  */
 export type IdentityProviderNameType = (typeof IdentityProviderNameType)[keyof typeof IdentityProviderNameType];
 
+export const KeyTypeContract = {
+    Primary: "primary",
+    Secondary: "secondary",
+} as const;
+
+/**
+ * The Key to be used to generate token for user.
+ */
+export type KeyTypeContract = (typeof KeyTypeContract)[keyof typeof KeyTypeContract];
+
 export const LoggerTypeContract = {
     AzureEventHub: "AzureEventHub",
 } as const;

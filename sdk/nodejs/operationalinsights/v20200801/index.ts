@@ -14,6 +14,7 @@ export * from "./getDataSource";
 export * from "./getLinkedService";
 export * from "./getLinkedStorageAccount";
 export * from "./getSavedSearch";
+export * from "./getSharedKeys";
 export * from "./getStorageInsightConfig";
 export * from "./getWorkspace";
 export * from "./linkedService";

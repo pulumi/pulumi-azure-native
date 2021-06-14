@@ -7,41 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
-    public static class ListWorkspaceKeys
+    public static class GetWorkspaceSharedKeys
     {
         /// <summary>
         /// The shared keys for a workspace.
-        /// API Version: 2015-03-20.
         /// </summary>
-        public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:operationalinsights:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
+        public static Task<GetWorkspaceSharedKeysResult> InvokeAsync(GetWorkspaceSharedKeysArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSharedKeysResult>("azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys", args ?? new GetWorkspaceSharedKeysArgs(), options.WithVersion());
     }
 
 
-    public sealed class ListWorkspaceKeysArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceSharedKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Resource Group name.
+        /// The name of the resource group to get. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Log Analytics Workspace name.
+        /// Name of the Log Analytics Workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
-        public ListWorkspaceKeysArgs()
+        public GetWorkspaceSharedKeysArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class ListWorkspaceKeysResult
+    public sealed class GetWorkspaceSharedKeysResult
     {
         /// <summary>
         /// The primary shared key of a workspace.
@@ -53,7 +52,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public readonly string? SecondarySharedKey;
 
         [OutputConstructor]
-        private ListWorkspaceKeysResult(
+        private GetWorkspaceSharedKeysResult(
             string? primarySharedKey,
 
             string? secondarySharedKey)

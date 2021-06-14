@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
 export * from "./apiManagementService";
 export * from "./getApiManagementService";
 export * from "./getApiManagementServiceSsoToken";
+export * from "./getUserSharedAccessToken";
 
 // Export enums:
 export * from "../../types/enums/apimanagement/v20161010";

@@ -16,6 +16,7 @@ from .get_move_collection import *
 from .get_move_resource import *
 from .get_private_endpoint_connection import *
 from .get_project import *
+from .get_project_keys import *
 from .get_server_collector import *
 from .get_solution import *
 from .get_solution_config import *

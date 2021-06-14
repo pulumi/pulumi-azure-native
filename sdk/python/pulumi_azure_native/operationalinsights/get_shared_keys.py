@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ListWorkspaceKeysResult',
-    'AwaitableListWorkspaceKeysResult',
-    'list_workspace_keys',
+    'GetSharedKeysResult',
+    'AwaitableGetSharedKeysResult',
+    'get_shared_keys',
 ]
 
 @pulumi.output_type
-class ListWorkspaceKeysResult:
+class GetSharedKeysResult:
     """
     The shared keys for a workspace.
     """
@@ -44,26 +44,26 @@ class ListWorkspaceKeysResult:
         return pulumi.get(self, "secondary_shared_key")
 
 
-class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
+class AwaitableGetSharedKeysResult(GetSharedKeysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListWorkspaceKeysResult(
+        return GetSharedKeysResult(
             primary_shared_key=self.primary_shared_key,
             secondary_shared_key=self.secondary_shared_key)
 
 
-def list_workspace_keys(resource_group_name: Optional[str] = None,
-                        workspace_name: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
+def get_shared_keys(resource_group_name: Optional[str] = None,
+                    workspace_name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedKeysResult:
     """
     The shared keys for a workspace.
-    API Version: 2015-03-20.
+    API Version: 2020-08-01.
 
 
-    :param str resource_group_name: The Resource Group name.
-    :param str workspace_name: The Log Analytics Workspace name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -72,8 +72,8 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getSharedKeys', __args__, opts=opts, typ=GetSharedKeysResult).value
 
-    return AwaitableListWorkspaceKeysResult(
+    return AwaitableGetSharedKeysResult(
         primary_shared_key=__ret__.primary_shared_key,
         secondary_shared_key=__ret__.secondary_shared_key)

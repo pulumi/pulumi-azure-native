@@ -10,6 +10,7 @@ export * from "./getProtectedItem";
 export * from "./getProtectionContainer";
 export * from "./getProtectionIntent";
 export * from "./getProtectionPolicy";
+export * from "./getRecoveryPointAccessToken";
 export * from "./getReplicationFabric";
 export * from "./getReplicationMigrationItem";
 export * from "./getReplicationNetworkMapping";
@@ -50,6 +51,7 @@ import * as v20161201 from "./v20161201";
 import * as v20170701 from "./v20170701";
 import * as v20180110 from "./v20180110";
 import * as v20180710 from "./v20180710";
+import * as v20181220 from "./v20181220";
 import * as v20190513 from "./v20190513";
 import * as v20190615 from "./v20190615";
 import * as v20200202 from "./v20200202";
@@ -69,6 +71,7 @@ export {
     v20170701,
     v20180110,
     v20180710,
+    v20181220,
     v20190513,
     v20190615,
     v20200202,

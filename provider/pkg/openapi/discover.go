@@ -260,11 +260,22 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")
 		operationName := strings.ToLower(parts[len(parts)-1])
+		parts = strings.Split(pathItem.Post.OperationProps.ID, "_")
+		operationId := strings.ToLower(parts[len(parts)-1])
 		prefix := ""
 		switch {
 		case strings.HasPrefix(operationName, "list"):
 			prefix = "list"
 		case strings.HasPrefix(operationName, "get"):
+			prefix = "get"
+		case strings.HasPrefix(operationId, "get") && pathItem.Put == nil &&
+			(strings.Contains(operationName, "key") ||
+				strings.Contains(operationName, "token") ||
+				strings.Contains(operationName, "credential")):
+			// Operation ID-based selection is a bit tricky, so we apply the following heuristic:
+			// - Called according to the pattern `Foo_GetBar`,
+			// - It's not a resource (ensured by lack of a PUT operation),
+			// - It's about a key, a token, or credentials.
 			prefix = "get"
 		default:
 			return
@@ -298,6 +309,7 @@ var legacyPathMappings = map[string]string{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/sql/databases/{databaseName}/containers/{containerName}":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}",
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/table/tables/{tableName}":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tables/{tableName}",
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName}": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
+	"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/listKeys": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/sharedKeys",
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/appliances/{applianceName}": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}",
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applianceDefinitions/{applianceDefinitionName}": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applicationDefinitions/{applicationDefinitionName}",
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name}": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}",
