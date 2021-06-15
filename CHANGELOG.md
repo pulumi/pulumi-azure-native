@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.12.0 (2020-06-15)
+
 #### New Resources
 
 - `databricks.PrivateEndpointConnection`
@@ -27,7 +33,6 @@ CHANGELOG
   the Azure side, and the API doesn't work anymore. Use `operationalinsights.getSharedKeys`
   instead. See [#882](https://github.com/pulumi/pulumi-azure-native/issues/882).
 
----
 
 ## 1.11.0 (2020-06-09)
 
