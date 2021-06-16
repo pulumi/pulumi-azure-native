@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Outputs
         /// <summary>
         /// The setting of the content of markdown part.
         /// </summary>
-        public readonly Outputs.MarkdownPartMetadataResponseSettings? Settings;
+        public readonly Outputs.MarkdownPartMetadataResponseSettingsSettings? Settings;
 
         [OutputConstructor]
-        private MarkdownPartMetadataResponseContent(Outputs.MarkdownPartMetadataResponseSettings? settings)
+        private MarkdownPartMetadataResponseContent(Outputs.MarkdownPartMetadataResponseSettingsSettings? settings)
         {
             Settings = settings;
         }

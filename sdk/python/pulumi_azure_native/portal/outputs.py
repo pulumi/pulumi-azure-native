@@ -18,6 +18,7 @@ __all__ = [
     'MarkdownPartMetadataResponse',
     'MarkdownPartMetadataResponseContent',
     'MarkdownPartMetadataResponseSettings',
+    'MarkdownPartMetadataResponseSettingsSettings',
     'StorageProfileResponse',
     'TerminalSettingsResponse',
     'UserPropertiesResponse',
@@ -306,17 +307,17 @@ class MarkdownPartMetadataResponseContent(dict):
     The content of markdown part.
     """
     def __init__(__self__, *,
-                 settings: Optional['outputs.MarkdownPartMetadataResponseSettings'] = None):
+                 settings: Optional['outputs.MarkdownPartMetadataResponseSettingsSettings'] = None):
         """
         The content of markdown part.
-        :param 'MarkdownPartMetadataResponseSettings' settings: The setting of the content of markdown part.
+        :param 'MarkdownPartMetadataResponseSettingsSettings' settings: The setting of the content of markdown part.
         """
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional['outputs.MarkdownPartMetadataResponseSettings']:
+    def settings(self) -> Optional['outputs.MarkdownPartMetadataResponseSettingsSettings']:
         """
         The setting of the content of markdown part.
         """
@@ -344,6 +345,96 @@ class MarkdownPartMetadataResponseSettings(dict):
         The content of markdown part.
         """
         return pulumi.get(self, "content")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataResponseSettingsSettings(dict):
+    """
+    The setting of the content of markdown part.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "markdownSource":
+            suggest = "markdown_source"
+        elif key == "markdownUri":
+            suggest = "markdown_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarkdownPartMetadataResponseSettingsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarkdownPartMetadataResponseSettingsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarkdownPartMetadataResponseSettingsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[str] = None,
+                 markdown_source: Optional[int] = None,
+                 markdown_uri: Optional[str] = None,
+                 subtitle: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        The setting of the content of markdown part.
+        :param str content: The content of the markdown part.
+        :param int markdown_source: The source of the content of the markdown part.
+        :param str markdown_uri: The uri of markdown content.
+        :param str subtitle: The subtitle of the markdown part.
+        :param str title: The title of the markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if markdown_source is not None:
+            pulumi.set(__self__, "markdown_source", markdown_source)
+        if markdown_uri is not None:
+            pulumi.set(__self__, "markdown_uri", markdown_uri)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content of the markdown part.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="markdownSource")
+    def markdown_source(self) -> Optional[int]:
+        """
+        The source of the content of the markdown part.
+        """
+        return pulumi.get(self, "markdown_source")
+
+    @property
+    @pulumi.getter(name="markdownUri")
+    def markdown_uri(self) -> Optional[str]:
+        """
+        The uri of markdown content.
+        """
+        return pulumi.get(self, "markdown_uri")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        """
+        The subtitle of the markdown part.
+        """
+        return pulumi.get(self, "subtitle")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the markdown part.
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type
