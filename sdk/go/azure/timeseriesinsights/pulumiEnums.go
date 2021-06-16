@@ -122,6 +122,35 @@ func (e EventSourceKind) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+type IngressStartAtType pulumi.String
+
+const (
+	IngressStartAtTypeEarliestAvailable       = IngressStartAtType("EarliestAvailable")
+	IngressStartAtTypeEventSourceCreationTime = IngressStartAtType("EventSourceCreationTime")
+	IngressStartAtTypeCustomEnqueuedTime      = IngressStartAtType("CustomEnqueuedTime")
+)
+
+func (IngressStartAtType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IngressStartAtType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IngressStartAtType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IngressStartAtType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IngressStartAtType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // An enum that represents the format of the local timestamp property that needs to be set.
 type LocalTimestampFormat pulumi.String
 

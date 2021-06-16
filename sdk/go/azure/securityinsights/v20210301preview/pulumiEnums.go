@@ -10,6 +10,140 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Alert detail
+type AlertDetail pulumi.String
+
+const (
+	// Alert display name
+	AlertDetailDisplayName = AlertDetail("DisplayName")
+	// Alert severity
+	AlertDetailSeverity = AlertDetail("Severity")
+)
+
+func (AlertDetail) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AlertDetail) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertDetail) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertDetail) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertDetail) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The kind of the alert rule
+type AlertRuleKind pulumi.String
+
+const (
+	AlertRuleKindScheduled                         = AlertRuleKind("Scheduled")
+	AlertRuleKindMicrosoftSecurityIncidentCreation = AlertRuleKind("MicrosoftSecurityIncidentCreation")
+	AlertRuleKindFusion                            = AlertRuleKind("Fusion")
+	AlertRuleKindMLBehaviorAnalytics               = AlertRuleKind("MLBehaviorAnalytics")
+	AlertRuleKindThreatIntelligence                = AlertRuleKind("ThreatIntelligence")
+)
+
+func (AlertRuleKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AlertRuleKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertRuleKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertRuleKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertRuleKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The severity for alerts created by this alert rule.
+type AlertSeverity pulumi.String
+
+const (
+	// High severity
+	AlertSeverityHigh = AlertSeverity("High")
+	// Medium severity
+	AlertSeverityMedium = AlertSeverity("Medium")
+	// Low severity
+	AlertSeverityLow = AlertSeverity("Low")
+	// Informational severity
+	AlertSeverityInformational = AlertSeverity("Informational")
+)
+
+func (AlertSeverity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AlertSeverity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertSeverity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlertSeverity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlertSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The severity for alerts created by this alert rule.
+type AttackTactic pulumi.String
+
+const (
+	AttackTacticInitialAccess       = AttackTactic("InitialAccess")
+	AttackTacticExecution           = AttackTactic("Execution")
+	AttackTacticPersistence         = AttackTactic("Persistence")
+	AttackTacticPrivilegeEscalation = AttackTactic("PrivilegeEscalation")
+	AttackTacticDefenseEvasion      = AttackTactic("DefenseEvasion")
+	AttackTacticCredentialAccess    = AttackTactic("CredentialAccess")
+	AttackTacticDiscovery           = AttackTactic("Discovery")
+	AttackTacticLateralMovement     = AttackTactic("LateralMovement")
+	AttackTacticCollection          = AttackTactic("Collection")
+	AttackTacticExfiltration        = AttackTactic("Exfiltration")
+	AttackTacticCommandAndControl   = AttackTactic("CommandAndControl")
+	AttackTacticImpact              = AttackTactic("Impact")
+	AttackTacticPreAttack           = AttackTactic("PreAttack")
+)
+
+func (AttackTactic) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AttackTactic) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AttackTactic) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AttackTactic) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AttackTactic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // type of connectivity
 type ConnectivityType pulumi.String
 
@@ -160,6 +294,68 @@ func (e DataTypeState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The V3 type of the mapped entity
+type EntityMappingType pulumi.String
+
+const (
+	// User account entity type
+	EntityMappingTypeAccount = EntityMappingType("Account")
+	// Host entity type
+	EntityMappingTypeHost = EntityMappingType("Host")
+	// IP address entity type
+	EntityMappingTypeIP = EntityMappingType("IP")
+	// Malware entity type
+	EntityMappingTypeMalware = EntityMappingType("Malware")
+	// System file entity type
+	EntityMappingTypeFile = EntityMappingType("File")
+	// Process entity type
+	EntityMappingTypeProcess = EntityMappingType("Process")
+	// Cloud app entity type
+	EntityMappingTypeCloudApplication = EntityMappingType("CloudApplication")
+	// DNS entity type
+	EntityMappingTypeDNS = EntityMappingType("DNS")
+	// Azure resource entity type
+	EntityMappingTypeAzureResource = EntityMappingType("AzureResource")
+	// File-hash entity type
+	EntityMappingTypeFileHash = EntityMappingType("FileHash")
+	// Registry key entity type
+	EntityMappingTypeRegistryKey = EntityMappingType("RegistryKey")
+	// Registry value entity type
+	EntityMappingTypeRegistryValue = EntityMappingType("RegistryValue")
+	// Security group entity type
+	EntityMappingTypeSecurityGroup = EntityMappingType("SecurityGroup")
+	// URL entity type
+	EntityMappingTypeURL = EntityMappingType("URL")
+	// Mailbox entity type
+	EntityMappingTypeMailbox = EntityMappingType("Mailbox")
+	// Mail cluster entity type
+	EntityMappingTypeMailCluster = EntityMappingType("MailCluster")
+	// Mail message entity type
+	EntityMappingTypeMailMessage = EntityMappingType("MailMessage")
+	// Submission mail entity type
+	EntityMappingTypeSubmissionMail = EntityMappingType("SubmissionMail")
+)
+
+func (EntityMappingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EntityMappingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityMappingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityMappingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityMappingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of the query's source entity
 type EntityType pulumi.String
 
@@ -228,6 +424,168 @@ func (e EntityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The event grouping aggregation kinds
+type EventGroupingAggregationKind pulumi.String
+
+const (
+	EventGroupingAggregationKindSingleAlert    = EventGroupingAggregationKind("SingleAlert")
+	EventGroupingAggregationKindAlertPerResult = EventGroupingAggregationKind("AlertPerResult")
+)
+
+func (EventGroupingAggregationKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EventGroupingAggregationKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGroupingAggregationKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGroupingAggregationKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventGroupingAggregationKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The reason the incident was closed
+type IncidentClassification pulumi.String
+
+const (
+	// Incident classification was undetermined
+	IncidentClassificationUndetermined = IncidentClassification("Undetermined")
+	// Incident was true positive
+	IncidentClassificationTruePositive = IncidentClassification("TruePositive")
+	// Incident was benign positive
+	IncidentClassificationBenignPositive = IncidentClassification("BenignPositive")
+	// Incident was false positive
+	IncidentClassificationFalsePositive = IncidentClassification("FalsePositive")
+)
+
+func (IncidentClassification) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IncidentClassification) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentClassification) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentClassification) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IncidentClassification) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The classification reason the incident was closed with
+type IncidentClassificationReason pulumi.String
+
+const (
+	// Classification reason was suspicious activity
+	IncidentClassificationReasonSuspiciousActivity = IncidentClassificationReason("SuspiciousActivity")
+	// Classification reason was suspicious but expected
+	IncidentClassificationReasonSuspiciousButExpected = IncidentClassificationReason("SuspiciousButExpected")
+	// Classification reason was incorrect alert logic
+	IncidentClassificationReasonIncorrectAlertLogic = IncidentClassificationReason("IncorrectAlertLogic")
+	// Classification reason was inaccurate data
+	IncidentClassificationReasonInaccurateData = IncidentClassificationReason("InaccurateData")
+)
+
+func (IncidentClassificationReason) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IncidentClassificationReason) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentClassificationReason) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentClassificationReason) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IncidentClassificationReason) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The severity of the incident
+type IncidentSeverity pulumi.String
+
+const (
+	// High severity
+	IncidentSeverityHigh = IncidentSeverity("High")
+	// Medium severity
+	IncidentSeverityMedium = IncidentSeverity("Medium")
+	// Low severity
+	IncidentSeverityLow = IncidentSeverity("Low")
+	// Informational severity
+	IncidentSeverityInformational = IncidentSeverity("Informational")
+)
+
+func (IncidentSeverity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IncidentSeverity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentSeverity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentSeverity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IncidentSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The status of the incident
+type IncidentStatus pulumi.String
+
+const (
+	// An active incident which isn't being handled currently
+	IncidentStatusNew = IncidentStatus("New")
+	// An active incident which is being handled
+	IncidentStatusActive = IncidentStatus("Active")
+	// A non-active incident
+	IncidentStatusClosed = IncidentStatus("Closed")
+)
+
+func (IncidentStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IncidentStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IncidentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IncidentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The kind of content the metadata is for.
 type Kind pulumi.String
 
@@ -265,6 +623,71 @@ func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+type MatchingMethod pulumi.String
+
+const (
+	// Grouping alerts into a single incident if all the entities match
+	MatchingMethodAllEntities = MatchingMethod("AllEntities")
+	// Grouping any alerts triggered by this rule into a single incident
+	MatchingMethodAnyAlert = MatchingMethod("AnyAlert")
+	// Grouping alerts into a single incident if the selected entities, custom details and alert details match
+	MatchingMethodSelected = MatchingMethod("Selected")
+)
+
+func (MatchingMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MatchingMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchingMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchingMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MatchingMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The alerts' productName on which the cases will be generated
+type MicrosoftSecurityProductName pulumi.String
+
+const (
+	MicrosoftSecurityProductName_Microsoft_Cloud_App_Security                  = MicrosoftSecurityProductName("Microsoft Cloud App Security")
+	MicrosoftSecurityProductName_Azure_Security_Center                         = MicrosoftSecurityProductName("Azure Security Center")
+	MicrosoftSecurityProductName_Azure_Advanced_Threat_Protection              = MicrosoftSecurityProductName("Azure Advanced Threat Protection")
+	MicrosoftSecurityProductName_Azure_Active_Directory_Identity_Protection    = MicrosoftSecurityProductName("Azure Active Directory Identity Protection")
+	MicrosoftSecurityProductName_Azure_Security_Center_for_IoT                 = MicrosoftSecurityProductName("Azure Security Center for IoT")
+	MicrosoftSecurityProductName_Office_365_Advanced_Threat_Protection         = MicrosoftSecurityProductName("Office 365 Advanced Threat Protection")
+	MicrosoftSecurityProductName_Microsoft_Defender_Advanced_Threat_Protection = MicrosoftSecurityProductName("Microsoft Defender Advanced Threat Protection")
+)
+
+func (MicrosoftSecurityProductName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MicrosoftSecurityProductName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrosoftSecurityProductName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MicrosoftSecurityProductName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MicrosoftSecurityProductName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -559,6 +982,36 @@ func (e SupportTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SupportTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The operation against the threshold that triggers alert rule.
+type TriggerOperator pulumi.String
+
+const (
+	TriggerOperatorGreaterThan = TriggerOperator("GreaterThan")
+	TriggerOperatorLessThan    = TriggerOperator("LessThan")
+	TriggerOperatorEqual       = TriggerOperator("Equal")
+	TriggerOperatorNotEqual    = TriggerOperator("NotEqual")
+)
+
+func (TriggerOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TriggerOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

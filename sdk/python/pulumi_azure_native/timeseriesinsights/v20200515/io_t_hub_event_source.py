@@ -27,7 +27,9 @@ class IoTHubEventSourceArgs:
                  local_timestamp: Optional[pulumi.Input['LocalTimestampArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timestamp_property_name: Optional[pulumi.Input[str]] = None):
+                 time: Optional[pulumi.Input[str]] = None,
+                 timestamp_property_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]] = None):
         """
         The set of arguments for constructing a IoTHubEventSource resource.
         :param pulumi.Input[str] consumer_group_name: The name of the iot hub's consumer group that holds the partitions from which events will be read.
@@ -43,7 +45,9 @@ class IoTHubEventSourceArgs:
         :param pulumi.Input['LocalTimestampArgs'] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
+        :param pulumi.Input[str] time: ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
         :param pulumi.Input[str] timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        :param pulumi.Input[Union[str, 'IngressStartAtType']] type: The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
         """
         pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         pulumi.set(__self__, "environment_name", environment_name)
@@ -61,8 +65,12 @@ class IoTHubEventSourceArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
         if timestamp_property_name is not None:
             pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -210,6 +218,18 @@ class IoTHubEventSourceArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input[str]]:
+        """
+        ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time", value)
+
+    @property
     @pulumi.getter(name="timestampPropertyName")
     def timestamp_property_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -220,6 +240,18 @@ class IoTHubEventSourceArgs:
     @timestamp_property_name.setter
     def timestamp_property_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timestamp_property_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IngressStartAtType']]]:
+        """
+        The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]]):
+        pulumi.set(self, "type", value)
 
 
 class IoTHubEventSource(pulumi.CustomResource):
@@ -239,7 +271,9 @@ class IoTHubEventSource(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_access_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 time: Optional[pulumi.Input[str]] = None,
                  timestamp_property_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]] = None,
                  __props__=None):
         """
         An event source that receives its data from an Azure IoTHub.
@@ -259,7 +293,9 @@ class IoTHubEventSource(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] shared_access_key: The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
+        :param pulumi.Input[str] time: ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
         :param pulumi.Input[str] timestamp_property_name: The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+        :param pulumi.Input[Union[str, 'IngressStartAtType']] type: The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
         """
         ...
     @overload
@@ -297,7 +333,9 @@ class IoTHubEventSource(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_access_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 time: Optional[pulumi.Input[str]] = None,
                  timestamp_property_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IngressStartAtType']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -338,11 +376,12 @@ class IoTHubEventSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'shared_access_key'")
             __props__.__dict__["shared_access_key"] = shared_access_key
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["time"] = time
             __props__.__dict__["timestamp_property_name"] = timestamp_property_name
+            __props__.__dict__["type"] = type
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20200515:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights:IoTHubEventSource"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20170228preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:IoTHubEventSource"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20171115:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"), pulumi.Alias(type_="azure-nextgen:timeseriesinsights/v20180815preview:IoTHubEventSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTHubEventSource, __self__).__init__(
@@ -377,6 +416,7 @@ class IoTHubEventSource(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time"] = None
         __props__.__dict__["timestamp_property_name"] = None
         __props__.__dict__["type"] = None
         return IoTHubEventSource(resource_name, opts=opts, __props__=__props__)
@@ -461,6 +501,14 @@ class IoTHubEventSource(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Output[Optional[str]]:
+        """
+        ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        """
+        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter(name="timestampPropertyName")

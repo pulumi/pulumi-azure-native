@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a relation between two resources
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 type IncidentRelation struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type IncidentRelation struct {
 	RelatedResourceName pulumi.StringOutput `pulumi:"relatedResourceName"`
 	// The resource type of the related resource
 	RelatedResourceType pulumi.StringOutput `pulumi:"relatedResourceType"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -63,6 +65,12 @@ func NewIncidentRelation(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:IncidentRelation"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:IncidentRelation"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:IncidentRelation"),
 		},
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210401:IncidentRelation"),
@@ -106,6 +114,8 @@ type incidentRelationState struct {
 	RelatedResourceName *string `pulumi:"relatedResourceName"`
 	// The resource type of the related resource
 	RelatedResourceType *string `pulumi:"relatedResourceType"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -123,6 +133,8 @@ type IncidentRelationState struct {
 	RelatedResourceName pulumi.StringPtrInput
 	// The resource type of the related resource
 	RelatedResourceType pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -142,7 +154,7 @@ type incidentRelationArgs struct {
 	RelatedResourceId string `pulumi:"relatedResourceId"`
 	// Relation Name
 	RelationName *string `pulumi:"relationName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -160,7 +172,7 @@ type IncidentRelationArgs struct {
 	RelatedResourceId pulumi.StringInput
 	// Relation Name
 	RelationName pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput

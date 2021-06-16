@@ -282,6 +282,388 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query(
 	}).(pulumi.StringPtrOutput)
 }
 
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverride struct {
+	// the format containing columns name(s) to override the alert description
+	AlertDescriptionFormat *string `pulumi:"alertDescriptionFormat"`
+	// the format containing columns name(s) to override the alert name
+	AlertDisplayNameFormat *string `pulumi:"alertDisplayNameFormat"`
+	// the column name to take the alert severity from
+	AlertSeverityColumnName *string `pulumi:"alertSeverityColumnName"`
+	// the column name to take the alert tactics from
+	AlertTacticsColumnName *string `pulumi:"alertTacticsColumnName"`
+}
+
+// AlertDetailsOverrideInput is an input type that accepts AlertDetailsOverrideArgs and AlertDetailsOverrideOutput values.
+// You can construct a concrete instance of `AlertDetailsOverrideInput` via:
+//
+//          AlertDetailsOverrideArgs{...}
+type AlertDetailsOverrideInput interface {
+	pulumi.Input
+
+	ToAlertDetailsOverrideOutput() AlertDetailsOverrideOutput
+	ToAlertDetailsOverrideOutputWithContext(context.Context) AlertDetailsOverrideOutput
+}
+
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverrideArgs struct {
+	// the format containing columns name(s) to override the alert description
+	AlertDescriptionFormat pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
+	// the format containing columns name(s) to override the alert name
+	AlertDisplayNameFormat pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
+	// the column name to take the alert severity from
+	AlertSeverityColumnName pulumi.StringPtrInput `pulumi:"alertSeverityColumnName"`
+	// the column name to take the alert tactics from
+	AlertTacticsColumnName pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
+}
+
+func (AlertDetailsOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDetailsOverride)(nil)).Elem()
+}
+
+func (i AlertDetailsOverrideArgs) ToAlertDetailsOverrideOutput() AlertDetailsOverrideOutput {
+	return i.ToAlertDetailsOverrideOutputWithContext(context.Background())
+}
+
+func (i AlertDetailsOverrideArgs) ToAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertDetailsOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideOutput)
+}
+
+func (i AlertDetailsOverrideArgs) ToAlertDetailsOverridePtrOutput() AlertDetailsOverridePtrOutput {
+	return i.ToAlertDetailsOverridePtrOutputWithContext(context.Background())
+}
+
+func (i AlertDetailsOverrideArgs) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideOutput).ToAlertDetailsOverridePtrOutputWithContext(ctx)
+}
+
+// AlertDetailsOverridePtrInput is an input type that accepts AlertDetailsOverrideArgs, AlertDetailsOverridePtr and AlertDetailsOverridePtrOutput values.
+// You can construct a concrete instance of `AlertDetailsOverridePtrInput` via:
+//
+//          AlertDetailsOverrideArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertDetailsOverridePtrInput interface {
+	pulumi.Input
+
+	ToAlertDetailsOverridePtrOutput() AlertDetailsOverridePtrOutput
+	ToAlertDetailsOverridePtrOutputWithContext(context.Context) AlertDetailsOverridePtrOutput
+}
+
+type alertDetailsOverridePtrType AlertDetailsOverrideArgs
+
+func AlertDetailsOverridePtr(v *AlertDetailsOverrideArgs) AlertDetailsOverridePtrInput {
+	return (*alertDetailsOverridePtrType)(v)
+}
+
+func (*alertDetailsOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertDetailsOverride)(nil)).Elem()
+}
+
+func (i *alertDetailsOverridePtrType) ToAlertDetailsOverridePtrOutput() AlertDetailsOverridePtrOutput {
+	return i.ToAlertDetailsOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *alertDetailsOverridePtrType) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverridePtrOutput)
+}
+
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverrideOutput struct{ *pulumi.OutputState }
+
+func (AlertDetailsOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertDetailsOverrideOutput) ToAlertDetailsOverrideOutput() AlertDetailsOverrideOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideOutput) ToAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertDetailsOverrideOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutput() AlertDetailsOverridePtrOutput {
+	return o.ToAlertDetailsOverridePtrOutputWithContext(context.Background())
+}
+
+func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverride) *AlertDetailsOverride {
+		return &v
+	}).(AlertDetailsOverridePtrOutput)
+}
+
+// the format containing columns name(s) to override the alert description
+func (o AlertDetailsOverrideOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertDescriptionFormat }).(pulumi.StringPtrOutput)
+}
+
+// the format containing columns name(s) to override the alert name
+func (o AlertDetailsOverrideOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertDisplayNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert severity from
+func (o AlertDetailsOverrideOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertSeverityColumnName }).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert tactics from
+func (o AlertDetailsOverrideOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertTacticsColumnName }).(pulumi.StringPtrOutput)
+}
+
+type AlertDetailsOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertDetailsOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertDetailsOverridePtrOutput) ToAlertDetailsOverridePtrOutput() AlertDetailsOverridePtrOutput {
+	return o
+}
+
+func (o AlertDetailsOverridePtrOutput) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
+	return o
+}
+
+func (o AlertDetailsOverridePtrOutput) Elem() AlertDetailsOverrideOutput {
+	return o.ApplyT(func(v *AlertDetailsOverride) AlertDetailsOverride { return *v }).(AlertDetailsOverrideOutput)
+}
+
+// the format containing columns name(s) to override the alert description
+func (o AlertDetailsOverridePtrOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertDescriptionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// the format containing columns name(s) to override the alert name
+func (o AlertDetailsOverridePtrOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertDisplayNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert severity from
+func (o AlertDetailsOverridePtrOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertSeverityColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert tactics from
+func (o AlertDetailsOverridePtrOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertTacticsColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverrideResponse struct {
+	// the format containing columns name(s) to override the alert description
+	AlertDescriptionFormat *string `pulumi:"alertDescriptionFormat"`
+	// the format containing columns name(s) to override the alert name
+	AlertDisplayNameFormat *string `pulumi:"alertDisplayNameFormat"`
+	// the column name to take the alert severity from
+	AlertSeverityColumnName *string `pulumi:"alertSeverityColumnName"`
+	// the column name to take the alert tactics from
+	AlertTacticsColumnName *string `pulumi:"alertTacticsColumnName"`
+}
+
+// AlertDetailsOverrideResponseInput is an input type that accepts AlertDetailsOverrideResponseArgs and AlertDetailsOverrideResponseOutput values.
+// You can construct a concrete instance of `AlertDetailsOverrideResponseInput` via:
+//
+//          AlertDetailsOverrideResponseArgs{...}
+type AlertDetailsOverrideResponseInput interface {
+	pulumi.Input
+
+	ToAlertDetailsOverrideResponseOutput() AlertDetailsOverrideResponseOutput
+	ToAlertDetailsOverrideResponseOutputWithContext(context.Context) AlertDetailsOverrideResponseOutput
+}
+
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverrideResponseArgs struct {
+	// the format containing columns name(s) to override the alert description
+	AlertDescriptionFormat pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
+	// the format containing columns name(s) to override the alert name
+	AlertDisplayNameFormat pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
+	// the column name to take the alert severity from
+	AlertSeverityColumnName pulumi.StringPtrInput `pulumi:"alertSeverityColumnName"`
+	// the column name to take the alert tactics from
+	AlertTacticsColumnName pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
+}
+
+func (AlertDetailsOverrideResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDetailsOverrideResponse)(nil)).Elem()
+}
+
+func (i AlertDetailsOverrideResponseArgs) ToAlertDetailsOverrideResponseOutput() AlertDetailsOverrideResponseOutput {
+	return i.ToAlertDetailsOverrideResponseOutputWithContext(context.Background())
+}
+
+func (i AlertDetailsOverrideResponseArgs) ToAlertDetailsOverrideResponseOutputWithContext(ctx context.Context) AlertDetailsOverrideResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideResponseOutput)
+}
+
+func (i AlertDetailsOverrideResponseArgs) ToAlertDetailsOverrideResponsePtrOutput() AlertDetailsOverrideResponsePtrOutput {
+	return i.ToAlertDetailsOverrideResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AlertDetailsOverrideResponseArgs) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideResponseOutput).ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx)
+}
+
+// AlertDetailsOverrideResponsePtrInput is an input type that accepts AlertDetailsOverrideResponseArgs, AlertDetailsOverrideResponsePtr and AlertDetailsOverrideResponsePtrOutput values.
+// You can construct a concrete instance of `AlertDetailsOverrideResponsePtrInput` via:
+//
+//          AlertDetailsOverrideResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertDetailsOverrideResponsePtrInput interface {
+	pulumi.Input
+
+	ToAlertDetailsOverrideResponsePtrOutput() AlertDetailsOverrideResponsePtrOutput
+	ToAlertDetailsOverrideResponsePtrOutputWithContext(context.Context) AlertDetailsOverrideResponsePtrOutput
+}
+
+type alertDetailsOverrideResponsePtrType AlertDetailsOverrideResponseArgs
+
+func AlertDetailsOverrideResponsePtr(v *AlertDetailsOverrideResponseArgs) AlertDetailsOverrideResponsePtrInput {
+	return (*alertDetailsOverrideResponsePtrType)(v)
+}
+
+func (*alertDetailsOverrideResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertDetailsOverrideResponse)(nil)).Elem()
+}
+
+func (i *alertDetailsOverrideResponsePtrType) ToAlertDetailsOverrideResponsePtrOutput() AlertDetailsOverrideResponsePtrOutput {
+	return i.ToAlertDetailsOverrideResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *alertDetailsOverrideResponsePtrType) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideResponsePtrOutput)
+}
+
+// Settings for how to dynamically override alert static details
+type AlertDetailsOverrideResponseOutput struct{ *pulumi.OutputState }
+
+func (AlertDetailsOverrideResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertDetailsOverrideResponse)(nil)).Elem()
+}
+
+func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponseOutput() AlertDetailsOverrideResponseOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponseOutputWithContext(ctx context.Context) AlertDetailsOverrideResponseOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOutput() AlertDetailsOverrideResponsePtrOutput {
+	return o.ToAlertDetailsOverrideResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *AlertDetailsOverrideResponse {
+		return &v
+	}).(AlertDetailsOverrideResponsePtrOutput)
+}
+
+// the format containing columns name(s) to override the alert description
+func (o AlertDetailsOverrideResponseOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertDescriptionFormat }).(pulumi.StringPtrOutput)
+}
+
+// the format containing columns name(s) to override the alert name
+func (o AlertDetailsOverrideResponseOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertDisplayNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert severity from
+func (o AlertDetailsOverrideResponseOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertSeverityColumnName }).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert tactics from
+func (o AlertDetailsOverrideResponseOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertTacticsColumnName }).(pulumi.StringPtrOutput)
+}
+
+type AlertDetailsOverrideResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertDetailsOverrideResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertDetailsOverrideResponse)(nil)).Elem()
+}
+
+func (o AlertDetailsOverrideResponsePtrOutput) ToAlertDetailsOverrideResponsePtrOutput() AlertDetailsOverrideResponsePtrOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideResponsePtrOutput) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
+	return o
+}
+
+func (o AlertDetailsOverrideResponsePtrOutput) Elem() AlertDetailsOverrideResponseOutput {
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) AlertDetailsOverrideResponse { return *v }).(AlertDetailsOverrideResponseOutput)
+}
+
+// the format containing columns name(s) to override the alert description
+func (o AlertDetailsOverrideResponsePtrOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertDescriptionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// the format containing columns name(s) to override the alert name
+func (o AlertDetailsOverrideResponsePtrOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertDisplayNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert severity from
+func (o AlertDetailsOverrideResponsePtrOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertSeverityColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// the column name to take the alert tactics from
+func (o AlertDetailsOverrideResponsePtrOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertTacticsColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnector struct {
 	// Alerts data type connection.
@@ -1395,6 +1777,197 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi
 			return nil
 		}
 		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information on the client (user or application) that made some action
+type ClientInfoResponse struct {
+	// The email of the client.
+	Email *string `pulumi:"email"`
+	// The name of the client.
+	Name *string `pulumi:"name"`
+	// The object id of the client.
+	ObjectId *string `pulumi:"objectId"`
+	// The user principal name of the client.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// ClientInfoResponseInput is an input type that accepts ClientInfoResponseArgs and ClientInfoResponseOutput values.
+// You can construct a concrete instance of `ClientInfoResponseInput` via:
+//
+//          ClientInfoResponseArgs{...}
+type ClientInfoResponseInput interface {
+	pulumi.Input
+
+	ToClientInfoResponseOutput() ClientInfoResponseOutput
+	ToClientInfoResponseOutputWithContext(context.Context) ClientInfoResponseOutput
+}
+
+// Information on the client (user or application) that made some action
+type ClientInfoResponseArgs struct {
+	// The email of the client.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The name of the client.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The object id of the client.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The user principal name of the client.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (ClientInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientInfoResponse)(nil)).Elem()
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponseOutput() ClientInfoResponseOutput {
+	return i.ToClientInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput)
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClientInfoResponseArgs) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponseOutput).ToClientInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ClientInfoResponsePtrInput is an input type that accepts ClientInfoResponseArgs, ClientInfoResponsePtr and ClientInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ClientInfoResponsePtrInput` via:
+//
+//          ClientInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput
+	ToClientInfoResponsePtrOutputWithContext(context.Context) ClientInfoResponsePtrOutput
+}
+
+type clientInfoResponsePtrType ClientInfoResponseArgs
+
+func ClientInfoResponsePtr(v *ClientInfoResponseArgs) ClientInfoResponsePtrInput {
+	return (*clientInfoResponsePtrType)(v)
+}
+
+func (*clientInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
+}
+
+func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return i.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponsePtrOutput)
+}
+
+// Information on the client (user or application) that made some action
+type ClientInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientInfoResponse)(nil)).Elem()
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponseOutput() ClientInfoResponseOutput {
+	return o
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponseOutputWithContext(ctx context.Context) ClientInfoResponseOutput {
+	return o
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return o.ToClientInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *ClientInfoResponse {
+		return &v
+	}).(ClientInfoResponsePtrOutput)
+}
+
+// The email of the client.
+func (o ClientInfoResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The name of the client.
+func (o ClientInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the client.
+func (o ClientInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the client.
+func (o ClientInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type ClientInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClientInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientInfoResponse)(nil)).Elem()
+}
+
+func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutput() ClientInfoResponsePtrOutput {
+	return o
+}
+
+func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
+	return o
+}
+
+func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse { return *v }).(ClientInfoResponseOutput)
+}
+
+// The email of the client.
+func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the client.
+func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the client.
+func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the client.
+func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4235,6 +4808,2332 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutp
 			return nil
 		}
 		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Single entity mapping for the alert rule
+type EntityMapping struct {
+	// The V3 type of the mapped entity
+	EntityType *string `pulumi:"entityType"`
+	// array of field mappings for the given entity mapping
+	FieldMappings []FieldMapping `pulumi:"fieldMappings"`
+}
+
+// EntityMappingInput is an input type that accepts EntityMappingArgs and EntityMappingOutput values.
+// You can construct a concrete instance of `EntityMappingInput` via:
+//
+//          EntityMappingArgs{...}
+type EntityMappingInput interface {
+	pulumi.Input
+
+	ToEntityMappingOutput() EntityMappingOutput
+	ToEntityMappingOutputWithContext(context.Context) EntityMappingOutput
+}
+
+// Single entity mapping for the alert rule
+type EntityMappingArgs struct {
+	// The V3 type of the mapped entity
+	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
+	// array of field mappings for the given entity mapping
+	FieldMappings FieldMappingArrayInput `pulumi:"fieldMappings"`
+}
+
+func (EntityMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityMapping)(nil)).Elem()
+}
+
+func (i EntityMappingArgs) ToEntityMappingOutput() EntityMappingOutput {
+	return i.ToEntityMappingOutputWithContext(context.Background())
+}
+
+func (i EntityMappingArgs) ToEntityMappingOutputWithContext(ctx context.Context) EntityMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingOutput)
+}
+
+// EntityMappingArrayInput is an input type that accepts EntityMappingArray and EntityMappingArrayOutput values.
+// You can construct a concrete instance of `EntityMappingArrayInput` via:
+//
+//          EntityMappingArray{ EntityMappingArgs{...} }
+type EntityMappingArrayInput interface {
+	pulumi.Input
+
+	ToEntityMappingArrayOutput() EntityMappingArrayOutput
+	ToEntityMappingArrayOutputWithContext(context.Context) EntityMappingArrayOutput
+}
+
+type EntityMappingArray []EntityMappingInput
+
+func (EntityMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityMapping)(nil)).Elem()
+}
+
+func (i EntityMappingArray) ToEntityMappingArrayOutput() EntityMappingArrayOutput {
+	return i.ToEntityMappingArrayOutputWithContext(context.Background())
+}
+
+func (i EntityMappingArray) ToEntityMappingArrayOutputWithContext(ctx context.Context) EntityMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingArrayOutput)
+}
+
+// Single entity mapping for the alert rule
+type EntityMappingOutput struct{ *pulumi.OutputState }
+
+func (EntityMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityMapping)(nil)).Elem()
+}
+
+func (o EntityMappingOutput) ToEntityMappingOutput() EntityMappingOutput {
+	return o
+}
+
+func (o EntityMappingOutput) ToEntityMappingOutputWithContext(ctx context.Context) EntityMappingOutput {
+	return o
+}
+
+// The V3 type of the mapped entity
+func (o EntityMappingOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityMapping) *string { return v.EntityType }).(pulumi.StringPtrOutput)
+}
+
+// array of field mappings for the given entity mapping
+func (o EntityMappingOutput) FieldMappings() FieldMappingArrayOutput {
+	return o.ApplyT(func(v EntityMapping) []FieldMapping { return v.FieldMappings }).(FieldMappingArrayOutput)
+}
+
+type EntityMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityMapping)(nil)).Elem()
+}
+
+func (o EntityMappingArrayOutput) ToEntityMappingArrayOutput() EntityMappingArrayOutput {
+	return o
+}
+
+func (o EntityMappingArrayOutput) ToEntityMappingArrayOutputWithContext(ctx context.Context) EntityMappingArrayOutput {
+	return o
+}
+
+func (o EntityMappingArrayOutput) Index(i pulumi.IntInput) EntityMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityMapping {
+		return vs[0].([]EntityMapping)[vs[1].(int)]
+	}).(EntityMappingOutput)
+}
+
+// Single entity mapping for the alert rule
+type EntityMappingResponse struct {
+	// The V3 type of the mapped entity
+	EntityType *string `pulumi:"entityType"`
+	// array of field mappings for the given entity mapping
+	FieldMappings []FieldMappingResponse `pulumi:"fieldMappings"`
+}
+
+// EntityMappingResponseInput is an input type that accepts EntityMappingResponseArgs and EntityMappingResponseOutput values.
+// You can construct a concrete instance of `EntityMappingResponseInput` via:
+//
+//          EntityMappingResponseArgs{...}
+type EntityMappingResponseInput interface {
+	pulumi.Input
+
+	ToEntityMappingResponseOutput() EntityMappingResponseOutput
+	ToEntityMappingResponseOutputWithContext(context.Context) EntityMappingResponseOutput
+}
+
+// Single entity mapping for the alert rule
+type EntityMappingResponseArgs struct {
+	// The V3 type of the mapped entity
+	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
+	// array of field mappings for the given entity mapping
+	FieldMappings FieldMappingResponseArrayInput `pulumi:"fieldMappings"`
+}
+
+func (EntityMappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityMappingResponse)(nil)).Elem()
+}
+
+func (i EntityMappingResponseArgs) ToEntityMappingResponseOutput() EntityMappingResponseOutput {
+	return i.ToEntityMappingResponseOutputWithContext(context.Background())
+}
+
+func (i EntityMappingResponseArgs) ToEntityMappingResponseOutputWithContext(ctx context.Context) EntityMappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingResponseOutput)
+}
+
+// EntityMappingResponseArrayInput is an input type that accepts EntityMappingResponseArray and EntityMappingResponseArrayOutput values.
+// You can construct a concrete instance of `EntityMappingResponseArrayInput` via:
+//
+//          EntityMappingResponseArray{ EntityMappingResponseArgs{...} }
+type EntityMappingResponseArrayInput interface {
+	pulumi.Input
+
+	ToEntityMappingResponseArrayOutput() EntityMappingResponseArrayOutput
+	ToEntityMappingResponseArrayOutputWithContext(context.Context) EntityMappingResponseArrayOutput
+}
+
+type EntityMappingResponseArray []EntityMappingResponseInput
+
+func (EntityMappingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityMappingResponse)(nil)).Elem()
+}
+
+func (i EntityMappingResponseArray) ToEntityMappingResponseArrayOutput() EntityMappingResponseArrayOutput {
+	return i.ToEntityMappingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EntityMappingResponseArray) ToEntityMappingResponseArrayOutputWithContext(ctx context.Context) EntityMappingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingResponseArrayOutput)
+}
+
+// Single entity mapping for the alert rule
+type EntityMappingResponseOutput struct{ *pulumi.OutputState }
+
+func (EntityMappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityMappingResponse)(nil)).Elem()
+}
+
+func (o EntityMappingResponseOutput) ToEntityMappingResponseOutput() EntityMappingResponseOutput {
+	return o
+}
+
+func (o EntityMappingResponseOutput) ToEntityMappingResponseOutputWithContext(ctx context.Context) EntityMappingResponseOutput {
+	return o
+}
+
+// The V3 type of the mapped entity
+func (o EntityMappingResponseOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityMappingResponse) *string { return v.EntityType }).(pulumi.StringPtrOutput)
+}
+
+// array of field mappings for the given entity mapping
+func (o EntityMappingResponseOutput) FieldMappings() FieldMappingResponseArrayOutput {
+	return o.ApplyT(func(v EntityMappingResponse) []FieldMappingResponse { return v.FieldMappings }).(FieldMappingResponseArrayOutput)
+}
+
+type EntityMappingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityMappingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityMappingResponse)(nil)).Elem()
+}
+
+func (o EntityMappingResponseArrayOutput) ToEntityMappingResponseArrayOutput() EntityMappingResponseArrayOutput {
+	return o
+}
+
+func (o EntityMappingResponseArrayOutput) ToEntityMappingResponseArrayOutputWithContext(ctx context.Context) EntityMappingResponseArrayOutput {
+	return o
+}
+
+func (o EntityMappingResponseArrayOutput) Index(i pulumi.IntInput) EntityMappingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityMappingResponse {
+		return vs[0].([]EntityMappingResponse)[vs[1].(int)]
+	}).(EntityMappingResponseOutput)
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettings struct {
+	// The event grouping aggregation kinds
+	AggregationKind *string `pulumi:"aggregationKind"`
+}
+
+// EventGroupingSettingsInput is an input type that accepts EventGroupingSettingsArgs and EventGroupingSettingsOutput values.
+// You can construct a concrete instance of `EventGroupingSettingsInput` via:
+//
+//          EventGroupingSettingsArgs{...}
+type EventGroupingSettingsInput interface {
+	pulumi.Input
+
+	ToEventGroupingSettingsOutput() EventGroupingSettingsOutput
+	ToEventGroupingSettingsOutputWithContext(context.Context) EventGroupingSettingsOutput
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettingsArgs struct {
+	// The event grouping aggregation kinds
+	AggregationKind pulumi.StringPtrInput `pulumi:"aggregationKind"`
+}
+
+func (EventGroupingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGroupingSettings)(nil)).Elem()
+}
+
+func (i EventGroupingSettingsArgs) ToEventGroupingSettingsOutput() EventGroupingSettingsOutput {
+	return i.ToEventGroupingSettingsOutputWithContext(context.Background())
+}
+
+func (i EventGroupingSettingsArgs) ToEventGroupingSettingsOutputWithContext(ctx context.Context) EventGroupingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsOutput)
+}
+
+func (i EventGroupingSettingsArgs) ToEventGroupingSettingsPtrOutput() EventGroupingSettingsPtrOutput {
+	return i.ToEventGroupingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EventGroupingSettingsArgs) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsOutput).ToEventGroupingSettingsPtrOutputWithContext(ctx)
+}
+
+// EventGroupingSettingsPtrInput is an input type that accepts EventGroupingSettingsArgs, EventGroupingSettingsPtr and EventGroupingSettingsPtrOutput values.
+// You can construct a concrete instance of `EventGroupingSettingsPtrInput` via:
+//
+//          EventGroupingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type EventGroupingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEventGroupingSettingsPtrOutput() EventGroupingSettingsPtrOutput
+	ToEventGroupingSettingsPtrOutputWithContext(context.Context) EventGroupingSettingsPtrOutput
+}
+
+type eventGroupingSettingsPtrType EventGroupingSettingsArgs
+
+func EventGroupingSettingsPtr(v *EventGroupingSettingsArgs) EventGroupingSettingsPtrInput {
+	return (*eventGroupingSettingsPtrType)(v)
+}
+
+func (*eventGroupingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGroupingSettings)(nil)).Elem()
+}
+
+func (i *eventGroupingSettingsPtrType) ToEventGroupingSettingsPtrOutput() EventGroupingSettingsPtrOutput {
+	return i.ToEventGroupingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventGroupingSettingsPtrType) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsPtrOutput)
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettingsOutput struct{ *pulumi.OutputState }
+
+func (EventGroupingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGroupingSettings)(nil)).Elem()
+}
+
+func (o EventGroupingSettingsOutput) ToEventGroupingSettingsOutput() EventGroupingSettingsOutput {
+	return o
+}
+
+func (o EventGroupingSettingsOutput) ToEventGroupingSettingsOutputWithContext(ctx context.Context) EventGroupingSettingsOutput {
+	return o
+}
+
+func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutput() EventGroupingSettingsPtrOutput {
+	return o.ToEventGroupingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
+	return o.ApplyT(func(v EventGroupingSettings) *EventGroupingSettings {
+		return &v
+	}).(EventGroupingSettingsPtrOutput)
+}
+
+// The event grouping aggregation kinds
+func (o EventGroupingSettingsOutput) AggregationKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGroupingSettings) *string { return v.AggregationKind }).(pulumi.StringPtrOutput)
+}
+
+type EventGroupingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventGroupingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGroupingSettings)(nil)).Elem()
+}
+
+func (o EventGroupingSettingsPtrOutput) ToEventGroupingSettingsPtrOutput() EventGroupingSettingsPtrOutput {
+	return o
+}
+
+func (o EventGroupingSettingsPtrOutput) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
+	return o
+}
+
+func (o EventGroupingSettingsPtrOutput) Elem() EventGroupingSettingsOutput {
+	return o.ApplyT(func(v *EventGroupingSettings) EventGroupingSettings { return *v }).(EventGroupingSettingsOutput)
+}
+
+// The event grouping aggregation kinds
+func (o EventGroupingSettingsPtrOutput) AggregationKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGroupingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationKind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettingsResponse struct {
+	// The event grouping aggregation kinds
+	AggregationKind *string `pulumi:"aggregationKind"`
+}
+
+// EventGroupingSettingsResponseInput is an input type that accepts EventGroupingSettingsResponseArgs and EventGroupingSettingsResponseOutput values.
+// You can construct a concrete instance of `EventGroupingSettingsResponseInput` via:
+//
+//          EventGroupingSettingsResponseArgs{...}
+type EventGroupingSettingsResponseInput interface {
+	pulumi.Input
+
+	ToEventGroupingSettingsResponseOutput() EventGroupingSettingsResponseOutput
+	ToEventGroupingSettingsResponseOutputWithContext(context.Context) EventGroupingSettingsResponseOutput
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettingsResponseArgs struct {
+	// The event grouping aggregation kinds
+	AggregationKind pulumi.StringPtrInput `pulumi:"aggregationKind"`
+}
+
+func (EventGroupingSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGroupingSettingsResponse)(nil)).Elem()
+}
+
+func (i EventGroupingSettingsResponseArgs) ToEventGroupingSettingsResponseOutput() EventGroupingSettingsResponseOutput {
+	return i.ToEventGroupingSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i EventGroupingSettingsResponseArgs) ToEventGroupingSettingsResponseOutputWithContext(ctx context.Context) EventGroupingSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsResponseOutput)
+}
+
+func (i EventGroupingSettingsResponseArgs) ToEventGroupingSettingsResponsePtrOutput() EventGroupingSettingsResponsePtrOutput {
+	return i.ToEventGroupingSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventGroupingSettingsResponseArgs) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsResponseOutput).ToEventGroupingSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// EventGroupingSettingsResponsePtrInput is an input type that accepts EventGroupingSettingsResponseArgs, EventGroupingSettingsResponsePtr and EventGroupingSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `EventGroupingSettingsResponsePtrInput` via:
+//
+//          EventGroupingSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EventGroupingSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventGroupingSettingsResponsePtrOutput() EventGroupingSettingsResponsePtrOutput
+	ToEventGroupingSettingsResponsePtrOutputWithContext(context.Context) EventGroupingSettingsResponsePtrOutput
+}
+
+type eventGroupingSettingsResponsePtrType EventGroupingSettingsResponseArgs
+
+func EventGroupingSettingsResponsePtr(v *EventGroupingSettingsResponseArgs) EventGroupingSettingsResponsePtrInput {
+	return (*eventGroupingSettingsResponsePtrType)(v)
+}
+
+func (*eventGroupingSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGroupingSettingsResponse)(nil)).Elem()
+}
+
+func (i *eventGroupingSettingsResponsePtrType) ToEventGroupingSettingsResponsePtrOutput() EventGroupingSettingsResponsePtrOutput {
+	return i.ToEventGroupingSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventGroupingSettingsResponsePtrType) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsResponsePtrOutput)
+}
+
+// Event grouping settings property bag.
+type EventGroupingSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (EventGroupingSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGroupingSettingsResponse)(nil)).Elem()
+}
+
+func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponseOutput() EventGroupingSettingsResponseOutput {
+	return o
+}
+
+func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponseOutputWithContext(ctx context.Context) EventGroupingSettingsResponseOutput {
+	return o
+}
+
+func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrOutput() EventGroupingSettingsResponsePtrOutput {
+	return o.ToEventGroupingSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v EventGroupingSettingsResponse) *EventGroupingSettingsResponse {
+		return &v
+	}).(EventGroupingSettingsResponsePtrOutput)
+}
+
+// The event grouping aggregation kinds
+func (o EventGroupingSettingsResponseOutput) AggregationKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGroupingSettingsResponse) *string { return v.AggregationKind }).(pulumi.StringPtrOutput)
+}
+
+type EventGroupingSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventGroupingSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGroupingSettingsResponse)(nil)).Elem()
+}
+
+func (o EventGroupingSettingsResponsePtrOutput) ToEventGroupingSettingsResponsePtrOutput() EventGroupingSettingsResponsePtrOutput {
+	return o
+}
+
+func (o EventGroupingSettingsResponsePtrOutput) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
+	return o
+}
+
+func (o EventGroupingSettingsResponsePtrOutput) Elem() EventGroupingSettingsResponseOutput {
+	return o.ApplyT(func(v *EventGroupingSettingsResponse) EventGroupingSettingsResponse { return *v }).(EventGroupingSettingsResponseOutput)
+}
+
+// The event grouping aggregation kinds
+func (o EventGroupingSettingsResponsePtrOutput) AggregationKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGroupingSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationKind
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single field mapping of the mapped entity
+type FieldMapping struct {
+	// the column name to be mapped to the identifier
+	ColumnName *string `pulumi:"columnName"`
+	// the V3 identifier of the entity
+	Identifier *string `pulumi:"identifier"`
+}
+
+// FieldMappingInput is an input type that accepts FieldMappingArgs and FieldMappingOutput values.
+// You can construct a concrete instance of `FieldMappingInput` via:
+//
+//          FieldMappingArgs{...}
+type FieldMappingInput interface {
+	pulumi.Input
+
+	ToFieldMappingOutput() FieldMappingOutput
+	ToFieldMappingOutputWithContext(context.Context) FieldMappingOutput
+}
+
+// A single field mapping of the mapped entity
+type FieldMappingArgs struct {
+	// the column name to be mapped to the identifier
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// the V3 identifier of the entity
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (FieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldMapping)(nil)).Elem()
+}
+
+func (i FieldMappingArgs) ToFieldMappingOutput() FieldMappingOutput {
+	return i.ToFieldMappingOutputWithContext(context.Background())
+}
+
+func (i FieldMappingArgs) ToFieldMappingOutputWithContext(ctx context.Context) FieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingOutput)
+}
+
+// FieldMappingArrayInput is an input type that accepts FieldMappingArray and FieldMappingArrayOutput values.
+// You can construct a concrete instance of `FieldMappingArrayInput` via:
+//
+//          FieldMappingArray{ FieldMappingArgs{...} }
+type FieldMappingArrayInput interface {
+	pulumi.Input
+
+	ToFieldMappingArrayOutput() FieldMappingArrayOutput
+	ToFieldMappingArrayOutputWithContext(context.Context) FieldMappingArrayOutput
+}
+
+type FieldMappingArray []FieldMappingInput
+
+func (FieldMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldMapping)(nil)).Elem()
+}
+
+func (i FieldMappingArray) ToFieldMappingArrayOutput() FieldMappingArrayOutput {
+	return i.ToFieldMappingArrayOutputWithContext(context.Background())
+}
+
+func (i FieldMappingArray) ToFieldMappingArrayOutputWithContext(ctx context.Context) FieldMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingArrayOutput)
+}
+
+// A single field mapping of the mapped entity
+type FieldMappingOutput struct{ *pulumi.OutputState }
+
+func (FieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldMapping)(nil)).Elem()
+}
+
+func (o FieldMappingOutput) ToFieldMappingOutput() FieldMappingOutput {
+	return o
+}
+
+func (o FieldMappingOutput) ToFieldMappingOutputWithContext(ctx context.Context) FieldMappingOutput {
+	return o
+}
+
+// the column name to be mapped to the identifier
+func (o FieldMappingOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldMapping) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
+}
+
+// the V3 identifier of the entity
+func (o FieldMappingOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldMapping) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type FieldMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldMapping)(nil)).Elem()
+}
+
+func (o FieldMappingArrayOutput) ToFieldMappingArrayOutput() FieldMappingArrayOutput {
+	return o
+}
+
+func (o FieldMappingArrayOutput) ToFieldMappingArrayOutputWithContext(ctx context.Context) FieldMappingArrayOutput {
+	return o
+}
+
+func (o FieldMappingArrayOutput) Index(i pulumi.IntInput) FieldMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldMapping {
+		return vs[0].([]FieldMapping)[vs[1].(int)]
+	}).(FieldMappingOutput)
+}
+
+// A single field mapping of the mapped entity
+type FieldMappingResponse struct {
+	// the column name to be mapped to the identifier
+	ColumnName *string `pulumi:"columnName"`
+	// the V3 identifier of the entity
+	Identifier *string `pulumi:"identifier"`
+}
+
+// FieldMappingResponseInput is an input type that accepts FieldMappingResponseArgs and FieldMappingResponseOutput values.
+// You can construct a concrete instance of `FieldMappingResponseInput` via:
+//
+//          FieldMappingResponseArgs{...}
+type FieldMappingResponseInput interface {
+	pulumi.Input
+
+	ToFieldMappingResponseOutput() FieldMappingResponseOutput
+	ToFieldMappingResponseOutputWithContext(context.Context) FieldMappingResponseOutput
+}
+
+// A single field mapping of the mapped entity
+type FieldMappingResponseArgs struct {
+	// the column name to be mapped to the identifier
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// the V3 identifier of the entity
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (FieldMappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldMappingResponse)(nil)).Elem()
+}
+
+func (i FieldMappingResponseArgs) ToFieldMappingResponseOutput() FieldMappingResponseOutput {
+	return i.ToFieldMappingResponseOutputWithContext(context.Background())
+}
+
+func (i FieldMappingResponseArgs) ToFieldMappingResponseOutputWithContext(ctx context.Context) FieldMappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingResponseOutput)
+}
+
+// FieldMappingResponseArrayInput is an input type that accepts FieldMappingResponseArray and FieldMappingResponseArrayOutput values.
+// You can construct a concrete instance of `FieldMappingResponseArrayInput` via:
+//
+//          FieldMappingResponseArray{ FieldMappingResponseArgs{...} }
+type FieldMappingResponseArrayInput interface {
+	pulumi.Input
+
+	ToFieldMappingResponseArrayOutput() FieldMappingResponseArrayOutput
+	ToFieldMappingResponseArrayOutputWithContext(context.Context) FieldMappingResponseArrayOutput
+}
+
+type FieldMappingResponseArray []FieldMappingResponseInput
+
+func (FieldMappingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldMappingResponse)(nil)).Elem()
+}
+
+func (i FieldMappingResponseArray) ToFieldMappingResponseArrayOutput() FieldMappingResponseArrayOutput {
+	return i.ToFieldMappingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FieldMappingResponseArray) ToFieldMappingResponseArrayOutputWithContext(ctx context.Context) FieldMappingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingResponseArrayOutput)
+}
+
+// A single field mapping of the mapped entity
+type FieldMappingResponseOutput struct{ *pulumi.OutputState }
+
+func (FieldMappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldMappingResponse)(nil)).Elem()
+}
+
+func (o FieldMappingResponseOutput) ToFieldMappingResponseOutput() FieldMappingResponseOutput {
+	return o
+}
+
+func (o FieldMappingResponseOutput) ToFieldMappingResponseOutputWithContext(ctx context.Context) FieldMappingResponseOutput {
+	return o
+}
+
+// the column name to be mapped to the identifier
+func (o FieldMappingResponseOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldMappingResponse) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
+}
+
+// the V3 identifier of the entity
+func (o FieldMappingResponseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldMappingResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type FieldMappingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldMappingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldMappingResponse)(nil)).Elem()
+}
+
+func (o FieldMappingResponseArrayOutput) ToFieldMappingResponseArrayOutput() FieldMappingResponseArrayOutput {
+	return o
+}
+
+func (o FieldMappingResponseArrayOutput) ToFieldMappingResponseArrayOutputWithContext(ctx context.Context) FieldMappingResponseArrayOutput {
+	return o
+}
+
+func (o FieldMappingResponseArrayOutput) Index(i pulumi.IntInput) FieldMappingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldMappingResponse {
+		return vs[0].([]FieldMappingResponse)[vs[1].(int)]
+	}).(FieldMappingResponseOutput)
+}
+
+// Grouping configuration property bag.
+type GroupingConfiguration struct {
+	// Grouping enabled
+	Enabled bool `pulumi:"enabled"`
+	// A list of alert details to group by (when matchingMethod is Selected)
+	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
+	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+	GroupByEntities []string `pulumi:"groupByEntities"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+	LookbackDuration string `pulumi:"lookbackDuration"`
+	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+	MatchingMethod string `pulumi:"matchingMethod"`
+	// Re-open closed matching incidents
+	ReopenClosedIncident bool `pulumi:"reopenClosedIncident"`
+}
+
+// GroupingConfigurationInput is an input type that accepts GroupingConfigurationArgs and GroupingConfigurationOutput values.
+// You can construct a concrete instance of `GroupingConfigurationInput` via:
+//
+//          GroupingConfigurationArgs{...}
+type GroupingConfigurationInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationOutput() GroupingConfigurationOutput
+	ToGroupingConfigurationOutputWithContext(context.Context) GroupingConfigurationOutput
+}
+
+// Grouping configuration property bag.
+type GroupingConfigurationArgs struct {
+	// Grouping enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A list of alert details to group by (when matchingMethod is Selected)
+	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
+	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+	LookbackDuration pulumi.StringInput `pulumi:"lookbackDuration"`
+	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+	MatchingMethod pulumi.StringInput `pulumi:"matchingMethod"`
+	// Re-open closed matching incidents
+	ReopenClosedIncident pulumi.BoolInput `pulumi:"reopenClosedIncident"`
+}
+
+func (GroupingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfiguration)(nil)).Elem()
+}
+
+func (i GroupingConfigurationArgs) ToGroupingConfigurationOutput() GroupingConfigurationOutput {
+	return i.ToGroupingConfigurationOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationArgs) ToGroupingConfigurationOutputWithContext(ctx context.Context) GroupingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationOutput)
+}
+
+func (i GroupingConfigurationArgs) ToGroupingConfigurationPtrOutput() GroupingConfigurationPtrOutput {
+	return i.ToGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationArgs) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationOutput).ToGroupingConfigurationPtrOutputWithContext(ctx)
+}
+
+// GroupingConfigurationPtrInput is an input type that accepts GroupingConfigurationArgs, GroupingConfigurationPtr and GroupingConfigurationPtrOutput values.
+// You can construct a concrete instance of `GroupingConfigurationPtrInput` via:
+//
+//          GroupingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationPtrOutput() GroupingConfigurationPtrOutput
+	ToGroupingConfigurationPtrOutputWithContext(context.Context) GroupingConfigurationPtrOutput
+}
+
+type groupingConfigurationPtrType GroupingConfigurationArgs
+
+func GroupingConfigurationPtr(v *GroupingConfigurationArgs) GroupingConfigurationPtrInput {
+	return (*groupingConfigurationPtrType)(v)
+}
+
+func (*groupingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupingConfiguration)(nil)).Elem()
+}
+
+func (i *groupingConfigurationPtrType) ToGroupingConfigurationPtrOutput() GroupingConfigurationPtrOutput {
+	return i.ToGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *groupingConfigurationPtrType) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationPtrOutput)
+}
+
+// Grouping configuration property bag.
+type GroupingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfiguration)(nil)).Elem()
+}
+
+func (o GroupingConfigurationOutput) ToGroupingConfigurationOutput() GroupingConfigurationOutput {
+	return o
+}
+
+func (o GroupingConfigurationOutput) ToGroupingConfigurationOutputWithContext(ctx context.Context) GroupingConfigurationOutput {
+	return o
+}
+
+func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutput() GroupingConfigurationPtrOutput {
+	return o.ToGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
+	return o.ApplyT(func(v GroupingConfiguration) *GroupingConfiguration {
+		return &v
+	}).(GroupingConfigurationPtrOutput)
+}
+
+// Grouping enabled
+func (o GroupingConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A list of alert details to group by (when matchingMethod is Selected)
+func (o GroupingConfigurationOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+func (o GroupingConfigurationOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+func (o GroupingConfigurationOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+func (o GroupingConfigurationOutput) LookbackDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupingConfiguration) string { return v.LookbackDuration }).(pulumi.StringOutput)
+}
+
+// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+func (o GroupingConfigurationOutput) MatchingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupingConfiguration) string { return v.MatchingMethod }).(pulumi.StringOutput)
+}
+
+// Re-open closed matching incidents
+func (o GroupingConfigurationOutput) ReopenClosedIncident() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupingConfiguration) bool { return v.ReopenClosedIncident }).(pulumi.BoolOutput)
+}
+
+type GroupingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupingConfiguration)(nil)).Elem()
+}
+
+func (o GroupingConfigurationPtrOutput) ToGroupingConfigurationPtrOutput() GroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o GroupingConfigurationPtrOutput) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o GroupingConfigurationPtrOutput) Elem() GroupingConfigurationOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) GroupingConfiguration { return *v }).(GroupingConfigurationOutput)
+}
+
+// Grouping enabled
+func (o GroupingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of alert details to group by (when matchingMethod is Selected)
+func (o GroupingConfigurationPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByAlertDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+func (o GroupingConfigurationPtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByCustomDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+func (o GroupingConfigurationPtrOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByEntities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+func (o GroupingConfigurationPtrOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LookbackDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+func (o GroupingConfigurationPtrOutput) MatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Re-open closed matching incidents
+func (o GroupingConfigurationPtrOutput) ReopenClosedIncident() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReopenClosedIncident
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Grouping configuration property bag.
+type GroupingConfigurationResponse struct {
+	// Grouping enabled
+	Enabled bool `pulumi:"enabled"`
+	// A list of alert details to group by (when matchingMethod is Selected)
+	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
+	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+	GroupByEntities []string `pulumi:"groupByEntities"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+	LookbackDuration string `pulumi:"lookbackDuration"`
+	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+	MatchingMethod string `pulumi:"matchingMethod"`
+	// Re-open closed matching incidents
+	ReopenClosedIncident bool `pulumi:"reopenClosedIncident"`
+}
+
+// GroupingConfigurationResponseInput is an input type that accepts GroupingConfigurationResponseArgs and GroupingConfigurationResponseOutput values.
+// You can construct a concrete instance of `GroupingConfigurationResponseInput` via:
+//
+//          GroupingConfigurationResponseArgs{...}
+type GroupingConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationResponseOutput() GroupingConfigurationResponseOutput
+	ToGroupingConfigurationResponseOutputWithContext(context.Context) GroupingConfigurationResponseOutput
+}
+
+// Grouping configuration property bag.
+type GroupingConfigurationResponseArgs struct {
+	// Grouping enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A list of alert details to group by (when matchingMethod is Selected)
+	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
+	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+	LookbackDuration pulumi.StringInput `pulumi:"lookbackDuration"`
+	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+	MatchingMethod pulumi.StringInput `pulumi:"matchingMethod"`
+	// Re-open closed matching incidents
+	ReopenClosedIncident pulumi.BoolInput `pulumi:"reopenClosedIncident"`
+}
+
+func (GroupingConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfigurationResponse)(nil)).Elem()
+}
+
+func (i GroupingConfigurationResponseArgs) ToGroupingConfigurationResponseOutput() GroupingConfigurationResponseOutput {
+	return i.ToGroupingConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationResponseArgs) ToGroupingConfigurationResponseOutputWithContext(ctx context.Context) GroupingConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationResponseOutput)
+}
+
+func (i GroupingConfigurationResponseArgs) ToGroupingConfigurationResponsePtrOutput() GroupingConfigurationResponsePtrOutput {
+	return i.ToGroupingConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GroupingConfigurationResponseArgs) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationResponseOutput).ToGroupingConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// GroupingConfigurationResponsePtrInput is an input type that accepts GroupingConfigurationResponseArgs, GroupingConfigurationResponsePtr and GroupingConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `GroupingConfigurationResponsePtrInput` via:
+//
+//          GroupingConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupingConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToGroupingConfigurationResponsePtrOutput() GroupingConfigurationResponsePtrOutput
+	ToGroupingConfigurationResponsePtrOutputWithContext(context.Context) GroupingConfigurationResponsePtrOutput
+}
+
+type groupingConfigurationResponsePtrType GroupingConfigurationResponseArgs
+
+func GroupingConfigurationResponsePtr(v *GroupingConfigurationResponseArgs) GroupingConfigurationResponsePtrInput {
+	return (*groupingConfigurationResponsePtrType)(v)
+}
+
+func (*groupingConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupingConfigurationResponse)(nil)).Elem()
+}
+
+func (i *groupingConfigurationResponsePtrType) ToGroupingConfigurationResponsePtrOutput() GroupingConfigurationResponsePtrOutput {
+	return i.ToGroupingConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *groupingConfigurationResponsePtrType) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationResponsePtrOutput)
+}
+
+// Grouping configuration property bag.
+type GroupingConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupingConfigurationResponse)(nil)).Elem()
+}
+
+func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponseOutput() GroupingConfigurationResponseOutput {
+	return o
+}
+
+func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponseOutputWithContext(ctx context.Context) GroupingConfigurationResponseOutput {
+	return o
+}
+
+func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrOutput() GroupingConfigurationResponsePtrOutput {
+	return o.ToGroupingConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) *GroupingConfigurationResponse {
+		return &v
+	}).(GroupingConfigurationResponsePtrOutput)
+}
+
+// Grouping enabled
+func (o GroupingConfigurationResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A list of alert details to group by (when matchingMethod is Selected)
+func (o GroupingConfigurationResponseOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+func (o GroupingConfigurationResponseOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+func (o GroupingConfigurationResponseOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+func (o GroupingConfigurationResponseOutput) LookbackDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) string { return v.LookbackDuration }).(pulumi.StringOutput)
+}
+
+// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+func (o GroupingConfigurationResponseOutput) MatchingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) string { return v.MatchingMethod }).(pulumi.StringOutput)
+}
+
+// Re-open closed matching incidents
+func (o GroupingConfigurationResponseOutput) ReopenClosedIncident() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupingConfigurationResponse) bool { return v.ReopenClosedIncident }).(pulumi.BoolOutput)
+}
+
+type GroupingConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GroupingConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupingConfigurationResponse)(nil)).Elem()
+}
+
+func (o GroupingConfigurationResponsePtrOutput) ToGroupingConfigurationResponsePtrOutput() GroupingConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GroupingConfigurationResponsePtrOutput) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GroupingConfigurationResponsePtrOutput) Elem() GroupingConfigurationResponseOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) GroupingConfigurationResponse { return *v }).(GroupingConfigurationResponseOutput)
+}
+
+// Grouping enabled
+func (o GroupingConfigurationResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of alert details to group by (when matchingMethod is Selected)
+func (o GroupingConfigurationResponsePtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByAlertDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+func (o GroupingConfigurationResponsePtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByCustomDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+func (o GroupingConfigurationResponsePtrOutput) GroupByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupByEntities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+func (o GroupingConfigurationResponsePtrOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LookbackDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+func (o GroupingConfigurationResponsePtrOutput) MatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Re-open closed matching incidents
+func (o GroupingConfigurationResponsePtrOutput) ReopenClosedIncident() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupingConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReopenClosedIncident
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponse struct {
+	// List of product names of alerts in the incident
+	AlertProductNames []string `pulumi:"alertProductNames"`
+	// The number of alerts in the incident
+	AlertsCount int `pulumi:"alertsCount"`
+	// The number of bookmarks in the incident
+	BookmarksCount int `pulumi:"bookmarksCount"`
+	// The number of comments in the incident
+	CommentsCount int `pulumi:"commentsCount"`
+	// The tactics associated with incident
+	Tactics []string `pulumi:"tactics"`
+}
+
+// IncidentAdditionalDataResponseInput is an input type that accepts IncidentAdditionalDataResponseArgs and IncidentAdditionalDataResponseOutput values.
+// You can construct a concrete instance of `IncidentAdditionalDataResponseInput` via:
+//
+//          IncidentAdditionalDataResponseArgs{...}
+type IncidentAdditionalDataResponseInput interface {
+	pulumi.Input
+
+	ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput
+	ToIncidentAdditionalDataResponseOutputWithContext(context.Context) IncidentAdditionalDataResponseOutput
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponseArgs struct {
+	// List of product names of alerts in the incident
+	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
+	// The number of alerts in the incident
+	AlertsCount pulumi.IntInput `pulumi:"alertsCount"`
+	// The number of bookmarks in the incident
+	BookmarksCount pulumi.IntInput `pulumi:"bookmarksCount"`
+	// The number of comments in the incident
+	CommentsCount pulumi.IntInput `pulumi:"commentsCount"`
+	// The tactics associated with incident
+	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+}
+
+func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
+	return i.ToIncidentAdditionalDataResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput)
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput).ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentAdditionalDataResponsePtrInput is an input type that accepts IncidentAdditionalDataResponseArgs, IncidentAdditionalDataResponsePtr and IncidentAdditionalDataResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentAdditionalDataResponsePtrInput` via:
+//
+//          IncidentAdditionalDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentAdditionalDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput
+	ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Context) IncidentAdditionalDataResponsePtrOutput
+}
+
+type incidentAdditionalDataResponsePtrType IncidentAdditionalDataResponseArgs
+
+func IncidentAdditionalDataResponsePtr(v *IncidentAdditionalDataResponseArgs) IncidentAdditionalDataResponsePtrInput {
+	return (*incidentAdditionalDataResponsePtrType)(v)
+}
+
+func (*incidentAdditionalDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponsePtrOutput)
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentAdditionalDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return o.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
+		return &v
+	}).(IncidentAdditionalDataResponsePtrOutput)
+}
+
+// List of product names of alerts in the incident
+func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.AlertProductNames }).(pulumi.StringArrayOutput)
+}
+
+// The number of alerts in the incident
+func (o IncidentAdditionalDataResponseOutput) AlertsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.AlertsCount }).(pulumi.IntOutput)
+}
+
+// The number of bookmarks in the incident
+func (o IncidentAdditionalDataResponseOutput) BookmarksCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.BookmarksCount }).(pulumi.IntOutput)
+}
+
+// The number of comments in the incident
+func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.CommentsCount }).(pulumi.IntOutput)
+}
+
+// The tactics associated with incident
+func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+type IncidentAdditionalDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentAdditionalDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse { return *v }).(IncidentAdditionalDataResponseOutput)
+}
+
+// List of product names of alerts in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertProductNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of alerts in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of bookmarks in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BookmarksCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of comments in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CommentsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The tactics associated with incident
+func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tactics
+	}).(pulumi.StringArrayOutput)
+}
+
+// Incident Configuration property bag.
+type IncidentConfiguration struct {
+	// Create incidents from alerts triggered by this analytics rule
+	CreateIncident bool `pulumi:"createIncident"`
+	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	GroupingConfiguration *GroupingConfiguration `pulumi:"groupingConfiguration"`
+}
+
+// IncidentConfigurationInput is an input type that accepts IncidentConfigurationArgs and IncidentConfigurationOutput values.
+// You can construct a concrete instance of `IncidentConfigurationInput` via:
+//
+//          IncidentConfigurationArgs{...}
+type IncidentConfigurationInput interface {
+	pulumi.Input
+
+	ToIncidentConfigurationOutput() IncidentConfigurationOutput
+	ToIncidentConfigurationOutputWithContext(context.Context) IncidentConfigurationOutput
+}
+
+// Incident Configuration property bag.
+type IncidentConfigurationArgs struct {
+	// Create incidents from alerts triggered by this analytics rule
+	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
+	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	GroupingConfiguration GroupingConfigurationPtrInput `pulumi:"groupingConfiguration"`
+}
+
+func (IncidentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentConfiguration)(nil)).Elem()
+}
+
+func (i IncidentConfigurationArgs) ToIncidentConfigurationOutput() IncidentConfigurationOutput {
+	return i.ToIncidentConfigurationOutputWithContext(context.Background())
+}
+
+func (i IncidentConfigurationArgs) ToIncidentConfigurationOutputWithContext(ctx context.Context) IncidentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationOutput)
+}
+
+func (i IncidentConfigurationArgs) ToIncidentConfigurationPtrOutput() IncidentConfigurationPtrOutput {
+	return i.ToIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentConfigurationArgs) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationOutput).ToIncidentConfigurationPtrOutputWithContext(ctx)
+}
+
+// IncidentConfigurationPtrInput is an input type that accepts IncidentConfigurationArgs, IncidentConfigurationPtr and IncidentConfigurationPtrOutput values.
+// You can construct a concrete instance of `IncidentConfigurationPtrInput` via:
+//
+//          IncidentConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIncidentConfigurationPtrOutput() IncidentConfigurationPtrOutput
+	ToIncidentConfigurationPtrOutputWithContext(context.Context) IncidentConfigurationPtrOutput
+}
+
+type incidentConfigurationPtrType IncidentConfigurationArgs
+
+func IncidentConfigurationPtr(v *IncidentConfigurationArgs) IncidentConfigurationPtrInput {
+	return (*incidentConfigurationPtrType)(v)
+}
+
+func (*incidentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentConfiguration)(nil)).Elem()
+}
+
+func (i *incidentConfigurationPtrType) ToIncidentConfigurationPtrOutput() IncidentConfigurationPtrOutput {
+	return i.ToIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentConfigurationPtrType) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationPtrOutput)
+}
+
+// Incident Configuration property bag.
+type IncidentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IncidentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentConfiguration)(nil)).Elem()
+}
+
+func (o IncidentConfigurationOutput) ToIncidentConfigurationOutput() IncidentConfigurationOutput {
+	return o
+}
+
+func (o IncidentConfigurationOutput) ToIncidentConfigurationOutputWithContext(ctx context.Context) IncidentConfigurationOutput {
+	return o
+}
+
+func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutput() IncidentConfigurationPtrOutput {
+	return o.ToIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
+	return o.ApplyT(func(v IncidentConfiguration) *IncidentConfiguration {
+		return &v
+	}).(IncidentConfigurationPtrOutput)
+}
+
+// Create incidents from alerts triggered by this analytics rule
+func (o IncidentConfigurationOutput) CreateIncident() pulumi.BoolOutput {
+	return o.ApplyT(func(v IncidentConfiguration) bool { return v.CreateIncident }).(pulumi.BoolOutput)
+}
+
+// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+func (o IncidentConfigurationOutput) GroupingConfiguration() GroupingConfigurationPtrOutput {
+	return o.ApplyT(func(v IncidentConfiguration) *GroupingConfiguration { return v.GroupingConfiguration }).(GroupingConfigurationPtrOutput)
+}
+
+type IncidentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentConfiguration)(nil)).Elem()
+}
+
+func (o IncidentConfigurationPtrOutput) ToIncidentConfigurationPtrOutput() IncidentConfigurationPtrOutput {
+	return o
+}
+
+func (o IncidentConfigurationPtrOutput) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
+	return o
+}
+
+func (o IncidentConfigurationPtrOutput) Elem() IncidentConfigurationOutput {
+	return o.ApplyT(func(v *IncidentConfiguration) IncidentConfiguration { return *v }).(IncidentConfigurationOutput)
+}
+
+// Create incidents from alerts triggered by this analytics rule
+func (o IncidentConfigurationPtrOutput) CreateIncident() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IncidentConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateIncident
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+func (o IncidentConfigurationPtrOutput) GroupingConfiguration() GroupingConfigurationPtrOutput {
+	return o.ApplyT(func(v *IncidentConfiguration) *GroupingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupingConfiguration
+	}).(GroupingConfigurationPtrOutput)
+}
+
+// Incident Configuration property bag.
+type IncidentConfigurationResponse struct {
+	// Create incidents from alerts triggered by this analytics rule
+	CreateIncident bool `pulumi:"createIncident"`
+	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	GroupingConfiguration *GroupingConfigurationResponse `pulumi:"groupingConfiguration"`
+}
+
+// IncidentConfigurationResponseInput is an input type that accepts IncidentConfigurationResponseArgs and IncidentConfigurationResponseOutput values.
+// You can construct a concrete instance of `IncidentConfigurationResponseInput` via:
+//
+//          IncidentConfigurationResponseArgs{...}
+type IncidentConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToIncidentConfigurationResponseOutput() IncidentConfigurationResponseOutput
+	ToIncidentConfigurationResponseOutputWithContext(context.Context) IncidentConfigurationResponseOutput
+}
+
+// Incident Configuration property bag.
+type IncidentConfigurationResponseArgs struct {
+	// Create incidents from alerts triggered by this analytics rule
+	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
+	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	GroupingConfiguration GroupingConfigurationResponsePtrInput `pulumi:"groupingConfiguration"`
+}
+
+func (IncidentConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentConfigurationResponse)(nil)).Elem()
+}
+
+func (i IncidentConfigurationResponseArgs) ToIncidentConfigurationResponseOutput() IncidentConfigurationResponseOutput {
+	return i.ToIncidentConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentConfigurationResponseArgs) ToIncidentConfigurationResponseOutputWithContext(ctx context.Context) IncidentConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationResponseOutput)
+}
+
+func (i IncidentConfigurationResponseArgs) ToIncidentConfigurationResponsePtrOutput() IncidentConfigurationResponsePtrOutput {
+	return i.ToIncidentConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentConfigurationResponseArgs) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationResponseOutput).ToIncidentConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentConfigurationResponsePtrInput is an input type that accepts IncidentConfigurationResponseArgs, IncidentConfigurationResponsePtr and IncidentConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentConfigurationResponsePtrInput` via:
+//
+//          IncidentConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentConfigurationResponsePtrOutput() IncidentConfigurationResponsePtrOutput
+	ToIncidentConfigurationResponsePtrOutputWithContext(context.Context) IncidentConfigurationResponsePtrOutput
+}
+
+type incidentConfigurationResponsePtrType IncidentConfigurationResponseArgs
+
+func IncidentConfigurationResponsePtr(v *IncidentConfigurationResponseArgs) IncidentConfigurationResponsePtrInput {
+	return (*incidentConfigurationResponsePtrType)(v)
+}
+
+func (*incidentConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentConfigurationResponse)(nil)).Elem()
+}
+
+func (i *incidentConfigurationResponsePtrType) ToIncidentConfigurationResponsePtrOutput() IncidentConfigurationResponsePtrOutput {
+	return i.ToIncidentConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentConfigurationResponsePtrType) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationResponsePtrOutput)
+}
+
+// Incident Configuration property bag.
+type IncidentConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentConfigurationResponse)(nil)).Elem()
+}
+
+func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponseOutput() IncidentConfigurationResponseOutput {
+	return o
+}
+
+func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponseOutputWithContext(ctx context.Context) IncidentConfigurationResponseOutput {
+	return o
+}
+
+func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrOutput() IncidentConfigurationResponsePtrOutput {
+	return o.ToIncidentConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v IncidentConfigurationResponse) *IncidentConfigurationResponse {
+		return &v
+	}).(IncidentConfigurationResponsePtrOutput)
+}
+
+// Create incidents from alerts triggered by this analytics rule
+func (o IncidentConfigurationResponseOutput) CreateIncident() pulumi.BoolOutput {
+	return o.ApplyT(func(v IncidentConfigurationResponse) bool { return v.CreateIncident }).(pulumi.BoolOutput)
+}
+
+// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+func (o IncidentConfigurationResponseOutput) GroupingConfiguration() GroupingConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v IncidentConfigurationResponse) *GroupingConfigurationResponse { return v.GroupingConfiguration }).(GroupingConfigurationResponsePtrOutput)
+}
+
+type IncidentConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentConfigurationResponse)(nil)).Elem()
+}
+
+func (o IncidentConfigurationResponsePtrOutput) ToIncidentConfigurationResponsePtrOutput() IncidentConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IncidentConfigurationResponsePtrOutput) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IncidentConfigurationResponsePtrOutput) Elem() IncidentConfigurationResponseOutput {
+	return o.ApplyT(func(v *IncidentConfigurationResponse) IncidentConfigurationResponse { return *v }).(IncidentConfigurationResponseOutput)
+}
+
+// Create incidents from alerts triggered by this analytics rule
+func (o IncidentConfigurationResponsePtrOutput) CreateIncident() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IncidentConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateIncident
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+func (o IncidentConfigurationResponsePtrOutput) GroupingConfiguration() GroupingConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *IncidentConfigurationResponse) *GroupingConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GroupingConfiguration
+	}).(GroupingConfigurationResponsePtrOutput)
+}
+
+// Represents an incident label
+type IncidentLabel struct {
+	// The name of the label
+	LabelName string `pulumi:"labelName"`
+}
+
+// IncidentLabelInput is an input type that accepts IncidentLabelArgs and IncidentLabelOutput values.
+// You can construct a concrete instance of `IncidentLabelInput` via:
+//
+//          IncidentLabelArgs{...}
+type IncidentLabelInput interface {
+	pulumi.Input
+
+	ToIncidentLabelOutput() IncidentLabelOutput
+	ToIncidentLabelOutputWithContext(context.Context) IncidentLabelOutput
+}
+
+// Represents an incident label
+type IncidentLabelArgs struct {
+	// The name of the label
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+}
+
+func (IncidentLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabel)(nil)).Elem()
+}
+
+func (i IncidentLabelArgs) ToIncidentLabelOutput() IncidentLabelOutput {
+	return i.ToIncidentLabelOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelArgs) ToIncidentLabelOutputWithContext(ctx context.Context) IncidentLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelOutput)
+}
+
+// IncidentLabelArrayInput is an input type that accepts IncidentLabelArray and IncidentLabelArrayOutput values.
+// You can construct a concrete instance of `IncidentLabelArrayInput` via:
+//
+//          IncidentLabelArray{ IncidentLabelArgs{...} }
+type IncidentLabelArrayInput interface {
+	pulumi.Input
+
+	ToIncidentLabelArrayOutput() IncidentLabelArrayOutput
+	ToIncidentLabelArrayOutputWithContext(context.Context) IncidentLabelArrayOutput
+}
+
+type IncidentLabelArray []IncidentLabelInput
+
+func (IncidentLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabel)(nil)).Elem()
+}
+
+func (i IncidentLabelArray) ToIncidentLabelArrayOutput() IncidentLabelArrayOutput {
+	return i.ToIncidentLabelArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelArray) ToIncidentLabelArrayOutputWithContext(ctx context.Context) IncidentLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelArrayOutput)
+}
+
+// Represents an incident label
+type IncidentLabelOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabel)(nil)).Elem()
+}
+
+func (o IncidentLabelOutput) ToIncidentLabelOutput() IncidentLabelOutput {
+	return o
+}
+
+func (o IncidentLabelOutput) ToIncidentLabelOutputWithContext(ctx context.Context) IncidentLabelOutput {
+	return o
+}
+
+// The name of the label
+func (o IncidentLabelOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabel) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+type IncidentLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabel)(nil)).Elem()
+}
+
+func (o IncidentLabelArrayOutput) ToIncidentLabelArrayOutput() IncidentLabelArrayOutput {
+	return o
+}
+
+func (o IncidentLabelArrayOutput) ToIncidentLabelArrayOutputWithContext(ctx context.Context) IncidentLabelArrayOutput {
+	return o
+}
+
+func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentLabel {
+		return vs[0].([]IncidentLabel)[vs[1].(int)]
+	}).(IncidentLabelOutput)
+}
+
+// Represents an incident label
+type IncidentLabelResponse struct {
+	// The name of the label
+	LabelName string `pulumi:"labelName"`
+	// The type of the label
+	LabelType string `pulumi:"labelType"`
+}
+
+// IncidentLabelResponseInput is an input type that accepts IncidentLabelResponseArgs and IncidentLabelResponseOutput values.
+// You can construct a concrete instance of `IncidentLabelResponseInput` via:
+//
+//          IncidentLabelResponseArgs{...}
+type IncidentLabelResponseInput interface {
+	pulumi.Input
+
+	ToIncidentLabelResponseOutput() IncidentLabelResponseOutput
+	ToIncidentLabelResponseOutputWithContext(context.Context) IncidentLabelResponseOutput
+}
+
+// Represents an incident label
+type IncidentLabelResponseArgs struct {
+	// The name of the label
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+	// The type of the label
+	LabelType pulumi.StringInput `pulumi:"labelType"`
+}
+
+func (IncidentLabelResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
+}
+
+func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
+	return i.ToIncidentLabelResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseOutput)
+}
+
+// IncidentLabelResponseArrayInput is an input type that accepts IncidentLabelResponseArray and IncidentLabelResponseArrayOutput values.
+// You can construct a concrete instance of `IncidentLabelResponseArrayInput` via:
+//
+//          IncidentLabelResponseArray{ IncidentLabelResponseArgs{...} }
+type IncidentLabelResponseArrayInput interface {
+	pulumi.Input
+
+	ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput
+	ToIncidentLabelResponseArrayOutputWithContext(context.Context) IncidentLabelResponseArrayOutput
+}
+
+type IncidentLabelResponseArray []IncidentLabelResponseInput
+
+func (IncidentLabelResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
+}
+
+func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
+	return i.ToIncidentLabelResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseArrayOutput)
+}
+
+// Represents an incident label
+type IncidentLabelResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
+}
+
+func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
+	return o
+}
+
+func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
+	return o
+}
+
+// The name of the label
+func (o IncidentLabelResponseOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+// The type of the label
+func (o IncidentLabelResponseOutput) LabelType() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelType }).(pulumi.StringOutput)
+}
+
+type IncidentLabelResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
+}
+
+func (o IncidentLabelResponseArrayOutput) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
+	return o
+}
+
+func (o IncidentLabelResponseArrayOutput) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
+	return o
+}
+
+func (o IncidentLabelResponseArrayOutput) Index(i pulumi.IntInput) IncidentLabelResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentLabelResponse {
+		return vs[0].([]IncidentLabelResponse)[vs[1].(int)]
+	}).(IncidentLabelResponseOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfo struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo *string `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email *string `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId *string `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// IncidentOwnerInfoInput is an input type that accepts IncidentOwnerInfoArgs and IncidentOwnerInfoOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoInput` via:
+//
+//          IncidentOwnerInfoArgs{...}
+type IncidentOwnerInfoInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput
+	ToIncidentOwnerInfoOutputWithContext(context.Context) IncidentOwnerInfoOutput
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoArgs struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (IncidentOwnerInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput {
+	return i.ToIncidentOwnerInfoOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoOutputWithContext(ctx context.Context) IncidentOwnerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoOutput)
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return i.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoOutput).ToIncidentOwnerInfoPtrOutputWithContext(ctx)
+}
+
+// IncidentOwnerInfoPtrInput is an input type that accepts IncidentOwnerInfoArgs, IncidentOwnerInfoPtr and IncidentOwnerInfoPtrOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoPtrInput` via:
+//
+//          IncidentOwnerInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentOwnerInfoPtrInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput
+	ToIncidentOwnerInfoPtrOutputWithContext(context.Context) IncidentOwnerInfoPtrOutput
+}
+
+type incidentOwnerInfoPtrType IncidentOwnerInfoArgs
+
+func IncidentOwnerInfoPtr(v *IncidentOwnerInfoArgs) IncidentOwnerInfoPtrInput {
+	return (*incidentOwnerInfoPtrType)(v)
+}
+
+func (*incidentOwnerInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (i *incidentOwnerInfoPtrType) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return i.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentOwnerInfoPtrType) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoPtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoOutputWithContext(ctx context.Context) IncidentOwnerInfoOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return o.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *IncidentOwnerInfo {
+		return &v
+	}).(IncidentOwnerInfoPtrOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type IncidentOwnerInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo { return *v }).(IncidentOwnerInfoOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponse struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo *string `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email *string `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId *string `pulumi:"objectId"`
+	// The type of the owner the incident is assigned to.
+	OwnerType string `pulumi:"ownerType"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// IncidentOwnerInfoResponseInput is an input type that accepts IncidentOwnerInfoResponseArgs and IncidentOwnerInfoResponseOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoResponseInput` via:
+//
+//          IncidentOwnerInfoResponseArgs{...}
+type IncidentOwnerInfoResponseInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput
+	ToIncidentOwnerInfoResponseOutputWithContext(context.Context) IncidentOwnerInfoResponseOutput
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponseArgs struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The type of the owner the incident is assigned to.
+	OwnerType pulumi.StringInput `pulumi:"ownerType"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (IncidentOwnerInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
+	return i.ToIncidentOwnerInfoResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput)
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput).ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentOwnerInfoResponsePtrInput is an input type that accepts IncidentOwnerInfoResponseArgs, IncidentOwnerInfoResponsePtr and IncidentOwnerInfoResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoResponsePtrInput` via:
+//
+//          IncidentOwnerInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentOwnerInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput
+	ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Context) IncidentOwnerInfoResponsePtrOutput
+}
+
+type incidentOwnerInfoResponsePtrType IncidentOwnerInfoResponseArgs
+
+func IncidentOwnerInfoResponsePtr(v *IncidentOwnerInfoResponseArgs) IncidentOwnerInfoResponsePtrInput {
+	return (*incidentOwnerInfoResponsePtrType)(v)
+}
+
+func (*incidentOwnerInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return o.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
+		return &v
+	}).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) OwnerType() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) string { return v.OwnerType }).(pulumi.StringOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type IncidentOwnerInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse { return *v }).(IncidentOwnerInfoResponseOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) OwnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12256,6 +15155,10 @@ func init() {
 	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput{})
 	pulumi.RegisterOutputType(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput{})
+	pulumi.RegisterOutputType(AlertDetailsOverrideOutput{})
+	pulumi.RegisterOutputType(AlertDetailsOverridePtrOutput{})
+	pulumi.RegisterOutputType(AlertDetailsOverrideResponseOutput{})
+	pulumi.RegisterOutputType(AlertDetailsOverrideResponsePtrOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorPtrOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorResponseOutput{})
@@ -12272,6 +15175,8 @@ func init() {
 	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput{})
 	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput{})
+	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
+	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(CodelessUiConnectorConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(CodelessUiConnectorConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CodelessUiConnectorConfigPropertiesConnectivityCriteriaOutput{})
@@ -12312,6 +15217,36 @@ func init() {
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesResponsePtrOutput{})
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput{})
 	pulumi.RegisterOutputType(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput{})
+	pulumi.RegisterOutputType(EntityMappingOutput{})
+	pulumi.RegisterOutputType(EntityMappingArrayOutput{})
+	pulumi.RegisterOutputType(EntityMappingResponseOutput{})
+	pulumi.RegisterOutputType(EntityMappingResponseArrayOutput{})
+	pulumi.RegisterOutputType(EventGroupingSettingsOutput{})
+	pulumi.RegisterOutputType(EventGroupingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EventGroupingSettingsResponseOutput{})
+	pulumi.RegisterOutputType(EventGroupingSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(FieldMappingOutput{})
+	pulumi.RegisterOutputType(FieldMappingArrayOutput{})
+	pulumi.RegisterOutputType(FieldMappingResponseOutput{})
+	pulumi.RegisterOutputType(FieldMappingResponseArrayOutput{})
+	pulumi.RegisterOutputType(GroupingConfigurationOutput{})
+	pulumi.RegisterOutputType(GroupingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GroupingConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(GroupingConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
+	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentConfigurationOutput{})
+	pulumi.RegisterOutputType(IncidentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IncidentConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(IncidentConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentLabelOutput{})
+	pulumi.RegisterOutputType(IncidentLabelArrayOutput{})
+	pulumi.RegisterOutputType(IncidentLabelResponseOutput{})
+	pulumi.RegisterOutputType(IncidentLabelResponseArrayOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstructionStepsInstructionsOutput{})
 	pulumi.RegisterOutputType(InstructionStepsInstructionsArrayOutput{})
 	pulumi.RegisterOutputType(InstructionStepsResponseInstructionsOutput{})

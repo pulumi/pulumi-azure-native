@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.Sql/Server/Database'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
         /// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 
             string? table,
 
-            string? type,
+            string type,
 
             string? user)
         {

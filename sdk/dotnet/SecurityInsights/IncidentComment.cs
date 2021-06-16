@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents an incident comment
-    /// API Version: 2019-01-01-preview.
+    /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentComment")]
     public partial class IncidentComment : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
@@ -86,6 +92,8 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:IncidentComment"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:IncidentComment"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IncidentComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:IncidentComment"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:IncidentComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210401:IncidentComment"},
                 },
@@ -142,7 +150,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

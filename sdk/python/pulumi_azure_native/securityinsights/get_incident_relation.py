@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetIncidentRelationResult',
@@ -19,7 +20,7 @@ class GetIncidentRelationResult:
     """
     Represents a relation between two resources
     """
-    def __init__(__self__, etag=None, id=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -41,6 +42,9 @@ class GetIncidentRelationResult:
         if related_resource_type and not isinstance(related_resource_type, str):
             raise TypeError("Expected argument 'related_resource_type' to be a str")
         pulumi.set(__self__, "related_resource_type", related_resource_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -102,6 +106,14 @@ class GetIncidentRelationResult:
         return pulumi.get(self, "related_resource_type")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -123,6 +135,7 @@ class AwaitableGetIncidentRelationResult(GetIncidentRelationResult):
             related_resource_kind=self.related_resource_kind,
             related_resource_name=self.related_resource_name,
             related_resource_type=self.related_resource_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -134,13 +147,13 @@ def get_incident_relation(incident_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentRelationResult:
     """
     Represents a relation between two resources
-    API Version: 2019-01-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str incident_id: Incident ID
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str relation_name: Relation Name
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
@@ -163,4 +176,5 @@ def get_incident_relation(incident_id: Optional[str] = None,
         related_resource_kind=__ret__.related_resource_kind,
         related_resource_name=__ret__.related_resource_name,
         related_resource_type=__ret__.related_resource_type,
+        system_data=__ret__.system_data,
         type=__ret__.type)

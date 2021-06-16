@@ -101,6 +101,38 @@ namespace Pulumi.AzureNative.StreamAnalytics
     }
 
     /// <summary>
+    /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSerializationType : IEquatable<EventSerializationType>
+    {
+        private readonly string _value;
+
+        private EventSerializationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSerializationType Csv { get; } = new EventSerializationType("Csv");
+        public static EventSerializationType Avro { get; } = new EventSerializationType("Avro");
+        public static EventSerializationType Json { get; } = new EventSerializationType("Json");
+
+        public static bool operator ==(EventSerializationType left, EventSerializationType right) => left.Equals(right);
+        public static bool operator !=(EventSerializationType left, EventSerializationType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSerializationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSerializationType other && Equals(other);
+        public bool Equals(EventSerializationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the policy to apply to events that arrive out of order in the input event stream.
     /// </summary>
     [EnumType]

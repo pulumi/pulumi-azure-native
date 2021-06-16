@@ -64,6 +64,12 @@ func NewIncidentComment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityinsights:IncidentComment"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:IncidentComment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:IncidentComment"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20210401:IncidentComment"),
 		},
 		{

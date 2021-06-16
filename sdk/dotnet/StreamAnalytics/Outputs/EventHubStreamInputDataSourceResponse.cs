@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.ServiceBus/EventHub'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private EventHubStreamInputDataSourceResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? sharedAccessPolicyName,
 
-            string? type)
+            string type)
         {
             ConsumerGroupName = consumerGroupName;
             EventHubName = eventHubName;

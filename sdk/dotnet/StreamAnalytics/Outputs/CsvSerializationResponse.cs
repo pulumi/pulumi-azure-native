@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Csv'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private CsvSerializationResponse(
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? fieldDelimiter,
 
-            string? type)
+            string type)
         {
             Encoding = encoding;
             FieldDelimiter = fieldDelimiter;

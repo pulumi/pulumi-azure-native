@@ -339,6 +339,8 @@ func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 type HighAvailability struct {
 	// The HA mode for the server.
 	Mode *string `pulumi:"mode"`
+	// availability zone information of the standby.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
 // HighAvailabilityInput is an input type that accepts HighAvailabilityArgs and HighAvailabilityOutput values.
@@ -356,6 +358,8 @@ type HighAvailabilityInput interface {
 type HighAvailabilityArgs struct {
 	// The HA mode for the server.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// availability zone information of the standby.
+	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
 func (HighAvailabilityArgs) ElementType() reflect.Type {
@@ -441,6 +445,11 @@ func (o HighAvailabilityOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HighAvailability) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// availability zone information of the standby.
+func (o HighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
 type HighAvailabilityPtrOutput struct{ *pulumi.OutputState }
 
 func (HighAvailabilityPtrOutput) ElementType() reflect.Type {
@@ -469,12 +478,22 @@ func (o HighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// availability zone information of the standby.
+func (o HighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HighAvailability) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
 // High availability properties of a server
 type HighAvailabilityResponse struct {
 	// The HA mode for the server.
 	Mode *string `pulumi:"mode"`
 	// availability zone information of the standby.
-	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	// A state of a HA server that is visible to user.
 	State string `pulumi:"state"`
 }
@@ -495,7 +514,7 @@ type HighAvailabilityResponseArgs struct {
 	// The HA mode for the server.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// availability zone information of the standby.
-	StandbyAvailabilityZone pulumi.StringInput `pulumi:"standbyAvailabilityZone"`
+	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 	// A state of a HA server that is visible to user.
 	State pulumi.StringInput `pulumi:"state"`
 }
@@ -584,8 +603,8 @@ func (o HighAvailabilityResponseOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // availability zone information of the standby.
-func (o HighAvailabilityResponseOutput) StandbyAvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v HighAvailabilityResponse) string { return v.StandbyAvailabilityZone }).(pulumi.StringOutput)
+func (o HighAvailabilityResponseOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HighAvailabilityResponse) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // A state of a HA server that is visible to user.
@@ -627,7 +646,7 @@ func (o HighAvailabilityResponsePtrOutput) StandbyAvailabilityZone() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return &v.StandbyAvailabilityZone
+		return v.StandbyAvailabilityZone
 	}).(pulumi.StringPtrOutput)
 }
 

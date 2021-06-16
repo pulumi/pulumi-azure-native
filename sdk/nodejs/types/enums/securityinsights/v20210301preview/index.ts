@@ -2,6 +2,80 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AlertDetail = {
+    /**
+     * Alert display name
+     */
+    DisplayName: "DisplayName",
+    /**
+     * Alert severity
+     */
+    Severity: "Severity",
+} as const;
+
+/**
+ * Alert detail
+ */
+export type AlertDetail = (typeof AlertDetail)[keyof typeof AlertDetail];
+
+export const AlertRuleKind = {
+    Scheduled: "Scheduled",
+    MicrosoftSecurityIncidentCreation: "MicrosoftSecurityIncidentCreation",
+    Fusion: "Fusion",
+    MLBehaviorAnalytics: "MLBehaviorAnalytics",
+    ThreatIntelligence: "ThreatIntelligence",
+} as const;
+
+/**
+ * The kind of the alert rule
+ */
+export type AlertRuleKind = (typeof AlertRuleKind)[keyof typeof AlertRuleKind];
+
+export const AlertSeverity = {
+    /**
+     * High severity
+     */
+    High: "High",
+    /**
+     * Medium severity
+     */
+    Medium: "Medium",
+    /**
+     * Low severity
+     */
+    Low: "Low",
+    /**
+     * Informational severity
+     */
+    Informational: "Informational",
+} as const;
+
+/**
+ * The severity for alerts created by this alert rule.
+ */
+export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
+
+export const AttackTactic = {
+    InitialAccess: "InitialAccess",
+    Execution: "Execution",
+    Persistence: "Persistence",
+    PrivilegeEscalation: "PrivilegeEscalation",
+    DefenseEvasion: "DefenseEvasion",
+    CredentialAccess: "CredentialAccess",
+    Discovery: "Discovery",
+    LateralMovement: "LateralMovement",
+    Collection: "Collection",
+    Exfiltration: "Exfiltration",
+    CommandAndControl: "CommandAndControl",
+    Impact: "Impact",
+    PreAttack: "PreAttack",
+} as const;
+
+/**
+ * The severity for alerts created by this alert rule.
+ */
+export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
+
 export const ConnectivityType = {
     IsConnectedQuery: "IsConnectedQuery",
 } as const;
@@ -61,6 +135,86 @@ export const DataTypeState = {
  * Describe whether this data type connection is enabled or not.
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
+
+export const EntityMappingType = {
+    /**
+     * User account entity type
+     */
+    Account: "Account",
+    /**
+     * Host entity type
+     */
+    Host: "Host",
+    /**
+     * IP address entity type
+     */
+    IP: "IP",
+    /**
+     * Malware entity type
+     */
+    Malware: "Malware",
+    /**
+     * System file entity type
+     */
+    File: "File",
+    /**
+     * Process entity type
+     */
+    Process: "Process",
+    /**
+     * Cloud app entity type
+     */
+    CloudApplication: "CloudApplication",
+    /**
+     * DNS entity type
+     */
+    DNS: "DNS",
+    /**
+     * Azure resource entity type
+     */
+    AzureResource: "AzureResource",
+    /**
+     * File-hash entity type
+     */
+    FileHash: "FileHash",
+    /**
+     * Registry key entity type
+     */
+    RegistryKey: "RegistryKey",
+    /**
+     * Registry value entity type
+     */
+    RegistryValue: "RegistryValue",
+    /**
+     * Security group entity type
+     */
+    SecurityGroup: "SecurityGroup",
+    /**
+     * URL entity type
+     */
+    URL: "URL",
+    /**
+     * Mailbox entity type
+     */
+    Mailbox: "Mailbox",
+    /**
+     * Mail cluster entity type
+     */
+    MailCluster: "MailCluster",
+    /**
+     * Mail message entity type
+     */
+    MailMessage: "MailMessage",
+    /**
+     * Submission mail entity type
+     */
+    SubmissionMail: "SubmissionMail",
+} as const;
+
+/**
+ * The V3 type of the mapped entity
+ */
+export type EntityMappingType = (typeof EntityMappingType)[keyof typeof EntityMappingType];
 
 export const EntityType = {
     /**
@@ -154,6 +308,108 @@ export const EntityType = {
  */
 export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
+export const EventGroupingAggregationKind = {
+    SingleAlert: "SingleAlert",
+    AlertPerResult: "AlertPerResult",
+} as const;
+
+/**
+ * The event grouping aggregation kinds
+ */
+export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
+
+export const IncidentClassification = {
+    /**
+     * Incident classification was undetermined
+     */
+    Undetermined: "Undetermined",
+    /**
+     * Incident was true positive
+     */
+    TruePositive: "TruePositive",
+    /**
+     * Incident was benign positive
+     */
+    BenignPositive: "BenignPositive",
+    /**
+     * Incident was false positive
+     */
+    FalsePositive: "FalsePositive",
+} as const;
+
+/**
+ * The reason the incident was closed
+ */
+export type IncidentClassification = (typeof IncidentClassification)[keyof typeof IncidentClassification];
+
+export const IncidentClassificationReason = {
+    /**
+     * Classification reason was suspicious activity
+     */
+    SuspiciousActivity: "SuspiciousActivity",
+    /**
+     * Classification reason was suspicious but expected
+     */
+    SuspiciousButExpected: "SuspiciousButExpected",
+    /**
+     * Classification reason was incorrect alert logic
+     */
+    IncorrectAlertLogic: "IncorrectAlertLogic",
+    /**
+     * Classification reason was inaccurate data
+     */
+    InaccurateData: "InaccurateData",
+} as const;
+
+/**
+ * The classification reason the incident was closed with
+ */
+export type IncidentClassificationReason = (typeof IncidentClassificationReason)[keyof typeof IncidentClassificationReason];
+
+export const IncidentSeverity = {
+    /**
+     * High severity
+     */
+    High: "High",
+    /**
+     * Medium severity
+     */
+    Medium: "Medium",
+    /**
+     * Low severity
+     */
+    Low: "Low",
+    /**
+     * Informational severity
+     */
+    Informational: "Informational",
+} as const;
+
+/**
+ * The severity of the incident
+ */
+export type IncidentSeverity = (typeof IncidentSeverity)[keyof typeof IncidentSeverity];
+
+export const IncidentStatus = {
+    /**
+     * An active incident which isn't being handled currently
+     */
+    New: "New",
+    /**
+     * An active incident which is being handled
+     */
+    Active: "Active",
+    /**
+     * A non-active incident
+     */
+    Closed: "Closed",
+} as const;
+
+/**
+ * The status of the incident
+ */
+export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
+
 export const Kind = {
     DataConnector: "dataConnector",
     DataType: "dataType",
@@ -175,6 +431,41 @@ export const Kind = {
  * The kind of content the metadata is for.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const MatchingMethod = {
+    /**
+     * Grouping alerts into a single incident if all the entities match
+     */
+    AllEntities: "AllEntities",
+    /**
+     * Grouping any alerts triggered by this rule into a single incident
+     */
+    AnyAlert: "AnyAlert",
+    /**
+     * Grouping alerts into a single incident if the selected entities, custom details and alert details match
+     */
+    Selected: "Selected",
+} as const;
+
+/**
+ * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+ */
+export type MatchingMethod = (typeof MatchingMethod)[keyof typeof MatchingMethod];
+
+export const MicrosoftSecurityProductName = {
+    Microsoft_Cloud_App_Security: "Microsoft Cloud App Security",
+    Azure_Security_Center: "Azure Security Center",
+    Azure_Advanced_Threat_Protection: "Azure Advanced Threat Protection",
+    Azure_Active_Directory_Identity_Protection: "Azure Active Directory Identity Protection",
+    Azure_Security_Center_for_IoT: "Azure Security Center for IoT",
+    Office_365_Advanced_Threat_Protection: "Office 365 Advanced Threat Protection",
+    Microsoft_Defender_Advanced_Threat_Protection: "Microsoft Defender Advanced Threat Protection",
+} as const;
+
+/**
+ * The alerts' productName on which the cases will be generated
+ */
+export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
 
 export const Operator = {
     AND: "AND",
@@ -295,6 +586,18 @@ export const SupportTier = {
  * Type of support for content item
  */
 export type SupportTier = (typeof SupportTier)[keyof typeof SupportTier];
+
+export const TriggerOperator = {
+    GreaterThan: "GreaterThan",
+    LessThan: "LessThan",
+    Equal: "Equal",
+    NotEqual: "NotEqual",
+} as const;
+
+/**
+ * The operation against the threshold that triggers alert rule.
+ */
+export type TriggerOperator = (typeof TriggerOperator)[keyof typeof TriggerOperator];
 
 export const UebaDataSources = {
     AuditLogs: "AuditLogs",

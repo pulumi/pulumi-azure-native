@@ -190,7 +190,7 @@ export class Incident extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:Incident" }, { type: "azure-native:securityinsights:Incident" }, { type: "azure-nextgen:securityinsights:Incident" }, { type: "azure-native:securityinsights/v20190101preview:Incident" }, { type: "azure-nextgen:securityinsights/v20190101preview:Incident" }, { type: "azure-native:securityinsights/v20210401:Incident" }, { type: "azure-nextgen:securityinsights/v20210401:Incident" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:Incident" }, { type: "azure-native:securityinsights:Incident" }, { type: "azure-nextgen:securityinsights:Incident" }, { type: "azure-native:securityinsights/v20190101preview:Incident" }, { type: "azure-nextgen:securityinsights/v20190101preview:Incident" }, { type: "azure-native:securityinsights/v20210301preview:Incident" }, { type: "azure-nextgen:securityinsights/v20210301preview:Incident" }, { type: "azure-native:securityinsights/v20210401:Incident" }, { type: "azure-nextgen:securityinsights/v20210401:Incident" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Incident.__pulumiType, name, inputs, opts);
     }

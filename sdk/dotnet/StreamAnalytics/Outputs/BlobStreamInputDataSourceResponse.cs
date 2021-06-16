@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.Storage/Blob'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private BlobStreamInputDataSourceResponse(
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? timeFormat,
 
-            string? type)
+            string type)
         {
             Container = container;
             DateFormat = dateFormat;

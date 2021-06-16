@@ -36,6 +36,8 @@ type IoTHubEventSource struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time pulumi.StringPtrOutput `pulumi:"time"`
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName pulumi.StringPtrOutput `pulumi:"timestampPropertyName"`
 	// Resource type
@@ -147,6 +149,8 @@ type ioTHubEventSourceState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time *string `pulumi:"time"`
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
 	// Resource type
@@ -175,6 +179,8 @@ type IoTHubEventSourceState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time pulumi.StringPtrInput
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName pulumi.StringPtrInput
 	// Resource type
@@ -211,8 +217,12 @@ type ioTHubEventSourceArgs struct {
 	SharedAccessKey string `pulumi:"sharedAccessKey"`
 	// Key-value pairs of additional properties for the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time *string `pulumi:"time"`
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
+	// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IoTHubEventSource resource.
@@ -242,8 +252,12 @@ type IoTHubEventSourceArgs struct {
 	SharedAccessKey pulumi.StringInput
 	// Key-value pairs of additional properties for the resource.
 	Tags pulumi.StringMapInput
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time pulumi.StringPtrInput
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName pulumi.StringPtrInput
+	// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+	Type pulumi.StringPtrInput
 }
 
 func (IoTHubEventSourceArgs) ElementType() reflect.Type {

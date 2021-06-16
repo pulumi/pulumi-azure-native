@@ -45,7 +45,7 @@ type LookupStreamingJobResult struct {
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions []FunctionResponse `pulumi:"functions"`
-	// Resource Id
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputResponse `pulumi:"inputs"`
@@ -55,9 +55,9 @@ type LookupStreamingJobResult struct {
 	JobState string `pulumi:"jobState"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime string `pulumi:"lastOutputEventTime"`
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
@@ -71,10 +71,10 @@ type LookupStreamingJobResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation *TransformationResponse `pulumi:"transformation"`
-	// Resource type
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

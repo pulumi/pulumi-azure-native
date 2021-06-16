@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20200101preview from "./v20200101preview";
+import * as v20210501 from "./v20210501";
 
 export {
     v20200101preview,
+    v20210501,
 };
 
 export const DeviceType = {

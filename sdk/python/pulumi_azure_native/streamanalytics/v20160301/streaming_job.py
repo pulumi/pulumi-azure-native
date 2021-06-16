@@ -44,13 +44,13 @@ class StreamingJobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         :param pulumi.Input[Sequence[pulumi.Input['InputArgs']]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] location: Resource location. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'OutputErrorPolicy']] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[Union[str, 'OutputStartMode']] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
         :param pulumi.Input[Sequence[pulumi.Input['OutputArgs']]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         :param pulumi.Input['SkuArgs'] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TransformationArgs'] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -199,7 +199,7 @@ class StreamingJobArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location. Required on PUT (CreateOrReplace) requests.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -271,7 +271,7 @@ class StreamingJobArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -328,14 +328,14 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] location: Resource location. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'OutputErrorPolicy']] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[Union[str, 'OutputStartMode']] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['TransformationArgs']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         ...
@@ -418,7 +418,7 @@ class StreamingJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20200301:StreamingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingJob, __self__).__init__(
             'azure-native:streamanalytics/v20160301:StreamingJob',
@@ -567,7 +567,7 @@ class StreamingJob(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource location. Required on PUT (CreateOrReplace) requests.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -575,7 +575,7 @@ class StreamingJob(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -631,7 +631,7 @@ class StreamingJob(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -647,7 +647,7 @@ class StreamingJob(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

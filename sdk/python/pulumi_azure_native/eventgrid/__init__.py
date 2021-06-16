@@ -14,14 +14,17 @@ from .get_domain import *
 from .get_domain_topic import *
 from .get_event_channel import *
 from .get_event_subscription import *
+from .get_event_subscription_delivery_attributes import *
 from .get_event_subscription_full_url import *
 from .get_partner_namespace import *
 from .get_partner_registration import *
 from .get_partner_topic_event_subscription import *
+from .get_partner_topic_event_subscription_delivery_attributes import *
 from .get_partner_topic_event_subscription_full_url import *
 from .get_private_endpoint_connection import *
 from .get_system_topic import *
 from .get_system_topic_event_subscription import *
+from .get_system_topic_event_subscription_delivery_attributes import *
 from .get_system_topic_event_subscription_full_url import *
 from .get_topic import *
 from .list_domain_shared_access_keys import *
@@ -51,6 +54,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.eventgrid.v20200401preview as v20200401preview
     import pulumi_azure_native.eventgrid.v20200601 as v20200601
     import pulumi_azure_native.eventgrid.v20201015preview as v20201015preview
+    import pulumi_azure_native.eventgrid.v20210601preview as v20210601preview
 else:
     v20170615preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170615preview')
     v20170915preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170915preview')
@@ -64,4 +68,5 @@ else:
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200401preview')
     v20200601 = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200601')
     v20201015preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20201015preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20210601preview')
 

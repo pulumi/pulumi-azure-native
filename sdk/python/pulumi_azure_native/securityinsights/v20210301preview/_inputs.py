@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ActivityEntityQueriesPropertiesQueryDefinitionsArgs',
+    'AlertDetailsOverrideArgs',
     'AlertsDataTypeOfDataConnectorArgs',
     'AvailabilityArgs',
     'AwsCloudTrailDataConnectorDataTypesArgs',
@@ -25,6 +26,13 @@ __all__ = [
     'DataConnectorDataTypeCommonArgs',
     'Dynamics365DataConnectorDataTypesArgs',
     'Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs',
+    'EntityMappingArgs',
+    'EventGroupingSettingsArgs',
+    'FieldMappingArgs',
+    'GroupingConfigurationArgs',
+    'IncidentConfigurationArgs',
+    'IncidentLabelArgs',
+    'IncidentOwnerInfoArgs',
     'InstructionStepsInstructionsArgs',
     'MCASDataConnectorDataTypesArgs',
     'MSTIDataConnectorDataTypesArgs',
@@ -74,6 +82,78 @@ class ActivityEntityQueriesPropertiesQueryDefinitionsArgs:
     @query.setter
     def query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class AlertDetailsOverrideArgs:
+    def __init__(__self__, *,
+                 alert_description_format: Optional[pulumi.Input[str]] = None,
+                 alert_display_name_format: Optional[pulumi.Input[str]] = None,
+                 alert_severity_column_name: Optional[pulumi.Input[str]] = None,
+                 alert_tactics_column_name: Optional[pulumi.Input[str]] = None):
+        """
+        Settings for how to dynamically override alert static details
+        :param pulumi.Input[str] alert_description_format: the format containing columns name(s) to override the alert description
+        :param pulumi.Input[str] alert_display_name_format: the format containing columns name(s) to override the alert name
+        :param pulumi.Input[str] alert_severity_column_name: the column name to take the alert severity from
+        :param pulumi.Input[str] alert_tactics_column_name: the column name to take the alert tactics from
+        """
+        if alert_description_format is not None:
+            pulumi.set(__self__, "alert_description_format", alert_description_format)
+        if alert_display_name_format is not None:
+            pulumi.set(__self__, "alert_display_name_format", alert_display_name_format)
+        if alert_severity_column_name is not None:
+            pulumi.set(__self__, "alert_severity_column_name", alert_severity_column_name)
+        if alert_tactics_column_name is not None:
+            pulumi.set(__self__, "alert_tactics_column_name", alert_tactics_column_name)
+
+    @property
+    @pulumi.getter(name="alertDescriptionFormat")
+    def alert_description_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        the format containing columns name(s) to override the alert description
+        """
+        return pulumi.get(self, "alert_description_format")
+
+    @alert_description_format.setter
+    def alert_description_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_description_format", value)
+
+    @property
+    @pulumi.getter(name="alertDisplayNameFormat")
+    def alert_display_name_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        the format containing columns name(s) to override the alert name
+        """
+        return pulumi.get(self, "alert_display_name_format")
+
+    @alert_display_name_format.setter
+    def alert_display_name_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_display_name_format", value)
+
+    @property
+    @pulumi.getter(name="alertSeverityColumnName")
+    def alert_severity_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to take the alert severity from
+        """
+        return pulumi.get(self, "alert_severity_column_name")
+
+    @alert_severity_column_name.setter
+    def alert_severity_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_severity_column_name", value)
+
+    @property
+    @pulumi.getter(name="alertTacticsColumnName")
+    def alert_tactics_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to take the alert tactics from
+        """
+        return pulumi.get(self, "alert_tactics_column_name")
+
+    @alert_tactics_column_name.setter
+    def alert_tactics_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_tactics_column_name", value)
 
 
 @pulumi.input_type
@@ -708,6 +788,360 @@ class Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class EntityMappingArgs:
+    def __init__(__self__, *,
+                 entity_type: Optional[pulumi.Input[Union[str, 'EntityMappingType']]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]] = None):
+        """
+        Single entity mapping for the alert rule
+        :param pulumi.Input[Union[str, 'EntityMappingType']] entity_type: The V3 type of the mapped entity
+        :param pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]] field_mappings: array of field mappings for the given entity mapping
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if field_mappings is not None:
+            pulumi.set(__self__, "field_mappings", field_mappings)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> Optional[pulumi.Input[Union[str, 'EntityMappingType']]]:
+        """
+        The V3 type of the mapped entity
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: Optional[pulumi.Input[Union[str, 'EntityMappingType']]]):
+        pulumi.set(self, "entity_type", value)
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]]:
+        """
+        array of field mappings for the given entity mapping
+        """
+        return pulumi.get(self, "field_mappings")
+
+    @field_mappings.setter
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FieldMappingArgs']]]]):
+        pulumi.set(self, "field_mappings", value)
+
+
+@pulumi.input_type
+class EventGroupingSettingsArgs:
+    def __init__(__self__, *,
+                 aggregation_kind: Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]] = None):
+        """
+        Event grouping settings property bag.
+        :param pulumi.Input[Union[str, 'EventGroupingAggregationKind']] aggregation_kind: The event grouping aggregation kinds
+        """
+        if aggregation_kind is not None:
+            pulumi.set(__self__, "aggregation_kind", aggregation_kind)
+
+    @property
+    @pulumi.getter(name="aggregationKind")
+    def aggregation_kind(self) -> Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]:
+        """
+        The event grouping aggregation kinds
+        """
+        return pulumi.get(self, "aggregation_kind")
+
+    @aggregation_kind.setter
+    def aggregation_kind(self, value: Optional[pulumi.Input[Union[str, 'EventGroupingAggregationKind']]]):
+        pulumi.set(self, "aggregation_kind", value)
+
+
+@pulumi.input_type
+class FieldMappingArgs:
+    def __init__(__self__, *,
+                 column_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        """
+        A single field mapping of the mapped entity
+        :param pulumi.Input[str] column_name: the column name to be mapped to the identifier
+        :param pulumi.Input[str] identifier: the V3 identifier of the entity
+        """
+        if column_name is not None:
+            pulumi.set(__self__, "column_name", column_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the column name to be mapped to the identifier
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        the V3 identifier of the entity
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
+
+@pulumi.input_type
+class GroupingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 lookback_duration: pulumi.Input[str],
+                 matching_method: pulumi.Input[Union[str, 'MatchingMethod']],
+                 reopen_closed_incident: pulumi.Input[bool],
+                 group_by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]] = None,
+                 group_by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]] = None):
+        """
+        Grouping configuration property bag.
+        :param pulumi.Input[bool] enabled: Grouping enabled
+        :param pulumi.Input[str] lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        :param pulumi.Input[Union[str, 'MatchingMethod']] matching_method: Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        :param pulumi.Input[bool] reopen_closed_incident: Re-open closed matching incidents
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]] group_by_alert_details: A list of alert details to group by (when matchingMethod is Selected)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_custom_details: A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]] group_by_entities: A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "lookback_duration", lookback_duration)
+        pulumi.set(__self__, "matching_method", matching_method)
+        pulumi.set(__self__, "reopen_closed_incident", reopen_closed_incident)
+        if group_by_alert_details is not None:
+            pulumi.set(__self__, "group_by_alert_details", group_by_alert_details)
+        if group_by_custom_details is not None:
+            pulumi.set(__self__, "group_by_custom_details", group_by_custom_details)
+        if group_by_entities is not None:
+            pulumi.set(__self__, "group_by_entities", group_by_entities)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Grouping enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="lookbackDuration")
+    def lookback_duration(self) -> pulumi.Input[str]:
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
+        """
+        return pulumi.get(self, "lookback_duration")
+
+    @lookback_duration.setter
+    def lookback_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookback_duration", value)
+
+    @property
+    @pulumi.getter(name="matchingMethod")
+    def matching_method(self) -> pulumi.Input[Union[str, 'MatchingMethod']]:
+        """
+        Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+        """
+        return pulumi.get(self, "matching_method")
+
+    @matching_method.setter
+    def matching_method(self, value: pulumi.Input[Union[str, 'MatchingMethod']]):
+        pulumi.set(self, "matching_method", value)
+
+    @property
+    @pulumi.getter(name="reopenClosedIncident")
+    def reopen_closed_incident(self) -> pulumi.Input[bool]:
+        """
+        Re-open closed matching incidents
+        """
+        return pulumi.get(self, "reopen_closed_incident")
+
+    @reopen_closed_incident.setter
+    def reopen_closed_incident(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "reopen_closed_incident", value)
+
+    @property
+    @pulumi.getter(name="groupByAlertDetails")
+    def group_by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]:
+        """
+        A list of alert details to group by (when matchingMethod is Selected)
+        """
+        return pulumi.get(self, "group_by_alert_details")
+
+    @group_by_alert_details.setter
+    def group_by_alert_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertDetail']]]]]):
+        pulumi.set(self, "group_by_alert_details", value)
+
+    @property
+    @pulumi.getter(name="groupByCustomDetails")
+    def group_by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+        """
+        return pulumi.get(self, "group_by_custom_details")
+
+    @group_by_custom_details.setter
+    def group_by_custom_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_custom_details", value)
+
+    @property
+    @pulumi.getter(name="groupByEntities")
+    def group_by_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]:
+        """
+        A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
+        """
+        return pulumi.get(self, "group_by_entities")
+
+    @group_by_entities.setter
+    def group_by_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityMappingType']]]]]):
+        pulumi.set(self, "group_by_entities", value)
+
+
+@pulumi.input_type
+class IncidentConfigurationArgs:
+    def __init__(__self__, *,
+                 create_incident: pulumi.Input[bool],
+                 grouping_configuration: Optional[pulumi.Input['GroupingConfigurationArgs']] = None):
+        """
+        Incident Configuration property bag.
+        :param pulumi.Input[bool] create_incident: Create incidents from alerts triggered by this analytics rule
+        :param pulumi.Input['GroupingConfigurationArgs'] grouping_configuration: Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        pulumi.set(__self__, "create_incident", create_incident)
+        if grouping_configuration is not None:
+            pulumi.set(__self__, "grouping_configuration", grouping_configuration)
+
+    @property
+    @pulumi.getter(name="createIncident")
+    def create_incident(self) -> pulumi.Input[bool]:
+        """
+        Create incidents from alerts triggered by this analytics rule
+        """
+        return pulumi.get(self, "create_incident")
+
+    @create_incident.setter
+    def create_incident(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "create_incident", value)
+
+    @property
+    @pulumi.getter(name="groupingConfiguration")
+    def grouping_configuration(self) -> Optional[pulumi.Input['GroupingConfigurationArgs']]:
+        """
+        Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+        """
+        return pulumi.get(self, "grouping_configuration")
+
+    @grouping_configuration.setter
+    def grouping_configuration(self, value: Optional[pulumi.Input['GroupingConfigurationArgs']]):
+        pulumi.set(self, "grouping_configuration", value)
+
+
+@pulumi.input_type
+class IncidentLabelArgs:
+    def __init__(__self__, *,
+                 label_name: pulumi.Input[str]):
+        """
+        Represents an incident label
+        :param pulumi.Input[str] label_name: The name of the label
+        """
+        pulumi.set(__self__, "label_name", label_name)
+
+    @property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> pulumi.Input[str]:
+        """
+        The name of the label
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label_name", value)
+
+
+@pulumi.input_type
+class IncidentOwnerInfoArgs:
+    def __init__(__self__, *,
+                 assigned_to: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_principal_name: Optional[pulumi.Input[str]] = None):
+        """
+        Information on the user an incident is assigned to
+        :param pulumi.Input[str] assigned_to: The name of the user the incident is assigned to.
+        :param pulumi.Input[str] email: The email of the user the incident is assigned to.
+        :param pulumi.Input[str] object_id: The object id of the user the incident is assigned to.
+        :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
+        """
+        if assigned_to is not None:
+            pulumi.set(__self__, "assigned_to", assigned_to)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_principal_name is not None:
+            pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter(name="assignedTo")
+    def assigned_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "assigned_to")
+
+    @assigned_to.setter
+    def assigned_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assigned_to", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object id of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="userPrincipalName")
+    def user_principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user principal name of the user the incident is assigned to.
+        """
+        return pulumi.get(self, "user_principal_name")
+
+    @user_principal_name.setter
+    def user_principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_principal_name", value)
 
 
 @pulumi.input_type

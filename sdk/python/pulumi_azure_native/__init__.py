@@ -6033,6 +6033,30 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20210615",
+  "fqn": "pulumi_azure_native.documentdb.v20210615",
+  "classes": {
+   "azure-native:documentdb/v20210615:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20210615:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20210615:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20210615:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20210615:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20210615:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20210615:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20210615:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20210615:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20210615:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20210615:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20210615:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20210615:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20210615:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {
@@ -6350,6 +6374,24 @@ _utilities.register(
    "azure-native:eventgrid/v20201015preview:SystemTopic": "SystemTopic",
    "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription": "SystemTopicEventSubscription",
    "azure-native:eventgrid/v20201015preview:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "eventgrid/v20210601preview",
+  "fqn": "pulumi_azure_native.eventgrid.v20210601preview",
+  "classes": {
+   "azure-native:eventgrid/v20210601preview:Domain": "Domain",
+   "azure-native:eventgrid/v20210601preview:DomainTopic": "DomainTopic",
+   "azure-native:eventgrid/v20210601preview:EventChannel": "EventChannel",
+   "azure-native:eventgrid/v20210601preview:EventSubscription": "EventSubscription",
+   "azure-native:eventgrid/v20210601preview:PartnerNamespace": "PartnerNamespace",
+   "azure-native:eventgrid/v20210601preview:PartnerRegistration": "PartnerRegistration",
+   "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription": "PartnerTopicEventSubscription",
+   "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventgrid/v20210601preview:SystemTopic": "SystemTopic",
+   "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription": "SystemTopicEventSubscription",
+   "azure-native:eventgrid/v20210601preview:Topic": "Topic"
   }
  },
  {
@@ -6837,6 +6879,18 @@ _utilities.register(
    "azure-native:hybridnetwork/v20200101preview:Vendor": "Vendor",
    "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview": "VendorSkuPreview",
    "azure-native:hybridnetwork/v20200101preview:VendorSkus": "VendorSkus"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridnetwork/v20210501",
+  "fqn": "pulumi_azure_native.hybridnetwork.v20210501",
+  "classes": {
+   "azure-native:hybridnetwork/v20210501:Device": "Device",
+   "azure-native:hybridnetwork/v20210501:NetworkFunction": "NetworkFunction",
+   "azure-native:hybridnetwork/v20210501:Vendor": "Vendor",
+   "azure-native:hybridnetwork/v20210501:VendorSkuPreview": "VendorSkuPreview",
+   "azure-native:hybridnetwork/v20210501:VendorSkus": "VendorSkus"
   }
  },
  {
@@ -12603,7 +12657,9 @@ _utilities.register(
    "azure-native:securityinsights/v20210301preview:AADDataConnector": "AADDataConnector",
    "azure-native:securityinsights/v20210301preview:AATPDataConnector": "AATPDataConnector",
    "azure-native:securityinsights/v20210301preview:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20210301preview:Action": "Action",
    "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
+   "azure-native:securityinsights/v20210301preview:AlertRule": "AlertRule",
    "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
    "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector": "CodelessUiDataConnector",
    "azure-native:securityinsights/v20210301preview:DataConnector": "DataConnector",
@@ -12611,17 +12667,25 @@ _utilities.register(
    "azure-native:securityinsights/v20210301preview:EntityAnalytics": "EntityAnalytics",
    "azure-native:securityinsights/v20210301preview:EntityQuery": "EntityQuery",
    "azure-native:securityinsights/v20210301preview:EyesOn": "EyesOn",
+   "azure-native:securityinsights/v20210301preview:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20210301preview:Incident": "Incident",
+   "azure-native:securityinsights/v20210301preview:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20210301preview:IncidentRelation": "IncidentRelation",
    "azure-native:securityinsights/v20210301preview:MCASDataConnector": "MCASDataConnector",
    "azure-native:securityinsights/v20210301preview:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule": "MLBehaviorAnalyticsAlertRule",
    "azure-native:securityinsights/v20210301preview:MSTIDataConnector": "MSTIDataConnector",
    "azure-native:securityinsights/v20210301preview:MTPDataConnector": "MTPDataConnector",
    "azure-native:securityinsights/v20210301preview:Metadata": "Metadata",
+   "azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
    "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector": "OfficeATPDataConnector",
    "azure-native:securityinsights/v20210301preview:OfficeDataConnector": "OfficeDataConnector",
    "azure-native:securityinsights/v20210301preview:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights/v20210301preview:ScheduledAlertRule": "ScheduledAlertRule",
    "azure-native:securityinsights/v20210301preview:SentinelOnboardingState": "SentinelOnboardingState",
    "azure-native:securityinsights/v20210301preview:SourceControl": "SourceControl",
    "azure-native:securityinsights/v20210301preview:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule": "ThreatIntelligenceAlertRule",
    "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
    "azure-native:securityinsights/v20210301preview:Ueba": "Ueba",
    "azure-native:securityinsights/v20210301preview:Watchlist": "Watchlist",
@@ -12972,6 +13036,16 @@ _utilities.register(
    "azure-native:signalrservice/v20210401preview:SignalR": "SignalR",
    "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20210601preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20210601preview",
+  "classes": {
+   "azure-native:signalrservice/v20210601preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {
@@ -14004,6 +14078,17 @@ _utilities.register(
    "azure-native:streamanalytics/v20170401preview:Input": "Input",
    "azure-native:streamanalytics/v20170401preview:Output": "Output",
    "azure-native:streamanalytics/v20170401preview:StreamingJob": "StreamingJob"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "streamanalytics/v20200301",
+  "fqn": "pulumi_azure_native.streamanalytics.v20200301",
+  "classes": {
+   "azure-native:streamanalytics/v20200301:Function": "Function",
+   "azure-native:streamanalytics/v20200301:Input": "Input",
+   "azure-native:streamanalytics/v20200301:Output": "Output",
+   "azure-native:streamanalytics/v20200301:StreamingJob": "StreamingJob"
   }
  },
  {

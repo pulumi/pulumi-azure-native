@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Reference'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ReferenceInputPropertiesResponse(
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             object? serialization,
 
-            string? type)
+            string type)
         {
             Datasource = datasource;
             Diagnostics = diagnostics;

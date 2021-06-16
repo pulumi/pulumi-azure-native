@@ -35,6 +35,10 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    public readonly diffBackupIntervalInHours!: pulumi.Output<number | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -68,6 +72,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["diffBackupIntervalInHours"] = args ? args.diffBackupIntervalInHours : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionDays"] = args ? args.retentionDays : undefined;
@@ -75,6 +80,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["diffBackupIntervalInHours"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["retentionDays"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -96,6 +102,10 @@ export interface BackupShortTermRetentionPolicyArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    diffBackupIntervalInHours?: pulumi.Input<number>;
     /**
      * The policy name. Should always be "default".
      */

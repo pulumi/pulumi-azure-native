@@ -55,8 +55,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.ServiceBus/Queue'.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ServiceBusQueueOutputDataSourceArgs()
         {

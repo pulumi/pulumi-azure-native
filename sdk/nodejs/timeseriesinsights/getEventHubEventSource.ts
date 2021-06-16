@@ -93,6 +93,10 @@ export interface GetEventHubEventSourceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+     */
+    readonly time?: string;
+    /**
      * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
      */
     readonly timestampPropertyName?: string;

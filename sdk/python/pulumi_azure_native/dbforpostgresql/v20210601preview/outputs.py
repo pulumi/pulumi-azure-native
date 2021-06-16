@@ -110,27 +110,20 @@ class HighAvailabilityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 standby_availability_zone: str,
                  state: str,
-                 mode: Optional[str] = None):
+                 mode: Optional[str] = None,
+                 standby_availability_zone: Optional[str] = None):
         """
         High availability properties of a server
-        :param str standby_availability_zone: availability zone information of the standby.
         :param str state: A state of a HA server that is visible to user.
         :param str mode: The HA mode for the server.
+        :param str standby_availability_zone: availability zone information of the standby.
         """
-        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
         pulumi.set(__self__, "state", state)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-
-    @property
-    @pulumi.getter(name="standbyAvailabilityZone")
-    def standby_availability_zone(self) -> str:
-        """
-        availability zone information of the standby.
-        """
-        return pulumi.get(self, "standby_availability_zone")
+        if standby_availability_zone is not None:
+            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -147,6 +140,14 @@ class HighAvailabilityResponse(dict):
         The HA mode for the server.
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> Optional[str]:
+        """
+        availability zone information of the standby.
+        """
+        return pulumi.get(self, "standby_availability_zone")
 
 
 @pulumi.output_type

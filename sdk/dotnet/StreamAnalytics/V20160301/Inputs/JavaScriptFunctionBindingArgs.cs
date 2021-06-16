@@ -25,8 +25,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         /// Indicates the function binding type.
         /// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public JavaScriptFunctionBindingArgs()
         {

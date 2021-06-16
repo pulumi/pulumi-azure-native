@@ -4,11 +4,13 @@
 // Export sub-modules:
 import * as v20160301 from "./v20160301";
 import * as v20170401preview from "./v20170401preview";
+import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 
 export {
     v20160301,
     v20170401preview,
+    v20200301,
     v20200301preview,
 };
 
@@ -41,6 +43,17 @@ export const Encoding = {
  * Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
  */
 export type Encoding = (typeof Encoding)[keyof typeof Encoding];
+
+export const EventSerializationType = {
+    Csv: "Csv",
+    Avro: "Avro",
+    Json: "Json",
+} as const;
+
+/**
+ * Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+ */
+export type EventSerializationType = (typeof EventSerializationType)[keyof typeof EventSerializationType];
 
 export const EventsOutOfOrderPolicy = {
     Adjust: "Adjust",

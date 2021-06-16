@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the function binding type.
         /// Expected value is 'Microsoft.MachineLearning/WebService'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private AzureMachineLearningWebServiceFunctionBindingResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 
             ImmutableArray<Outputs.AzureMachineLearningWebServiceOutputColumnResponse> outputs,
 
-            string? type)
+            string type)
         {
             ApiKey = apiKey;
             BatchSize = batchSize;

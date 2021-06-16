@@ -62,13 +62,17 @@ class BackupArgs:
 @pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[str, 'HighAvailabilityMode']]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'HighAvailabilityMode']]] = None,
+                 standby_availability_zone: Optional[pulumi.Input[str]] = None):
         """
         High availability properties of a server
         :param pulumi.Input[Union[str, 'HighAvailabilityMode']] mode: The HA mode for the server.
+        :param pulumi.Input[str] standby_availability_zone: availability zone information of the standby.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if standby_availability_zone is not None:
+            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -81,6 +85,18 @@ class HighAvailabilityArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'HighAvailabilityMode']]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        availability zone information of the standby.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+    @standby_availability_zone.setter
+    def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "standby_availability_zone", value)
 
 
 @pulumi.input_type

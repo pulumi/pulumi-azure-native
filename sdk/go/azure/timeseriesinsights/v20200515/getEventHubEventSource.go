@@ -53,6 +53,8 @@ type LookupEventHubEventSourceResult struct {
 	ServiceBusNamespace string `pulumi:"serviceBusNamespace"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+	Time *string `pulumi:"time"`
 	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
 	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
 	// Resource type

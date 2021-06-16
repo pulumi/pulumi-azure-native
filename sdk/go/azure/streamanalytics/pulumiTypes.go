@@ -14,7 +14,7 @@ import (
 type AvroSerialization struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AvroSerializationInput is an input type that accepts AvroSerializationArgs and AvroSerializationOutput values.
@@ -32,7 +32,7 @@ type AvroSerializationInput interface {
 type AvroSerializationArgs struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AvroSerializationArgs) ElementType() reflect.Type {
@@ -64,15 +64,15 @@ func (o AvroSerializationOutput) ToAvroSerializationOutputWithContext(ctx contex
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Avro'.
-func (o AvroSerializationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AvroSerialization) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AvroSerializationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AvroSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
 type AvroSerializationResponse struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AvroSerializationResponseInput is an input type that accepts AvroSerializationResponseArgs and AvroSerializationResponseOutput values.
@@ -90,7 +90,7 @@ type AvroSerializationResponseInput interface {
 type AvroSerializationResponseArgs struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Avro'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AvroSerializationResponseArgs) ElementType() reflect.Type {
@@ -122,8 +122,8 @@ func (o AvroSerializationResponseOutput) ToAvroSerializationResponseOutputWithCo
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Avro'.
-func (o AvroSerializationResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AvroSerializationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AvroSerializationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AvroSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Azure Data Lake Store output data source.
@@ -146,7 +146,7 @@ type AzureDataLakeStoreOutputDataSource struct {
 	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.DataLake/Accounts'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureDataLakeStoreOutputDataSourceInput is an input type that accepts AzureDataLakeStoreOutputDataSourceArgs and AzureDataLakeStoreOutputDataSourceOutput values.
@@ -180,7 +180,7 @@ type AzureDataLakeStoreOutputDataSourceArgs struct {
 	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.DataLake/Accounts'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureDataLakeStoreOutputDataSourceArgs) ElementType() reflect.Type {
@@ -252,8 +252,8 @@ func (o AzureDataLakeStoreOutputDataSourceOutput) TokenUserPrincipalName() pulum
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.DataLake/Accounts'.
-func (o AzureDataLakeStoreOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureDataLakeStoreOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Azure Data Lake Store output data source.
@@ -276,7 +276,7 @@ type AzureDataLakeStoreOutputDataSourceResponse struct {
 	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.DataLake/Accounts'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureDataLakeStoreOutputDataSourceResponseInput is an input type that accepts AzureDataLakeStoreOutputDataSourceResponseArgs and AzureDataLakeStoreOutputDataSourceResponseOutput values.
@@ -310,7 +310,7 @@ type AzureDataLakeStoreOutputDataSourceResponseArgs struct {
 	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.DataLake/Accounts'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureDataLakeStoreOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -382,8 +382,8 @@ func (o AzureDataLakeStoreOutputDataSourceResponseOutput) TokenUserPrincipalName
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.DataLake/Accounts'.
-func (o AzureDataLakeStoreOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureDataLakeStoreOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to an Azure Machine Learning web service.
@@ -400,7 +400,7 @@ type AzureMachineLearningWebServiceFunctionBinding struct {
 	Outputs []AzureMachineLearningWebServiceOutputColumn `pulumi:"outputs"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.MachineLearning/WebService'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureMachineLearningWebServiceFunctionBindingInput is an input type that accepts AzureMachineLearningWebServiceFunctionBindingArgs and AzureMachineLearningWebServiceFunctionBindingOutput values.
@@ -428,7 +428,7 @@ type AzureMachineLearningWebServiceFunctionBindingArgs struct {
 	Outputs AzureMachineLearningWebServiceOutputColumnArrayInput `pulumi:"outputs"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.MachineLearning/WebService'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureMachineLearningWebServiceFunctionBindingArgs) ElementType() reflect.Type {
@@ -489,8 +489,8 @@ func (o AzureMachineLearningWebServiceFunctionBindingOutput) Outputs() AzureMach
 
 // Indicates the function binding type.
 // Expected value is 'Microsoft.MachineLearning/WebService'.
-func (o AzureMachineLearningWebServiceFunctionBindingOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBinding) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureMachineLearningWebServiceFunctionBindingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to an Azure Machine Learning web service.
@@ -507,7 +507,7 @@ type AzureMachineLearningWebServiceFunctionBindingResponse struct {
 	Outputs []AzureMachineLearningWebServiceOutputColumnResponse `pulumi:"outputs"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.MachineLearning/WebService'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureMachineLearningWebServiceFunctionBindingResponseInput is an input type that accepts AzureMachineLearningWebServiceFunctionBindingResponseArgs and AzureMachineLearningWebServiceFunctionBindingResponseOutput values.
@@ -535,7 +535,7 @@ type AzureMachineLearningWebServiceFunctionBindingResponseArgs struct {
 	Outputs AzureMachineLearningWebServiceOutputColumnResponseArrayInput `pulumi:"outputs"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.MachineLearning/WebService'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureMachineLearningWebServiceFunctionBindingResponseArgs) ElementType() reflect.Type {
@@ -596,8 +596,8 @@ func (o AzureMachineLearningWebServiceFunctionBindingResponseOutput) Outputs() A
 
 // Indicates the function binding type.
 // Expected value is 'Microsoft.MachineLearning/WebService'.
-func (o AzureMachineLearningWebServiceFunctionBindingResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBindingResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureMachineLearningWebServiceFunctionBindingResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureMachineLearningWebServiceFunctionBindingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an input column for the Azure Machine Learning web service endpoint.
@@ -1378,7 +1378,7 @@ type AzureSqlDatabaseOutputDataSource struct {
 	Table *string `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	User *string `pulumi:"user"`
 }
@@ -1406,7 +1406,7 @@ type AzureSqlDatabaseOutputDataSourceArgs struct {
 	Table pulumi.StringPtrInput `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -1460,8 +1460,8 @@ func (o AzureSqlDatabaseOutputDataSourceOutput) Table() pulumi.StringPtrOutput {
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Sql/Server/Database'.
-func (o AzureSqlDatabaseOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureSqlDatabaseOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -1481,7 +1481,7 @@ type AzureSqlDatabaseOutputDataSourceResponse struct {
 	Table *string `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	User *string `pulumi:"user"`
 }
@@ -1509,7 +1509,7 @@ type AzureSqlDatabaseOutputDataSourceResponseArgs struct {
 	Table pulumi.StringPtrInput `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	User pulumi.StringPtrInput `pulumi:"user"`
 }
@@ -1563,8 +1563,8 @@ func (o AzureSqlDatabaseOutputDataSourceResponseOutput) Table() pulumi.StringPtr
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Sql/Server/Database'.
-func (o AzureSqlDatabaseOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureSqlDatabaseOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -1590,7 +1590,7 @@ type AzureTableOutputDataSource struct {
 	Table *string `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Table'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureTableOutputDataSourceInput is an input type that accepts AzureTableOutputDataSourceArgs and AzureTableOutputDataSourceOutput values.
@@ -1622,7 +1622,7 @@ type AzureTableOutputDataSourceArgs struct {
 	Table pulumi.StringPtrInput `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Table'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureTableOutputDataSourceArgs) ElementType() reflect.Type {
@@ -1689,8 +1689,8 @@ func (o AzureTableOutputDataSourceOutput) Table() pulumi.StringPtrOutput {
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Table'.
-func (o AzureTableOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureTableOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureTableOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Azure Table output data source.
@@ -1711,7 +1711,7 @@ type AzureTableOutputDataSourceResponse struct {
 	Table *string `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Table'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // AzureTableOutputDataSourceResponseInput is an input type that accepts AzureTableOutputDataSourceResponseArgs and AzureTableOutputDataSourceResponseOutput values.
@@ -1743,7 +1743,7 @@ type AzureTableOutputDataSourceResponseArgs struct {
 	Table pulumi.StringPtrInput `pulumi:"table"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Table'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureTableOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -1810,8 +1810,8 @@ func (o AzureTableOutputDataSourceResponseOutput) Table() pulumi.StringPtrOutput
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Table'.
-func (o AzureTableOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureTableOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureTableOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a blob output data source.
@@ -1828,7 +1828,7 @@ type BlobOutputDataSource struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobOutputDataSourceInput is an input type that accepts BlobOutputDataSourceArgs and BlobOutputDataSourceOutput values.
@@ -1856,7 +1856,7 @@ type BlobOutputDataSourceArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobOutputDataSourceArgs) ElementType() reflect.Type {
@@ -1913,8 +1913,8 @@ func (o BlobOutputDataSourceOutput) TimeFormat() pulumi.StringPtrOutput {
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a blob output data source.
@@ -1931,7 +1931,7 @@ type BlobOutputDataSourceResponse struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobOutputDataSourceResponseInput is an input type that accepts BlobOutputDataSourceResponseArgs and BlobOutputDataSourceResponseOutput values.
@@ -1959,7 +1959,7 @@ type BlobOutputDataSourceResponseArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -2016,8 +2016,8 @@ func (o BlobOutputDataSourceResponseOutput) TimeFormat() pulumi.StringPtrOutput 
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a blob input data source that contains reference data.
@@ -2034,7 +2034,7 @@ type BlobReferenceInputDataSource struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobReferenceInputDataSourceInput is an input type that accepts BlobReferenceInputDataSourceArgs and BlobReferenceInputDataSourceOutput values.
@@ -2062,7 +2062,7 @@ type BlobReferenceInputDataSourceArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobReferenceInputDataSourceArgs) ElementType() reflect.Type {
@@ -2170,8 +2170,8 @@ func (o BlobReferenceInputDataSourceOutput) TimeFormat() pulumi.StringPtrOutput 
 
 // Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobReferenceInputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobReferenceInputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobReferenceInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type BlobReferenceInputDataSourcePtrOutput struct{ *pulumi.OutputState }
@@ -2249,7 +2249,7 @@ func (o BlobReferenceInputDataSourcePtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2267,7 +2267,7 @@ type BlobReferenceInputDataSourceResponse struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobReferenceInputDataSourceResponseInput is an input type that accepts BlobReferenceInputDataSourceResponseArgs and BlobReferenceInputDataSourceResponseOutput values.
@@ -2295,7 +2295,7 @@ type BlobReferenceInputDataSourceResponseArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobReferenceInputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -2403,8 +2403,8 @@ func (o BlobReferenceInputDataSourceResponseOutput) TimeFormat() pulumi.StringPt
 
 // Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobReferenceInputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobReferenceInputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobReferenceInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type BlobReferenceInputDataSourceResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2482,7 +2482,7 @@ func (o BlobReferenceInputDataSourceResponsePtrOutput) Type() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2502,7 +2502,7 @@ type BlobStreamInputDataSource struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobStreamInputDataSourceInput is an input type that accepts BlobStreamInputDataSourceArgs and BlobStreamInputDataSourceOutput values.
@@ -2532,7 +2532,7 @@ type BlobStreamInputDataSourceArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobStreamInputDataSourceArgs) ElementType() reflect.Type {
@@ -2594,8 +2594,8 @@ func (o BlobStreamInputDataSourceOutput) TimeFormat() pulumi.StringPtrOutput {
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobStreamInputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobStreamInputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobStreamInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a blob input data source that contains stream data.
@@ -2614,7 +2614,7 @@ type BlobStreamInputDataSourceResponse struct {
 	TimeFormat *string `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // BlobStreamInputDataSourceResponseInput is an input type that accepts BlobStreamInputDataSourceResponseArgs and BlobStreamInputDataSourceResponseOutput values.
@@ -2644,7 +2644,7 @@ type BlobStreamInputDataSourceResponseArgs struct {
 	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/Blob'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobStreamInputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -2706,8 +2706,8 @@ func (o BlobStreamInputDataSourceResponseOutput) TimeFormat() pulumi.StringPtrOu
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/Blob'.
-func (o BlobStreamInputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobStreamInputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o BlobStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A streaming job.
@@ -3352,7 +3352,7 @@ type CsvSerialization struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Csv'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // CsvSerializationInput is an input type that accepts CsvSerializationArgs and CsvSerializationOutput values.
@@ -3374,7 +3374,7 @@ type CsvSerializationArgs struct {
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Csv'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (CsvSerializationArgs) ElementType() reflect.Type {
@@ -3416,8 +3416,8 @@ func (o CsvSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Csv'.
-func (o CsvSerializationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsvSerialization) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CsvSerializationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CsvSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
@@ -3428,7 +3428,7 @@ type CsvSerializationResponse struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Csv'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // CsvSerializationResponseInput is an input type that accepts CsvSerializationResponseArgs and CsvSerializationResponseOutput values.
@@ -3450,7 +3450,7 @@ type CsvSerializationResponseArgs struct {
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Csv'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (CsvSerializationResponseArgs) ElementType() reflect.Type {
@@ -3492,8 +3492,8 @@ func (o CsvSerializationResponseOutput) FieldDelimiter() pulumi.StringPtrOutput 
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Csv'.
-func (o CsvSerializationResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsvSerializationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CsvSerializationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CsvSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Condition applicable to the resource, or to the job overall, that warrant customer attention.
@@ -3764,7 +3764,7 @@ type DocumentDbOutputDataSource struct {
 	PartitionKey *string `pulumi:"partitionKey"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/DocumentDB'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // DocumentDbOutputDataSourceInput is an input type that accepts DocumentDbOutputDataSourceArgs and DocumentDbOutputDataSourceOutput values.
@@ -3794,7 +3794,7 @@ type DocumentDbOutputDataSourceArgs struct {
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/DocumentDB'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (DocumentDbOutputDataSourceArgs) ElementType() reflect.Type {
@@ -3856,8 +3856,8 @@ func (o DocumentDbOutputDataSourceOutput) PartitionKey() pulumi.StringPtrOutput 
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/DocumentDB'.
-func (o DocumentDbOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentDbOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DocumentDbOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a DocumentDB output data source.
@@ -3876,7 +3876,7 @@ type DocumentDbOutputDataSourceResponse struct {
 	PartitionKey *string `pulumi:"partitionKey"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/DocumentDB'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // DocumentDbOutputDataSourceResponseInput is an input type that accepts DocumentDbOutputDataSourceResponseArgs and DocumentDbOutputDataSourceResponseOutput values.
@@ -3906,7 +3906,7 @@ type DocumentDbOutputDataSourceResponseArgs struct {
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Storage/DocumentDB'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (DocumentDbOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -3968,8 +3968,8 @@ func (o DocumentDbOutputDataSourceResponseOutput) PartitionKey() pulumi.StringPt
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Storage/DocumentDB'.
-func (o DocumentDbOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentDbOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DocumentDbOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub output data source.
@@ -3986,7 +3986,7 @@ type EventHubOutputDataSource struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EventHubOutputDataSourceInput is an input type that accepts EventHubOutputDataSourceArgs and EventHubOutputDataSourceOutput values.
@@ -4014,7 +4014,7 @@ type EventHubOutputDataSourceArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventHubOutputDataSourceArgs) ElementType() reflect.Type {
@@ -4071,8 +4071,8 @@ func (o EventHubOutputDataSourceOutput) SharedAccessPolicyName() pulumi.StringPt
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/EventHub'.
-func (o EventHubOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventHubOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub output data source.
@@ -4089,7 +4089,7 @@ type EventHubOutputDataSourceResponse struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EventHubOutputDataSourceResponseInput is an input type that accepts EventHubOutputDataSourceResponseArgs and EventHubOutputDataSourceResponseOutput values.
@@ -4117,7 +4117,7 @@ type EventHubOutputDataSourceResponseArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventHubOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -4174,8 +4174,8 @@ func (o EventHubOutputDataSourceResponseOutput) SharedAccessPolicyName() pulumi.
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/EventHub'.
-func (o EventHubOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventHubOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub input data source that contains stream data.
@@ -4192,7 +4192,7 @@ type EventHubStreamInputDataSource struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EventHubStreamInputDataSourceInput is an input type that accepts EventHubStreamInputDataSourceArgs and EventHubStreamInputDataSourceOutput values.
@@ -4220,7 +4220,7 @@ type EventHubStreamInputDataSourceArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventHubStreamInputDataSourceArgs) ElementType() reflect.Type {
@@ -4277,8 +4277,8 @@ func (o EventHubStreamInputDataSourceOutput) SharedAccessPolicyName() pulumi.Str
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/EventHub'.
-func (o EventHubStreamInputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubStreamInputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub input data source that contains stream data.
@@ -4295,7 +4295,7 @@ type EventHubStreamInputDataSourceResponse struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EventHubStreamInputDataSourceResponseInput is an input type that accepts EventHubStreamInputDataSourceResponseArgs and EventHubStreamInputDataSourceResponseOutput values.
@@ -4323,7 +4323,7 @@ type EventHubStreamInputDataSourceResponseArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/EventHub'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (EventHubStreamInputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -4380,8 +4380,8 @@ func (o EventHubStreamInputDataSourceResponseOutput) SharedAccessPolicyName() pu
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/EventHub'.
-func (o EventHubStreamInputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventHubStreamInputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventHubStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
@@ -5356,7 +5356,7 @@ type IoTHubStreamInputDataSource struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Devices/IotHubs'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // IoTHubStreamInputDataSourceInput is an input type that accepts IoTHubStreamInputDataSourceArgs and IoTHubStreamInputDataSourceOutput values.
@@ -5384,7 +5384,7 @@ type IoTHubStreamInputDataSourceArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Devices/IotHubs'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (IoTHubStreamInputDataSourceArgs) ElementType() reflect.Type {
@@ -5441,8 +5441,8 @@ func (o IoTHubStreamInputDataSourceOutput) SharedAccessPolicyName() pulumi.Strin
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Devices/IotHubs'.
-func (o IoTHubStreamInputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubStreamInputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IoTHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an IoT Hub input data source that contains stream data.
@@ -5459,7 +5459,7 @@ type IoTHubStreamInputDataSourceResponse struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Devices/IotHubs'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // IoTHubStreamInputDataSourceResponseInput is an input type that accepts IoTHubStreamInputDataSourceResponseArgs and IoTHubStreamInputDataSourceResponseOutput values.
@@ -5487,7 +5487,7 @@ type IoTHubStreamInputDataSourceResponseArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Devices/IotHubs'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (IoTHubStreamInputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -5544,8 +5544,8 @@ func (o IoTHubStreamInputDataSourceResponseOutput) SharedAccessPolicyName() pulu
 
 // Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.Devices/IotHubs'.
-func (o IoTHubStreamInputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubStreamInputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IoTHubStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to a JavaScript function.
@@ -5554,7 +5554,7 @@ type JavaScriptFunctionBinding struct {
 	Script *string `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // JavaScriptFunctionBindingInput is an input type that accepts JavaScriptFunctionBindingArgs and JavaScriptFunctionBindingOutput values.
@@ -5574,7 +5574,7 @@ type JavaScriptFunctionBindingArgs struct {
 	Script pulumi.StringPtrInput `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (JavaScriptFunctionBindingArgs) ElementType() reflect.Type {
@@ -5611,8 +5611,8 @@ func (o JavaScriptFunctionBindingOutput) Script() pulumi.StringPtrOutput {
 
 // Indicates the function binding type.
 // Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-func (o JavaScriptFunctionBindingOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JavaScriptFunctionBinding) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JavaScriptFunctionBindingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JavaScriptFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to a JavaScript function.
@@ -5621,7 +5621,7 @@ type JavaScriptFunctionBindingResponse struct {
 	Script *string `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // JavaScriptFunctionBindingResponseInput is an input type that accepts JavaScriptFunctionBindingResponseArgs and JavaScriptFunctionBindingResponseOutput values.
@@ -5641,7 +5641,7 @@ type JavaScriptFunctionBindingResponseArgs struct {
 	Script pulumi.StringPtrInput `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (JavaScriptFunctionBindingResponseArgs) ElementType() reflect.Type {
@@ -5678,8 +5678,8 @@ func (o JavaScriptFunctionBindingResponseOutput) Script() pulumi.StringPtrOutput
 
 // Indicates the function binding type.
 // Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
-func (o JavaScriptFunctionBindingResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JavaScriptFunctionBindingResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JavaScriptFunctionBindingResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JavaScriptFunctionBindingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
@@ -5690,7 +5690,7 @@ type JsonSerialization struct {
 	Format *string `pulumi:"format"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Json'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // JsonSerializationInput is an input type that accepts JsonSerializationArgs and JsonSerializationOutput values.
@@ -5712,7 +5712,7 @@ type JsonSerializationArgs struct {
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Json'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (JsonSerializationArgs) ElementType() reflect.Type {
@@ -5754,8 +5754,8 @@ func (o JsonSerializationOutput) Format() pulumi.StringPtrOutput {
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Json'.
-func (o JsonSerializationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JsonSerialization) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JsonSerializationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JsonSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
@@ -5766,7 +5766,7 @@ type JsonSerializationResponse struct {
 	Format *string `pulumi:"format"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Json'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // JsonSerializationResponseInput is an input type that accepts JsonSerializationResponseArgs and JsonSerializationResponseOutput values.
@@ -5788,7 +5788,7 @@ type JsonSerializationResponseArgs struct {
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Json'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (JsonSerializationResponseArgs) ElementType() reflect.Type {
@@ -5830,8 +5830,8 @@ func (o JsonSerializationResponseOutput) Format() pulumi.StringPtrOutput {
 
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Json'.
-func (o JsonSerializationResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JsonSerializationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JsonSerializationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JsonSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -6124,7 +6124,7 @@ type PowerBIOutputDataSource struct {
 	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'PowerBI'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // PowerBIOutputDataSourceInput is an input type that accepts PowerBIOutputDataSourceArgs and PowerBIOutputDataSourceOutput values.
@@ -6156,7 +6156,7 @@ type PowerBIOutputDataSourceArgs struct {
 	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'PowerBI'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (PowerBIOutputDataSourceArgs) ElementType() reflect.Type {
@@ -6223,8 +6223,8 @@ func (o PowerBIOutputDataSourceOutput) TokenUserPrincipalName() pulumi.StringPtr
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'PowerBI'.
-func (o PowerBIOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerBIOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o PowerBIOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Power BI output data source.
@@ -6245,7 +6245,7 @@ type PowerBIOutputDataSourceResponse struct {
 	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'PowerBI'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // PowerBIOutputDataSourceResponseInput is an input type that accepts PowerBIOutputDataSourceResponseArgs and PowerBIOutputDataSourceResponseOutput values.
@@ -6277,7 +6277,7 @@ type PowerBIOutputDataSourceResponseArgs struct {
 	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'PowerBI'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (PowerBIOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -6344,8 +6344,8 @@ func (o PowerBIOutputDataSourceResponseOutput) TokenUserPrincipalName() pulumi.S
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'PowerBI'.
-func (o PowerBIOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerBIOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o PowerBIOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties associated with a private endpoint.
@@ -7066,7 +7066,7 @@ type ReferenceInputProperties struct {
 	Serialization interface{} `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ReferenceInputPropertiesInput is an input type that accepts ReferenceInputPropertiesArgs and ReferenceInputPropertiesOutput values.
@@ -7088,7 +7088,7 @@ type ReferenceInputPropertiesArgs struct {
 	Serialization pulumi.Input `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ReferenceInputPropertiesArgs) ElementType() reflect.Type {
@@ -7130,8 +7130,8 @@ func (o ReferenceInputPropertiesOutput) Serialization() pulumi.AnyOutput {
 
 // Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Reference'.
-func (o ReferenceInputPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceInputProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceInputPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceInputProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that are associated with an input containing reference data.
@@ -7146,7 +7146,7 @@ type ReferenceInputPropertiesResponse struct {
 	Serialization interface{} `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ReferenceInputPropertiesResponseInput is an input type that accepts ReferenceInputPropertiesResponseArgs and ReferenceInputPropertiesResponseOutput values.
@@ -7172,7 +7172,7 @@ type ReferenceInputPropertiesResponseArgs struct {
 	Serialization pulumi.Input `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ReferenceInputPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7224,8 +7224,8 @@ func (o ReferenceInputPropertiesResponseOutput) Serialization() pulumi.AnyOutput
 
 // Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Reference'.
-func (o ReferenceInputPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceInputPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceInputPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that are associated with a scalar function.
@@ -7238,7 +7238,7 @@ type ScalarFunctionProperties struct {
 	Output *FunctionOutputType `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ScalarFunctionPropertiesInput is an input type that accepts ScalarFunctionPropertiesArgs and ScalarFunctionPropertiesOutput values.
@@ -7262,7 +7262,7 @@ type ScalarFunctionPropertiesArgs struct {
 	Output FunctionOutputTypePtrInput `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ScalarFunctionPropertiesArgs) ElementType() reflect.Type {
@@ -7360,8 +7360,8 @@ func (o ScalarFunctionPropertiesOutput) Output() FunctionOutputTypePtrOutput {
 
 // Indicates the type of function.
 // Expected value is 'Scalar'.
-func (o ScalarFunctionPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalarFunctionProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ScalarFunctionPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalarFunctionProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ScalarFunctionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -7419,7 +7419,7 @@ func (o ScalarFunctionPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7435,7 +7435,7 @@ type ScalarFunctionPropertiesResponse struct {
 	Output *FunctionOutputResponse `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ScalarFunctionPropertiesResponseInput is an input type that accepts ScalarFunctionPropertiesResponseArgs and ScalarFunctionPropertiesResponseOutput values.
@@ -7461,7 +7461,7 @@ type ScalarFunctionPropertiesResponseArgs struct {
 	Output FunctionOutputResponsePtrInput `pulumi:"output"`
 	// Indicates the type of function.
 	// Expected value is 'Scalar'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ScalarFunctionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7564,8 +7564,8 @@ func (o ScalarFunctionPropertiesResponseOutput) Output() FunctionOutputResponseP
 
 // Indicates the type of function.
 // Expected value is 'Scalar'.
-func (o ScalarFunctionPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalarFunctionPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ScalarFunctionPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ScalarFunctionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7633,7 +7633,7 @@ func (o ScalarFunctionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7651,7 +7651,7 @@ type ServiceBusQueueOutputDataSource struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Queue'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceBusQueueOutputDataSourceInput is an input type that accepts ServiceBusQueueOutputDataSourceArgs and ServiceBusQueueOutputDataSourceOutput values.
@@ -7679,7 +7679,7 @@ type ServiceBusQueueOutputDataSourceArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Queue'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceBusQueueOutputDataSourceArgs) ElementType() reflect.Type {
@@ -7736,8 +7736,8 @@ func (o ServiceBusQueueOutputDataSourceOutput) SharedAccessPolicyName() pulumi.S
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/Queue'.
-func (o ServiceBusQueueOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceBusQueueOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceBusQueueOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Service Bus Queue output data source.
@@ -7754,7 +7754,7 @@ type ServiceBusQueueOutputDataSourceResponse struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Queue'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceBusQueueOutputDataSourceResponseInput is an input type that accepts ServiceBusQueueOutputDataSourceResponseArgs and ServiceBusQueueOutputDataSourceResponseOutput values.
@@ -7782,7 +7782,7 @@ type ServiceBusQueueOutputDataSourceResponseArgs struct {
 	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Queue'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceBusQueueOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -7839,8 +7839,8 @@ func (o ServiceBusQueueOutputDataSourceResponseOutput) SharedAccessPolicyName() 
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/Queue'.
-func (o ServiceBusQueueOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceBusQueueOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Service Bus Topic output data source.
@@ -7857,7 +7857,7 @@ type ServiceBusTopicOutputDataSource struct {
 	TopicName *string `pulumi:"topicName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Topic'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceBusTopicOutputDataSourceInput is an input type that accepts ServiceBusTopicOutputDataSourceArgs and ServiceBusTopicOutputDataSourceOutput values.
@@ -7885,7 +7885,7 @@ type ServiceBusTopicOutputDataSourceArgs struct {
 	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Topic'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceBusTopicOutputDataSourceArgs) ElementType() reflect.Type {
@@ -7942,8 +7942,8 @@ func (o ServiceBusTopicOutputDataSourceOutput) TopicName() pulumi.StringPtrOutpu
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/Topic'.
-func (o ServiceBusTopicOutputDataSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceBusTopicOutputDataSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceBusTopicOutputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Service Bus Topic output data source.
@@ -7960,7 +7960,7 @@ type ServiceBusTopicOutputDataSourceResponse struct {
 	TopicName *string `pulumi:"topicName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Topic'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ServiceBusTopicOutputDataSourceResponseInput is an input type that accepts ServiceBusTopicOutputDataSourceResponseArgs and ServiceBusTopicOutputDataSourceResponseOutput values.
@@ -7988,7 +7988,7 @@ type ServiceBusTopicOutputDataSourceResponseArgs struct {
 	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.ServiceBus/Topic'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServiceBusTopicOutputDataSourceResponseArgs) ElementType() reflect.Type {
@@ -8045,8 +8045,8 @@ func (o ServiceBusTopicOutputDataSourceResponseOutput) TopicName() pulumi.String
 
 // Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Microsoft.ServiceBus/Topic'.
-func (o ServiceBusTopicOutputDataSourceResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceBusTopicOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that are associated with a SKU.
@@ -8543,7 +8543,7 @@ type StreamInputProperties struct {
 	Serialization interface{} `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // StreamInputPropertiesInput is an input type that accepts StreamInputPropertiesArgs and StreamInputPropertiesOutput values.
@@ -8565,7 +8565,7 @@ type StreamInputPropertiesArgs struct {
 	Serialization pulumi.Input `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (StreamInputPropertiesArgs) ElementType() reflect.Type {
@@ -8607,8 +8607,8 @@ func (o StreamInputPropertiesOutput) Serialization() pulumi.AnyOutput {
 
 // Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Stream'.
-func (o StreamInputPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o StreamInputPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamInputProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that are associated with an input containing stream data.
@@ -8623,7 +8623,7 @@ type StreamInputPropertiesResponse struct {
 	Serialization interface{} `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // StreamInputPropertiesResponseInput is an input type that accepts StreamInputPropertiesResponseArgs and StreamInputPropertiesResponseOutput values.
@@ -8649,7 +8649,7 @@ type StreamInputPropertiesResponseArgs struct {
 	Serialization pulumi.Input `pulumi:"serialization"`
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (StreamInputPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8701,8 +8701,8 @@ func (o StreamInputPropertiesResponseOutput) Serialization() pulumi.AnyOutput {
 
 // Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 // Expected value is 'Stream'.
-func (o StreamInputPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o StreamInputPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamInputPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.

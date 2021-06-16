@@ -42,6 +42,17 @@ export const EventSourceKind = {
  */
 export type EventSourceKind = (typeof EventSourceKind)[keyof typeof EventSourceKind];
 
+export const IngressStartAtType = {
+    EarliestAvailable: "EarliestAvailable",
+    EventSourceCreationTime: "EventSourceCreationTime",
+    CustomEnqueuedTime: "CustomEnqueuedTime",
+} as const;
+
+/**
+ * The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+ */
+export type IngressStartAtType = (typeof IngressStartAtType)[keyof typeof IngressStartAtType];
+
 export const LocalTimestampFormat = {
     Embedded: "Embedded",
 } as const;

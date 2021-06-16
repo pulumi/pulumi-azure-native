@@ -13,14 +13,17 @@ export * from "./getDomain";
 export * from "./getDomainTopic";
 export * from "./getEventChannel";
 export * from "./getEventSubscription";
+export * from "./getEventSubscriptionDeliveryAttributes";
 export * from "./getEventSubscriptionFullUrl";
 export * from "./getPartnerNamespace";
 export * from "./getPartnerRegistration";
 export * from "./getPartnerTopicEventSubscription";
+export * from "./getPartnerTopicEventSubscriptionDeliveryAttributes";
 export * from "./getPartnerTopicEventSubscriptionFullUrl";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSystemTopic";
 export * from "./getSystemTopicEventSubscription";
+export * from "./getSystemTopicEventSubscriptionDeliveryAttributes";
 export * from "./getSystemTopicEventSubscriptionFullUrl";
 export * from "./getTopic";
 export * from "./listDomainSharedAccessKeys";
@@ -50,6 +53,7 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200601 from "./v20200601";
 import * as v20201015preview from "./v20201015preview";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20170615preview,
@@ -64,6 +68,7 @@ export {
     v20200401preview,
     v20200601,
     v20201015preview,
+    v20210601preview,
 };
 
 // Import resources to register:

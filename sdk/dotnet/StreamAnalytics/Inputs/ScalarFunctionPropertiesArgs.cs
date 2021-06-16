@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         /// Indicates the type of function.
         /// Expected value is 'Scalar'.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ScalarFunctionPropertiesArgs()
         {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
     if (!opts) {
@@ -40,7 +40,7 @@ export interface GetIncidentRelationArgs {
      */
     relationName: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -81,6 +81,10 @@ export interface GetIncidentRelationResult {
      * The resource type of the related resource
      */
     readonly relatedResourceType: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * Azure resource type
      */

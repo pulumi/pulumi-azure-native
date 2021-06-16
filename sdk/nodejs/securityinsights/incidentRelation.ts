@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class IncidentRelation extends pulumi.CustomResource {
     /**
@@ -60,6 +61,10 @@ export class IncidentRelation extends pulumi.CustomResource {
      */
     public /*out*/ readonly relatedResourceType!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -101,6 +106,7 @@ export class IncidentRelation extends pulumi.CustomResource {
             inputs["relatedResourceKind"] = undefined /*out*/;
             inputs["relatedResourceName"] = undefined /*out*/;
             inputs["relatedResourceType"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -109,12 +115,13 @@ export class IncidentRelation extends pulumi.CustomResource {
             inputs["relatedResourceKind"] = undefined /*out*/;
             inputs["relatedResourceName"] = undefined /*out*/;
             inputs["relatedResourceType"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:IncidentRelation" }, { type: "azure-native:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-native:securityinsights/v20210401:IncidentRelation" }, { type: "azure-nextgen:securityinsights/v20210401:IncidentRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:IncidentRelation" }, { type: "azure-native:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-native:securityinsights/v20210301preview:IncidentRelation" }, { type: "azure-nextgen:securityinsights/v20210301preview:IncidentRelation" }, { type: "azure-native:securityinsights/v20210401:IncidentRelation" }, { type: "azure-nextgen:securityinsights/v20210401:IncidentRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentRelation.__pulumiType, name, inputs, opts);
     }
@@ -145,7 +152,7 @@ export interface IncidentRelationArgs {
      */
     relationName?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

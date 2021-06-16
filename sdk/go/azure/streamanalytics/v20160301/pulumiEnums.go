@@ -64,6 +64,35 @@ func (e Encoding) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+type EventSerializationType pulumi.String
+
+const (
+	EventSerializationTypeCsv  = EventSerializationType("Csv")
+	EventSerializationTypeAvro = EventSerializationType("Avro")
+	EventSerializationTypeJson = EventSerializationType("Json")
+)
+
+func (EventSerializationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EventSerializationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSerializationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSerializationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSerializationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Indicates the policy to apply to events that arrive out of order in the input event stream.
 type EventsOutOfOrderPolicy pulumi.String
 

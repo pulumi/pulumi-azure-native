@@ -39,9 +39,9 @@ type StreamingJob struct {
 	JobState pulumi.StringOutput `pulumi:"jobState"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime pulumi.StringOutput `pulumi:"lastOutputEventTime"`
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy pulumi.StringPtrOutput `pulumi:"outputErrorPolicy"`
@@ -55,11 +55,11 @@ type StreamingJob struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation TransformationResponsePtrOutput `pulumi:"transformation"`
-	// Resource type
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -88,6 +88,12 @@ func NewStreamingJob(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:StreamingJob"),
+		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:StreamingJob"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:StreamingJob"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -137,9 +143,9 @@ type streamingJobState struct {
 	JobState *string `pulumi:"jobState"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime *string `pulumi:"lastOutputEventTime"`
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Resource name
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
@@ -153,11 +159,11 @@ type streamingJobState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation *TransformationResponse `pulumi:"transformation"`
-	// Resource type
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
@@ -186,9 +192,9 @@ type StreamingJobState struct {
 	JobState pulumi.StringPtrInput
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
 	LastOutputEventTime pulumi.StringPtrInput
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy pulumi.StringPtrInput
@@ -202,11 +208,11 @@ type StreamingJobState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku SkuResponsePtrInput
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation TransformationResponsePtrInput
-	// Resource type
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 
@@ -231,7 +237,7 @@ type streamingJobArgs struct {
 	Inputs []InputType `pulumi:"inputs"`
 	// The name of the streaming job.
 	JobName *string `pulumi:"jobName"`
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
@@ -245,7 +251,7 @@ type streamingJobArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku *Sku `pulumi:"sku"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation *Transformation `pulumi:"transformation"`
@@ -269,7 +275,7 @@ type StreamingJobArgs struct {
 	Inputs InputTypeArrayInput
 	// The name of the streaming job.
 	JobName pulumi.StringPtrInput
-	// Resource location. Required on PUT (CreateOrReplace) requests.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy pulumi.StringPtrInput
@@ -283,7 +289,7 @@ type StreamingJobArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku SkuPtrInput
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Transformation TransformationPtrInput

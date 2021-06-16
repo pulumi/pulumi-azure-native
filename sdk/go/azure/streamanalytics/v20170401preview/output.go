@@ -60,6 +60,12 @@ func NewOutput(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Output"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:Output"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:Output"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Output

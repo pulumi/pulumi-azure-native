@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a relation between two resources
-    /// API Version: 2019-01-01-preview.
+    /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentRelation")]
     public partial class IncidentRelation : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> RelatedResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
@@ -86,6 +92,8 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:IncidentRelation"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentRelation"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:IncidentRelation"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:IncidentRelation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:IncidentRelation"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:IncidentRelation"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210401:IncidentRelation"},
                 },
@@ -142,7 +150,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? RelationName { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

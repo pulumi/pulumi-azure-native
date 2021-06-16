@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly string LastOutputEventTime;
         /// <summary>
-        /// Resource location. Required on PUT (CreateOrReplace) requests.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly Outputs.TransformationResponse? Transformation;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 

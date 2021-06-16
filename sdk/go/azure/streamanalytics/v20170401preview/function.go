@@ -52,6 +52,12 @@ func NewFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Function"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:Function"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:Function"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Function

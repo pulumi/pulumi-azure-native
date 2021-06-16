@@ -9,6 +9,7 @@ __all__ = [
     'DataStringComparisonBehavior',
     'EnvironmentKind',
     'EventSourceKind',
+    'IngressStartAtType',
     'LocalTimestampFormat',
     'PropertyType',
     'ReferenceDataKeyPropertyType',
@@ -47,6 +48,15 @@ class EventSourceKind(str, Enum):
     """
     MICROSOFT_EVENT_HUB = "Microsoft.EventHub"
     MICROSOFT_IO_T_HUB = "Microsoft.IoTHub"
+
+
+class IngressStartAtType(str, Enum):
+    """
+    The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+    """
+    EARLIEST_AVAILABLE = "EarliestAvailable"
+    EVENT_SOURCE_CREATION_TIME = "EventSourceCreationTime"
+    CUSTOM_ENQUEUED_TIME = "CustomEnqueuedTime"
 
 
 class LocalTimestampFormat(str, Enum):

@@ -26,7 +26,7 @@ class IncidentCommentArgs:
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] message: The comment message
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
@@ -81,7 +81,7 @@ class IncidentCommentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -141,7 +141,7 @@ class IncidentComment(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an incident comment
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class IncidentComment(pulumi.CustomResource):
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] message: The comment message
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -161,7 +161,7 @@ class IncidentComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an incident comment
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IncidentCommentArgs args: The arguments to use to populate this resource's properties.
@@ -218,8 +218,9 @@ class IncidentComment(pulumi.CustomResource):
             __props__.__dict__["created_time_utc"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210401:IncidentComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210401:IncidentComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentComment, __self__).__init__(
             'azure-native:securityinsights:IncidentComment',
@@ -249,6 +250,7 @@ class IncidentComment(pulumi.CustomResource):
         __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["message"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return IncidentComment(resource_name, opts=opts, __props__=__props__)
 
@@ -299,6 +301,14 @@ class IncidentComment(pulumi.CustomResource):
         Azure resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

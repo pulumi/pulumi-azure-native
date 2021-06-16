@@ -27,8 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AATPDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:ASCDataConnector":
 		r = &ASCDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:Action":
+		r = &Action{}
 	case "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery":
 		r = &ActivityCustomEntityQuery{}
+	case "azure-native:securityinsights/v20210301preview:AlertRule":
+		r = &AlertRule{}
 	case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
 		r = &AwsCloudTrailDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":
@@ -43,28 +47,44 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EntityQuery{}
 	case "azure-native:securityinsights/v20210301preview:EyesOn":
 		r = &EyesOn{}
+	case "azure-native:securityinsights/v20210301preview:FusionAlertRule":
+		r = &FusionAlertRule{}
+	case "azure-native:securityinsights/v20210301preview:Incident":
+		r = &Incident{}
+	case "azure-native:securityinsights/v20210301preview:IncidentComment":
+		r = &IncidentComment{}
+	case "azure-native:securityinsights/v20210301preview:IncidentRelation":
+		r = &IncidentRelation{}
 	case "azure-native:securityinsights/v20210301preview:MCASDataConnector":
 		r = &MCASDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:MDATPDataConnector":
 		r = &MDATPDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule":
+		r = &MLBehaviorAnalyticsAlertRule{}
 	case "azure-native:securityinsights/v20210301preview:MSTIDataConnector":
 		r = &MSTIDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:MTPDataConnector":
 		r = &MTPDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:Metadata":
 		r = &Metadata{}
+	case "azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule":
+		r = &MicrosoftSecurityIncidentCreationAlertRule{}
 	case "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector":
 		r = &OfficeATPDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:OfficeDataConnector":
 		r = &OfficeDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:ProductSetting":
 		r = &ProductSetting{}
+	case "azure-native:securityinsights/v20210301preview:ScheduledAlertRule":
+		r = &ScheduledAlertRule{}
 	case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
 	case "azure-native:securityinsights/v20210301preview:SourceControl":
 		r = &SourceControl{}
 	case "azure-native:securityinsights/v20210301preview:TIDataConnector":
 		r = &TIDataConnector{}
+	case "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule":
+		r = &ThreatIntelligenceAlertRule{}
 	case "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector":
 		r = &TiTaxiiDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:Ueba":

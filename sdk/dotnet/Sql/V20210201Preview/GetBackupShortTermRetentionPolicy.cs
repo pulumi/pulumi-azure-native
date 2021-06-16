@@ -55,6 +55,10 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     public sealed class GetBackupShortTermRetentionPolicyResult
     {
         /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        public readonly int? DiffBackupIntervalInHours;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -73,6 +77,8 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
 
         [OutputConstructor]
         private GetBackupShortTermRetentionPolicyResult(
+            int? diffBackupIntervalInHours,
+
             string id,
 
             string name,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
 
             string type)
         {
+            DiffBackupIntervalInHours = diffBackupIntervalInHours;
             Id = id;
             Name = name;
             RetentionDays = retentionDays;

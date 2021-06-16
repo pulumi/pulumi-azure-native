@@ -17,10 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Avro'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
-        private AvroSerializationResponse(string? type)
+        private AvroSerializationResponse(string type)
         {
             Type = type;
         }

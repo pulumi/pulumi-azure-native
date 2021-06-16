@@ -277,7 +277,7 @@ class NetworkFunction(pulumi.CustomResource):
             __props__.__dict__["sku_type"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vendor_provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork:NetworkFunction"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:NetworkFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork:NetworkFunction"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:NetworkFunction"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20210501:NetworkFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFunction, __self__).__init__(
             'azure-native:hybridnetwork/v20200101preview:NetworkFunction',

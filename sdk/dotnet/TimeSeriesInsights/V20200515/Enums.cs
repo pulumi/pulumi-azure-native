@@ -132,6 +132,38 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
     }
 
     /// <summary>
+    /// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+    /// </summary>
+    [EnumType]
+    public readonly struct IngressStartAtType : IEquatable<IngressStartAtType>
+    {
+        private readonly string _value;
+
+        private IngressStartAtType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngressStartAtType EarliestAvailable { get; } = new IngressStartAtType("EarliestAvailable");
+        public static IngressStartAtType EventSourceCreationTime { get; } = new IngressStartAtType("EventSourceCreationTime");
+        public static IngressStartAtType CustomEnqueuedTime { get; } = new IngressStartAtType("CustomEnqueuedTime");
+
+        public static bool operator ==(IngressStartAtType left, IngressStartAtType right) => left.Equals(right);
+        public static bool operator !=(IngressStartAtType left, IngressStartAtType right) => !left.Equals(right);
+
+        public static explicit operator string(IngressStartAtType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngressStartAtType other && Equals(other);
+        public bool Equals(IngressStartAtType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An enum that represents the format of the local timestamp property that needs to be set.
     /// </summary>
     [EnumType]

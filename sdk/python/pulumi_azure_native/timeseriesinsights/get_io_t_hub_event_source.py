@@ -19,7 +19,7 @@ class GetIoTHubEventSourceResult:
     """
     An event source that receives its data from an Azure IoTHub.
     """
-    def __init__(__self__, consumer_group_name=None, creation_time=None, event_source_resource_id=None, id=None, iot_hub_name=None, key_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, timestamp_property_name=None, type=None):
+    def __init__(__self__, consumer_group_name=None, creation_time=None, event_source_resource_id=None, id=None, iot_hub_name=None, key_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, time=None, timestamp_property_name=None, type=None):
         if consumer_group_name and not isinstance(consumer_group_name, str):
             raise TypeError("Expected argument 'consumer_group_name' to be a str")
         pulumi.set(__self__, "consumer_group_name", consumer_group_name)
@@ -53,6 +53,9 @@ class GetIoTHubEventSourceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time and not isinstance(time, str):
+            raise TypeError("Expected argument 'time' to be a str")
+        pulumi.set(__self__, "time", time)
         if timestamp_property_name and not isinstance(timestamp_property_name, str):
             raise TypeError("Expected argument 'timestamp_property_name' to be a str")
         pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
@@ -150,6 +153,14 @@ class GetIoTHubEventSourceResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        """
+        return pulumi.get(self, "time")
+
+    @property
     @pulumi.getter(name="timestampPropertyName")
     def timestamp_property_name(self) -> Optional[str]:
         """
@@ -183,6 +194,7 @@ class AwaitableGetIoTHubEventSourceResult(GetIoTHubEventSourceResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             tags=self.tags,
+            time=self.time,
             timestamp_property_name=self.timestamp_property_name,
             type=self.type)
 
@@ -222,5 +234,6 @@ def get_io_t_hub_event_source(environment_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
+        time=__ret__.time,
         timestamp_property_name=__ret__.timestamp_property_name,
         type=__ret__.type)

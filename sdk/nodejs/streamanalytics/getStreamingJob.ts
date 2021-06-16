@@ -76,7 +76,7 @@ export interface GetStreamingJobResult {
      */
     readonly functions?: outputs.streamanalytics.FunctionResponse[];
     /**
-     * Resource Id
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -96,11 +96,11 @@ export interface GetStreamingJobResult {
      */
     readonly lastOutputEventTime: string;
     /**
-     * Resource location. Required on PUT (CreateOrReplace) requests.
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -128,7 +128,7 @@ export interface GetStreamingJobResult {
      */
     readonly sku?: outputs.streamanalytics.SkuResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -136,7 +136,7 @@ export interface GetStreamingJobResult {
      */
     readonly transformation?: outputs.streamanalytics.TransformationResponse;
     /**
-     * Resource type
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

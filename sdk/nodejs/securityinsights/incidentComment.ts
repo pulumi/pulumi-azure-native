@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident comment
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class IncidentComment extends pulumi.CustomResource {
     /**
@@ -61,6 +61,10 @@ export class IncidentComment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class IncidentComment extends pulumi.CustomResource {
             inputs["createdTimeUtc"] = undefined /*out*/;
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["author"] = undefined /*out*/;
@@ -110,12 +115,13 @@ export class IncidentComment extends pulumi.CustomResource {
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
             inputs["message"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:IncidentComment" }, { type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20210401:IncidentComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:IncidentComment" }, { type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20210401:IncidentComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentComment.__pulumiType, name, inputs, opts);
     }
@@ -146,7 +152,7 @@ export interface IncidentCommentArgs {
      */
     operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

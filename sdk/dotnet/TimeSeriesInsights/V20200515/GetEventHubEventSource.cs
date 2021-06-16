@@ -98,6 +98,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        /// </summary>
+        public readonly string? Time;
+        /// <summary>
         /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
         /// </summary>
         public readonly string? TimestampPropertyName;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
 
             ImmutableDictionary<string, string>? tags,
 
+            string? time,
+
             string? timestampPropertyName,
 
             string type)
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
             ProvisioningState = provisioningState;
             ServiceBusNamespace = serviceBusNamespace;
             Tags = tags;
+            Time = time;
             TimestampPropertyName = timestampPropertyName;
             Type = type;
         }

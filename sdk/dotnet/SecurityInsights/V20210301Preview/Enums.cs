@@ -8,6 +8,164 @@ using Pulumi;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
     /// <summary>
+    /// Alert detail
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertDetail : IEquatable<AlertDetail>
+    {
+        private readonly string _value;
+
+        private AlertDetail(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Alert display name
+        /// </summary>
+        public static AlertDetail DisplayName { get; } = new AlertDetail("DisplayName");
+        /// <summary>
+        /// Alert severity
+        /// </summary>
+        public static AlertDetail Severity { get; } = new AlertDetail("Severity");
+
+        public static bool operator ==(AlertDetail left, AlertDetail right) => left.Equals(right);
+        public static bool operator !=(AlertDetail left, AlertDetail right) => !left.Equals(right);
+
+        public static explicit operator string(AlertDetail value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertDetail other && Equals(other);
+        public bool Equals(AlertDetail other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the alert rule
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertRuleKind : IEquatable<AlertRuleKind>
+    {
+        private readonly string _value;
+
+        private AlertRuleKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlertRuleKind Scheduled { get; } = new AlertRuleKind("Scheduled");
+        public static AlertRuleKind MicrosoftSecurityIncidentCreation { get; } = new AlertRuleKind("MicrosoftSecurityIncidentCreation");
+        public static AlertRuleKind Fusion { get; } = new AlertRuleKind("Fusion");
+        public static AlertRuleKind MLBehaviorAnalytics { get; } = new AlertRuleKind("MLBehaviorAnalytics");
+        public static AlertRuleKind ThreatIntelligence { get; } = new AlertRuleKind("ThreatIntelligence");
+
+        public static bool operator ==(AlertRuleKind left, AlertRuleKind right) => left.Equals(right);
+        public static bool operator !=(AlertRuleKind left, AlertRuleKind right) => !left.Equals(right);
+
+        public static explicit operator string(AlertRuleKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertRuleKind other && Equals(other);
+        public bool Equals(AlertRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The severity for alerts created by this alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertSeverity : IEquatable<AlertSeverity>
+    {
+        private readonly string _value;
+
+        private AlertSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// High severity
+        /// </summary>
+        public static AlertSeverity High { get; } = new AlertSeverity("High");
+        /// <summary>
+        /// Medium severity
+        /// </summary>
+        public static AlertSeverity Medium { get; } = new AlertSeverity("Medium");
+        /// <summary>
+        /// Low severity
+        /// </summary>
+        public static AlertSeverity Low { get; } = new AlertSeverity("Low");
+        /// <summary>
+        /// Informational severity
+        /// </summary>
+        public static AlertSeverity Informational { get; } = new AlertSeverity("Informational");
+
+        public static bool operator ==(AlertSeverity left, AlertSeverity right) => left.Equals(right);
+        public static bool operator !=(AlertSeverity left, AlertSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(AlertSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertSeverity other && Equals(other);
+        public bool Equals(AlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The severity for alerts created by this alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct AttackTactic : IEquatable<AttackTactic>
+    {
+        private readonly string _value;
+
+        private AttackTactic(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AttackTactic InitialAccess { get; } = new AttackTactic("InitialAccess");
+        public static AttackTactic Execution { get; } = new AttackTactic("Execution");
+        public static AttackTactic Persistence { get; } = new AttackTactic("Persistence");
+        public static AttackTactic PrivilegeEscalation { get; } = new AttackTactic("PrivilegeEscalation");
+        public static AttackTactic DefenseEvasion { get; } = new AttackTactic("DefenseEvasion");
+        public static AttackTactic CredentialAccess { get; } = new AttackTactic("CredentialAccess");
+        public static AttackTactic Discovery { get; } = new AttackTactic("Discovery");
+        public static AttackTactic LateralMovement { get; } = new AttackTactic("LateralMovement");
+        public static AttackTactic Collection { get; } = new AttackTactic("Collection");
+        public static AttackTactic Exfiltration { get; } = new AttackTactic("Exfiltration");
+        public static AttackTactic CommandAndControl { get; } = new AttackTactic("CommandAndControl");
+        public static AttackTactic Impact { get; } = new AttackTactic("Impact");
+        public static AttackTactic PreAttack { get; } = new AttackTactic("PreAttack");
+
+        public static bool operator ==(AttackTactic left, AttackTactic right) => left.Equals(right);
+        public static bool operator !=(AttackTactic left, AttackTactic right) => !left.Equals(right);
+
+        public static explicit operator string(AttackTactic value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AttackTactic other && Equals(other);
+        public bool Equals(AttackTactic other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// type of connectivity
     /// </summary>
     [EnumType]
@@ -173,6 +331,107 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
     /// <summary>
+    /// The V3 type of the mapped entity
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityMappingType : IEquatable<EntityMappingType>
+    {
+        private readonly string _value;
+
+        private EntityMappingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// User account entity type
+        /// </summary>
+        public static EntityMappingType Account { get; } = new EntityMappingType("Account");
+        /// <summary>
+        /// Host entity type
+        /// </summary>
+        public static EntityMappingType Host { get; } = new EntityMappingType("Host");
+        /// <summary>
+        /// IP address entity type
+        /// </summary>
+        public static EntityMappingType IP { get; } = new EntityMappingType("IP");
+        /// <summary>
+        /// Malware entity type
+        /// </summary>
+        public static EntityMappingType Malware { get; } = new EntityMappingType("Malware");
+        /// <summary>
+        /// System file entity type
+        /// </summary>
+        public static EntityMappingType File { get; } = new EntityMappingType("File");
+        /// <summary>
+        /// Process entity type
+        /// </summary>
+        public static EntityMappingType Process { get; } = new EntityMappingType("Process");
+        /// <summary>
+        /// Cloud app entity type
+        /// </summary>
+        public static EntityMappingType CloudApplication { get; } = new EntityMappingType("CloudApplication");
+        /// <summary>
+        /// DNS entity type
+        /// </summary>
+        public static EntityMappingType DNS { get; } = new EntityMappingType("DNS");
+        /// <summary>
+        /// Azure resource entity type
+        /// </summary>
+        public static EntityMappingType AzureResource { get; } = new EntityMappingType("AzureResource");
+        /// <summary>
+        /// File-hash entity type
+        /// </summary>
+        public static EntityMappingType FileHash { get; } = new EntityMappingType("FileHash");
+        /// <summary>
+        /// Registry key entity type
+        /// </summary>
+        public static EntityMappingType RegistryKey { get; } = new EntityMappingType("RegistryKey");
+        /// <summary>
+        /// Registry value entity type
+        /// </summary>
+        public static EntityMappingType RegistryValue { get; } = new EntityMappingType("RegistryValue");
+        /// <summary>
+        /// Security group entity type
+        /// </summary>
+        public static EntityMappingType SecurityGroup { get; } = new EntityMappingType("SecurityGroup");
+        /// <summary>
+        /// URL entity type
+        /// </summary>
+        public static EntityMappingType URL { get; } = new EntityMappingType("URL");
+        /// <summary>
+        /// Mailbox entity type
+        /// </summary>
+        public static EntityMappingType Mailbox { get; } = new EntityMappingType("Mailbox");
+        /// <summary>
+        /// Mail cluster entity type
+        /// </summary>
+        public static EntityMappingType MailCluster { get; } = new EntityMappingType("MailCluster");
+        /// <summary>
+        /// Mail message entity type
+        /// </summary>
+        public static EntityMappingType MailMessage { get; } = new EntityMappingType("MailMessage");
+        /// <summary>
+        /// Submission mail entity type
+        /// </summary>
+        public static EntityMappingType SubmissionMail { get; } = new EntityMappingType("SubmissionMail");
+
+        public static bool operator ==(EntityMappingType left, EntityMappingType right) => left.Equals(right);
+        public static bool operator !=(EntityMappingType left, EntityMappingType right) => !left.Equals(right);
+
+        public static explicit operator string(EntityMappingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityMappingType other && Equals(other);
+        public bool Equals(EntityMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the query's source entity
     /// </summary>
     [EnumType]
@@ -286,6 +545,213 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
     }
 
     /// <summary>
+    /// The event grouping aggregation kinds
+    /// </summary>
+    [EnumType]
+    public readonly struct EventGroupingAggregationKind : IEquatable<EventGroupingAggregationKind>
+    {
+        private readonly string _value;
+
+        private EventGroupingAggregationKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventGroupingAggregationKind SingleAlert { get; } = new EventGroupingAggregationKind("SingleAlert");
+        public static EventGroupingAggregationKind AlertPerResult { get; } = new EventGroupingAggregationKind("AlertPerResult");
+
+        public static bool operator ==(EventGroupingAggregationKind left, EventGroupingAggregationKind right) => left.Equals(right);
+        public static bool operator !=(EventGroupingAggregationKind left, EventGroupingAggregationKind right) => !left.Equals(right);
+
+        public static explicit operator string(EventGroupingAggregationKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventGroupingAggregationKind other && Equals(other);
+        public bool Equals(EventGroupingAggregationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The reason the incident was closed
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentClassification : IEquatable<IncidentClassification>
+    {
+        private readonly string _value;
+
+        private IncidentClassification(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Incident classification was undetermined
+        /// </summary>
+        public static IncidentClassification Undetermined { get; } = new IncidentClassification("Undetermined");
+        /// <summary>
+        /// Incident was true positive
+        /// </summary>
+        public static IncidentClassification TruePositive { get; } = new IncidentClassification("TruePositive");
+        /// <summary>
+        /// Incident was benign positive
+        /// </summary>
+        public static IncidentClassification BenignPositive { get; } = new IncidentClassification("BenignPositive");
+        /// <summary>
+        /// Incident was false positive
+        /// </summary>
+        public static IncidentClassification FalsePositive { get; } = new IncidentClassification("FalsePositive");
+
+        public static bool operator ==(IncidentClassification left, IncidentClassification right) => left.Equals(right);
+        public static bool operator !=(IncidentClassification left, IncidentClassification right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentClassification value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentClassification other && Equals(other);
+        public bool Equals(IncidentClassification other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The classification reason the incident was closed with
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentClassificationReason : IEquatable<IncidentClassificationReason>
+    {
+        private readonly string _value;
+
+        private IncidentClassificationReason(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Classification reason was suspicious activity
+        /// </summary>
+        public static IncidentClassificationReason SuspiciousActivity { get; } = new IncidentClassificationReason("SuspiciousActivity");
+        /// <summary>
+        /// Classification reason was suspicious but expected
+        /// </summary>
+        public static IncidentClassificationReason SuspiciousButExpected { get; } = new IncidentClassificationReason("SuspiciousButExpected");
+        /// <summary>
+        /// Classification reason was incorrect alert logic
+        /// </summary>
+        public static IncidentClassificationReason IncorrectAlertLogic { get; } = new IncidentClassificationReason("IncorrectAlertLogic");
+        /// <summary>
+        /// Classification reason was inaccurate data
+        /// </summary>
+        public static IncidentClassificationReason InaccurateData { get; } = new IncidentClassificationReason("InaccurateData");
+
+        public static bool operator ==(IncidentClassificationReason left, IncidentClassificationReason right) => left.Equals(right);
+        public static bool operator !=(IncidentClassificationReason left, IncidentClassificationReason right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentClassificationReason value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentClassificationReason other && Equals(other);
+        public bool Equals(IncidentClassificationReason other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The severity of the incident
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentSeverity : IEquatable<IncidentSeverity>
+    {
+        private readonly string _value;
+
+        private IncidentSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// High severity
+        /// </summary>
+        public static IncidentSeverity High { get; } = new IncidentSeverity("High");
+        /// <summary>
+        /// Medium severity
+        /// </summary>
+        public static IncidentSeverity Medium { get; } = new IncidentSeverity("Medium");
+        /// <summary>
+        /// Low severity
+        /// </summary>
+        public static IncidentSeverity Low { get; } = new IncidentSeverity("Low");
+        /// <summary>
+        /// Informational severity
+        /// </summary>
+        public static IncidentSeverity Informational { get; } = new IncidentSeverity("Informational");
+
+        public static bool operator ==(IncidentSeverity left, IncidentSeverity right) => left.Equals(right);
+        public static bool operator !=(IncidentSeverity left, IncidentSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentSeverity other && Equals(other);
+        public bool Equals(IncidentSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the incident
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentStatus : IEquatable<IncidentStatus>
+    {
+        private readonly string _value;
+
+        private IncidentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// An active incident which isn't being handled currently
+        /// </summary>
+        public static IncidentStatus New { get; } = new IncidentStatus("New");
+        /// <summary>
+        /// An active incident which is being handled
+        /// </summary>
+        public static IncidentStatus Active { get; } = new IncidentStatus("Active");
+        /// <summary>
+        /// A non-active incident
+        /// </summary>
+        public static IncidentStatus Closed { get; } = new IncidentStatus("Closed");
+
+        public static bool operator ==(IncidentStatus left, IncidentStatus right) => left.Equals(right);
+        public static bool operator !=(IncidentStatus left, IncidentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentStatus other && Equals(other);
+        public bool Equals(IncidentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of content the metadata is for.
     /// </summary>
     [EnumType]
@@ -321,6 +787,83 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+    /// </summary>
+    [EnumType]
+    public readonly struct MatchingMethod : IEquatable<MatchingMethod>
+    {
+        private readonly string _value;
+
+        private MatchingMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Grouping alerts into a single incident if all the entities match
+        /// </summary>
+        public static MatchingMethod AllEntities { get; } = new MatchingMethod("AllEntities");
+        /// <summary>
+        /// Grouping any alerts triggered by this rule into a single incident
+        /// </summary>
+        public static MatchingMethod AnyAlert { get; } = new MatchingMethod("AnyAlert");
+        /// <summary>
+        /// Grouping alerts into a single incident if the selected entities, custom details and alert details match
+        /// </summary>
+        public static MatchingMethod Selected { get; } = new MatchingMethod("Selected");
+
+        public static bool operator ==(MatchingMethod left, MatchingMethod right) => left.Equals(right);
+        public static bool operator !=(MatchingMethod left, MatchingMethod right) => !left.Equals(right);
+
+        public static explicit operator string(MatchingMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchingMethod other && Equals(other);
+        public bool Equals(MatchingMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The alerts' productName on which the cases will be generated
+    /// </summary>
+    [EnumType]
+    public readonly struct MicrosoftSecurityProductName : IEquatable<MicrosoftSecurityProductName>
+    {
+        private readonly string _value;
+
+        private MicrosoftSecurityProductName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MicrosoftSecurityProductName Microsoft_Cloud_App_Security { get; } = new MicrosoftSecurityProductName("Microsoft Cloud App Security");
+        public static MicrosoftSecurityProductName Azure_Security_Center { get; } = new MicrosoftSecurityProductName("Azure Security Center");
+        public static MicrosoftSecurityProductName Azure_Advanced_Threat_Protection { get; } = new MicrosoftSecurityProductName("Azure Advanced Threat Protection");
+        public static MicrosoftSecurityProductName Azure_Active_Directory_Identity_Protection { get; } = new MicrosoftSecurityProductName("Azure Active Directory Identity Protection");
+        public static MicrosoftSecurityProductName Azure_Security_Center_for_IoT { get; } = new MicrosoftSecurityProductName("Azure Security Center for IoT");
+        public static MicrosoftSecurityProductName Office_365_Advanced_Threat_Protection { get; } = new MicrosoftSecurityProductName("Office 365 Advanced Threat Protection");
+        public static MicrosoftSecurityProductName Microsoft_Defender_Advanced_Threat_Protection { get; } = new MicrosoftSecurityProductName("Microsoft Defender Advanced Threat Protection");
+
+        public static bool operator ==(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => left.Equals(right);
+        public static bool operator !=(MicrosoftSecurityProductName left, MicrosoftSecurityProductName right) => !left.Equals(right);
+
+        public static explicit operator string(MicrosoftSecurityProductName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MicrosoftSecurityProductName other && Equals(other);
+        public bool Equals(MicrosoftSecurityProductName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -651,6 +1194,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SupportTier other && Equals(other);
         public bool Equals(SupportTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operation against the threshold that triggers alert rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerOperator : IEquatable<TriggerOperator>
+    {
+        private readonly string _value;
+
+        private TriggerOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerOperator GreaterThan { get; } = new TriggerOperator("GreaterThan");
+        public static TriggerOperator LessThan { get; } = new TriggerOperator("LessThan");
+        public static TriggerOperator Equal { get; } = new TriggerOperator("Equal");
+        public static TriggerOperator NotEqual { get; } = new TriggerOperator("NotEqual");
+
+        public static bool operator ==(TriggerOperator left, TriggerOperator right) => left.Equals(right);
+        public static bool operator !=(TriggerOperator left, TriggerOperator right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerOperator other && Equals(other);
+        public bool Equals(TriggerOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -30,6 +30,8 @@ type LookupBackupShortTermRetentionPolicyArgs struct {
 
 // A short term retention policy.
 type LookupBackupShortTermRetentionPolicyResult struct {
+	// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+	DiffBackupIntervalInHours *int `pulumi:"diffBackupIntervalInHours"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.

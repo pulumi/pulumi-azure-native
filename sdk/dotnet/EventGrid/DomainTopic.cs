@@ -78,6 +78,8 @@ namespace Pulumi.AzureNative.EventGrid
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20210601preview:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

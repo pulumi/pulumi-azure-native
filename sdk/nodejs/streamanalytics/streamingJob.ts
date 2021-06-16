@@ -85,11 +85,11 @@ export class StreamingJob extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastOutputEventTime!: pulumi.Output<string>;
     /**
-     * Resource location. Required on PUT (CreateOrReplace) requests.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class StreamingJob extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.streamanalytics.SkuResponse | undefined>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -125,7 +125,7 @@ export class StreamingJob extends pulumi.CustomResource {
      */
     public readonly transformation!: pulumi.Output<outputs.streamanalytics.TransformationResponse | undefined>;
     /**
-     * Resource type
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -196,7 +196,7 @@ export class StreamingJob extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20170401preview:StreamingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-native:streamanalytics/v20200301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20200301:StreamingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingJob.__pulumiType, name, inputs, opts);
     }
@@ -239,7 +239,7 @@ export interface StreamingJobArgs {
      */
     jobName?: pulumi.Input<string>;
     /**
-     * Resource location. Required on PUT (CreateOrReplace) requests.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -267,7 +267,7 @@ export interface StreamingJobArgs {
      */
     sku?: pulumi.Input<inputs.streamanalytics.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the type of function.
         /// Expected value is 'Scalar'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ScalarFunctionPropertiesResponse(
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 
             Outputs.FunctionOutputResponse? output,
 
-            string? type)
+            string type)
         {
             Binding = binding;
             Etag = etag;

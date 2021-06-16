@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.ServiceBus/Topic'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ServiceBusTopicOutputDataSourceResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? topicName,
 
-            string? type)
+            string type)
         {
             PropertyColumns = propertyColumns;
             ServiceBusNamespace = serviceBusNamespace;

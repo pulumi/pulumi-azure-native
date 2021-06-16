@@ -83,6 +83,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        /// </summary>
+        [Output("time")]
+        public Output<string?> Time { get; private set; } = null!;
+
+        /// <summary>
         /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
         /// </summary>
         [Output("timestampPropertyName")]
@@ -244,10 +250,22 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         }
 
         /// <summary>
+        /// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+        /// </summary>
+        [Input("time")]
+        public Input<string>? Time { get; set; }
+
+        /// <summary>
         /// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
         /// </summary>
         [Input("timestampPropertyName")]
         public Input<string>? TimestampPropertyName { get; set; }
+
+        /// <summary>
+        /// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+        /// </summary>
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.V20200515.IngressStartAtType>? Type { get; set; }
 
         public EventHubEventSourceArgs()
         {

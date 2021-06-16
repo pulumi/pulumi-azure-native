@@ -81,13 +81,17 @@ export class EventHubEventSource extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+     */
+    public readonly time!: pulumi.Output<string | undefined>;
+    /**
      * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
      */
     public readonly timestampPropertyName!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a EventHubEventSource resource with the given unique name, arguments, and options.
@@ -140,11 +144,12 @@ export class EventHubEventSource extends pulumi.CustomResource {
             inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
             inputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["time"] = args ? args.time : undefined;
             inputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
         } else {
             inputs["consumerGroupName"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
@@ -157,6 +162,7 @@ export class EventHubEventSource extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusNamespace"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["time"] = undefined /*out*/;
             inputs["timestampPropertyName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -227,7 +233,15 @@ export interface EventHubEventSourceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+     */
+    time?: pulumi.Input<string>;
+    /**
      * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
      */
     timestampPropertyName?: pulumi.Input<string>;
+    /**
+     * The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+     */
+    type?: pulumi.Input<string | enums.timeseriesinsights.v20200515.IngressStartAtType>;
 }

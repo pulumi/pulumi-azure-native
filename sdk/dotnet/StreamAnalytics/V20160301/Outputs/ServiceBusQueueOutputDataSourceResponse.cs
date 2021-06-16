@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.ServiceBus/Queue'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private ServiceBusQueueOutputDataSourceResponse(
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 
             string? sharedAccessPolicyName,
 
-            string? type)
+            string type)
         {
             PropertyColumns = propertyColumns;
             QueueName = queueName;

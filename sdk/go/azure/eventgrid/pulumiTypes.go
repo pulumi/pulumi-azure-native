@@ -1308,6 +1308,82 @@ func (o DeliveryWithResourceIdentityResponsePtrOutput) Identity() EventSubscript
 	}).(EventSubscriptionIdentityResponsePtrOutput)
 }
 
+// Dynamic delivery attribute mapping details.
+type DynamicDeliveryAttributeMappingResponse struct {
+	// Name of the delivery attribute or header.
+	Name *string `pulumi:"name"`
+	// JSON path in the event which contains attribute value.
+	SourceField *string `pulumi:"sourceField"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Dynamic'.
+	Type string `pulumi:"type"`
+}
+
+// DynamicDeliveryAttributeMappingResponseInput is an input type that accepts DynamicDeliveryAttributeMappingResponseArgs and DynamicDeliveryAttributeMappingResponseOutput values.
+// You can construct a concrete instance of `DynamicDeliveryAttributeMappingResponseInput` via:
+//
+//          DynamicDeliveryAttributeMappingResponseArgs{...}
+type DynamicDeliveryAttributeMappingResponseInput interface {
+	pulumi.Input
+
+	ToDynamicDeliveryAttributeMappingResponseOutput() DynamicDeliveryAttributeMappingResponseOutput
+	ToDynamicDeliveryAttributeMappingResponseOutputWithContext(context.Context) DynamicDeliveryAttributeMappingResponseOutput
+}
+
+// Dynamic delivery attribute mapping details.
+type DynamicDeliveryAttributeMappingResponseArgs struct {
+	// Name of the delivery attribute or header.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// JSON path in the event which contains attribute value.
+	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Dynamic'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DynamicDeliveryAttributeMappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicDeliveryAttributeMappingResponse)(nil)).Elem()
+}
+
+func (i DynamicDeliveryAttributeMappingResponseArgs) ToDynamicDeliveryAttributeMappingResponseOutput() DynamicDeliveryAttributeMappingResponseOutput {
+	return i.ToDynamicDeliveryAttributeMappingResponseOutputWithContext(context.Background())
+}
+
+func (i DynamicDeliveryAttributeMappingResponseArgs) ToDynamicDeliveryAttributeMappingResponseOutputWithContext(ctx context.Context) DynamicDeliveryAttributeMappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicDeliveryAttributeMappingResponseOutput)
+}
+
+// Dynamic delivery attribute mapping details.
+type DynamicDeliveryAttributeMappingResponseOutput struct{ *pulumi.OutputState }
+
+func (DynamicDeliveryAttributeMappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicDeliveryAttributeMappingResponse)(nil)).Elem()
+}
+
+func (o DynamicDeliveryAttributeMappingResponseOutput) ToDynamicDeliveryAttributeMappingResponseOutput() DynamicDeliveryAttributeMappingResponseOutput {
+	return o
+}
+
+func (o DynamicDeliveryAttributeMappingResponseOutput) ToDynamicDeliveryAttributeMappingResponseOutputWithContext(ctx context.Context) DynamicDeliveryAttributeMappingResponseOutput {
+	return o
+}
+
+// Name of the delivery attribute or header.
+func (o DynamicDeliveryAttributeMappingResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicDeliveryAttributeMappingResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// JSON path in the event which contains attribute value.
+func (o DynamicDeliveryAttributeMappingResponseOutput) SourceField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicDeliveryAttributeMappingResponse) *string { return v.SourceField }).(pulumi.StringPtrOutput)
+}
+
+// Type of the delivery attribute or header name.
+// Expected value is 'Dynamic'.
+func (o DynamicDeliveryAttributeMappingResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicDeliveryAttributeMappingResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the destination of an event channel.
 type EventChannelDestination struct {
 	// Azure subscription ID of the customer creating the event channel. The partner topic
@@ -6453,6 +6529,91 @@ func (o ServiceBusTopicEventSubscriptionDestinationResponseOutput) ResourceId() 
 	return o.ApplyT(func(v ServiceBusTopicEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Static delivery attribute mapping details.
+type StaticDeliveryAttributeMappingResponse struct {
+	// Boolean flag to tell if the attribute contains sensitive information .
+	IsSecret *bool `pulumi:"isSecret"`
+	// Name of the delivery attribute or header.
+	Name *string `pulumi:"name"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Static'.
+	Type string `pulumi:"type"`
+	// Value of the delivery attribute.
+	Value *string `pulumi:"value"`
+}
+
+// StaticDeliveryAttributeMappingResponseInput is an input type that accepts StaticDeliveryAttributeMappingResponseArgs and StaticDeliveryAttributeMappingResponseOutput values.
+// You can construct a concrete instance of `StaticDeliveryAttributeMappingResponseInput` via:
+//
+//          StaticDeliveryAttributeMappingResponseArgs{...}
+type StaticDeliveryAttributeMappingResponseInput interface {
+	pulumi.Input
+
+	ToStaticDeliveryAttributeMappingResponseOutput() StaticDeliveryAttributeMappingResponseOutput
+	ToStaticDeliveryAttributeMappingResponseOutputWithContext(context.Context) StaticDeliveryAttributeMappingResponseOutput
+}
+
+// Static delivery attribute mapping details.
+type StaticDeliveryAttributeMappingResponseArgs struct {
+	// Boolean flag to tell if the attribute contains sensitive information .
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// Name of the delivery attribute or header.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Static'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of the delivery attribute.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StaticDeliveryAttributeMappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticDeliveryAttributeMappingResponse)(nil)).Elem()
+}
+
+func (i StaticDeliveryAttributeMappingResponseArgs) ToStaticDeliveryAttributeMappingResponseOutput() StaticDeliveryAttributeMappingResponseOutput {
+	return i.ToStaticDeliveryAttributeMappingResponseOutputWithContext(context.Background())
+}
+
+func (i StaticDeliveryAttributeMappingResponseArgs) ToStaticDeliveryAttributeMappingResponseOutputWithContext(ctx context.Context) StaticDeliveryAttributeMappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticDeliveryAttributeMappingResponseOutput)
+}
+
+// Static delivery attribute mapping details.
+type StaticDeliveryAttributeMappingResponseOutput struct{ *pulumi.OutputState }
+
+func (StaticDeliveryAttributeMappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticDeliveryAttributeMappingResponse)(nil)).Elem()
+}
+
+func (o StaticDeliveryAttributeMappingResponseOutput) ToStaticDeliveryAttributeMappingResponseOutput() StaticDeliveryAttributeMappingResponseOutput {
+	return o
+}
+
+func (o StaticDeliveryAttributeMappingResponseOutput) ToStaticDeliveryAttributeMappingResponseOutputWithContext(ctx context.Context) StaticDeliveryAttributeMappingResponseOutput {
+	return o
+}
+
+// Boolean flag to tell if the attribute contains sensitive information .
+func (o StaticDeliveryAttributeMappingResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticDeliveryAttributeMappingResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the delivery attribute or header.
+func (o StaticDeliveryAttributeMappingResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticDeliveryAttributeMappingResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of the delivery attribute or header name.
+// Expected value is 'Static'.
+func (o StaticDeliveryAttributeMappingResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticDeliveryAttributeMappingResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the delivery attribute.
+func (o StaticDeliveryAttributeMappingResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticDeliveryAttributeMappingResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 // Information about the storage blob based dead letter destination.
 type StorageBlobDeadLetterDestination struct {
 	// The name of the Storage blob container that is the destination of the deadletter events
@@ -8180,6 +8341,7 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryWithResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(DynamicDeliveryAttributeMappingResponseOutput{})
 	pulumi.RegisterOutputType(EventChannelDestinationOutput{})
 	pulumi.RegisterOutputType(EventChannelDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventChannelDestinationResponseOutput{})
@@ -8246,6 +8408,7 @@ func init() {
 	pulumi.RegisterOutputType(ServiceBusQueueEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicEventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicEventSubscriptionDestinationResponseOutput{})
+	pulumi.RegisterOutputType(StaticDeliveryAttributeMappingResponseOutput{})
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationOutput{})
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationResponseOutput{})

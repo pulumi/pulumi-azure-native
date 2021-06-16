@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20210601.HighAvailabilityMode>? Mode { get; set; }
 
+        /// <summary>
+        /// availability zone information of the standby.
+        /// </summary>
+        [Input("standbyAvailabilityZone")]
+        public Input<string>? StandbyAvailabilityZone { get; set; }
+
         public HighAvailabilityArgs()
         {
         }

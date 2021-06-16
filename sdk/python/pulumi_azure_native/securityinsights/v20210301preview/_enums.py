@@ -5,13 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'AlertDetail',
+    'AlertRuleKind',
+    'AlertSeverity',
+    'AttackTactic',
     'ConnectivityType',
     'ContentType',
     'CustomEntityQueryKind',
     'DataConnectorKind',
     'DataTypeState',
+    'EntityMappingType',
     'EntityType',
+    'EventGroupingAggregationKind',
+    'IncidentClassification',
+    'IncidentClassificationReason',
+    'IncidentSeverity',
+    'IncidentStatus',
     'Kind',
+    'MatchingMethod',
+    'MicrosoftSecurityProductName',
     'Operator',
     'PermissionProviderScope',
     'PollingFrequency',
@@ -22,8 +34,57 @@ __all__ = [
     'Source',
     'SourceKind',
     'SupportTier',
+    'TriggerOperator',
     'UebaDataSources',
 ]
+
+
+class AlertDetail(str, Enum):
+    """
+    Alert detail
+    """
+    DISPLAY_NAME = "DisplayName"
+    SEVERITY = "Severity"
+
+
+class AlertRuleKind(str, Enum):
+    """
+    The kind of the alert rule
+    """
+    SCHEDULED = "Scheduled"
+    MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
+    FUSION = "Fusion"
+    ML_BEHAVIOR_ANALYTICS = "MLBehaviorAnalytics"
+    THREAT_INTELLIGENCE = "ThreatIntelligence"
+
+
+class AlertSeverity(str, Enum):
+    """
+    The severity for alerts created by this alert rule.
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+    INFORMATIONAL = "Informational"
+
+
+class AttackTactic(str, Enum):
+    """
+    The severity for alerts created by this alert rule.
+    """
+    INITIAL_ACCESS = "InitialAccess"
+    EXECUTION = "Execution"
+    PERSISTENCE = "Persistence"
+    PRIVILEGE_ESCALATION = "PrivilegeEscalation"
+    DEFENSE_EVASION = "DefenseEvasion"
+    CREDENTIAL_ACCESS = "CredentialAccess"
+    DISCOVERY = "Discovery"
+    LATERAL_MOVEMENT = "LateralMovement"
+    COLLECTION = "Collection"
+    EXFILTRATION = "Exfiltration"
+    COMMAND_AND_CONTROL = "CommandAndControl"
+    IMPACT = "Impact"
+    PRE_ATTACK = "PreAttack"
 
 
 class ConnectivityType(str, Enum):
@@ -76,6 +137,30 @@ class DataTypeState(str, Enum):
     DISABLED = "Disabled"
 
 
+class EntityMappingType(str, Enum):
+    """
+    The V3 type of the mapped entity
+    """
+    ACCOUNT = "Account"
+    HOST = "Host"
+    IP = "IP"
+    MALWARE = "Malware"
+    FILE = "File"
+    PROCESS = "Process"
+    CLOUD_APPLICATION = "CloudApplication"
+    DNS = "DNS"
+    AZURE_RESOURCE = "AzureResource"
+    FILE_HASH = "FileHash"
+    REGISTRY_KEY = "RegistryKey"
+    REGISTRY_VALUE = "RegistryValue"
+    SECURITY_GROUP = "SecurityGroup"
+    URL = "URL"
+    MAILBOX = "Mailbox"
+    MAIL_CLUSTER = "MailCluster"
+    MAIL_MESSAGE = "MailMessage"
+    SUBMISSION_MAIL = "SubmissionMail"
+
+
 class EntityType(str, Enum):
     """
     The type of the query's source entity
@@ -103,6 +188,53 @@ class EntityType(str, Enum):
     SUBMISSION_MAIL = "SubmissionMail"
 
 
+class EventGroupingAggregationKind(str, Enum):
+    """
+    The event grouping aggregation kinds
+    """
+    SINGLE_ALERT = "SingleAlert"
+    ALERT_PER_RESULT = "AlertPerResult"
+
+
+class IncidentClassification(str, Enum):
+    """
+    The reason the incident was closed
+    """
+    UNDETERMINED = "Undetermined"
+    TRUE_POSITIVE = "TruePositive"
+    BENIGN_POSITIVE = "BenignPositive"
+    FALSE_POSITIVE = "FalsePositive"
+
+
+class IncidentClassificationReason(str, Enum):
+    """
+    The classification reason the incident was closed with
+    """
+    SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
+    SUSPICIOUS_BUT_EXPECTED = "SuspiciousButExpected"
+    INCORRECT_ALERT_LOGIC = "IncorrectAlertLogic"
+    INACCURATE_DATA = "InaccurateData"
+
+
+class IncidentSeverity(str, Enum):
+    """
+    The severity of the incident
+    """
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+    INFORMATIONAL = "Informational"
+
+
+class IncidentStatus(str, Enum):
+    """
+    The status of the incident
+    """
+    NEW = "New"
+    ACTIVE = "Active"
+    CLOSED = "Closed"
+
+
 class Kind(str, Enum):
     """
     The kind of content the metadata is for.
@@ -121,6 +253,28 @@ class Kind(str, Enum):
     WATCHLIST = "watchlist"
     WATCHLIST_TEMPLATE = "watchlistTemplate"
     SOLUTION = "solution"
+
+
+class MatchingMethod(str, Enum):
+    """
+    Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+    """
+    ALL_ENTITIES = "AllEntities"
+    ANY_ALERT = "AnyAlert"
+    SELECTED = "Selected"
+
+
+class MicrosoftSecurityProductName(str, Enum):
+    """
+    The alerts' productName on which the cases will be generated
+    """
+    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
+    AZURE_SECURITY_CENTER = "Azure Security Center"
+    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
+    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
+    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
+    OFFICE_365_ADVANCED_THREAT_PROTECTION = "Office 365 Advanced Threat Protection"
+    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "Microsoft Defender Advanced Threat Protection"
 
 
 class Operator(str, Enum):
@@ -212,6 +366,16 @@ class SupportTier(str, Enum):
     MICROSOFT = "microsoft"
     DEVELOPER = "developer"
     COMMUNITY = "community"
+
+
+class TriggerOperator(str, Enum):
+    """
+    The operation against the threshold that triggers alert rule.
+    """
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN = "LessThan"
+    EQUAL = "Equal"
+    NOT_EQUAL = "NotEqual"
 
 
 class UebaDataSources(str, Enum):

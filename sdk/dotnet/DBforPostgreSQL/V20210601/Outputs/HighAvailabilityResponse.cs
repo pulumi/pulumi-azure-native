@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Outputs
         /// <summary>
         /// availability zone information of the standby.
         /// </summary>
-        public readonly string StandbyAvailabilityZone;
+        public readonly string? StandbyAvailabilityZone;
         /// <summary>
         /// A state of a HA server that is visible to user.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Outputs
         private HighAvailabilityResponse(
             string? mode,
 
-            string standbyAvailabilityZone,
+            string? standbyAvailabilityZone,
 
             string state)
         {

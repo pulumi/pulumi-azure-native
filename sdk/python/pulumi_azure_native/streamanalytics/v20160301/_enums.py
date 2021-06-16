@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'CompatibilityLevel',
     'Encoding',
+    'EventSerializationType',
     'EventsOutOfOrderPolicy',
     'JsonOutputSerializationFormat',
     'OutputErrorPolicy',
@@ -27,6 +28,15 @@ class Encoding(str, Enum):
     Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
     """
     UTF8 = "UTF8"
+
+
+class EventSerializationType(str, Enum):
+    """
+    Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    """
+    CSV = "Csv"
+    AVRO = "Avro"
+    JSON = "Json"
 
 
 class EventsOutOfOrderPolicy(str, Enum):

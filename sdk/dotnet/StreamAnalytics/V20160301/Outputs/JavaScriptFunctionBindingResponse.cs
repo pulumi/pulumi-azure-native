@@ -21,13 +21,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
         /// Indicates the function binding type.
         /// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private JavaScriptFunctionBindingResponse(
             string? script,
 
-            string? type)
+            string type)
         {
             Script = script;
             Type = type;

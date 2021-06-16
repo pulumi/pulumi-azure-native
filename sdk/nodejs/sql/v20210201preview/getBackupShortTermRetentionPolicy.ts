@@ -48,6 +48,10 @@ export interface GetBackupShortTermRetentionPolicyArgs {
  */
 export interface GetBackupShortTermRetentionPolicyResult {
     /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    readonly diffBackupIntervalInHours?: number;
+    /**
      * Resource ID.
      */
     readonly id: string;

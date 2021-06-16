@@ -20,6 +20,17 @@ export const Encoding = {
  */
 export type Encoding = (typeof Encoding)[keyof typeof Encoding];
 
+export const EventSerializationType = {
+    Csv: "Csv",
+    Avro: "Avro",
+    Json: "Json",
+} as const;
+
+/**
+ * Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+ */
+export type EventSerializationType = (typeof EventSerializationType)[keyof typeof EventSerializationType];
+
 export const EventsOutOfOrderPolicy = {
     Adjust: "Adjust",
     Drop: "Drop",

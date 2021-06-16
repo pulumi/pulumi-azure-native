@@ -89,13 +89,13 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<string> LastOutputEventTime { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location. Required on PUT (CreateOrReplace) requests.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<Outputs.TransformationResponse?> Transformation { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -184,6 +184,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20200301:StreamingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -268,7 +270,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string>? JobName { get; set; }
 
         /// <summary>
-        /// Resource location. Required on PUT (CreateOrReplace) requests.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -319,7 +321,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

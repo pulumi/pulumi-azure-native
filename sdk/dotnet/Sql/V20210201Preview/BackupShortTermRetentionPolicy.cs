@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
     public partial class BackupShortTermRetentionPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        [Output("diffBackupIntervalInHours")]
+        public Output<int?> DiffBackupIntervalInHours { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -97,6 +103,12 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        [Input("diffBackupIntervalInHours")]
+        public Input<int>? DiffBackupIntervalInHours { get; set; }
 
         /// <summary>
         /// The policy name. Should always be "default".
