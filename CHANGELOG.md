@@ -3,7 +3,17 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Functions
+
+- `eventgrid.getEventSubscriptionDeliveryAttributes`
+- `eventgrid.getPartnerTopicEventSubscriptionDeliveryAttributes`
+- `eventgrid.getSystemTopicEventSubscriptionDeliveryAttributes`
+
+#### Updated API versions for top-level resources
+
+- `securityinsights.IncidentComment` and `securityinsights.IncidentRelation` promoted
+  from `2019-01-01-preview` to `2021-03-01-preview` to unify with other resources of 
+  the `securityinsights` module. New API contains no breaking changes.
 
 ---
 
