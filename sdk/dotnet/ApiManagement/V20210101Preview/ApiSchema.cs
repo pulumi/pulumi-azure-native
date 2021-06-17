@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-        /// </summary>
-        [Output("definitions")]
-        public Output<object?> Definitions { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        [Output("value")]
-        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,12 +113,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-        /// </summary>
-        [Input("definitions")]
-        public Input<object>? Definitions { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -147,12 +129,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
-
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
 
         public ApiSchemaArgs()
         {

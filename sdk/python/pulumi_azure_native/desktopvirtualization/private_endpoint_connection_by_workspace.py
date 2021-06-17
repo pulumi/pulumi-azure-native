@@ -159,7 +159,7 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionByWorkspace, __self__).__init__(
             'azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace',

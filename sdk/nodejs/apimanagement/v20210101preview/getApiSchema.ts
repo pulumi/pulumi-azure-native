@@ -52,10 +52,6 @@ export interface GetApiSchemaResult {
      */
     readonly contentType: string;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-     */
-    readonly definitions?: any;
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -67,8 +63,4 @@ export interface GetApiSchemaResult {
      * Resource type for API Management resource.
      */
     readonly type: string;
-    /**
-     * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-     */
-    readonly value?: string;
 }

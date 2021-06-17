@@ -55,6 +55,12 @@ func NewPrivateEndpointConnectionByWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:PrivateEndpointConnectionByWorkspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionByWorkspace

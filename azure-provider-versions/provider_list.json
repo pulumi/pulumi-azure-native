@@ -66494,6 +66494,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-07-01-preview",
           "2020-01-01",
           "2017-04-19",
           "2017-03-31",
@@ -69308,6 +69309,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-01",
           "2018-09-01-preview",
           "2018-09-01"
@@ -69335,6 +69337,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-01",
           "2018-09-01-preview",
           "2018-09-01"
@@ -69362,6 +69365,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-01",
           "2018-09-01-preview",
           "2018-09-01"
@@ -69378,6 +69382,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-01",
           "2018-09-01-preview",
           "2018-09-01"
@@ -69405,6 +69410,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-01",
           "2018-09-01-preview",
           "2018-09-01"
@@ -82272,6 +82278,9 @@
       {
         "applicationId": "5e5e43d4-54da-4211-86a4-c6e7f3715801",
         "roleDefinitionId": "ffcd6e5b-8772-457d-bb17-89703c03428f"
+      },
+      {
+        "applicationId": "eec53b1f-b9a4-4479-acf5-6b247c6a49f2"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HybridCompute",
@@ -84544,7 +84553,8 @@
           "Korea Central",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "migrateprojects",
@@ -84582,7 +84592,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "assessmentProjects",
@@ -84930,7 +84941,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "VMwareSites",
@@ -84967,7 +84979,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "HyperVSites",
@@ -85004,7 +85017,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "ServerSites",
@@ -85041,7 +85055,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "ImportSites",
@@ -85077,7 +85092,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "MasterSites",
@@ -85126,7 +85142,8 @@
           "Korea South",
           "France Central",
           "Switzerland North",
-          "Australia East"
+          "Australia East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/operationResults",
@@ -86330,7 +86347,7 @@
         "apiVersions": [
           "2019-11-04-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": "2019-11-04-preview",
         "locationMappings": null,
         "locations": [

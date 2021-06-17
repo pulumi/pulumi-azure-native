@@ -14,12 +14,14 @@ export * from "./getMSIXPackage";
 export * from "./getPrivateEndpointConnectionByHostPool";
 export * from "./getPrivateEndpointConnectionByWorkspace";
 export * from "./getScalingPlan";
+export * from "./getSessionHostConfiguration";
 export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./msixpackage";
 export * from "./privateEndpointConnectionByHostPool";
 export * from "./privateEndpointConnectionByWorkspace";
 export * from "./scalingPlan";
+export * from "./sessionHostConfiguration";
 export * from "./workspace";
 
 // Export enums:
@@ -37,6 +39,7 @@ import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210309preview from "./v20210309preview";
 import * as v20210401preview from "./v20210401preview";
+import * as v20210513preview from "./v20210513preview";
 
 export {
     v20190123preview,
@@ -50,6 +53,7 @@ export {
     v20210201preview,
     v20210309preview,
     v20210401preview,
+    v20210513preview,
 };
 
 // Import resources to register:
@@ -60,6 +64,7 @@ import { MSIXPackage } from "./msixpackage";
 import { PrivateEndpointConnectionByHostPool } from "./privateEndpointConnectionByHostPool";
 import { PrivateEndpointConnectionByWorkspace } from "./privateEndpointConnectionByWorkspace";
 import { ScalingPlan } from "./scalingPlan";
+import { SessionHostConfiguration } from "./sessionHostConfiguration";
 import { Workspace } from "./workspace";
 
 const _module = {
@@ -80,6 +85,8 @@ const _module = {
                 return new PrivateEndpointConnectionByWorkspace(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:SessionHostConfiguration":
+                return new SessionHostConfiguration(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

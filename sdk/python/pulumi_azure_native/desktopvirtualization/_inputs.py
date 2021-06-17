@@ -10,6 +10,11 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CredentialsPropertiesArgs',
+    'DomainInfoPropertiesArgs',
+    'ImageInfoPropertiesArgs',
+    'KeyVaultCredentialPropertiesArgs',
+    'MarketPlaceInfoPropertiesArgs',
     'MigrationRequestPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
@@ -21,6 +26,318 @@ __all__ = [
     'ScalingHostPoolReferenceArgs',
     'ScalingScheduleArgs',
 ]
+
+@pulumi.input_type
+class CredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 domain_admin: Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']] = None,
+                 local_admin: Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']] = None):
+        """
+        Credentials needed to create the virtual machine.
+        :param pulumi.Input['KeyVaultCredentialPropertiesArgs'] domain_admin: The domain admin credentials.
+        :param pulumi.Input['KeyVaultCredentialPropertiesArgs'] local_admin: The local admin credentials.
+        """
+        if domain_admin is not None:
+            pulumi.set(__self__, "domain_admin", domain_admin)
+        if local_admin is not None:
+            pulumi.set(__self__, "local_admin", local_admin)
+
+    @property
+    @pulumi.getter(name="domainAdmin")
+    def domain_admin(self) -> Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']]:
+        """
+        The domain admin credentials.
+        """
+        return pulumi.get(self, "domain_admin")
+
+    @domain_admin.setter
+    def domain_admin(self, value: Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']]):
+        pulumi.set(self, "domain_admin", value)
+
+    @property
+    @pulumi.getter(name="localAdmin")
+    def local_admin(self) -> Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']]:
+        """
+        The local admin credentials.
+        """
+        return pulumi.get(self, "local_admin")
+
+    @local_admin.setter
+    def local_admin(self, value: Optional[pulumi.Input['KeyVaultCredentialPropertiesArgs']]):
+        pulumi.set(self, "local_admin", value)
+
+
+@pulumi.input_type
+class DomainInfoPropertiesArgs:
+    def __init__(__self__, *,
+                 credentials: Optional[pulumi.Input['CredentialsPropertiesArgs']] = None,
+                 join_type: Optional[pulumi.Input[Union[str, 'DomainJoinType']]] = None,
+                 mdm_provider_guid: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Domain configurations of session hosts.
+        :param pulumi.Input['CredentialsPropertiesArgs'] credentials: Credentials needed to create the virtual machine.
+        :param pulumi.Input[Union[str, 'DomainJoinType']] join_type: The type of domain join done by the virtual machine.
+        :param pulumi.Input[str] mdm_provider_guid: The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+        :param pulumi.Input[str] name: The domain a virtual machine connected to a hostpool will join.
+        """
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if join_type is not None:
+            pulumi.set(__self__, "join_type", join_type)
+        if mdm_provider_guid is not None:
+            pulumi.set(__self__, "mdm_provider_guid", mdm_provider_guid)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['CredentialsPropertiesArgs']]:
+        """
+        Credentials needed to create the virtual machine.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['CredentialsPropertiesArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="joinType")
+    def join_type(self) -> Optional[pulumi.Input[Union[str, 'DomainJoinType']]]:
+        """
+        The type of domain join done by the virtual machine.
+        """
+        return pulumi.get(self, "join_type")
+
+    @join_type.setter
+    def join_type(self, value: Optional[pulumi.Input[Union[str, 'DomainJoinType']]]):
+        pulumi.set(self, "join_type", value)
+
+    @property
+    @pulumi.getter(name="mdmProviderGuid")
+    def mdm_provider_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+        """
+        return pulumi.get(self, "mdm_provider_guid")
+
+    @mdm_provider_guid.setter
+    def mdm_provider_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mdm_provider_guid", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain a virtual machine connected to a hostpool will join.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ImageInfoPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_id: Optional[pulumi.Input[str]] = None,
+                 market_place_info: Optional[pulumi.Input['MarketPlaceInfoPropertiesArgs']] = None,
+                 storage_blob_uri: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ImageType']]] = None):
+        """
+        Image configurations of session host in a HostPool.
+        :param pulumi.Input[str] custom_id: The resource id of the custom image or shared image. Image type must be CustomImage.
+        :param pulumi.Input['MarketPlaceInfoPropertiesArgs'] market_place_info: The values to uniquely identify a gallery image.
+        :param pulumi.Input[str] storage_blob_uri: The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+        :param pulumi.Input[Union[str, 'ImageType']] type: The type of image session hosts use in the hostpool.
+        """
+        if custom_id is not None:
+            pulumi.set(__self__, "custom_id", custom_id)
+        if market_place_info is not None:
+            pulumi.set(__self__, "market_place_info", market_place_info)
+        if storage_blob_uri is not None:
+            pulumi.set(__self__, "storage_blob_uri", storage_blob_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="customId")
+    def custom_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the custom image or shared image. Image type must be CustomImage.
+        """
+        return pulumi.get(self, "custom_id")
+
+    @custom_id.setter
+    def custom_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_id", value)
+
+    @property
+    @pulumi.getter(name="marketPlaceInfo")
+    def market_place_info(self) -> Optional[pulumi.Input['MarketPlaceInfoPropertiesArgs']]:
+        """
+        The values to uniquely identify a gallery image.
+        """
+        return pulumi.get(self, "market_place_info")
+
+    @market_place_info.setter
+    def market_place_info(self, value: Optional[pulumi.Input['MarketPlaceInfoPropertiesArgs']]):
+        pulumi.set(self, "market_place_info", value)
+
+    @property
+    @pulumi.getter(name="storageBlobUri")
+    def storage_blob_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+        """
+        return pulumi.get(self, "storage_blob_uri")
+
+    @storage_blob_uri.setter
+    def storage_blob_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_blob_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ImageType']]]:
+        """
+        The type of image session hosts use in the hostpool.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ImageType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KeyVaultCredentialPropertiesArgs:
+    def __init__(__self__, *,
+                 password_key_vault_resource_id: Optional[pulumi.Input[str]] = None,
+                 password_secret_name: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        Credentials kept in the keyvault.
+        :param pulumi.Input[str] password_key_vault_resource_id: The keyvault resource id to the keyvault secrets.
+        :param pulumi.Input[str] password_secret_name: The keyvault secret name the password is stored in.
+        :param pulumi.Input[str] user_name: The user name to the account.
+        """
+        if password_key_vault_resource_id is not None:
+            pulumi.set(__self__, "password_key_vault_resource_id", password_key_vault_resource_id)
+        if password_secret_name is not None:
+            pulumi.set(__self__, "password_secret_name", password_secret_name)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="passwordKeyVaultResourceId")
+    def password_key_vault_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyvault resource id to the keyvault secrets.
+        """
+        return pulumi.get(self, "password_key_vault_resource_id")
+
+    @password_key_vault_resource_id.setter
+    def password_key_vault_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_key_vault_resource_id", value)
+
+    @property
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyvault secret name the password is stored in.
+        """
+        return pulumi.get(self, "password_secret_name")
+
+    @password_secret_name.setter
+    def password_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_secret_name", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user name to the account.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class MarketPlaceInfoPropertiesArgs:
+    def __init__(__self__, *,
+                 exact_version: Optional[pulumi.Input[str]] = None,
+                 offer: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None):
+        """
+        Image configurations of HostPool.
+        :param pulumi.Input[str] exact_version: The exact version of the image.
+        :param pulumi.Input[str] offer: The offer of the image.
+        :param pulumi.Input[str] publisher: The publisher of the image.
+        :param pulumi.Input[str] sku: The sku of the image.
+        """
+        if exact_version is not None:
+            pulumi.set(__self__, "exact_version", exact_version)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="exactVersion")
+    def exact_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The exact version of the image.
+        """
+        return pulumi.get(self, "exact_version")
+
+    @exact_version.setter
+    def exact_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exact_version", value)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The offer of the image.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The publisher of the image.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sku of the image.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
 
 @pulumi.input_type
 class MigrationRequestPropertiesArgs:

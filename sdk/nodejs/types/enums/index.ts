@@ -19,7 +19,6 @@ import * as azurearcdata from "./azurearcdata";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
 import * as batch from "./batch";
-import * as batchai from "./batchai";
 import * as blockchain from "./blockchain";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
@@ -167,7 +166,6 @@ export {
     azurestack,
     azurestackhci,
     batch,
-    batchai,
     blockchain,
     blueprint,
     botservice,

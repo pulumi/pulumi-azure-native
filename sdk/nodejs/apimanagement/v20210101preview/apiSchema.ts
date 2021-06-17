@@ -39,10 +39,6 @@ export class ApiSchema extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-     */
-    public readonly definitions!: pulumi.Output<any | undefined>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -50,10 +46,6 @@ export class ApiSchema extends pulumi.CustomResource {
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-     */
-    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiSchema resource with the given unique name, arguments, and options.
@@ -80,19 +72,15 @@ export class ApiSchema extends pulumi.CustomResource {
             }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["definitions"] = args ? args.definitions : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schemaId"] = args ? args.schemaId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["value"] = args ? args.value : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["contentType"] = undefined /*out*/;
-            inputs["definitions"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -116,10 +104,6 @@ export interface ApiSchemaArgs {
      */
     contentType: pulumi.Input<string>;
     /**
-     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-     */
-    definitions?: any;
-    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -131,8 +115,4 @@ export interface ApiSchemaArgs {
      * The name of the API Management service.
      */
     serviceName: pulumi.Input<string>;
-    /**
-     * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-     */
-    value?: pulumi.Input<string>;
 }

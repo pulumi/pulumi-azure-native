@@ -13,6 +13,7 @@ import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210309preview from "./v20210309preview";
 import * as v20210401preview from "./v20210401preview";
+import * as v20210513preview from "./v20210513preview";
 
 export {
     v20190123preview,
@@ -26,6 +27,7 @@ export {
     v20210201preview,
     v20210309preview,
     v20210401preview,
+    v20210513preview,
 };
 
 export const ApplicationGroupType = {
@@ -49,6 +51,22 @@ export const CommandLineSetting = {
  */
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
 
+export const DomainJoinType = {
+    /**
+     * Using microsoft active directory.
+     */
+    ActiveDirectory: "ActiveDirectory",
+    /**
+     * Using microsoft azure active directory.
+     */
+    AzureActiveDirectory: "AzureActiveDirectory",
+} as const;
+
+/**
+ * The type of domain join done by the virtual machine.
+ */
+export type DomainJoinType = (typeof DomainJoinType)[keyof typeof DomainJoinType];
+
 export const HostPoolType = {
     /**
      * Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
@@ -68,6 +86,26 @@ export const HostPoolType = {
  * HostPool type for desktop.
  */
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
+
+export const ImageType = {
+    /**
+     * Using default gallery images offered by Azure Marketplace.
+     */
+    Gallery: "Gallery",
+    /**
+     * Using a VHD stored in a storage blob.
+     */
+    StorageBlob: "StorageBlob",
+    /**
+     * Using custom image or custom shared image.
+     */
+    CustomImage: "CustomImage",
+} as const;
+
+/**
+ * The type of image session hosts use in the hostpool.
+ */
+export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 export const LoadBalancerType = {
     BreadthFirst: "BreadthFirst",
@@ -213,3 +251,27 @@ export const StopHostsWhen = {
  * Specifies when to stop hosts during ramp down period.
  */
 export type StopHostsWhen = (typeof StopHostsWhen)[keyof typeof StopHostsWhen];
+
+export const VirtualMachineDiskType = {
+    /**
+     * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+     */
+    Standard_LRS: "Standard_LRS",
+    /**
+     * Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+     */
+    Premium_LRS: "Premium_LRS",
+    /**
+     * Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+     */
+    StandardSSD_LRS: "StandardSSD_LRS",
+    /**
+     * Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
+     */
+    UltraSSD_LRS: "UltraSSD_LRS",
+} as const;
+
+/**
+ * The disk type used by virtual machine in hostpool session host.
+ */
+export type VirtualMachineDiskType = (typeof VirtualMachineDiskType)[keyof typeof VirtualMachineDiskType];

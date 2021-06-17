@@ -7,7 +7,9 @@ from enum import Enum
 __all__ = [
     'ApplicationGroupType',
     'CommandLineSetting',
+    'DomainJoinType',
     'HostPoolType',
+    'ImageType',
     'LoadBalancerType',
     'Operation',
     'PersonalDesktopAssignmentType',
@@ -20,6 +22,7 @@ __all__ = [
     'SessionHostLoadBalancingAlgorithm',
     'SkuTier',
     'StopHostsWhen',
+    'VirtualMachineDiskType',
 ]
 
 
@@ -40,6 +43,14 @@ class CommandLineSetting(str, Enum):
     REQUIRE = "Require"
 
 
+class DomainJoinType(str, Enum):
+    """
+    The type of domain join done by the virtual machine.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+
+
 class HostPoolType(str, Enum):
     """
     HostPool type for desktop.
@@ -47,6 +58,15 @@ class HostPoolType(str, Enum):
     PERSONAL = "Personal"
     POOLED = "Pooled"
     BYO_DESKTOP = "BYODesktop"
+
+
+class ImageType(str, Enum):
+    """
+    The type of image session hosts use in the hostpool.
+    """
+    GALLERY = "Gallery"
+    STORAGE_BLOB = "StorageBlob"
+    CUSTOM_IMAGE = "CustomImage"
 
 
 class LoadBalancerType(str, Enum):
@@ -153,3 +173,13 @@ class StopHostsWhen(str, Enum):
     """
     ZERO_SESSIONS = "ZeroSessions"
     ZERO_ACTIVE_SESSIONS = "ZeroActiveSessions"
+
+
+class VirtualMachineDiskType(str, Enum):
+    """
+    The disk type used by virtual machine in hostpool session host.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"

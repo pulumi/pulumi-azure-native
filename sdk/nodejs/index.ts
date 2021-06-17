@@ -30,7 +30,6 @@ import * as azuredata from "./azuredata";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
 import * as batch from "./batch";
-import * as batchai from "./batchai";
 import * as billing from "./billing";
 import * as blockchain from "./blockchain";
 import * as blueprint from "./blueprint";
@@ -202,7 +201,6 @@ export {
     azurestack,
     azurestackhci,
     batch,
-    batchai,
     billing,
     blockchain,
     blueprint,

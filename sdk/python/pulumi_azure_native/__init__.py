@@ -31,7 +31,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.azurestack as azurestack
     import pulumi_azure_native.azurestackhci as azurestackhci
     import pulumi_azure_native.batch as batch
-    import pulumi_azure_native.batchai as batchai
     import pulumi_azure_native.billing as billing
     import pulumi_azure_native.blockchain as blockchain
     import pulumi_azure_native.blueprint as blueprint
@@ -201,7 +200,6 @@ else:
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
     azurestackhci = _utilities.lazy_import('pulumi_azure_native.azurestackhci')
     batch = _utilities.lazy_import('pulumi_azure_native.batch')
-    batchai = _utilities.lazy_import('pulumi_azure_native.batchai')
     billing = _utilities.lazy_import('pulumi_azure_native.billing')
     blockchain = _utilities.lazy_import('pulumi_azure_native.blockchain')
     blueprint = _utilities.lazy_import('pulumi_azure_native.blueprint')
@@ -2061,48 +2059,6 @@ _utilities.register(
    "azure-native:batch/v20210101:BatchAccount": "BatchAccount",
    "azure-native:batch/v20210101:Certificate": "Certificate",
    "azure-native:batch/v20210101:Pool": "Pool"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batchai",
-  "fqn": "pulumi_azure_native.batchai",
-  "classes": {
-   "azure-native:batchai:Cluster": "Cluster",
-   "azure-native:batchai:Experiment": "Experiment",
-   "azure-native:batchai:Job": "Job",
-   "azure-native:batchai:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batchai/v20170901preview",
-  "fqn": "pulumi_azure_native.batchai.v20170901preview",
-  "classes": {
-   "azure-native:batchai/v20170901preview:Cluster": "Cluster",
-   "azure-native:batchai/v20170901preview:FileServer": "FileServer",
-   "azure-native:batchai/v20170901preview:Job": "Job"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batchai/v20180301",
-  "fqn": "pulumi_azure_native.batchai.v20180301",
-  "classes": {
-   "azure-native:batchai/v20180301:Cluster": "Cluster",
-   "azure-native:batchai/v20180301:FileServer": "FileServer",
-   "azure-native:batchai/v20180301:Job": "Job"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "batchai/v20180501",
-  "fqn": "pulumi_azure_native.batchai.v20180501",
-  "classes": {
-   "azure-native:batchai/v20180501:Cluster": "Cluster",
-   "azure-native:batchai/v20180501:Experiment": "Experiment",
-   "azure-native:batchai/v20180501:Job": "Job",
-   "azure-native:batchai/v20180501:Workspace": "Workspace"
   }
  },
  {
@@ -5040,6 +4996,7 @@ _utilities.register(
    "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
    "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
    "azure-native:desktopvirtualization:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization:SessionHostConfiguration": "SessionHostConfiguration",
    "azure-native:desktopvirtualization:Workspace": "Workspace"
   }
  },
@@ -5177,6 +5134,22 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
    "azure-native:desktopvirtualization/v20210401preview:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20210401preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20210513preview",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20210513preview",
+  "classes": {
+   "azure-native:desktopvirtualization/v20210513preview:Application": "Application",
+   "azure-native:desktopvirtualization/v20210513preview:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20210513preview:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20210513preview:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
+   "azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
+   "azure-native:desktopvirtualization/v20210513preview:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20210513preview:SessionHostConfiguration": "SessionHostConfiguration",
+   "azure-native:desktopvirtualization/v20210513preview:Workspace": "Workspace"
   }
  },
  {

@@ -59,10 +59,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-        /// </summary>
-        public readonly object? Definitions;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -74,31 +70,21 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-        /// </summary>
-        public readonly string? Value;
 
         [OutputConstructor]
         private GetApiSchemaResult(
             string contentType,
 
-            object? definitions,
-
             string id,
 
             string name,
 
-            string type,
-
-            string? value)
+            string type)
         {
             ContentType = contentType;
-            Definitions = definitions;
             Id = id;
             Name = name;
             Type = type;
-            Value = value;
         }
     }
 }

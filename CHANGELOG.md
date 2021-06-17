@@ -3,8 +3,13 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `desktopvirtualization.SessionHostConfiguration`
+
 #### New Functions
 
+- `desktopvirtualization.getSessionHostConfiguration`
 - `eventgrid.getEventSubscriptionDeliveryAttributes`
 - `eventgrid.getPartnerTopicEventSubscriptionDeliveryAttributes`
 - `eventgrid.getSystemTopicEventSubscriptionDeliveryAttributes`
@@ -14,6 +19,11 @@ CHANGELOG
 - `securityinsights.IncidentComment` and `securityinsights.IncidentRelation` promoted
   from `2019-01-01-preview` to `2021-03-01-preview` to unify with other resources of 
   the `securityinsights` module. New API contains no breaking changes.
+
+#### Breaking Changes published by Microsoft
+
+- `batchai` resource provider was deprecated and removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14788))
 
 ---
 

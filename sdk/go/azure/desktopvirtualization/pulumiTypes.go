@@ -10,6 +10,1802 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Credentials needed to create the virtual machine.
+type CredentialsProperties struct {
+	// The domain admin credentials.
+	DomainAdmin *KeyVaultCredentialProperties `pulumi:"domainAdmin"`
+	// The local admin credentials.
+	LocalAdmin *KeyVaultCredentialProperties `pulumi:"localAdmin"`
+}
+
+// CredentialsPropertiesInput is an input type that accepts CredentialsPropertiesArgs and CredentialsPropertiesOutput values.
+// You can construct a concrete instance of `CredentialsPropertiesInput` via:
+//
+//          CredentialsPropertiesArgs{...}
+type CredentialsPropertiesInput interface {
+	pulumi.Input
+
+	ToCredentialsPropertiesOutput() CredentialsPropertiesOutput
+	ToCredentialsPropertiesOutputWithContext(context.Context) CredentialsPropertiesOutput
+}
+
+// Credentials needed to create the virtual machine.
+type CredentialsPropertiesArgs struct {
+	// The domain admin credentials.
+	DomainAdmin KeyVaultCredentialPropertiesPtrInput `pulumi:"domainAdmin"`
+	// The local admin credentials.
+	LocalAdmin KeyVaultCredentialPropertiesPtrInput `pulumi:"localAdmin"`
+}
+
+func (CredentialsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialsProperties)(nil)).Elem()
+}
+
+func (i CredentialsPropertiesArgs) ToCredentialsPropertiesOutput() CredentialsPropertiesOutput {
+	return i.ToCredentialsPropertiesOutputWithContext(context.Background())
+}
+
+func (i CredentialsPropertiesArgs) ToCredentialsPropertiesOutputWithContext(ctx context.Context) CredentialsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesOutput)
+}
+
+func (i CredentialsPropertiesArgs) ToCredentialsPropertiesPtrOutput() CredentialsPropertiesPtrOutput {
+	return i.ToCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CredentialsPropertiesArgs) ToCredentialsPropertiesPtrOutputWithContext(ctx context.Context) CredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesOutput).ToCredentialsPropertiesPtrOutputWithContext(ctx)
+}
+
+// CredentialsPropertiesPtrInput is an input type that accepts CredentialsPropertiesArgs, CredentialsPropertiesPtr and CredentialsPropertiesPtrOutput values.
+// You can construct a concrete instance of `CredentialsPropertiesPtrInput` via:
+//
+//          CredentialsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CredentialsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCredentialsPropertiesPtrOutput() CredentialsPropertiesPtrOutput
+	ToCredentialsPropertiesPtrOutputWithContext(context.Context) CredentialsPropertiesPtrOutput
+}
+
+type credentialsPropertiesPtrType CredentialsPropertiesArgs
+
+func CredentialsPropertiesPtr(v *CredentialsPropertiesArgs) CredentialsPropertiesPtrInput {
+	return (*credentialsPropertiesPtrType)(v)
+}
+
+func (*credentialsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialsProperties)(nil)).Elem()
+}
+
+func (i *credentialsPropertiesPtrType) ToCredentialsPropertiesPtrOutput() CredentialsPropertiesPtrOutput {
+	return i.ToCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *credentialsPropertiesPtrType) ToCredentialsPropertiesPtrOutputWithContext(ctx context.Context) CredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesPtrOutput)
+}
+
+// Credentials needed to create the virtual machine.
+type CredentialsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CredentialsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialsProperties)(nil)).Elem()
+}
+
+func (o CredentialsPropertiesOutput) ToCredentialsPropertiesOutput() CredentialsPropertiesOutput {
+	return o
+}
+
+func (o CredentialsPropertiesOutput) ToCredentialsPropertiesOutputWithContext(ctx context.Context) CredentialsPropertiesOutput {
+	return o
+}
+
+func (o CredentialsPropertiesOutput) ToCredentialsPropertiesPtrOutput() CredentialsPropertiesPtrOutput {
+	return o.ToCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CredentialsPropertiesOutput) ToCredentialsPropertiesPtrOutputWithContext(ctx context.Context) CredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v CredentialsProperties) *CredentialsProperties {
+		return &v
+	}).(CredentialsPropertiesPtrOutput)
+}
+
+// The domain admin credentials.
+func (o CredentialsPropertiesOutput) DomainAdmin() KeyVaultCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v CredentialsProperties) *KeyVaultCredentialProperties { return v.DomainAdmin }).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+// The local admin credentials.
+func (o CredentialsPropertiesOutput) LocalAdmin() KeyVaultCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v CredentialsProperties) *KeyVaultCredentialProperties { return v.LocalAdmin }).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+type CredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CredentialsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialsProperties)(nil)).Elem()
+}
+
+func (o CredentialsPropertiesPtrOutput) ToCredentialsPropertiesPtrOutput() CredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o CredentialsPropertiesPtrOutput) ToCredentialsPropertiesPtrOutputWithContext(ctx context.Context) CredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o CredentialsPropertiesPtrOutput) Elem() CredentialsPropertiesOutput {
+	return o.ApplyT(func(v *CredentialsProperties) CredentialsProperties { return *v }).(CredentialsPropertiesOutput)
+}
+
+// The domain admin credentials.
+func (o CredentialsPropertiesPtrOutput) DomainAdmin() KeyVaultCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v *CredentialsProperties) *KeyVaultCredentialProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DomainAdmin
+	}).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+// The local admin credentials.
+func (o CredentialsPropertiesPtrOutput) LocalAdmin() KeyVaultCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v *CredentialsProperties) *KeyVaultCredentialProperties {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAdmin
+	}).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+// Credentials needed to create the virtual machine.
+type CredentialsPropertiesResponse struct {
+	// The domain admin credentials.
+	DomainAdmin *KeyVaultCredentialPropertiesResponse `pulumi:"domainAdmin"`
+	// The local admin credentials.
+	LocalAdmin *KeyVaultCredentialPropertiesResponse `pulumi:"localAdmin"`
+}
+
+// CredentialsPropertiesResponseInput is an input type that accepts CredentialsPropertiesResponseArgs and CredentialsPropertiesResponseOutput values.
+// You can construct a concrete instance of `CredentialsPropertiesResponseInput` via:
+//
+//          CredentialsPropertiesResponseArgs{...}
+type CredentialsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToCredentialsPropertiesResponseOutput() CredentialsPropertiesResponseOutput
+	ToCredentialsPropertiesResponseOutputWithContext(context.Context) CredentialsPropertiesResponseOutput
+}
+
+// Credentials needed to create the virtual machine.
+type CredentialsPropertiesResponseArgs struct {
+	// The domain admin credentials.
+	DomainAdmin KeyVaultCredentialPropertiesResponsePtrInput `pulumi:"domainAdmin"`
+	// The local admin credentials.
+	LocalAdmin KeyVaultCredentialPropertiesResponsePtrInput `pulumi:"localAdmin"`
+}
+
+func (CredentialsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (i CredentialsPropertiesResponseArgs) ToCredentialsPropertiesResponseOutput() CredentialsPropertiesResponseOutput {
+	return i.ToCredentialsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i CredentialsPropertiesResponseArgs) ToCredentialsPropertiesResponseOutputWithContext(ctx context.Context) CredentialsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesResponseOutput)
+}
+
+func (i CredentialsPropertiesResponseArgs) ToCredentialsPropertiesResponsePtrOutput() CredentialsPropertiesResponsePtrOutput {
+	return i.ToCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CredentialsPropertiesResponseArgs) ToCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) CredentialsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesResponseOutput).ToCredentialsPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// CredentialsPropertiesResponsePtrInput is an input type that accepts CredentialsPropertiesResponseArgs, CredentialsPropertiesResponsePtr and CredentialsPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `CredentialsPropertiesResponsePtrInput` via:
+//
+//          CredentialsPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CredentialsPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCredentialsPropertiesResponsePtrOutput() CredentialsPropertiesResponsePtrOutput
+	ToCredentialsPropertiesResponsePtrOutputWithContext(context.Context) CredentialsPropertiesResponsePtrOutput
+}
+
+type credentialsPropertiesResponsePtrType CredentialsPropertiesResponseArgs
+
+func CredentialsPropertiesResponsePtr(v *CredentialsPropertiesResponseArgs) CredentialsPropertiesResponsePtrInput {
+	return (*credentialsPropertiesResponsePtrType)(v)
+}
+
+func (*credentialsPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (i *credentialsPropertiesResponsePtrType) ToCredentialsPropertiesResponsePtrOutput() CredentialsPropertiesResponsePtrOutput {
+	return i.ToCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *credentialsPropertiesResponsePtrType) ToCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) CredentialsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPropertiesResponsePtrOutput)
+}
+
+// Credentials needed to create the virtual machine.
+type CredentialsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponseOutput() CredentialsPropertiesResponseOutput {
+	return o
+}
+
+func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponseOutputWithContext(ctx context.Context) CredentialsPropertiesResponseOutput {
+	return o
+}
+
+func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponsePtrOutput() CredentialsPropertiesResponsePtrOutput {
+	return o.ToCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) CredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CredentialsPropertiesResponse) *CredentialsPropertiesResponse {
+		return &v
+	}).(CredentialsPropertiesResponsePtrOutput)
+}
+
+// The domain admin credentials.
+func (o CredentialsPropertiesResponseOutput) DomainAdmin() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CredentialsPropertiesResponse) *KeyVaultCredentialPropertiesResponse { return v.DomainAdmin }).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+// The local admin credentials.
+func (o CredentialsPropertiesResponseOutput) LocalAdmin() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CredentialsPropertiesResponse) *KeyVaultCredentialPropertiesResponse { return v.LocalAdmin }).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+type CredentialsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CredentialsPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (o CredentialsPropertiesResponsePtrOutput) ToCredentialsPropertiesResponsePtrOutput() CredentialsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CredentialsPropertiesResponsePtrOutput) ToCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) CredentialsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CredentialsPropertiesResponsePtrOutput) Elem() CredentialsPropertiesResponseOutput {
+	return o.ApplyT(func(v *CredentialsPropertiesResponse) CredentialsPropertiesResponse { return *v }).(CredentialsPropertiesResponseOutput)
+}
+
+// The domain admin credentials.
+func (o CredentialsPropertiesResponsePtrOutput) DomainAdmin() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CredentialsPropertiesResponse) *KeyVaultCredentialPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DomainAdmin
+	}).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+// The local admin credentials.
+func (o CredentialsPropertiesResponsePtrOutput) LocalAdmin() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CredentialsPropertiesResponse) *KeyVaultCredentialPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAdmin
+	}).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+// Domain configurations of session hosts.
+type DomainInfoProperties struct {
+	// Credentials needed to create the virtual machine.
+	Credentials *CredentialsProperties `pulumi:"credentials"`
+	// The type of domain join done by the virtual machine.
+	JoinType *string `pulumi:"joinType"`
+	// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+	MdmProviderGuid *string `pulumi:"mdmProviderGuid"`
+	// The domain a virtual machine connected to a hostpool will join.
+	Name *string `pulumi:"name"`
+}
+
+// DomainInfoPropertiesInput is an input type that accepts DomainInfoPropertiesArgs and DomainInfoPropertiesOutput values.
+// You can construct a concrete instance of `DomainInfoPropertiesInput` via:
+//
+//          DomainInfoPropertiesArgs{...}
+type DomainInfoPropertiesInput interface {
+	pulumi.Input
+
+	ToDomainInfoPropertiesOutput() DomainInfoPropertiesOutput
+	ToDomainInfoPropertiesOutputWithContext(context.Context) DomainInfoPropertiesOutput
+}
+
+// Domain configurations of session hosts.
+type DomainInfoPropertiesArgs struct {
+	// Credentials needed to create the virtual machine.
+	Credentials CredentialsPropertiesPtrInput `pulumi:"credentials"`
+	// The type of domain join done by the virtual machine.
+	JoinType pulumi.StringPtrInput `pulumi:"joinType"`
+	// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+	MdmProviderGuid pulumi.StringPtrInput `pulumi:"mdmProviderGuid"`
+	// The domain a virtual machine connected to a hostpool will join.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DomainInfoPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInfoProperties)(nil)).Elem()
+}
+
+func (i DomainInfoPropertiesArgs) ToDomainInfoPropertiesOutput() DomainInfoPropertiesOutput {
+	return i.ToDomainInfoPropertiesOutputWithContext(context.Background())
+}
+
+func (i DomainInfoPropertiesArgs) ToDomainInfoPropertiesOutputWithContext(ctx context.Context) DomainInfoPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesOutput)
+}
+
+func (i DomainInfoPropertiesArgs) ToDomainInfoPropertiesPtrOutput() DomainInfoPropertiesPtrOutput {
+	return i.ToDomainInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DomainInfoPropertiesArgs) ToDomainInfoPropertiesPtrOutputWithContext(ctx context.Context) DomainInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesOutput).ToDomainInfoPropertiesPtrOutputWithContext(ctx)
+}
+
+// DomainInfoPropertiesPtrInput is an input type that accepts DomainInfoPropertiesArgs, DomainInfoPropertiesPtr and DomainInfoPropertiesPtrOutput values.
+// You can construct a concrete instance of `DomainInfoPropertiesPtrInput` via:
+//
+//          DomainInfoPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainInfoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDomainInfoPropertiesPtrOutput() DomainInfoPropertiesPtrOutput
+	ToDomainInfoPropertiesPtrOutputWithContext(context.Context) DomainInfoPropertiesPtrOutput
+}
+
+type domainInfoPropertiesPtrType DomainInfoPropertiesArgs
+
+func DomainInfoPropertiesPtr(v *DomainInfoPropertiesArgs) DomainInfoPropertiesPtrInput {
+	return (*domainInfoPropertiesPtrType)(v)
+}
+
+func (*domainInfoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainInfoProperties)(nil)).Elem()
+}
+
+func (i *domainInfoPropertiesPtrType) ToDomainInfoPropertiesPtrOutput() DomainInfoPropertiesPtrOutput {
+	return i.ToDomainInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *domainInfoPropertiesPtrType) ToDomainInfoPropertiesPtrOutputWithContext(ctx context.Context) DomainInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesPtrOutput)
+}
+
+// Domain configurations of session hosts.
+type DomainInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DomainInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInfoProperties)(nil)).Elem()
+}
+
+func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesOutput() DomainInfoPropertiesOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesOutputWithContext(ctx context.Context) DomainInfoPropertiesOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesPtrOutput() DomainInfoPropertiesPtrOutput {
+	return o.ToDomainInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesPtrOutputWithContext(ctx context.Context) DomainInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v DomainInfoProperties) *DomainInfoProperties {
+		return &v
+	}).(DomainInfoPropertiesPtrOutput)
+}
+
+// Credentials needed to create the virtual machine.
+func (o DomainInfoPropertiesOutput) Credentials() CredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v DomainInfoProperties) *CredentialsProperties { return v.Credentials }).(CredentialsPropertiesPtrOutput)
+}
+
+// The type of domain join done by the virtual machine.
+func (o DomainInfoPropertiesOutput) JoinType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoProperties) *string { return v.JoinType }).(pulumi.StringPtrOutput)
+}
+
+// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+func (o DomainInfoPropertiesOutput) MdmProviderGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoProperties) *string { return v.MdmProviderGuid }).(pulumi.StringPtrOutput)
+}
+
+// The domain a virtual machine connected to a hostpool will join.
+func (o DomainInfoPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DomainInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainInfoProperties)(nil)).Elem()
+}
+
+func (o DomainInfoPropertiesPtrOutput) ToDomainInfoPropertiesPtrOutput() DomainInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesPtrOutput) ToDomainInfoPropertiesPtrOutputWithContext(ctx context.Context) DomainInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesPtrOutput) Elem() DomainInfoPropertiesOutput {
+	return o.ApplyT(func(v *DomainInfoProperties) DomainInfoProperties { return *v }).(DomainInfoPropertiesOutput)
+}
+
+// Credentials needed to create the virtual machine.
+func (o DomainInfoPropertiesPtrOutput) Credentials() CredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *DomainInfoProperties) *CredentialsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CredentialsPropertiesPtrOutput)
+}
+
+// The type of domain join done by the virtual machine.
+func (o DomainInfoPropertiesPtrOutput) JoinType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JoinType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+func (o DomainInfoPropertiesPtrOutput) MdmProviderGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MdmProviderGuid
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain a virtual machine connected to a hostpool will join.
+func (o DomainInfoPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Domain configurations of session hosts.
+type DomainInfoPropertiesResponse struct {
+	// Credentials needed to create the virtual machine.
+	Credentials *CredentialsPropertiesResponse `pulumi:"credentials"`
+	// The type of domain join done by the virtual machine.
+	JoinType *string `pulumi:"joinType"`
+	// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+	MdmProviderGuid *string `pulumi:"mdmProviderGuid"`
+	// The domain a virtual machine connected to a hostpool will join.
+	Name *string `pulumi:"name"`
+}
+
+// DomainInfoPropertiesResponseInput is an input type that accepts DomainInfoPropertiesResponseArgs and DomainInfoPropertiesResponseOutput values.
+// You can construct a concrete instance of `DomainInfoPropertiesResponseInput` via:
+//
+//          DomainInfoPropertiesResponseArgs{...}
+type DomainInfoPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDomainInfoPropertiesResponseOutput() DomainInfoPropertiesResponseOutput
+	ToDomainInfoPropertiesResponseOutputWithContext(context.Context) DomainInfoPropertiesResponseOutput
+}
+
+// Domain configurations of session hosts.
+type DomainInfoPropertiesResponseArgs struct {
+	// Credentials needed to create the virtual machine.
+	Credentials CredentialsPropertiesResponsePtrInput `pulumi:"credentials"`
+	// The type of domain join done by the virtual machine.
+	JoinType pulumi.StringPtrInput `pulumi:"joinType"`
+	// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+	MdmProviderGuid pulumi.StringPtrInput `pulumi:"mdmProviderGuid"`
+	// The domain a virtual machine connected to a hostpool will join.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DomainInfoPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i DomainInfoPropertiesResponseArgs) ToDomainInfoPropertiesResponseOutput() DomainInfoPropertiesResponseOutput {
+	return i.ToDomainInfoPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DomainInfoPropertiesResponseArgs) ToDomainInfoPropertiesResponseOutputWithContext(ctx context.Context) DomainInfoPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesResponseOutput)
+}
+
+func (i DomainInfoPropertiesResponseArgs) ToDomainInfoPropertiesResponsePtrOutput() DomainInfoPropertiesResponsePtrOutput {
+	return i.ToDomainInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DomainInfoPropertiesResponseArgs) ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesResponseOutput).ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// DomainInfoPropertiesResponsePtrInput is an input type that accepts DomainInfoPropertiesResponseArgs, DomainInfoPropertiesResponsePtr and DomainInfoPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `DomainInfoPropertiesResponsePtrInput` via:
+//
+//          DomainInfoPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainInfoPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToDomainInfoPropertiesResponsePtrOutput() DomainInfoPropertiesResponsePtrOutput
+	ToDomainInfoPropertiesResponsePtrOutputWithContext(context.Context) DomainInfoPropertiesResponsePtrOutput
+}
+
+type domainInfoPropertiesResponsePtrType DomainInfoPropertiesResponseArgs
+
+func DomainInfoPropertiesResponsePtr(v *DomainInfoPropertiesResponseArgs) DomainInfoPropertiesResponsePtrInput {
+	return (*domainInfoPropertiesResponsePtrType)(v)
+}
+
+func (*domainInfoPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i *domainInfoPropertiesResponsePtrType) ToDomainInfoPropertiesResponsePtrOutput() DomainInfoPropertiesResponsePtrOutput {
+	return i.ToDomainInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *domainInfoPropertiesResponsePtrType) ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainInfoPropertiesResponsePtrOutput)
+}
+
+// Domain configurations of session hosts.
+type DomainInfoPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DomainInfoPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponseOutput() DomainInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponseOutputWithContext(ctx context.Context) DomainInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponsePtrOutput() DomainInfoPropertiesResponsePtrOutput {
+	return o.ToDomainInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainInfoPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *DomainInfoPropertiesResponse {
+		return &v
+	}).(DomainInfoPropertiesResponsePtrOutput)
+}
+
+// Credentials needed to create the virtual machine.
+func (o DomainInfoPropertiesResponseOutput) Credentials() CredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *CredentialsPropertiesResponse { return v.Credentials }).(CredentialsPropertiesResponsePtrOutput)
+}
+
+// The type of domain join done by the virtual machine.
+func (o DomainInfoPropertiesResponseOutput) JoinType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *string { return v.JoinType }).(pulumi.StringPtrOutput)
+}
+
+// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+func (o DomainInfoPropertiesResponseOutput) MdmProviderGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *string { return v.MdmProviderGuid }).(pulumi.StringPtrOutput)
+}
+
+// The domain a virtual machine connected to a hostpool will join.
+func (o DomainInfoPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DomainInfoPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainInfoPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o DomainInfoPropertiesResponsePtrOutput) ToDomainInfoPropertiesResponsePtrOutput() DomainInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesResponsePtrOutput) ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DomainInfoPropertiesResponsePtrOutput) Elem() DomainInfoPropertiesResponseOutput {
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) DomainInfoPropertiesResponse { return *v }).(DomainInfoPropertiesResponseOutput)
+}
+
+// Credentials needed to create the virtual machine.
+func (o DomainInfoPropertiesResponsePtrOutput) Credentials() CredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) *CredentialsPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CredentialsPropertiesResponsePtrOutput)
+}
+
+// The type of domain join done by the virtual machine.
+func (o DomainInfoPropertiesResponsePtrOutput) JoinType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JoinType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MDM Provider GUID used during MDM enrollment for Azure AD joined virtual machines.
+func (o DomainInfoPropertiesResponsePtrOutput) MdmProviderGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MdmProviderGuid
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain a virtual machine connected to a hostpool will join.
+func (o DomainInfoPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoProperties struct {
+	// The resource id of the custom image or shared image. Image type must be CustomImage.
+	CustomId *string `pulumi:"customId"`
+	// The values to uniquely identify a gallery image.
+	MarketPlaceInfo *MarketPlaceInfoProperties `pulumi:"marketPlaceInfo"`
+	// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+	StorageBlobUri *string `pulumi:"storageBlobUri"`
+	// The type of image session hosts use in the hostpool.
+	Type *string `pulumi:"type"`
+}
+
+// ImageInfoPropertiesInput is an input type that accepts ImageInfoPropertiesArgs and ImageInfoPropertiesOutput values.
+// You can construct a concrete instance of `ImageInfoPropertiesInput` via:
+//
+//          ImageInfoPropertiesArgs{...}
+type ImageInfoPropertiesInput interface {
+	pulumi.Input
+
+	ToImageInfoPropertiesOutput() ImageInfoPropertiesOutput
+	ToImageInfoPropertiesOutputWithContext(context.Context) ImageInfoPropertiesOutput
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoPropertiesArgs struct {
+	// The resource id of the custom image or shared image. Image type must be CustomImage.
+	CustomId pulumi.StringPtrInput `pulumi:"customId"`
+	// The values to uniquely identify a gallery image.
+	MarketPlaceInfo MarketPlaceInfoPropertiesPtrInput `pulumi:"marketPlaceInfo"`
+	// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+	StorageBlobUri pulumi.StringPtrInput `pulumi:"storageBlobUri"`
+	// The type of image session hosts use in the hostpool.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ImageInfoPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInfoProperties)(nil)).Elem()
+}
+
+func (i ImageInfoPropertiesArgs) ToImageInfoPropertiesOutput() ImageInfoPropertiesOutput {
+	return i.ToImageInfoPropertiesOutputWithContext(context.Background())
+}
+
+func (i ImageInfoPropertiesArgs) ToImageInfoPropertiesOutputWithContext(ctx context.Context) ImageInfoPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesOutput)
+}
+
+func (i ImageInfoPropertiesArgs) ToImageInfoPropertiesPtrOutput() ImageInfoPropertiesPtrOutput {
+	return i.ToImageInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ImageInfoPropertiesArgs) ToImageInfoPropertiesPtrOutputWithContext(ctx context.Context) ImageInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesOutput).ToImageInfoPropertiesPtrOutputWithContext(ctx)
+}
+
+// ImageInfoPropertiesPtrInput is an input type that accepts ImageInfoPropertiesArgs, ImageInfoPropertiesPtr and ImageInfoPropertiesPtrOutput values.
+// You can construct a concrete instance of `ImageInfoPropertiesPtrInput` via:
+//
+//          ImageInfoPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageInfoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToImageInfoPropertiesPtrOutput() ImageInfoPropertiesPtrOutput
+	ToImageInfoPropertiesPtrOutputWithContext(context.Context) ImageInfoPropertiesPtrOutput
+}
+
+type imageInfoPropertiesPtrType ImageInfoPropertiesArgs
+
+func ImageInfoPropertiesPtr(v *ImageInfoPropertiesArgs) ImageInfoPropertiesPtrInput {
+	return (*imageInfoPropertiesPtrType)(v)
+}
+
+func (*imageInfoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageInfoProperties)(nil)).Elem()
+}
+
+func (i *imageInfoPropertiesPtrType) ToImageInfoPropertiesPtrOutput() ImageInfoPropertiesPtrOutput {
+	return i.ToImageInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *imageInfoPropertiesPtrType) ToImageInfoPropertiesPtrOutputWithContext(ctx context.Context) ImageInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesPtrOutput)
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ImageInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInfoProperties)(nil)).Elem()
+}
+
+func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesOutput() ImageInfoPropertiesOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesOutputWithContext(ctx context.Context) ImageInfoPropertiesOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesPtrOutput() ImageInfoPropertiesPtrOutput {
+	return o.ToImageInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesPtrOutputWithContext(ctx context.Context) ImageInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v ImageInfoProperties) *ImageInfoProperties {
+		return &v
+	}).(ImageInfoPropertiesPtrOutput)
+}
+
+// The resource id of the custom image or shared image. Image type must be CustomImage.
+func (o ImageInfoPropertiesOutput) CustomId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoProperties) *string { return v.CustomId }).(pulumi.StringPtrOutput)
+}
+
+// The values to uniquely identify a gallery image.
+func (o ImageInfoPropertiesOutput) MarketPlaceInfo() MarketPlaceInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v ImageInfoProperties) *MarketPlaceInfoProperties { return v.MarketPlaceInfo }).(MarketPlaceInfoPropertiesPtrOutput)
+}
+
+// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+func (o ImageInfoPropertiesOutput) StorageBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoProperties) *string { return v.StorageBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of image session hosts use in the hostpool.
+func (o ImageInfoPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ImageInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageInfoProperties)(nil)).Elem()
+}
+
+func (o ImageInfoPropertiesPtrOutput) ToImageInfoPropertiesPtrOutput() ImageInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesPtrOutput) ToImageInfoPropertiesPtrOutputWithContext(ctx context.Context) ImageInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesPtrOutput) Elem() ImageInfoPropertiesOutput {
+	return o.ApplyT(func(v *ImageInfoProperties) ImageInfoProperties { return *v }).(ImageInfoPropertiesOutput)
+}
+
+// The resource id of the custom image or shared image. Image type must be CustomImage.
+func (o ImageInfoPropertiesPtrOutput) CustomId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The values to uniquely identify a gallery image.
+func (o ImageInfoPropertiesPtrOutput) MarketPlaceInfo() MarketPlaceInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v *ImageInfoProperties) *MarketPlaceInfoProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MarketPlaceInfo
+	}).(MarketPlaceInfoPropertiesPtrOutput)
+}
+
+// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+func (o ImageInfoPropertiesPtrOutput) StorageBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageBlobUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of image session hosts use in the hostpool.
+func (o ImageInfoPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoPropertiesResponse struct {
+	// The resource id of the custom image or shared image. Image type must be CustomImage.
+	CustomId *string `pulumi:"customId"`
+	// The values to uniquely identify a gallery image.
+	MarketPlaceInfo *MarketPlaceInfoPropertiesResponse `pulumi:"marketPlaceInfo"`
+	// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+	StorageBlobUri *string `pulumi:"storageBlobUri"`
+	// The type of image session hosts use in the hostpool.
+	Type *string `pulumi:"type"`
+}
+
+// ImageInfoPropertiesResponseInput is an input type that accepts ImageInfoPropertiesResponseArgs and ImageInfoPropertiesResponseOutput values.
+// You can construct a concrete instance of `ImageInfoPropertiesResponseInput` via:
+//
+//          ImageInfoPropertiesResponseArgs{...}
+type ImageInfoPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToImageInfoPropertiesResponseOutput() ImageInfoPropertiesResponseOutput
+	ToImageInfoPropertiesResponseOutputWithContext(context.Context) ImageInfoPropertiesResponseOutput
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoPropertiesResponseArgs struct {
+	// The resource id of the custom image or shared image. Image type must be CustomImage.
+	CustomId pulumi.StringPtrInput `pulumi:"customId"`
+	// The values to uniquely identify a gallery image.
+	MarketPlaceInfo MarketPlaceInfoPropertiesResponsePtrInput `pulumi:"marketPlaceInfo"`
+	// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+	StorageBlobUri pulumi.StringPtrInput `pulumi:"storageBlobUri"`
+	// The type of image session hosts use in the hostpool.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ImageInfoPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i ImageInfoPropertiesResponseArgs) ToImageInfoPropertiesResponseOutput() ImageInfoPropertiesResponseOutput {
+	return i.ToImageInfoPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ImageInfoPropertiesResponseArgs) ToImageInfoPropertiesResponseOutputWithContext(ctx context.Context) ImageInfoPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesResponseOutput)
+}
+
+func (i ImageInfoPropertiesResponseArgs) ToImageInfoPropertiesResponsePtrOutput() ImageInfoPropertiesResponsePtrOutput {
+	return i.ToImageInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageInfoPropertiesResponseArgs) ToImageInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) ImageInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesResponseOutput).ToImageInfoPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ImageInfoPropertiesResponsePtrInput is an input type that accepts ImageInfoPropertiesResponseArgs, ImageInfoPropertiesResponsePtr and ImageInfoPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ImageInfoPropertiesResponsePtrInput` via:
+//
+//          ImageInfoPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageInfoPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageInfoPropertiesResponsePtrOutput() ImageInfoPropertiesResponsePtrOutput
+	ToImageInfoPropertiesResponsePtrOutputWithContext(context.Context) ImageInfoPropertiesResponsePtrOutput
+}
+
+type imageInfoPropertiesResponsePtrType ImageInfoPropertiesResponseArgs
+
+func ImageInfoPropertiesResponsePtr(v *ImageInfoPropertiesResponseArgs) ImageInfoPropertiesResponsePtrInput {
+	return (*imageInfoPropertiesResponsePtrType)(v)
+}
+
+func (*imageInfoPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i *imageInfoPropertiesResponsePtrType) ToImageInfoPropertiesResponsePtrOutput() ImageInfoPropertiesResponsePtrOutput {
+	return i.ToImageInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageInfoPropertiesResponsePtrType) ToImageInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) ImageInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInfoPropertiesResponsePtrOutput)
+}
+
+// Image configurations of session host in a HostPool.
+type ImageInfoPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageInfoPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponseOutput() ImageInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponseOutputWithContext(ctx context.Context) ImageInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponsePtrOutput() ImageInfoPropertiesResponsePtrOutput {
+	return o.ToImageInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) ImageInfoPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *ImageInfoPropertiesResponse {
+		return &v
+	}).(ImageInfoPropertiesResponsePtrOutput)
+}
+
+// The resource id of the custom image or shared image. Image type must be CustomImage.
+func (o ImageInfoPropertiesResponseOutput) CustomId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *string { return v.CustomId }).(pulumi.StringPtrOutput)
+}
+
+// The values to uniquely identify a gallery image.
+func (o ImageInfoPropertiesResponseOutput) MarketPlaceInfo() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *MarketPlaceInfoPropertiesResponse { return v.MarketPlaceInfo }).(MarketPlaceInfoPropertiesResponsePtrOutput)
+}
+
+// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+func (o ImageInfoPropertiesResponseOutput) StorageBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *string { return v.StorageBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of image session hosts use in the hostpool.
+func (o ImageInfoPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ImageInfoPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageInfoPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o ImageInfoPropertiesResponsePtrOutput) ToImageInfoPropertiesResponsePtrOutput() ImageInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesResponsePtrOutput) ToImageInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) ImageInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ImageInfoPropertiesResponsePtrOutput) Elem() ImageInfoPropertiesResponseOutput {
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) ImageInfoPropertiesResponse { return *v }).(ImageInfoPropertiesResponseOutput)
+}
+
+// The resource id of the custom image or shared image. Image type must be CustomImage.
+func (o ImageInfoPropertiesResponsePtrOutput) CustomId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The values to uniquely identify a gallery image.
+func (o ImageInfoPropertiesResponsePtrOutput) MarketPlaceInfo() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) *MarketPlaceInfoPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MarketPlaceInfo
+	}).(MarketPlaceInfoPropertiesResponsePtrOutput)
+}
+
+// The uri to the storage blob which contains the VHD. Image type must be StorageBlob.
+func (o ImageInfoPropertiesResponsePtrOutput) StorageBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageBlobUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of image session hosts use in the hostpool.
+func (o ImageInfoPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialProperties struct {
+	// The keyvault resource id to the keyvault secrets.
+	PasswordKeyVaultResourceId *string `pulumi:"passwordKeyVaultResourceId"`
+	// The keyvault secret name the password is stored in.
+	PasswordSecretName *string `pulumi:"passwordSecretName"`
+	// The user name to the account.
+	UserName *string `pulumi:"userName"`
+}
+
+// KeyVaultCredentialPropertiesInput is an input type that accepts KeyVaultCredentialPropertiesArgs and KeyVaultCredentialPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultCredentialPropertiesInput` via:
+//
+//          KeyVaultCredentialPropertiesArgs{...}
+type KeyVaultCredentialPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultCredentialPropertiesOutput() KeyVaultCredentialPropertiesOutput
+	ToKeyVaultCredentialPropertiesOutputWithContext(context.Context) KeyVaultCredentialPropertiesOutput
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialPropertiesArgs struct {
+	// The keyvault resource id to the keyvault secrets.
+	PasswordKeyVaultResourceId pulumi.StringPtrInput `pulumi:"passwordKeyVaultResourceId"`
+	// The keyvault secret name the password is stored in.
+	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
+	// The user name to the account.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (KeyVaultCredentialPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialProperties)(nil)).Elem()
+}
+
+func (i KeyVaultCredentialPropertiesArgs) ToKeyVaultCredentialPropertiesOutput() KeyVaultCredentialPropertiesOutput {
+	return i.ToKeyVaultCredentialPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCredentialPropertiesArgs) ToKeyVaultCredentialPropertiesOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesOutput)
+}
+
+func (i KeyVaultCredentialPropertiesArgs) ToKeyVaultCredentialPropertiesPtrOutput() KeyVaultCredentialPropertiesPtrOutput {
+	return i.ToKeyVaultCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCredentialPropertiesArgs) ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesOutput).ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultCredentialPropertiesPtrInput is an input type that accepts KeyVaultCredentialPropertiesArgs, KeyVaultCredentialPropertiesPtr and KeyVaultCredentialPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultCredentialPropertiesPtrInput` via:
+//
+//          KeyVaultCredentialPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultCredentialPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultCredentialPropertiesPtrOutput() KeyVaultCredentialPropertiesPtrOutput
+	ToKeyVaultCredentialPropertiesPtrOutputWithContext(context.Context) KeyVaultCredentialPropertiesPtrOutput
+}
+
+type keyVaultCredentialPropertiesPtrType KeyVaultCredentialPropertiesArgs
+
+func KeyVaultCredentialPropertiesPtr(v *KeyVaultCredentialPropertiesArgs) KeyVaultCredentialPropertiesPtrInput {
+	return (*keyVaultCredentialPropertiesPtrType)(v)
+}
+
+func (*keyVaultCredentialPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCredentialProperties)(nil)).Elem()
+}
+
+func (i *keyVaultCredentialPropertiesPtrType) ToKeyVaultCredentialPropertiesPtrOutput() KeyVaultCredentialPropertiesPtrOutput {
+	return i.ToKeyVaultCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultCredentialPropertiesPtrType) ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCredentialPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialProperties)(nil)).Elem()
+}
+
+func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesOutput() KeyVaultCredentialPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesPtrOutput() KeyVaultCredentialPropertiesPtrOutput {
+	return o.ToKeyVaultCredentialPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialProperties) *KeyVaultCredentialProperties {
+		return &v
+	}).(KeyVaultCredentialPropertiesPtrOutput)
+}
+
+// The keyvault resource id to the keyvault secrets.
+func (o KeyVaultCredentialPropertiesOutput) PasswordKeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialProperties) *string { return v.PasswordKeyVaultResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The keyvault secret name the password is stored in.
+func (o KeyVaultCredentialPropertiesOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialProperties) *string { return v.PasswordSecretName }).(pulumi.StringPtrOutput)
+}
+
+// The user name to the account.
+func (o KeyVaultCredentialPropertiesOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialProperties) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCredentialPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCredentialPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCredentialProperties)(nil)).Elem()
+}
+
+func (o KeyVaultCredentialPropertiesPtrOutput) ToKeyVaultCredentialPropertiesPtrOutput() KeyVaultCredentialPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesPtrOutput) ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesPtrOutput) Elem() KeyVaultCredentialPropertiesOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialProperties) KeyVaultCredentialProperties { return *v }).(KeyVaultCredentialPropertiesOutput)
+}
+
+// The keyvault resource id to the keyvault secrets.
+func (o KeyVaultCredentialPropertiesPtrOutput) PasswordKeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordKeyVaultResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The keyvault secret name the password is stored in.
+func (o KeyVaultCredentialPropertiesPtrOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user name to the account.
+func (o KeyVaultCredentialPropertiesPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialPropertiesResponse struct {
+	// The keyvault resource id to the keyvault secrets.
+	PasswordKeyVaultResourceId *string `pulumi:"passwordKeyVaultResourceId"`
+	// The keyvault secret name the password is stored in.
+	PasswordSecretName *string `pulumi:"passwordSecretName"`
+	// The user name to the account.
+	UserName *string `pulumi:"userName"`
+}
+
+// KeyVaultCredentialPropertiesResponseInput is an input type that accepts KeyVaultCredentialPropertiesResponseArgs and KeyVaultCredentialPropertiesResponseOutput values.
+// You can construct a concrete instance of `KeyVaultCredentialPropertiesResponseInput` via:
+//
+//          KeyVaultCredentialPropertiesResponseArgs{...}
+type KeyVaultCredentialPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultCredentialPropertiesResponseOutput() KeyVaultCredentialPropertiesResponseOutput
+	ToKeyVaultCredentialPropertiesResponseOutputWithContext(context.Context) KeyVaultCredentialPropertiesResponseOutput
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialPropertiesResponseArgs struct {
+	// The keyvault resource id to the keyvault secrets.
+	PasswordKeyVaultResourceId pulumi.StringPtrInput `pulumi:"passwordKeyVaultResourceId"`
+	// The keyvault secret name the password is stored in.
+	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
+	// The user name to the account.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (KeyVaultCredentialPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyVaultCredentialPropertiesResponseArgs) ToKeyVaultCredentialPropertiesResponseOutput() KeyVaultCredentialPropertiesResponseOutput {
+	return i.ToKeyVaultCredentialPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCredentialPropertiesResponseArgs) ToKeyVaultCredentialPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesResponseOutput)
+}
+
+func (i KeyVaultCredentialPropertiesResponseArgs) ToKeyVaultCredentialPropertiesResponsePtrOutput() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return i.ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCredentialPropertiesResponseArgs) ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesResponseOutput).ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultCredentialPropertiesResponsePtrInput is an input type that accepts KeyVaultCredentialPropertiesResponseArgs, KeyVaultCredentialPropertiesResponsePtr and KeyVaultCredentialPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultCredentialPropertiesResponsePtrInput` via:
+//
+//          KeyVaultCredentialPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultCredentialPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultCredentialPropertiesResponsePtrOutput() KeyVaultCredentialPropertiesResponsePtrOutput
+	ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultCredentialPropertiesResponsePtrOutput
+}
+
+type keyVaultCredentialPropertiesResponsePtrType KeyVaultCredentialPropertiesResponseArgs
+
+func KeyVaultCredentialPropertiesResponsePtr(v *KeyVaultCredentialPropertiesResponseArgs) KeyVaultCredentialPropertiesResponsePtrInput {
+	return (*keyVaultCredentialPropertiesResponsePtrType)(v)
+}
+
+func (*keyVaultCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCredentialPropertiesResponse)(nil)).Elem()
+}
+
+func (i *keyVaultCredentialPropertiesResponsePtrType) ToKeyVaultCredentialPropertiesResponsePtrOutput() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return i.ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultCredentialPropertiesResponsePtrType) ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+// Credentials kept in the keyvault.
+type KeyVaultCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCredentialPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialPropertiesResponseOutput() KeyVaultCredentialPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialPropertiesResponsePtrOutput() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialPropertiesResponse) *KeyVaultCredentialPropertiesResponse {
+		return &v
+	}).(KeyVaultCredentialPropertiesResponsePtrOutput)
+}
+
+// The keyvault resource id to the keyvault secrets.
+func (o KeyVaultCredentialPropertiesResponseOutput) PasswordKeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialPropertiesResponse) *string { return v.PasswordKeyVaultResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The keyvault secret name the password is stored in.
+func (o KeyVaultCredentialPropertiesResponseOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialPropertiesResponse) *string { return v.PasswordSecretName }).(pulumi.StringPtrOutput)
+}
+
+// The user name to the account.
+func (o KeyVaultCredentialPropertiesResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialPropertiesResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCredentialPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) ToKeyVaultCredentialPropertiesResponsePtrOutput() KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) Elem() KeyVaultCredentialPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) KeyVaultCredentialPropertiesResponse { return *v }).(KeyVaultCredentialPropertiesResponseOutput)
+}
+
+// The keyvault resource id to the keyvault secrets.
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) PasswordKeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordKeyVaultResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The keyvault secret name the password is stored in.
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) PasswordSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user name to the account.
+func (o KeyVaultCredentialPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoProperties struct {
+	// The exact version of the image.
+	ExactVersion *string `pulumi:"exactVersion"`
+	// The offer of the image.
+	Offer *string `pulumi:"offer"`
+	// The publisher of the image.
+	Publisher *string `pulumi:"publisher"`
+	// The sku of the image.
+	Sku *string `pulumi:"sku"`
+}
+
+// MarketPlaceInfoPropertiesInput is an input type that accepts MarketPlaceInfoPropertiesArgs and MarketPlaceInfoPropertiesOutput values.
+// You can construct a concrete instance of `MarketPlaceInfoPropertiesInput` via:
+//
+//          MarketPlaceInfoPropertiesArgs{...}
+type MarketPlaceInfoPropertiesInput interface {
+	pulumi.Input
+
+	ToMarketPlaceInfoPropertiesOutput() MarketPlaceInfoPropertiesOutput
+	ToMarketPlaceInfoPropertiesOutputWithContext(context.Context) MarketPlaceInfoPropertiesOutput
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoPropertiesArgs struct {
+	// The exact version of the image.
+	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
+	// The offer of the image.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The publisher of the image.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The sku of the image.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+}
+
+func (MarketPlaceInfoPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarketPlaceInfoProperties)(nil)).Elem()
+}
+
+func (i MarketPlaceInfoPropertiesArgs) ToMarketPlaceInfoPropertiesOutput() MarketPlaceInfoPropertiesOutput {
+	return i.ToMarketPlaceInfoPropertiesOutputWithContext(context.Background())
+}
+
+func (i MarketPlaceInfoPropertiesArgs) ToMarketPlaceInfoPropertiesOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesOutput)
+}
+
+func (i MarketPlaceInfoPropertiesArgs) ToMarketPlaceInfoPropertiesPtrOutput() MarketPlaceInfoPropertiesPtrOutput {
+	return i.ToMarketPlaceInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MarketPlaceInfoPropertiesArgs) ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesOutput).ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx)
+}
+
+// MarketPlaceInfoPropertiesPtrInput is an input type that accepts MarketPlaceInfoPropertiesArgs, MarketPlaceInfoPropertiesPtr and MarketPlaceInfoPropertiesPtrOutput values.
+// You can construct a concrete instance of `MarketPlaceInfoPropertiesPtrInput` via:
+//
+//          MarketPlaceInfoPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MarketPlaceInfoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMarketPlaceInfoPropertiesPtrOutput() MarketPlaceInfoPropertiesPtrOutput
+	ToMarketPlaceInfoPropertiesPtrOutputWithContext(context.Context) MarketPlaceInfoPropertiesPtrOutput
+}
+
+type marketPlaceInfoPropertiesPtrType MarketPlaceInfoPropertiesArgs
+
+func MarketPlaceInfoPropertiesPtr(v *MarketPlaceInfoPropertiesArgs) MarketPlaceInfoPropertiesPtrInput {
+	return (*marketPlaceInfoPropertiesPtrType)(v)
+}
+
+func (*marketPlaceInfoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarketPlaceInfoProperties)(nil)).Elem()
+}
+
+func (i *marketPlaceInfoPropertiesPtrType) ToMarketPlaceInfoPropertiesPtrOutput() MarketPlaceInfoPropertiesPtrOutput {
+	return i.ToMarketPlaceInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *marketPlaceInfoPropertiesPtrType) ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesPtrOutput)
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MarketPlaceInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarketPlaceInfoProperties)(nil)).Elem()
+}
+
+func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesOutput() MarketPlaceInfoPropertiesOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesPtrOutput() MarketPlaceInfoPropertiesPtrOutput {
+	return o.ToMarketPlaceInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *MarketPlaceInfoProperties {
+		return &v
+	}).(MarketPlaceInfoPropertiesPtrOutput)
+}
+
+// The exact version of the image.
+func (o MarketPlaceInfoPropertiesOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *string { return v.ExactVersion }).(pulumi.StringPtrOutput)
+}
+
+// The offer of the image.
+func (o MarketPlaceInfoPropertiesOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the image.
+func (o MarketPlaceInfoPropertiesOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The sku of the image.
+func (o MarketPlaceInfoPropertiesOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+type MarketPlaceInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MarketPlaceInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarketPlaceInfoProperties)(nil)).Elem()
+}
+
+func (o MarketPlaceInfoPropertiesPtrOutput) ToMarketPlaceInfoPropertiesPtrOutput() MarketPlaceInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesPtrOutput) ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesPtrOutput) Elem() MarketPlaceInfoPropertiesOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) MarketPlaceInfoProperties { return *v }).(MarketPlaceInfoPropertiesOutput)
+}
+
+// The exact version of the image.
+func (o MarketPlaceInfoPropertiesPtrOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The offer of the image.
+func (o MarketPlaceInfoPropertiesPtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the image.
+func (o MarketPlaceInfoPropertiesPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku of the image.
+func (o MarketPlaceInfoPropertiesPtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoPropertiesResponse struct {
+	// The exact version of the image.
+	ExactVersion *string `pulumi:"exactVersion"`
+	// The offer of the image.
+	Offer *string `pulumi:"offer"`
+	// The publisher of the image.
+	Publisher *string `pulumi:"publisher"`
+	// The sku of the image.
+	Sku *string `pulumi:"sku"`
+}
+
+// MarketPlaceInfoPropertiesResponseInput is an input type that accepts MarketPlaceInfoPropertiesResponseArgs and MarketPlaceInfoPropertiesResponseOutput values.
+// You can construct a concrete instance of `MarketPlaceInfoPropertiesResponseInput` via:
+//
+//          MarketPlaceInfoPropertiesResponseArgs{...}
+type MarketPlaceInfoPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToMarketPlaceInfoPropertiesResponseOutput() MarketPlaceInfoPropertiesResponseOutput
+	ToMarketPlaceInfoPropertiesResponseOutputWithContext(context.Context) MarketPlaceInfoPropertiesResponseOutput
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoPropertiesResponseArgs struct {
+	// The exact version of the image.
+	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
+	// The offer of the image.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The publisher of the image.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The sku of the image.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+}
+
+func (MarketPlaceInfoPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarketPlaceInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i MarketPlaceInfoPropertiesResponseArgs) ToMarketPlaceInfoPropertiesResponseOutput() MarketPlaceInfoPropertiesResponseOutput {
+	return i.ToMarketPlaceInfoPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i MarketPlaceInfoPropertiesResponseArgs) ToMarketPlaceInfoPropertiesResponseOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesResponseOutput)
+}
+
+func (i MarketPlaceInfoPropertiesResponseArgs) ToMarketPlaceInfoPropertiesResponsePtrOutput() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return i.ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MarketPlaceInfoPropertiesResponseArgs) ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesResponseOutput).ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// MarketPlaceInfoPropertiesResponsePtrInput is an input type that accepts MarketPlaceInfoPropertiesResponseArgs, MarketPlaceInfoPropertiesResponsePtr and MarketPlaceInfoPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `MarketPlaceInfoPropertiesResponsePtrInput` via:
+//
+//          MarketPlaceInfoPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MarketPlaceInfoPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToMarketPlaceInfoPropertiesResponsePtrOutput() MarketPlaceInfoPropertiesResponsePtrOutput
+	ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(context.Context) MarketPlaceInfoPropertiesResponsePtrOutput
+}
+
+type marketPlaceInfoPropertiesResponsePtrType MarketPlaceInfoPropertiesResponseArgs
+
+func MarketPlaceInfoPropertiesResponsePtr(v *MarketPlaceInfoPropertiesResponseArgs) MarketPlaceInfoPropertiesResponsePtrInput {
+	return (*marketPlaceInfoPropertiesResponsePtrType)(v)
+}
+
+func (*marketPlaceInfoPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarketPlaceInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (i *marketPlaceInfoPropertiesResponsePtrType) ToMarketPlaceInfoPropertiesResponsePtrOutput() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return i.ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *marketPlaceInfoPropertiesResponsePtrType) ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarketPlaceInfoPropertiesResponsePtrOutput)
+}
+
+// Image configurations of HostPool.
+type MarketPlaceInfoPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (MarketPlaceInfoPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarketPlaceInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResponseOutput() MarketPlaceInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResponseOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponseOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResponsePtrOutput() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o.ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *MarketPlaceInfoPropertiesResponse {
+		return &v
+	}).(MarketPlaceInfoPropertiesResponsePtrOutput)
+}
+
+// The exact version of the image.
+func (o MarketPlaceInfoPropertiesResponseOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *string { return v.ExactVersion }).(pulumi.StringPtrOutput)
+}
+
+// The offer of the image.
+func (o MarketPlaceInfoPropertiesResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the image.
+func (o MarketPlaceInfoPropertiesResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The sku of the image.
+func (o MarketPlaceInfoPropertiesResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+type MarketPlaceInfoPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MarketPlaceInfoPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarketPlaceInfoPropertiesResponse)(nil)).Elem()
+}
+
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) ToMarketPlaceInfoPropertiesResponsePtrOutput() MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) Elem() MarketPlaceInfoPropertiesResponseOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) MarketPlaceInfoPropertiesResponse { return *v }).(MarketPlaceInfoPropertiesResponseOutput)
+}
+
+// The exact version of the image.
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The offer of the image.
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the image.
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku of the image.
+func (o MarketPlaceInfoPropertiesResponsePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties for arm migration.
 type MigrationRequestProperties struct {
 	// The path to the legacy object to migrate.
@@ -3774,6 +5570,26 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(CredentialsPropertiesOutput{})
+	pulumi.RegisterOutputType(CredentialsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CredentialsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CredentialsPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DomainInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(DomainInfoPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DomainInfoPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DomainInfoPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImageInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(ImageInfoPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ImageInfoPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ImageInfoPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultCredentialPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultCredentialPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultCredentialPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MarketPlaceInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(MarketPlaceInfoPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MarketPlaceInfoPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MarketPlaceInfoPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MigrationRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(MigrationRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MigrationRequestPropertiesResponseOutput{})
