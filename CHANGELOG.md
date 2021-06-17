@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.13.0 (2020-06-17)
+
 #### Bug Fixes
 
 - Add missing types for complete definition of dashboards
@@ -29,8 +35,6 @@ CHANGELOG
 
 - `batchai` resource provider was deprecated and removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14788))
-
----
 
 ## 1.12.0 (2020-06-15)
 
