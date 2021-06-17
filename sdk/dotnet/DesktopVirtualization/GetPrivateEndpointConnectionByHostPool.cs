@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-05-13-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByHostPoolResult> InvokeAsync(GetPrivateEndpointConnectionByHostPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolArgs(), options.WithVersion());

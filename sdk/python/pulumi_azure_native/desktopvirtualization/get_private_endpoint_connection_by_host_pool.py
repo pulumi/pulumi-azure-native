@@ -121,7 +121,7 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByHostPoolResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2021-05-13-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

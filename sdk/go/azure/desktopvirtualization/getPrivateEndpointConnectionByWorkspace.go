@@ -8,7 +8,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2021-05-13-preview.
+// API Version: 2021-04-01-preview.
 func LookupPrivateEndpointConnectionByWorkspace(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionByWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionByWorkspaceResult, error) {
 	var rv LookupPrivateEndpointConnectionByWorkspaceResult
 	err := ctx.Invoke("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args, &rv, opts...)
