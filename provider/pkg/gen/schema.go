@@ -335,7 +335,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
 			"Pulumi":                       "3.*",
-			"System.Collections.Immutable": "1.6.0",
+			"System.Collections.Immutable": "5.0.0",
 		},
 		"namespaces": csharpNamespaces,
 	})
