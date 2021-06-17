@@ -15,6 +15,7 @@ __all__ = [
     'MarkdownPartMetadataArgs',
     'MarkdownPartMetadataContentArgs',
     'MarkdownPartMetadataSettingsArgs',
+    'MarkdownPartMetadataSettingsSettingsArgs',
 ]
 
 @pulumi.input_type
@@ -254,24 +255,24 @@ class MarkdownPartMetadataArgs:
 @pulumi.input_type
 class MarkdownPartMetadataContentArgs:
     def __init__(__self__, *,
-                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']] = None):
+                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']] = None):
         """
         The content of markdown part.
-        :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: The setting of the content of markdown part.
+        :param pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs'] settings: The setting of the content of markdown part.
         """
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]:
+    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]:
         """
         The setting of the content of markdown part.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]):
+    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
@@ -297,5 +298,93 @@ class MarkdownPartMetadataSettingsArgs:
     @content.setter
     def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]):
         pulumi.set(self, "content", value)
+
+
+@pulumi.input_type
+class MarkdownPartMetadataSettingsSettingsArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None,
+                 markdown_source: Optional[pulumi.Input[int]] = None,
+                 markdown_uri: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        The setting of the content of markdown part.
+        :param pulumi.Input[str] content: The content of the markdown part.
+        :param pulumi.Input[int] markdown_source: The source of the content of the markdown part.
+        :param pulumi.Input[str] markdown_uri: The uri of markdown content.
+        :param pulumi.Input[str] subtitle: The subtitle of the markdown part.
+        :param pulumi.Input[str] title: The title of the markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if markdown_source is not None:
+            pulumi.set(__self__, "markdown_source", markdown_source)
+        if markdown_uri is not None:
+            pulumi.set(__self__, "markdown_uri", markdown_uri)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of the markdown part.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="markdownSource")
+    def markdown_source(self) -> Optional[pulumi.Input[int]]:
+        """
+        The source of the content of the markdown part.
+        """
+        return pulumi.get(self, "markdown_source")
+
+    @markdown_source.setter
+    def markdown_source(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "markdown_source", value)
+
+    @property
+    @pulumi.getter(name="markdownUri")
+    def markdown_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uri of markdown content.
+        """
+        return pulumi.get(self, "markdown_uri")
+
+    @markdown_uri.setter
+    def markdown_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "markdown_uri", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subtitle of the markdown part.
+        """
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the markdown part.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
 
 

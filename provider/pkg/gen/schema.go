@@ -581,6 +581,7 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 		resourceName:  resource.typeName,
 		resourceToken: resourceTok,
 		visitedTypes:  make(map[string]bool),
+		inlineTypes:   map[*openapi.ReferenceContext]codegen.StringSet{},
 	}
 
 	updateOp := path.Put
@@ -794,6 +795,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 		prov:          prov,
 		resourceName:  typeName,
 		visitedTypes:  make(map[string]bool),
+		inlineTypes:   map[*openapi.ReferenceContext]codegen.StringSet{},
 	}
 
 	// Generate the function to get this resource.
@@ -941,6 +943,7 @@ type moduleGenerator struct {
 	resourceName  string
 	resourceToken string
 	visitedTypes  map[string]bool
+	inlineTypes   map[*openapi.ReferenceContext]codegen.StringSet
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
@@ -1509,7 +1512,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
 		} else {
 			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
-			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
+			tok = m.typeName(context, isOutput) + m.inlineTypeName(context, propertyName)
 		}
 
 		// If an object type is referenced, add its definition to the type map.
@@ -1622,6 +1625,26 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// Primitive type ('string', 'integer', etc.)
 		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
 	}
+}
+
+// inlineTypeName returns a type name suffix to be used as a type name for properties defined inline in the spec.
+// It defaults to the TitleCased property name but it also keeps a map of potential collisions. If a collision occurs,
+// (i.e. an inline property `foo` has inline properties and one of them is also `foo`, that can also be down several
+// levels), then the property name is duplicated (to get `FooFoo` in this example).
+func (m *moduleGenerator) inlineTypeName(ctx *openapi.ReferenceContext, propertyName string) string {
+	result := strings.Title(propertyName)
+	if ex, ok := m.inlineTypes[ctx]; ok {
+		for {
+			if !ex.Has(result) {
+				break
+			}
+			result += strings.Title(propertyName)
+		}
+	} else {
+		m.inlineTypes[ctx] = codegen.NewStringSet()
+	}
+	m.inlineTypes[ctx].Add(result)
+	return result
 }
 
 // compatibleTypes checks that two type specs are allowed to be represented as a single schema type.

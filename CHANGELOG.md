@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Bug Fixes
+
+- Add missing types for complete definition of dashboards
+  [#858](https://github.com/pulumi/pulumi-azure-native/issues/858).
+
 #### New Resources
 
 - `desktopvirtualization.SessionHostConfiguration`
