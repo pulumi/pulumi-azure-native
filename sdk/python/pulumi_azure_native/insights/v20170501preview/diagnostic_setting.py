@@ -270,7 +270,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:insights:DiagnosticSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights/v20210501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:insights/v20210501preview:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticSetting, __self__).__init__(
             'azure-native:insights/v20170501preview:DiagnosticSetting',

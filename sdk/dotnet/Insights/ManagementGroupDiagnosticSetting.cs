@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.Insights
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ManagementGroupDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210501preview:ManagementGroupDiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

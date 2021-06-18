@@ -67,12 +67,6 @@ func NewNetworkFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork:NetworkFunction"),
 		},
-		{
-			Type: pulumi.String("azure-native:hybridnetwork/v20210501:NetworkFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridnetwork/v20210501:NetworkFunction"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkFunction

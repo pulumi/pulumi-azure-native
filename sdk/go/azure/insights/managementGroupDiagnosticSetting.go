@@ -56,6 +56,12 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20210501preview:ManagementGroupDiagnosticSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroupDiagnosticSetting

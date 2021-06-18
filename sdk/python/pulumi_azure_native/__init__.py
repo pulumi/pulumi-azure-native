@@ -1277,6 +1277,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "attestation/v20210601preview",
+  "fqn": "pulumi_azure_native.attestation.v20210601preview",
+  "classes": {
+   "azure-native:attestation/v20210601preview:AttestationProvider": "AttestationProvider",
+   "azure-native:attestation/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "authorization",
   "fqn": "pulumi_azure_native.authorization",
   "classes": {
@@ -6856,18 +6865,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "hybridnetwork/v20210501",
-  "fqn": "pulumi_azure_native.hybridnetwork.v20210501",
-  "classes": {
-   "azure-native:hybridnetwork/v20210501:Device": "Device",
-   "azure-native:hybridnetwork/v20210501:NetworkFunction": "NetworkFunction",
-   "azure-native:hybridnetwork/v20210501:Vendor": "Vendor",
-   "azure-native:hybridnetwork/v20210501:VendorSkuPreview": "VendorSkuPreview",
-   "azure-native:hybridnetwork/v20210501:VendorSkus": "VendorSkus"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "importexport",
   "fqn": "pulumi_azure_native.importexport",
   "classes": {
@@ -7178,6 +7175,16 @@ _utilities.register(
    "azure-native:insights/v20210401:DataCollectionEndpoint": "DataCollectionEndpoint",
    "azure-native:insights/v20210401:DataCollectionRule": "DataCollectionRule",
    "azure-native:insights/v20210401:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20210501preview",
+  "fqn": "pulumi_azure_native.insights.v20210501preview",
+  "classes": {
+   "azure-native:insights/v20210501preview:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
+   "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
   }
  },
  {

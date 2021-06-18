@@ -55,8 +55,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview"},
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkuPreview"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork:VendorSkuPreview"},
-                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:VendorSkuPreview"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20210501:VendorSkuPreview"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

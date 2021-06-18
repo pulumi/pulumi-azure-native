@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20201001,
+    v20210601preview,
 };
 
 export const PrivateEndpointServiceConnectionStatus = {

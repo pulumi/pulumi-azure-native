@@ -34182,6 +34182,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01",
           "2020-10-01",
           "2020-08-01",
           "2020-03-01-preview",
@@ -34830,13 +34831,14 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01",
           "2020-10-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2019-08-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2020-08-01",
+        "defaultApiVersion": "2021-06-01",
         "locationMappings": null,
         "locations": [
           "East US",

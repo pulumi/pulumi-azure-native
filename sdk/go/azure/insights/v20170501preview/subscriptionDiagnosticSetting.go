@@ -51,6 +51,12 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:SubscriptionDiagnosticSetting"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20210501preview:SubscriptionDiagnosticSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SubscriptionDiagnosticSetting

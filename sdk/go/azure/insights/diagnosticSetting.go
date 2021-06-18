@@ -58,6 +58,12 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20170501preview:DiagnosticSetting"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210501preview:DiagnosticSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20210501preview:DiagnosticSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiagnosticSetting
