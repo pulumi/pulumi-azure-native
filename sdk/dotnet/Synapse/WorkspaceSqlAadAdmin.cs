@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Synapse
     /// <summary>
     /// Workspace active directory administrator
     /// API Version: 2021-03-01.
+    /// 
+    /// Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource

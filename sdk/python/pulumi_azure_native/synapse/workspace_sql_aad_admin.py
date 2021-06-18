@@ -128,6 +128,8 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         Workspace active directory administrator
         API Version: 2021-03-01.
 
+        Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
@@ -146,6 +148,8 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         """
         Workspace active directory administrator
         API Version: 2021-03-01.
+
+        Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSqlAadAdminArgs args: The arguments to use to populate this resource's properties.
