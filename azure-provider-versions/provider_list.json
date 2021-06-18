@@ -61075,6 +61075,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01",
           "2021-03-01-preview",
           "2019-01-01-preview"
         ],
@@ -84426,6 +84427,42 @@
     ]
   },
   {
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceNotifications",
+    "namespace": "Microsoft.MarketplaceNotifications",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-03"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "reviewsnotifications",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-03"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceOrdering",
     "namespace": "Microsoft.MarketplaceOrdering",
     "registrationPolicy": "RegistrationFree",
@@ -86516,7 +86553,7 @@
         "apiVersions": [
           "2021-02-01-preview"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
