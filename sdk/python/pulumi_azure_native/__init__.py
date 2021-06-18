@@ -1913,7 +1913,9 @@ _utilities.register(
   "mod": "azurestackhci",
   "fqn": "pulumi_azure_native.azurestackhci",
   "classes": {
-   "azure-native:azurestackhci:Cluster": "Cluster"
+   "azure-native:azurestackhci:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci:Cluster": "Cluster",
+   "azure-native:azurestackhci:Extension": "Extension"
   }
  },
  {
@@ -1930,6 +1932,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.azurestackhci.v20201001",
   "classes": {
    "azure-native:azurestackhci/v20201001:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20210101preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20210101preview",
+  "classes": {
+   "azure-native:azurestackhci/v20210101preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20210101preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20210101preview:Extension": "Extension"
   }
  },
  {

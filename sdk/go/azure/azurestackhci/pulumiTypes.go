@@ -392,9 +392,249 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseA
 	}).(ClusterNodeResponseArrayOutput)
 }
 
+// Status of Arc Extension for a particular node in HCI Cluster.
+type PerNodeExtensionStateResponse struct {
+	// Fully qualified resource ID for the particular Arc Extension on this node.
+	Extension string `pulumi:"extension"`
+	// Name of the node in HCI Cluster.
+	Name string `pulumi:"name"`
+	// State of Arc Extension in this node.
+	State string `pulumi:"state"`
+}
+
+// PerNodeExtensionStateResponseInput is an input type that accepts PerNodeExtensionStateResponseArgs and PerNodeExtensionStateResponseOutput values.
+// You can construct a concrete instance of `PerNodeExtensionStateResponseInput` via:
+//
+//          PerNodeExtensionStateResponseArgs{...}
+type PerNodeExtensionStateResponseInput interface {
+	pulumi.Input
+
+	ToPerNodeExtensionStateResponseOutput() PerNodeExtensionStateResponseOutput
+	ToPerNodeExtensionStateResponseOutputWithContext(context.Context) PerNodeExtensionStateResponseOutput
+}
+
+// Status of Arc Extension for a particular node in HCI Cluster.
+type PerNodeExtensionStateResponseArgs struct {
+	// Fully qualified resource ID for the particular Arc Extension on this node.
+	Extension pulumi.StringInput `pulumi:"extension"`
+	// Name of the node in HCI Cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// State of Arc Extension in this node.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (PerNodeExtensionStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerNodeExtensionStateResponse)(nil)).Elem()
+}
+
+func (i PerNodeExtensionStateResponseArgs) ToPerNodeExtensionStateResponseOutput() PerNodeExtensionStateResponseOutput {
+	return i.ToPerNodeExtensionStateResponseOutputWithContext(context.Background())
+}
+
+func (i PerNodeExtensionStateResponseArgs) ToPerNodeExtensionStateResponseOutputWithContext(ctx context.Context) PerNodeExtensionStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerNodeExtensionStateResponseOutput)
+}
+
+// PerNodeExtensionStateResponseArrayInput is an input type that accepts PerNodeExtensionStateResponseArray and PerNodeExtensionStateResponseArrayOutput values.
+// You can construct a concrete instance of `PerNodeExtensionStateResponseArrayInput` via:
+//
+//          PerNodeExtensionStateResponseArray{ PerNodeExtensionStateResponseArgs{...} }
+type PerNodeExtensionStateResponseArrayInput interface {
+	pulumi.Input
+
+	ToPerNodeExtensionStateResponseArrayOutput() PerNodeExtensionStateResponseArrayOutput
+	ToPerNodeExtensionStateResponseArrayOutputWithContext(context.Context) PerNodeExtensionStateResponseArrayOutput
+}
+
+type PerNodeExtensionStateResponseArray []PerNodeExtensionStateResponseInput
+
+func (PerNodeExtensionStateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerNodeExtensionStateResponse)(nil)).Elem()
+}
+
+func (i PerNodeExtensionStateResponseArray) ToPerNodeExtensionStateResponseArrayOutput() PerNodeExtensionStateResponseArrayOutput {
+	return i.ToPerNodeExtensionStateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PerNodeExtensionStateResponseArray) ToPerNodeExtensionStateResponseArrayOutputWithContext(ctx context.Context) PerNodeExtensionStateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerNodeExtensionStateResponseArrayOutput)
+}
+
+// Status of Arc Extension for a particular node in HCI Cluster.
+type PerNodeExtensionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PerNodeExtensionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerNodeExtensionStateResponse)(nil)).Elem()
+}
+
+func (o PerNodeExtensionStateResponseOutput) ToPerNodeExtensionStateResponseOutput() PerNodeExtensionStateResponseOutput {
+	return o
+}
+
+func (o PerNodeExtensionStateResponseOutput) ToPerNodeExtensionStateResponseOutputWithContext(ctx context.Context) PerNodeExtensionStateResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the particular Arc Extension on this node.
+func (o PerNodeExtensionStateResponseOutput) Extension() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.Extension }).(pulumi.StringOutput)
+}
+
+// Name of the node in HCI Cluster.
+func (o PerNodeExtensionStateResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Arc Extension in this node.
+func (o PerNodeExtensionStateResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeExtensionStateResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type PerNodeExtensionStateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PerNodeExtensionStateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerNodeExtensionStateResponse)(nil)).Elem()
+}
+
+func (o PerNodeExtensionStateResponseArrayOutput) ToPerNodeExtensionStateResponseArrayOutput() PerNodeExtensionStateResponseArrayOutput {
+	return o
+}
+
+func (o PerNodeExtensionStateResponseArrayOutput) ToPerNodeExtensionStateResponseArrayOutputWithContext(ctx context.Context) PerNodeExtensionStateResponseArrayOutput {
+	return o
+}
+
+func (o PerNodeExtensionStateResponseArrayOutput) Index(i pulumi.IntInput) PerNodeExtensionStateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerNodeExtensionStateResponse {
+		return vs[0].([]PerNodeExtensionStateResponse)[vs[1].(int)]
+	}).(PerNodeExtensionStateResponseOutput)
+}
+
+// Status of Arc agent for a particular node in HCI Cluster.
+type PerNodeStateResponse struct {
+	// Fully qualified resource ID for the Arc agent of this node.
+	ArcInstance string `pulumi:"arcInstance"`
+	// Name of the Node in HCI Cluster
+	Name string `pulumi:"name"`
+	// State of Arc agent in this node.
+	State string `pulumi:"state"`
+}
+
+// PerNodeStateResponseInput is an input type that accepts PerNodeStateResponseArgs and PerNodeStateResponseOutput values.
+// You can construct a concrete instance of `PerNodeStateResponseInput` via:
+//
+//          PerNodeStateResponseArgs{...}
+type PerNodeStateResponseInput interface {
+	pulumi.Input
+
+	ToPerNodeStateResponseOutput() PerNodeStateResponseOutput
+	ToPerNodeStateResponseOutputWithContext(context.Context) PerNodeStateResponseOutput
+}
+
+// Status of Arc agent for a particular node in HCI Cluster.
+type PerNodeStateResponseArgs struct {
+	// Fully qualified resource ID for the Arc agent of this node.
+	ArcInstance pulumi.StringInput `pulumi:"arcInstance"`
+	// Name of the Node in HCI Cluster
+	Name pulumi.StringInput `pulumi:"name"`
+	// State of Arc agent in this node.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (PerNodeStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerNodeStateResponse)(nil)).Elem()
+}
+
+func (i PerNodeStateResponseArgs) ToPerNodeStateResponseOutput() PerNodeStateResponseOutput {
+	return i.ToPerNodeStateResponseOutputWithContext(context.Background())
+}
+
+func (i PerNodeStateResponseArgs) ToPerNodeStateResponseOutputWithContext(ctx context.Context) PerNodeStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerNodeStateResponseOutput)
+}
+
+// PerNodeStateResponseArrayInput is an input type that accepts PerNodeStateResponseArray and PerNodeStateResponseArrayOutput values.
+// You can construct a concrete instance of `PerNodeStateResponseArrayInput` via:
+//
+//          PerNodeStateResponseArray{ PerNodeStateResponseArgs{...} }
+type PerNodeStateResponseArrayInput interface {
+	pulumi.Input
+
+	ToPerNodeStateResponseArrayOutput() PerNodeStateResponseArrayOutput
+	ToPerNodeStateResponseArrayOutputWithContext(context.Context) PerNodeStateResponseArrayOutput
+}
+
+type PerNodeStateResponseArray []PerNodeStateResponseInput
+
+func (PerNodeStateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerNodeStateResponse)(nil)).Elem()
+}
+
+func (i PerNodeStateResponseArray) ToPerNodeStateResponseArrayOutput() PerNodeStateResponseArrayOutput {
+	return i.ToPerNodeStateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PerNodeStateResponseArray) ToPerNodeStateResponseArrayOutputWithContext(ctx context.Context) PerNodeStateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerNodeStateResponseArrayOutput)
+}
+
+// Status of Arc agent for a particular node in HCI Cluster.
+type PerNodeStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PerNodeStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerNodeStateResponse)(nil)).Elem()
+}
+
+func (o PerNodeStateResponseOutput) ToPerNodeStateResponseOutput() PerNodeStateResponseOutput {
+	return o
+}
+
+func (o PerNodeStateResponseOutput) ToPerNodeStateResponseOutputWithContext(ctx context.Context) PerNodeStateResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the Arc agent of this node.
+func (o PerNodeStateResponseOutput) ArcInstance() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeStateResponse) string { return v.ArcInstance }).(pulumi.StringOutput)
+}
+
+// Name of the Node in HCI Cluster
+func (o PerNodeStateResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeStateResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Arc agent in this node.
+func (o PerNodeStateResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v PerNodeStateResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type PerNodeStateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PerNodeStateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerNodeStateResponse)(nil)).Elem()
+}
+
+func (o PerNodeStateResponseArrayOutput) ToPerNodeStateResponseArrayOutput() PerNodeStateResponseArrayOutput {
+	return o
+}
+
+func (o PerNodeStateResponseArrayOutput) ToPerNodeStateResponseArrayOutputWithContext(ctx context.Context) PerNodeStateResponseArrayOutput {
+	return o
+}
+
+func (o PerNodeStateResponseArrayOutput) Index(i pulumi.IntInput) PerNodeStateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerNodeStateResponse {
+		return vs[0].([]PerNodeStateResponse)[vs[1].(int)]
+	}).(PerNodeStateResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterNodeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PerNodeExtensionStateResponseOutput{})
+	pulumi.RegisterOutputType(PerNodeExtensionStateResponseArrayOutput{})
+	pulumi.RegisterOutputType(PerNodeStateResponseOutput{})
+	pulumi.RegisterOutputType(PerNodeStateResponseArrayOutput{})
 }
