@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Resources
+
+- `azurestackhci.ArcSetting`
+- `azurestackhci..Extension`
+
+#### New Functions
+
+- `azurestackhci.getArcSetting`
+- `azurestackhci.getExtension`
 
 ---
 
