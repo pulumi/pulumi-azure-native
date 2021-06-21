@@ -205,7 +205,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
     Schema for MSIX Package properties.
-    API Version: 2021-03-09-preview.
+    API Version: 2021-02-01-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

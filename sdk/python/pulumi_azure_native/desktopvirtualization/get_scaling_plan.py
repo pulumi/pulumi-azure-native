@@ -20,7 +20,7 @@ class GetScalingPlanResult:
     """
     Represents a scaling plan definition.
     """
-    def __init__(__self__, description=None, etag=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, schedules=None, sku=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, description=None, etag=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, ring=None, schedules=None, sku=None, tags=None, time_zone=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -63,6 +63,9 @@ class GetScalingPlanResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
+        if ring and not isinstance(ring, int):
+            raise TypeError("Expected argument 'ring' to be a int")
+        pulumi.set(__self__, "ring", ring)
         if schedules and not isinstance(schedules, list):
             raise TypeError("Expected argument 'schedules' to be a list")
         pulumi.set(__self__, "schedules", schedules)
@@ -187,6 +190,14 @@ class GetScalingPlanResult:
 
     @property
     @pulumi.getter
+    def ring(self) -> Optional[int]:
+        """
+        The ring number of scaling plan.
+        """
+        return pulumi.get(self, "ring")
+
+    @property
+    @pulumi.getter
     def schedules(self) -> Optional[Sequence['outputs.ScalingScheduleResponse']]:
         """
         List of ScalingSchedule definitions.
@@ -243,6 +254,7 @@ class AwaitableGetScalingPlanResult(GetScalingPlanResult):
             name=self.name,
             object_id=self.object_id,
             plan=self.plan,
+            ring=self.ring,
             schedules=self.schedules,
             sku=self.sku,
             tags=self.tags,
@@ -255,7 +267,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScalingPlanResult:
     """
     Represents a scaling plan definition.
-    API Version: 2021-03-09-preview.
+    API Version: 2021-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -285,6 +297,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         object_id=__ret__.object_id,
         plan=__ret__.plan,
+        ring=__ret__.ring,
         schedules=__ret__.schedules,
         sku=__ret__.sku,
         tags=__ret__.tags,

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a scaling plan definition.
- * API Version: 2021-03-09-preview.
+ * API Version: 2021-02-01-preview.
  */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
     if (!opts) {
@@ -88,6 +88,10 @@ export interface GetScalingPlanResult {
      */
     readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
+    /**
+     * The ring number of scaling plan.
+     */
+    readonly ring?: number;
     /**
      * List of ScalingSchedule definitions.
      */

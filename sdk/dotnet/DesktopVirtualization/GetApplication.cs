@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Schema for Application properties.
-        /// API Version: 2021-03-09-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());

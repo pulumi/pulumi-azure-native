@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for Application properties.
- * API Version: 2021-03-09-preview.
+ * API Version: 2021-02-01-preview.
  */
 export class Application extends pulumi.CustomResource {
     /**

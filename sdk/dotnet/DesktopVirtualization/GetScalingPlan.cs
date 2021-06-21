@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Represents a scaling plan definition.
-        /// API Version: 2021-03-09-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        public readonly int? Ring;
+        /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
+            int? ring,
+
             ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Name = name;
             ObjectId = objectId;
             Plan = plan;
+            Ring = ring;
             Schedules = schedules;
             Sku = sku;
             Tags = tags;

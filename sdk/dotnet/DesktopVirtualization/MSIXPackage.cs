@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Schema for MSIX Package properties.
-    /// API Version: 2021-03-09-preview.
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:MSIXPackage")]
     public partial class MSIXPackage : Pulumi.CustomResource

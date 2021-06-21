@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a Workspace definition.
-// API Version: 2021-03-09-preview.
+// API Version: 2021-02-01-preview.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:desktopvirtualization:getWorkspace", args, &rv, opts...)

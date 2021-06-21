@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Workspace definition.
- * API Version: 2021-03-09-preview.
+ * API Version: 2021-02-01-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
