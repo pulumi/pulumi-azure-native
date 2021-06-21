@@ -33,7 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The location of the ORC data storage.
         /// </summary>
         public readonly object Location;
-        public readonly string? OrcCompressionCodec;
+        /// <summary>
+        /// The data orcCompressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? OrcCompressionCodec;
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
@@ -64,7 +67,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object location,
 
-            string? orcCompressionCodec,
+            object? orcCompressionCodec,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

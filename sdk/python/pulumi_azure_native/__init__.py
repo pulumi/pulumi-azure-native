@@ -6823,6 +6823,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridcompute/v20210610preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20210610preview",
+  "classes": {
+   "azure-native:hybridcompute/v20210610preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20210610preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20210610preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybriddata",
   "fqn": "pulumi_azure_native.hybriddata",
   "classes": {
@@ -15148,6 +15159,16 @@ _utilities.register(
    "azure-native:webpubsub/v20210401preview:WebPubSub": "WebPubSub",
    "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20210601preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20210601preview",
+  "classes": {
+   "azure-native:webpubsub/v20210601preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

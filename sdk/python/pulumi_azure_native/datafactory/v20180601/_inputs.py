@@ -3098,7 +3098,7 @@ class AvroDatasetArgs:
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 avro_compression_codec: Optional[pulumi.Input[Union[str, 'AvroCompressionCodec']]] = None,
+                 avro_compression_codec: Optional[Any] = None,
                  avro_compression_level: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
@@ -3112,6 +3112,7 @@ class AvroDatasetArgs:
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Avro'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Any avro_compression_codec: The data avroCompressionCodec. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
@@ -3189,11 +3190,14 @@ class AvroDatasetArgs:
 
     @property
     @pulumi.getter(name="avroCompressionCodec")
-    def avro_compression_codec(self) -> Optional[pulumi.Input[Union[str, 'AvroCompressionCodec']]]:
+    def avro_compression_codec(self) -> Optional[Any]:
+        """
+        The data avroCompressionCodec. Type: string (or Expression with resultType string).
+        """
         return pulumi.get(self, "avro_compression_codec")
 
     @avro_compression_codec.setter
-    def avro_compression_codec(self, value: Optional[pulumi.Input[Union[str, 'AvroCompressionCodec']]]):
+    def avro_compression_codec(self, value: Optional[Any]):
         pulumi.set(self, "avro_compression_codec", value)
 
     @property
@@ -50724,7 +50728,7 @@ class OrcDatasetArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
-                 orc_compression_codec: Optional[pulumi.Input[Union[str, 'OrcCompressionCodec']]] = None,
+                 orc_compression_codec: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -50737,6 +50741,7 @@ class OrcDatasetArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param pulumi.Input[str] description: Dataset description.
         :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Any orc_compression_codec: The data orcCompressionCodec. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -50834,11 +50839,14 @@ class OrcDatasetArgs:
 
     @property
     @pulumi.getter(name="orcCompressionCodec")
-    def orc_compression_codec(self) -> Optional[pulumi.Input[Union[str, 'OrcCompressionCodec']]]:
+    def orc_compression_codec(self) -> Optional[Any]:
+        """
+        The data orcCompressionCodec. Type: string (or Expression with resultType string).
+        """
         return pulumi.get(self, "orc_compression_codec")
 
     @orc_compression_codec.setter
-    def orc_compression_codec(self, value: Optional[pulumi.Input[Union[str, 'OrcCompressionCodec']]]):
+    def orc_compression_codec(self, value: Optional[Any]):
         pulumi.set(self, "orc_compression_codec", value)
 
     @property

@@ -273,6 +273,8 @@ export type NodeSize = (typeof NodeSize)[keyof typeof NodeSize];
 export const NodeSizeFamily = {
     None: "None",
     MemoryOptimized: "MemoryOptimized",
+    HardwareAcceleratedFPGA: "HardwareAcceleratedFPGA",
+    HardwareAcceleratedGPU: "HardwareAcceleratedGPU",
 } as const;
 
 /**

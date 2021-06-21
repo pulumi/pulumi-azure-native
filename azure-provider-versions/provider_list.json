@@ -42611,6 +42611,9 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
+          "2021-06-01",
+          "2021-05-01-privatepreview",
           "2021-04-10-privatepreview",
           "2020-11-05-preview",
           "2020-02-14-privatepreview",
@@ -42643,12 +42646,131 @@
         ],
         "properties": null,
         "resourceType": "flexibleServers",
-        "zoneMappings": null
+        "zoneMappings": [
+          {
+            "location": "East US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Central US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "France Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Southeast Asia",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "North Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "East US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "UK South",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Japan East",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Australia East",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "South Africa North",
+            "zones": []
+          },
+          {
+            "location": "Canada Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Brazil South",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Korea Central",
+            "zones": []
+          },
+          {
+            "location": "Norway East",
+            "zones": []
+          }
+        ]
       },
       {
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
+          "2021-06-01",
           "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
@@ -42695,6 +42817,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
+          "2021-06-01",
           "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
@@ -43200,6 +43324,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
+          "2021-06-01",
           "2020-11-05-preview",
           "2020-02-14-privatepreview",
           "2020-02-14-preview"
@@ -62252,6 +62378,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62288,6 +62416,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62324,6 +62454,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62360,6 +62492,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62396,6 +62530,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62432,6 +62568,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62468,6 +62606,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62504,6 +62644,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62540,6 +62682,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62576,6 +62720,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -62612,6 +62758,8 @@
         "locations": [
           "UK South",
           "UK West",
+          "Canada East",
+          "Canada Central",
           "North Europe",
           "West Europe",
           "East US",
@@ -64431,7 +64579,8 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "BackupVaults",
@@ -64532,7 +64681,8 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationResults",
@@ -64582,7 +64732,8 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationStatus",
@@ -64632,7 +64783,8 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability",
@@ -64682,7 +64834,8 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkFeatureSupport",
@@ -69243,7 +69396,8 @@
           "UK West",
           "West US",
           "North Europe",
-          "West Europe"
+          "West Europe",
+          "Southeast Asia"
         ],
         "properties": null,
         "resourceType": "attestationProviders",
@@ -69271,7 +69425,8 @@
           "UK West",
           "West US",
           "North Europe",
-          "West Europe"
+          "West Europe",
+          "Southeast Asia"
         ],
         "properties": null,
         "resourceType": "defaultProviders",
@@ -69316,7 +69471,8 @@
           "UK West",
           "West US",
           "North Europe",
-          "West Europe"
+          "West Europe",
+          "Southeast Asia"
         ],
         "properties": null,
         "resourceType": "locations/defaultProvider",

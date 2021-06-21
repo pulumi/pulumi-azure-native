@@ -51,8 +51,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("location", required: true)]
         public Input<object> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The data orcCompressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
         [Input("orcCompressionCodec")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.OrcCompressionCodec>? OrcCompressionCodec { get; set; }
+        public Input<object>? OrcCompressionCodec { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

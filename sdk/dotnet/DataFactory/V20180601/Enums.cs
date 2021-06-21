@@ -7,37 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
-    [EnumType]
-    public readonly struct AvroCompressionCodec : IEquatable<AvroCompressionCodec>
-    {
-        private readonly string _value;
-
-        private AvroCompressionCodec(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AvroCompressionCodec None { get; } = new AvroCompressionCodec("none");
-        public static AvroCompressionCodec Deflate { get; } = new AvroCompressionCodec("deflate");
-        public static AvroCompressionCodec Snappy { get; } = new AvroCompressionCodec("snappy");
-        public static AvroCompressionCodec Xz { get; } = new AvroCompressionCodec("xz");
-        public static AvroCompressionCodec Bzip2 { get; } = new AvroCompressionCodec("bzip2");
-
-        public static bool operator ==(AvroCompressionCodec left, AvroCompressionCodec right) => left.Equals(right);
-        public static bool operator !=(AvroCompressionCodec left, AvroCompressionCodec right) => !left.Equals(right);
-
-        public static explicit operator string(AvroCompressionCodec value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AvroCompressionCodec other && Equals(other);
-        public bool Equals(AvroCompressionCodec other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     /// <summary>
     /// Rest API method for target endpoint.
     /// </summary>
@@ -1058,36 +1027,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ODataAuthenticationType other && Equals(other);
         public bool Equals(ODataAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct OrcCompressionCodec : IEquatable<OrcCompressionCodec>
-    {
-        private readonly string _value;
-
-        private OrcCompressionCodec(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OrcCompressionCodec None { get; } = new OrcCompressionCodec("none");
-        public static OrcCompressionCodec Zlib { get; } = new OrcCompressionCodec("zlib");
-        public static OrcCompressionCodec Snappy { get; } = new OrcCompressionCodec("snappy");
-        public static OrcCompressionCodec Lzo { get; } = new OrcCompressionCodec("lzo");
-
-        public static bool operator ==(OrcCompressionCodec left, OrcCompressionCodec right) => left.Equals(right);
-        public static bool operator !=(OrcCompressionCodec left, OrcCompressionCodec right) => !left.Equals(right);
-
-        public static explicit operator string(OrcCompressionCodec value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OrcCompressionCodec other && Equals(other);
-        public bool Equals(OrcCompressionCodec other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

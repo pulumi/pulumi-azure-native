@@ -18,14 +18,14 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// <summary>
         /// Specify public IP sku name
         /// </summary>
-        [Input("publicIPAddressSkuName", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Compute.PublicIPAddressSkuName> PublicIPAddressSkuName { get; set; } = null!;
+        [Input("name")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.PublicIPAddressSkuName>? Name { get; set; }
 
         /// <summary>
         /// Specify public IP sku tier
         /// </summary>
-        [Input("publicIPAddressSkuTier")]
-        public InputUnion<string, Pulumi.AzureNative.Compute.PublicIPAddressSkuTier>? PublicIPAddressSkuTier { get; set; }
+        [Input("tier")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.PublicIPAddressSkuTier>? Tier { get; set; }
 
         public PublicIPAddressSkuArgs()
         {

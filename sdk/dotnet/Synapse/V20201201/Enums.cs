@@ -247,6 +247,8 @@ namespace Pulumi.AzureNative.Synapse.V20201201
 
         public static NodeSizeFamily None { get; } = new NodeSizeFamily("None");
         public static NodeSizeFamily MemoryOptimized { get; } = new NodeSizeFamily("MemoryOptimized");
+        public static NodeSizeFamily HardwareAcceleratedFPGA { get; } = new NodeSizeFamily("HardwareAcceleratedFPGA");
+        public static NodeSizeFamily HardwareAcceleratedGPU { get; } = new NodeSizeFamily("HardwareAcceleratedGPU");
 
         public static bool operator ==(NodeSizeFamily left, NodeSizeFamily right) => left.Equals(right);
         public static bool operator !=(NodeSizeFamily left, NodeSizeFamily right) => !left.Equals(right);

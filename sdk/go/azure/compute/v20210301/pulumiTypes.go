@@ -17672,9 +17672,9 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 // Describes the public IP Sku
 type PublicIPAddressSku struct {
 	// Specify public IP sku name
-	PublicIPAddressSkuName string `pulumi:"publicIPAddressSkuName"`
+	Name *string `pulumi:"name"`
 	// Specify public IP sku tier
-	PublicIPAddressSkuTier *string `pulumi:"publicIPAddressSkuTier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // PublicIPAddressSkuInput is an input type that accepts PublicIPAddressSkuArgs and PublicIPAddressSkuOutput values.
@@ -17691,9 +17691,9 @@ type PublicIPAddressSkuInput interface {
 // Describes the public IP Sku
 type PublicIPAddressSkuArgs struct {
 	// Specify public IP sku name
-	PublicIPAddressSkuName pulumi.StringInput `pulumi:"publicIPAddressSkuName"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specify public IP sku tier
-	PublicIPAddressSkuTier pulumi.StringPtrInput `pulumi:"publicIPAddressSkuTier"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PublicIPAddressSkuArgs) ElementType() reflect.Type {
@@ -17775,13 +17775,13 @@ func (o PublicIPAddressSkuOutput) ToPublicIPAddressSkuPtrOutputWithContext(ctx c
 }
 
 // Specify public IP sku name
-func (o PublicIPAddressSkuOutput) PublicIPAddressSkuName() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicIPAddressSku) string { return v.PublicIPAddressSkuName }).(pulumi.StringOutput)
+func (o PublicIPAddressSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specify public IP sku tier
-func (o PublicIPAddressSkuOutput) PublicIPAddressSkuTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicIPAddressSku) *string { return v.PublicIPAddressSkuTier }).(pulumi.StringPtrOutput)
+func (o PublicIPAddressSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type PublicIPAddressSkuPtrOutput struct{ *pulumi.OutputState }
@@ -17803,31 +17803,31 @@ func (o PublicIPAddressSkuPtrOutput) Elem() PublicIPAddressSkuOutput {
 }
 
 // Specify public IP sku name
-func (o PublicIPAddressSkuPtrOutput) PublicIPAddressSkuName() pulumi.StringPtrOutput {
+func (o PublicIPAddressSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIPAddressSku) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PublicIPAddressSkuName
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
 // Specify public IP sku tier
-func (o PublicIPAddressSkuPtrOutput) PublicIPAddressSkuTier() pulumi.StringPtrOutput {
+func (o PublicIPAddressSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIPAddressSku) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PublicIPAddressSkuTier
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the public IP Sku
 type PublicIPAddressSkuResponse struct {
 	// Specify public IP sku name
-	PublicIPAddressSkuName string `pulumi:"publicIPAddressSkuName"`
+	Name *string `pulumi:"name"`
 	// Specify public IP sku tier
-	PublicIPAddressSkuTier *string `pulumi:"publicIPAddressSkuTier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // PublicIPAddressSkuResponseInput is an input type that accepts PublicIPAddressSkuResponseArgs and PublicIPAddressSkuResponseOutput values.
@@ -17844,9 +17844,9 @@ type PublicIPAddressSkuResponseInput interface {
 // Describes the public IP Sku
 type PublicIPAddressSkuResponseArgs struct {
 	// Specify public IP sku name
-	PublicIPAddressSkuName pulumi.StringInput `pulumi:"publicIPAddressSkuName"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specify public IP sku tier
-	PublicIPAddressSkuTier pulumi.StringPtrInput `pulumi:"publicIPAddressSkuTier"`
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (PublicIPAddressSkuResponseArgs) ElementType() reflect.Type {
@@ -17928,13 +17928,13 @@ func (o PublicIPAddressSkuResponseOutput) ToPublicIPAddressSkuResponsePtrOutputW
 }
 
 // Specify public IP sku name
-func (o PublicIPAddressSkuResponseOutput) PublicIPAddressSkuName() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicIPAddressSkuResponse) string { return v.PublicIPAddressSkuName }).(pulumi.StringOutput)
+func (o PublicIPAddressSkuResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specify public IP sku tier
-func (o PublicIPAddressSkuResponseOutput) PublicIPAddressSkuTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicIPAddressSkuResponse) *string { return v.PublicIPAddressSkuTier }).(pulumi.StringPtrOutput)
+func (o PublicIPAddressSkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type PublicIPAddressSkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -17956,22 +17956,22 @@ func (o PublicIPAddressSkuResponsePtrOutput) Elem() PublicIPAddressSkuResponseOu
 }
 
 // Specify public IP sku name
-func (o PublicIPAddressSkuResponsePtrOutput) PublicIPAddressSkuName() pulumi.StringPtrOutput {
+func (o PublicIPAddressSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIPAddressSkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PublicIPAddressSkuName
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
 // Specify public IP sku tier
-func (o PublicIPAddressSkuResponsePtrOutput) PublicIPAddressSkuTier() pulumi.StringPtrOutput {
+func (o PublicIPAddressSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIPAddressSkuResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PublicIPAddressSkuTier
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 

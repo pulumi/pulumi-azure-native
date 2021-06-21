@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210517preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210520:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210610preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

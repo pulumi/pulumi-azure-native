@@ -10,36 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AvroCompressionCodec pulumi.String
-
-const (
-	AvroCompressionCodecNone    = AvroCompressionCodec("none")
-	AvroCompressionCodecDeflate = AvroCompressionCodec("deflate")
-	AvroCompressionCodecSnappy  = AvroCompressionCodec("snappy")
-	AvroCompressionCodecXz      = AvroCompressionCodec("xz")
-	AvroCompressionCodecBzip2   = AvroCompressionCodec("bzip2")
-)
-
-func (AvroCompressionCodec) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e AvroCompressionCodec) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AvroCompressionCodec) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AvroCompressionCodec) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AvroCompressionCodec) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Rest API method for target endpoint.
 type AzureFunctionActivityMethod pulumi.String
 
@@ -1019,35 +989,6 @@ func (e ODataAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ODataAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type OrcCompressionCodec pulumi.String
-
-const (
-	OrcCompressionCodecNone   = OrcCompressionCodec("none")
-	OrcCompressionCodecZlib   = OrcCompressionCodec("zlib")
-	OrcCompressionCodecSnappy = OrcCompressionCodec("snappy")
-	OrcCompressionCodecLzo    = OrcCompressionCodec("lzo")
-)
-
-func (OrcCompressionCodec) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e OrcCompressionCodec) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OrcCompressionCodec) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OrcCompressionCodec) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e OrcCompressionCodec) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

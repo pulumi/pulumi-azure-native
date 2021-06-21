@@ -6023,52 +6023,34 @@ class PublicIPAddressSkuResponse(dict):
     """
     Describes the public IP Sku
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publicIPAddressSkuName":
-            suggest = "public_ip_address_sku_name"
-        elif key == "publicIPAddressSkuTier":
-            suggest = "public_ip_address_sku_tier"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressSkuResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PublicIPAddressSkuResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PublicIPAddressSkuResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 public_ip_address_sku_name: str,
-                 public_ip_address_sku_tier: Optional[str] = None):
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
         """
         Describes the public IP Sku
-        :param str public_ip_address_sku_name: Specify public IP sku name
-        :param str public_ip_address_sku_tier: Specify public IP sku tier
+        :param str name: Specify public IP sku name
+        :param str tier: Specify public IP sku tier
         """
-        pulumi.set(__self__, "public_ip_address_sku_name", public_ip_address_sku_name)
-        if public_ip_address_sku_tier is not None:
-            pulumi.set(__self__, "public_ip_address_sku_tier", public_ip_address_sku_tier)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
-    @pulumi.getter(name="publicIPAddressSkuName")
-    def public_ip_address_sku_name(self) -> str:
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Specify public IP sku name
         """
-        return pulumi.get(self, "public_ip_address_sku_name")
+        return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="publicIPAddressSkuTier")
-    def public_ip_address_sku_tier(self) -> Optional[str]:
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
         """
         Specify public IP sku tier
         """
-        return pulumi.get(self, "public_ip_address_sku_tier")
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

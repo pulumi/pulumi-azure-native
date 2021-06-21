@@ -624,8 +624,10 @@ func (e NodeSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type NodeSizeFamily pulumi.String
 
 const (
-	NodeSizeFamilyNone            = NodeSizeFamily("None")
-	NodeSizeFamilyMemoryOptimized = NodeSizeFamily("MemoryOptimized")
+	NodeSizeFamilyNone                    = NodeSizeFamily("None")
+	NodeSizeFamilyMemoryOptimized         = NodeSizeFamily("MemoryOptimized")
+	NodeSizeFamilyHardwareAcceleratedFPGA = NodeSizeFamily("HardwareAcceleratedFPGA")
+	NodeSizeFamilyHardwareAcceleratedGPU  = NodeSizeFamily("HardwareAcceleratedGPU")
 )
 
 func (NodeSizeFamily) ElementType() reflect.Type {

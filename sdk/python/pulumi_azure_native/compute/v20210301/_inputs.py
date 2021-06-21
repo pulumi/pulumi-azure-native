@@ -2977,40 +2977,41 @@ class PlanArgs:
 @pulumi.input_type
 class PublicIPAddressSkuArgs:
     def __init__(__self__, *,
-                 public_ip_address_sku_name: pulumi.Input[Union[str, 'PublicIPAddressSkuName']],
-                 public_ip_address_sku_tier: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuName']]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]] = None):
         """
         Describes the public IP Sku
-        :param pulumi.Input[Union[str, 'PublicIPAddressSkuName']] public_ip_address_sku_name: Specify public IP sku name
-        :param pulumi.Input[Union[str, 'PublicIPAddressSkuTier']] public_ip_address_sku_tier: Specify public IP sku tier
+        :param pulumi.Input[Union[str, 'PublicIPAddressSkuName']] name: Specify public IP sku name
+        :param pulumi.Input[Union[str, 'PublicIPAddressSkuTier']] tier: Specify public IP sku tier
         """
-        pulumi.set(__self__, "public_ip_address_sku_name", public_ip_address_sku_name)
-        if public_ip_address_sku_tier is not None:
-            pulumi.set(__self__, "public_ip_address_sku_tier", public_ip_address_sku_tier)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
-    @pulumi.getter(name="publicIPAddressSkuName")
-    def public_ip_address_sku_name(self) -> pulumi.Input[Union[str, 'PublicIPAddressSkuName']]:
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuName']]]:
         """
         Specify public IP sku name
         """
-        return pulumi.get(self, "public_ip_address_sku_name")
+        return pulumi.get(self, "name")
 
-    @public_ip_address_sku_name.setter
-    def public_ip_address_sku_name(self, value: pulumi.Input[Union[str, 'PublicIPAddressSkuName']]):
-        pulumi.set(self, "public_ip_address_sku_name", value)
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuName']]]):
+        pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="publicIPAddressSkuTier")
-    def public_ip_address_sku_tier(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]:
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]:
         """
         Specify public IP sku tier
         """
-        return pulumi.get(self, "public_ip_address_sku_tier")
+        return pulumi.get(self, "tier")
 
-    @public_ip_address_sku_tier.setter
-    def public_ip_address_sku_tier(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]):
-        pulumi.set(self, "public_ip_address_sku_tier", value)
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressSkuTier']]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20210401preview from "./v20210401preview";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20210401preview,
+    v20210601preview,
 };
 
 export const ACLAction = {

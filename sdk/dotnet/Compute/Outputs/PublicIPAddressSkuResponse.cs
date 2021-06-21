@@ -16,20 +16,20 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Specify public IP sku name
         /// </summary>
-        public readonly string PublicIPAddressSkuName;
+        public readonly string? Name;
         /// <summary>
         /// Specify public IP sku tier
         /// </summary>
-        public readonly string? PublicIPAddressSkuTier;
+        public readonly string? Tier;
 
         [OutputConstructor]
         private PublicIPAddressSkuResponse(
-            string publicIPAddressSkuName,
+            string? name,
 
-            string? publicIPAddressSkuTier)
+            string? tier)
         {
-            PublicIPAddressSkuName = publicIPAddressSkuName;
-            PublicIPAddressSkuTier = publicIPAddressSkuTier;
+            Name = name;
+            Tier = tier;
         }
     }
 }

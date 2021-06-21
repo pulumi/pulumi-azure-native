@@ -27,8 +27,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// The data avroCompressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
         [Input("avroCompressionCodec")]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.AvroCompressionCodec>? AvroCompressionCodec { get; set; }
+        public Input<object>? AvroCompressionCodec { get; set; }
 
         [Input("avroCompressionLevel")]
         public Input<int>? AvroCompressionLevel { get; set; }

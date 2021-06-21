@@ -3003,7 +3003,7 @@ class AvroDatasetResponse(dict):
                  location: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 avro_compression_codec: Optional[str] = None,
+                 avro_compression_codec: Optional[Any] = None,
                  avro_compression_level: Optional[int] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -3017,6 +3017,7 @@ class AvroDatasetResponse(dict):
         :param str type: Type of dataset.
                Expected value is 'Avro'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param Any avro_compression_codec: The data avroCompressionCodec. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
@@ -3078,7 +3079,10 @@ class AvroDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="avroCompressionCodec")
-    def avro_compression_codec(self) -> Optional[str]:
+    def avro_compression_codec(self) -> Optional[Any]:
+        """
+        The data avroCompressionCodec. Type: string (or Expression with resultType string).
+        """
         return pulumi.get(self, "avro_compression_codec")
 
     @property
@@ -48710,7 +48714,7 @@ class OrcDatasetResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
-                 orc_compression_codec: Optional[str] = None,
+                 orc_compression_codec: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None):
@@ -48723,6 +48727,7 @@ class OrcDatasetResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Any orc_compression_codec: The data orcCompressionCodec. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
@@ -48796,7 +48801,10 @@ class OrcDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="orcCompressionCodec")
-    def orc_compression_codec(self) -> Optional[str]:
+    def orc_compression_codec(self) -> Optional[Any]:
+        """
+        The data orcCompressionCodec. Type: string (or Expression with resultType string).
+        """
         return pulumi.get(self, "orc_compression_codec")
 
     @property

@@ -10,16 +10,6 @@ export {
     v20180601,
 };
 
-export const AvroCompressionCodec = {
-    None: "none",
-    Deflate: "deflate",
-    Snappy: "snappy",
-    Xz: "xz",
-    Bzip2: "bzip2",
-} as const;
-
-export type AvroCompressionCodec = (typeof AvroCompressionCodec)[keyof typeof AvroCompressionCodec];
-
 export const AzureFunctionActivityMethod = {
     GET: "GET",
     POST: "POST",
@@ -374,15 +364,6 @@ export const ODataAuthenticationType = {
  * Type of authentication used to connect to the OData service.
  */
 export type ODataAuthenticationType = (typeof ODataAuthenticationType)[keyof typeof ODataAuthenticationType];
-
-export const OrcCompressionCodec = {
-    None: "none",
-    Zlib: "zlib",
-    Snappy: "snappy",
-    Lzo: "lzo",
-} as const;
-
-export type OrcCompressionCodec = (typeof OrcCompressionCodec)[keyof typeof OrcCompressionCodec];
 
 export const ParameterType = {
     Object: "Object",

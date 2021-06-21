@@ -17,7 +17,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
-        public readonly string? AvroCompressionCodec;
+        /// <summary>
+        /// The data avroCompressionCodec. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? AvroCompressionCodec;
         public readonly int? AvroCompressionLevel;
         /// <summary>
         /// Dataset description.
@@ -57,7 +60,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private AvroDatasetResponse(
             ImmutableArray<object> annotations,
 
-            string? avroCompressionCodec,
+            object? avroCompressionCodec,
 
             int? avroCompressionLevel,
 

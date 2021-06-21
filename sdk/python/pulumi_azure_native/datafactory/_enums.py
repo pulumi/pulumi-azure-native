@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'AvroCompressionCodec',
     'AzureFunctionActivityMethod',
     'AzureSearchIndexWriteBehaviorType',
     'BlobEventTypes',
@@ -38,7 +37,6 @@ __all__ = [
     'MongoDbAuthenticationType',
     'ODataAadServicePrincipalCredentialType',
     'ODataAuthenticationType',
-    'OrcCompressionCodec',
     'ParameterType',
     'PhoenixAuthenticationType',
     'PolybaseSettingsRejectType',
@@ -67,14 +65,6 @@ __all__ = [
     'WebAuthenticationType',
     'WebHookActivityMethod',
 ]
-
-
-class AvroCompressionCodec(str, Enum):
-    NONE = "none"
-    DEFLATE = "deflate"
-    SNAPPY = "snappy"
-    XZ = "xz"
-    BZIP2 = "bzip2"
 
 
 class AzureFunctionActivityMethod(str, Enum):
@@ -366,13 +356,6 @@ class ODataAuthenticationType(str, Enum):
     WINDOWS = "Windows"
     AAD_SERVICE_PRINCIPAL = "AadServicePrincipal"
     MANAGED_SERVICE_IDENTITY = "ManagedServiceIdentity"
-
-
-class OrcCompressionCodec(str, Enum):
-    NONE = "none"
-    ZLIB = "zlib"
-    SNAPPY = "snappy"
-    LZO = "lzo"
 
 
 class ParameterType(str, Enum):
