@@ -112,7 +112,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection to an azure resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection to an azure resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

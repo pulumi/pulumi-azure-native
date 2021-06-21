@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getWebPubSub";
 export * from "./getWebPubSubPrivateEndpointConnection";
 export * from "./getWebPubSubSharedPrivateLinkResource";
+export * from "./listWebPubSubKeys";
 export * from "./webPubSub";
 export * from "./webPubSubPrivateEndpointConnection";
 export * from "./webPubSubSharedPrivateLinkResource";

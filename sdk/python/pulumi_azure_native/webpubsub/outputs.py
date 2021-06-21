@@ -11,7 +11,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DiagnosticConfigurationResponse',
     'EventHandlerSettingsResponse',
     'EventHandlerTemplateResponse',
     'ManagedIdentityResponse',
@@ -26,91 +25,10 @@ __all__ = [
     'SystemDataResponse',
     'UpstreamAuthSettingsResponse',
     'UserAssignedIdentityPropertyResponse',
+    'WebPubSubFeatureResponse',
     'WebPubSubNetworkACLsResponse',
     'WebPubSubTlsSettingsResponse',
 ]
-
-@pulumi.output_type
-class DiagnosticConfigurationResponse(dict):
-    """
-    Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enableConnectivityLogs":
-            suggest = "enable_connectivity_logs"
-        elif key == "enableLiveTrace":
-            suggest = "enable_live_trace"
-        elif key == "enableMessagingLogs":
-            suggest = "enable_messaging_logs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DiagnosticConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DiagnosticConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DiagnosticConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enable_connectivity_logs: Optional[str] = None,
-                 enable_live_trace: Optional[str] = None,
-                 enable_messaging_logs: Optional[str] = None):
-        """
-        Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        :param str enable_connectivity_logs: Indicate whether or not enable Connectivity logs.
-               Available values: Enabled, Disabled.
-               Case insensitive.
-        :param str enable_live_trace: Indicate whether or not enable Live Trace. 
-               Available values: Enabled, Disabled. 
-               Case insensitive. 
-               Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-        :param str enable_messaging_logs: Indicate whether or not enable Messaging logs.
-               Available values: Enabled, Disabled.
-               Case insensitive.
-        """
-        if enable_connectivity_logs is not None:
-            pulumi.set(__self__, "enable_connectivity_logs", enable_connectivity_logs)
-        if enable_live_trace is not None:
-            pulumi.set(__self__, "enable_live_trace", enable_live_trace)
-        if enable_messaging_logs is not None:
-            pulumi.set(__self__, "enable_messaging_logs", enable_messaging_logs)
-
-    @property
-    @pulumi.getter(name="enableConnectivityLogs")
-    def enable_connectivity_logs(self) -> Optional[str]:
-        """
-        Indicate whether or not enable Connectivity logs.
-        Available values: Enabled, Disabled.
-        Case insensitive.
-        """
-        return pulumi.get(self, "enable_connectivity_logs")
-
-    @property
-    @pulumi.getter(name="enableLiveTrace")
-    def enable_live_trace(self) -> Optional[str]:
-        """
-        Indicate whether or not enable Live Trace. 
-        Available values: Enabled, Disabled. 
-        Case insensitive. 
-        Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-        """
-        return pulumi.get(self, "enable_live_trace")
-
-    @property
-    @pulumi.getter(name="enableMessagingLogs")
-    def enable_messaging_logs(self) -> Optional[str]:
-        """
-        Indicate whether or not enable Messaging logs.
-        Available values: Enabled, Disabled.
-        Case insensitive.
-        """
-        return pulumi.get(self, "enable_messaging_logs")
-
 
 @pulumi.output_type
 class EventHandlerSettingsResponse(dict):
@@ -1050,6 +968,59 @@ class UserAssignedIdentityPropertyResponse(dict):
         Get the principal id for the user assigned identity
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class WebPubSubFeatureResponse(dict):
+    """
+    Feature of a resource, which controls the runtime behavior.
+    """
+    def __init__(__self__, *,
+                 flag: str,
+                 value: str,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        Feature of a resource, which controls the runtime behavior.
+        :param str flag: FeatureFlags is the supported features of Azure SignalR service.
+                - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+                - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+                - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+                
+        :param str value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        :param Mapping[str, str] properties: Optional properties related to this feature.
+        """
+        pulumi.set(__self__, "flag", flag)
+        pulumi.set(__self__, "value", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def flag(self) -> str:
+        """
+        FeatureFlags is the supported features of Azure SignalR service.
+         - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+         - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+         - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+         
+        """
+        return pulumi.get(self, "flag")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Optional properties related to this feature.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

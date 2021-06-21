@@ -125,7 +125,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

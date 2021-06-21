@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// A private endpoint connection to an azure resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubPrivateEndpointConnectionResult> InvokeAsync(GetWebPubSubPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionArgs(), options.WithVersion());

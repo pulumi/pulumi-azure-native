@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a server.
-// API Version: 2021-06-01.
+// API Version: 2017-12-01.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:dbforpostgresql:getServer", args, &rv, opts...)
@@ -29,40 +29,46 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// availability zone information of the server.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Backup properties of a server.
-	Backup *BackupResponse `pulumi:"backup"`
+	// Status showing whether the server data encryption is enabled with customer-managed keys.
+	ByokEnforcement string `pulumi:"byokEnforcement"`
+	// Earliest restore point creation time (ISO8601 format)
+	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
-	// High availability properties of a server.
-	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
+	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Status showing whether the server enabled infrastructure encryption.
+	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Maintenance window properties of a server.
-	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
-	// The minor version of the server.
-	MinorVersion string `pulumi:"minorVersion"`
+	// The master server id of a replica server.
+	MasterServerId *string `pulumi:"masterServerId"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Network properties of a server.
-	Network *NetworkResponse `pulumi:"network"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The maximum number of replicas that a master server can have.
+	ReplicaCapacity *int `pulumi:"replicaCapacity"`
+	// The replication role of the server.
+	ReplicationRole *string `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
-	// A state of a server that is visible to user.
-	State string `pulumi:"state"`
-	// Storage properties of a server.
-	Storage *StorageResponse `pulumi:"storage"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// PostgreSQL Server version.
+	// A state of a server that is visible to user.
+	UserVisibleState *string `pulumi:"userVisibleState"`
+	// Server version.
 	Version *string `pulumi:"version"`
 }

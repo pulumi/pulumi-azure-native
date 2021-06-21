@@ -13,6 +13,13 @@ CHANGELOG
 - `azurestackhci.getArcSetting`
 - `azurestackhci.getExtension`
 
+#### Breaking Changes published by Microsoft
+
+- `datafactory` changed the type for `avroCompressionCodec` and `orcCompressionCodec`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14770))
+- Type `compute.PublicIPAddressSku` changed the properties `publicIPAddressSkuName` to `name` and `tier`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14782))
+
 ---
 
 ## 1.13.0 (2020-06-17)

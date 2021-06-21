@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Configuration"},
                 },

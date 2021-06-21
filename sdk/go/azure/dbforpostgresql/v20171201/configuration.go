@@ -51,6 +51,12 @@ func NewConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Configuration"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Configuration"),
 		},
 		{

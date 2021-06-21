@@ -77,6 +77,12 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Server"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:Server"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql:Server"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Server"),
 		},
 		{

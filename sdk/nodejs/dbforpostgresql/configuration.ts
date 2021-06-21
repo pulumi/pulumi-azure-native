@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * API Version: 2021-06-01.
+ * API Version: 2017-12-01.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -61,10 +60,6 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -100,7 +95,6 @@ export class Configuration extends pulumi.CustomResource {
             inputs["defaultValue"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["allowedValues"] = undefined /*out*/;
@@ -109,14 +103,13 @@ export class Configuration extends pulumi.CustomResource {
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20210601:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20210601preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201preview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, inputs, opts);
     }

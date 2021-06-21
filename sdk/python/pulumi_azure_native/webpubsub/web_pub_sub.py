@@ -17,10 +17,8 @@ __all__ = ['WebPubSubArgs', 'WebPubSub']
 class WebPubSubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 diagnostic_configuration: Optional[pulumi.Input['DiagnosticConfigurationArgs']] = None,
-                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  event_handler: Optional[pulumi.Input['EventHandlerSettingsArgs']] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]] = None,
                  identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['WebPubSubNetworkACLsArgs']] = None,
@@ -32,14 +30,13 @@ class WebPubSubArgs:
         """
         The set of arguments for constructing a WebPubSub resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input['DiagnosticConfigurationArgs'] diagnostic_configuration: Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
-               Enable or disable aad auth
-               When set as true, connection with AuthType=aad won't work.
-        :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
-               Enable or disable local auth with AccessKey
-               When set as true, connection with AccessKey=xxx won't work.
         :param pulumi.Input['EventHandlerSettingsArgs'] event_handler: The settings for event handler in webpubsub service.
+        :param pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]] features: List of the featureFlags.
+               
+               FeatureFlags that are not included in the parameters for the update operation will not be modified.
+               And the response will only include featureFlags that are explicitly set. 
+               When a featureFlag is not explicitly set, its globally default value will be used
+               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity response
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs
@@ -52,18 +49,10 @@ class WebPubSubArgs:
         :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if diagnostic_configuration is not None:
-            pulumi.set(__self__, "diagnostic_configuration", diagnostic_configuration)
-        if disable_aad_auth is None:
-            disable_aad_auth = False
-        if disable_aad_auth is not None:
-            pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
-        if disable_local_auth is None:
-            disable_local_auth = False
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if event_handler is not None:
             pulumi.set(__self__, "event_handler", event_handler)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -96,46 +85,6 @@ class WebPubSubArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="diagnosticConfiguration")
-    def diagnostic_configuration(self) -> Optional[pulumi.Input['DiagnosticConfigurationArgs']]:
-        """
-        Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        """
-        return pulumi.get(self, "diagnostic_configuration")
-
-    @diagnostic_configuration.setter
-    def diagnostic_configuration(self, value: Optional[pulumi.Input['DiagnosticConfigurationArgs']]):
-        pulumi.set(self, "diagnostic_configuration", value)
-
-    @property
-    @pulumi.getter(name="disableAadAuth")
-    def disable_aad_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        DisableLocalAuth
-        Enable or disable aad auth
-        When set as true, connection with AuthType=aad won't work.
-        """
-        return pulumi.get(self, "disable_aad_auth")
-
-    @disable_aad_auth.setter
-    def disable_aad_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_aad_auth", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        DisableLocalAuth
-        Enable or disable local auth with AccessKey
-        When set as true, connection with AccessKey=xxx won't work.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
     @pulumi.getter(name="eventHandler")
     def event_handler(self) -> Optional[pulumi.Input['EventHandlerSettingsArgs']]:
         """
@@ -146,6 +95,23 @@ class WebPubSubArgs:
     @event_handler.setter
     def event_handler(self, value: Optional[pulumi.Input['EventHandlerSettingsArgs']]):
         pulumi.set(self, "event_handler", value)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]]:
+        """
+        List of the featureFlags.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, its globally default value will be used
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]]):
+        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter
@@ -251,10 +217,8 @@ class WebPubSub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 diagnostic_configuration: Optional[pulumi.Input[pulumi.InputType['DiagnosticConfigurationArgs']]] = None,
-                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
@@ -267,18 +231,17 @@ class WebPubSub(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent a resource.
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DiagnosticConfigurationArgs']] diagnostic_configuration: Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
-               Enable or disable aad auth
-               When set as true, connection with AuthType=aad won't work.
-        :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
-               Enable or disable local auth with AccessKey
-               When set as true, connection with AccessKey=xxx won't work.
         :param pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']] event_handler: The settings for event handler in webpubsub service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]] features: List of the featureFlags.
+               
+               FeatureFlags that are not included in the parameters for the update operation will not be modified.
+               And the response will only include featureFlags that are explicitly set. 
+               When a featureFlag is not explicitly set, its globally default value will be used
+               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs
@@ -299,7 +262,7 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
-        API Version: 2021-06-01-preview.
+        API Version: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubArgs args: The arguments to use to populate this resource's properties.
@@ -316,10 +279,8 @@ class WebPubSub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 diagnostic_configuration: Optional[pulumi.Input[pulumi.InputType['DiagnosticConfigurationArgs']]] = None,
-                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
@@ -341,14 +302,8 @@ class WebPubSub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-            __props__.__dict__["diagnostic_configuration"] = diagnostic_configuration
-            if disable_aad_auth is None:
-                disable_aad_auth = False
-            __props__.__dict__["disable_aad_auth"] = disable_aad_auth
-            if disable_local_auth is None:
-                disable_local_auth = False
-            __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["event_handler"] = event_handler
+            __props__.__dict__["features"] = features
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["network_acls"] = network_acls
@@ -397,11 +352,9 @@ class WebPubSub(pulumi.CustomResource):
 
         __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-        __props__.__dict__["diagnostic_configuration"] = None
-        __props__.__dict__["disable_aad_auth"] = None
-        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["event_handler"] = None
         __props__.__dict__["external_ip"] = None
+        __props__.__dict__["features"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -422,34 +375,6 @@ class WebPubSub(pulumi.CustomResource):
         return WebPubSub(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="diagnosticConfiguration")
-    def diagnostic_configuration(self) -> pulumi.Output[Optional['outputs.DiagnosticConfigurationResponse']]:
-        """
-        Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        """
-        return pulumi.get(self, "diagnostic_configuration")
-
-    @property
-    @pulumi.getter(name="disableAadAuth")
-    def disable_aad_auth(self) -> pulumi.Output[Optional[bool]]:
-        """
-        DisableLocalAuth
-        Enable or disable aad auth
-        When set as true, connection with AuthType=aad won't work.
-        """
-        return pulumi.get(self, "disable_aad_auth")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
-        """
-        DisableLocalAuth
-        Enable or disable local auth with AccessKey
-        When set as true, connection with AccessKey=xxx won't work.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @property
     @pulumi.getter(name="eventHandler")
     def event_handler(self) -> pulumi.Output[Optional['outputs.EventHandlerSettingsResponse']]:
         """
@@ -464,6 +389,19 @@ class WebPubSub(pulumi.CustomResource):
         The publicly accessible IP of the resource.
         """
         return pulumi.get(self, "external_ip")
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.WebPubSubFeatureResponse']]]:
+        """
+        List of the featureFlags.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, its globally default value will be used
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="hostName")

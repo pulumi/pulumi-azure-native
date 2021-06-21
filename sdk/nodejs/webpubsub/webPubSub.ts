@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent a resource.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**
@@ -37,22 +37,6 @@ export class WebPubSub extends pulumi.CustomResource {
     }
 
     /**
-     * Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-     */
-    public readonly diagnosticConfiguration!: pulumi.Output<outputs.webpubsub.DiagnosticConfigurationResponse | undefined>;
-    /**
-     * DisableLocalAuth
-     * Enable or disable aad auth
-     * When set as true, connection with AuthType=aad won't work.
-     */
-    public readonly disableAadAuth!: pulumi.Output<boolean | undefined>;
-    /**
-     * DisableLocalAuth
-     * Enable or disable local auth with AccessKey
-     * When set as true, connection with AccessKey=xxx won't work.
-     */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
-    /**
      * The settings for event handler in webpubsub service.
      */
     public readonly eventHandler!: pulumi.Output<outputs.webpubsub.EventHandlerSettingsResponse | undefined>;
@@ -60,6 +44,15 @@ export class WebPubSub extends pulumi.CustomResource {
      * The publicly accessible IP of the resource.
      */
     public /*out*/ readonly externalIP!: pulumi.Output<string>;
+    /**
+     * List of the featureFlags.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, its globally default value will be used
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    public readonly features!: pulumi.Output<outputs.webpubsub.WebPubSubFeatureResponse[] | undefined>;
     /**
      * FQDN of the service instance.
      */
@@ -145,10 +138,8 @@ export class WebPubSub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["diagnosticConfiguration"] = args ? args.diagnosticConfiguration : undefined;
-            inputs["disableAadAuth"] = (args ? args.disableAadAuth : undefined) ?? false;
-            inputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
             inputs["eventHandler"] = args ? args.eventHandler : undefined;
+            inputs["features"] = args ? args.features : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkACLs"] = args ? args.networkACLs : undefined;
@@ -170,11 +161,9 @@ export class WebPubSub extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         } else {
-            inputs["diagnosticConfiguration"] = undefined /*out*/;
-            inputs["disableAadAuth"] = undefined /*out*/;
-            inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["eventHandler"] = undefined /*out*/;
             inputs["externalIP"] = undefined /*out*/;
+            inputs["features"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -207,25 +196,18 @@ export class WebPubSub extends pulumi.CustomResource {
  */
 export interface WebPubSubArgs {
     /**
-     * Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-     */
-    diagnosticConfiguration?: pulumi.Input<inputs.webpubsub.DiagnosticConfigurationArgs>;
-    /**
-     * DisableLocalAuth
-     * Enable or disable aad auth
-     * When set as true, connection with AuthType=aad won't work.
-     */
-    disableAadAuth?: pulumi.Input<boolean>;
-    /**
-     * DisableLocalAuth
-     * Enable or disable local auth with AccessKey
-     * When set as true, connection with AccessKey=xxx won't work.
-     */
-    disableLocalAuth?: pulumi.Input<boolean>;
-    /**
      * The settings for event handler in webpubsub service.
      */
     eventHandler?: pulumi.Input<inputs.webpubsub.EventHandlerSettingsArgs>;
+    /**
+     * List of the featureFlags.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, its globally default value will be used
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    features?: pulumi.Input<pulumi.Input<inputs.webpubsub.WebPubSubFeatureArgs>[]>;
     /**
      * The managed identity response
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // A private endpoint connection to an azure resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 type WebPubSubPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

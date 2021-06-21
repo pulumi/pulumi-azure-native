@@ -20,22 +20,16 @@ class GetWebPubSubResult:
     """
     A class represent a resource.
     """
-    def __init__(__self__, diagnostic_configuration=None, disable_aad_auth=None, disable_local_auth=None, event_handler=None, external_ip=None, host_name=None, id=None, identity=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, server_port=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, version=None):
-        if diagnostic_configuration and not isinstance(diagnostic_configuration, dict):
-            raise TypeError("Expected argument 'diagnostic_configuration' to be a dict")
-        pulumi.set(__self__, "diagnostic_configuration", diagnostic_configuration)
-        if disable_aad_auth and not isinstance(disable_aad_auth, bool):
-            raise TypeError("Expected argument 'disable_aad_auth' to be a bool")
-        pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
-        if disable_local_auth and not isinstance(disable_local_auth, bool):
-            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
-        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+    def __init__(__self__, event_handler=None, external_ip=None, features=None, host_name=None, id=None, identity=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, server_port=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, version=None):
         if event_handler and not isinstance(event_handler, dict):
             raise TypeError("Expected argument 'event_handler' to be a dict")
         pulumi.set(__self__, "event_handler", event_handler)
         if external_ip and not isinstance(external_ip, str):
             raise TypeError("Expected argument 'external_ip' to be a str")
         pulumi.set(__self__, "external_ip", external_ip)
+        if features and not isinstance(features, list):
+            raise TypeError("Expected argument 'features' to be a list")
+        pulumi.set(__self__, "features", features)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -92,34 +86,6 @@ class GetWebPubSubResult:
         pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="diagnosticConfiguration")
-    def diagnostic_configuration(self) -> Optional['outputs.DiagnosticConfigurationResponse']:
-        """
-        Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        """
-        return pulumi.get(self, "diagnostic_configuration")
-
-    @property
-    @pulumi.getter(name="disableAadAuth")
-    def disable_aad_auth(self) -> Optional[bool]:
-        """
-        DisableLocalAuth
-        Enable or disable aad auth
-        When set as true, connection with AuthType=aad won't work.
-        """
-        return pulumi.get(self, "disable_aad_auth")
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[bool]:
-        """
-        DisableLocalAuth
-        Enable or disable local auth with AccessKey
-        When set as true, connection with AccessKey=xxx won't work.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @property
     @pulumi.getter(name="eventHandler")
     def event_handler(self) -> Optional['outputs.EventHandlerSettingsResponse']:
         """
@@ -134,6 +100,19 @@ class GetWebPubSubResult:
         The publicly accessible IP of the resource.
         """
         return pulumi.get(self, "external_ip")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[Sequence['outputs.WebPubSubFeatureResponse']]:
+        """
+        List of the featureFlags.
+        
+        FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        And the response will only include featureFlags that are explicitly set. 
+        When a featureFlag is not explicitly set, its globally default value will be used
+        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="hostName")
@@ -288,11 +267,9 @@ class AwaitableGetWebPubSubResult(GetWebPubSubResult):
         if False:
             yield self
         return GetWebPubSubResult(
-            diagnostic_configuration=self.diagnostic_configuration,
-            disable_aad_auth=self.disable_aad_auth,
-            disable_local_auth=self.disable_local_auth,
             event_handler=self.event_handler,
             external_ip=self.external_ip,
+            features=self.features,
             host_name=self.host_name,
             id=self.id,
             identity=self.identity,
@@ -318,7 +295,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubResult:
     """
     A class represent a resource.
-    API Version: 2021-06-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -334,11 +311,9 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:webpubsub:getWebPubSub', __args__, opts=opts, typ=GetWebPubSubResult).value
 
     return AwaitableGetWebPubSubResult(
-        diagnostic_configuration=__ret__.diagnostic_configuration,
-        disable_aad_auth=__ret__.disable_aad_auth,
-        disable_local_auth=__ret__.disable_local_auth,
         event_handler=__ret__.event_handler,
         external_ip=__ret__.external_ip,
+        features=__ret__.features,
         host_name=__ret__.host_name,
         id=__ret__.id,
         identity=__ret__.identity,

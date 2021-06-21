@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['ConfigurationArgs', 'Configuration']
 
@@ -110,7 +109,7 @@ class Configuration(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Configuration.
-        API Version: 2021-06-01.
+        API Version: 2017-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Configuration.
-        API Version: 2021-06-01.
+        API Version: 2017-12-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -176,9 +175,8 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601preview:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbforpostgresql:Configuration',
@@ -208,7 +206,6 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
@@ -260,14 +257,6 @@ class Configuration(pulumi.CustomResource):
         Source of the configuration.
         """
         return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

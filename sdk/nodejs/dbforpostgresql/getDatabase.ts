@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Database.
- * API Version: 2021-06-01.
+ * API Version: 2017-12-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
@@ -59,10 +59,6 @@ export interface GetDatabaseResult {
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

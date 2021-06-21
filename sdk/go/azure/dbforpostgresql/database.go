@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Database.
-// API Version: 2021-06-01.
+// API Version: 2017-12-01.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type Database struct {
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -46,16 +44,16 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20201105preview:Database"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20201105preview:Database"),
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20210601:Database"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601:Database"),
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -87,8 +85,6 @@ type databaseState struct {
 	Collation *string `pulumi:"collation"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -100,8 +96,6 @@ type DatabaseState struct {
 	Collation pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

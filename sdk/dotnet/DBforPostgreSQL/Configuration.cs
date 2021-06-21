@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a Configuration.
-    /// API Version: 2021-06-01.
+    /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
@@ -53,12 +53,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -96,16 +90,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210410privatepreview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601preview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Configuration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -18301,6 +18301,7 @@
         "webpubsub/getWebPubSubPrivateEndpointConnection.ts",
         "webpubsub/getWebPubSubSharedPrivateLinkResource.ts",
         "webpubsub/index.ts",
+        "webpubsub/listWebPubSubKeys.ts",
         "webpubsub/v20210401preview/getWebPubSub.ts",
         "webpubsub/v20210401preview/getWebPubSubPrivateEndpointConnection.ts",
         "webpubsub/v20210401preview/getWebPubSubSharedPrivateLinkResource.ts",

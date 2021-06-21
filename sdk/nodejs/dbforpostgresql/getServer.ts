@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server.
- * API Version: 2021-06-01.
+ * API Version: 2017-12-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
@@ -43,21 +43,17 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * availability zone information of the server.
+     * Status showing whether the server data encryption is enabled with customer-managed keys.
      */
-    readonly availabilityZone?: string;
+    readonly byokEnforcement: string;
     /**
-     * Backup properties of a server.
+     * Earliest restore point creation time (ISO8601 format)
      */
-    readonly backup?: outputs.dbforpostgresql.BackupResponse;
+    readonly earliestRestoreDate?: string;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName: string;
-    /**
-     * High availability properties of a server.
-     */
-    readonly highAvailability?: outputs.dbforpostgresql.HighAvailabilityResponse;
+    readonly fullyQualifiedDomainName?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -65,43 +61,55 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbforpostgresql.IdentityResponse;
+    readonly identity?: outputs.dbforpostgresql.ResourceIdentityResponse;
+    /**
+     * Status showing whether the server enabled infrastructure encryption.
+     */
+    readonly infrastructureEncryption?: string;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Maintenance window properties of a server.
+     * The master server id of a replica server.
      */
-    readonly maintenanceWindow?: outputs.dbforpostgresql.MaintenanceWindowResponse;
+    readonly masterServerId?: string;
     /**
-     * The minor version of the server.
+     * Enforce a minimal Tls version for the server.
      */
-    readonly minorVersion: string;
+    readonly minimalTlsVersion?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Network properties of a server.
+     * List of private endpoint connections on a server
      */
-    readonly network?: outputs.dbforpostgresql.NetworkResponse;
+    readonly privateEndpointConnections: outputs.dbforpostgresql.ServerPrivateEndpointConnectionResponse[];
+    /**
+     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * The maximum number of replicas that a master server can have.
+     */
+    readonly replicaCapacity?: number;
+    /**
+     * The replication role of the server.
+     */
+    readonly replicationRole?: string;
     /**
      * The SKU (pricing tier) of the server.
      */
     readonly sku?: outputs.dbforpostgresql.SkuResponse;
     /**
-     * A state of a server that is visible to user.
+     * Enable ssl enforcement or not when connect to server.
      */
-    readonly state: string;
+    readonly sslEnforcement?: string;
     /**
-     * Storage properties of a server.
+     * Storage profile of a server.
      */
-    readonly storage?: outputs.dbforpostgresql.StorageResponse;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    readonly storageProfile?: outputs.dbforpostgresql.StorageProfileResponse;
     /**
      * Resource tags.
      */
@@ -111,7 +119,11 @@ export interface GetServerResult {
      */
     readonly type: string;
     /**
-     * PostgreSQL Server version.
+     * A state of a server that is visible to user.
+     */
+    readonly userVisibleState?: string;
+    /**
+     * Server version.
      */
     readonly version?: string;
 }

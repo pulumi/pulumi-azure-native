@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// Describes a Shared Private Link Resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubSharedPrivateLinkResourceResult> InvokeAsync(GetWebPubSubSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithVersion());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Represents a Configuration.
-        /// API Version: 2021-06-01.
+        /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
@@ -78,10 +78,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -106,8 +102,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string? source,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string? value)
@@ -119,7 +113,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             Id = id;
             Name = name;
             Source = source;
-            SystemData = systemData;
             Type = type;
             Value = value;
         }

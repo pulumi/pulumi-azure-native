@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"},

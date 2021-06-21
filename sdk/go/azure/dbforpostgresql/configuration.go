@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Configuration.
-// API Version: 2021-06-01.
+// API Version: 2017-12-01.
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,6 @@ type Configuration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Source of the configuration.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Value of the configuration.
@@ -54,34 +52,16 @@ func NewConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:Configuration"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214preview:Configuration"),
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20200214privatepreview:Configuration"),
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214privatepreview:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20210410privatepreview:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210410privatepreview:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20210601:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbforpostgresql/v20210601preview:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601preview:Configuration"),
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:Configuration"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -119,8 +99,6 @@ type configurationState struct {
 	Name *string `pulumi:"name"`
 	// Source of the configuration.
 	Source *string `pulumi:"source"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Value of the configuration.
@@ -140,8 +118,6 @@ type ConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Source of the configuration.
 	Source pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Value of the configuration.

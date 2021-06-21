@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// A class represent a resource.
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithVersion());
@@ -44,22 +44,6 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubResult
     {
         /// <summary>
-        /// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-        /// </summary>
-        public readonly Outputs.DiagnosticConfigurationResponse? DiagnosticConfiguration;
-        /// <summary>
-        /// DisableLocalAuth
-        /// Enable or disable aad auth
-        /// When set as true, connection with AuthType=aad won't work.
-        /// </summary>
-        public readonly bool? DisableAadAuth;
-        /// <summary>
-        /// DisableLocalAuth
-        /// Enable or disable local auth with AccessKey
-        /// When set as true, connection with AccessKey=xxx won't work.
-        /// </summary>
-        public readonly bool? DisableLocalAuth;
-        /// <summary>
         /// The settings for event handler in webpubsub service.
         /// </summary>
         public readonly Outputs.EventHandlerSettingsResponse? EventHandler;
@@ -67,6 +51,15 @@ namespace Pulumi.AzureNative.WebPubSub
         /// The publicly accessible IP of the resource.
         /// </summary>
         public readonly string ExternalIP;
+        /// <summary>
+        /// List of the featureFlags.
+        /// 
+        /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        /// And the response will only include featureFlags that are explicitly set. 
+        /// When a featureFlag is not explicitly set, its globally default value will be used
+        /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebPubSubFeatureResponse> Features;
         /// <summary>
         /// FQDN of the service instance.
         /// </summary>
@@ -144,15 +137,11 @@ namespace Pulumi.AzureNative.WebPubSub
 
         [OutputConstructor]
         private GetWebPubSubResult(
-            Outputs.DiagnosticConfigurationResponse? diagnosticConfiguration,
-
-            bool? disableAadAuth,
-
-            bool? disableLocalAuth,
-
             Outputs.EventHandlerSettingsResponse? eventHandler,
 
             string externalIP,
+
+            ImmutableArray<Outputs.WebPubSubFeatureResponse> features,
 
             string hostName,
 
@@ -190,11 +179,9 @@ namespace Pulumi.AzureNative.WebPubSub
 
             string version)
         {
-            DiagnosticConfiguration = diagnosticConfiguration;
-            DisableAadAuth = disableAadAuth;
-            DisableLocalAuth = disableLocalAuth;
             EventHandler = eventHandler;
             ExternalIP = externalIP;
+            Features = features;
             HostName = hostName;
             Id = id;
             Identity = identity;

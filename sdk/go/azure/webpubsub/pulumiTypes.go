@@ -10,406 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfiguration struct {
-	// Indicate whether or not enable Connectivity logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableConnectivityLogs *string `pulumi:"enableConnectivityLogs"`
-	// Indicate whether or not enable Live Trace.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-	EnableLiveTrace *string `pulumi:"enableLiveTrace"`
-	// Indicate whether or not enable Messaging logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableMessagingLogs *string `pulumi:"enableMessagingLogs"`
-}
-
-// DiagnosticConfigurationInput is an input type that accepts DiagnosticConfigurationArgs and DiagnosticConfigurationOutput values.
-// You can construct a concrete instance of `DiagnosticConfigurationInput` via:
-//
-//          DiagnosticConfigurationArgs{...}
-type DiagnosticConfigurationInput interface {
-	pulumi.Input
-
-	ToDiagnosticConfigurationOutput() DiagnosticConfigurationOutput
-	ToDiagnosticConfigurationOutputWithContext(context.Context) DiagnosticConfigurationOutput
-}
-
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfigurationArgs struct {
-	// Indicate whether or not enable Connectivity logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableConnectivityLogs pulumi.StringPtrInput `pulumi:"enableConnectivityLogs"`
-	// Indicate whether or not enable Live Trace.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-	EnableLiveTrace pulumi.StringPtrInput `pulumi:"enableLiveTrace"`
-	// Indicate whether or not enable Messaging logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableMessagingLogs pulumi.StringPtrInput `pulumi:"enableMessagingLogs"`
-}
-
-func (DiagnosticConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticConfiguration)(nil)).Elem()
-}
-
-func (i DiagnosticConfigurationArgs) ToDiagnosticConfigurationOutput() DiagnosticConfigurationOutput {
-	return i.ToDiagnosticConfigurationOutputWithContext(context.Background())
-}
-
-func (i DiagnosticConfigurationArgs) ToDiagnosticConfigurationOutputWithContext(ctx context.Context) DiagnosticConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationOutput)
-}
-
-func (i DiagnosticConfigurationArgs) ToDiagnosticConfigurationPtrOutput() DiagnosticConfigurationPtrOutput {
-	return i.ToDiagnosticConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticConfigurationArgs) ToDiagnosticConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationOutput).ToDiagnosticConfigurationPtrOutputWithContext(ctx)
-}
-
-// DiagnosticConfigurationPtrInput is an input type that accepts DiagnosticConfigurationArgs, DiagnosticConfigurationPtr and DiagnosticConfigurationPtrOutput values.
-// You can construct a concrete instance of `DiagnosticConfigurationPtrInput` via:
-//
-//          DiagnosticConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type DiagnosticConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticConfigurationPtrOutput() DiagnosticConfigurationPtrOutput
-	ToDiagnosticConfigurationPtrOutputWithContext(context.Context) DiagnosticConfigurationPtrOutput
-}
-
-type diagnosticConfigurationPtrType DiagnosticConfigurationArgs
-
-func DiagnosticConfigurationPtr(v *DiagnosticConfigurationArgs) DiagnosticConfigurationPtrInput {
-	return (*diagnosticConfigurationPtrType)(v)
-}
-
-func (*diagnosticConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticConfiguration)(nil)).Elem()
-}
-
-func (i *diagnosticConfigurationPtrType) ToDiagnosticConfigurationPtrOutput() DiagnosticConfigurationPtrOutput {
-	return i.ToDiagnosticConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticConfigurationPtrType) ToDiagnosticConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationPtrOutput)
-}
-
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticConfiguration)(nil)).Elem()
-}
-
-func (o DiagnosticConfigurationOutput) ToDiagnosticConfigurationOutput() DiagnosticConfigurationOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationOutput) ToDiagnosticConfigurationOutputWithContext(ctx context.Context) DiagnosticConfigurationOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationOutput) ToDiagnosticConfigurationPtrOutput() DiagnosticConfigurationPtrOutput {
-	return o.ToDiagnosticConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticConfigurationOutput) ToDiagnosticConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticConfigurationPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfiguration) *DiagnosticConfiguration {
-		return &v
-	}).(DiagnosticConfigurationPtrOutput)
-}
-
-// Indicate whether or not enable Connectivity logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationOutput) EnableConnectivityLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfiguration) *string { return v.EnableConnectivityLogs }).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Live Trace.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-func (o DiagnosticConfigurationOutput) EnableLiveTrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfiguration) *string { return v.EnableLiveTrace }).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Messaging logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationOutput) EnableMessagingLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfiguration) *string { return v.EnableMessagingLogs }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticConfiguration)(nil)).Elem()
-}
-
-func (o DiagnosticConfigurationPtrOutput) ToDiagnosticConfigurationPtrOutput() DiagnosticConfigurationPtrOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationPtrOutput) ToDiagnosticConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticConfigurationPtrOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationPtrOutput) Elem() DiagnosticConfigurationOutput {
-	return o.ApplyT(func(v *DiagnosticConfiguration) DiagnosticConfiguration { return *v }).(DiagnosticConfigurationOutput)
-}
-
-// Indicate whether or not enable Connectivity logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationPtrOutput) EnableConnectivityLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableConnectivityLogs
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Live Trace.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-func (o DiagnosticConfigurationPtrOutput) EnableLiveTrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableLiveTrace
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Messaging logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationPtrOutput) EnableMessagingLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableMessagingLogs
-	}).(pulumi.StringPtrOutput)
-}
-
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfigurationResponse struct {
-	// Indicate whether or not enable Connectivity logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableConnectivityLogs *string `pulumi:"enableConnectivityLogs"`
-	// Indicate whether or not enable Live Trace.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-	EnableLiveTrace *string `pulumi:"enableLiveTrace"`
-	// Indicate whether or not enable Messaging logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableMessagingLogs *string `pulumi:"enableMessagingLogs"`
-}
-
-// DiagnosticConfigurationResponseInput is an input type that accepts DiagnosticConfigurationResponseArgs and DiagnosticConfigurationResponseOutput values.
-// You can construct a concrete instance of `DiagnosticConfigurationResponseInput` via:
-//
-//          DiagnosticConfigurationResponseArgs{...}
-type DiagnosticConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToDiagnosticConfigurationResponseOutput() DiagnosticConfigurationResponseOutput
-	ToDiagnosticConfigurationResponseOutputWithContext(context.Context) DiagnosticConfigurationResponseOutput
-}
-
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfigurationResponseArgs struct {
-	// Indicate whether or not enable Connectivity logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableConnectivityLogs pulumi.StringPtrInput `pulumi:"enableConnectivityLogs"`
-	// Indicate whether or not enable Live Trace.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-	EnableLiveTrace pulumi.StringPtrInput `pulumi:"enableLiveTrace"`
-	// Indicate whether or not enable Messaging logs.
-	// Available values: Enabled, Disabled.
-	// Case insensitive.
-	EnableMessagingLogs pulumi.StringPtrInput `pulumi:"enableMessagingLogs"`
-}
-
-func (DiagnosticConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticConfigurationResponse)(nil)).Elem()
-}
-
-func (i DiagnosticConfigurationResponseArgs) ToDiagnosticConfigurationResponseOutput() DiagnosticConfigurationResponseOutput {
-	return i.ToDiagnosticConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i DiagnosticConfigurationResponseArgs) ToDiagnosticConfigurationResponseOutputWithContext(ctx context.Context) DiagnosticConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationResponseOutput)
-}
-
-func (i DiagnosticConfigurationResponseArgs) ToDiagnosticConfigurationResponsePtrOutput() DiagnosticConfigurationResponsePtrOutput {
-	return i.ToDiagnosticConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticConfigurationResponseArgs) ToDiagnosticConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationResponseOutput).ToDiagnosticConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// DiagnosticConfigurationResponsePtrInput is an input type that accepts DiagnosticConfigurationResponseArgs, DiagnosticConfigurationResponsePtr and DiagnosticConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `DiagnosticConfigurationResponsePtrInput` via:
-//
-//          DiagnosticConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DiagnosticConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticConfigurationResponsePtrOutput() DiagnosticConfigurationResponsePtrOutput
-	ToDiagnosticConfigurationResponsePtrOutputWithContext(context.Context) DiagnosticConfigurationResponsePtrOutput
-}
-
-type diagnosticConfigurationResponsePtrType DiagnosticConfigurationResponseArgs
-
-func DiagnosticConfigurationResponsePtr(v *DiagnosticConfigurationResponseArgs) DiagnosticConfigurationResponsePtrInput {
-	return (*diagnosticConfigurationResponsePtrType)(v)
-}
-
-func (*diagnosticConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticConfigurationResponse)(nil)).Elem()
-}
-
-func (i *diagnosticConfigurationResponsePtrType) ToDiagnosticConfigurationResponsePtrOutput() DiagnosticConfigurationResponsePtrOutput {
-	return i.ToDiagnosticConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticConfigurationResponsePtrType) ToDiagnosticConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConfigurationResponsePtrOutput)
-}
-
-// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-type DiagnosticConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticConfigurationResponse)(nil)).Elem()
-}
-
-func (o DiagnosticConfigurationResponseOutput) ToDiagnosticConfigurationResponseOutput() DiagnosticConfigurationResponseOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationResponseOutput) ToDiagnosticConfigurationResponseOutputWithContext(ctx context.Context) DiagnosticConfigurationResponseOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationResponseOutput) ToDiagnosticConfigurationResponsePtrOutput() DiagnosticConfigurationResponsePtrOutput {
-	return o.ToDiagnosticConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticConfigurationResponseOutput) ToDiagnosticConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticConfigurationResponse) *DiagnosticConfigurationResponse {
-		return &v
-	}).(DiagnosticConfigurationResponsePtrOutput)
-}
-
-// Indicate whether or not enable Connectivity logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationResponseOutput) EnableConnectivityLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfigurationResponse) *string { return v.EnableConnectivityLogs }).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Live Trace.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-func (o DiagnosticConfigurationResponseOutput) EnableLiveTrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfigurationResponse) *string { return v.EnableLiveTrace }).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Messaging logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationResponseOutput) EnableMessagingLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticConfigurationResponse) *string { return v.EnableMessagingLogs }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticConfigurationResponse)(nil)).Elem()
-}
-
-func (o DiagnosticConfigurationResponsePtrOutput) ToDiagnosticConfigurationResponsePtrOutput() DiagnosticConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationResponsePtrOutput) ToDiagnosticConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o DiagnosticConfigurationResponsePtrOutput) Elem() DiagnosticConfigurationResponseOutput {
-	return o.ApplyT(func(v *DiagnosticConfigurationResponse) DiagnosticConfigurationResponse { return *v }).(DiagnosticConfigurationResponseOutput)
-}
-
-// Indicate whether or not enable Connectivity logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationResponsePtrOutput) EnableConnectivityLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableConnectivityLogs
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Live Trace.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-// Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues.
-func (o DiagnosticConfigurationResponsePtrOutput) EnableLiveTrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableLiveTrace
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicate whether or not enable Messaging logs.
-// Available values: Enabled, Disabled.
-// Case insensitive.
-func (o DiagnosticConfigurationResponsePtrOutput) EnableMessagingLogs() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiagnosticConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableMessagingLogs
-	}).(pulumi.StringPtrOutput)
-}
-
 // The settings for event handler in webpubsub service
 type EventHandlerSettings struct {
 	// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
@@ -4184,6 +3784,260 @@ func (o UserAssignedIdentityPropertyResponseMapOutput) MapIndex(k pulumi.StringI
 	}).(UserAssignedIdentityPropertyResponseOutput)
 }
 
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeature struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+	Flag string `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties map[string]string `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value string `pulumi:"value"`
+}
+
+// WebPubSubFeatureInput is an input type that accepts WebPubSubFeatureArgs and WebPubSubFeatureOutput values.
+// You can construct a concrete instance of `WebPubSubFeatureInput` via:
+//
+//          WebPubSubFeatureArgs{...}
+type WebPubSubFeatureInput interface {
+	pulumi.Input
+
+	ToWebPubSubFeatureOutput() WebPubSubFeatureOutput
+	ToWebPubSubFeatureOutputWithContext(context.Context) WebPubSubFeatureOutput
+}
+
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeatureArgs struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+	Flag pulumi.StringInput `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WebPubSubFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubFeature)(nil)).Elem()
+}
+
+func (i WebPubSubFeatureArgs) ToWebPubSubFeatureOutput() WebPubSubFeatureOutput {
+	return i.ToWebPubSubFeatureOutputWithContext(context.Background())
+}
+
+func (i WebPubSubFeatureArgs) ToWebPubSubFeatureOutputWithContext(ctx context.Context) WebPubSubFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureOutput)
+}
+
+// WebPubSubFeatureArrayInput is an input type that accepts WebPubSubFeatureArray and WebPubSubFeatureArrayOutput values.
+// You can construct a concrete instance of `WebPubSubFeatureArrayInput` via:
+//
+//          WebPubSubFeatureArray{ WebPubSubFeatureArgs{...} }
+type WebPubSubFeatureArrayInput interface {
+	pulumi.Input
+
+	ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput
+	ToWebPubSubFeatureArrayOutputWithContext(context.Context) WebPubSubFeatureArrayOutput
+}
+
+type WebPubSubFeatureArray []WebPubSubFeatureInput
+
+func (WebPubSubFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebPubSubFeature)(nil)).Elem()
+}
+
+func (i WebPubSubFeatureArray) ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput {
+	return i.ToWebPubSubFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i WebPubSubFeatureArray) ToWebPubSubFeatureArrayOutputWithContext(ctx context.Context) WebPubSubFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureArrayOutput)
+}
+
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeatureOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubFeature)(nil)).Elem()
+}
+
+func (o WebPubSubFeatureOutput) ToWebPubSubFeatureOutput() WebPubSubFeatureOutput {
+	return o
+}
+
+func (o WebPubSubFeatureOutput) ToWebPubSubFeatureOutputWithContext(ctx context.Context) WebPubSubFeatureOutput {
+	return o
+}
+
+// FeatureFlags is the supported features of Azure SignalR service.
+//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+func (o WebPubSubFeatureOutput) Flag() pulumi.StringOutput {
+	return o.ApplyT(func(v WebPubSubFeature) string { return v.Flag }).(pulumi.StringOutput)
+}
+
+// Optional properties related to this feature.
+func (o WebPubSubFeatureOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebPubSubFeature) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+func (o WebPubSubFeatureOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WebPubSubFeature) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WebPubSubFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebPubSubFeature)(nil)).Elem()
+}
+
+func (o WebPubSubFeatureArrayOutput) ToWebPubSubFeatureArrayOutput() WebPubSubFeatureArrayOutput {
+	return o
+}
+
+func (o WebPubSubFeatureArrayOutput) ToWebPubSubFeatureArrayOutputWithContext(ctx context.Context) WebPubSubFeatureArrayOutput {
+	return o
+}
+
+func (o WebPubSubFeatureArrayOutput) Index(i pulumi.IntInput) WebPubSubFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebPubSubFeature {
+		return vs[0].([]WebPubSubFeature)[vs[1].(int)]
+	}).(WebPubSubFeatureOutput)
+}
+
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeatureResponse struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+	Flag string `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties map[string]string `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value string `pulumi:"value"`
+}
+
+// WebPubSubFeatureResponseInput is an input type that accepts WebPubSubFeatureResponseArgs and WebPubSubFeatureResponseOutput values.
+// You can construct a concrete instance of `WebPubSubFeatureResponseInput` via:
+//
+//          WebPubSubFeatureResponseArgs{...}
+type WebPubSubFeatureResponseInput interface {
+	pulumi.Input
+
+	ToWebPubSubFeatureResponseOutput() WebPubSubFeatureResponseOutput
+	ToWebPubSubFeatureResponseOutputWithContext(context.Context) WebPubSubFeatureResponseOutput
+}
+
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeatureResponseArgs struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+	Flag pulumi.StringInput `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WebPubSubFeatureResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubFeatureResponse)(nil)).Elem()
+}
+
+func (i WebPubSubFeatureResponseArgs) ToWebPubSubFeatureResponseOutput() WebPubSubFeatureResponseOutput {
+	return i.ToWebPubSubFeatureResponseOutputWithContext(context.Background())
+}
+
+func (i WebPubSubFeatureResponseArgs) ToWebPubSubFeatureResponseOutputWithContext(ctx context.Context) WebPubSubFeatureResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureResponseOutput)
+}
+
+// WebPubSubFeatureResponseArrayInput is an input type that accepts WebPubSubFeatureResponseArray and WebPubSubFeatureResponseArrayOutput values.
+// You can construct a concrete instance of `WebPubSubFeatureResponseArrayInput` via:
+//
+//          WebPubSubFeatureResponseArray{ WebPubSubFeatureResponseArgs{...} }
+type WebPubSubFeatureResponseArrayInput interface {
+	pulumi.Input
+
+	ToWebPubSubFeatureResponseArrayOutput() WebPubSubFeatureResponseArrayOutput
+	ToWebPubSubFeatureResponseArrayOutputWithContext(context.Context) WebPubSubFeatureResponseArrayOutput
+}
+
+type WebPubSubFeatureResponseArray []WebPubSubFeatureResponseInput
+
+func (WebPubSubFeatureResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebPubSubFeatureResponse)(nil)).Elem()
+}
+
+func (i WebPubSubFeatureResponseArray) ToWebPubSubFeatureResponseArrayOutput() WebPubSubFeatureResponseArrayOutput {
+	return i.ToWebPubSubFeatureResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WebPubSubFeatureResponseArray) ToWebPubSubFeatureResponseArrayOutputWithContext(ctx context.Context) WebPubSubFeatureResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubFeatureResponseArrayOutput)
+}
+
+// Feature of a resource, which controls the runtime behavior.
+type WebPubSubFeatureResponseOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubFeatureResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebPubSubFeatureResponse)(nil)).Elem()
+}
+
+func (o WebPubSubFeatureResponseOutput) ToWebPubSubFeatureResponseOutput() WebPubSubFeatureResponseOutput {
+	return o
+}
+
+func (o WebPubSubFeatureResponseOutput) ToWebPubSubFeatureResponseOutputWithContext(ctx context.Context) WebPubSubFeatureResponseOutput {
+	return o
+}
+
+// FeatureFlags is the supported features of Azure SignalR service.
+//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+func (o WebPubSubFeatureResponseOutput) Flag() pulumi.StringOutput {
+	return o.ApplyT(func(v WebPubSubFeatureResponse) string { return v.Flag }).(pulumi.StringOutput)
+}
+
+// Optional properties related to this feature.
+func (o WebPubSubFeatureResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebPubSubFeatureResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+func (o WebPubSubFeatureResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WebPubSubFeatureResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WebPubSubFeatureResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WebPubSubFeatureResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebPubSubFeatureResponse)(nil)).Elem()
+}
+
+func (o WebPubSubFeatureResponseArrayOutput) ToWebPubSubFeatureResponseArrayOutput() WebPubSubFeatureResponseArrayOutput {
+	return o
+}
+
+func (o WebPubSubFeatureResponseArrayOutput) ToWebPubSubFeatureResponseArrayOutputWithContext(ctx context.Context) WebPubSubFeatureResponseArrayOutput {
+	return o
+}
+
+func (o WebPubSubFeatureResponseArrayOutput) Index(i pulumi.IntInput) WebPubSubFeatureResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebPubSubFeatureResponse {
+		return vs[0].([]WebPubSubFeatureResponse)[vs[1].(int)]
+	}).(WebPubSubFeatureResponseOutput)
+}
+
 // Network ACLs for the resource
 type WebPubSubNetworkACLs struct {
 	// Default action when no other rule matches
@@ -4887,10 +4741,6 @@ type EventHandlerTemplateResponseArrayMapInput interface {
 }
 
 func init() {
-	pulumi.RegisterOutputType(DiagnosticConfigurationOutput{})
-	pulumi.RegisterOutputType(DiagnosticConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DiagnosticConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(DiagnosticConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EventHandlerSettingsResponseOutput{})
@@ -4939,6 +4789,10 @@ func init() {
 	pulumi.RegisterOutputType(UpstreamAuthSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseMapOutput{})
+	pulumi.RegisterOutputType(WebPubSubFeatureOutput{})
+	pulumi.RegisterOutputType(WebPubSubFeatureArrayOutput{})
+	pulumi.RegisterOutputType(WebPubSubFeatureResponseOutput{})
+	pulumi.RegisterOutputType(WebPubSubFeatureResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsPtrOutput{})
 	pulumi.RegisterOutputType(WebPubSubNetworkACLsResponseOutput{})

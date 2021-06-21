@@ -149,8 +149,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},

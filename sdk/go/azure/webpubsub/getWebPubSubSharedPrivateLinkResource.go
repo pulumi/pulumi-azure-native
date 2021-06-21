@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupWebPubSubSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupWebPubSubSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubSharedPrivateLinkResourceResult, error) {
 	var rv LookupWebPubSubSharedPrivateLinkResourceResult
 	err := ctx.Invoke("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", args, &rv, opts...)

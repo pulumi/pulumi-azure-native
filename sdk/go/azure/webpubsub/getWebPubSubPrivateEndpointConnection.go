@@ -8,7 +8,7 @@ import (
 )
 
 // A private endpoint connection to an azure resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupWebPubSubPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebPubSubPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubPrivateEndpointConnectionResult, error) {
 	var rv LookupWebPubSubPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:webpubsub:getWebPubSubPrivateEndpointConnection", args, &rv, opts...)

@@ -45,12 +45,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20201105preview:Database"),
 		},
 		{

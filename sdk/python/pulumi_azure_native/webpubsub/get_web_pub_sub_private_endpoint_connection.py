@@ -121,7 +121,7 @@ def get_web_pub_sub_private_endpoint_connection(private_endpoint_connection_name
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubPrivateEndpointConnectionResult:
     """
     A private endpoint connection to an azure resource
-    API Version: 2021-06-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection

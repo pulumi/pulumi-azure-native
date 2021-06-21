@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 type WebPubSubSharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 

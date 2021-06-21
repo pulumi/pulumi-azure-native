@@ -7,13 +7,17 @@ from enum import Enum
 __all__ = [
     'AdministratorType',
     'CreateMode',
-    'GeoRedundantBackupEnum',
-    'HighAvailabilityMode',
-    'ResourceIdentityType',
+    'GeoRedundantBackup',
+    'IdentityType',
+    'InfrastructureEncryption',
+    'MinimalTlsVersionEnum',
+    'PublicNetworkAccessEnum',
     'ServerKeyType',
     'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
+    'SslEnforcementEnum',
+    'StorageAutogrow',
 ]
 
 
@@ -26,35 +30,53 @@ class AdministratorType(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    The mode to create a new PostgreSQL server.
+    The mode to create a new server.
     """
     DEFAULT = "Default"
-    CREATE = "Create"
-    UPDATE = "Update"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    GEO_RESTORE = "GeoRestore"
+    REPLICA = "Replica"
 
 
-class GeoRedundantBackupEnum(str, Enum):
+class GeoRedundantBackup(str, Enum):
     """
-    A value indicating whether Geo-Redundant backup is enabled on the server.
+    Enable Geo-redundant or not for server backup.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
-class HighAvailabilityMode(str, Enum):
+class IdentityType(str, Enum):
     """
-    The HA mode for the server.
-    """
-    DISABLED = "Disabled"
-    ZONE_REDUNDANT = "ZoneRedundant"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class InfrastructureEncryption(str, Enum):
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class MinimalTlsVersionEnum(str, Enum):
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    TLS1_0 = "TLS1_0"
+    TLS1_1 = "TLS1_1"
+    TLS1_2 = "TLS1_2"
+    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
+
+
+class PublicNetworkAccessEnum(str, Enum):
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ServerKeyType(str, Enum):
@@ -74,17 +96,36 @@ class ServerSecurityAlertPolicyState(str, Enum):
 
 class ServerVersion(str, Enum):
     """
-    PostgreSQL Server version.
+    Server version.
     """
-    SERVER_VERSION_13 = "13"
-    SERVER_VERSION_12 = "12"
+    SERVER_VERSION_9_5 = "9.5"
+    SERVER_VERSION_9_6 = "9.6"
+    SERVER_VERSION_10 = "10"
+    SERVER_VERSION_10_0 = "10.0"
+    SERVER_VERSION_10_2 = "10.2"
     SERVER_VERSION_11 = "11"
 
 
 class SkuTier(str, Enum):
     """
-    The tier of the particular SKU, e.g. Burstable.
+    The tier of the particular SKU, e.g. Basic.
     """
-    BURSTABLE = "Burstable"
+    BASIC = "Basic"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class SslEnforcementEnum(str, Enum):
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class StorageAutogrow(str, Enum):
+    """
+    Enable Storage Auto Grow.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

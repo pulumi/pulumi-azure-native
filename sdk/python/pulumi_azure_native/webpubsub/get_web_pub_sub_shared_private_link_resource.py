@@ -145,7 +145,7 @@ def get_web_pub_sub_shared_private_link_resource(resource_group_name: Optional[s
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubSharedPrivateLinkResourceResult:
     """
     Describes a Shared Private Link Resource
-    API Version: 2021-06-01-preview.
+    API Version: 2021-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

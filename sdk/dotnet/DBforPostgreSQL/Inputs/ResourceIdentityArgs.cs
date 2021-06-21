@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Storage properties of a server
+    /// Azure Active Directory identity configuration for a resource.
     /// </summary>
-    public sealed class StorageArgs : Pulumi.ResourceArgs
+    public sealed class ResourceIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Max storage allowed for a server.
+        /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
-        [Input("storageSizeGB")]
-        public Input<int>? StorageSizeGB { get; set; }
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.IdentityType>? Type { get; set; }
 
-        public StorageArgs()
+        public ResourceIdentityArgs()
         {
         }
     }

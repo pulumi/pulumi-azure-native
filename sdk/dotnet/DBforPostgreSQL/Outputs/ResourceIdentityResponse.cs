@@ -11,23 +11,23 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     [OutputType]
-    public sealed class IdentityResponse
+    public sealed class ResourceIdentityResponse
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The Azure Active Directory principal id.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant ID of resource.
+        /// The Azure Active Directory tenant id.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type.
+        /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
-        private IdentityResponse(
+        private ResourceIdentityResponse(
             string principalId,
 
             string tenantId,

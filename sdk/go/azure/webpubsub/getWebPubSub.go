@@ -8,7 +8,7 @@ import (
 )
 
 // A class represent a resource.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupWebPubSub(ctx *pulumi.Context, args *LookupWebPubSubArgs, opts ...pulumi.InvokeOption) (*LookupWebPubSubResult, error) {
 	var rv LookupWebPubSubResult
 	err := ctx.Invoke("azure-native:webpubsub:getWebPubSub", args, &rv, opts...)
@@ -27,20 +27,17 @@ type LookupWebPubSubArgs struct {
 
 // A class represent a resource.
 type LookupWebPubSubResult struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration *DiagnosticConfigurationResponse `pulumi:"diagnosticConfiguration"`
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth *bool `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The settings for event handler in webpubsub service.
 	EventHandler *EventHandlerSettingsResponse `pulumi:"eventHandler"`
 	// The publicly accessible IP of the resource.
 	ExternalIP string `pulumi:"externalIP"`
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []WebPubSubFeatureResponse `pulumi:"features"`
 	// FQDN of the service instance.
 	HostName string `pulumi:"hostName"`
 	// Fully qualified resource Id for the resource.

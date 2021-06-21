@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetConfigurationResult',
@@ -20,7 +19,7 @@ class GetConfigurationResult:
     """
     Represents a Configuration.
     """
-    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, id=None, name=None, source=None, system_data=None, type=None, value=None):
+    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, id=None, name=None, source=None, type=None, value=None):
         if allowed_values and not isinstance(allowed_values, str):
             raise TypeError("Expected argument 'allowed_values' to be a str")
         pulumi.set(__self__, "allowed_values", allowed_values)
@@ -42,9 +41,6 @@ class GetConfigurationResult:
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -109,14 +105,6 @@ class GetConfigurationResult:
         return pulumi.get(self, "source")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -146,7 +134,6 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             id=self.id,
             name=self.name,
             source=self.source,
-            system_data=self.system_data,
             type=self.type,
             value=self.value)
 
@@ -157,7 +144,7 @@ def get_configuration(configuration_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Represents a Configuration.
-    API Version: 2021-06-01.
+    API Version: 2017-12-01.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -182,6 +169,5 @@ def get_configuration(configuration_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         source=__ret__.source,
-        system_data=__ret__.system_data,
         type=__ret__.type,
         value=__ret__.value)

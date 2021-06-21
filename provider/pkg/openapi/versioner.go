@@ -101,6 +101,7 @@ var cutoffProviderVersions = map[string]string{
 	"containerservice":        "v20210301",
 	"costmanagement":          "v20200601",
 	"databox":                 "v20201101",
+	"dbforpostgresql":         "v20171201",
 	"desktopvirtualization":   "v20210201preview",
 	"devices":                 "v20200831",
 	"documentdb":              "v20210315",
@@ -120,6 +121,7 @@ var cutoffProviderVersions = map[string]string{
 	"storagepool":             "v20200315preview",
 	"synapse":                 "v20210301",
 	"web":                     "v20201201",
+	"webpubsub":               "v20210401preview",
 }
 
 var lockedTypeVersions = map[string]string{

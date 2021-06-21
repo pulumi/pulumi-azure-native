@@ -12,24 +12,21 @@ import (
 )
 
 // A class represent a resource.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 type WebPubSub struct {
 	pulumi.CustomResourceState
 
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration DiagnosticConfigurationResponsePtrOutput `pulumi:"diagnosticConfiguration"`
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrOutput `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
 	// The settings for event handler in webpubsub service.
 	EventHandler EventHandlerSettingsResponsePtrOutput `pulumi:"eventHandler"`
 	// The publicly accessible IP of the resource.
 	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features WebPubSubFeatureResponseArrayOutput `pulumi:"features"`
 	// FQDN of the service instance.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The managed identity response
@@ -78,12 +75,6 @@ func NewWebPubSub(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableAadAuth == nil {
-		args.DisableAadAuth = pulumi.BoolPtr(false)
-	}
-	if args.DisableLocalAuth == nil {
-		args.DisableLocalAuth = pulumi.BoolPtr(false)
-	}
 	if args.PublicNetworkAccess == nil {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
@@ -127,20 +118,17 @@ func GetWebPubSub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebPubSub resources.
 type webPubSubState struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration *DiagnosticConfigurationResponse `pulumi:"diagnosticConfiguration"`
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth *bool `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The settings for event handler in webpubsub service.
 	EventHandler *EventHandlerSettingsResponse `pulumi:"eventHandler"`
 	// The publicly accessible IP of the resource.
 	ExternalIP *string `pulumi:"externalIP"`
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []WebPubSubFeatureResponse `pulumi:"features"`
 	// FQDN of the service instance.
 	HostName *string `pulumi:"hostName"`
 	// The managed identity response
@@ -180,20 +168,17 @@ type webPubSubState struct {
 }
 
 type WebPubSubState struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration DiagnosticConfigurationResponsePtrInput
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrInput
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrInput
 	// The settings for event handler in webpubsub service.
 	EventHandler EventHandlerSettingsResponsePtrInput
 	// The publicly accessible IP of the resource.
 	ExternalIP pulumi.StringPtrInput
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features WebPubSubFeatureResponseArrayInput
 	// FQDN of the service instance.
 	HostName pulumi.StringPtrInput
 	// The managed identity response
@@ -237,18 +222,15 @@ func (WebPubSubState) ElementType() reflect.Type {
 }
 
 type webPubSubArgs struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration *DiagnosticConfiguration `pulumi:"diagnosticConfiguration"`
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth *bool `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The settings for event handler in webpubsub service.
 	EventHandler *EventHandlerSettings `pulumi:"eventHandler"`
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []WebPubSubFeature `pulumi:"features"`
 	// The managed identity response
 	Identity *ManagedIdentity `pulumi:"identity"`
 	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
@@ -273,18 +255,15 @@ type webPubSubArgs struct {
 
 // The set of arguments for constructing a WebPubSub resource.
 type WebPubSubArgs struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration DiagnosticConfigurationPtrInput
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrInput
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrInput
 	// The settings for event handler in webpubsub service.
 	EventHandler EventHandlerSettingsPtrInput
+	// List of the featureFlags.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, its globally default value will be used
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features WebPubSubFeatureArrayInput
 	// The managed identity response
 	Identity ManagedIdentityPtrInput
 	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.

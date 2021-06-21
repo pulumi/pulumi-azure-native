@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A private endpoint connection to an azure resource
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubPrivateEndpointConnection")]
     public partial class WebPubSubPrivateEndpointConnection : Pulumi.CustomResource

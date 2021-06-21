@@ -169,7 +169,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql:Server" }, { type: "azure-nextgen:dbforpostgresql:Server" }, { type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210601:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210601:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, inputs, opts);
     }

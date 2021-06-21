@@ -11,32 +11,39 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     [OutputType]
-    public sealed class BackupResponse
+    public sealed class StorageProfileResponse
     {
         /// <summary>
         /// Backup retention days for the server.
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// The earliest restore point time (ISO8601 format) for server.
-        /// </summary>
-        public readonly string EarliestRestoreDate;
-        /// <summary>
-        /// A value indicating whether Geo-Redundant backup is enabled on the server.
+        /// Enable Geo-redundant or not for server backup.
         /// </summary>
         public readonly string? GeoRedundantBackup;
+        /// <summary>
+        /// Enable Storage Auto Grow.
+        /// </summary>
+        public readonly string? StorageAutogrow;
+        /// <summary>
+        /// Max storage allowed for a server.
+        /// </summary>
+        public readonly int? StorageMB;
 
         [OutputConstructor]
-        private BackupResponse(
+        private StorageProfileResponse(
             int? backupRetentionDays,
 
-            string earliestRestoreDate,
+            string? geoRedundantBackup,
 
-            string? geoRedundantBackup)
+            string? storageAutogrow,
+
+            int? storageMB)
         {
             BackupRetentionDays = backupRetentionDays;
-            EarliestRestoreDate = earliestRestoreDate;
             GeoRedundantBackup = geoRedundantBackup;
+            StorageAutogrow = storageAutogrow;
+            StorageMB = storageMB;
         }
     }
 }

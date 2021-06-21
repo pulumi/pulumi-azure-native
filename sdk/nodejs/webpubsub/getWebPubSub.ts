@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent a resource.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
     if (!opts) {
@@ -39,22 +39,6 @@ export interface GetWebPubSubArgs {
  */
 export interface GetWebPubSubResult {
     /**
-     * Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-     */
-    readonly diagnosticConfiguration?: outputs.webpubsub.DiagnosticConfigurationResponse;
-    /**
-     * DisableLocalAuth
-     * Enable or disable aad auth
-     * When set as true, connection with AuthType=aad won't work.
-     */
-    readonly disableAadAuth?: boolean;
-    /**
-     * DisableLocalAuth
-     * Enable or disable local auth with AccessKey
-     * When set as true, connection with AccessKey=xxx won't work.
-     */
-    readonly disableLocalAuth?: boolean;
-    /**
      * The settings for event handler in webpubsub service.
      */
     readonly eventHandler?: outputs.webpubsub.EventHandlerSettingsResponse;
@@ -62,6 +46,15 @@ export interface GetWebPubSubResult {
      * The publicly accessible IP of the resource.
      */
     readonly externalIP: string;
+    /**
+     * List of the featureFlags.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, its globally default value will be used
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    readonly features?: outputs.webpubsub.WebPubSubFeatureResponse[];
     /**
      * FQDN of the service instance.
      */

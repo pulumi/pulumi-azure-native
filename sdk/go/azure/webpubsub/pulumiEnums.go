@@ -38,6 +38,38 @@ func (e ACLAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// FeatureFlags is the supported features of Azure SignalR service.
+//  - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+//  - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
+type FeatureFlags pulumi.String
+
+const (
+	FeatureFlagsEnableConnectivityLogs = FeatureFlags("EnableConnectivityLogs")
+	FeatureFlagsEnableMessagingLogs    = FeatureFlags("EnableMessagingLogs")
+	FeatureFlagsEnableLiveTrace        = FeatureFlags("EnableLiveTrace")
+)
+
+func (FeatureFlags) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FeatureFlags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureFlags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureFlags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureFlags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Represent the identity type: systemAssigned, userAssigned, None
 type ManagedIdentityType pulumi.String
 

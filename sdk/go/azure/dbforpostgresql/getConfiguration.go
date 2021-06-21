@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a Configuration.
-// API Version: 2021-06-01.
+// API Version: 2017-12-01.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("azure-native:dbforpostgresql:getConfiguration", args, &rv, opts...)
@@ -43,8 +43,6 @@ type LookupConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Source of the configuration.
 	Source *string `pulumi:"source"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Value of the configuration.

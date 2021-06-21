@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a server.
-    /// API Version: 2021-06-01.
+    /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Server")]
     public partial class Server : Pulumi.CustomResource
@@ -23,34 +23,34 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// availability zone information of the server.
+        /// Status showing whether the server data encryption is enabled with customer-managed keys.
         /// </summary>
-        [Output("availabilityZone")]
-        public Output<string?> AvailabilityZone { get; private set; } = null!;
+        [Output("byokEnforcement")]
+        public Output<string> ByokEnforcement { get; private set; } = null!;
 
         /// <summary>
-        /// Backup properties of a server.
+        /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
-        [Output("backup")]
-        public Output<Outputs.BackupResponse?> Backup { get; private set; } = null!;
+        [Output("earliestRestoreDate")]
+        public Output<string?> EarliestRestoreDate { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
-        public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
-
-        /// <summary>
-        /// High availability properties of a server.
-        /// </summary>
-        [Output("highAvailability")]
-        public Output<Outputs.HighAvailabilityResponse?> HighAvailability { get; private set; } = null!;
+        public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Status showing whether the server enabled infrastructure encryption.
+        /// </summary>
+        [Output("infrastructureEncryption")]
+        public Output<string?> InfrastructureEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -59,16 +59,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance window properties of a server.
+        /// The master server id of a replica server.
         /// </summary>
-        [Output("maintenanceWindow")]
-        public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
+        [Output("masterServerId")]
+        public Output<string?> MasterServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The minor version of the server.
+        /// Enforce a minimal Tls version for the server.
         /// </summary>
-        [Output("minorVersion")]
-        public Output<string> MinorVersion { get; private set; } = null!;
+        [Output("minimalTlsVersion")]
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -77,10 +77,28 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network properties of a server.
+        /// List of private endpoint connections on a server
         /// </summary>
-        [Output("network")]
-        public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of replicas that a master server can have.
+        /// </summary>
+        [Output("replicaCapacity")]
+        public Output<int?> ReplicaCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// The replication role of the server.
+        /// </summary>
+        [Output("replicationRole")]
+        public Output<string?> ReplicationRole { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.
@@ -89,22 +107,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A state of a server that is visible to user.
+        /// Enable ssl enforcement or not when connect to server.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        [Output("sslEnforcement")]
+        public Output<string?> SslEnforcement { get; private set; } = null!;
 
         /// <summary>
-        /// Storage properties of a server.
+        /// Storage profile of a server.
         /// </summary>
-        [Output("storage")]
-        public Output<Outputs.StorageResponse?> Storage { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        [Output("storageProfile")]
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -119,7 +131,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// PostgreSQL Server version.
+        /// A state of a server that is visible to user.
+        /// </summary>
+        [Output("userVisibleState")]
+        public Output<string?> UserVisibleState { get; private set; } = null!;
+
+        /// <summary>
+        /// Server version.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -150,16 +168,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -184,70 +196,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-        /// </summary>
-        [Input("administratorLogin")]
-        public Input<string>? AdministratorLogin { get; set; }
-
-        /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
-
-        /// <summary>
-        /// availability zone information of the server.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
-        /// Backup properties of a server.
-        /// </summary>
-        [Input("backup")]
-        public Input<Inputs.BackupArgs>? Backup { get; set; }
-
-        /// <summary>
-        /// The mode to create a new PostgreSQL server.
-        /// </summary>
-        [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.CreateMode>? CreateMode { get; set; }
-
-        /// <summary>
-        /// High availability properties of a server.
-        /// </summary>
-        [Input("highAvailability")]
-        public Input<Inputs.HighAvailabilityArgs>? HighAvailability { get; set; }
-
-        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// The location the resource resides in.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Maintenance window properties of a server.
+        /// Properties of the server.
         /// </summary>
-        [Input("maintenanceWindow")]
-        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
-
-        /// <summary>
-        /// Network properties of a server.
-        /// </summary>
-        [Input("network")]
-        public Input<Inputs.NetworkArgs>? Network { get; set; }
-
-        /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'.
-        /// </summary>
-        [Input("pointInTimeUTC")]
-        public Input<string>? PointInTimeUTC { get; set; }
+        [Input("properties", required: true)]
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -267,35 +231,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
-        /// <summary>
-        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore'.
-        /// </summary>
-        [Input("sourceServerResourceId")]
-        public Input<string>? SourceServerResourceId { get; set; }
-
-        /// <summary>
-        /// Storage properties of a server.
-        /// </summary>
-        [Input("storage")]
-        public Input<Inputs.StorageArgs>? Storage { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Application-specific metadata in the form of key-value pairs.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// PostgreSQL Server version.
-        /// </summary>
-        [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {
