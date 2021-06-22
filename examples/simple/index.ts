@@ -30,6 +30,8 @@ const resourceGroup = new resources.ResourceGroup("rg", {
 //     },
 //     location: "westeurope", // it's still possible to set an explict location for a resource
 // });
+//
+// export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 const vnet = new network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
@@ -178,8 +180,6 @@ new storage.EncryptionScope("encscope", {
     accountName: storageAccount.name,
     source: storage.EncryptionScopeSource.Microsoft_Storage,
 });
-
-export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 export const existingRg = resources.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
 
