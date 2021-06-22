@@ -423,6 +423,11 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		metadata.Resources[tok] = r
 	}
 
+	// Add a note regarding WorkspaceSqlAadAdmin creation.
+	workspaceSqlAadAdmin := pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"]
+	workspaceSqlAadAdmin.Description += "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
+	pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"] = workspaceSqlAadAdmin
+
 	return nil
 }
 

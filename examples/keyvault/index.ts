@@ -20,7 +20,7 @@ const container = new containerinstance.ContainerGroup("containergroup", {
     osType: containerinstance.OperatingSystemTypes.Linux,
     containers: [{
         name: "foo",
-        image: "nginx",
+        image: "mcr.microsoft.com/azuredocs/aci-helloworld",
         resources: {
             requests: {
                 memoryInGB: 1,

@@ -13,22 +13,25 @@ const resourceGroup = new resources.ResourceGroup("rg", {
     location: "eastus2", // explicit location is here to test the location propagation from resource group to other resources
 });
 
-const staticSite = new web.StaticSite("staticsite", {
-    resourceGroupName: resourceGroup.name,
-    repositoryUrl: "",
-    branch: "master",
-    repositoryToken: "",
-    buildProperties: {
-        appLocation: "/",
-        apiLocation: "api",
-        appArtifactLocation: ""
-    },
-    sku: {
-        tier: "Free",
-        name: "Free",
-    },
-    location: "westeurope", // it's still possible to set an explict location for a resource
-});
+// See https://github.com/pulumi/pulumi-azure-native/issues/939
+// const staticSite = new web.StaticSite("staticsite", {
+//     resourceGroupName: resourceGroup.name,
+//     repositoryUrl: "",
+//     branch: "master",
+//     repositoryToken: "",
+//     buildProperties: {
+//         appLocation: "/",
+//         apiLocation: "api",
+//         appArtifactLocation: ""
+//     },
+//     sku: {
+//         tier: "Free",
+//         name: "Free",
+//     },
+//     location: "westeurope", // it's still possible to set an explict location for a resource
+// });
+//
+// export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 const vnet = new network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
@@ -177,8 +180,6 @@ new storage.EncryptionScope("encscope", {
     accountName: storageAccount.name,
     source: storage.EncryptionScopeSource.Microsoft_Storage,
 });
-
-export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 export const existingRg = resources.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
 
