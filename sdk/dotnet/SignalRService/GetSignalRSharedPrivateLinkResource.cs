@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Describes a Shared Private Link Resource
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetSignalRSharedPrivateLinkResourceResult> InvokeAsync(GetSignalRSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithVersion());

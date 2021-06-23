@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Shared Private Link Resource
-// API Version: 2021-06-01-preview.
+// API Version: 2021-04-01-preview.
 func LookupSignalRSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSignalRSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSignalRSharedPrivateLinkResourceResult, error) {
 	var rv LookupSignalRSharedPrivateLinkResourceResult
 	err := ctx.Invoke("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args, &rv, opts...)

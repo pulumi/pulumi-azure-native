@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Shared Private Link Resource
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-04-01-preview.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
     if (!opts) {
