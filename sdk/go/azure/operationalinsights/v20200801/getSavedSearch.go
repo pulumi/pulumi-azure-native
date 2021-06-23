@@ -32,7 +32,7 @@ type LookupSavedSearchResult struct {
 	Category string `pulumi:"category"`
 	// Saved search display name.
 	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag *string `pulumi:"etag"`
 	// The function alias if query serves as a function.
 	FunctionAlias *string `pulumi:"functionAlias"`

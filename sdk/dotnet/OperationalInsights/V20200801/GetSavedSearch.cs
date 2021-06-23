@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The ETag of the saved search.
+        /// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         /// </summary>
         public readonly string? Etag;
         /// <summary>

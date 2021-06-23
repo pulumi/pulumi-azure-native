@@ -52,7 +52,7 @@ export interface GetSavedSearchResult {
      */
     readonly displayName: string;
     /**
-     * The ETag of the saved search.
+     * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
      */
     readonly etag?: string;
     /**

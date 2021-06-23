@@ -33,7 +33,7 @@ class SavedSearchArgs:
         :param pulumi.Input[str] query: The query expression for the saved search.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] etag: The ETag of the saved search.
+        :param pulumi.Input[str] etag: The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         :param pulumi.Input[str] saved_search_id: The id of the saved search.
@@ -122,7 +122,7 @@ class SavedSearchArgs:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The ETag of the saved search.
+        The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         """
         return pulumi.get(self, "etag")
 
@@ -216,7 +216,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
         :param pulumi.Input[str] display_name: Saved search display name.
-        :param pulumi.Input[str] etag: The ETag of the saved search.
+        :param pulumi.Input[str] etag: The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         :param pulumi.Input[str] query: The query expression for the saved search.
@@ -353,7 +353,7 @@ class SavedSearch(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        The ETag of the saved search.
+        The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         """
         return pulumi.get(self, "etag")
 

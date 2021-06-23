@@ -75,7 +75,7 @@ class GetSavedSearchResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        The ETag of the saved search.
+        The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
         """
         return pulumi.get(self, "etag")
 

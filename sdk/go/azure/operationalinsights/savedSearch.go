@@ -20,7 +20,7 @@ type SavedSearch struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// Saved search display name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The function alias if query serves as a function.
 	FunctionAlias pulumi.StringPtrOutput `pulumi:"functionAlias"`
@@ -110,7 +110,7 @@ type savedSearchState struct {
 	Category *string `pulumi:"category"`
 	// Saved search display name.
 	DisplayName *string `pulumi:"displayName"`
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag *string `pulumi:"etag"`
 	// The function alias if query serves as a function.
 	FunctionAlias *string `pulumi:"functionAlias"`
@@ -133,7 +133,7 @@ type SavedSearchState struct {
 	Category pulumi.StringPtrInput
 	// Saved search display name.
 	DisplayName pulumi.StringPtrInput
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag pulumi.StringPtrInput
 	// The function alias if query serves as a function.
 	FunctionAlias pulumi.StringPtrInput
@@ -160,7 +160,7 @@ type savedSearchArgs struct {
 	Category string `pulumi:"category"`
 	// Saved search display name.
 	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag *string `pulumi:"etag"`
 	// The function alias if query serves as a function.
 	FunctionAlias *string `pulumi:"functionAlias"`
@@ -186,7 +186,7 @@ type SavedSearchArgs struct {
 	Category pulumi.StringInput
 	// Saved search display name.
 	DisplayName pulumi.StringInput
-	// The ETag of the saved search.
+	// The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
 	Etag pulumi.StringPtrInput
 	// The function alias if query serves as a function.
 	FunctionAlias pulumi.StringPtrInput

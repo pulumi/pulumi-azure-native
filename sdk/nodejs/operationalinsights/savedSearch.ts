@@ -45,7 +45,7 @@ export class SavedSearch extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The ETag of the saved search.
+     * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface SavedSearchArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The ETag of the saved search.
+     * The ETag of the saved search. To override an existing saved search, use "*" or specify the current Etag
      */
     etag?: pulumi.Input<string>;
     /**
