@@ -3,10 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.14.0 (2020-06-23)
+
 #### New Resources
 
 - `azurestackhci.ArcSetting`
-- `azurestackhci..Extension`
+- `azurestackhci.Extension`
 
 #### New Functions
 
@@ -19,8 +25,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14770))
 - Type `compute.PublicIPAddressSku` changed the properties `publicIPAddressSkuName` to `name` and `tier`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14782))
-
----
 
 ## 1.13.0 (2020-06-17)
 
