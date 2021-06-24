@@ -134,7 +134,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="aadProfile")
     def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileResponse']:
         """
-        Profile of Azure Active Directory configuration.
+        The Azure Active Directory configuration.
         """
         return pulumi.get(self, "aad_profile")
 
@@ -142,7 +142,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="addonProfiles")
     def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]:
         """
-        Profile of managed cluster add-on.
+        The profile of managed cluster add-on.
         """
         return pulumi.get(self, "addon_profiles")
 
@@ -150,7 +150,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="agentPoolProfiles")
     def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]:
         """
-        Properties of the agent pool.
+        The agent pool properties.
         """
         return pulumi.get(self, "agent_pool_profiles")
 
@@ -158,7 +158,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="apiServerAccessProfile")
     def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']:
         """
-        Access profile for managed cluster API server.
+        The access profile for managed cluster API server.
         """
         return pulumi.get(self, "api_server_access_profile")
 
@@ -174,7 +174,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="autoUpgradeProfile")
     def auto_upgrade_profile(self) -> Optional['outputs.ManagedClusterAutoUpgradeProfileResponse']:
         """
-        Profile of auto upgrade configuration.
+        The auto upgrade configuration.
         """
         return pulumi.get(self, "auto_upgrade_profile")
 
@@ -182,7 +182,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="azurePortalFQDN")
     def azure_portal_fqdn(self) -> str:
         """
-        FQDN for the master pool which used by proxy config.
+        The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         """
         return pulumi.get(self, "azure_portal_fqdn")
 
@@ -190,7 +190,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="disableLocalAccounts")
     def disable_local_accounts(self) -> Optional[bool]:
         """
-        If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         """
         return pulumi.get(self, "disable_local_accounts")
 
@@ -198,7 +198,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> Optional[str]:
         """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -206,7 +206,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> Optional[str]:
         """
-        DNS prefix specified when creating the managed cluster.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "dns_prefix")
 
@@ -238,7 +238,7 @@ class GetManagedClusterResult:
     @pulumi.getter
     def fqdn(self) -> str:
         """
-        FQDN for the master pool.
+        The FQDN of the master pool.
         """
         return pulumi.get(self, "fqdn")
 
@@ -246,7 +246,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="fqdnSubdomain")
     def fqdn_subdomain(self) -> Optional[str]:
         """
-        FQDN subdomain specified when creating private cluster with custom private dns zone.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "fqdn_subdomain")
 
@@ -286,7 +286,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> Optional[str]:
         """
-        Version of Kubernetes specified when creating the managed cluster.
+        When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -294,7 +294,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="linuxProfile")
     def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
         """
-        Profile for Linux VMs in the container service cluster.
+        The profile for Linux VMs in the Managed Cluster.
         """
         return pulumi.get(self, "linux_profile")
 
@@ -326,7 +326,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileResponse']:
         """
-        Profile of network configuration.
+        The network configuration profile.
         """
         return pulumi.get(self, "network_profile")
 
@@ -334,7 +334,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[str]:
         """
-        Name of the resource group containing agent pool nodes.
+        The name of the resource group containing agent pool nodes.
         """
         return pulumi.get(self, "node_resource_group")
 
@@ -342,7 +342,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="podIdentityProfile")
     def pod_identity_profile(self) -> Optional['outputs.ManagedClusterPodIdentityProfileResponse']:
         """
-        Profile of managed cluster pod identity.
+        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         """
         return pulumi.get(self, "pod_identity_profile")
 
@@ -350,7 +350,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="powerState")
     def power_state(self) -> 'outputs.PowerStateResponse':
         """
-        Represents the Power State of the cluster
+        The Power State of the cluster.
         """
         return pulumi.get(self, "power_state")
 
@@ -358,7 +358,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="privateFQDN")
     def private_fqdn(self) -> str:
         """
-        FQDN of private cluster.
+        The FQDN of private cluster.
         """
         return pulumi.get(self, "private_fqdn")
 
@@ -374,7 +374,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The current deployment or provisioning state, which only appears in the response.
+        The current provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -414,7 +414,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional['outputs.ManagedClusterWindowsProfileResponse']:
         """
-        Profile for Windows VMs in the container service cluster.
+        The profile for Windows VMs in the Managed Cluster.
         """
         return pulumi.get(self, "windows_profile")
 

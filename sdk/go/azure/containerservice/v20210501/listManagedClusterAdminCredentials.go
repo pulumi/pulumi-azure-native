@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of credential result response.
+// The list credential result response.
 func ListManagedClusterAdminCredentials(ctx *pulumi.Context, args *ListManagedClusterAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterAdminCredentialsResult, error) {
 	var rv ListManagedClusterAdminCredentialsResult
 	err := ctx.Invoke("azure-native:containerservice/v20210501:listManagedClusterAdminCredentials", args, &rv, opts...)
@@ -26,7 +26,7 @@ type ListManagedClusterAdminCredentialsArgs struct {
 	ServerFqdn *string `pulumi:"serverFqdn"`
 }
 
-// The list of credential result response.
+// The list credential result response.
 type ListManagedClusterAdminCredentialsResult struct {
 	// Base64-encoded Kubernetes configuration file.
 	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`

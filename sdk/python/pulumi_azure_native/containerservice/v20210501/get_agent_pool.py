@@ -140,7 +140,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[str]]:
         """
-        Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -164,7 +164,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="enableEncryptionAtHost")
     def enable_encryption_at_host(self) -> Optional[bool]:
         """
-        Whether to enable EncryptionAtHost
+        This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
@@ -172,7 +172,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="enableFIPS")
     def enable_fips(self) -> Optional[bool]:
         """
-        Whether to use FIPS enabled OS
+        See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         """
         return pulumi.get(self, "enable_fips")
 
@@ -180,7 +180,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
-        Enable public IP for nodes
+        Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -196,7 +196,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="gpuInstanceProfile")
     def gpu_instance_profile(self) -> Optional[str]:
         """
-        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
         """
         return pulumi.get(self, "gpu_instance_profile")
 
@@ -212,7 +212,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="kubeletConfig")
     def kubelet_config(self) -> Optional['outputs.KubeletConfigResponse']:
         """
-        KubeletConfig specifies the configuration of kubelet on agent nodes.
+        The Kubelet configuration on the agent pool nodes.
         """
         return pulumi.get(self, "kubelet_config")
 
@@ -220,7 +220,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[str]:
         """
-        KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+        Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -228,7 +228,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="linuxOSConfig")
     def linux_os_config(self) -> Optional['outputs.LinuxOSConfigResponse']:
         """
-        LinuxOSConfig specifies the OS configuration of linux agent nodes.
+        The OS configuration of Linux agent nodes.
         """
         return pulumi.get(self, "linux_os_config")
 
@@ -236,7 +236,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
         """
-        Maximum number of nodes for auto-scaling
+        The maximum number of nodes for auto-scaling
         """
         return pulumi.get(self, "max_count")
 
@@ -244,7 +244,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="maxPods")
     def max_pods(self) -> Optional[int]:
         """
-        Maximum number of pods that can run on a node.
+        The maximum number of pods that can run on a node.
         """
         return pulumi.get(self, "max_pods")
 
@@ -252,7 +252,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[int]:
         """
-        Minimum number of nodes for auto-scaling
+        The minimum number of nodes for auto-scaling
         """
         return pulumi.get(self, "min_count")
 
@@ -260,7 +260,7 @@ class GetAgentPoolResult:
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        AgentPoolMode represents mode of an agent pool
+        A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
 
@@ -276,7 +276,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="nodeImageVersion")
     def node_image_version(self) -> str:
         """
-        Version of node image
+        The version of node image
         """
         return pulumi.get(self, "node_image_version")
 
@@ -284,7 +284,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Optional[Mapping[str, str]]:
         """
-        Agent pool node labels to be persisted across all nodes in agent pool.
+        The node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
 
@@ -292,7 +292,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="nodePublicIPPrefixID")
     def node_public_ip_prefix_id(self) -> Optional[str]:
         """
-        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -300,7 +300,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[Sequence[str]]:
         """
-        Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
         return pulumi.get(self, "node_taints")
 
@@ -308,7 +308,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[str]:
         """
-        Version of orchestrator specified when creating the managed cluster.
+        As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -316,7 +316,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="osDiskSizeGB")
     def os_disk_size_gb(self) -> Optional[int]:
         """
-        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
@@ -324,7 +324,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[str]:
         """
-        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+        The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -332,7 +332,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="osSKU")
     def os_sku(self) -> Optional[str]:
         """
-        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        Specifies an OS SKU. This value must not be specified if OSType is Windows.
         """
         return pulumi.get(self, "os_sku")
 
@@ -340,7 +340,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        The operating system type. The default is Linux.
         """
         return pulumi.get(self, "os_type")
 
@@ -348,7 +348,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="podSubnetID")
     def pod_subnet_id(self) -> Optional[str]:
         """
-        Pod SubnetID specifies the VNet's subnet identifier for pods.
+        If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "pod_subnet_id")
 
@@ -364,7 +364,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The current deployment or provisioning state, which only appears in the response.
+        The current deployment or provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -380,7 +380,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="scaleSetEvictionPolicy")
     def scale_set_eviction_policy(self) -> Optional[str]:
         """
-        ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+        This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
@@ -388,7 +388,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="scaleSetPriority")
     def scale_set_priority(self) -> Optional[str]:
         """
-        ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
         return pulumi.get(self, "scale_set_priority")
 
@@ -396,7 +396,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[float]:
         """
-        SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+        Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         """
         return pulumi.get(self, "spot_max_price")
 
@@ -404,7 +404,7 @@ class GetAgentPoolResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Agent pool tags to be persisted on the agent pool virtual machine scale set.
+        The tags to be persisted on the agent pool virtual machine scale set.
         """
         return pulumi.get(self, "tags")
 
@@ -412,7 +412,7 @@ class GetAgentPoolResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        AgentPoolType represents types of an agent pool
+        The type of Agent Pool.
         """
         return pulumi.get(self, "type")
 
@@ -428,7 +428,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        Size of agent VMs.
+        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 
@@ -436,7 +436,7 @@ class GetAgentPoolResult:
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[str]:
         """
-        VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+        If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
 

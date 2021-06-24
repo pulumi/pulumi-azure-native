@@ -109,7 +109,7 @@ export class Token extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190501preview:Token" }, { type: "azure-native:containerregistry:Token" }, { type: "azure-nextgen:containerregistry:Token" }, { type: "azure-native:containerregistry/v20201101preview:Token" }, { type: "azure-nextgen:containerregistry/v20201101preview:Token" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190501preview:Token" }, { type: "azure-native:containerregistry:Token" }, { type: "azure-nextgen:containerregistry:Token" }, { type: "azure-native:containerregistry/v20201101preview:Token" }, { type: "azure-nextgen:containerregistry/v20201101preview:Token" }, { type: "azure-native:containerregistry/v20210601preview:Token" }, { type: "azure-nextgen:containerregistry/v20210601preview:Token" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Token.__pulumiType, name, inputs, opts);
     }

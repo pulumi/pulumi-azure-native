@@ -99,7 +99,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.intune as intune
     import pulumi_azure_native.iotcentral as iotcentral
     import pulumi_azure_native.iotsecurity as iotsecurity
-    import pulumi_azure_native.iotspaces as iotspaces
     import pulumi_azure_native.keyvault as keyvault
     import pulumi_azure_native.kubernetes as kubernetes
     import pulumi_azure_native.kubernetesconfiguration as kubernetesconfiguration
@@ -268,7 +267,6 @@ else:
     intune = _utilities.lazy_import('pulumi_azure_native.intune')
     iotcentral = _utilities.lazy_import('pulumi_azure_native.iotcentral')
     iotsecurity = _utilities.lazy_import('pulumi_azure_native.iotsecurity')
-    iotspaces = _utilities.lazy_import('pulumi_azure_native.iotspaces')
     keyvault = _utilities.lazy_import('pulumi_azure_native.keyvault')
     kubernetes = _utilities.lazy_import('pulumi_azure_native.kubernetes')
     kubernetesconfiguration = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration')
@@ -3448,6 +3446,23 @@ _utilities.register(
    "azure-native:containerregistry/v20201101preview:ScopeMap": "ScopeMap",
    "azure-native:containerregistry/v20201101preview:Token": "Token",
    "azure-native:containerregistry/v20201101preview:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerregistry/v20210601preview",
+  "fqn": "pulumi_azure_native.containerregistry.v20210601preview",
+  "classes": {
+   "azure-native:containerregistry/v20210601preview:ConnectedRegistry": "ConnectedRegistry",
+   "azure-native:containerregistry/v20210601preview:ExportPipeline": "ExportPipeline",
+   "azure-native:containerregistry/v20210601preview:ImportPipeline": "ImportPipeline",
+   "azure-native:containerregistry/v20210601preview:PipelineRun": "PipelineRun",
+   "azure-native:containerregistry/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20210601preview:Registry": "Registry",
+   "azure-native:containerregistry/v20210601preview:Replication": "Replication",
+   "azure-native:containerregistry/v20210601preview:ScopeMap": "ScopeMap",
+   "azure-native:containerregistry/v20210601preview:Token": "Token",
+   "azure-native:containerregistry/v20210601preview:Webhook": "Webhook"
   }
  },
  {
@@ -7283,22 +7298,6 @@ _utilities.register(
    "azure-native:iotsecurity/v20210201preview:OnPremiseSensor": "OnPremiseSensor",
    "azure-native:iotsecurity/v20210201preview:Sensor": "Sensor",
    "azure-native:iotsecurity/v20210201preview:Site": "Site"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "iotspaces",
-  "fqn": "pulumi_azure_native.iotspaces",
-  "classes": {
-   "azure-native:iotspaces:IoTSpace": "IoTSpace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "iotspaces/v20171001preview",
-  "fqn": "pulumi_azure_native.iotspaces.v20171001preview",
-  "classes": {
-   "azure-native:iotspaces/v20171001preview:IoTSpace": "IoTSpace"
   }
  },
  {
@@ -12949,6 +12948,18 @@ _utilities.register(
    "azure-native:servicefabric/v20201201preview:ApplicationTypeVersion": "ApplicationTypeVersion",
    "azure-native:servicefabric/v20201201preview:Cluster": "Cluster",
    "azure-native:servicefabric/v20201201preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20210601",
+  "fqn": "pulumi_azure_native.servicefabric.v20210601",
+  "classes": {
+   "azure-native:servicefabric/v20210601:Application": "Application",
+   "azure-native:servicefabric/v20210601:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20210601:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20210601:Cluster": "Cluster",
+   "azure-native:servicefabric/v20210601:Service": "Service"
   }
  },
  {

@@ -36,7 +36,7 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /**
-     * Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     * The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
@@ -48,15 +48,15 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether to enable EncryptionAtHost
+     * This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
      */
     public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether to use FIPS enabled OS
+     * See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
      */
     public readonly enableFIPS!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable public IP for nodes
+     * Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
     /**
@@ -64,35 +64,35 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly enableUltraSSD!: pulumi.Output<boolean | undefined>;
     /**
-     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
      */
     public readonly gpuInstanceProfile!: pulumi.Output<string | undefined>;
     /**
-     * KubeletConfig specifies the configuration of kubelet on agent nodes.
+     * The Kubelet configuration on the agent pool nodes.
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.v20210501.KubeletConfigResponse | undefined>;
     /**
-     * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+     * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
      */
     public readonly kubeletDiskType!: pulumi.Output<string | undefined>;
     /**
-     * LinuxOSConfig specifies the OS configuration of linux agent nodes.
+     * The OS configuration of Linux agent nodes.
      */
     public readonly linuxOSConfig!: pulumi.Output<outputs.containerservice.v20210501.LinuxOSConfigResponse | undefined>;
     /**
-     * Maximum number of nodes for auto-scaling
+     * The maximum number of nodes for auto-scaling
      */
     public readonly maxCount!: pulumi.Output<number | undefined>;
     /**
-     * Maximum number of pods that can run on a node.
+     * The maximum number of pods that can run on a node.
      */
     public readonly maxPods!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of nodes for auto-scaling
+     * The minimum number of nodes for auto-scaling
      */
     public readonly minCount!: pulumi.Output<number | undefined>;
     /**
-     * AgentPoolMode represents mode of an agent pool
+     * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
@@ -100,43 +100,43 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Version of node image
+     * The version of node image
      */
     public /*out*/ readonly nodeImageVersion!: pulumi.Output<string>;
     /**
-     * Agent pool node labels to be persisted across all nodes in agent pool.
+     * The node labels to be persisted across all nodes in agent pool.
      */
     public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     * This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
      */
     public readonly nodePublicIPPrefixID!: pulumi.Output<string | undefined>;
     /**
-     * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+     * The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
     public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
     /**
-     * Version of orchestrator specified when creating the managed cluster.
+     * As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
      */
     public readonly orchestratorVersion!: pulumi.Output<string | undefined>;
     /**
-     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     * OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
     public readonly osDiskSizeGB!: pulumi.Output<number | undefined>;
     /**
-     * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+     * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
      */
     public readonly osDiskType!: pulumi.Output<string | undefined>;
     /**
-     * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+     * Specifies an OS SKU. This value must not be specified if OSType is Windows.
      */
     public readonly osSKU!: pulumi.Output<string | undefined>;
     /**
-     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     * The operating system type. The default is Linux.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
-     * Pod SubnetID specifies the VNet's subnet identifier for pods.
+     * If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
     public readonly podSubnetID!: pulumi.Output<string | undefined>;
     /**
@@ -144,7 +144,7 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly powerState!: pulumi.Output<outputs.containerservice.v20210501.PowerStateResponse>;
     /**
-     * The current deployment or provisioning state, which only appears in the response.
+     * The current deployment or provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -152,23 +152,23 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroupID!: pulumi.Output<string | undefined>;
     /**
-     * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+     * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
      */
     public readonly scaleSetEvictionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+     * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
      */
     public readonly scaleSetPriority!: pulumi.Output<string | undefined>;
     /**
-     * SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+     * Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
     public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
     /**
-     * Agent pool tags to be persisted on the agent pool virtual machine scale set.
+     * The tags to be persisted on the agent pool virtual machine scale set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * AgentPoolType represents types of an agent pool
+     * The type of Agent Pool.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -176,11 +176,11 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.v20210501.AgentPoolUpgradeSettingsResponse | undefined>;
     /**
-     * Size of agent VMs.
+     * VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
      */
     public readonly vmSize!: pulumi.Output<string | undefined>;
     /**
-     * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+     * If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
     public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
 
@@ -298,7 +298,7 @@ export interface AgentPoolArgs {
      */
     agentPoolName?: pulumi.Input<string>;
     /**
-     * Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     * The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -310,15 +310,15 @@ export interface AgentPoolArgs {
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Whether to enable EncryptionAtHost
+     * This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
      */
     enableEncryptionAtHost?: pulumi.Input<boolean>;
     /**
-     * Whether to use FIPS enabled OS
+     * See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
      */
     enableFIPS?: pulumi.Input<boolean>;
     /**
-     * Enable public IP for nodes
+     * Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
      */
     enableNodePublicIP?: pulumi.Input<boolean>;
     /**
@@ -326,71 +326,71 @@ export interface AgentPoolArgs {
      */
     enableUltraSSD?: pulumi.Input<boolean>;
     /**
-     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
      */
     gpuInstanceProfile?: pulumi.Input<string | enums.containerservice.v20210501.GPUInstanceProfile>;
     /**
-     * KubeletConfig specifies the configuration of kubelet on agent nodes.
+     * The Kubelet configuration on the agent pool nodes.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.v20210501.KubeletConfigArgs>;
     /**
-     * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+     * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
      */
     kubeletDiskType?: pulumi.Input<string | enums.containerservice.v20210501.KubeletDiskType>;
     /**
-     * LinuxOSConfig specifies the OS configuration of linux agent nodes.
+     * The OS configuration of Linux agent nodes.
      */
     linuxOSConfig?: pulumi.Input<inputs.containerservice.v20210501.LinuxOSConfigArgs>;
     /**
-     * Maximum number of nodes for auto-scaling
+     * The maximum number of nodes for auto-scaling
      */
     maxCount?: pulumi.Input<number>;
     /**
-     * Maximum number of pods that can run on a node.
+     * The maximum number of pods that can run on a node.
      */
     maxPods?: pulumi.Input<number>;
     /**
-     * Minimum number of nodes for auto-scaling
+     * The minimum number of nodes for auto-scaling
      */
     minCount?: pulumi.Input<number>;
     /**
-     * AgentPoolMode represents mode of an agent pool
+     * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
      */
     mode?: pulumi.Input<string | enums.containerservice.v20210501.AgentPoolMode>;
     /**
-     * Agent pool node labels to be persisted across all nodes in agent pool.
+     * The node labels to be persisted across all nodes in agent pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     * This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
      */
     nodePublicIPPrefixID?: pulumi.Input<string>;
     /**
-     * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+     * The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
     nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Version of orchestrator specified when creating the managed cluster.
+     * As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
      */
     orchestratorVersion?: pulumi.Input<string>;
     /**
-     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     * OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
     osDiskSizeGB?: pulumi.Input<number>;
     /**
-     * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+     * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
      */
     osDiskType?: pulumi.Input<string | enums.containerservice.v20210501.OSDiskType>;
     /**
-     * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+     * Specifies an OS SKU. This value must not be specified if OSType is Windows.
      */
     osSKU?: pulumi.Input<string | enums.containerservice.v20210501.OSSKU>;
     /**
-     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     * The operating system type. The default is Linux.
      */
     osType?: pulumi.Input<string | enums.containerservice.v20210501.OSType>;
     /**
-     * Pod SubnetID specifies the VNet's subnet identifier for pods.
+     * If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
     podSubnetID?: pulumi.Input<string>;
     /**
@@ -406,23 +406,23 @@ export interface AgentPoolArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+     * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
      */
     scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20210501.ScaleSetEvictionPolicy>;
     /**
-     * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+     * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
      */
     scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20210501.ScaleSetPriority>;
     /**
-     * SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+     * Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
     spotMaxPrice?: pulumi.Input<number>;
     /**
-     * Agent pool tags to be persisted on the agent pool virtual machine scale set.
+     * The tags to be persisted on the agent pool virtual machine scale set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * AgentPoolType represents types of an agent pool
+     * The type of Agent Pool.
      */
     type?: pulumi.Input<string | enums.containerservice.v20210501.AgentPoolType>;
     /**
@@ -430,11 +430,11 @@ export interface AgentPoolArgs {
      */
     upgradeSettings?: pulumi.Input<inputs.containerservice.v20210501.AgentPoolUpgradeSettingsArgs>;
     /**
-     * Size of agent VMs.
+     * VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
      */
     vmSize?: pulumi.Input<string>;
     /**
-     * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
+     * If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
     vnetSubnetID?: pulumi.Input<string>;
 }

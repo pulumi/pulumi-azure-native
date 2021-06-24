@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
     public sealed class ManagedClusterIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+        /// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         /// </summary>
         [Input("type")]
         public Input<Pulumi.AzureNative.ContainerService.V20210501.ResourceIdentityType>? Type { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
         private InputMap<object>? _userAssignedIdentities;
 
         /// <summary>
-        /// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
         public InputMap<object> UserAssignedIdentities
         {

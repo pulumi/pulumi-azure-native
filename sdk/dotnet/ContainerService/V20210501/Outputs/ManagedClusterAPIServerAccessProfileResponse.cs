@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class ManagedClusterAPIServerAccessProfileResponse
     {
         /// <summary>
-        /// Authorized IP Ranges to kubernetes API server.
+        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedIPRanges;
         /// <summary>
-        /// Whether to create the cluster as a private cluster or not.
+        /// For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         /// </summary>
         public readonly bool? EnablePrivateCluster;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly bool? EnablePrivateClusterPublicFQDN;
         /// <summary>
-        /// Private dns zone mode for private cluster. 
+        /// The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
         /// </summary>
         public readonly string? PrivateDNSZone;
 

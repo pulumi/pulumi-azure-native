@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class LinuxOSConfigResponse
     {
         /// <summary>
-        /// SwapFileSizeMB specifies size in MB of a swap file will be created on each node.
+        /// The size in MB of a swap file that will be created on each node.
         /// </summary>
         public readonly int? SwapFileSizeMB;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly Outputs.SysctlConfigResponse? Sysctls;
         /// <summary>
-        /// Transparent Huge Page defrag configuration.
+        /// Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         /// </summary>
         public readonly string? TransparentHugePageDefrag;
         /// <summary>
-        /// Transparent Huge Page enabled configuration.
+        /// Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         /// </summary>
         public readonly string? TransparentHugePageEnabled;
 

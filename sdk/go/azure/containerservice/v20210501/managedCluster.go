@@ -15,25 +15,25 @@ import (
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfileResponsePtrOutput `pulumi:"aadProfile"`
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles ManagedClusterAddonProfileResponseMapOutput `pulumi:"addonProfiles"`
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayOutput `pulumi:"agentPoolProfiles"`
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrOutput `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput `pulumi:"autoScalerProfile"`
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrOutput `pulumi:"autoUpgradeProfile"`
-	// FQDN for the master pool which used by proxy config.
+	// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
 	AzurePortalFQDN pulumi.StringOutput `pulumi:"azurePortalFQDN"`
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts pulumi.BoolPtrOutput `pulumi:"disableLocalAccounts"`
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID pulumi.StringPtrOutput `pulumi:"diskEncryptionSetID"`
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
@@ -41,9 +41,9 @@ type ManagedCluster struct {
 	EnableRBAC pulumi.BoolPtrOutput `pulumi:"enableRBAC"`
 	// The extended location of the Virtual Machine.
 	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// FQDN for the master pool.
+	// The FQDN of the master pool.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain pulumi.StringPtrOutput `pulumi:"fqdnSubdomain"`
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig ManagedClusterHTTPProxyConfigResponsePtrOutput `pulumi:"httpProxyConfig"`
@@ -51,9 +51,9 @@ type ManagedCluster struct {
 	Identity ManagedClusterIdentityResponsePtrOutput `pulumi:"identity"`
 	// Identities associated with the cluster.
 	IdentityProfile ManagedClusterPropertiesResponseIdentityProfileMapOutput `pulumi:"identityProfile"`
-	// Version of Kubernetes specified when creating the managed cluster.
+	// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion pulumi.StringPtrOutput `pulumi:"kubernetesVersion"`
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile ContainerServiceLinuxProfileResponsePtrOutput `pulumi:"linuxProfile"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -61,19 +61,19 @@ type ManagedCluster struct {
 	MaxAgentPools pulumi.IntOutput `pulumi:"maxAgentPools"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrOutput `pulumi:"nodeResourceGroup"`
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile ManagedClusterPodIdentityProfileResponsePtrOutput `pulumi:"podIdentityProfile"`
-	// Represents the Power State of the cluster
+	// The Power State of the cluster.
 	PowerState PowerStateResponseOutput `pulumi:"powerState"`
-	// FQDN of private cluster.
+	// The FQDN of private cluster.
 	PrivateFQDN pulumi.StringOutput `pulumi:"privateFQDN"`
 	// Private link resources associated with the cluster.
 	PrivateLinkResources PrivateLinkResourceResponseArrayOutput `pulumi:"privateLinkResources"`
-	// The current deployment or provisioning state, which only appears in the response.
+	// The current provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile ManagedClusterServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
@@ -83,7 +83,7 @@ type ManagedCluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile ManagedClusterWindowsProfileResponsePtrOutput `pulumi:"windowsProfile"`
 }
 
@@ -251,25 +251,25 @@ func GetManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedCluster resources.
 type managedClusterState struct {
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
-	// FQDN for the master pool which used by proxy config.
+	// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
 	AzurePortalFQDN *string `pulumi:"azurePortalFQDN"`
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts *bool `pulumi:"disableLocalAccounts"`
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
@@ -277,9 +277,9 @@ type managedClusterState struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// The extended location of the Virtual Machine.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// FQDN for the master pool.
+	// The FQDN of the master pool.
 	Fqdn *string `pulumi:"fqdn"`
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig *ManagedClusterHTTPProxyConfigResponse `pulumi:"httpProxyConfig"`
@@ -287,9 +287,9 @@ type managedClusterState struct {
 	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
 	// Identities associated with the cluster.
 	IdentityProfile map[string]ManagedClusterPropertiesResponseIdentityProfile `pulumi:"identityProfile"`
-	// Version of Kubernetes specified when creating the managed cluster.
+	// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location *string `pulumi:"location"`
@@ -297,19 +297,19 @@ type managedClusterState struct {
 	MaxAgentPools *int `pulumi:"maxAgentPools"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile *ManagedClusterPodIdentityProfileResponse `pulumi:"podIdentityProfile"`
-	// Represents the Power State of the cluster
+	// The Power State of the cluster.
 	PowerState *PowerStateResponse `pulumi:"powerState"`
-	// FQDN of private cluster.
+	// The FQDN of private cluster.
 	PrivateFQDN *string `pulumi:"privateFQDN"`
 	// Private link resources associated with the cluster.
 	PrivateLinkResources []PrivateLinkResourceResponse `pulumi:"privateLinkResources"`
-	// The current deployment or provisioning state, which only appears in the response.
+	// The current provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
@@ -319,30 +319,30 @@ type managedClusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile *ManagedClusterWindowsProfileResponse `pulumi:"windowsProfile"`
 }
 
 type ManagedClusterState struct {
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfileResponsePtrInput
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles ManagedClusterAddonProfileResponseMapInput
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrInput
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrInput
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrInput
-	// FQDN for the master pool which used by proxy config.
+	// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
 	AzurePortalFQDN pulumi.StringPtrInput
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts pulumi.BoolPtrInput
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID pulumi.StringPtrInput
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix pulumi.StringPtrInput
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
@@ -350,9 +350,9 @@ type ManagedClusterState struct {
 	EnableRBAC pulumi.BoolPtrInput
 	// The extended location of the Virtual Machine.
 	ExtendedLocation ExtendedLocationResponsePtrInput
-	// FQDN for the master pool.
+	// The FQDN of the master pool.
 	Fqdn pulumi.StringPtrInput
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain pulumi.StringPtrInput
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig ManagedClusterHTTPProxyConfigResponsePtrInput
@@ -360,9 +360,9 @@ type ManagedClusterState struct {
 	Identity ManagedClusterIdentityResponsePtrInput
 	// Identities associated with the cluster.
 	IdentityProfile ManagedClusterPropertiesResponseIdentityProfileMapInput
-	// Version of Kubernetes specified when creating the managed cluster.
+	// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion pulumi.StringPtrInput
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile ContainerServiceLinuxProfileResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
@@ -370,19 +370,19 @@ type ManagedClusterState struct {
 	MaxAgentPools pulumi.IntPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrInput
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile ManagedClusterPodIdentityProfileResponsePtrInput
-	// Represents the Power State of the cluster
+	// The Power State of the cluster.
 	PowerState PowerStateResponsePtrInput
-	// FQDN of private cluster.
+	// The FQDN of private cluster.
 	PrivateFQDN pulumi.StringPtrInput
 	// Private link resources associated with the cluster.
 	PrivateLinkResources PrivateLinkResourceResponseArrayInput
-	// The current deployment or provisioning state, which only appears in the response.
+	// The current provisioning state.
 	ProvisioningState pulumi.StringPtrInput
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile ManagedClusterServicePrincipalProfileResponsePtrInput
@@ -392,7 +392,7 @@ type ManagedClusterState struct {
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile ManagedClusterWindowsProfileResponsePtrInput
 }
 
@@ -401,23 +401,23 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfile `pulumi:"aadProfile"`
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles map[string]ManagedClusterAddonProfile `pulumi:"addonProfiles"`
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfile `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile *ManagedClusterPropertiesAutoScalerProfile `pulumi:"autoScalerProfile"`
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfile `pulumi:"autoUpgradeProfile"`
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts *bool `pulumi:"disableLocalAccounts"`
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
@@ -425,7 +425,7 @@ type managedClusterArgs struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// The extended location of the Virtual Machine.
 	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig *ManagedClusterHTTPProxyConfig `pulumi:"httpProxyConfig"`
@@ -433,17 +433,17 @@ type managedClusterArgs struct {
 	Identity *ManagedClusterIdentity `pulumi:"identity"`
 	// Identities associated with the cluster.
 	IdentityProfile map[string]ManagedClusterPropertiesIdentityProfile `pulumi:"identityProfile"`
-	// Version of Kubernetes specified when creating the managed cluster.
+	// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile *ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile *ContainerServiceNetworkProfile `pulumi:"networkProfile"`
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile *ManagedClusterPodIdentityProfile `pulumi:"podIdentityProfile"`
 	// Private link resources associated with the cluster.
 	PrivateLinkResources []PrivateLinkResource `pulumi:"privateLinkResources"`
@@ -457,29 +457,29 @@ type managedClusterArgs struct {
 	Sku *ManagedClusterSKU `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile *ManagedClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
-	// Profile of Azure Active Directory configuration.
+	// The Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfilePtrInput
-	// Profile of managed cluster add-on.
+	// The profile of managed cluster add-on.
 	AddonProfiles ManagedClusterAddonProfileMapInput
-	// Properties of the agent pool.
+	// The agent pool properties.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput
-	// Access profile for managed cluster API server.
+	// The access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfilePtrInput
 	// Parameters to be applied to the cluster-autoscaler when enabled
 	AutoScalerProfile ManagedClusterPropertiesAutoScalerProfilePtrInput
-	// Profile of auto upgrade configuration.
+	// The auto upgrade configuration.
 	AutoUpgradeProfile ManagedClusterAutoUpgradeProfilePtrInput
-	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
 	DisableLocalAccounts pulumi.BoolPtrInput
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
 	DiskEncryptionSetID pulumi.StringPtrInput
-	// DNS prefix specified when creating the managed cluster.
+	// This cannot be updated once the Managed Cluster has been created.
 	DnsPrefix pulumi.StringPtrInput
 	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
@@ -487,7 +487,7 @@ type ManagedClusterArgs struct {
 	EnableRBAC pulumi.BoolPtrInput
 	// The extended location of the Virtual Machine.
 	ExtendedLocation ExtendedLocationPtrInput
-	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	// This cannot be updated once the Managed Cluster has been created.
 	FqdnSubdomain pulumi.StringPtrInput
 	// Configurations for provisioning the cluster with HTTP proxy servers.
 	HttpProxyConfig ManagedClusterHTTPProxyConfigPtrInput
@@ -495,17 +495,17 @@ type ManagedClusterArgs struct {
 	Identity ManagedClusterIdentityPtrInput
 	// Identities associated with the cluster.
 	IdentityProfile ManagedClusterPropertiesIdentityProfileMapInput
-	// Version of Kubernetes specified when creating the managed cluster.
+	// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
 	KubernetesVersion pulumi.StringPtrInput
-	// Profile for Linux VMs in the container service cluster.
+	// The profile for Linux VMs in the Managed Cluster.
 	LinuxProfile ContainerServiceLinuxProfilePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// Profile of network configuration.
+	// The network configuration profile.
 	NetworkProfile ContainerServiceNetworkProfilePtrInput
-	// Name of the resource group containing agent pool nodes.
+	// The name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Profile of managed cluster pod identity.
+	// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
 	PodIdentityProfile ManagedClusterPodIdentityProfilePtrInput
 	// Private link resources associated with the cluster.
 	PrivateLinkResources PrivateLinkResourceArrayInput
@@ -519,7 +519,7 @@ type ManagedClusterArgs struct {
 	Sku ManagedClusterSKUPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// Profile for Windows VMs in the container service cluster.
+	// The profile for Windows VMs in the Managed Cluster.
 	WindowsProfile ManagedClusterWindowsProfilePtrInput
 }
 

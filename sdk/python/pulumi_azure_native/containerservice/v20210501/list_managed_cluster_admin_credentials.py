@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class ListManagedClusterAdminCredentialsResult:
     """
-    The list of credential result response.
+    The list credential result response.
     """
     def __init__(__self__, kubeconfigs=None):
         if kubeconfigs and not isinstance(kubeconfigs, list):
@@ -48,7 +48,7 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = 
                                            server_fqdn: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterAdminCredentialsResult:
     """
-    The list of credential result response.
+    The list credential result response.
 
 
     :param str resource_group_name: The name of the resource group.

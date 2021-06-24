@@ -10,28 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
 {
 
+    /// <summary>
+    /// Details about the pod identity assigned to the Managed Cluster.
+    /// </summary>
     public sealed class ManagedClusterPodIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Binding selector to use for the AzureIdentityBinding resource.
+        /// The binding selector to use for the AzureIdentityBinding resource.
         /// </summary>
         [Input("bindingSelector")]
         public Input<string>? BindingSelector { get; set; }
 
         /// <summary>
-        /// Information of the user assigned identity.
+        /// The user assigned identity details.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.UserAssignedIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
-        /// Name of the pod identity.
+        /// The name of the pod identity.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Namespace of the pod identity.
+        /// The namespace of the pod identity.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;

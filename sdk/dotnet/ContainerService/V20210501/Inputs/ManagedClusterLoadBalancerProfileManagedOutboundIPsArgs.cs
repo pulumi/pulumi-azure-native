@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
     public sealed class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        /// The desired number of outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }

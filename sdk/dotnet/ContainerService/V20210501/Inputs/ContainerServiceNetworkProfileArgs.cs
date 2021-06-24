@@ -34,31 +34,31 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
         public Input<Inputs.ManagedClusterLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// The load balancer sku for the managed cluster.
+        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         [Input("loadBalancerSku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// Network mode used for building Kubernetes network.
+        /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         [Input("networkMode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.NetworkMode>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Network plugin used for building Kubernetes network.
+        /// Network plugin used for building the Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
-        /// Network policy used for building Kubernetes network.
+        /// Network policy used for building the Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method.
+        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         [Input("outboundType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.OutboundType>? OutboundType { get; set; }

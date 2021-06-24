@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501
 {
     /// <summary>
-    /// maintenance configuration.
+    /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20210501:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         public Output<ImmutableArray<Outputs.TimeSpanResponse>> NotAllowedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         [Output("timeInWeek")]
         public Output<ImmutableArray<Outputs.TimeInWeekResponse>> TimeInWeek { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         private InputList<Inputs.TimeInWeekArgs>? _timeInWeek;
 
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         public InputList<Inputs.TimeInWeekArgs> TimeInWeek
         {

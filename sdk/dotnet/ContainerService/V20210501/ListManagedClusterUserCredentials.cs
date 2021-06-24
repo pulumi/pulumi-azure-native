@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
     public static class ListManagedClusterUserCredentials
     {
         /// <summary>
-        /// The list of credential result response.
+        /// The list credential result response.
         /// </summary>
         public static Task<ListManagedClusterUserCredentialsResult> InvokeAsync(ListManagedClusterUserCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterUserCredentialsResult>("azure-native:containerservice/v20210501:listManagedClusterUserCredentials", args ?? new ListManagedClusterUserCredentialsArgs(), options.WithVersion());

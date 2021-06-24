@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class ManagedClusterAADProfileResponse
     {
         /// <summary>
-        /// AAD group object IDs that will have admin role of the cluster.
+        /// The list of AAD group object IDs that will have admin role of the cluster.
         /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIDs;
         /// <summary>

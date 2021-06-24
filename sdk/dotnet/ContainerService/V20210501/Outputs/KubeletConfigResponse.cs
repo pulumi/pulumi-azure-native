@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class KubeletConfigResponse
     {
         /// <summary>
-        /// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
+        /// Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         /// </summary>
         public readonly ImmutableArray<string> AllowedUnsafeSysctls;
         /// <summary>
@@ -26,15 +26,15 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly int? ContainerLogMaxSizeMB;
         /// <summary>
-        /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
+        /// The default is true.
         /// </summary>
         public readonly bool? CpuCfsQuota;
         /// <summary>
-        /// Sets CPU CFS quota period value.
+        /// The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
         /// </summary>
         public readonly string? CpuCfsQuotaPeriod;
         /// <summary>
-        /// CPU Manager policy to use.
+        /// The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
         /// </summary>
         public readonly string? CpuManagerPolicy;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly bool? FailSwapOn;
         /// <summary>
-        /// The percent of disk usage after which image garbage collection is always run.
+        /// To disable image garbage collection, set to 100. The default is 85%
         /// </summary>
         public readonly int? ImageGcHighThreshold;
         /// <summary>
-        /// The percent of disk usage before which image garbage collection is never run.
+        /// This cannot be set higher than imageGcHighThreshold. The default is 80%
         /// </summary>
         public readonly int? ImageGcLowThreshold;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly int? PodMaxPids;
         /// <summary>
-        /// Topology Manager policy to use.
+        /// For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         /// </summary>
         public readonly string? TopologyManagerPolicy;
 

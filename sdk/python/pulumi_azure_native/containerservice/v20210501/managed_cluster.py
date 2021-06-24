@@ -48,34 +48,34 @@ class ManagedClusterArgs:
         """
         The set of arguments for constructing a ManagedCluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['ManagedClusterAADProfileArgs'] aad_profile: Profile of Azure Active Directory configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]] agent_pool_profiles: Properties of the agent pool.
-        :param pulumi.Input['ManagedClusterAPIServerAccessProfileArgs'] api_server_access_profile: Access profile for managed cluster API server.
+        :param pulumi.Input['ManagedClusterAADProfileArgs'] aad_profile: The Azure Active Directory configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]] addon_profiles: The profile of managed cluster add-on.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]] agent_pool_profiles: The agent pool properties.
+        :param pulumi.Input['ManagedClusterAPIServerAccessProfileArgs'] api_server_access_profile: The access profile for managed cluster API server.
         :param pulumi.Input['ManagedClusterPropertiesAutoScalerProfileArgs'] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
-        :param pulumi.Input['ManagedClusterAutoUpgradeProfileArgs'] auto_upgrade_profile: Profile of auto upgrade configuration.
-        :param pulumi.Input[bool] disable_local_accounts: If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
-        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
-        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
+        :param pulumi.Input['ManagedClusterAutoUpgradeProfileArgs'] auto_upgrade_profile: The auto upgrade configuration.
+        :param pulumi.Input[bool] disable_local_accounts: If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
+        :param pulumi.Input[str] disk_encryption_set_id: This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
+        :param pulumi.Input[str] dns_prefix: This cannot be updated once the Managed Cluster has been created.
         :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Virtual Machine.
-        :param pulumi.Input[str] fqdn_subdomain: FQDN subdomain specified when creating private cluster with custom private dns zone.
+        :param pulumi.Input[str] fqdn_subdomain: This cannot be updated once the Managed Cluster has been created.
         :param pulumi.Input['ManagedClusterHTTPProxyConfigArgs'] http_proxy_config: Configurations for provisioning the cluster with HTTP proxy servers.
         :param pulumi.Input['ManagedClusterIdentityArgs'] identity: The identity of the managed cluster, if configured.
         :param pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterPropertiesIdentityProfileArgs']]] identity_profile: Identities associated with the cluster.
-        :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
-        :param pulumi.Input['ContainerServiceLinuxProfileArgs'] linux_profile: Profile for Linux VMs in the container service cluster.
+        :param pulumi.Input[str] kubernetes_version: When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
+        :param pulumi.Input['ContainerServiceLinuxProfileArgs'] linux_profile: The profile for Linux VMs in the Managed Cluster.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input['ContainerServiceNetworkProfileArgs'] network_profile: Profile of network configuration.
-        :param pulumi.Input[str] node_resource_group: Name of the resource group containing agent pool nodes.
-        :param pulumi.Input['ManagedClusterPodIdentityProfileArgs'] pod_identity_profile: Profile of managed cluster pod identity.
+        :param pulumi.Input['ContainerServiceNetworkProfileArgs'] network_profile: The network configuration profile.
+        :param pulumi.Input[str] node_resource_group: The name of the resource group containing agent pool nodes.
+        :param pulumi.Input['ManagedClusterPodIdentityProfileArgs'] pod_identity_profile: See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkResourceArgs']]] private_link_resources: Private link resources associated with the cluster.
         :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input['ManagedClusterServicePrincipalProfileArgs'] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input['ManagedClusterSKUArgs'] sku: The managed cluster SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input['ManagedClusterWindowsProfileArgs'] windows_profile: Profile for Windows VMs in the container service cluster.
+        :param pulumi.Input['ManagedClusterWindowsProfileArgs'] windows_profile: The profile for Windows VMs in the Managed Cluster.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aad_profile is not None:
@@ -151,7 +151,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="aadProfile")
     def aad_profile(self) -> Optional[pulumi.Input['ManagedClusterAADProfileArgs']]:
         """
-        Profile of Azure Active Directory configuration.
+        The Azure Active Directory configuration.
         """
         return pulumi.get(self, "aad_profile")
 
@@ -163,7 +163,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="addonProfiles")
     def addon_profiles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]]]:
         """
-        Profile of managed cluster add-on.
+        The profile of managed cluster add-on.
         """
         return pulumi.get(self, "addon_profiles")
 
@@ -175,7 +175,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="agentPoolProfiles")
     def agent_pool_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]]]:
         """
-        Properties of the agent pool.
+        The agent pool properties.
         """
         return pulumi.get(self, "agent_pool_profiles")
 
@@ -187,7 +187,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="apiServerAccessProfile")
     def api_server_access_profile(self) -> Optional[pulumi.Input['ManagedClusterAPIServerAccessProfileArgs']]:
         """
-        Access profile for managed cluster API server.
+        The access profile for managed cluster API server.
         """
         return pulumi.get(self, "api_server_access_profile")
 
@@ -211,7 +211,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="autoUpgradeProfile")
     def auto_upgrade_profile(self) -> Optional[pulumi.Input['ManagedClusterAutoUpgradeProfileArgs']]:
         """
-        Profile of auto upgrade configuration.
+        The auto upgrade configuration.
         """
         return pulumi.get(self, "auto_upgrade_profile")
 
@@ -223,7 +223,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="disableLocalAccounts")
     def disable_local_accounts(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         """
         return pulumi.get(self, "disable_local_accounts")
 
@@ -235,7 +235,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -247,7 +247,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        DNS prefix specified when creating the managed cluster.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "dns_prefix")
 
@@ -295,7 +295,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="fqdnSubdomain")
     def fqdn_subdomain(self) -> Optional[pulumi.Input[str]]:
         """
-        FQDN subdomain specified when creating private cluster with custom private dns zone.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "fqdn_subdomain")
 
@@ -343,7 +343,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of Kubernetes specified when creating the managed cluster.
+        When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -355,7 +355,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="linuxProfile")
     def linux_profile(self) -> Optional[pulumi.Input['ContainerServiceLinuxProfileArgs']]:
         """
-        Profile for Linux VMs in the container service cluster.
+        The profile for Linux VMs in the Managed Cluster.
         """
         return pulumi.get(self, "linux_profile")
 
@@ -379,7 +379,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional[pulumi.Input['ContainerServiceNetworkProfileArgs']]:
         """
-        Profile of network configuration.
+        The network configuration profile.
         """
         return pulumi.get(self, "network_profile")
 
@@ -391,7 +391,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group containing agent pool nodes.
+        The name of the resource group containing agent pool nodes.
         """
         return pulumi.get(self, "node_resource_group")
 
@@ -403,7 +403,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="podIdentityProfile")
     def pod_identity_profile(self) -> Optional[pulumi.Input['ManagedClusterPodIdentityProfileArgs']]:
         """
-        Profile of managed cluster pod identity.
+        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         """
         return pulumi.get(self, "pod_identity_profile")
 
@@ -475,7 +475,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> Optional[pulumi.Input['ManagedClusterWindowsProfileArgs']]:
         """
-        Profile for Windows VMs in the container service cluster.
+        The profile for Windows VMs in the Managed Cluster.
         """
         return pulumi.get(self, "windows_profile")
 
@@ -524,35 +524,35 @@ class ManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']] api_server_access_profile: Access profile for managed cluster API server.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: The Azure Active Directory configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: The profile of managed cluster add-on.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: The agent pool properties.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterAPIServerAccessProfileArgs']] api_server_access_profile: The access profile for managed cluster API server.
         :param pulumi.Input[pulumi.InputType['ManagedClusterPropertiesAutoScalerProfileArgs']] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
-        :param pulumi.Input[pulumi.InputType['ManagedClusterAutoUpgradeProfileArgs']] auto_upgrade_profile: Profile of auto upgrade configuration.
-        :param pulumi.Input[bool] disable_local_accounts: If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
-        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
-        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterAutoUpgradeProfileArgs']] auto_upgrade_profile: The auto upgrade configuration.
+        :param pulumi.Input[bool] disable_local_accounts: If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
+        :param pulumi.Input[str] disk_encryption_set_id: This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
+        :param pulumi.Input[str] dns_prefix: This cannot be updated once the Managed Cluster has been created.
         :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Virtual Machine.
-        :param pulumi.Input[str] fqdn_subdomain: FQDN subdomain specified when creating private cluster with custom private dns zone.
+        :param pulumi.Input[str] fqdn_subdomain: This cannot be updated once the Managed Cluster has been created.
         :param pulumi.Input[pulumi.InputType['ManagedClusterHTTPProxyConfigArgs']] http_proxy_config: Configurations for provisioning the cluster with HTTP proxy servers.
         :param pulumi.Input[pulumi.InputType['ManagedClusterIdentityArgs']] identity: The identity of the managed cluster, if configured.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterPropertiesIdentityProfileArgs']]]] identity_profile: Identities associated with the cluster.
-        :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
-        :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
+        :param pulumi.Input[str] kubernetes_version: When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: The profile for Linux VMs in the Managed Cluster.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']] network_profile: Profile of network configuration.
-        :param pulumi.Input[str] node_resource_group: Name of the resource group containing agent pool nodes.
-        :param pulumi.Input[pulumi.InputType['ManagedClusterPodIdentityProfileArgs']] pod_identity_profile: Profile of managed cluster pod identity.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceNetworkProfileArgs']] network_profile: The network configuration profile.
+        :param pulumi.Input[str] node_resource_group: The name of the resource group containing agent pool nodes.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterPodIdentityProfileArgs']] pod_identity_profile: See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkResourceArgs']]]] private_link_resources: Private link resources associated with the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         :param pulumi.Input[pulumi.InputType['ManagedClusterSKUArgs']] sku: The managed cluster SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: Profile for Windows VMs in the container service cluster.
+        :param pulumi.Input[pulumi.InputType['ManagedClusterWindowsProfileArgs']] windows_profile: The profile for Windows VMs in the Managed Cluster.
         """
         ...
     @overload
@@ -723,7 +723,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="aadProfile")
     def aad_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterAADProfileResponse']]:
         """
-        Profile of Azure Active Directory configuration.
+        The Azure Active Directory configuration.
         """
         return pulumi.get(self, "aad_profile")
 
@@ -731,7 +731,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="addonProfiles")
     def addon_profiles(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]]:
         """
-        Profile of managed cluster add-on.
+        The profile of managed cluster add-on.
         """
         return pulumi.get(self, "addon_profiles")
 
@@ -739,7 +739,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="agentPoolProfiles")
     def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]]:
         """
-        Properties of the agent pool.
+        The agent pool properties.
         """
         return pulumi.get(self, "agent_pool_profiles")
 
@@ -747,7 +747,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="apiServerAccessProfile")
     def api_server_access_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']]:
         """
-        Access profile for managed cluster API server.
+        The access profile for managed cluster API server.
         """
         return pulumi.get(self, "api_server_access_profile")
 
@@ -763,7 +763,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="autoUpgradeProfile")
     def auto_upgrade_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterAutoUpgradeProfileResponse']]:
         """
-        Profile of auto upgrade configuration.
+        The auto upgrade configuration.
         """
         return pulumi.get(self, "auto_upgrade_profile")
 
@@ -771,7 +771,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="azurePortalFQDN")
     def azure_portal_fqdn(self) -> pulumi.Output[str]:
         """
-        FQDN for the master pool which used by proxy config.
+        The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         """
         return pulumi.get(self, "azure_portal_fqdn")
 
@@ -779,7 +779,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="disableLocalAccounts")
     def disable_local_accounts(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         """
         return pulumi.get(self, "disable_local_accounts")
 
@@ -787,7 +787,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -795,7 +795,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        DNS prefix specified when creating the managed cluster.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "dns_prefix")
 
@@ -827,7 +827,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[str]:
         """
-        FQDN for the master pool.
+        The FQDN of the master pool.
         """
         return pulumi.get(self, "fqdn")
 
@@ -835,7 +835,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="fqdnSubdomain")
     def fqdn_subdomain(self) -> pulumi.Output[Optional[str]]:
         """
-        FQDN subdomain specified when creating private cluster with custom private dns zone.
+        This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "fqdn_subdomain")
 
@@ -867,7 +867,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of Kubernetes specified when creating the managed cluster.
+        When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -875,7 +875,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="linuxProfile")
     def linux_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceLinuxProfileResponse']]:
         """
-        Profile for Linux VMs in the container service cluster.
+        The profile for Linux VMs in the Managed Cluster.
         """
         return pulumi.get(self, "linux_profile")
 
@@ -907,7 +907,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceNetworkProfileResponse']]:
         """
-        Profile of network configuration.
+        The network configuration profile.
         """
         return pulumi.get(self, "network_profile")
 
@@ -915,7 +915,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the resource group containing agent pool nodes.
+        The name of the resource group containing agent pool nodes.
         """
         return pulumi.get(self, "node_resource_group")
 
@@ -923,7 +923,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="podIdentityProfile")
     def pod_identity_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterPodIdentityProfileResponse']]:
         """
-        Profile of managed cluster pod identity.
+        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         """
         return pulumi.get(self, "pod_identity_profile")
 
@@ -931,7 +931,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="powerState")
     def power_state(self) -> pulumi.Output['outputs.PowerStateResponse']:
         """
-        Represents the Power State of the cluster
+        The Power State of the cluster.
         """
         return pulumi.get(self, "power_state")
 
@@ -939,7 +939,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="privateFQDN")
     def private_fqdn(self) -> pulumi.Output[str]:
         """
-        FQDN of private cluster.
+        The FQDN of private cluster.
         """
         return pulumi.get(self, "private_fqdn")
 
@@ -955,7 +955,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The current deployment or provisioning state, which only appears in the response.
+        The current provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -995,7 +995,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="windowsProfile")
     def windows_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterWindowsProfileResponse']]:
         """
-        Profile for Windows VMs in the container service cluster.
+        The profile for Windows VMs in the Managed Cluster.
         """
         return pulumi.get(self, "windows_profile")
 

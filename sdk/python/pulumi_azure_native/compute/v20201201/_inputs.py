@@ -2821,12 +2821,12 @@ class ScheduledEventsProfileArgs:
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  encryption_at_host: Optional[pulumi.Input[bool]] = None,
-                 security_type: Optional[pulumi.Input['SecurityTypes']] = None,
+                 security_type: Optional[pulumi.Input[Union[str, 'SecurityTypes']]] = None,
                  uefi_settings: Optional[pulumi.Input['UefiSettingsArgs']] = None):
         """
         Specifies the Security profile settings for the virtual machine or virtual machine scale set.
         :param pulumi.Input[bool] encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. <br><br> Default: The Encryption at host will be disabled unless this property is set to true for the resource.
-        :param pulumi.Input['SecurityTypes'] security_type: Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+        :param pulumi.Input[Union[str, 'SecurityTypes']] security_type: Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
         :param pulumi.Input['UefiSettingsArgs'] uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
         """
         if encryption_at_host is not None:
@@ -2850,14 +2850,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input['SecurityTypes']]:
+    def security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityTypes']]]:
         """
         Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
         """
         return pulumi.get(self, "security_type")
 
     @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input['SecurityTypes']]):
+    def security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityTypes']]]):
         pulumi.set(self, "security_type", value)
 
     @property

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * The list of credential result response.
+ * The list credential result response.
  */
 export function listManagedClusterAdminCredentials(args: ListManagedClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAdminCredentialsResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface ListManagedClusterAdminCredentialsArgs {
 }
 
 /**
- * The list of credential result response.
+ * The list credential result response.
  */
 export interface ListManagedClusterAdminCredentialsResult {
     /**

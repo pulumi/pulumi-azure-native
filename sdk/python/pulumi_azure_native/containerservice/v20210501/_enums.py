@@ -33,7 +33,7 @@ __all__ = [
 
 class AgentPoolMode(str, Enum):
     """
-    AgentPoolMode represents mode of an agent pool
+    A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
     """
     SYSTEM = "System"
     USER = "User"
@@ -41,7 +41,7 @@ class AgentPoolMode(str, Enum):
 
 class AgentPoolType(str, Enum):
     """
-    AgentPoolType represents types of an agent pool
+    The type of Agent Pool.
     """
     VIRTUAL_MACHINE_SCALE_SETS = "VirtualMachineScaleSets"
     AVAILABILITY_SET = "AvailabilitySet"
@@ -58,6 +58,9 @@ class ConnectionStatus(str, Enum):
 
 
 class Expander(str, Enum):
+    """
+    If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+    """
     LEAST_WASTE = "least-waste"
     MOST_PODS = "most-pods"
     PRIORITY = "priority"
@@ -73,7 +76,7 @@ class ExtendedLocationTypes(str, Enum):
 
 class GPUInstanceProfile(str, Enum):
     """
-    GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+    GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
     """
     MIG1G = "MIG1g"
     MIG2G = "MIG2g"
@@ -84,7 +87,7 @@ class GPUInstanceProfile(str, Enum):
 
 class KubeletDiskType(str, Enum):
     """
-    KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+    Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
     """
     OS = "OS"
     TEMPORARY = "Temporary"
@@ -92,7 +95,7 @@ class KubeletDiskType(str, Enum):
 
 class LicenseType(str, Enum):
     """
-    The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
+    The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
     """
     NONE = "None"
     WINDOWS_SERVER = "Windows_Server"
@@ -100,7 +103,7 @@ class LicenseType(str, Enum):
 
 class LoadBalancerSku(str, Enum):
     """
-    The load balancer sku for the managed cluster.
+    The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
     """
     STANDARD = "standard"
     BASIC = "basic"
@@ -108,14 +111,14 @@ class LoadBalancerSku(str, Enum):
 
 class ManagedClusterSKUName(str, Enum):
     """
-    Name of a managed cluster SKU.
+    The name of a managed cluster SKU.
     """
     BASIC = "Basic"
 
 
 class ManagedClusterSKUTier(str, Enum):
     """
-    Tier of a managed cluster SKU.
+    If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
     """
     PAID = "Paid"
     FREE = "Free"
@@ -123,7 +126,7 @@ class ManagedClusterSKUTier(str, Enum):
 
 class NetworkMode(str, Enum):
     """
-    Network mode used for building Kubernetes network.
+    This cannot be specified if networkPlugin is anything other than 'azure'.
     """
     TRANSPARENT = "transparent"
     BRIDGE = "bridge"
@@ -131,7 +134,7 @@ class NetworkMode(str, Enum):
 
 class NetworkPlugin(str, Enum):
     """
-    Network plugin used for building Kubernetes network.
+    Network plugin used for building the Kubernetes network.
     """
     AZURE = "azure"
     KUBENET = "kubenet"
@@ -139,7 +142,7 @@ class NetworkPlugin(str, Enum):
 
 class NetworkPolicy(str, Enum):
     """
-    Network policy used for building Kubernetes network.
+    Network policy used for building the Kubernetes network.
     """
     CALICO = "calico"
     AZURE = "azure"
@@ -147,7 +150,7 @@ class NetworkPolicy(str, Enum):
 
 class OSDiskType(str, Enum):
     """
-    OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+    The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
     """
     MANAGED = "Managed"
     EPHEMERAL = "Ephemeral"
@@ -155,7 +158,7 @@ class OSDiskType(str, Enum):
 
 class OSSKU(str, Enum):
     """
-    OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+    Specifies an OS SKU. This value must not be specified if OSType is Windows.
     """
     UBUNTU = "Ubuntu"
     CBL_MARINER = "CBLMariner"
@@ -163,7 +166,7 @@ class OSSKU(str, Enum):
 
 class OSType(str, Enum):
     """
-    OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+    The operating system type. The default is Linux.
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
@@ -171,7 +174,7 @@ class OSType(str, Enum):
 
 class OutboundType(str, Enum):
     """
-    The outbound (egress) routing method.
+    This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
     """
     LOAD_BALANCER = "loadBalancer"
     USER_DEFINED_ROUTING = "userDefinedRouting"
@@ -179,7 +182,7 @@ class OutboundType(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+    For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -188,7 +191,7 @@ class ResourceIdentityType(str, Enum):
 
 class ScaleSetEvictionPolicy(str, Enum):
     """
-    ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+    This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
     """
     DELETE = "Delete"
     DEALLOCATE = "Deallocate"
@@ -196,7 +199,7 @@ class ScaleSetEvictionPolicy(str, Enum):
 
 class ScaleSetPriority(str, Enum):
     """
-    ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+    The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
     """
     SPOT = "Spot"
     REGULAR = "Regular"
@@ -204,7 +207,7 @@ class ScaleSetPriority(str, Enum):
 
 class UpgradeChannel(str, Enum):
     """
-    upgrade channel for auto upgrade.
+    For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
     """
     RAPID = "rapid"
     STABLE = "stable"
@@ -215,7 +218,7 @@ class UpgradeChannel(str, Enum):
 
 class WeekDay(str, Enum):
     """
-    A day in a week.
+    The day of the week.
     """
     SUNDAY = "Sunday"
     MONDAY = "Monday"

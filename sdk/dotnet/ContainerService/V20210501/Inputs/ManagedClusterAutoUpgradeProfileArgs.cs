@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
     public sealed class ManagedClusterAutoUpgradeProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// upgrade channel for auto upgrade.
+        /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// </summary>
         [Input("upgradeChannel")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20210501.UpgradeChannel>? UpgradeChannel { get; set; }

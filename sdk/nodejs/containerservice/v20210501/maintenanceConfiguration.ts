@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * maintenance configuration.
+ * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -44,11 +44,11 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly notAllowedTime!: pulumi.Output<outputs.containerservice.v20210501.TimeSpanResponse[] | undefined>;
     /**
-     * The system meta data relating to this resource.
+     * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.v20210501.SystemDataResponse>;
     /**
-     * Weekday time slots allowed to upgrade.
+     * If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
     public readonly timeInWeek!: pulumi.Output<outputs.containerservice.v20210501.TimeInWeekResponse[] | undefined>;
     /**
@@ -118,7 +118,7 @@ export interface MaintenanceConfigurationArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * Weekday time slots allowed to upgrade.
+     * If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
     timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.v20210501.TimeInWeekArgs>[]>;
 }

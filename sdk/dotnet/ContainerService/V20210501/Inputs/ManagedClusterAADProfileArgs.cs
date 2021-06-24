@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
 {
 
     /// <summary>
-    /// AADProfile specifies attributes for Azure Active Directory integration.
+    /// For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     /// </summary>
     public sealed class ManagedClusterAADProfileArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Inputs
         private InputList<string>? _adminGroupObjectIDs;
 
         /// <summary>
-        /// AAD group object IDs that will have admin role of the cluster.
+        /// The list of AAD group object IDs that will have admin role of the cluster.
         /// </summary>
         public InputList<string> AdminGroupObjectIDs
         {

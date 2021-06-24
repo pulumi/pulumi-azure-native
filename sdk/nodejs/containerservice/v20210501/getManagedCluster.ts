@@ -38,19 +38,19 @@ export interface GetManagedClusterArgs {
  */
 export interface GetManagedClusterResult {
     /**
-     * Profile of Azure Active Directory configuration.
+     * The Azure Active Directory configuration.
      */
     readonly aadProfile?: outputs.containerservice.v20210501.ManagedClusterAADProfileResponse;
     /**
-     * Profile of managed cluster add-on.
+     * The profile of managed cluster add-on.
      */
     readonly addonProfiles?: {[key: string]: outputs.containerservice.v20210501.ManagedClusterAddonProfileResponse};
     /**
-     * Properties of the agent pool.
+     * The agent pool properties.
      */
     readonly agentPoolProfiles?: outputs.containerservice.v20210501.ManagedClusterAgentPoolProfileResponse[];
     /**
-     * Access profile for managed cluster API server.
+     * The access profile for managed cluster API server.
      */
     readonly apiServerAccessProfile?: outputs.containerservice.v20210501.ManagedClusterAPIServerAccessProfileResponse;
     /**
@@ -58,23 +58,23 @@ export interface GetManagedClusterResult {
      */
     readonly autoScalerProfile?: outputs.containerservice.v20210501.ManagedClusterPropertiesResponseAutoScalerProfile;
     /**
-     * Profile of auto upgrade configuration.
+     * The auto upgrade configuration.
      */
     readonly autoUpgradeProfile?: outputs.containerservice.v20210501.ManagedClusterAutoUpgradeProfileResponse;
     /**
-     * FQDN for the master pool which used by proxy config.
+     * The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
      */
     readonly azurePortalFQDN: string;
     /**
-     * If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+     * If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
      */
     readonly disableLocalAccounts?: boolean;
     /**
-     * ResourceId of the disk encryption set to use for enabling encryption at rest.
+     * This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
      */
     readonly diskEncryptionSetID?: string;
     /**
-     * DNS prefix specified when creating the managed cluster.
+     * This cannot be updated once the Managed Cluster has been created.
      */
     readonly dnsPrefix?: string;
     /**
@@ -90,11 +90,11 @@ export interface GetManagedClusterResult {
      */
     readonly extendedLocation?: outputs.containerservice.v20210501.ExtendedLocationResponse;
     /**
-     * FQDN for the master pool.
+     * The FQDN of the master pool.
      */
     readonly fqdn: string;
     /**
-     * FQDN subdomain specified when creating private cluster with custom private dns zone.
+     * This cannot be updated once the Managed Cluster has been created.
      */
     readonly fqdnSubdomain?: string;
     /**
@@ -114,11 +114,11 @@ export interface GetManagedClusterResult {
      */
     readonly identityProfile?: {[key: string]: outputs.containerservice.v20210501.ManagedClusterPropertiesResponseIdentityProfile};
     /**
-     * Version of Kubernetes specified when creating the managed cluster.
+     * When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
      */
     readonly kubernetesVersion?: string;
     /**
-     * Profile for Linux VMs in the container service cluster.
+     * The profile for Linux VMs in the Managed Cluster.
      */
     readonly linuxProfile?: outputs.containerservice.v20210501.ContainerServiceLinuxProfileResponse;
     /**
@@ -134,23 +134,23 @@ export interface GetManagedClusterResult {
      */
     readonly name: string;
     /**
-     * Profile of network configuration.
+     * The network configuration profile.
      */
     readonly networkProfile?: outputs.containerservice.v20210501.ContainerServiceNetworkProfileResponse;
     /**
-     * Name of the resource group containing agent pool nodes.
+     * The name of the resource group containing agent pool nodes.
      */
     readonly nodeResourceGroup?: string;
     /**
-     * Profile of managed cluster pod identity.
+     * See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
      */
     readonly podIdentityProfile?: outputs.containerservice.v20210501.ManagedClusterPodIdentityProfileResponse;
     /**
-     * Represents the Power State of the cluster
+     * The Power State of the cluster.
      */
     readonly powerState: outputs.containerservice.v20210501.PowerStateResponse;
     /**
-     * FQDN of private cluster.
+     * The FQDN of private cluster.
      */
     readonly privateFQDN: string;
     /**
@@ -158,7 +158,7 @@ export interface GetManagedClusterResult {
      */
     readonly privateLinkResources?: outputs.containerservice.v20210501.PrivateLinkResourceResponse[];
     /**
-     * The current deployment or provisioning state, which only appears in the response.
+     * The current provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -178,7 +178,7 @@ export interface GetManagedClusterResult {
      */
     readonly type: string;
     /**
-     * Profile for Windows VMs in the container service cluster.
+     * The profile for Windows VMs in the Managed Cluster.
      */
     readonly windowsProfile?: outputs.containerservice.v20210501.ManagedClusterWindowsProfileResponse;
 }

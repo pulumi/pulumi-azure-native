@@ -43,19 +43,19 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
     public sealed class GetManagedClusterResult
     {
         /// <summary>
-        /// Profile of Azure Active Directory configuration.
+        /// The Azure Active Directory configuration.
         /// </summary>
         public readonly Outputs.ManagedClusterAADProfileResponse? AadProfile;
         /// <summary>
-        /// Profile of managed cluster add-on.
+        /// The profile of managed cluster add-on.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? AddonProfiles;
         /// <summary>
-        /// Properties of the agent pool.
+        /// The agent pool properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
-        /// Access profile for managed cluster API server.
+        /// The access profile for managed cluster API server.
         /// </summary>
         public readonly Outputs.ManagedClusterAPIServerAccessProfileResponse? ApiServerAccessProfile;
         /// <summary>
@@ -63,23 +63,23 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly Outputs.ManagedClusterPropertiesResponseAutoScalerProfile? AutoScalerProfile;
         /// <summary>
-        /// Profile of auto upgrade configuration.
+        /// The auto upgrade configuration.
         /// </summary>
         public readonly Outputs.ManagedClusterAutoUpgradeProfileResponse? AutoUpgradeProfile;
         /// <summary>
-        /// FQDN for the master pool which used by proxy config.
+        /// The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         /// </summary>
         public readonly string AzurePortalFQDN;
         /// <summary>
-        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         /// </summary>
         public readonly bool? DisableLocalAccounts;
         /// <summary>
-        /// ResourceId of the disk encryption set to use for enabling encryption at rest.
+        /// This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         /// </summary>
         public readonly string? DiskEncryptionSetID;
         /// <summary>
-        /// DNS prefix specified when creating the managed cluster.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         public readonly string? DnsPrefix;
         /// <summary>
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// FQDN for the master pool.
+        /// The FQDN of the master pool.
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// This cannot be updated once the Managed Cluster has been created.
         /// </summary>
         public readonly string? FqdnSubdomain;
         /// <summary>
@@ -119,11 +119,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>? IdentityProfile;
         /// <summary>
-        /// Version of Kubernetes specified when creating the managed cluster.
+        /// When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -&gt; 1.15.x or 1.15.x -&gt; 1.16.x are allowed, however 1.14.x -&gt; 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         /// </summary>
         public readonly string? KubernetesVersion;
         /// <summary>
-        /// Profile for Linux VMs in the container service cluster.
+        /// The profile for Linux VMs in the Managed Cluster.
         /// </summary>
         public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
         /// <summary>
@@ -139,23 +139,23 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Profile of network configuration.
+        /// The network configuration profile.
         /// </summary>
         public readonly Outputs.ContainerServiceNetworkProfileResponse? NetworkProfile;
         /// <summary>
-        /// Name of the resource group containing agent pool nodes.
+        /// The name of the resource group containing agent pool nodes.
         /// </summary>
         public readonly string? NodeResourceGroup;
         /// <summary>
-        /// Profile of managed cluster pod identity.
+        /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         /// </summary>
         public readonly Outputs.ManagedClusterPodIdentityProfileResponse? PodIdentityProfile;
         /// <summary>
-        /// Represents the Power State of the cluster
+        /// The Power State of the cluster.
         /// </summary>
         public readonly Outputs.PowerStateResponse PowerState;
         /// <summary>
-        /// FQDN of private cluster.
+        /// The FQDN of private cluster.
         /// </summary>
         public readonly string PrivateFQDN;
         /// <summary>
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateLinkResourceResponse> PrivateLinkResources;
         /// <summary>
-        /// The current deployment or provisioning state, which only appears in the response.
+        /// The current provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Profile for Windows VMs in the container service cluster.
+        /// The profile for Windows VMs in the Managed Cluster.
         /// </summary>
         public readonly Outputs.ManagedClusterWindowsProfileResponse? WindowsProfile;
 

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// maintenance configuration.
+// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
 	err := ctx.Invoke("azure-native:containerservice/v20210501:getMaintenanceConfiguration", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupMaintenanceConfigurationArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 }
 
-// maintenance configuration.
+// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 type LookupMaintenanceConfigurationResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
@@ -34,9 +34,9 @@ type LookupMaintenanceConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime []TimeSpanResponse `pulumi:"notAllowedTime"`
-	// The system meta data relating to this resource.
+	// The system metadata relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
 	// Resource type
 	Type string `pulumi:"type"`

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class ManagedClusterLoadBalancerProfileResponse
     {
         /// <summary>
-        /// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        /// The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         /// </summary>
         public readonly int? AllocatedOutboundPorts;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> EffectiveOutboundIPs;
         /// <summary>
-        /// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+        /// Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>

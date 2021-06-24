@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
     public static class GetMaintenanceConfiguration
     {
         /// <summary>
-        /// maintenance configuration.
+        /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:containerservice/v20210501:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());
@@ -61,11 +61,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeSpanResponse> NotAllowedTime;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system metadata relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Weekday time slots allowed to upgrade.
+        /// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         /// </summary>
         public readonly ImmutableArray<Outputs.TimeInWeekResponse> TimeInWeek;
         /// <summary>

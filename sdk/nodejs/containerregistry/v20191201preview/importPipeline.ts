@@ -118,7 +118,7 @@ export class ImportPipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20191201preview:ImportPipeline" }, { type: "azure-native:containerregistry:ImportPipeline" }, { type: "azure-nextgen:containerregistry:ImportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ImportPipeline" }, { type: "azure-nextgen:containerregistry/v20201101preview:ImportPipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20191201preview:ImportPipeline" }, { type: "azure-native:containerregistry:ImportPipeline" }, { type: "azure-nextgen:containerregistry:ImportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ImportPipeline" }, { type: "azure-nextgen:containerregistry/v20201101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ImportPipeline" }, { type: "azure-nextgen:containerregistry/v20210601preview:ImportPipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportPipeline.__pulumiType, name, inputs, opts);
     }

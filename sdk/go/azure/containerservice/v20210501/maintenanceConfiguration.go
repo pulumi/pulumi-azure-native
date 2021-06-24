@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// maintenance configuration.
+// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -19,9 +19,9 @@ type MaintenanceConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime TimeSpanResponseArrayOutput `pulumi:"notAllowedTime"`
-	// The system meta data relating to this resource.
+	// The system metadata relating to this resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek TimeInWeekResponseArrayOutput `pulumi:"timeInWeek"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -96,9 +96,9 @@ type maintenanceConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime []TimeSpanResponse `pulumi:"notAllowedTime"`
-	// The system meta data relating to this resource.
+	// The system metadata relating to this resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
 	// Resource type
 	Type *string `pulumi:"type"`
@@ -109,9 +109,9 @@ type MaintenanceConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Time slots on which upgrade is not allowed.
 	NotAllowedTime TimeSpanResponseArrayInput
-	// The system meta data relating to this resource.
+	// The system metadata relating to this resource.
 	SystemData SystemDataResponsePtrInput
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek TimeInWeekResponseArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
@@ -130,7 +130,7 @@ type maintenanceConfigurationArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek []TimeInWeek `pulumi:"timeInWeek"`
 }
 
@@ -144,7 +144,7 @@ type MaintenanceConfigurationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput
-	// Weekday time slots allowed to upgrade.
+	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
 	TimeInWeek TimeInWeekArrayInput
 }
 

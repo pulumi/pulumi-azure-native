@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class ManagedClusterSKUResponse
     {
         /// <summary>
-        /// Name of a managed cluster SKU.
+        /// The name of a managed cluster SKU.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Tier of a managed cluster SKU.
+        /// If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
         /// </summary>
         public readonly string? Tier;
 

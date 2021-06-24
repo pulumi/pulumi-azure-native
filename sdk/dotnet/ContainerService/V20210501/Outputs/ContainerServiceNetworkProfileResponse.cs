@@ -26,23 +26,23 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// </summary>
         public readonly Outputs.ManagedClusterLoadBalancerProfileResponse? LoadBalancerProfile;
         /// <summary>
-        /// The load balancer sku for the managed cluster.
+        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
-        /// Network mode used for building Kubernetes network.
+        /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>
-        /// Network plugin used for building Kubernetes network.
+        /// Network plugin used for building the Kubernetes network.
         /// </summary>
         public readonly string? NetworkPlugin;
         /// <summary>
-        /// Network policy used for building Kubernetes network.
+        /// Network policy used for building the Kubernetes network.
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The outbound (egress) routing method.
+        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>

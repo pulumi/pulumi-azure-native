@@ -14,15 +14,15 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
     public sealed class ManagedClusterPodIdentityExceptionResponse
     {
         /// <summary>
-        /// Name of the pod identity exception.
+        /// The name of the pod identity exception.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Namespace of the pod identity exception.
+        /// The namespace of the pod identity exception.
         /// </summary>
         public readonly string Namespace;
         /// <summary>
-        /// Pod labels to match.
+        /// The pod labels to match.
         /// </summary>
         public readonly ImmutableDictionary<string, string> PodLabels;
 

@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
     """
-    maintenance configuration.
+    See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     """
     def __init__(__self__, id=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
         if id and not isinstance(id, str):
@@ -68,7 +68,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -76,7 +76,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter(name="timeInWeek")
     def time_in_week(self) -> Optional[Sequence['outputs.TimeInWeekResponse']]:
         """
-        Weekday time slots allowed to upgrade.
+        If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
         return pulumi.get(self, "time_in_week")
 
@@ -108,7 +108,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    maintenance configuration.
+    See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 
 
     :param str config_name: The name of the maintenance configuration.
