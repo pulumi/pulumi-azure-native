@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft
+
+- `iotspaces` resource provider was removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13993))
 
 ---
 
