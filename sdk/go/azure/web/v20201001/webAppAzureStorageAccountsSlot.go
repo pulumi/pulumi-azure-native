@@ -95,6 +95,12 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppAzureStorageAccountsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppAzureStorageAccountsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppAzureStorageAccountsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAzureStorageAccountsSlot

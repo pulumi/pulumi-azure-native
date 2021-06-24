@@ -11,7 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActionResponse',
+    'ActionsResponse',
     'ConditionResponse',
     'ConditionResponseFailingPeriods',
     'DimensionResponse',
@@ -20,57 +20,57 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ActionResponse(dict):
+class ActionsResponse(dict):
     """
     Actions to invoke when the alert fires.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionGroupId":
-            suggest = "action_group_id"
-        elif key == "webHookProperties":
-            suggest = "web_hook_properties"
+        if key == "actionGroups":
+            suggest = "action_groups"
+        elif key == "customProperties":
+            suggest = "custom_properties"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ActionsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ActionResponse.__key_warning(key)
+        ActionsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ActionResponse.__key_warning(key)
+        ActionsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_group_id: Optional[str] = None,
-                 web_hook_properties: Optional[Mapping[str, str]] = None):
+                 action_groups: Optional[Sequence[str]] = None,
+                 custom_properties: Optional[Mapping[str, str]] = None):
         """
         Actions to invoke when the alert fires.
-        :param str action_group_id: Action Group resource Id to invoke when the alert fires.
-        :param Mapping[str, str] web_hook_properties: The properties of a webhook object.
+        :param Sequence[str] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param Mapping[str, str] custom_properties: The properties of an alert payload.
         """
-        if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
-        if web_hook_properties is not None:
-            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
 
     @property
-    @pulumi.getter(name="actionGroupId")
-    def action_group_id(self) -> Optional[str]:
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[Sequence[str]]:
         """
-        Action Group resource Id to invoke when the alert fires.
+        Action Group resource Ids to invoke when the alert fires.
         """
-        return pulumi.get(self, "action_group_id")
+        return pulumi.get(self, "action_groups")
 
     @property
-    @pulumi.getter(name="webHookProperties")
-    def web_hook_properties(self) -> Optional[Mapping[str, str]]:
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Mapping[str, str]]:
         """
-        The properties of a webhook object.
+        The properties of an alert payload.
         """
-        return pulumi.get(self, "web_hook_properties")
+        return pulumi.get(self, "custom_properties")
 
 
 @pulumi.output_type

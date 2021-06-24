@@ -108,6 +108,12 @@ func NewSiteSlotConfigNames(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:SiteSlotConfigNames"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:SiteSlotConfigNames"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:SiteSlotConfigNames"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteSlotConfigNames

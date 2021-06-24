@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteAppSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAppSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:SiteAppSettings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAppSettings"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:SiteAppSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

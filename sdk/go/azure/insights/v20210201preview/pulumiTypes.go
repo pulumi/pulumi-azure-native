@@ -11,221 +11,221 @@ import (
 )
 
 // Actions to invoke when the alert fires.
-type Action struct {
-	// Action Group resource Id to invoke when the alert fires.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
-	WebHookProperties map[string]string `pulumi:"webHookProperties"`
+type Actions struct {
+	// Action Group resource Ids to invoke when the alert fires.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// The properties of an alert payload.
+	CustomProperties map[string]string `pulumi:"customProperties"`
 }
 
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
+// ActionsInput is an input type that accepts ActionsArgs and ActionsOutput values.
+// You can construct a concrete instance of `ActionsInput` via:
 //
-//          ActionArgs{...}
-type ActionInput interface {
+//          ActionsArgs{...}
+type ActionsInput interface {
 	pulumi.Input
 
-	ToActionOutput() ActionOutput
-	ToActionOutputWithContext(context.Context) ActionOutput
+	ToActionsOutput() ActionsOutput
+	ToActionsOutputWithContext(context.Context) ActionsOutput
 }
 
 // Actions to invoke when the alert fires.
-type ActionArgs struct {
-	// Action Group resource Id to invoke when the alert fires.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
-	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
+type ActionsArgs struct {
+	// Action Group resource Ids to invoke when the alert fires.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// The properties of an alert payload.
+	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
 }
 
-func (ActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
+func (ActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Actions)(nil)).Elem()
 }
 
-func (i ActionArgs) ToActionOutput() ActionOutput {
-	return i.ToActionOutputWithContext(context.Background())
+func (i ActionsArgs) ToActionsOutput() ActionsOutput {
+	return i.ToActionsOutputWithContext(context.Background())
 }
 
-func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
+func (i ActionsArgs) ToActionsOutputWithContext(ctx context.Context) ActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOutput)
 }
 
-// ActionArrayInput is an input type that accepts ActionArray and ActionArrayOutput values.
-// You can construct a concrete instance of `ActionArrayInput` via:
+// ActionsArrayInput is an input type that accepts ActionsArray and ActionsArrayOutput values.
+// You can construct a concrete instance of `ActionsArrayInput` via:
 //
-//          ActionArray{ ActionArgs{...} }
-type ActionArrayInput interface {
+//          ActionsArray{ ActionsArgs{...} }
+type ActionsArrayInput interface {
 	pulumi.Input
 
-	ToActionArrayOutput() ActionArrayOutput
-	ToActionArrayOutputWithContext(context.Context) ActionArrayOutput
+	ToActionsArrayOutput() ActionsArrayOutput
+	ToActionsArrayOutputWithContext(context.Context) ActionsArrayOutput
 }
 
-type ActionArray []ActionInput
+type ActionsArray []ActionsInput
 
-func (ActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Action)(nil)).Elem()
+func (ActionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Actions)(nil)).Elem()
 }
 
-func (i ActionArray) ToActionArrayOutput() ActionArrayOutput {
-	return i.ToActionArrayOutputWithContext(context.Background())
+func (i ActionsArray) ToActionsArrayOutput() ActionsArrayOutput {
+	return i.ToActionsArrayOutputWithContext(context.Background())
 }
 
-func (i ActionArray) ToActionArrayOutputWithContext(ctx context.Context) ActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionArrayOutput)
-}
-
-// Actions to invoke when the alert fires.
-type ActionOutput struct{ *pulumi.OutputState }
-
-func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (o ActionOutput) ToActionOutput() ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return o
-}
-
-// Action Group resource Id to invoke when the alert fires.
-func (o ActionOutput) ActionGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Action) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The properties of a webhook object.
-func (o ActionOutput) WebHookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Action) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
-}
-
-type ActionArrayOutput struct{ *pulumi.OutputState }
-
-func (ActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Action)(nil)).Elem()
-}
-
-func (o ActionArrayOutput) ToActionArrayOutput() ActionArrayOutput {
-	return o
-}
-
-func (o ActionArrayOutput) ToActionArrayOutputWithContext(ctx context.Context) ActionArrayOutput {
-	return o
-}
-
-func (o ActionArrayOutput) Index(i pulumi.IntInput) ActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Action {
-		return vs[0].([]Action)[vs[1].(int)]
-	}).(ActionOutput)
+func (i ActionsArray) ToActionsArrayOutputWithContext(ctx context.Context) ActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsArrayOutput)
 }
 
 // Actions to invoke when the alert fires.
-type ActionResponse struct {
-	// Action Group resource Id to invoke when the alert fires.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
-	WebHookProperties map[string]string `pulumi:"webHookProperties"`
+type ActionsOutput struct{ *pulumi.OutputState }
+
+func (ActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Actions)(nil)).Elem()
 }
 
-// ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
-// You can construct a concrete instance of `ActionResponseInput` via:
+func (o ActionsOutput) ToActionsOutput() ActionsOutput {
+	return o
+}
+
+func (o ActionsOutput) ToActionsOutputWithContext(ctx context.Context) ActionsOutput {
+	return o
+}
+
+// Action Group resource Ids to invoke when the alert fires.
+func (o ActionsOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Actions) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
+}
+
+// The properties of an alert payload.
+func (o ActionsOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v Actions) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+type ActionsArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Actions)(nil)).Elem()
+}
+
+func (o ActionsArrayOutput) ToActionsArrayOutput() ActionsArrayOutput {
+	return o
+}
+
+func (o ActionsArrayOutput) ToActionsArrayOutputWithContext(ctx context.Context) ActionsArrayOutput {
+	return o
+}
+
+func (o ActionsArrayOutput) Index(i pulumi.IntInput) ActionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Actions {
+		return vs[0].([]Actions)[vs[1].(int)]
+	}).(ActionsOutput)
+}
+
+// Actions to invoke when the alert fires.
+type ActionsResponse struct {
+	// Action Group resource Ids to invoke when the alert fires.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// The properties of an alert payload.
+	CustomProperties map[string]string `pulumi:"customProperties"`
+}
+
+// ActionsResponseInput is an input type that accepts ActionsResponseArgs and ActionsResponseOutput values.
+// You can construct a concrete instance of `ActionsResponseInput` via:
 //
-//          ActionResponseArgs{...}
-type ActionResponseInput interface {
+//          ActionsResponseArgs{...}
+type ActionsResponseInput interface {
 	pulumi.Input
 
-	ToActionResponseOutput() ActionResponseOutput
-	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
+	ToActionsResponseOutput() ActionsResponseOutput
+	ToActionsResponseOutputWithContext(context.Context) ActionsResponseOutput
 }
 
 // Actions to invoke when the alert fires.
-type ActionResponseArgs struct {
-	// Action Group resource Id to invoke when the alert fires.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
-	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
+type ActionsResponseArgs struct {
+	// Action Group resource Ids to invoke when the alert fires.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// The properties of an alert payload.
+	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
 }
 
-func (ActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+func (ActionsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsResponse)(nil)).Elem()
 }
 
-func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
-	return i.ToActionResponseOutputWithContext(context.Background())
+func (i ActionsResponseArgs) ToActionsResponseOutput() ActionsResponseOutput {
+	return i.ToActionsResponseOutputWithContext(context.Background())
 }
 
-func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
+func (i ActionsResponseArgs) ToActionsResponseOutputWithContext(ctx context.Context) ActionsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponseOutput)
 }
 
-// ActionResponseArrayInput is an input type that accepts ActionResponseArray and ActionResponseArrayOutput values.
-// You can construct a concrete instance of `ActionResponseArrayInput` via:
+// ActionsResponseArrayInput is an input type that accepts ActionsResponseArray and ActionsResponseArrayOutput values.
+// You can construct a concrete instance of `ActionsResponseArrayInput` via:
 //
-//          ActionResponseArray{ ActionResponseArgs{...} }
-type ActionResponseArrayInput interface {
+//          ActionsResponseArray{ ActionsResponseArgs{...} }
+type ActionsResponseArrayInput interface {
 	pulumi.Input
 
-	ToActionResponseArrayOutput() ActionResponseArrayOutput
-	ToActionResponseArrayOutputWithContext(context.Context) ActionResponseArrayOutput
+	ToActionsResponseArrayOutput() ActionsResponseArrayOutput
+	ToActionsResponseArrayOutputWithContext(context.Context) ActionsResponseArrayOutput
 }
 
-type ActionResponseArray []ActionResponseInput
+type ActionsResponseArray []ActionsResponseInput
 
-func (ActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionResponse)(nil)).Elem()
+func (ActionsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsResponse)(nil)).Elem()
 }
 
-func (i ActionResponseArray) ToActionResponseArrayOutput() ActionResponseArrayOutput {
-	return i.ToActionResponseArrayOutputWithContext(context.Background())
+func (i ActionsResponseArray) ToActionsResponseArrayOutput() ActionsResponseArrayOutput {
+	return i.ToActionsResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ActionResponseArray) ToActionResponseArrayOutputWithContext(ctx context.Context) ActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseArrayOutput)
+func (i ActionsResponseArray) ToActionsResponseArrayOutputWithContext(ctx context.Context) ActionsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponseArrayOutput)
 }
 
 // Actions to invoke when the alert fires.
-type ActionResponseOutput struct{ *pulumi.OutputState }
+type ActionsResponseOutput struct{ *pulumi.OutputState }
 
-func (ActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+func (ActionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionsResponse)(nil)).Elem()
 }
 
-func (o ActionResponseOutput) ToActionResponseOutput() ActionResponseOutput {
+func (o ActionsResponseOutput) ToActionsResponseOutput() ActionsResponseOutput {
 	return o
 }
 
-func (o ActionResponseOutput) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+func (o ActionsResponseOutput) ToActionsResponseOutputWithContext(ctx context.Context) ActionsResponseOutput {
 	return o
 }
 
-// Action Group resource Id to invoke when the alert fires.
-func (o ActionResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActionResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
+// Action Group resource Ids to invoke when the alert fires.
+func (o ActionsResponseOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionsResponse) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
 
-// The properties of a webhook object.
-func (o ActionResponseOutput) WebHookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActionResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
+// The properties of an alert payload.
+func (o ActionsResponseOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ActionsResponse) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
-type ActionResponseArrayOutput struct{ *pulumi.OutputState }
+type ActionsResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ActionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionResponse)(nil)).Elem()
+func (ActionsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionsResponse)(nil)).Elem()
 }
 
-func (o ActionResponseArrayOutput) ToActionResponseArrayOutput() ActionResponseArrayOutput {
+func (o ActionsResponseArrayOutput) ToActionsResponseArrayOutput() ActionsResponseArrayOutput {
 	return o
 }
 
-func (o ActionResponseArrayOutput) ToActionResponseArrayOutputWithContext(ctx context.Context) ActionResponseArrayOutput {
+func (o ActionsResponseArrayOutput) ToActionsResponseArrayOutputWithContext(ctx context.Context) ActionsResponseArrayOutput {
 	return o
 }
 
-func (o ActionResponseArrayOutput) Index(i pulumi.IntInput) ActionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionResponse {
-		return vs[0].([]ActionResponse)[vs[1].(int)]
-	}).(ActionResponseOutput)
+func (o ActionsResponseArrayOutput) Index(i pulumi.IntInput) ActionsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsResponse {
+		return vs[0].([]ActionsResponse)[vs[1].(int)]
+	}).(ActionsResponseOutput)
 }
 
 // A condition of the scheduled query rule.
@@ -1612,10 +1612,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionArrayOutput{})
-	pulumi.RegisterOutputType(ActionResponseOutput{})
-	pulumi.RegisterOutputType(ActionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActionsOutput{})
+	pulumi.RegisterOutputType(ActionsArrayOutput{})
+	pulumi.RegisterOutputType(ActionsResponseOutput{})
+	pulumi.RegisterOutputType(ActionsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionArrayOutput{})
 	pulumi.RegisterOutputType(ConditionFailingPeriodsOutput{})

@@ -10,7 +10,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ActionArgs',
+    'ActionsArgs',
     'ConditionArgs',
     'ConditionFailingPeriodsArgs',
     'DimensionArgs',
@@ -18,43 +18,43 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ActionArgs:
+class ActionsArgs:
     def __init__(__self__, *,
-                 action_group_id: Optional[pulumi.Input[str]] = None,
-                 web_hook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Actions to invoke when the alert fires.
-        :param pulumi.Input[str] action_group_id: Action Group resource Id to invoke when the alert fires.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] web_hook_properties: The properties of a webhook object.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: The properties of an alert payload.
         """
-        if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
-        if web_hook_properties is not None:
-            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
 
     @property
-    @pulumi.getter(name="actionGroupId")
-    def action_group_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Action Group resource Id to invoke when the alert fires.
+        Action Group resource Ids to invoke when the alert fires.
         """
-        return pulumi.get(self, "action_group_id")
+        return pulumi.get(self, "action_groups")
 
-    @action_group_id.setter
-    def action_group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_group_id", value)
+    @action_groups.setter
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_groups", value)
 
     @property
-    @pulumi.getter(name="webHookProperties")
-    def web_hook_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The properties of a webhook object.
+        The properties of an alert payload.
         """
-        return pulumi.get(self, "web_hook_properties")
+        return pulumi.get(self, "custom_properties")
 
-    @web_hook_properties.setter
-    def web_hook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "web_hook_properties", value)
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
 
 
 @pulumi.input_type

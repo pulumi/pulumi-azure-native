@@ -102,6 +102,12 @@ func NewWebAppApplicationSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppApplicationSettings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppApplicationSettings"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppApplicationSettings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppApplicationSettings

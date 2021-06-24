@@ -118,6 +118,12 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHostNameBinding"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppHostNameBinding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBinding

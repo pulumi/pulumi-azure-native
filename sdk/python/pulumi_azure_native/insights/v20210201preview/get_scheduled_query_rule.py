@@ -102,7 +102,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.ActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.ActionsResponse']]:
         """
         Actions to invoke when the alert fires.
         """

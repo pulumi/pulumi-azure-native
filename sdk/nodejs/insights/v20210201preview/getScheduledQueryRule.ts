@@ -40,7 +40,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Actions to invoke when the alert fires.
      */
-    readonly actions?: outputs.insights.v20210201preview.ActionResponse[];
+    readonly actions?: outputs.insights.v20210201preview.ActionsResponse[];
     /**
      * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
      */

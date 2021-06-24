@@ -247,6 +247,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:SiteAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:SiteAuthSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:SiteBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:SiteBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

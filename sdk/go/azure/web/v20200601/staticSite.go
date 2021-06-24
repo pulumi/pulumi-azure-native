@@ -91,6 +91,12 @@ func NewStaticSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:StaticSite"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:StaticSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:StaticSite"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StaticSite

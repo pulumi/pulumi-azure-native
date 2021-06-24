@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
         /// <summary>
         /// Actions to invoke when the alert fires.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActionResponse> Actions;
+        public readonly ImmutableArray<Outputs.ActionsResponse> Actions;
         /// <summary>
         /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
         /// </summary>
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            ImmutableArray<Outputs.ActionResponse> actions,
+            ImmutableArray<Outputs.ActionsResponse> actions,
 
             bool? autoMitigate,
 

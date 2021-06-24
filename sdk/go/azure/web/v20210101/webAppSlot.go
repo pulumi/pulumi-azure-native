@@ -208,6 +208,12 @@ func NewWebAppSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlot

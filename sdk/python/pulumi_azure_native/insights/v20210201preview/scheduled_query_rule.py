@@ -20,7 +20,7 @@ class ScheduledQueryRuleArgs:
                  enabled: pulumi.Input[bool],
                  resource_group_name: pulumi.Input[str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsArgs']]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  check_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
-        :param pulumi.Input[Sequence[pulumi.Input['ActionArgs']]] actions: Actions to invoke when the alert fires.
+        :param pulumi.Input[Sequence[pulumi.Input['ActionsArgs']]] actions: Actions to invoke when the alert fires.
         :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
@@ -146,14 +146,14 @@ class ScheduledQueryRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionsArgs']]]]:
         """
         Actions to invoke when the alert fires.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionsArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -342,7 +342,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionsArgs']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  check_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
@@ -368,7 +368,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]] actions: Actions to invoke when the alert fires.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionsArgs']]]] actions: Actions to invoke when the alert fires.
         :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[bool] check_workspace_alerts_storage_configured: The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
@@ -413,7 +413,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionsArgs']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  check_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
@@ -533,7 +533,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.ActionResponse']]]:
+    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.ActionsResponse']]]:
         """
         Actions to invoke when the alert fires.
         """

@@ -106,6 +106,12 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:SiteConnectionStrings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:SiteConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:SiteConnectionStrings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteConnectionStrings

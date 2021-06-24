@@ -203,6 +203,12 @@ func NewWebApp(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebApp"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebApp"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebApp"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebApp

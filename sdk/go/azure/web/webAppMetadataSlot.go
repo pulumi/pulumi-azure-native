@@ -106,6 +106,12 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppMetadataSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppMetadataSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadataSlot

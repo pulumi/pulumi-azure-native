@@ -81,6 +81,12 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppAuthSettingsV2"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppAuthSettingsV2"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppAuthSettingsV2"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettingsV2

@@ -99,7 +99,7 @@ export class StaticSitePrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210101:StaticSitePrivateEndpointConnection" }, { type: "azure-native:web:StaticSitePrivateEndpointConnection" }, { type: "azure-nextgen:web:StaticSitePrivateEndpointConnection" }, { type: "azure-native:web/v20201201:StaticSitePrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:StaticSitePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210101:StaticSitePrivateEndpointConnection" }, { type: "azure-native:web:StaticSitePrivateEndpointConnection" }, { type: "azure-nextgen:web:StaticSitePrivateEndpointConnection" }, { type: "azure-native:web/v20201201:StaticSitePrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:StaticSitePrivateEndpointConnection" }, { type: "azure-native:web/v20210115:StaticSitePrivateEndpointConnection" }, { type: "azure-nextgen:web/v20210115:StaticSitePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSitePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

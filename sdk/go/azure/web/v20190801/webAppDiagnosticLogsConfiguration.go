@@ -108,6 +108,12 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppDiagnosticLogsConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210115:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppDiagnosticLogsConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDiagnosticLogsConfiguration

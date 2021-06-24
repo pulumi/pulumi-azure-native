@@ -46194,6 +46194,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2020-10-15-preview",
           "2020-06-01",
           "2020-04-01-preview",
@@ -48580,6 +48581,7 @@
           "East US 2",
           "Japan West",
           "Japan East",
+          "Brazil South",
           "Australia East",
           "Australia Southeast",
           "South India",
