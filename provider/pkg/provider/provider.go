@@ -444,8 +444,13 @@ func (k *azureNativeProvider) getDefaultName(urn string, strategy resources.Auto
 func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, res resources.AzureAPIResource,
 	olds, news resource.PropertyMap) {
 	for _, par := range res.PutParameters {
+		sdkName := par.Name
+		if par.Value != nil && par.Value.SdkName != "" {
+			sdkName = par.Value.SdkName
+		}
+
 		// Auto-naming.
-		key := resource.PropertyKey(par.Name)
+		key := resource.PropertyKey(sdkName)
 		if !news.HasValue(key) && par.Value != nil && par.Value.AutoName != "" {
 			name, randomlyNamed := k.getDefaultName(urn, par.Value.AutoName, key, olds)
 			news[key] = name

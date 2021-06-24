@@ -132,7 +132,10 @@ var resourceMap = &AzureAPIMetadata{
 				},
 				{
 					Location: "path",
-					Name:     "networkInterfaceName",
+					Name:     "NetworkInterfaceName",
+					Value: &AzureAPIProperty{
+						SdkName: "networkInterfaceName",
+					},
 				},
 			},
 			Response: map[string]AzureAPIProperty{
@@ -437,7 +440,7 @@ func TestResponseToSdkInputs(t *testing.T) {
 	pathValues := map[string]string{
 		"subscriptionID":       "0282681f-7a9e-123b-40b2-96babd57a8a1",
 		"resourceGroupName":    "rg-name",
-		"networkInterfaceName": "nic-name",
+		"NetworkInterfaceName": "nic-name",
 	}
 	inputs := c.ResponseToSdkInputs(resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
 	assert.Equal(t, calculatedInputs, inputs)
