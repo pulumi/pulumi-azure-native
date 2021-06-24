@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Bug Fixes
+
+- Fix import of resources with unorthodox parameter capitalization, e.g. `network.VirtualWan`
+  [#942](https://github.com/pulumi/pulumi-azure-native/issues/942).
+
 #### Breaking Changes published by Microsoft
 
 - `iotspaces` resource provider was removed

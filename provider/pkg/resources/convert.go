@@ -165,7 +165,11 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 			// Ignore
 		case param.Location == "path":
 			name := param.Name
-			result[name] = pathValues[name]
+			sdkName := name
+			if param.Value != nil && param.Value.SdkName != "" {
+				sdkName = param.Value.SdkName
+			}
+			result[sdkName] = pathValues[name]
 		case param.Location == body:
 			bodyProps := k.BodyPropertiesToSDK(param.Body.Properties, response)
 			for k, v := range bodyProps {
