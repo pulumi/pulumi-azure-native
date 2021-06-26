@@ -29672,10 +29672,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2019-10-17-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2019-10-17-preview",
         "locationMappings": null,
         "locations": [
           "Global"
@@ -29688,10 +29689,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2019-10-17-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2019-10-17-preview",
         "locationMappings": null,
         "locations": [
           "Global"
@@ -29704,10 +29706,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2019-10-17-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2019-10-17-preview",
         "locationMappings": null,
         "locations": [
           "Global"
@@ -29720,10 +29723,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2019-10-17-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2019-10-17-preview",
         "locationMappings": null,
         "locations": [
           "Global"
@@ -29776,10 +29780,11 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2019-10-17-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": null,
+        "defaultApiVersion": "2019-10-17-preview",
         "locationMappings": null,
         "locations": [
           "Global"
@@ -63584,7 +63589,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services",
@@ -63613,7 +63621,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/privateEndpointConnectionProxies",
@@ -63642,7 +63653,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/privateEndpointConnections",
@@ -63671,7 +63685,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/privateLinkResources",
@@ -63700,7 +63717,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/iomtconnectors",
@@ -63729,7 +63749,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/iomtconnectors/connections",
@@ -63758,7 +63781,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "services/iomtconnectors/mappings",
@@ -63791,7 +63817,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "locations",
@@ -63825,7 +63854,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "locations/operationresults",
@@ -63845,22 +63877,7 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "UK West",
-          "North Central US",
-          "West US 2",
-          "Australia East",
-          "Southeast Asia",
-          "UK South",
-          "East US",
-          "West Europe",
-          "South Central US",
-          "East US 2",
-          "North Europe",
-          "West Central US",
-          "Japan East",
-          "Germany West Central"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "checkNameAvailability",
         "zoneMappings": null
@@ -63892,7 +63909,10 @@
           "North Europe",
           "West Central US",
           "Japan East",
-          "Germany West Central"
+          "Germany West Central",
+          "Canada Central",
+          "South Africa North",
+          "Switzerland North"
         ],
         "properties": null,
         "resourceType": "operations",
@@ -81926,6 +81946,32 @@
     ]
   },
   {
+    "authorizations": [],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.FluidRelay",
+    "namespace": "Microsoft.FluidRelay",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-12-preview",
+          "2021-03-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "global"
+        ],
+        "properties": null,
+        "resourceType": "Operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
     "authorization": {
       "applicationId": "cc5476ec-3074-44d1-8461-711f5d9b0e39",
       "managedByRoleDefinitionId": "9e3af657-a8ff-583c-a75c-2fe7c4bcb635",
@@ -84418,6 +84464,12 @@
     ]
   },
   {
+    "authorizations": [
+      {
+        "applicationId": "a4c1cdb3-88ab-4d13-bc99-1c46106f0727",
+        "roleDefinitionId": "055740ed-aef4-4af0-9ecb-fbd9e662ebe7"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceNotifications",
     "namespace": "Microsoft.MarketplaceNotifications",
     "registrationPolicy": "RegistrationRequired",
@@ -84584,7 +84636,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "migrateprojects",
@@ -84623,7 +84678,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "assessmentProjects",
@@ -84973,7 +85031,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "VMwareSites",
@@ -85011,7 +85072,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "HyperVSites",
@@ -85049,7 +85113,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "ServerSites",
@@ -85087,7 +85154,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "ImportSites",
@@ -85124,7 +85194,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "MasterSites",
@@ -85174,7 +85247,10 @@
           "France Central",
           "Switzerland North",
           "Australia East",
-          "UAE North"
+          "UAE North",
+          "South Africa North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations/operationResults",
