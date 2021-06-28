@@ -183,7 +183,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox/v20201101:Job" }, { type: "azure-native:databox:Job" }, { type: "azure-nextgen:databox:Job" }, { type: "azure-native:databox/v20180101:Job" }, { type: "azure-nextgen:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-native:databox/v20210301:Job" }, { type: "azure-nextgen:databox/v20210301:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox/v20201101:Job" }, { type: "azure-native:databox:Job" }, { type: "azure-nextgen:databox:Job" }, { type: "azure-native:databox/v20180101:Job" }, { type: "azure-nextgen:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-native:databox/v20210301:Job" }, { type: "azure-nextgen:databox/v20210301:Job" }, { type: "azure-native:databox/v20210501:Job" }, { type: "azure-nextgen:databox/v20210501:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, inputs, opts);
     }

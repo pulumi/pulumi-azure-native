@@ -3994,6 +3994,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20210501",
+  "fqn": "pulumi_azure_native.databox.v20210501",
+  "classes": {
+   "azure-native:databox/v20210501:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
