@@ -11,141 +11,141 @@ import (
 )
 
 // An ARM Resource SKU.
-type Sku struct {
+type SkuV3 struct {
 	// The name of the SKU, typically, a letter + Number code, e.g. P3.
 	Name string `pulumi:"name"`
 	// The tier or edition of the particular SKU, e.g. Basic, Premium.
 	Tier *string `pulumi:"tier"`
 }
 
-// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
-// You can construct a concrete instance of `SkuInput` via:
+// SkuV3Input is an input type that accepts SkuV3Args and SkuV3Output values.
+// You can construct a concrete instance of `SkuV3Input` via:
 //
-//          SkuArgs{...}
-type SkuInput interface {
+//          SkuV3Args{...}
+type SkuV3Input interface {
 	pulumi.Input
 
-	ToSkuOutput() SkuOutput
-	ToSkuOutputWithContext(context.Context) SkuOutput
+	ToSkuV3Output() SkuV3Output
+	ToSkuV3OutputWithContext(context.Context) SkuV3Output
 }
 
 // An ARM Resource SKU.
-type SkuArgs struct {
+type SkuV3Args struct {
 	// The name of the SKU, typically, a letter + Number code, e.g. P3.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier or edition of the particular SKU, e.g. Basic, Premium.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
-func (SkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
+func (SkuV3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuV3)(nil)).Elem()
 }
 
-func (i SkuArgs) ToSkuOutput() SkuOutput {
-	return i.ToSkuOutputWithContext(context.Background())
+func (i SkuV3Args) ToSkuV3Output() SkuV3Output {
+	return i.ToSkuV3OutputWithContext(context.Background())
 }
 
-func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+func (i SkuV3Args) ToSkuV3OutputWithContext(ctx context.Context) SkuV3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3Output)
 }
 
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
+func (i SkuV3Args) ToSkuV3PtrOutput() SkuV3PtrOutput {
+	return i.ToSkuV3PtrOutputWithContext(context.Background())
 }
 
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
+func (i SkuV3Args) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3Output).ToSkuV3PtrOutputWithContext(ctx)
 }
 
-// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
-// You can construct a concrete instance of `SkuPtrInput` via:
+// SkuV3PtrInput is an input type that accepts SkuV3Args, SkuV3Ptr and SkuV3PtrOutput values.
+// You can construct a concrete instance of `SkuV3PtrInput` via:
 //
-//          SkuArgs{...}
+//          SkuV3Args{...}
 //
 //  or:
 //
 //          nil
-type SkuPtrInput interface {
+type SkuV3PtrInput interface {
 	pulumi.Input
 
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
+	ToSkuV3PtrOutput() SkuV3PtrOutput
+	ToSkuV3PtrOutputWithContext(context.Context) SkuV3PtrOutput
 }
 
-type skuPtrType SkuArgs
+type skuV3PtrType SkuV3Args
 
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
+func SkuV3Ptr(v *SkuV3Args) SkuV3PtrInput {
+	return (*skuV3PtrType)(v)
 }
 
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
+func (*skuV3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuV3)(nil)).Elem()
 }
 
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
+func (i *skuV3PtrType) ToSkuV3PtrOutput() SkuV3PtrOutput {
+	return i.ToSkuV3PtrOutputWithContext(context.Background())
 }
 
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
+func (i *skuV3PtrType) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3PtrOutput)
 }
 
 // An ARM Resource SKU.
-type SkuOutput struct{ *pulumi.OutputState }
+type SkuV3Output struct{ *pulumi.OutputState }
 
-func (SkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
+func (SkuV3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuV3)(nil)).Elem()
 }
 
-func (o SkuOutput) ToSkuOutput() SkuOutput {
+func (o SkuV3Output) ToSkuV3Output() SkuV3Output {
 	return o
 }
 
-func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+func (o SkuV3Output) ToSkuV3OutputWithContext(ctx context.Context) SkuV3Output {
 	return o
 }
 
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
+func (o SkuV3Output) ToSkuV3PtrOutput() SkuV3PtrOutput {
+	return o.ToSkuV3PtrOutputWithContext(context.Background())
 }
 
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+func (o SkuV3Output) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
+	return o.ApplyT(func(v SkuV3) *SkuV3 {
 		return &v
-	}).(SkuPtrOutput)
+	}).(SkuV3PtrOutput)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuV3Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuV3) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier or edition of the particular SKU, e.g. Basic, Premium.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuV3Output) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuV3) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type SkuPtrOutput struct{ *pulumi.OutputState }
+type SkuV3PtrOutput struct{ *pulumi.OutputState }
 
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
+func (SkuV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuV3)(nil)).Elem()
 }
 
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
+func (o SkuV3PtrOutput) ToSkuV3PtrOutput() SkuV3PtrOutput {
 	return o
 }
 
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+func (o SkuV3PtrOutput) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
 	return o
 }
 
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+func (o SkuV3PtrOutput) Elem() SkuV3Output {
+	return o.ApplyT(func(v *SkuV3) SkuV3 { return *v }).(SkuV3Output)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuV3PtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuV3) *string {
 		if v == nil {
 			return nil
 		}
@@ -154,8 +154,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The tier or edition of the particular SKU, e.g. Basic, Premium.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuV3PtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuV3) *string {
 		if v == nil {
 			return nil
 		}
@@ -164,141 +164,141 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // An ARM Resource SKU.
-type SkuResponse struct {
+type SkuV3Response struct {
 	// The name of the SKU, typically, a letter + Number code, e.g. P3.
 	Name string `pulumi:"name"`
 	// The tier or edition of the particular SKU, e.g. Basic, Premium.
 	Tier *string `pulumi:"tier"`
 }
 
-// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
-// You can construct a concrete instance of `SkuResponseInput` via:
+// SkuV3ResponseInput is an input type that accepts SkuV3ResponseArgs and SkuV3ResponseOutput values.
+// You can construct a concrete instance of `SkuV3ResponseInput` via:
 //
-//          SkuResponseArgs{...}
-type SkuResponseInput interface {
+//          SkuV3ResponseArgs{...}
+type SkuV3ResponseInput interface {
 	pulumi.Input
 
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
+	ToSkuV3ResponseOutput() SkuV3ResponseOutput
+	ToSkuV3ResponseOutputWithContext(context.Context) SkuV3ResponseOutput
 }
 
 // An ARM Resource SKU.
-type SkuResponseArgs struct {
+type SkuV3ResponseArgs struct {
 	// The name of the SKU, typically, a letter + Number code, e.g. P3.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier or edition of the particular SKU, e.g. Basic, Premium.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+func (SkuV3ResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuV3Response)(nil)).Elem()
 }
 
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
+func (i SkuV3ResponseArgs) ToSkuV3ResponseOutput() SkuV3ResponseOutput {
+	return i.ToSkuV3ResponseOutputWithContext(context.Background())
 }
 
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
+func (i SkuV3ResponseArgs) ToSkuV3ResponseOutputWithContext(ctx context.Context) SkuV3ResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponseOutput)
 }
 
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+func (i SkuV3ResponseArgs) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
+	return i.ToSkuV3ResponsePtrOutputWithContext(context.Background())
 }
 
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
+func (i SkuV3ResponseArgs) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponseOutput).ToSkuV3ResponsePtrOutputWithContext(ctx)
 }
 
-// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
-// You can construct a concrete instance of `SkuResponsePtrInput` via:
+// SkuV3ResponsePtrInput is an input type that accepts SkuV3ResponseArgs, SkuV3ResponsePtr and SkuV3ResponsePtrOutput values.
+// You can construct a concrete instance of `SkuV3ResponsePtrInput` via:
 //
-//          SkuResponseArgs{...}
+//          SkuV3ResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type SkuResponsePtrInput interface {
+type SkuV3ResponsePtrInput interface {
 	pulumi.Input
 
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
+	ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput
+	ToSkuV3ResponsePtrOutputWithContext(context.Context) SkuV3ResponsePtrOutput
 }
 
-type skuResponsePtrType SkuResponseArgs
+type skuV3ResponsePtrType SkuV3ResponseArgs
 
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
+func SkuV3ResponsePtr(v *SkuV3ResponseArgs) SkuV3ResponsePtrInput {
+	return (*skuV3ResponsePtrType)(v)
 }
 
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+func (*skuV3ResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuV3Response)(nil)).Elem()
 }
 
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+func (i *skuV3ResponsePtrType) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
+	return i.ToSkuV3ResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
+func (i *skuV3ResponsePtrType) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponsePtrOutput)
 }
 
 // An ARM Resource SKU.
-type SkuResponseOutput struct{ *pulumi.OutputState }
+type SkuV3ResponseOutput struct{ *pulumi.OutputState }
 
-func (SkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+func (SkuV3ResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuV3Response)(nil)).Elem()
 }
 
-func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+func (o SkuV3ResponseOutput) ToSkuV3ResponseOutput() SkuV3ResponseOutput {
 	return o
 }
 
-func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+func (o SkuV3ResponseOutput) ToSkuV3ResponseOutputWithContext(ctx context.Context) SkuV3ResponseOutput {
 	return o
 }
 
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
+func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
+	return o.ToSkuV3ResponsePtrOutputWithContext(context.Background())
 }
 
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
+	return o.ApplyT(func(v SkuV3Response) *SkuV3Response {
 		return &v
-	}).(SkuResponsePtrOutput)
+	}).(SkuV3ResponsePtrOutput)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
-func (o SkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuV3ResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuV3Response) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier or edition of the particular SKU, e.g. Basic, Premium.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuV3ResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuV3Response) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
+type SkuV3ResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+func (SkuV3ResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuV3Response)(nil)).Elem()
 }
 
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+func (o SkuV3ResponsePtrOutput) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
 	return o
 }
 
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+func (o SkuV3ResponsePtrOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
 	return o
 }
 
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+func (o SkuV3ResponsePtrOutput) Elem() SkuV3ResponseOutput {
+	return o.ApplyT(func(v *SkuV3Response) SkuV3Response { return *v }).(SkuV3ResponseOutput)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
+func (o SkuV3ResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuV3Response) *string {
 		if v == nil {
 			return nil
 		}
@@ -307,8 +307,8 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The tier or edition of the particular SKU, e.g. Basic, Premium.
-func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
+func (o SkuV3ResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuV3Response) *string {
 		if v == nil {
 			return nil
 		}
@@ -546,10 +546,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
-	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SkuV3Output{})
+	pulumi.RegisterOutputType(SkuV3PtrOutput{})
+	pulumi.RegisterOutputType(SkuV3ResponseOutput{})
+	pulumi.RegisterOutputType(SkuV3ResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

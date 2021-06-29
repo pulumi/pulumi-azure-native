@@ -10,11 +10,11 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'SkuArgs',
+    'SkuV3Args',
 ]
 
 @pulumi.input_type
-class SkuArgs:
+class SkuV3Args:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  tier: Optional[pulumi.Input[str]] = None):

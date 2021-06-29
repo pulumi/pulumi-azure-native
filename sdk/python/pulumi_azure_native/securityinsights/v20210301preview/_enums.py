@@ -239,20 +239,20 @@ class Kind(str, Enum):
     """
     The kind of content the metadata is for.
     """
-    DATA_CONNECTOR = "dataConnector"
-    DATA_TYPE = "dataType"
-    WORKBOOK = "workbook"
-    WORKBOOK_TEMPLATE = "workbookTemplate"
-    PLAYBOOK = "playbook"
-    PLAYBOOK_TEMPLATE = "playbookTemplate"
-    ANALYTIC_RULE_TEMPLATE = "analyticRuleTemplate"
-    ANALYTIC_RULE = "analyticRule"
-    HUNTING_QUERY = "huntingQuery"
-    INVESTIGATION_QUERY = "investigationQuery"
-    PARSER = "parser"
-    WATCHLIST = "watchlist"
-    WATCHLIST_TEMPLATE = "watchlistTemplate"
-    SOLUTION = "solution"
+    DATA_CONNECTOR = "DataConnector"
+    DATA_TYPE = "DataType"
+    WORKBOOK = "Workbook"
+    WORKBOOK_TEMPLATE = "WorkbookTemplate"
+    PLAYBOOK = "Playbook"
+    PLAYBOOK_TEMPLATE = "PlaybookTemplate"
+    ANALYTICS_RULE_TEMPLATE = "AnalyticsRuleTemplate"
+    ANALYTICS_RULE = "AnalyticsRule"
+    HUNTING_QUERY = "HuntingQuery"
+    INVESTIGATION_QUERY = "InvestigationQuery"
+    PARSER = "Parser"
+    WATCHLIST = "Watchlist"
+    WATCHLIST_TEMPLATE = "WatchlistTemplate"
+    SOLUTION = "Solution"
 
 
 class MatchingMethod(str, Enum):
@@ -353,19 +353,19 @@ class SourceKind(str, Enum):
     """
     Source type of the content
     """
-    LOCAL_WORKSPACE = "localWorkspace"
-    COMMUNITY = "community"
-    SOLUTION = "solution"
-    SOURCE_REPOSITORY = "sourceRepository"
+    LOCAL_WORKSPACE = "LocalWorkspace"
+    COMMUNITY = "Community"
+    SOLUTION = "Solution"
+    SOURCE_REPOSITORY = "SourceRepository"
 
 
 class SupportTier(str, Enum):
     """
     Type of support for content item
     """
-    MICROSOFT = "microsoft"
-    DEVELOPER = "developer"
-    COMMUNITY = "community"
+    MICROSOFT = "Microsoft"
+    PARTNER = "Partner"
+    COMMUNITY = "Community"
 
 
 class TriggerOperator(str, Enum):

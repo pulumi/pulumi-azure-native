@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview
 {
     /// <summary>
-    /// MFA provider.
+    /// The multi-factor authorization provider to be used for just-in-time access requests.
     /// </summary>
     [EnumType]
     public readonly struct MultiFactorAuthProvider : IEquatable<MultiFactorAuthProvider>

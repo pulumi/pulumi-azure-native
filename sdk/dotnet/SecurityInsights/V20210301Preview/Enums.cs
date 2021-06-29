@@ -764,20 +764,20 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind DataConnector { get; } = new Kind("dataConnector");
-        public static Kind DataType { get; } = new Kind("dataType");
-        public static Kind Workbook { get; } = new Kind("workbook");
-        public static Kind WorkbookTemplate { get; } = new Kind("workbookTemplate");
-        public static Kind Playbook { get; } = new Kind("playbook");
-        public static Kind PlaybookTemplate { get; } = new Kind("playbookTemplate");
-        public static Kind AnalyticRuleTemplate { get; } = new Kind("analyticRuleTemplate");
-        public static Kind AnalyticRule { get; } = new Kind("analyticRule");
-        public static Kind HuntingQuery { get; } = new Kind("huntingQuery");
-        public static Kind InvestigationQuery { get; } = new Kind("investigationQuery");
-        public static Kind Parser { get; } = new Kind("parser");
-        public static Kind Watchlist { get; } = new Kind("watchlist");
-        public static Kind WatchlistTemplate { get; } = new Kind("watchlistTemplate");
-        public static Kind Solution { get; } = new Kind("solution");
+        public static Kind DataConnector { get; } = new Kind("DataConnector");
+        public static Kind DataType { get; } = new Kind("DataType");
+        public static Kind Workbook { get; } = new Kind("Workbook");
+        public static Kind WorkbookTemplate { get; } = new Kind("WorkbookTemplate");
+        public static Kind Playbook { get; } = new Kind("Playbook");
+        public static Kind PlaybookTemplate { get; } = new Kind("PlaybookTemplate");
+        public static Kind AnalyticsRuleTemplate { get; } = new Kind("AnalyticsRuleTemplate");
+        public static Kind AnalyticsRule { get; } = new Kind("AnalyticsRule");
+        public static Kind HuntingQuery { get; } = new Kind("HuntingQuery");
+        public static Kind InvestigationQuery { get; } = new Kind("InvestigationQuery");
+        public static Kind Parser { get; } = new Kind("Parser");
+        public static Kind Watchlist { get; } = new Kind("Watchlist");
+        public static Kind WatchlistTemplate { get; } = new Kind("WatchlistTemplate");
+        public static Kind Solution { get; } = new Kind("Solution");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
         public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
@@ -1149,10 +1149,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SourceKind LocalWorkspace { get; } = new SourceKind("localWorkspace");
-        public static SourceKind Community { get; } = new SourceKind("community");
-        public static SourceKind Solution { get; } = new SourceKind("solution");
-        public static SourceKind SourceRepository { get; } = new SourceKind("sourceRepository");
+        public static SourceKind LocalWorkspace { get; } = new SourceKind("LocalWorkspace");
+        public static SourceKind Community { get; } = new SourceKind("Community");
+        public static SourceKind Solution { get; } = new SourceKind("Solution");
+        public static SourceKind SourceRepository { get; } = new SourceKind("SourceRepository");
 
         public static bool operator ==(SourceKind left, SourceKind right) => left.Equals(right);
         public static bool operator !=(SourceKind left, SourceKind right) => !left.Equals(right);
@@ -1182,9 +1182,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SupportTier Microsoft { get; } = new SupportTier("microsoft");
-        public static SupportTier Developer { get; } = new SupportTier("developer");
-        public static SupportTier Community { get; } = new SupportTier("community");
+        public static SupportTier Microsoft { get; } = new SupportTier("Microsoft");
+        public static SupportTier Partner { get; } = new SupportTier("Partner");
+        public static SupportTier Community { get; } = new SupportTier("Community");
 
         public static bool operator ==(SupportTier left, SupportTier right) => left.Equals(right);
         public static bool operator !=(SupportTier left, SupportTier right) => !left.Equals(right);

@@ -20,9 +20,9 @@ class RegistrationAssignmentArgs:
                  registration_assignment_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
-        :param pulumi.Input[str] scope: Scope of the resource.
-        :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: Properties of a registration assignment.
-        :param pulumi.Input[str] registration_assignment_id: Guid of the registration assignment.
+        :param pulumi.Input[str] scope: The scope of the resource.
+        :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
+        :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
         """
         pulumi.set(__self__, "scope", scope)
         if properties is not None:
@@ -34,7 +34,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        Scope of the resource.
+        The scope of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -46,7 +46,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['RegistrationAssignmentPropertiesArgs']]:
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
 
@@ -58,7 +58,7 @@ class RegistrationAssignmentArgs:
     @pulumi.getter(name="registrationAssignmentId")
     def registration_assignment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Guid of the registration assignment.
+        The GUID of the registration assignment.
         """
         return pulumi.get(self, "registration_assignment_id")
 
@@ -77,13 +77,13 @@ class RegistrationAssignment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Registration assignment.
+        The registration assignment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: Properties of a registration assignment.
-        :param pulumi.Input[str] registration_assignment_id: Guid of the registration assignment.
-        :param pulumi.Input[str] scope: Scope of the resource.
+        :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: The properties of a registration assignment.
+        :param pulumi.Input[str] registration_assignment_id: The GUID of the registration assignment.
+        :param pulumi.Input[str] scope: The scope of the resource.
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class RegistrationAssignment(pulumi.CustomResource):
                  args: RegistrationAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registration assignment.
+        The registration assignment.
 
         :param str resource_name: The name of the resource.
         :param RegistrationAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +164,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the registration assignment.
+        The name of the registration assignment.
         """
         return pulumi.get(self, "name")
 
@@ -172,7 +172,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.RegistrationAssignmentPropertiesResponse']:
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
 
@@ -180,7 +180,7 @@ class RegistrationAssignment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         """
         return pulumi.get(self, "type")
 

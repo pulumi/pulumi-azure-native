@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 {
 
     /// <summary>
-    /// A principal Id and user-friendly display name representing an eligible authorization approver.
+    /// Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
     /// </summary>
     public sealed class EligibleApproverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        /// The identifier of the Azure Active Directory principal.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// Display name of the principal Id.
+        /// The display name of the Azure Active Directory principal.
         /// </summary>
         [Input("principalIdDisplayName")]
         public Input<string>? PrincipalIdDisplayName { get; set; }

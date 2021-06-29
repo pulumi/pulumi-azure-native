@@ -11,30 +11,30 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 {
 
     /// <summary>
-    /// Plan details for the managed services.
+    /// The details for the Managed Services offer’s plan in Azure Marketplace.
     /// </summary>
     public sealed class PlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The plan name.
+        /// Azure Marketplace plan name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The product code.
+        /// Azure Marketplace product code.
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
         /// <summary>
-        /// The publisher ID.
+        /// Azure Marketplace publisher ID.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// The plan's version.
+        /// Azure Marketplace plan's version.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

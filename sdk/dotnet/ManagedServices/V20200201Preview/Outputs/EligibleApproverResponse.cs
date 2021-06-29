@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class EligibleApproverResponse
     {
         /// <summary>
-        /// Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        /// The identifier of the Azure Active Directory principal.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Display name of the principal Id.
+        /// The display name of the Azure Active Directory principal.
         /// </summary>
         public readonly string? PrincipalIdDisplayName;
 

@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
-        public readonly string ContentId;
+        public readonly string? ContentId;
         /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetMetadataResult(
             Outputs.MetadataAuthorResponse? author,
 
-            string contentId,
+            string? contentId,
 
             Outputs.MetadataDependenciesResponse? dependencies,
 

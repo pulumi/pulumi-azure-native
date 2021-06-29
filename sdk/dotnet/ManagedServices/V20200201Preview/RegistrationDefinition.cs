@@ -10,31 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview
 {
     /// <summary>
-    /// Registration definition.
+    /// The registration definition.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices/v20200201preview:RegistrationDefinition")]
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a registration definition.
+        /// The properties of a registration definition.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.RegistrationDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource.
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -99,25 +99,25 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview
     public sealed class RegistrationDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Properties of a registration definition.
+        /// The properties of a registration definition.
         /// </summary>
         [Input("properties")]
         public Input<Inputs.RegistrationDefinitionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Guid of the registration definition.
+        /// The GUID of the registration definition.
         /// </summary>
         [Input("registrationDefinitionId")]
         public Input<string>? RegistrationDefinitionId { get; set; }
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

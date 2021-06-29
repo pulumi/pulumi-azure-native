@@ -11,7 +11,7 @@ __all__ = [
 
 class MultiFactorAuthProvider(str, Enum):
     """
-    MFA provider.
+    The multi-factor authorization provider to be used for just-in-time access requests.
     """
     AZURE = "Azure"
     NONE = "None"

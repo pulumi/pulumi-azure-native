@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration assignment.
+// The registration assignment.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 
-	// Name of the registration assignment.
+	// The name of the registration assignment.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// Type of the resource.
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -91,20 +91,20 @@ func GetRegistrationAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistrationAssignment resources.
 type registrationAssignmentState struct {
-	// Name of the registration assignment.
+	// The name of the registration assignment.
 	Name *string `pulumi:"name"`
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties *RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 	Type *string `pulumi:"type"`
 }
 
 type RegistrationAssignmentState struct {
-	// Name of the registration assignment.
+	// The name of the registration assignment.
 	Name pulumi.StringPtrInput
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesResponsePtrInput
-	// Type of the resource.
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
 	Type pulumi.StringPtrInput
 }
 
@@ -113,21 +113,21 @@ func (RegistrationAssignmentState) ElementType() reflect.Type {
 }
 
 type registrationAssignmentArgs struct {
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties *RegistrationAssignmentProperties `pulumi:"properties"`
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId *string `pulumi:"registrationAssignmentId"`
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationAssignment resource.
 type RegistrationAssignmentArgs struct {
-	// Properties of a registration assignment.
+	// The properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesPtrInput
-	// Guid of the registration assignment.
+	// The GUID of the registration assignment.
 	RegistrationAssignmentId pulumi.StringPtrInput
-	// Scope of the resource.
+	// The scope of the resource.
 	Scope pulumi.StringInput
 }
 

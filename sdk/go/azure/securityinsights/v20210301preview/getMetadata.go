@@ -33,7 +33,7 @@ type LookupMetadataResult struct {
 	// The creator of the content item.
 	Author *MetadataAuthorResponse `pulumi:"author"`
 	// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
-	ContentId string `pulumi:"contentId"`
+	ContentId *string `pulumi:"contentId"`
 	// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
 	Dependencies *MetadataDependenciesResponse `pulumi:"dependencies"`
 	// Etag of the azure resource

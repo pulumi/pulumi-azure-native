@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// <summary>
         /// The sql pool SKU. The list of SKUs may vary by region and support offer.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.SkuV3Response? Sku;
         /// <summary>
         /// The Guid of the sql pool.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 
             string requestedServiceObjectiveName,
 
-            Outputs.SkuResponse? sku,
+            Outputs.SkuV3Response? sku,
 
             string sqlPoolGuid,
 

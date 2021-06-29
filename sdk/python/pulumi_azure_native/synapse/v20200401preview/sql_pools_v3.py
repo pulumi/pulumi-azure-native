@@ -21,7 +21,7 @@ class SqlPoolsV3Args:
                  auto_resume: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_service_objective_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuV3Args']] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -32,7 +32,7 @@ class SqlPoolsV3Args:
         :param pulumi.Input[bool] auto_resume: Indicates whether the sql pool can automatically resume when connection attempts are made.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] max_service_objective_name: The max service level objective name of the sql pool.
-        :param pulumi.Input['SkuArgs'] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
+        :param pulumi.Input['SkuV3Args'] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
         :param pulumi.Input[str] sql_pool_name: The name of the sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -127,14 +127,14 @@ class SqlPoolsV3Args:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SkuV3Args']]:
         """
         The sql pool SKU. The list of SKUs may vary by region and support offer.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SkuV3Args']]):
         pulumi.set(self, "sku", value)
 
     @property
@@ -172,7 +172,7 @@ class SqlPoolsV3(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  max_service_objective_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuV3Args']]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class SqlPoolsV3(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] max_service_objective_name: The max service level objective name of the sql pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
+        :param pulumi.Input[pulumi.InputType['SkuV3Args']] sku: The sql pool SKU. The list of SKUs may vary by region and support offer.
         :param pulumi.Input[str] sql_pool_name: The name of the sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -221,7 +221,7 @@ class SqlPoolsV3(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  max_service_objective_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuV3Args']]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -364,7 +364,7 @@ class SqlPoolsV3(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuV3Response']]:
         """
         The sql pool SKU. The list of SKUs may vary by region and support offer.
         """

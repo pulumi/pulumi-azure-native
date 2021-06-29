@@ -42034,14 +42034,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
-          "South Africa West",
           "South Africa North",
           "Brazil South",
           "Switzerland North",
           "France Central",
           "UAE North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "workspaces",
@@ -42082,14 +42081,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
           "South Africa North",
-          "South Africa West",
           "UAE North",
           "Brazil South",
           "France Central",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "workspaces/virtualNetworkPeerings",
@@ -42130,14 +42128,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
           "South Africa North",
-          "South Africa West",
           "UAE North",
           "Brazil South",
           "France Central",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "workspaces/dbWorkspaces",
@@ -42155,38 +42152,37 @@
         "locationMappings": null,
         "locations": [
           "West US",
-          "East US 2",
           "West Europe",
-          "North Europe",
+          "Japan East",
           "East US",
+          "Korea Central",
+          "Central US",
+          "East US 2",
+          "North Europe",
           "Southeast Asia",
           "East Asia",
           "South Central US",
           "North Central US",
-          "Korea South",
-          "Korea Central",
-          "South Africa North",
-          "South Africa West",
-          "Switzerland North",
           "West US 2",
-          "Central US",
           "UK West",
           "UK South",
           "Australia East",
           "Australia Southeast",
           "Australia Central",
           "Australia Central 2",
-          "Japan East",
           "Japan West",
           "Canada Central",
           "Canada East",
           "Central India",
           "South India",
           "West India",
+          "South Africa North",
           "UAE North",
           "Brazil South",
           "France Central",
-          "Norway East"
+          "Switzerland North",
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "operations",
@@ -42230,14 +42226,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
           "South Africa North",
-          "South Africa West",
           "UAE North",
           "Brazil South",
           "France Central",
           "Switzerland North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "locations",
@@ -42278,14 +42273,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
-          "South Africa West",
           "South Africa North",
           "Brazil South",
           "Switzerland North",
           "France Central",
           "UAE North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "locations/operationstatuses",
@@ -42326,14 +42320,13 @@
           "South India",
           "West India",
           "Korea Central",
-          "Korea South",
-          "South Africa West",
           "South Africa North",
           "Brazil South",
           "Switzerland North",
           "France Central",
           "UAE North",
-          "Norway East"
+          "Norway East",
+          "Germany West Central"
         ],
         "properties": null,
         "resourceType": "locations/getNetworkPolicies",
@@ -58099,6 +58092,80 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
+          "2020-12-01-preview",
+          "2020-09-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Australia East",
+          "Brazil South",
+          "Canada Central",
+          "Central India",
+          "Central US",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "France Central",
+          "Japan East",
+          "Korea Central",
+          "North Central US",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "West Central US",
+          "West Europe",
+          "West US",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/mfeOperationResults",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview",
+          "2020-12-01-preview",
+          "2020-09-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Australia East",
+          "Brazil South",
+          "Canada Central",
+          "Central India",
+          "Central US",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "France Central",
+          "Japan East",
+          "Korea Central",
+          "North Central US",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "UK South",
+          "West Central US",
+          "West Europe",
+          "West US",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/mfeOperationsStatus",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -65504,6 +65571,34 @@
   {
     "authorizations": [
       {
+        "applicationId": "5b534afd-fdc0-4b38-a77f-af25442e3149",
+        "roleDefinitionId": "27d9fedd-5b4c-44b5-a9da-724fa33445c8"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Diagnostics",
+    "namespace": "Microsoft.Diagnostics",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "Registered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
         "applicationId": "9191c4da-09fe-49d9-a5f1-d41cbe92ad95",
         "managedByRoleDefinitionId": "346da55d-e1db-4a5a-89db-33ab3cdb6fc6",
         "roleDefinitionId": "d102a6f3-d9cb-4633-8950-1243b975886c"
@@ -71612,7 +71707,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "batchAccounts",
@@ -71675,7 +71771,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "batchAccounts/pools",
@@ -71738,7 +71835,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "batchAccounts/certificates",
@@ -71805,7 +71903,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "operations",
@@ -71903,7 +72002,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "locations/quotas",
@@ -71967,7 +72067,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability",
@@ -72031,7 +72132,8 @@
           "Switzerland North",
           "Norway East",
           "Brazil Southeast",
-          "West US 3"
+          "West US 3",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "locations/accountOperationResults",
@@ -81156,34 +81258,6 @@
   {
     "authorizations": [
       {
-        "applicationId": "5b534afd-fdc0-4b38-a77f-af25442e3149",
-        "roleDefinitionId": "27d9fedd-5b4c-44b5-a9da-724fa33445c8"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Diagnostics",
-    "namespace": "Microsoft.Diagnostics",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-07-01-privatepreview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations",
-        "zoneMappings": null
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
         "applicationId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0"
       },
       {
@@ -83776,11 +83850,17 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "West US",
+          "South Central US",
+          "East Asia",
+          "Japan East",
+          "East US 2",
+          "East US",
+          "UK West",
           "West Central US",
           "East US 2 EUAP",
           "Central US EUAP",
-          "West US 2",
-          "East US 2"
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "operations",

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Registration assignment.
+ * The registration assignment.
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**
@@ -36,15 +36,15 @@ export class RegistrationAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the registration assignment.
+     * The name of the registration assignment.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Properties of a registration assignment.
+     * The properties of a registration assignment.
      */
     public readonly properties!: pulumi.Output<outputs.managedservices.v20200201preview.RegistrationAssignmentPropertiesResponse>;
     /**
-     * Type of the resource.
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -86,15 +86,15 @@ export class RegistrationAssignment extends pulumi.CustomResource {
  */
 export interface RegistrationAssignmentArgs {
     /**
-     * Properties of a registration assignment.
+     * The properties of a registration assignment.
      */
     properties?: pulumi.Input<inputs.managedservices.v20200201preview.RegistrationAssignmentPropertiesArgs>;
     /**
-     * Guid of the registration assignment.
+     * The GUID of the registration assignment.
      */
     registrationAssignmentId?: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

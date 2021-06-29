@@ -14,31 +14,31 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class RegistrationDefinitionPropertiesResponse
     {
         /// <summary>
-        /// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        /// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         /// </summary>
         public readonly ImmutableArray<Outputs.AuthorizationResponse> Authorizations;
         /// <summary>
-        /// Description of the registration definition.
+        /// The description of the registration definition.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        /// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         /// </summary>
         public readonly ImmutableArray<Outputs.EligibleAuthorizationResponse> EligibleAuthorizations;
         /// <summary>
-        /// Id of the managedBy tenant.
+        /// The identifier of the managedBy tenant.
         /// </summary>
         public readonly string ManagedByTenantId;
         /// <summary>
-        /// Name of the managedBy tenant.
+        /// The name of the managedBy tenant.
         /// </summary>
         public readonly string ManagedByTenantName;
         /// <summary>
-        /// Current state of the registration definition.
+        /// The current provisioning state of the registration definition.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         public readonly string? RegistrationDefinitionName;
 

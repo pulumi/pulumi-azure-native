@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         }
 
         /// <summary>
-        /// Maximum access duration in ISO 8601 format.
+        /// The maximum access duration in ISO 8601 format for just-in-time access requests.
         /// </summary>
         [Input("maximumActivationDuration")]
         public Input<string>? MaximumActivationDuration { get; set; }
 
         /// <summary>
-        /// MFA provider.
+        /// The multi-factor authorization provider to be used for just-in-time access requests.
         /// </summary>
         [Input("multiFactorAuthProvider", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ManagedServices.V20200201Preview.MultiFactorAuthProvider> MultiFactorAuthProvider { get; set; } = null!;

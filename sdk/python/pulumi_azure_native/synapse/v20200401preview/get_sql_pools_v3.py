@@ -141,7 +141,7 @@ class GetSqlPoolsV3Result:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> Optional['outputs.SkuV3Response']:
         """
         The sql pool SKU. The list of SKUs may vary by region and support offer.
         """

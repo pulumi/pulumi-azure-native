@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Registration definition.
+ * The registration definition.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**
@@ -36,19 +36,19 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the registration definition.
+     * The name of the registration definition.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     public readonly plan!: pulumi.Output<outputs.managedservices.v20200201preview.PlanResponse | undefined>;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     public readonly properties!: pulumi.Output<outputs.managedservices.v20200201preview.RegistrationDefinitionPropertiesResponse>;
     /**
-     * Type of the resource.
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,19 +92,19 @@ export class RegistrationDefinition extends pulumi.CustomResource {
  */
 export interface RegistrationDefinitionArgs {
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     plan?: pulumi.Input<inputs.managedservices.v20200201preview.PlanArgs>;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     properties?: pulumi.Input<inputs.managedservices.v20200201preview.RegistrationDefinitionPropertiesArgs>;
     /**
-     * Guid of the registration definition.
+     * The GUID of the registration definition.
      */
     registrationDefinitionId?: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

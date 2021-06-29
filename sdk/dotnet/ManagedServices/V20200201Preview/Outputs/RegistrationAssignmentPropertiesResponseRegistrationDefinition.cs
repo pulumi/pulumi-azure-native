@@ -14,23 +14,23 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class RegistrationAssignmentPropertiesResponseRegistrationDefinition
     {
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// The fully qualified path of the registration definition.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Plan details for the managed services.
+        /// The details for the Managed Services offer’s plan in Azure Marketplace.
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// Properties of registration definition inside registration assignment.
+        /// The properties of the registration definition associated with the registration assignment.
         /// </summary>
         public readonly Outputs.RegistrationAssignmentPropertiesResponseProperties? Properties;
         /// <summary>
-        /// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         /// </summary>
         public readonly string Type;
 

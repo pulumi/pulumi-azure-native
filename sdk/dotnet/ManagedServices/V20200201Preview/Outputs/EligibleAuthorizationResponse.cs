@@ -14,19 +14,19 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class EligibleAuthorizationResponse
     {
         /// <summary>
-        /// Just-in-time access policy setting.
+        /// The just-in-time access policy setting.
         /// </summary>
         public readonly Outputs.JustInTimeAccessPolicyResponse? JustInTimeAccessPolicy;
         /// <summary>
-        /// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+        /// The identifier of the Azure Active Directory principal.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Display name of the principal Id.
+        /// The display name of the Azure Active Directory principal.
         /// </summary>
         public readonly string? PrincipalIdDisplayName;
         /// <summary>
-        /// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        /// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         /// </summary>
         public readonly string RoleDefinitionId;
 

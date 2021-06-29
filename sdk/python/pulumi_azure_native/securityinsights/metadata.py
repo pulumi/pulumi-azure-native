@@ -16,13 +16,13 @@ __all__ = ['MetadataArgs', 'Metadata']
 @pulumi.input_type
 class MetadataArgs:
     def __init__(__self__, *,
-                 content_id: pulumi.Input[str],
                  kind: pulumi.Input[Union[str, 'Kind']],
                  operational_insights_resource_provider: pulumi.Input[str],
                  parent_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
+                 content_id: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  metadata_name: Optional[pulumi.Input[str]] = None,
@@ -31,13 +31,13 @@ class MetadataArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Metadata resource.
-        :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of content the metadata is for.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] parent_id: Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['MetadataAuthorArgs'] author: The creator of the content item.
+        :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input['MetadataDependenciesArgs'] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] metadata_name: The Metadata name.
@@ -45,7 +45,6 @@ class MetadataArgs:
         :param pulumi.Input['MetadataSupportArgs'] support: Support information for the metadata - type, name, contact information
         :param pulumi.Input[str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
         """
-        pulumi.set(__self__, "content_id", content_id)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "parent_id", parent_id)
@@ -53,6 +52,8 @@ class MetadataArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if author is not None:
             pulumi.set(__self__, "author", author)
+        if content_id is not None:
+            pulumi.set(__self__, "content_id", content_id)
         if dependencies is not None:
             pulumi.set(__self__, "dependencies", dependencies)
         if etag is not None:
@@ -65,18 +66,6 @@ class MetadataArgs:
             pulumi.set(__self__, "support", support)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="contentId")
-    def content_id(self) -> pulumi.Input[str]:
-        """
-        Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
-        """
-        return pulumi.get(self, "content_id")
-
-    @content_id.setter
-    def content_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "content_id", value)
 
     @property
     @pulumi.getter
@@ -149,6 +138,18 @@ class MetadataArgs:
     @author.setter
     def author(self, value: Optional[pulumi.Input['MetadataAuthorArgs']]):
         pulumi.set(self, "author", value)
+
+    @property
+    @pulumi.getter(name="contentId")
+    def content_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
+        """
+        return pulumi.get(self, "content_id")
+
+    @content_id.setter
+    def content_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_id", value)
 
     @property
     @pulumi.getter
@@ -313,8 +314,6 @@ class Metadata(pulumi.CustomResource):
             __props__ = MetadataArgs.__new__(MetadataArgs)
 
             __props__.__dict__["author"] = author
-            if content_id is None and not opts.urn:
-                raise TypeError("Missing required property 'content_id'")
             __props__.__dict__["content_id"] = content_id
             __props__.__dict__["dependencies"] = dependencies
             __props__.__dict__["etag"] = etag
@@ -388,7 +387,7 @@ class Metadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentId")
-    def content_id(self) -> pulumi.Output[str]:
+    def content_id(self) -> pulumi.Output[Optional[str]]:
         """
         Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         """

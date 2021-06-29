@@ -81,7 +81,7 @@ export interface GetSqlPoolsV3Result {
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    readonly sku?: outputs.synapse.v20200401preview.SkuResponse;
+    readonly sku?: outputs.synapse.v20200401preview.SkuV3Response;
     /**
      * The Guid of the sql pool.
      */

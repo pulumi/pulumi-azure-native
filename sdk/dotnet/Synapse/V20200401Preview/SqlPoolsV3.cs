@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// The sql pool SKU. The list of SKUs may vary by region and support offer.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuV3Response?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The Guid of the sql pool.
@@ -194,7 +194,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
         /// The sql pool SKU. The list of SKUs may vary by region and support offer.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
+        public Input<Inputs.SkuV3Args>? Sku { get; set; }
 
         /// <summary>
         /// The name of the sql pool.

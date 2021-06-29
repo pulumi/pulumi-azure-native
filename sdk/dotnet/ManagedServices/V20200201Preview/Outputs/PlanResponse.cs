@@ -14,19 +14,19 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
     public sealed class PlanResponse
     {
         /// <summary>
-        /// The plan name.
+        /// Azure Marketplace plan name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The product code.
+        /// Azure Marketplace product code.
         /// </summary>
         public readonly string Product;
         /// <summary>
-        /// The publisher ID.
+        /// Azure Marketplace publisher ID.
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// The plan's version.
+        /// Azure Marketplace plan's version.
         /// </summary>
         public readonly string Version;
 

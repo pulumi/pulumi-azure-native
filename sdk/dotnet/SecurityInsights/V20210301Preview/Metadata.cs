@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
         [Output("contentId")]
-        public Output<string> ContentId { get; private set; } = null!;
+        public Output<string?> ContentId { get; private set; } = null!;
 
         /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// <summary>
         /// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         /// </summary>
-        [Input("contentId", required: true)]
-        public Input<string> ContentId { get; set; } = null!;
+        [Input("contentId")]
+        public Input<string>? ContentId { get; set; }
 
         /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.

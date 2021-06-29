@@ -631,20 +631,20 @@ export const IncidentStatus = {
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
 export const Kind = {
-    DataConnector: "dataConnector",
-    DataType: "dataType",
-    Workbook: "workbook",
-    WorkbookTemplate: "workbookTemplate",
-    Playbook: "playbook",
-    PlaybookTemplate: "playbookTemplate",
-    AnalyticRuleTemplate: "analyticRuleTemplate",
-    AnalyticRule: "analyticRule",
-    HuntingQuery: "huntingQuery",
-    InvestigationQuery: "investigationQuery",
-    Parser: "parser",
-    Watchlist: "watchlist",
-    WatchlistTemplate: "watchlistTemplate",
-    Solution: "solution",
+    DataConnector: "DataConnector",
+    DataType: "DataType",
+    Workbook: "Workbook",
+    WorkbookTemplate: "WorkbookTemplate",
+    Playbook: "Playbook",
+    PlaybookTemplate: "PlaybookTemplate",
+    AnalyticsRuleTemplate: "AnalyticsRuleTemplate",
+    AnalyticsRule: "AnalyticsRule",
+    HuntingQuery: "HuntingQuery",
+    InvestigationQuery: "InvestigationQuery",
+    Parser: "Parser",
+    Watchlist: "Watchlist",
+    WatchlistTemplate: "WatchlistTemplate",
+    Solution: "Solution",
 } as const;
 
 /**
@@ -707,10 +707,10 @@ export const Source = {
 export type Source = (typeof Source)[keyof typeof Source];
 
 export const SourceKind = {
-    LocalWorkspace: "localWorkspace",
-    Community: "community",
-    Solution: "solution",
-    SourceRepository: "sourceRepository",
+    LocalWorkspace: "LocalWorkspace",
+    Community: "Community",
+    Solution: "Solution",
+    SourceRepository: "SourceRepository",
 } as const;
 
 /**
@@ -719,9 +719,9 @@ export const SourceKind = {
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
 export const SupportTier = {
-    Microsoft: "microsoft",
-    Developer: "developer",
-    Community: "community",
+    Microsoft: "Microsoft",
+    Partner: "Partner",
+    Community: "Community",
 } as const;
 
 /**

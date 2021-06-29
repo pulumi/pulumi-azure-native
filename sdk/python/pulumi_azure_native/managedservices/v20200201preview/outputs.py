@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class AuthorizationResponse(dict):
     """
-    Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+    The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -56,11 +56,11 @@ class AuthorizationResponse(dict):
                  delegated_role_definition_ids: Optional[Sequence[str]] = None,
                  principal_id_display_name: Optional[str] = None):
         """
-        Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
-        :param str principal_id: Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-        :param str role_definition_id: The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param Sequence[str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
-        :param str principal_id_display_name: Display name of the principal Id.
+        The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
+        :param str principal_id: The identifier of the Azure Active Directory principal.
+        :param str role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        :param Sequence[str] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
+        :param str principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -73,7 +73,7 @@ class AuthorizationResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -81,7 +81,7 @@ class AuthorizationResponse(dict):
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> str:
         """
-        The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -89,7 +89,7 @@ class AuthorizationResponse(dict):
     @pulumi.getter(name="delegatedRoleDefinitionIds")
     def delegated_role_definition_ids(self) -> Optional[Sequence[str]]:
         """
-        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
         """
         return pulumi.get(self, "delegated_role_definition_ids")
 
@@ -97,7 +97,7 @@ class AuthorizationResponse(dict):
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[str]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -105,7 +105,7 @@ class AuthorizationResponse(dict):
 @pulumi.output_type
 class EligibleApproverResponse(dict):
     """
-    A principal Id and user-friendly display name representing an eligible authorization approver.
+    Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -130,9 +130,9 @@ class EligibleApproverResponse(dict):
                  principal_id: str,
                  principal_id_display_name: Optional[str] = None):
         """
-        A principal Id and user-friendly display name representing an eligible authorization approver.
-        :param str principal_id: Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
-        :param str principal_id_display_name: Display name of the principal Id.
+        Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
+        :param str principal_id: The identifier of the Azure Active Directory principal.
+        :param str principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         if principal_id_display_name is not None:
@@ -142,7 +142,7 @@ class EligibleApproverResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -150,7 +150,7 @@ class EligibleApproverResponse(dict):
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[str]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -158,7 +158,7 @@ class EligibleApproverResponse(dict):
 @pulumi.output_type
 class EligibleAuthorizationResponse(dict):
     """
-    Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+    The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -189,11 +189,11 @@ class EligibleAuthorizationResponse(dict):
                  just_in_time_access_policy: Optional['outputs.JustInTimeAccessPolicyResponse'] = None,
                  principal_id_display_name: Optional[str] = None):
         """
-        Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
-        :param str principal_id: Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
-        :param str role_definition_id: The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param 'JustInTimeAccessPolicyResponse' just_in_time_access_policy: Just-in-time access policy setting.
-        :param str principal_id_display_name: Display name of the principal Id.
+        The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
+        :param str principal_id: The identifier of the Azure Active Directory principal.
+        :param str role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        :param 'JustInTimeAccessPolicyResponse' just_in_time_access_policy: The just-in-time access policy setting.
+        :param str principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -206,7 +206,7 @@ class EligibleAuthorizationResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -214,7 +214,7 @@ class EligibleAuthorizationResponse(dict):
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> str:
         """
-        The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -222,7 +222,7 @@ class EligibleAuthorizationResponse(dict):
     @pulumi.getter(name="justInTimeAccessPolicy")
     def just_in_time_access_policy(self) -> Optional['outputs.JustInTimeAccessPolicyResponse']:
         """
-        Just-in-time access policy setting.
+        The just-in-time access policy setting.
         """
         return pulumi.get(self, "just_in_time_access_policy")
 
@@ -230,7 +230,7 @@ class EligibleAuthorizationResponse(dict):
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[str]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -267,9 +267,9 @@ class JustInTimeAccessPolicyResponse(dict):
                  maximum_activation_duration: Optional[str] = None):
         """
         Just-in-time access policy setting.
-        :param str multi_factor_auth_provider: MFA provider.
+        :param str multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests.
         :param Sequence['EligibleApproverResponse'] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
-        :param str maximum_activation_duration: Maximum access duration in ISO 8601 format.
+        :param str maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests.
         """
         if multi_factor_auth_provider is None:
             multi_factor_auth_provider = 'None'
@@ -285,7 +285,7 @@ class JustInTimeAccessPolicyResponse(dict):
     @pulumi.getter(name="multiFactorAuthProvider")
     def multi_factor_auth_provider(self) -> str:
         """
-        MFA provider.
+        The multi-factor authorization provider to be used for just-in-time access requests.
         """
         return pulumi.get(self, "multi_factor_auth_provider")
 
@@ -301,7 +301,7 @@ class JustInTimeAccessPolicyResponse(dict):
     @pulumi.getter(name="maximumActivationDuration")
     def maximum_activation_duration(self) -> Optional[str]:
         """
-        Maximum access duration in ISO 8601 format.
+        The maximum access duration in ISO 8601 format for just-in-time access requests.
         """
         return pulumi.get(self, "maximum_activation_duration")
 
@@ -309,7 +309,7 @@ class JustInTimeAccessPolicyResponse(dict):
 @pulumi.output_type
 class PlanResponse(dict):
     """
-    Plan details for the managed services.
+    The details for the Managed Services offer’s plan in Azure Marketplace.
     """
     def __init__(__self__, *,
                  name: str,
@@ -317,11 +317,11 @@ class PlanResponse(dict):
                  publisher: str,
                  version: str):
         """
-        Plan details for the managed services.
-        :param str name: The plan name.
-        :param str product: The product code.
-        :param str publisher: The publisher ID.
-        :param str version: The plan's version.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param str name: Azure Marketplace plan name.
+        :param str product: Azure Marketplace product code.
+        :param str publisher: Azure Marketplace publisher ID.
+        :param str version: Azure Marketplace plan's version.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -332,7 +332,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The plan name.
+        Azure Marketplace plan name.
         """
         return pulumi.get(self, "name")
 
@@ -340,7 +340,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> str:
         """
-        The product code.
+        Azure Marketplace product code.
         """
         return pulumi.get(self, "product")
 
@@ -348,7 +348,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        The publisher ID.
+        Azure Marketplace publisher ID.
         """
         return pulumi.get(self, "publisher")
 
@@ -356,7 +356,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The plan's version.
+        Azure Marketplace plan's version.
         """
         return pulumi.get(self, "version")
 
@@ -364,7 +364,7 @@ class PlanResponse(dict):
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponse(dict):
     """
-    Properties of a registration assignment.
+    The properties of the registration assignment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -392,10 +392,10 @@ class RegistrationAssignmentPropertiesResponse(dict):
                  registration_definition: 'outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinition',
                  registration_definition_id: str):
         """
-        Properties of a registration assignment.
-        :param str provisioning_state: Current state of the registration assignment.
-        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinition' registration_definition: Registration definition inside registration assignment.
-        :param str registration_definition_id: Fully qualified path of the registration definition.
+        The properties of the registration assignment.
+        :param str provisioning_state: The current provisioning state of the registration assignment.
+        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinition' registration_definition: The registration definition associated with the registration assignment.
+        :param str registration_definition_id: The fully qualified path of the registration definition.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "registration_definition", registration_definition)
@@ -405,7 +405,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Current state of the registration assignment.
+        The current provisioning state of the registration assignment.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -413,7 +413,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
     @pulumi.getter(name="registrationDefinition")
     def registration_definition(self) -> 'outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinition':
         """
-        Registration definition inside registration assignment.
+        The registration definition associated with the registration assignment.
         """
         return pulumi.get(self, "registration_definition")
 
@@ -421,7 +421,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
     @pulumi.getter(name="registrationDefinitionId")
     def registration_definition_id(self) -> str:
         """
-        Fully qualified path of the registration definition.
+        The fully qualified path of the registration definition.
         """
         return pulumi.get(self, "registration_definition_id")
 
@@ -429,7 +429,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponseProperties(dict):
     """
-    Properties of registration definition inside registration assignment.
+    The properties of the registration definition associated with the registration assignment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -471,16 +471,16 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
                  provisioning_state: Optional[str] = None,
                  registration_definition_name: Optional[str] = None):
         """
-        Properties of registration definition inside registration assignment.
-        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-        :param str description: Description of the registration definition.
-        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
-        :param str managed_by_tenant_id: Id of the managedBy tenant.
-        :param str managed_by_tenant_name: Name of the managedBy tenant.
-        :param str managee_tenant_id: Id of the home tenant.
-        :param str managee_tenant_name: Name of the home tenant.
-        :param str provisioning_state: Current state of the registration definition.
-        :param str registration_definition_name: Name of the registration definition.
+        The properties of the registration definition associated with the registration assignment.
+        :param Sequence['AuthorizationResponse'] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param str description: The description of the registration definition.
+        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param str managed_by_tenant_id: The identifier of the managedBy tenant.
+        :param str managed_by_tenant_name: The name of the managedBy tenant.
+        :param str managee_tenant_id: The identifier of the managed tenant.
+        :param str managee_tenant_name: The name of the managed tenant.
+        :param str provisioning_state: The current provisioning state of the registration definition.
+        :param str registration_definition_name: The name of the registration definition.
         """
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
@@ -505,7 +505,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter
     def authorizations(self) -> Optional[Sequence['outputs.AuthorizationResponse']]:
         """
-        Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "authorizations")
 
@@ -513,7 +513,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of the registration definition.
+        The description of the registration definition.
         """
         return pulumi.get(self, "description")
 
@@ -521,7 +521,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="eligibleAuthorizations")
     def eligible_authorizations(self) -> Optional[Sequence['outputs.EligibleAuthorizationResponse']]:
         """
-        Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "eligible_authorizations")
 
@@ -529,7 +529,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="managedByTenantId")
     def managed_by_tenant_id(self) -> Optional[str]:
         """
-        Id of the managedBy tenant.
+        The identifier of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_id")
 
@@ -537,7 +537,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="managedByTenantName")
     def managed_by_tenant_name(self) -> Optional[str]:
         """
-        Name of the managedBy tenant.
+        The name of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_name")
 
@@ -545,7 +545,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="manageeTenantId")
     def managee_tenant_id(self) -> Optional[str]:
         """
-        Id of the home tenant.
+        The identifier of the managed tenant.
         """
         return pulumi.get(self, "managee_tenant_id")
 
@@ -553,7 +553,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="manageeTenantName")
     def managee_tenant_name(self) -> Optional[str]:
         """
-        Name of the home tenant.
+        The name of the managed tenant.
         """
         return pulumi.get(self, "managee_tenant_name")
 
@@ -561,7 +561,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
-        Current state of the registration definition.
+        The current provisioning state of the registration definition.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -569,7 +569,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
     @pulumi.getter(name="registrationDefinitionName")
     def registration_definition_name(self) -> Optional[str]:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "registration_definition_name")
 
@@ -577,7 +577,7 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     """
-    Registration definition inside registration assignment.
+    The registration definition associated with the registration assignment.
     """
     def __init__(__self__, *,
                  id: str,
@@ -586,12 +586,12 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
                  plan: Optional['outputs.PlanResponse'] = None,
                  properties: Optional['outputs.RegistrationAssignmentPropertiesResponseProperties'] = None):
         """
-        Registration definition inside registration assignment.
-        :param str id: Fully qualified path of the registration definition.
-        :param str name: Name of the registration definition.
-        :param str type: Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-        :param 'PlanResponse' plan: Plan details for the managed services.
-        :param 'RegistrationAssignmentPropertiesResponseProperties' properties: Properties of registration definition inside registration assignment.
+        The registration definition associated with the registration assignment.
+        :param str id: The fully qualified path of the registration definition.
+        :param str name: The name of the registration definition.
+        :param str type: The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
+        :param 'PlanResponse' plan: The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param 'RegistrationAssignmentPropertiesResponseProperties' properties: The properties of the registration definition associated with the registration assignment.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -605,7 +605,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified path of the registration definition.
+        The fully qualified path of the registration definition.
         """
         return pulumi.get(self, "id")
 
@@ -613,7 +613,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "name")
 
@@ -621,7 +621,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+        The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         """
         return pulumi.get(self, "type")
 
@@ -629,7 +629,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     @pulumi.getter
     def plan(self) -> Optional['outputs.PlanResponse']:
         """
-        Plan details for the managed services.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
         """
         return pulumi.get(self, "plan")
 
@@ -637,7 +637,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
     @pulumi.getter
     def properties(self) -> Optional['outputs.RegistrationAssignmentPropertiesResponseProperties']:
         """
-        Properties of registration definition inside registration assignment.
+        The properties of the registration definition associated with the registration assignment.
         """
         return pulumi.get(self, "properties")
 
@@ -645,7 +645,7 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
 @pulumi.output_type
 class RegistrationDefinitionPropertiesResponse(dict):
     """
-    Properties of a registration definition.
+    The properties of a registration definition.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -681,14 +681,14 @@ class RegistrationDefinitionPropertiesResponse(dict):
                  eligible_authorizations: Optional[Sequence['outputs.EligibleAuthorizationResponse']] = None,
                  registration_definition_name: Optional[str] = None):
         """
-        Properties of a registration definition.
-        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-        :param str managed_by_tenant_id: Id of the managedBy tenant.
-        :param str managed_by_tenant_name: Name of the managedBy tenant.
-        :param str provisioning_state: Current state of the registration definition.
-        :param str description: Description of the registration definition.
-        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
-        :param str registration_definition_name: Name of the registration definition.
+        The properties of a registration definition.
+        :param Sequence['AuthorizationResponse'] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param str managed_by_tenant_id: The identifier of the managedBy tenant.
+        :param str managed_by_tenant_name: The name of the managedBy tenant.
+        :param str provisioning_state: The current provisioning state of the registration definition.
+        :param str description: The description of the registration definition.
+        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param str registration_definition_name: The name of the registration definition.
         """
         pulumi.set(__self__, "authorizations", authorizations)
         pulumi.set(__self__, "managed_by_tenant_id", managed_by_tenant_id)
@@ -705,7 +705,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter
     def authorizations(self) -> Sequence['outputs.AuthorizationResponse']:
         """
-        Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "authorizations")
 
@@ -713,7 +713,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter(name="managedByTenantId")
     def managed_by_tenant_id(self) -> str:
         """
-        Id of the managedBy tenant.
+        The identifier of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_id")
 
@@ -721,7 +721,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter(name="managedByTenantName")
     def managed_by_tenant_name(self) -> str:
         """
-        Name of the managedBy tenant.
+        The name of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_name")
 
@@ -729,7 +729,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Current state of the registration definition.
+        The current provisioning state of the registration definition.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -737,7 +737,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of the registration definition.
+        The description of the registration definition.
         """
         return pulumi.get(self, "description")
 
@@ -745,7 +745,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter(name="eligibleAuthorizations")
     def eligible_authorizations(self) -> Optional[Sequence['outputs.EligibleAuthorizationResponse']]:
         """
-        Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "eligible_authorizations")
 
@@ -753,7 +753,7 @@ class RegistrationDefinitionPropertiesResponse(dict):
     @pulumi.getter(name="registrationDefinitionName")
     def registration_definition_name(self) -> Optional[str]:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "registration_definition_name")
 

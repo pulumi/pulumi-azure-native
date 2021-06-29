@@ -43,7 +43,7 @@ export class Metadata extends pulumi.CustomResource {
     /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
-    public readonly contentId!: pulumi.Output<string>;
+    public readonly contentId!: pulumi.Output<string | undefined>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
@@ -96,9 +96,6 @@ export class Metadata extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contentId'");
-            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -164,7 +161,7 @@ export interface MetadataArgs {
     /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
-    contentId: pulumi.Input<string>;
+    contentId?: pulumi.Input<string>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */

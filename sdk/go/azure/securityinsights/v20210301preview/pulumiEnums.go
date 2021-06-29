@@ -590,20 +590,20 @@ func (e IncidentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 type Kind pulumi.String
 
 const (
-	KindDataConnector        = Kind("dataConnector")
-	KindDataType             = Kind("dataType")
-	KindWorkbook             = Kind("workbook")
-	KindWorkbookTemplate     = Kind("workbookTemplate")
-	KindPlaybook             = Kind("playbook")
-	KindPlaybookTemplate     = Kind("playbookTemplate")
-	KindAnalyticRuleTemplate = Kind("analyticRuleTemplate")
-	KindAnalyticRule         = Kind("analyticRule")
-	KindHuntingQuery         = Kind("huntingQuery")
-	KindInvestigationQuery   = Kind("investigationQuery")
-	KindParser               = Kind("parser")
-	KindWatchlist            = Kind("watchlist")
-	KindWatchlistTemplate    = Kind("watchlistTemplate")
-	KindSolution             = Kind("solution")
+	KindDataConnector         = Kind("DataConnector")
+	KindDataType              = Kind("DataType")
+	KindWorkbook              = Kind("Workbook")
+	KindWorkbookTemplate      = Kind("WorkbookTemplate")
+	KindPlaybook              = Kind("Playbook")
+	KindPlaybookTemplate      = Kind("PlaybookTemplate")
+	KindAnalyticsRuleTemplate = Kind("AnalyticsRuleTemplate")
+	KindAnalyticsRule         = Kind("AnalyticsRule")
+	KindHuntingQuery          = Kind("HuntingQuery")
+	KindInvestigationQuery    = Kind("InvestigationQuery")
+	KindParser                = Kind("Parser")
+	KindWatchlist             = Kind("Watchlist")
+	KindWatchlistTemplate     = Kind("WatchlistTemplate")
+	KindSolution              = Kind("Solution")
 )
 
 func (Kind) ElementType() reflect.Type {
@@ -930,10 +930,10 @@ func (e Source) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 type SourceKind pulumi.String
 
 const (
-	SourceKindLocalWorkspace   = SourceKind("localWorkspace")
-	SourceKindCommunity        = SourceKind("community")
-	SourceKindSolution         = SourceKind("solution")
-	SourceKindSourceRepository = SourceKind("sourceRepository")
+	SourceKindLocalWorkspace   = SourceKind("LocalWorkspace")
+	SourceKindCommunity        = SourceKind("Community")
+	SourceKindSolution         = SourceKind("Solution")
+	SourceKindSourceRepository = SourceKind("SourceRepository")
 )
 
 func (SourceKind) ElementType() reflect.Type {
@@ -960,9 +960,9 @@ func (e SourceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 type SupportTier pulumi.String
 
 const (
-	SupportTierMicrosoft = SupportTier("microsoft")
-	SupportTierDeveloper = SupportTier("developer")
-	SupportTierCommunity = SupportTier("community")
+	SupportTierMicrosoft = SupportTier("Microsoft")
+	SupportTierPartner   = SupportTier("Partner")
+	SupportTierCommunity = SupportTier("Community")
 )
 
 func (SupportTier) ElementType() reflect.Type {

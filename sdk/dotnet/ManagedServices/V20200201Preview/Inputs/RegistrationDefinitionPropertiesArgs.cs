@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 {
 
     /// <summary>
-    /// Properties of a registration definition.
+    /// The properties of a registration definition.
     /// </summary>
     public sealed class RegistrationDefinitionPropertiesArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         private InputList<Inputs.AuthorizationArgs>? _authorizations;
 
         /// <summary>
-        /// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        /// The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         /// </summary>
         public InputList<Inputs.AuthorizationArgs> Authorizations
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         }
 
         /// <summary>
-        /// Description of the registration definition.
+        /// The description of the registration definition.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         private InputList<Inputs.EligibleAuthorizationArgs>? _eligibleAuthorizations;
 
         /// <summary>
-        /// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        /// The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         /// </summary>
         public InputList<Inputs.EligibleAuthorizationArgs> EligibleAuthorizations
         {
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
         }
 
         /// <summary>
-        /// Id of the managedBy tenant.
+        /// The identifier of the managedBy tenant.
         /// </summary>
         [Input("managedByTenantId", required: true)]
         public Input<string> ManagedByTenantId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the registration definition.
+        /// The name of the registration definition.
         /// </summary>
         [Input("registrationDefinitionName")]
         public Input<string>? RegistrationDefinitionName { get; set; }

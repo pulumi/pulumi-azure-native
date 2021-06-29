@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
     """
-    Registration assignment.
+    The registration assignment.
     """
     def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
@@ -46,7 +46,7 @@ class GetRegistrationAssignmentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the registration assignment.
+        The name of the registration assignment.
         """
         return pulumi.get(self, "name")
 
@@ -54,7 +54,7 @@ class GetRegistrationAssignmentResult:
     @pulumi.getter
     def properties(self) -> 'outputs.RegistrationAssignmentPropertiesResponse':
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
 
@@ -62,7 +62,7 @@ class GetRegistrationAssignmentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         """
         return pulumi.get(self, "type")
 
@@ -84,12 +84,12 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
-    Registration assignment.
+    The registration assignment.
 
 
-    :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
-    :param str registration_assignment_id: Guid of the registration assignment.
-    :param str scope: Scope of the resource.
+    :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
+    :param str registration_assignment_id: The GUID of the registration assignment.
+    :param str scope: The scope of the resource.
     """
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition

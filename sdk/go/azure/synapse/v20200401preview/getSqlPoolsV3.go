@@ -47,7 +47,7 @@ type LookupSqlPoolsV3Result struct {
 	// The requested service level objective name of the sql pool.
 	RequestedServiceObjectiveName string `pulumi:"requestedServiceObjectiveName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuV3Response `pulumi:"sku"`
 	// The Guid of the sql pool.
 	SqlPoolGuid string `pulumi:"sqlPoolGuid"`
 	// The status of the sql pool.

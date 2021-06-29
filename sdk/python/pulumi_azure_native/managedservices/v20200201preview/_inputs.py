@@ -27,11 +27,11 @@ class AuthorizationArgs:
                  delegated_role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id_display_name: Optional[pulumi.Input[str]] = None):
         """
-        Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
-        :param pulumi.Input[str] principal_id: Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
-        :param pulumi.Input[str] role_definition_id: The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
-        :param pulumi.Input[str] principal_id_display_name: Display name of the principal Id.
+        The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
+        :param pulumi.Input[str] principal_id: The identifier of the Azure Active Directory principal.
+        :param pulumi.Input[str] role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
+        :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -44,7 +44,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -56,7 +56,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Input[str]:
         """
-        The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -68,7 +68,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="delegatedRoleDefinitionIds")
     def delegated_role_definition_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
         """
         return pulumi.get(self, "delegated_role_definition_ids")
 
@@ -80,7 +80,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -95,9 +95,9 @@ class EligibleApproverArgs:
                  principal_id: pulumi.Input[str],
                  principal_id_display_name: Optional[pulumi.Input[str]] = None):
         """
-        A principal Id and user-friendly display name representing an eligible authorization approver.
-        :param pulumi.Input[str] principal_id: Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
-        :param pulumi.Input[str] principal_id_display_name: Display name of the principal Id.
+        Defines the Azure Active Directory principal that can approve any just-in-time access requests by the principal defined in the EligibleAuthorization.
+        :param pulumi.Input[str] principal_id: The identifier of the Azure Active Directory principal.
+        :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         if principal_id_display_name is not None:
@@ -107,7 +107,7 @@ class EligibleApproverArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        Principal Id of the user or security group that will approve JIT activation requests for the eligible authorization.
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -119,7 +119,7 @@ class EligibleApproverArgs:
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -136,11 +136,11 @@ class EligibleAuthorizationArgs:
                  just_in_time_access_policy: Optional[pulumi.Input['JustInTimeAccessPolicyArgs']] = None,
                  principal_id_display_name: Optional[pulumi.Input[str]] = None):
         """
-        Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
-        :param pulumi.Input[str] principal_id: Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
-        :param pulumi.Input[str] role_definition_id: The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param pulumi.Input['JustInTimeAccessPolicyArgs'] just_in_time_access_policy: Just-in-time access policy setting.
-        :param pulumi.Input[str] principal_id_display_name: Display name of the principal Id.
+        The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
+        :param pulumi.Input[str] principal_id: The identifier of the Azure Active Directory principal.
+        :param pulumi.Input[str] role_definition_id: The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
+        :param pulumi.Input['JustInTimeAccessPolicyArgs'] just_in_time_access_policy: The just-in-time access policy setting.
+        :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -153,7 +153,7 @@ class EligibleAuthorizationArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+        The identifier of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id")
 
@@ -165,7 +165,7 @@ class EligibleAuthorizationArgs:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Input[str]:
         """
-        The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -177,7 +177,7 @@ class EligibleAuthorizationArgs:
     @pulumi.getter(name="justInTimeAccessPolicy")
     def just_in_time_access_policy(self) -> Optional[pulumi.Input['JustInTimeAccessPolicyArgs']]:
         """
-        Just-in-time access policy setting.
+        The just-in-time access policy setting.
         """
         return pulumi.get(self, "just_in_time_access_policy")
 
@@ -189,7 +189,7 @@ class EligibleAuthorizationArgs:
     @pulumi.getter(name="principalIdDisplayName")
     def principal_id_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Display name of the principal Id.
+        The display name of the Azure Active Directory principal.
         """
         return pulumi.get(self, "principal_id_display_name")
 
@@ -206,9 +206,9 @@ class JustInTimeAccessPolicyArgs:
                  maximum_activation_duration: Optional[pulumi.Input[str]] = None):
         """
         Just-in-time access policy setting.
-        :param pulumi.Input[Union[str, 'MultiFactorAuthProvider']] multi_factor_auth_provider: MFA provider.
+        :param pulumi.Input[Union[str, 'MultiFactorAuthProvider']] multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests.
         :param pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
-        :param pulumi.Input[str] maximum_activation_duration: Maximum access duration in ISO 8601 format.
+        :param pulumi.Input[str] maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests.
         """
         if multi_factor_auth_provider is None:
             multi_factor_auth_provider = 'None'
@@ -224,7 +224,7 @@ class JustInTimeAccessPolicyArgs:
     @pulumi.getter(name="multiFactorAuthProvider")
     def multi_factor_auth_provider(self) -> pulumi.Input[Union[str, 'MultiFactorAuthProvider']]:
         """
-        MFA provider.
+        The multi-factor authorization provider to be used for just-in-time access requests.
         """
         return pulumi.get(self, "multi_factor_auth_provider")
 
@@ -248,7 +248,7 @@ class JustInTimeAccessPolicyArgs:
     @pulumi.getter(name="maximumActivationDuration")
     def maximum_activation_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        Maximum access duration in ISO 8601 format.
+        The maximum access duration in ISO 8601 format for just-in-time access requests.
         """
         return pulumi.get(self, "maximum_activation_duration")
 
@@ -265,11 +265,11 @@ class PlanArgs:
                  publisher: pulumi.Input[str],
                  version: pulumi.Input[str]):
         """
-        Plan details for the managed services.
-        :param pulumi.Input[str] name: The plan name.
-        :param pulumi.Input[str] product: The product code.
-        :param pulumi.Input[str] publisher: The publisher ID.
-        :param pulumi.Input[str] version: The plan's version.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param pulumi.Input[str] name: Azure Marketplace plan name.
+        :param pulumi.Input[str] product: Azure Marketplace product code.
+        :param pulumi.Input[str] publisher: Azure Marketplace publisher ID.
+        :param pulumi.Input[str] version: Azure Marketplace plan's version.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -280,7 +280,7 @@ class PlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The plan name.
+        Azure Marketplace plan name.
         """
         return pulumi.get(self, "name")
 
@@ -292,7 +292,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
         """
-        The product code.
+        Azure Marketplace product code.
         """
         return pulumi.get(self, "product")
 
@@ -304,7 +304,7 @@ class PlanArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        The publisher ID.
+        Azure Marketplace publisher ID.
         """
         return pulumi.get(self, "publisher")
 
@@ -316,7 +316,7 @@ class PlanArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The plan's version.
+        Azure Marketplace plan's version.
         """
         return pulumi.get(self, "version")
 
@@ -330,8 +330,8 @@ class RegistrationAssignmentPropertiesArgs:
     def __init__(__self__, *,
                  registration_definition_id: pulumi.Input[str]):
         """
-        Properties of a registration assignment.
-        :param pulumi.Input[str] registration_definition_id: Fully qualified path of the registration definition.
+        The properties of the registration assignment.
+        :param pulumi.Input[str] registration_definition_id: The fully qualified path of the registration definition.
         """
         pulumi.set(__self__, "registration_definition_id", registration_definition_id)
 
@@ -339,7 +339,7 @@ class RegistrationAssignmentPropertiesArgs:
     @pulumi.getter(name="registrationDefinitionId")
     def registration_definition_id(self) -> pulumi.Input[str]:
         """
-        Fully qualified path of the registration definition.
+        The fully qualified path of the registration definition.
         """
         return pulumi.get(self, "registration_definition_id")
 
@@ -357,12 +357,12 @@ class RegistrationDefinitionPropertiesArgs:
                  eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]] = None,
                  registration_definition_name: Optional[pulumi.Input[str]] = None):
         """
-        Properties of a registration definition.
-        :param pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
-        :param pulumi.Input[str] managed_by_tenant_id: Id of the managedBy tenant.
-        :param pulumi.Input[str] description: Description of the registration definition.
-        :param pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
-        :param pulumi.Input[str] registration_definition_name: Name of the registration definition.
+        The properties of a registration definition.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param pulumi.Input[str] managed_by_tenant_id: The identifier of the managedBy tenant.
+        :param pulumi.Input[str] description: The description of the registration definition.
+        :param pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
+        :param pulumi.Input[str] registration_definition_name: The name of the registration definition.
         """
         pulumi.set(__self__, "authorizations", authorizations)
         pulumi.set(__self__, "managed_by_tenant_id", managed_by_tenant_id)
@@ -377,7 +377,7 @@ class RegistrationDefinitionPropertiesArgs:
     @pulumi.getter
     def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]:
         """
-        Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "authorizations")
 
@@ -389,7 +389,7 @@ class RegistrationDefinitionPropertiesArgs:
     @pulumi.getter(name="managedByTenantId")
     def managed_by_tenant_id(self) -> pulumi.Input[str]:
         """
-        Id of the managedBy tenant.
+        The identifier of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_id")
 
@@ -401,7 +401,7 @@ class RegistrationDefinitionPropertiesArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the registration definition.
+        The description of the registration definition.
         """
         return pulumi.get(self, "description")
 
@@ -413,7 +413,7 @@ class RegistrationDefinitionPropertiesArgs:
     @pulumi.getter(name="eligibleAuthorizations")
     def eligible_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]]:
         """
-        Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         """
         return pulumi.get(self, "eligible_authorizations")
 
@@ -425,7 +425,7 @@ class RegistrationDefinitionPropertiesArgs:
     @pulumi.getter(name="registrationDefinitionName")
     def registration_definition_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "registration_definition_name")
 

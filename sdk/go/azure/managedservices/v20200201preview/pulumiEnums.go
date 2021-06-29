@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MFA provider.
+// The multi-factor authorization provider to be used for just-in-time access requests.
 type MultiFactorAuthProvider pulumi.String
 
 const (

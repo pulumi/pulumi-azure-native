@@ -7,29 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Synapse.V20200401Preview.Outputs
+namespace Pulumi.AzureNative.Synapse.V20200401Preview.Inputs
 {
 
-    [OutputType]
-    public sealed class SkuResponse
+    /// <summary>
+    /// An ARM Resource SKU.
+    /// </summary>
+    public sealed class SkuV3Args : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SKU, typically, a letter + Number code, e.g. P3.
         /// </summary>
-        public readonly string Name;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
         /// <summary>
         /// The tier or edition of the particular SKU, e.g. Basic, Premium.
         /// </summary>
-        public readonly string? Tier;
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
-        [OutputConstructor]
-        private SkuResponse(
-            string name,
-
-            string? tier)
+        public SkuV3Args()
         {
-            Name = name;
-            Tier = tier;
         }
     }
 }

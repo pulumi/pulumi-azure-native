@@ -18,11 +18,11 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EligibleApproverResponse> ManagedByTenantApprovers;
         /// <summary>
-        /// Maximum access duration in ISO 8601 format.
+        /// The maximum access duration in ISO 8601 format for just-in-time access requests.
         /// </summary>
         public readonly string? MaximumActivationDuration;
         /// <summary>
-        /// MFA provider.
+        /// The multi-factor authorization provider to be used for just-in-time access requests.
         /// </summary>
         public readonly string MultiFactorAuthProvider;
 

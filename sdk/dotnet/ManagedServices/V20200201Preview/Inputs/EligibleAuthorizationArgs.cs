@@ -11,30 +11,30 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Inputs
 {
 
     /// <summary>
-    /// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+    /// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
     /// </summary>
     public sealed class EligibleAuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Just-in-time access policy setting.
+        /// The just-in-time access policy setting.
         /// </summary>
         [Input("justInTimeAccessPolicy")]
         public Input<Inputs.JustInTimeAccessPolicyArgs>? JustInTimeAccessPolicy { get; set; }
 
         /// <summary>
-        /// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+        /// The identifier of the Azure Active Directory principal.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// Display name of the principal Id.
+        /// The display name of the Azure Active Directory principal.
         /// </summary>
         [Input("principalIdDisplayName")]
         public Input<string>? PrincipalIdDisplayName { get; set; }
 
         /// <summary>
-        /// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+        /// The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope.
         /// </summary>
         [Input("roleDefinitionId", required: true)]
         public Input<string> RoleDefinitionId { get; set; } = null!;

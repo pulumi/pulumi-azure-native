@@ -70,7 +70,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    public readonly sku!: pulumi.Output<outputs.synapse.v20200401preview.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.synapse.v20200401preview.SkuV3Response | undefined>;
     /**
      * The Guid of the sql pool.
      */
@@ -178,7 +178,7 @@ export interface SqlPoolsV3Args {
     /**
      * The sql pool SKU. The list of SKUs may vary by region and support offer.
      */
-    sku?: pulumi.Input<inputs.synapse.v20200401preview.SkuArgs>;
+    sku?: pulumi.Input<inputs.synapse.v20200401preview.SkuV3Args>;
     /**
      * The name of the sql pool.
      */

@@ -32,7 +32,7 @@ type SqlPoolsV3 struct {
 	// The requested service level objective name of the sql pool.
 	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	Sku SkuV3ResponsePtrOutput `pulumi:"sku"`
 	// The Guid of the sql pool.
 	SqlPoolGuid pulumi.StringOutput `pulumi:"sqlPoolGuid"`
 	// The status of the sql pool.
@@ -139,7 +139,7 @@ type sqlPoolsV3State struct {
 	// The requested service level objective name of the sql pool.
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuV3Response `pulumi:"sku"`
 	// The Guid of the sql pool.
 	SqlPoolGuid *string `pulumi:"sqlPoolGuid"`
 	// The status of the sql pool.
@@ -170,7 +170,7 @@ type SqlPoolsV3State struct {
 	// The requested service level objective name of the sql pool.
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku SkuResponsePtrInput
+	Sku SkuV3ResponsePtrInput
 	// The Guid of the sql pool.
 	SqlPoolGuid pulumi.StringPtrInput
 	// The status of the sql pool.
@@ -199,7 +199,7 @@ type sqlPoolsV3Args struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku *Sku `pulumi:"sku"`
+	Sku *SkuV3 `pulumi:"sku"`
 	// The name of the sql pool.
 	SqlPoolName *string `pulumi:"sqlPoolName"`
 	// Resource tags.
@@ -221,7 +221,7 @@ type SqlPoolsV3Args struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku SkuPtrInput
+	Sku SkuV3PtrInput
 	// The name of the sql pool.
 	SqlPoolName pulumi.StringPtrInput
 	// Resource tags.

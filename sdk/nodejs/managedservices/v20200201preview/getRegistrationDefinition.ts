@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Registration definition.
+ * The registration definition.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
     if (!opts) {
@@ -24,37 +24,37 @@ export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, o
 
 export interface GetRegistrationDefinitionArgs {
     /**
-     * Guid of the registration definition.
+     * The GUID of the registration definition.
      */
     registrationDefinitionId: string;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: string;
 }
 
 /**
- * Registration definition.
+ * The registration definition.
  */
 export interface GetRegistrationDefinitionResult {
     /**
-     * Fully qualified path of the registration definition.
+     * The fully qualified path of the registration definition.
      */
     readonly id: string;
     /**
-     * Name of the registration definition.
+     * The name of the registration definition.
      */
     readonly name: string;
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     readonly plan?: outputs.managedservices.v20200201preview.PlanResponse;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     readonly properties: outputs.managedservices.v20200201preview.RegistrationDefinitionPropertiesResponse;
     /**
-     * Type of the resource.
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */
     readonly type: string;
 }

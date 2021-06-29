@@ -10,12 +10,12 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'SkuResponse',
+    'SkuV3Response',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class SkuResponse(dict):
+class SkuV3Response(dict):
     """
     An ARM Resource SKU.
     """
