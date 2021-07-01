@@ -3,6 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `features.SubscriptionFeatureRegistration`
+- `peering.ConnectionMonitorTest`
+
+#### New Functions
+
+- `features.getSubscriptionFeatureRegistration`
+- `peering.getConnectionMonitorTest`
+
 #### Bug Fixes
 
 - Fix import of resources with unorthodox parameter capitalization, e.g. `network.VirtualWan`
