@@ -58976,7 +58976,11 @@
           "West US 2",
           "Australia East",
           "North Europe",
-          "France Central"
+          "France Central",
+          "Central US",
+          "West US",
+          "North Central US",
+          "Korea Central"
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses",
