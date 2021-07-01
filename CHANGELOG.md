@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.15.0 (2020-07-01)
+
 #### New Resources
 
 - `features.SubscriptionFeatureRegistration`
@@ -22,8 +28,6 @@ CHANGELOG
 
 - `iotspaces` resource provider was removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13993))
-
----
 
 ## 1.14.0 (2020-06-23)
 
