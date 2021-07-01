@@ -212,6 +212,8 @@ export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSever
 export const OnboardingKind = {
     Default: "Default",
     MigratedToAzure: "MigratedToAzure",
+    Evaluation: "Evaluation",
+    Purchased: "Purchased",
 } as const;
 
 /**

@@ -5,6 +5,8 @@
 export const OnboardingKind = {
     Default: "Default",
     MigratedToAzure: "MigratedToAzure",
+    Evaluation: "Evaluation",
+    Purchased: "Purchased",
 } as const;
 
 /**

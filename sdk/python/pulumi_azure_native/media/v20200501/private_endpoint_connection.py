@@ -150,7 +150,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20200501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:media:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:media:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:media/v20210501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:media/v20210501:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20200501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:media:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:media:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:media/v20210501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:media/v20210501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:media/v20210601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:media/v20210601:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:media/v20200501:PrivateEndpointConnection',

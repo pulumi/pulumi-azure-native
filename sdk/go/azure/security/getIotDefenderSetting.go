@@ -25,6 +25,8 @@ type LookupIotDefenderSettingArgs struct {
 type LookupIotDefenderSettingResult struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// End time of the evaluation period, if such exist
+	EvaluationEndTime string `pulumi:"evaluationEndTime"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name

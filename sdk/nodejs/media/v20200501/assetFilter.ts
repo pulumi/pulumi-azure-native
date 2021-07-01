@@ -101,7 +101,7 @@ export class AssetFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20200501:AssetFilter" }, { type: "azure-native:media:AssetFilter" }, { type: "azure-nextgen:media:AssetFilter" }, { type: "azure-native:media/v20180701:AssetFilter" }, { type: "azure-nextgen:media/v20180701:AssetFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20200501:AssetFilter" }, { type: "azure-native:media:AssetFilter" }, { type: "azure-nextgen:media:AssetFilter" }, { type: "azure-native:media/v20180701:AssetFilter" }, { type: "azure-nextgen:media/v20180701:AssetFilter" }, { type: "azure-native:media/v20210601:AssetFilter" }, { type: "azure-nextgen:media/v20210601:AssetFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssetFilter.__pulumiType, name, inputs, opts);
     }

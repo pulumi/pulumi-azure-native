@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./connectionMonitorTest";
+export * from "./getConnectionMonitorTest";
 export * from "./getPeerAsn";
 export * from "./getPeering";
 export * from "./getPeeringService";
@@ -28,6 +30,7 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20200401 from "./v20200401";
 import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
+import * as v20210601 from "./v20210601";
 
 export {
     v20190801preview,
@@ -36,9 +39,11 @@ export {
     v20200401,
     v20201001,
     v20210101,
+    v20210601,
 };
 
 // Import resources to register:
+import { ConnectionMonitorTest } from "./connectionMonitorTest";
 import { PeerAsn } from "./peerAsn";
 import { Peering } from "./peering";
 import { PeeringService } from "./peeringService";
@@ -50,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:peering:ConnectionMonitorTest":
+                return new ConnectionMonitorTest(name, <any>undefined, { urn })
             case "azure-native:peering:PeerAsn":
                 return new PeerAsn(name, <any>undefined, { urn })
             case "azure-native:peering:Peering":

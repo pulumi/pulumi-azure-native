@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public Output<int> DeviceQuota { get; private set; } = null!;
 
         /// <summary>
+        /// End time of the evaluation period, if such exist
+        /// </summary>
+        [Output("evaluationEndTime")]
+        public Output<string> EvaluationEndTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

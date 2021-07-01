@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly int DeviceQuota;
         /// <summary>
+        /// End time of the evaluation period, if such exist
+        /// </summary>
+        public readonly string EvaluationEndTime;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.Security
         private GetIotDefenderSettingResult(
             int deviceQuota,
 
+            string evaluationEndTime,
+
             string id,
 
             string name,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             DeviceQuota = deviceQuota;
+            EvaluationEndTime = evaluationEndTime;
             Id = id;
             Name = name;
             OnboardingKind = onboardingKind;

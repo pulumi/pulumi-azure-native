@@ -104,6 +104,12 @@ func NewLiveEvent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:LiveEvent"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20210601:LiveEvent"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:media/v20210601:LiveEvent"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LiveEvent

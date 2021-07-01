@@ -34,6 +34,10 @@ export interface GetDefenderSettingResult {
      */
     readonly deviceQuota: number;
     /**
+     * End time of the evaluation period, if such exist
+     */
+    readonly evaluationEndTime: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;

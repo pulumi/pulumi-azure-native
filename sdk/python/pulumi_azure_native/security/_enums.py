@@ -157,6 +157,8 @@ class OnboardingKind(str, Enum):
     """
     DEFAULT = "Default"
     MIGRATED_TO_AZURE = "MigratedToAzure"
+    EVALUATION = "Evaluation"
+    PURCHASED = "Purchased"
 
 
 class Operator(str, Enum):

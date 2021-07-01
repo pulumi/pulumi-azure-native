@@ -24,6 +24,8 @@ type LookupDefenderSettingArgs struct {
 type LookupDefenderSettingResult struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// End time of the evaluation period, if such exist
+	EvaluationEndTime string `pulumi:"evaluationEndTime"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource

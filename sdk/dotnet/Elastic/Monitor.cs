@@ -90,6 +90,8 @@ namespace Pulumi.AzureNative.Elastic
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:elastic:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20200701:Monitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701:Monitor"},
                     new Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:Monitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701preview:Monitor"},
                 },

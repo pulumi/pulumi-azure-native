@@ -106,7 +106,7 @@ export class Monitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:elastic:Monitor" }, { type: "azure-native:elastic/v20200701preview:Monitor" }, { type: "azure-nextgen:elastic/v20200701preview:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:elastic:Monitor" }, { type: "azure-native:elastic/v20200701:Monitor" }, { type: "azure-nextgen:elastic/v20200701:Monitor" }, { type: "azure-native:elastic/v20200701preview:Monitor" }, { type: "azure-nextgen:elastic/v20200701preview:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, inputs, opts);
     }

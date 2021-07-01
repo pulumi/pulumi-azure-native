@@ -17,6 +17,8 @@ type DefenderSetting struct {
 
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
+	// End time of the evaluation period, if such exist
+	EvaluationEndTime pulumi.StringOutput `pulumi:"evaluationEndTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The kind of onboarding for the subscription
@@ -79,6 +81,8 @@ func GetDefenderSetting(ctx *pulumi.Context,
 type defenderSettingState struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota *int `pulumi:"deviceQuota"`
+	// End time of the evaluation period, if such exist
+	EvaluationEndTime *string `pulumi:"evaluationEndTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The kind of onboarding for the subscription
@@ -92,6 +96,8 @@ type defenderSettingState struct {
 type DefenderSettingState struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota pulumi.IntPtrInput
+	// End time of the evaluation period, if such exist
+	EvaluationEndTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The kind of onboarding for the subscription

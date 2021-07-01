@@ -41,6 +41,10 @@ export class IotDefenderSetting extends pulumi.CustomResource {
      */
     public readonly deviceQuota!: pulumi.Output<number>;
     /**
+     * End time of the evaluation period, if such exist
+     */
+    public /*out*/ readonly evaluationEndTime!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -80,10 +84,12 @@ export class IotDefenderSetting extends pulumi.CustomResource {
             inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
             inputs["onboardingKind"] = args ? args.onboardingKind : undefined;
             inputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
+            inputs["evaluationEndTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["deviceQuota"] = undefined /*out*/;
+            inputs["evaluationEndTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["onboardingKind"] = undefined /*out*/;
             inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;

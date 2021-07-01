@@ -19,10 +19,13 @@ class GetDefenderSettingResult:
     """
     IoT Defender settings
     """
-    def __init__(__self__, device_quota=None, id=None, name=None, onboarding_kind=None, sentinel_workspace_resource_ids=None, type=None):
+    def __init__(__self__, device_quota=None, evaluation_end_time=None, id=None, name=None, onboarding_kind=None, sentinel_workspace_resource_ids=None, type=None):
         if device_quota and not isinstance(device_quota, int):
             raise TypeError("Expected argument 'device_quota' to be a int")
         pulumi.set(__self__, "device_quota", device_quota)
+        if evaluation_end_time and not isinstance(evaluation_end_time, str):
+            raise TypeError("Expected argument 'evaluation_end_time' to be a str")
+        pulumi.set(__self__, "evaluation_end_time", evaluation_end_time)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetDefenderSettingResult:
         Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
         """
         return pulumi.get(self, "device_quota")
+
+    @property
+    @pulumi.getter(name="evaluationEndTime")
+    def evaluation_end_time(self) -> str:
+        """
+        End time of the evaluation period, if such exist
+        """
+        return pulumi.get(self, "evaluation_end_time")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetDefenderSettingResult(GetDefenderSettingResult):
             yield self
         return GetDefenderSettingResult(
             device_quota=self.device_quota,
+            evaluation_end_time=self.evaluation_end_time,
             id=self.id,
             name=self.name,
             onboarding_kind=self.onboarding_kind,
@@ -116,6 +128,7 @@ def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitab
 
     return AwaitableGetDefenderSettingResult(
         device_quota=__ret__.device_quota,
+        evaluation_end_time=__ret__.evaluation_end_time,
         id=__ret__.id,
         name=__ret__.name,
         onboarding_kind=__ret__.onboarding_kind,

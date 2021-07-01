@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Security
         public Output<int> DeviceQuota { get; private set; } = null!;
 
         /// <summary>
+        /// End time of the evaluation period, if such exist
+        /// </summary>
+        [Output("evaluationEndTime")]
+        public Output<string> EvaluationEndTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]

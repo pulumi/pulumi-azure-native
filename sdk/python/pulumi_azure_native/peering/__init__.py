@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .connection_monitor_test import *
+from .get_connection_monitor_test import *
 from .get_peer_asn import *
 from .get_peering import *
 from .get_peering_service import *
@@ -29,6 +31,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.peering.v20200401 as v20200401
     import pulumi_azure_native.peering.v20201001 as v20201001
     import pulumi_azure_native.peering.v20210101 as v20210101
+    import pulumi_azure_native.peering.v20210601 as v20210601
 else:
     v20190801preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190801preview')
     v20190901preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190901preview')
@@ -36,4 +39,5 @@ else:
     v20200401 = _utilities.lazy_import('pulumi_azure_native.peering.v20200401')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.peering.v20201001')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.peering.v20210101')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.peering.v20210601')
 

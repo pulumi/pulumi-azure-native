@@ -84,6 +84,7 @@ import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
+import * as features from "./features";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
@@ -254,6 +255,7 @@ export {
     eventgrid,
     eventhub,
     extendedlocation,
+    features,
     guestconfiguration,
     hanaonazure,
     hardwaresecuritymodules,

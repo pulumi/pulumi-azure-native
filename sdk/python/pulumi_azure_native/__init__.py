@@ -85,6 +85,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.eventgrid as eventgrid
     import pulumi_azure_native.eventhub as eventhub
     import pulumi_azure_native.extendedlocation as extendedlocation
+    import pulumi_azure_native.features as features
     import pulumi_azure_native.guestconfiguration as guestconfiguration
     import pulumi_azure_native.hanaonazure as hanaonazure
     import pulumi_azure_native.hardwaresecuritymodules as hardwaresecuritymodules
@@ -253,6 +254,7 @@ else:
     eventgrid = _utilities.lazy_import('pulumi_azure_native.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure_native.eventhub')
     extendedlocation = _utilities.lazy_import('pulumi_azure_native.extendedlocation')
+    features = _utilities.lazy_import('pulumi_azure_native.features')
     guestconfiguration = _utilities.lazy_import('pulumi_azure_native.guestconfiguration')
     hanaonazure = _utilities.lazy_import('pulumi_azure_native.hanaonazure')
     hardwaresecuritymodules = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules')
@@ -6216,6 +6218,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "elastic/v20200701",
+  "fqn": "pulumi_azure_native.elastic.v20200701",
+  "classes": {
+   "azure-native:elastic/v20200701:Monitor": "Monitor",
+   "azure-native:elastic/v20200701:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "elastic/v20200701preview",
   "fqn": "pulumi_azure_native.elastic.v20200701preview",
   "classes": {
@@ -6532,6 +6543,22 @@ _utilities.register(
   "fqn": "pulumi_azure_native.extendedlocation.v20210315preview",
   "classes": {
    "azure-native:extendedlocation/v20210315preview:customLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "features",
+  "fqn": "pulumi_azure_native.features",
+  "classes": {
+   "azure-native:features:SubscriptionFeatureRegistration": "SubscriptionFeatureRegistration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "features/v20210701",
+  "fqn": "pulumi_azure_native.features.v20210701",
+  "classes": {
+   "azure-native:features/v20210701:SubscriptionFeatureRegistration": "SubscriptionFeatureRegistration"
   }
  },
  {
@@ -8651,6 +8678,24 @@ _utilities.register(
   "classes": {
    "azure-native:media/v20210501:MediaService": "MediaService",
    "azure-native:media/v20210501:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "media/v20210601",
+  "fqn": "pulumi_azure_native.media.v20210601",
+  "classes": {
+   "azure-native:media/v20210601:AccountFilter": "AccountFilter",
+   "azure-native:media/v20210601:Asset": "Asset",
+   "azure-native:media/v20210601:AssetFilter": "AssetFilter",
+   "azure-native:media/v20210601:ContentKeyPolicy": "ContentKeyPolicy",
+   "azure-native:media/v20210601:LiveEvent": "LiveEvent",
+   "azure-native:media/v20210601:LiveOutput": "LiveOutput",
+   "azure-native:media/v20210601:MediaService": "MediaService",
+   "azure-native:media/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:media/v20210601:StreamingEndpoint": "StreamingEndpoint",
+   "azure-native:media/v20210601:StreamingLocator": "StreamingLocator",
+   "azure-native:media/v20210601:StreamingPolicy": "StreamingPolicy"
   }
  },
  {
@@ -11343,6 +11388,7 @@ _utilities.register(
   "mod": "peering",
   "fqn": "pulumi_azure_native.peering",
   "classes": {
+   "azure-native:peering:ConnectionMonitorTest": "ConnectionMonitorTest",
    "azure-native:peering:PeerAsn": "PeerAsn",
    "azure-native:peering:Peering": "Peering",
    "azure-native:peering:PeeringService": "PeeringService",
@@ -11423,6 +11469,20 @@ _utilities.register(
    "azure-native:peering/v20210101:Prefix": "Prefix",
    "azure-native:peering/v20210101:RegisteredAsn": "RegisteredAsn",
    "azure-native:peering/v20210101:RegisteredPrefix": "RegisteredPrefix"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "peering/v20210601",
+  "fqn": "pulumi_azure_native.peering.v20210601",
+  "classes": {
+   "azure-native:peering/v20210601:ConnectionMonitorTest": "ConnectionMonitorTest",
+   "azure-native:peering/v20210601:PeerAsn": "PeerAsn",
+   "azure-native:peering/v20210601:Peering": "Peering",
+   "azure-native:peering/v20210601:PeeringService": "PeeringService",
+   "azure-native:peering/v20210601:Prefix": "Prefix",
+   "azure-native:peering/v20210601:RegisteredAsn": "RegisteredAsn",
+   "azure-native:peering/v20210601:RegisteredPrefix": "RegisteredPrefix"
   }
  },
  {

@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:media:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210501:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20210501:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

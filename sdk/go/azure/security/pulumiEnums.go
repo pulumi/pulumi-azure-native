@@ -409,6 +409,8 @@ type OnboardingKind pulumi.String
 const (
 	OnboardingKindDefault         = OnboardingKind("Default")
 	OnboardingKindMigratedToAzure = OnboardingKind("MigratedToAzure")
+	OnboardingKindEvaluation      = OnboardingKind("Evaluation")
+	OnboardingKindPurchased       = OnboardingKind("Purchased")
 )
 
 func (OnboardingKind) ElementType() reflect.Type {

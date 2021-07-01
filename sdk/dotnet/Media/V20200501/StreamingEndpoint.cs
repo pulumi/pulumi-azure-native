@@ -177,6 +177,8 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:StreamingEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -130,6 +130,7 @@ class DefenderSetting(pulumi.CustomResource):
             if sentinel_workspace_resource_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'sentinel_workspace_resource_ids'")
             __props__.__dict__["sentinel_workspace_resource_ids"] = sentinel_workspace_resource_ids
+            __props__.__dict__["evaluation_end_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotsecurity/v20210201preview:DefenderSetting"), pulumi.Alias(type_="azure-native:iotsecurity:DefenderSetting"), pulumi.Alias(type_="azure-nextgen:iotsecurity:DefenderSetting")])
@@ -157,6 +158,7 @@ class DefenderSetting(pulumi.CustomResource):
         __props__ = DefenderSettingArgs.__new__(DefenderSettingArgs)
 
         __props__.__dict__["device_quota"] = None
+        __props__.__dict__["evaluation_end_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["onboarding_kind"] = None
         __props__.__dict__["sentinel_workspace_resource_ids"] = None
@@ -170,6 +172,14 @@ class DefenderSetting(pulumi.CustomResource):
         Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
         """
         return pulumi.get(self, "device_quota")
+
+    @property
+    @pulumi.getter(name="evaluationEndTime")
+    def evaluation_end_time(self) -> pulumi.Output[str]:
+        """
+        End time of the evaluation period, if such exist
+        """
+        return pulumi.get(self, "evaluation_end_time")
 
     @property
     @pulumi.getter

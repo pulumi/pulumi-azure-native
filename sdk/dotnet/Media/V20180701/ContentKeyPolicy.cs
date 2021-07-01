@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.Media.V20180701
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:ContentKeyPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

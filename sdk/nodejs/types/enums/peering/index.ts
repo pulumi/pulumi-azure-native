@@ -8,6 +8,7 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20200401 from "./v20200401";
 import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
+import * as v20210601 from "./v20210601";
 
 export {
     v20190801preview,
@@ -16,6 +17,7 @@ export {
     v20200401,
     v20201001,
     v20210101,
+    v20210601,
 };
 
 export const DirectPeeringType = {

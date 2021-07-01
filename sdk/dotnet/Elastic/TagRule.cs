@@ -66,6 +66,8 @@ namespace Pulumi.AzureNative.Elastic
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:elastic:TagRule"},
+                    new Pulumi.Alias { Type = "azure-native:elastic/v20200701:TagRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701:TagRule"},
                     new Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:TagRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701preview:TagRule"},
                 },

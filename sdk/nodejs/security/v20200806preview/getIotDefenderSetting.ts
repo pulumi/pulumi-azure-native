@@ -33,6 +33,10 @@ export interface GetIotDefenderSettingResult {
      */
     readonly deviceQuota: number;
     /**
+     * End time of the evaluation period, if such exist
+     */
+    readonly evaluationEndTime: string;
+    /**
      * Resource Id
      */
     readonly id: string;

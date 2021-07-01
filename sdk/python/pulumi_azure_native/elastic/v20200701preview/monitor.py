@@ -213,7 +213,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic:Monitor"), pulumi.Alias(type_="azure-nextgen:elastic:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:elastic/v20200701preview:Monitor"), pulumi.Alias(type_="azure-native:elastic:Monitor"), pulumi.Alias(type_="azure-nextgen:elastic:Monitor"), pulumi.Alias(type_="azure-native:elastic/v20200701:Monitor"), pulumi.Alias(type_="azure-nextgen:elastic/v20200701:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:elastic/v20200701preview:Monitor',

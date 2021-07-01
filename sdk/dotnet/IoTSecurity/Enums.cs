@@ -22,6 +22,8 @@ namespace Pulumi.AzureNative.IoTSecurity
 
         public static OnboardingKind Default { get; } = new OnboardingKind("Default");
         public static OnboardingKind MigratedToAzure { get; } = new OnboardingKind("MigratedToAzure");
+        public static OnboardingKind Evaluation { get; } = new OnboardingKind("Evaluation");
+        public static OnboardingKind Purchased { get; } = new OnboardingKind("Purchased");
 
         public static bool operator ==(OnboardingKind left, OnboardingKind right) => left.Equals(right);
         public static bool operator !=(OnboardingKind left, OnboardingKind right) => !left.Equals(right);

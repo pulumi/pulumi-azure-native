@@ -17,9 +17,11 @@ export * from "./tagRule";
 export * from "../types/enums/elastic";
 
 // Export sub-modules:
+import * as v20200701 from "./v20200701";
 import * as v20200701preview from "./v20200701preview";
 
 export {
+    v20200701,
     v20200701preview,
 };
 
