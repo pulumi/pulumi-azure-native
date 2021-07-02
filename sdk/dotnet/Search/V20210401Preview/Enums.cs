@@ -57,7 +57,13 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static HostingMode @Default { get; } = new HostingMode("default");
+        /// <summary>
+        /// The limit on number of indexes is determined by the default limits for the SKU.
+        /// </summary>
+        public static HostingMode Default { get; } = new HostingMode("default");
+        /// <summary>
+        /// Only application for standard3 SKU, where the search service can have up to 1000 indexes.
+        /// </summary>
         public static HostingMode HighDensity { get; } = new HostingMode("highDensity");
 
         public static bool operator ==(HostingMode left, HostingMode right) => left.Equals(right);
@@ -88,9 +94,21 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Indicates that any identity associated with the search service needs to be removed.
+        /// </summary>
         public static IdentityType None { get; } = new IdentityType("None");
+        /// <summary>
+        /// Indicates that system-assigned identity for the search service will be enabled.
+        /// </summary>
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        /// <summary>
+        /// Indicates that one or more user assigned identities will be assigned to the search service.
+        /// </summary>
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        /// <summary>
+        /// Indicates that system-assigned identity for the search service will be enabled along with the assignment of one or more user assigned identities.
+        /// </summary>
         public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned, UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
@@ -121,9 +139,21 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The private endpoint connection has been created and is pending approval.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Pending { get; } = new PrivateLinkServiceConnectionStatus("Pending");
+        /// <summary>
+        /// The private endpoint connection is approved and is ready for use.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Approved { get; } = new PrivateLinkServiceConnectionStatus("Approved");
+        /// <summary>
+        /// The private endpoint connection has been rejected and cannot be used.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Rejected { get; } = new PrivateLinkServiceConnectionStatus("Rejected");
+        /// <summary>
+        /// The private endpoint connection has been removed from the service.
+        /// </summary>
         public static PrivateLinkServiceConnectionStatus Disconnected { get; } = new PrivateLinkServiceConnectionStatus("Disconnected");
 
         public static bool operator ==(PrivateLinkServiceConnectionStatus left, PrivateLinkServiceConnectionStatus right) => left.Equals(right);
@@ -154,7 +184,13 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The search service is accessible from traffic originating from the public internet.
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("enabled");
+        /// <summary>
+        /// The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -280,7 +316,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
     }
 
     /// <summary>
-    /// Defines the SKU type for the semantic search feature enabled for the search service.
+    /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
     /// </summary>
     [EnumType]
     public readonly struct SearchSemanticSearch : IEquatable<SearchSemanticSearch>
@@ -297,11 +333,11 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         /// </summary>
         public static SearchSemanticSearch Disabled { get; } = new SearchSemanticSearch("disabled");
         /// <summary>
-        /// Indicates that semantic search is to be used within the limits of the free tier. This would cap the volume of semantic search requests and is offered at no extra charge.
+        /// Enables semantic search on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic search requests and is offered at no extra charge.
         /// </summary>
         public static SearchSemanticSearch Free { get; } = new SearchSemanticSearch("free");
         /// <summary>
-        /// Indicates that semantic search is to be billed at the standard tier, with higher throughput and volume of semantic search queries.
+        /// Enables semantic search on a search service as a billable feature, with higher throughput and volume of semantic search queries.
         /// </summary>
         public static SearchSemanticSearch Standard { get; } = new SearchSemanticSearch("standard");
 
@@ -333,10 +369,25 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Updating { get; } = new SharedPrivateLinkResourceProvisioningState("Updating");
+        /// <summary>
+        /// The shared private link resource is in the process of being deleted.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Deleting { get; } = new SharedPrivateLinkResourceProvisioningState("Deleting");
+        /// <summary>
+        /// The shared private link resource has failed to be provisioned or deleted.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Failed { get; } = new SharedPrivateLinkResourceProvisioningState("Failed");
+        /// <summary>
+        /// The shared private link resource has finished provisioning and is ready for approval.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Succeeded { get; } = new SharedPrivateLinkResourceProvisioningState("Succeeded");
+        /// <summary>
+        /// Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Incomplete { get; } = new SharedPrivateLinkResourceProvisioningState("Incomplete");
 
         public static bool operator ==(SharedPrivateLinkResourceProvisioningState left, SharedPrivateLinkResourceProvisioningState right) => left.Equals(right);
@@ -367,9 +418,21 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The shared private link resource has been created and is pending approval.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Pending { get; } = new SharedPrivateLinkResourceStatus("Pending");
+        /// <summary>
+        /// The shared private link resource is approved and is ready for use.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Approved { get; } = new SharedPrivateLinkResourceStatus("Approved");
+        /// <summary>
+        /// The shared private link resource has been rejected and cannot be used.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Rejected { get; } = new SharedPrivateLinkResourceStatus("Rejected");
+        /// <summary>
+        /// The shared private link resource has been removed from the service.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Disconnected { get; } = new SharedPrivateLinkResourceStatus("Disconnected");
 
         public static bool operator ==(SharedPrivateLinkResourceStatus left, SharedPrivateLinkResourceStatus right) => left.Equals(right);
@@ -400,13 +463,34 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+        /// </summary>
         public static SkuName Free { get; } = new SkuName("free");
+        /// <summary>
+        /// Paid tier dedicated service with up to 3 replicas.
+        /// </summary>
         public static SkuName Basic { get; } = new SkuName("basic");
+        /// <summary>
+        /// Paid tier dedicated service with up to 12 partitions and 12 replicas.
+        /// </summary>
         public static SkuName Standard { get; } = new SkuName("standard");
+        /// <summary>
+        /// Similar to 'standard', but with more capacity per search unit.
+        /// </summary>
         public static SkuName Standard2 { get; } = new SkuName("standard2");
+        /// <summary>
+        ///  The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+        /// </summary>
         public static SkuName Standard3 { get; } = new SkuName("standard3");
-        public static SkuName Storage_optimized_l1 { get; } = new SkuName("storage_optimized_l1");
-        public static SkuName Storage_optimized_l2 { get; } = new SkuName("storage_optimized_l2");
+        /// <summary>
+        /// Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+        /// </summary>
+        public static SkuName StorageOptimizedL1 { get; } = new SkuName("storage_optimized_l1");
+        /// <summary>
+        /// Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+        /// </summary>
+        public static SkuName StorageOptimizedL2 { get; } = new SkuName("storage_optimized_l2");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);

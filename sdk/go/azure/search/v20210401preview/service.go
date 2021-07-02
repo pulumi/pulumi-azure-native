@@ -19,7 +19,7 @@ type Service struct {
 	AuthOptions DataPlaneAuthOptionsResponsePtrOutput `pulumi:"authOptions"`
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions pulumi.StringArrayOutput `pulumi:"disabledDataExfiltrationOptions"`
 	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
 	ETag pulumi.StringOutput `pulumi:"eTag"`
@@ -45,7 +45,7 @@ type Service struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
 	ReplicaCount pulumi.IntPtrOutput `pulumi:"replicaCount"`
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch pulumi.StringPtrOutput `pulumi:"semanticSearch"`
 	// The list of shared private link resources managed by the Azure Cognitive Search service.
 	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayOutput `pulumi:"sharedPrivateLinkResources"`
@@ -152,7 +152,7 @@ type serviceState struct {
 	AuthOptions *DataPlaneAuthOptionsResponse `pulumi:"authOptions"`
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions []string `pulumi:"disabledDataExfiltrationOptions"`
 	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
 	ETag *string `pulumi:"eTag"`
@@ -178,7 +178,7 @@ type serviceState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch *string `pulumi:"semanticSearch"`
 	// The list of shared private link resources managed by the Azure Cognitive Search service.
 	SharedPrivateLinkResources []SharedPrivateLinkResourceResponse `pulumi:"sharedPrivateLinkResources"`
@@ -199,7 +199,7 @@ type ServiceState struct {
 	AuthOptions DataPlaneAuthOptionsResponsePtrInput
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth pulumi.BoolPtrInput
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions pulumi.StringArrayInput
 	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
 	ETag pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type ServiceState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
 	ReplicaCount pulumi.IntPtrInput
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch pulumi.StringPtrInput
 	// The list of shared private link resources managed by the Azure Cognitive Search service.
 	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayInput
@@ -250,7 +250,7 @@ type serviceArgs struct {
 	AuthOptions *DataPlaneAuthOptions `pulumi:"authOptions"`
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions []string `pulumi:"disabledDataExfiltrationOptions"`
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk *EncryptionWithCmk `pulumi:"encryptionWithCmk"`
@@ -272,7 +272,7 @@ type serviceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
 	SearchServiceName *string `pulumi:"searchServiceName"`
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch *string `pulumi:"semanticSearch"`
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku *Sku `pulumi:"sku"`
@@ -286,7 +286,7 @@ type ServiceArgs struct {
 	AuthOptions DataPlaneAuthOptionsPtrInput
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth pulumi.BoolPtrInput
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions pulumi.StringArrayInput
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk EncryptionWithCmkPtrInput
@@ -308,7 +308,7 @@ type ServiceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
 	SearchServiceName pulumi.StringPtrInput
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch pulumi.StringPtrInput
 	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
 	Sku SkuPtrInput

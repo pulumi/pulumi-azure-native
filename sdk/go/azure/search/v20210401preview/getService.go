@@ -30,7 +30,7 @@ type LookupServiceResult struct {
 	AuthOptions *DataPlaneAuthOptionsResponse `pulumi:"authOptions"`
 	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
 	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
 	DisabledDataExfiltrationOptions []string `pulumi:"disabledDataExfiltrationOptions"`
 	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
 	ETag string `pulumi:"eTag"`
@@ -58,7 +58,7 @@ type LookupServiceResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// Defines the SKU type for the semantic search feature enabled for the search service.
+	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 	SemanticSearch *string `pulumi:"semanticSearch"`
 	// The list of shared private link resources managed by the Azure Cognitive Search service.
 	SharedPrivateLinkResources []SharedPrivateLinkResourceResponse `pulumi:"sharedPrivateLinkResources"`

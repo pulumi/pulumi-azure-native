@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
 {
 
     /// <summary>
-    /// Indicates that either the API key or an access token from AAD can be used for authentication.
+    /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
     /// </summary>
     public sealed class DataPlaneAadOrApiKeyAuthOptionArgs : Pulumi.ResourceArgs
     {

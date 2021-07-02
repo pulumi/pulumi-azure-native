@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         public Output<bool?> DisableLocalAuth { get; private set; } = null!;
 
         /// <summary>
-        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         /// </summary>
         [Output("disabledDataExfiltrationOptions")]
         public Output<ImmutableArray<string>> DisabledDataExfiltrationOptions { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         public Output<int?> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the SKU type for the semantic search feature enabled for the search service.
+        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         /// </summary>
         [Output("semanticSearch")]
         public Output<string?> SemanticSearch { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         private InputList<Union<string, Pulumi.AzureNative.Search.V20210401Preview.SearchDisabledDataExfiltrationOption>>? _disabledDataExfiltrationOptions;
 
         /// <summary>
-        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.Search.V20210401Preview.SearchDisabledDataExfiltrationOption>> DisabledDataExfiltrationOptions
         {
@@ -293,7 +293,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         public Input<string>? SearchServiceName { get; set; }
 
         /// <summary>
-        /// Defines the SKU type for the semantic search feature enabled for the search service.
+        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         /// </summary>
         [Input("semanticSearch")]
         public InputUnion<string, Pulumi.AzureNative.Search.V20210401Preview.SearchSemanticSearch>? SemanticSearch { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
 
         public ServiceArgs()
         {
-            HostingMode = Pulumi.AzureNative.Search.V20210401Preview.HostingMode.@Default;
+            HostingMode = Pulumi.AzureNative.Search.V20210401Preview.HostingMode.Default;
             PartitionCount = 1;
             PublicNetworkAccess = "enabled";
             ReplicaCount = 1;

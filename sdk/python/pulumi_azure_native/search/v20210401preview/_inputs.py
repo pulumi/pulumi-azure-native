@@ -28,7 +28,7 @@ class DataPlaneAadOrApiKeyAuthOptionArgs:
     def __init__(__self__, *,
                  aad_auth_failure_mode: Optional[pulumi.Input['AadAuthFailureMode']] = None):
         """
-        Indicates that either the API key or an access token from AAD can be used for authentication.
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param pulumi.Input['AadAuthFailureMode'] aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
         """
         if aad_auth_failure_mode is not None:
@@ -54,7 +54,7 @@ class DataPlaneAuthOptionsArgs:
                  api_key_only: Optional[Any] = None):
         """
         Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
-        :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from AAD can be used for authentication.
+        :param pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs'] aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
         """
         if aad_or_api_key is not None:
@@ -66,7 +66,7 @@ class DataPlaneAuthOptionsArgs:
     @pulumi.getter(name="aadOrApiKey")
     def aad_or_api_key(self) -> Optional[pulumi.Input['DataPlaneAadOrApiKeyAuthOptionArgs']]:
         """
-        Indicates that either the API key or an access token from AAD can be used for authentication.
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         """
         return pulumi.get(self, "aad_or_api_key")
 
@@ -117,7 +117,7 @@ class IdentityArgs:
                  type: pulumi.Input[Union[str, 'IdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
-        Identity for the resource.
+        Details about the search service identity. A null value indicates that the search service has no identity assigned.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """

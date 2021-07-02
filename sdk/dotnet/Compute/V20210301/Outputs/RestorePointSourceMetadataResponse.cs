@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
+        /// Location of the VM from which the restore point was created.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// Gets the OS profile.
         /// </summary>
         public readonly Outputs.OSProfileResponse? OsProfile;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 
             string? licenseType,
 
+            string? location,
+
             Outputs.OSProfileResponse? osProfile,
 
             Outputs.SecurityProfileResponse? securityProfile,
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.Compute.V20210301.Outputs
             DiagnosticsProfile = diagnosticsProfile;
             HardwareProfile = hardwareProfile;
             LicenseType = licenseType;
+            Location = location;
             OsProfile = osProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;

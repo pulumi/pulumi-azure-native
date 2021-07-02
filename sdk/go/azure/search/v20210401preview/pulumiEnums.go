@@ -44,7 +44,9 @@ func (e AadAuthFailureMode) ToStringPtrOutputWithContext(ctx context.Context) pu
 type HostingMode pulumi.String
 
 const (
-	HostingModeDefault     = HostingMode("default")
+	// The limit on number of indexes is determined by the default limits for the SKU.
+	HostingModeDefault = HostingMode("default")
+	// Only application for standard3 SKU, where the search service can have up to 1000 indexes.
 	HostingModeHighDensity = HostingMode("highDensity")
 )
 
@@ -72,9 +74,13 @@ func (e HostingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 type IdentityType pulumi.String
 
 const (
-	IdentityTypeNone                         = IdentityType("None")
-	IdentityTypeSystemAssigned               = IdentityType("SystemAssigned")
-	IdentityTypeUserAssigned                 = IdentityType("UserAssigned")
+	// Indicates that any identity associated with the search service needs to be removed.
+	IdentityTypeNone = IdentityType("None")
+	// Indicates that system-assigned identity for the search service will be enabled.
+	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
+	// Indicates that one or more user assigned identities will be assigned to the search service.
+	IdentityTypeUserAssigned = IdentityType("UserAssigned")
+	// Indicates that system-assigned identity for the search service will be enabled along with the assignment of one or more user assigned identities.
 	IdentityType_SystemAssigned_UserAssigned = IdentityType("SystemAssigned, UserAssigned")
 )
 
@@ -102,9 +108,13 @@ func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type PrivateLinkServiceConnectionStatus pulumi.String
 
 const (
-	PrivateLinkServiceConnectionStatusPending      = PrivateLinkServiceConnectionStatus("Pending")
-	PrivateLinkServiceConnectionStatusApproved     = PrivateLinkServiceConnectionStatus("Approved")
-	PrivateLinkServiceConnectionStatusRejected     = PrivateLinkServiceConnectionStatus("Rejected")
+	// The private endpoint connection has been created and is pending approval.
+	PrivateLinkServiceConnectionStatusPending = PrivateLinkServiceConnectionStatus("Pending")
+	// The private endpoint connection is approved and is ready for use.
+	PrivateLinkServiceConnectionStatusApproved = PrivateLinkServiceConnectionStatus("Approved")
+	// The private endpoint connection has been rejected and cannot be used.
+	PrivateLinkServiceConnectionStatusRejected = PrivateLinkServiceConnectionStatus("Rejected")
+	// The private endpoint connection has been removed from the service.
 	PrivateLinkServiceConnectionStatusDisconnected = PrivateLinkServiceConnectionStatus("Disconnected")
 )
 
@@ -132,7 +142,9 @@ func (e PrivateLinkServiceConnectionStatus) ToStringPtrOutputWithContext(ctx con
 type PublicNetworkAccess pulumi.String
 
 const (
-	PublicNetworkAccessEnabled  = PublicNetworkAccess("enabled")
+	// The search service is accessible from traffic originating from the public internet.
+	PublicNetworkAccessEnabled = PublicNetworkAccess("enabled")
+	// The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
 	PublicNetworkAccessDisabled = PublicNetworkAccess("disabled")
 )
 
@@ -244,15 +256,15 @@ func (e SearchEncryptionWithCmk) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Defines the SKU type for the semantic search feature enabled for the search service.
+// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
 type SearchSemanticSearch pulumi.String
 
 const (
 	// Indicates that semantic search is disabled for the search service. This is the default.
 	SearchSemanticSearchDisabled = SearchSemanticSearch("disabled")
-	// Indicates that semantic search is to be used within the limits of the free tier. This would cap the volume of semantic search requests and is offered at no extra charge.
+	// Enables semantic search on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic search requests and is offered at no extra charge.
 	SearchSemanticSearchFree = SearchSemanticSearch("free")
-	// Indicates that semantic search is to be billed at the standard tier, with higher throughput and volume of semantic search queries.
+	// Enables semantic search on a search service as a billable feature, with higher throughput and volume of semantic search queries.
 	SearchSemanticSearchStandard = SearchSemanticSearch("standard")
 )
 
@@ -280,10 +292,15 @@ func (e SearchSemanticSearch) ToStringPtrOutputWithContext(ctx context.Context) 
 type SharedPrivateLinkResourceProvisioningState pulumi.String
 
 const (
-	SharedPrivateLinkResourceProvisioningStateUpdating   = SharedPrivateLinkResourceProvisioningState("Updating")
-	SharedPrivateLinkResourceProvisioningStateDeleting   = SharedPrivateLinkResourceProvisioningState("Deleting")
-	SharedPrivateLinkResourceProvisioningStateFailed     = SharedPrivateLinkResourceProvisioningState("Failed")
-	SharedPrivateLinkResourceProvisioningStateSucceeded  = SharedPrivateLinkResourceProvisioningState("Succeeded")
+	// The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+	SharedPrivateLinkResourceProvisioningStateUpdating = SharedPrivateLinkResourceProvisioningState("Updating")
+	// The shared private link resource is in the process of being deleted.
+	SharedPrivateLinkResourceProvisioningStateDeleting = SharedPrivateLinkResourceProvisioningState("Deleting")
+	// The shared private link resource has failed to be provisioned or deleted.
+	SharedPrivateLinkResourceProvisioningStateFailed = SharedPrivateLinkResourceProvisioningState("Failed")
+	// The shared private link resource has finished provisioning and is ready for approval.
+	SharedPrivateLinkResourceProvisioningStateSucceeded = SharedPrivateLinkResourceProvisioningState("Succeeded")
+	// Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
 	SharedPrivateLinkResourceProvisioningStateIncomplete = SharedPrivateLinkResourceProvisioningState("Incomplete")
 )
 
@@ -311,9 +328,13 @@ func (e SharedPrivateLinkResourceProvisioningState) ToStringPtrOutputWithContext
 type SharedPrivateLinkResourceStatus pulumi.String
 
 const (
-	SharedPrivateLinkResourceStatusPending      = SharedPrivateLinkResourceStatus("Pending")
-	SharedPrivateLinkResourceStatusApproved     = SharedPrivateLinkResourceStatus("Approved")
-	SharedPrivateLinkResourceStatusRejected     = SharedPrivateLinkResourceStatus("Rejected")
+	// The shared private link resource has been created and is pending approval.
+	SharedPrivateLinkResourceStatusPending = SharedPrivateLinkResourceStatus("Pending")
+	// The shared private link resource is approved and is ready for use.
+	SharedPrivateLinkResourceStatusApproved = SharedPrivateLinkResourceStatus("Approved")
+	// The shared private link resource has been rejected and cannot be used.
+	SharedPrivateLinkResourceStatusRejected = SharedPrivateLinkResourceStatus("Rejected")
+	// The shared private link resource has been removed from the service.
 	SharedPrivateLinkResourceStatusDisconnected = SharedPrivateLinkResourceStatus("Disconnected")
 )
 
@@ -341,13 +362,20 @@ func (e SharedPrivateLinkResourceStatus) ToStringPtrOutputWithContext(ctx contex
 type SkuName pulumi.String
 
 const (
-	SkuNameFree                  = SkuName("free")
-	SkuNameBasic                 = SkuName("basic")
-	SkuNameStandard              = SkuName("standard")
-	SkuNameStandard2             = SkuName("standard2")
-	SkuNameStandard3             = SkuName("standard3")
-	SkuName_Storage_optimized_l1 = SkuName("storage_optimized_l1")
-	SkuName_Storage_optimized_l2 = SkuName("storage_optimized_l2")
+	// Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+	SkuNameFree = SkuName("free")
+	// Paid tier dedicated service with up to 3 replicas.
+	SkuNameBasic = SkuName("basic")
+	// Paid tier dedicated service with up to 12 partitions and 12 replicas.
+	SkuNameStandard = SkuName("standard")
+	// Similar to 'standard', but with more capacity per search unit.
+	SkuNameStandard2 = SkuName("standard2")
+	//  The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+	SkuNameStandard3 = SkuName("standard3")
+	// Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+	SkuNameStorageOptimizedL1 = SkuName("storage_optimized_l1")
+	// Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+	SkuNameStorageOptimizedL2 = SkuName("storage_optimized_l2")
 )
 
 func (SkuName) ElementType() reflect.Type {

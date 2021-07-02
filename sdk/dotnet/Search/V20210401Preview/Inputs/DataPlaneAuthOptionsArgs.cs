@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     public sealed class DataPlaneAuthOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that either the API key or an access token from AAD can be used for authentication.
+        /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         /// </summary>
         [Input("aadOrApiKey")]
         public Input<Inputs.DataPlaneAadOrApiKeyAuthOptionArgs>? AadOrApiKey { get; set; }

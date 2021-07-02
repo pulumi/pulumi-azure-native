@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOption struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode *string `pulumi:"aadAuthFailureMode"`
@@ -27,7 +27,7 @@ type DataPlaneAadOrApiKeyAuthOptionInput interface {
 	ToDataPlaneAadOrApiKeyAuthOptionOutputWithContext(context.Context) DataPlaneAadOrApiKeyAuthOptionOutput
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionArgs struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode *AadAuthFailureMode `pulumi:"aadAuthFailureMode"`
@@ -86,7 +86,7 @@ func (i *dataPlaneAadOrApiKeyAuthOptionPtrType) ToDataPlaneAadOrApiKeyAuthOption
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAadOrApiKeyAuthOptionOutput) ElementType() reflect.Type {
@@ -144,7 +144,7 @@ func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) AadAuthFailureMode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponse struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode *string `pulumi:"aadAuthFailureMode"`
@@ -161,7 +161,7 @@ type DataPlaneAadOrApiKeyAuthOptionResponseInput interface {
 	ToDataPlaneAadOrApiKeyAuthOptionResponseOutputWithContext(context.Context) DataPlaneAadOrApiKeyAuthOptionResponseOutput
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponseArgs struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode pulumi.StringPtrInput `pulumi:"aadAuthFailureMode"`
@@ -220,7 +220,7 @@ func (i *dataPlaneAadOrApiKeyAuthOptionResponsePtrType) ToDataPlaneAadOrApiKeyAu
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAadOrApiKeyAuthOptionResponseOutput) ElementType() reflect.Type {
@@ -280,7 +280,7 @@ func (o DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput) AadAuthFailureMode() pu
 
 // Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptions struct {
-	// Indicates that either the API key or an access token from AAD can be used for authentication.
+	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey *DataPlaneAadOrApiKeyAuthOption `pulumi:"aadOrApiKey"`
 	// Indicates that only the API key needs to be used for authentication.
 	ApiKeyOnly interface{} `pulumi:"apiKeyOnly"`
@@ -299,7 +299,7 @@ type DataPlaneAuthOptionsInput interface {
 
 // Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsArgs struct {
-	// Indicates that either the API key or an access token from AAD can be used for authentication.
+	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey DataPlaneAadOrApiKeyAuthOptionPtrInput `pulumi:"aadOrApiKey"`
 	// Indicates that only the API key needs to be used for authentication.
 	ApiKeyOnly pulumi.Input `pulumi:"apiKeyOnly"`
@@ -383,7 +383,7 @@ func (o DataPlaneAuthOptionsOutput) ToDataPlaneAuthOptionsPtrOutputWithContext(c
 	}).(DataPlaneAuthOptionsPtrOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionPtrOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptions) *DataPlaneAadOrApiKeyAuthOption { return v.AadOrApiKey }).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
@@ -411,7 +411,7 @@ func (o DataPlaneAuthOptionsPtrOutput) Elem() DataPlaneAuthOptionsOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptions) DataPlaneAuthOptions { return *v }).(DataPlaneAuthOptionsOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsPtrOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionPtrOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptions) *DataPlaneAadOrApiKeyAuthOption {
 		if v == nil {
@@ -433,7 +433,7 @@ func (o DataPlaneAuthOptionsPtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 
 // Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsResponse struct {
-	// Indicates that either the API key or an access token from AAD can be used for authentication.
+	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey *DataPlaneAadOrApiKeyAuthOptionResponse `pulumi:"aadOrApiKey"`
 	// Indicates that only the API key needs to be used for authentication.
 	ApiKeyOnly interface{} `pulumi:"apiKeyOnly"`
@@ -452,7 +452,7 @@ type DataPlaneAuthOptionsResponseInput interface {
 
 // Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsResponseArgs struct {
-	// Indicates that either the API key or an access token from AAD can be used for authentication.
+	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey DataPlaneAadOrApiKeyAuthOptionResponsePtrInput `pulumi:"aadOrApiKey"`
 	// Indicates that only the API key needs to be used for authentication.
 	ApiKeyOnly pulumi.Input `pulumi:"apiKeyOnly"`
@@ -536,7 +536,7 @@ func (o DataPlaneAuthOptionsResponseOutput) ToDataPlaneAuthOptionsResponsePtrOut
 	}).(DataPlaneAuthOptionsResponsePtrOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsResponseOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptionsResponse) *DataPlaneAadOrApiKeyAuthOptionResponse { return v.AadOrApiKey }).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
@@ -564,7 +564,7 @@ func (o DataPlaneAuthOptionsResponsePtrOutput) Elem() DataPlaneAuthOptionsRespon
 	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) DataPlaneAuthOptionsResponse { return *v }).(DataPlaneAuthOptionsResponseOutput)
 }
 
-// Indicates that either the API key or an access token from AAD can be used for authentication.
+// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsResponsePtrOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) *DataPlaneAadOrApiKeyAuthOptionResponse {
 		if v == nil {
@@ -871,7 +871,7 @@ func (o EncryptionWithCmkResponsePtrOutput) Enforcement() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type Identity struct {
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 	Type string `pulumi:"type"`
@@ -890,7 +890,7 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityArgs struct {
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -951,7 +951,7 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -1024,11 +1024,11 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
+	// The principal ID of the system-assigned identity of the search service.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
+	// The tenant ID of the system-assigned identity of the search service.
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 	Type string `pulumi:"type"`
@@ -1047,11 +1047,11 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
+	// The principal ID of the system-assigned identity of the search service.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
+	// The tenant ID of the system-assigned identity of the search service.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1112,7 +1112,7 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
+// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -1137,12 +1137,12 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx conte
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
+// The principal ID of the system-assigned identity of the search service.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
+// The tenant ID of the system-assigned identity of the search service.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -1177,7 +1177,7 @@ func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
 	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
+// The principal ID of the system-assigned identity of the search service.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1187,7 +1187,7 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
+// The tenant ID of the system-assigned identity of the search service.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -3764,7 +3764,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
+// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponse struct {
 	// The client ID of user assigned identity.
 	ClientId string `pulumi:"clientId"`
@@ -3783,7 +3783,7 @@ type UserAssignedManagedIdentityResponseInput interface {
 	ToUserAssignedManagedIdentityResponseOutputWithContext(context.Context) UserAssignedManagedIdentityResponseOutput
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
+// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponseArgs struct {
 	// The client ID of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
@@ -3828,7 +3828,7 @@ func (i UserAssignedManagedIdentityResponseMap) ToUserAssignedManagedIdentityRes
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
+// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {

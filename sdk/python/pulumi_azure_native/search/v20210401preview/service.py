@@ -37,7 +37,7 @@ class ServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input['DataPlaneAuthOptionsArgs'] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         :param pulumi.Input[bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SearchDisabledDataExfiltrationOption']]]] disabled_data_exfiltration_options: A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SearchDisabledDataExfiltrationOption']]]] disabled_data_exfiltration_options: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         :param pulumi.Input['EncryptionWithCmkArgs'] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
@@ -47,7 +47,7 @@ class ServiceArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Defines the SKU type for the semantic search feature enabled for the search service.
+        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -131,7 +131,7 @@ class ServiceArgs:
     @pulumi.getter(name="disabledDataExfiltrationOptions")
     def disabled_data_exfiltration_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SearchDisabledDataExfiltrationOption']]]]]:
         """
-        A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         """
         return pulumi.get(self, "disabled_data_exfiltration_options")
 
@@ -251,7 +251,7 @@ class ServiceArgs:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[pulumi.Input[Union[str, 'SearchSemanticSearch']]]:
         """
-        Defines the SKU type for the semantic search feature enabled for the search service.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
 
@@ -313,7 +313,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataPlaneAuthOptionsArgs']] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
         :param pulumi.Input[bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SearchDisabledDataExfiltrationOption']]]] disabled_data_exfiltration_options: A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SearchDisabledDataExfiltrationOption']]]] disabled_data_exfiltration_options: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         :param pulumi.Input[pulumi.InputType['EncryptionWithCmkArgs']] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
@@ -324,7 +324,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Defines the SKU type for the semantic search feature enabled for the search service.
+        :param pulumi.Input[Union[str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -482,7 +482,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="disabledDataExfiltrationOptions")
     def disabled_data_exfiltration_options(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         """
         return pulumi.get(self, "disabled_data_exfiltration_options")
 
@@ -586,7 +586,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> pulumi.Output[Optional[str]]:
         """
-        Defines the SKU type for the semantic search feature enabled for the search service.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
 

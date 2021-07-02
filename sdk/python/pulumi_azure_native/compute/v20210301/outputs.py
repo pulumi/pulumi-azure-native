@@ -4571,6 +4571,7 @@ class RestorePointSourceMetadataResponse(dict):
                  diagnostics_profile: Optional['outputs.DiagnosticsProfileResponse'] = None,
                  hardware_profile: Optional['outputs.HardwareProfileResponse'] = None,
                  license_type: Optional[str] = None,
+                 location: Optional[str] = None,
                  os_profile: Optional['outputs.OSProfileResponse'] = None,
                  security_profile: Optional['outputs.SecurityProfileResponse'] = None,
                  storage_profile: Optional['outputs.RestorePointSourceVMStorageProfileResponse'] = None,
@@ -4580,6 +4581,7 @@ class RestorePointSourceMetadataResponse(dict):
         :param 'DiagnosticsProfileResponse' diagnostics_profile: Gets the diagnostics profile.
         :param 'HardwareProfileResponse' hardware_profile: Gets the hardware profile.
         :param str license_type: Gets the license type, which is for bring your own license scenario.
+        :param str location: Location of the VM from which the restore point was created.
         :param 'OSProfileResponse' os_profile: Gets the OS profile.
         :param 'SecurityProfileResponse' security_profile: Gets the security profile.
         :param 'RestorePointSourceVMStorageProfileResponse' storage_profile: Gets the storage profile.
@@ -4591,6 +4593,8 @@ class RestorePointSourceMetadataResponse(dict):
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if os_profile is not None:
             pulumi.set(__self__, "os_profile", os_profile)
         if security_profile is not None:
@@ -4623,6 +4627,14 @@ class RestorePointSourceMetadataResponse(dict):
         Gets the license type, which is for bring your own license scenario.
         """
         return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Location of the VM from which the restore point was created.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="osProfile")

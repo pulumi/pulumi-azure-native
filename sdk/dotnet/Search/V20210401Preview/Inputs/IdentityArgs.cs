@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Details about the search service identity. A null value indicates that the search service has no identity assigned.
     /// </summary>
     public sealed class IdentityArgs : Pulumi.ResourceArgs
     {

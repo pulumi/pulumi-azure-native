@@ -18626,6 +18626,8 @@ type RestorePointSourceMetadataResponse struct {
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
 	// Gets the license type, which is for bring your own license scenario.
 	LicenseType *string `pulumi:"licenseType"`
+	// Location of the VM from which the restore point was created.
+	Location *string `pulumi:"location"`
 	// Gets the OS profile.
 	OsProfile *OSProfileResponse `pulumi:"osProfile"`
 	// Gets the security profile.
@@ -18655,6 +18657,8 @@ type RestorePointSourceMetadataResponseArgs struct {
 	HardwareProfile HardwareProfileResponsePtrInput `pulumi:"hardwareProfile"`
 	// Gets the license type, which is for bring your own license scenario.
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
+	// Location of the VM from which the restore point was created.
+	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Gets the OS profile.
 	OsProfile OSProfileResponsePtrInput `pulumi:"osProfile"`
 	// Gets the security profile.
@@ -18758,6 +18762,11 @@ func (o RestorePointSourceMetadataResponseOutput) LicenseType() pulumi.StringPtr
 	return o.ApplyT(func(v RestorePointSourceMetadataResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
+// Location of the VM from which the restore point was created.
+func (o RestorePointSourceMetadataResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestorePointSourceMetadataResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 // Gets the OS profile.
 func (o RestorePointSourceMetadataResponseOutput) OsProfile() OSProfileResponsePtrOutput {
 	return o.ApplyT(func(v RestorePointSourceMetadataResponse) *OSProfileResponse { return v.OsProfile }).(OSProfileResponsePtrOutput)
@@ -18825,6 +18834,16 @@ func (o RestorePointSourceMetadataResponsePtrOutput) LicenseType() pulumi.String
 			return nil
 		}
 		return v.LicenseType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Location of the VM from which the restore point was created.
+func (o RestorePointSourceMetadataResponsePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestorePointSourceMetadataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -46,7 +46,7 @@ export interface GetServiceResult {
      */
     readonly disableLocalAuth?: boolean;
     /**
-     * A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+     * A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
      */
     readonly disabledDataExfiltrationOptions?: string[];
     /**
@@ -102,7 +102,7 @@ export interface GetServiceResult {
      */
     readonly replicaCount?: number;
     /**
-     * Defines the SKU type for the semantic search feature enabled for the search service.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
      */
     readonly semanticSearch?: string;
     /**

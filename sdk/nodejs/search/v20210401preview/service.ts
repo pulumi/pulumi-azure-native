@@ -44,7 +44,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+     * A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
      */
     public readonly disabledDataExfiltrationOptions!: pulumi.Output<string[] | undefined>;
     /**
@@ -96,7 +96,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly replicaCount!: pulumi.Output<number | undefined>;
     /**
-     * Defines the SKU type for the semantic search feature enabled for the search service.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
      */
     public readonly semanticSearch!: pulumi.Output<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface ServiceArgs {
      */
     disableLocalAuth?: pulumi.Input<boolean>;
     /**
-     * A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+     * A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
      */
     disabledDataExfiltrationOptions?: pulumi.Input<pulumi.Input<string | enums.search.v20210401preview.SearchDisabledDataExfiltrationOption>[]>;
     /**
@@ -252,7 +252,7 @@ export interface ServiceArgs {
      */
     searchServiceName?: pulumi.Input<string>;
     /**
-     * Defines the SKU type for the semantic search feature enabled for the search service.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
      */
     semanticSearch?: pulumi.Input<string | enums.search.v20210401preview.SearchSemanticSearch>;
     /**

@@ -111,7 +111,7 @@ class GetServiceResult:
     @pulumi.getter(name="disabledDataExfiltrationOptions")
     def disabled_data_exfiltration_options(self) -> Optional[Sequence[str]]:
         """
-        A list of data exfiltration scenarios that are explicitly disallowed for the search service.
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         """
         return pulumi.get(self, "disabled_data_exfiltration_options")
 
@@ -223,7 +223,7 @@ class GetServiceResult:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[str]:
         """
-        Defines the SKU type for the semantic search feature enabled for the search service.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
 

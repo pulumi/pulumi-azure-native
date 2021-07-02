@@ -31,7 +31,7 @@ __all__ = [
 @pulumi.output_type
 class DataPlaneAadOrApiKeyAuthOptionResponse(dict):
     """
-    Indicates that either the API key or an access token from AAD can be used for authentication.
+    Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -53,7 +53,7 @@ class DataPlaneAadOrApiKeyAuthOptionResponse(dict):
     def __init__(__self__, *,
                  aad_auth_failure_mode: Optional[str] = None):
         """
-        Indicates that either the API key or an access token from AAD can be used for authentication.
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param str aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
         """
         if aad_auth_failure_mode is not None:
@@ -97,7 +97,7 @@ class DataPlaneAuthOptionsResponse(dict):
                  api_key_only: Optional[Any] = None):
         """
         Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
-        :param 'DataPlaneAadOrApiKeyAuthOptionResponse' aad_or_api_key: Indicates that either the API key or an access token from AAD can be used for authentication.
+        :param 'DataPlaneAadOrApiKeyAuthOptionResponse' aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
         """
         if aad_or_api_key is not None:
@@ -109,7 +109,7 @@ class DataPlaneAuthOptionsResponse(dict):
     @pulumi.getter(name="aadOrApiKey")
     def aad_or_api_key(self) -> Optional['outputs.DataPlaneAadOrApiKeyAuthOptionResponse']:
         """
-        Indicates that either the API key or an access token from AAD can be used for authentication.
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
         """
         return pulumi.get(self, "aad_or_api_key")
 
@@ -176,7 +176,7 @@ class EncryptionWithCmkResponse(dict):
 @pulumi.output_type
 class IdentityResponse(dict):
     """
-    Identity for the resource.
+    Details about the search service identity. A null value indicates that the search service has no identity assigned.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -205,9 +205,9 @@ class IdentityResponse(dict):
                  type: str,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
-        Identity for the resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
+        Details about the search service identity. A null value indicates that the search service has no identity assigned.
+        :param str principal_id: The principal ID of the system-assigned identity of the search service.
+        :param str tenant_id: The tenant ID of the system-assigned identity of the search service.
         :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -221,7 +221,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of resource identity.
+        The principal ID of the system-assigned identity of the search service.
         """
         return pulumi.get(self, "principal_id")
 
@@ -229,7 +229,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of resource.
+        The tenant ID of the system-assigned identity of the search service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -747,7 +747,7 @@ class SkuResponse(dict):
 @pulumi.output_type
 class UserAssignedManagedIdentityResponse(dict):
     """
-    The details of the user assigned managed identity used by the Video Analyzer resource.
+    The details of the user assigned managed identity assigned to the search service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -772,7 +772,7 @@ class UserAssignedManagedIdentityResponse(dict):
                  client_id: str,
                  principal_id: str):
         """
-        The details of the user assigned managed identity used by the Video Analyzer resource.
+        The details of the user assigned managed identity assigned to the search service.
         :param str client_id: The client ID of user assigned identity.
         :param str principal_id: The principal ID of user assigned identity.
         """

@@ -89,7 +89,7 @@ class SearchEncryptionWithCmk(str, Enum):
 
 class SearchSemanticSearch(str, Enum):
     """
-    Defines the SKU type for the semantic search feature enabled for the search service.
+    Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
     """
     DISABLED = "disabled"
     FREE = "free"
