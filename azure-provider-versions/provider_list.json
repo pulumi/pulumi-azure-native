@@ -56141,6 +56141,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56148,7 +56149,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -56175,6 +56176,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56182,7 +56184,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -56209,6 +56211,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56216,7 +56219,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -56243,6 +56246,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56250,7 +56254,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -56277,6 +56281,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56284,7 +56289,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [],
         "properties": null,
@@ -56295,6 +56300,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01",
           "2020-10-01",
           "2020-03-01",
@@ -56302,7 +56308,7 @@
           "2019-08-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2021-03-01",
+        "defaultApiVersion": "2021-05-01",
         "locationMappings": null,
         "locations": [
           "Australia East",
@@ -70485,6 +70491,34 @@
         "properties": null,
         "resourceType": "operationStatus",
         "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2017-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2017-04-01-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "diagnosticSettings",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2017-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2017-04-01-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "diagnosticSettingsCategories",
+        "zoneMappings": null
       }
     ]
   },
@@ -80566,8 +80600,7 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01",
-          "2018-11-01-preview"
+          "2019-11-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -80685,8 +80718,7 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01",
-          "2018-11-01-preview"
+          "2019-11-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81527,7 +81559,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81541,7 +81574,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81555,7 +81589,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81584,7 +81619,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -81601,7 +81637,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81618,7 +81655,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -83972,7 +84010,11 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central"
+          "France Central",
+          "Central US",
+          "North Central US",
+          "West US",
+          "Korea Central"
         ],
         "properties": null,
         "resourceType": "sourceControlConfigurations",
@@ -83999,7 +84041,11 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central"
+          "France Central",
+          "Central US",
+          "North Central US",
+          "West US",
+          "Korea Central"
         ],
         "properties": null,
         "resourceType": "extensions",
@@ -89370,7 +89416,7 @@
         "apiVersions": [
           "2019-08-15-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -90916,12 +90962,111 @@
           "2021-04-01-preview",
           "2020-03-15-preview"
         ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2021-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "Canada Central",
+          "West Europe",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "diskPools",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-03-15-preview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2021-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "Canada Central",
+          "West Europe",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "diskPools/iscsiTargets",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-03-15-preview"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [],
         "properties": null,
         "resourceType": "locations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-03-15-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "Canada Central",
+          "West Europe",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/operationResults",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview",
+          "2020-03-15-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "Canada Central",
+          "West Europe",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/operationsStatus",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "Canada Central",
+          "West Europe",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/diskPoolZones",
         "zoneMappings": null
       },
       {
