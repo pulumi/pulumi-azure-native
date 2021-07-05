@@ -46,7 +46,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     /**
      * Friendly name of the workspace connection.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Target of the workspace connection.
      */
@@ -84,12 +84,12 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             inputs["authType"] = args ? args.authType : undefined;
             inputs["category"] = args ? args.category : undefined;
             inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["valueFormat"] = args ? args.valueFormat : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authType"] = undefined /*out*/;
@@ -125,10 +125,6 @@ export interface WorkspaceConnectionArgs {
      * Friendly name of the workspace connection
      */
     connectionName?: pulumi.Input<string>;
-    /**
-     * Friendly name of the workspace connection
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

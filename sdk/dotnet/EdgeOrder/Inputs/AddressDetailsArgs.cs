@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Address details for an order.
+    /// Address details for an order item.
     /// </summary>
     public sealed class AddressDetailsArgs : Pulumi.ResourceArgs
     {

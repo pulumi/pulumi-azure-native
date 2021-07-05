@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetails struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressProperties `pulumi:"forwardAddress"`
@@ -27,7 +27,7 @@ type AddressDetailsInput interface {
 	ToAddressDetailsOutputWithContext(context.Context) AddressDetailsOutput
 }
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetailsArgs struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesInput `pulumi:"forwardAddress"`
@@ -86,7 +86,7 @@ func (i *addressDetailsPtrType) ToAddressDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AddressDetailsPtrOutput)
 }
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetailsOutput struct{ *pulumi.OutputState }
 
 func (AddressDetailsOutput) ElementType() reflect.Type {
@@ -144,7 +144,7 @@ func (o AddressDetailsPtrOutput) ForwardAddress() AddressPropertiesPtrOutput {
 	}).(AddressPropertiesPtrOutput)
 }
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetailsResponse struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesResponse `pulumi:"forwardAddress"`
@@ -163,7 +163,7 @@ type AddressDetailsResponseInput interface {
 	ToAddressDetailsResponseOutputWithContext(context.Context) AddressDetailsResponseOutput
 }
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetailsResponseArgs struct {
 	// Customer address and contact details. It should be address resource
 	ForwardAddress AddressPropertiesResponseInput `pulumi:"forwardAddress"`
@@ -224,7 +224,7 @@ func (i *addressDetailsResponsePtrType) ToAddressDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AddressDetailsResponsePtrOutput)
 }
 
-// Address details for an order.
+// Address details for an order item.
 type AddressDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressDetailsResponseOutput) ElementType() reflect.Type {
@@ -681,7 +681,7 @@ type BillingMeterDetailsResponse struct {
 	// Frequency of recurrence
 	Frequency string `pulumi:"frequency"`
 	// Represents MeterDetails
-	MeterDetails MeterDetailsResponse `pulumi:"meterDetails"`
+	MeterDetails interface{} `pulumi:"meterDetails"`
 	// Represents Metering type (eg one-time or recurrent)
 	MeteringType string `pulumi:"meteringType"`
 	// Represents Billing type name
@@ -704,7 +704,7 @@ type BillingMeterDetailsResponseArgs struct {
 	// Frequency of recurrence
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Represents MeterDetails
-	MeterDetails MeterDetailsResponseInput `pulumi:"meterDetails"`
+	MeterDetails pulumi.Input `pulumi:"meterDetails"`
 	// Represents Metering type (eg one-time or recurrent)
 	MeteringType pulumi.StringInput `pulumi:"meteringType"`
 	// Represents Billing type name
@@ -769,8 +769,8 @@ func (o BillingMeterDetailsResponseOutput) Frequency() pulumi.StringOutput {
 }
 
 // Represents MeterDetails
-func (o BillingMeterDetailsResponseOutput) MeterDetails() MeterDetailsResponseOutput {
-	return o.ApplyT(func(v BillingMeterDetailsResponse) MeterDetailsResponse { return v.MeterDetails }).(MeterDetailsResponseOutput)
+func (o BillingMeterDetailsResponseOutput) MeterDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) interface{} { return v.MeterDetails }).(pulumi.AnyOutput)
 }
 
 // Represents Metering type (eg one-time or recurrent)
@@ -920,11 +920,13 @@ type ConfigurationResponse struct {
 	CostInformation CostInformationResponse `pulumi:"costInformation"`
 	// Description related to the product system.
 	Description DescriptionResponse `pulumi:"description"`
+	// Dimensions of the configuration
+	Dimensions DimensionsResponse `pulumi:"dimensions"`
 	// Display Name for the product system.
 	DisplayName string `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties []FilterablePropertyResponse `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
@@ -951,11 +953,13 @@ type ConfigurationResponseArgs struct {
 	CostInformation CostInformationResponseInput `pulumi:"costInformation"`
 	// Description related to the product system.
 	Description DescriptionResponseInput `pulumi:"description"`
+	// Dimensions of the configuration
+	Dimensions DimensionsResponseInput `pulumi:"dimensions"`
 	// Display Name for the product system.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties FilterablePropertyResponseArrayInput `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponseInput `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation ImageInformationResponseArrayInput `pulumi:"imageInformation"`
@@ -1030,6 +1034,11 @@ func (o ConfigurationResponseOutput) Description() DescriptionResponseOutput {
 	return o.ApplyT(func(v ConfigurationResponse) DescriptionResponse { return v.Description }).(DescriptionResponseOutput)
 }
 
+// Dimensions of the configuration
+func (o ConfigurationResponseOutput) Dimensions() DimensionsResponseOutput {
+	return o.ApplyT(func(v ConfigurationResponse) DimensionsResponse { return v.Dimensions }).(DimensionsResponseOutput)
+}
+
 // Display Name for the product system.
 func (o ConfigurationResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationResponse) string { return v.DisplayName }).(pulumi.StringOutput)
@@ -1040,7 +1049,7 @@ func (o ConfigurationResponseOutput) FilterableProperties() FilterablePropertyRe
 	return o.ApplyT(func(v ConfigurationResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
 }
 
-// Hierarchy information of the product system.
+// Hierarchy information of a product.
 func (o ConfigurationResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
 	return o.ApplyT(func(v ConfigurationResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
 }
@@ -1845,8 +1854,8 @@ func (o DescriptionResponseOutput) ShortDescription() pulumi.StringOutput {
 
 // Device details.
 type DeviceDetailsResponse struct {
-	// Device history
-	DeviceHistory []string `pulumi:"deviceHistory"`
+	// Management Resource Id
+	ManagementResourceId string `pulumi:"managementResourceId"`
 	// device serial number
 	SerialNumber string `pulumi:"serialNumber"`
 }
@@ -1864,8 +1873,8 @@ type DeviceDetailsResponseInput interface {
 
 // Device details.
 type DeviceDetailsResponseArgs struct {
-	// Device history
-	DeviceHistory pulumi.StringArrayInput `pulumi:"deviceHistory"`
+	// Management Resource Id
+	ManagementResourceId pulumi.StringInput `pulumi:"managementResourceId"`
 	// device serial number
 	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
 }
@@ -1922,9 +1931,9 @@ func (o DeviceDetailsResponseOutput) ToDeviceDetailsResponseOutputWithContext(ct
 	return o
 }
 
-// Device history
-func (o DeviceDetailsResponseOutput) DeviceHistory() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DeviceDetailsResponse) []string { return v.DeviceHistory }).(pulumi.StringArrayOutput)
+// Management Resource Id
+func (o DeviceDetailsResponseOutput) ManagementResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceDetailsResponse) string { return v.ManagementResourceId }).(pulumi.StringOutput)
 }
 
 // device serial number
@@ -1950,6 +1959,268 @@ func (o DeviceDetailsResponseArrayOutput) Index(i pulumi.IntInput) DeviceDetails
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceDetailsResponse {
 		return vs[0].([]DeviceDetailsResponse)[vs[1].(int)]
 	}).(DeviceDetailsResponseOutput)
+}
+
+// Dimensions of a configuration.
+type DimensionsResponse struct {
+	// Depth of the device.
+	Depth float64 `pulumi:"depth"`
+	// Height of the device.
+	Height float64 `pulumi:"height"`
+	// Length of the device.
+	Length float64 `pulumi:"length"`
+	// Unit for the dimensions of length, height and width.
+	LengthHeightUnit string `pulumi:"lengthHeightUnit"`
+	// Weight of the device.
+	Weight float64 `pulumi:"weight"`
+	// Unit for the dimensions of weight.
+	WeightUnit string `pulumi:"weightUnit"`
+	// Width of the device.
+	Width float64 `pulumi:"width"`
+}
+
+// DimensionsResponseInput is an input type that accepts DimensionsResponseArgs and DimensionsResponseOutput values.
+// You can construct a concrete instance of `DimensionsResponseInput` via:
+//
+//          DimensionsResponseArgs{...}
+type DimensionsResponseInput interface {
+	pulumi.Input
+
+	ToDimensionsResponseOutput() DimensionsResponseOutput
+	ToDimensionsResponseOutputWithContext(context.Context) DimensionsResponseOutput
+}
+
+// Dimensions of a configuration.
+type DimensionsResponseArgs struct {
+	// Depth of the device.
+	Depth pulumi.Float64Input `pulumi:"depth"`
+	// Height of the device.
+	Height pulumi.Float64Input `pulumi:"height"`
+	// Length of the device.
+	Length pulumi.Float64Input `pulumi:"length"`
+	// Unit for the dimensions of length, height and width.
+	LengthHeightUnit pulumi.StringInput `pulumi:"lengthHeightUnit"`
+	// Weight of the device.
+	Weight pulumi.Float64Input `pulumi:"weight"`
+	// Unit for the dimensions of weight.
+	WeightUnit pulumi.StringInput `pulumi:"weightUnit"`
+	// Width of the device.
+	Width pulumi.Float64Input `pulumi:"width"`
+}
+
+func (DimensionsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionsResponse)(nil)).Elem()
+}
+
+func (i DimensionsResponseArgs) ToDimensionsResponseOutput() DimensionsResponseOutput {
+	return i.ToDimensionsResponseOutputWithContext(context.Background())
+}
+
+func (i DimensionsResponseArgs) ToDimensionsResponseOutputWithContext(ctx context.Context) DimensionsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionsResponseOutput)
+}
+
+// Dimensions of a configuration.
+type DimensionsResponseOutput struct{ *pulumi.OutputState }
+
+func (DimensionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionsResponse)(nil)).Elem()
+}
+
+func (o DimensionsResponseOutput) ToDimensionsResponseOutput() DimensionsResponseOutput {
+	return o
+}
+
+func (o DimensionsResponseOutput) ToDimensionsResponseOutputWithContext(ctx context.Context) DimensionsResponseOutput {
+	return o
+}
+
+// Depth of the device.
+func (o DimensionsResponseOutput) Depth() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Depth }).(pulumi.Float64Output)
+}
+
+// Height of the device.
+func (o DimensionsResponseOutput) Height() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Height }).(pulumi.Float64Output)
+}
+
+// Length of the device.
+func (o DimensionsResponseOutput) Length() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Length }).(pulumi.Float64Output)
+}
+
+// Unit for the dimensions of length, height and width.
+func (o DimensionsResponseOutput) LengthHeightUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionsResponse) string { return v.LengthHeightUnit }).(pulumi.StringOutput)
+}
+
+// Weight of the device.
+func (o DimensionsResponseOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+// Unit for the dimensions of weight.
+func (o DimensionsResponseOutput) WeightUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionsResponse) string { return v.WeightUnit }).(pulumi.StringOutput)
+}
+
+// Width of the device.
+func (o DimensionsResponseOutput) Width() pulumi.Float64Output {
+	return o.ApplyT(func(v DimensionsResponse) float64 { return v.Width }).(pulumi.Float64Output)
+}
+
+// Describes product display information
+type DisplayInfoResponse struct {
+	// Configuration display name
+	ConfigurationDisplayName string `pulumi:"configurationDisplayName"`
+	// Product family display name
+	ProductFamilyDisplayName string `pulumi:"productFamilyDisplayName"`
+}
+
+// DisplayInfoResponseInput is an input type that accepts DisplayInfoResponseArgs and DisplayInfoResponseOutput values.
+// You can construct a concrete instance of `DisplayInfoResponseInput` via:
+//
+//          DisplayInfoResponseArgs{...}
+type DisplayInfoResponseInput interface {
+	pulumi.Input
+
+	ToDisplayInfoResponseOutput() DisplayInfoResponseOutput
+	ToDisplayInfoResponseOutputWithContext(context.Context) DisplayInfoResponseOutput
+}
+
+// Describes product display information
+type DisplayInfoResponseArgs struct {
+	// Configuration display name
+	ConfigurationDisplayName pulumi.StringInput `pulumi:"configurationDisplayName"`
+	// Product family display name
+	ProductFamilyDisplayName pulumi.StringInput `pulumi:"productFamilyDisplayName"`
+}
+
+func (DisplayInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisplayInfoResponse)(nil)).Elem()
+}
+
+func (i DisplayInfoResponseArgs) ToDisplayInfoResponseOutput() DisplayInfoResponseOutput {
+	return i.ToDisplayInfoResponseOutputWithContext(context.Background())
+}
+
+func (i DisplayInfoResponseArgs) ToDisplayInfoResponseOutputWithContext(ctx context.Context) DisplayInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisplayInfoResponseOutput)
+}
+
+func (i DisplayInfoResponseArgs) ToDisplayInfoResponsePtrOutput() DisplayInfoResponsePtrOutput {
+	return i.ToDisplayInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DisplayInfoResponseArgs) ToDisplayInfoResponsePtrOutputWithContext(ctx context.Context) DisplayInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisplayInfoResponseOutput).ToDisplayInfoResponsePtrOutputWithContext(ctx)
+}
+
+// DisplayInfoResponsePtrInput is an input type that accepts DisplayInfoResponseArgs, DisplayInfoResponsePtr and DisplayInfoResponsePtrOutput values.
+// You can construct a concrete instance of `DisplayInfoResponsePtrInput` via:
+//
+//          DisplayInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DisplayInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToDisplayInfoResponsePtrOutput() DisplayInfoResponsePtrOutput
+	ToDisplayInfoResponsePtrOutputWithContext(context.Context) DisplayInfoResponsePtrOutput
+}
+
+type displayInfoResponsePtrType DisplayInfoResponseArgs
+
+func DisplayInfoResponsePtr(v *DisplayInfoResponseArgs) DisplayInfoResponsePtrInput {
+	return (*displayInfoResponsePtrType)(v)
+}
+
+func (*displayInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DisplayInfoResponse)(nil)).Elem()
+}
+
+func (i *displayInfoResponsePtrType) ToDisplayInfoResponsePtrOutput() DisplayInfoResponsePtrOutput {
+	return i.ToDisplayInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *displayInfoResponsePtrType) ToDisplayInfoResponsePtrOutputWithContext(ctx context.Context) DisplayInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisplayInfoResponsePtrOutput)
+}
+
+// Describes product display information
+type DisplayInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (DisplayInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisplayInfoResponse)(nil)).Elem()
+}
+
+func (o DisplayInfoResponseOutput) ToDisplayInfoResponseOutput() DisplayInfoResponseOutput {
+	return o
+}
+
+func (o DisplayInfoResponseOutput) ToDisplayInfoResponseOutputWithContext(ctx context.Context) DisplayInfoResponseOutput {
+	return o
+}
+
+func (o DisplayInfoResponseOutput) ToDisplayInfoResponsePtrOutput() DisplayInfoResponsePtrOutput {
+	return o.ToDisplayInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DisplayInfoResponseOutput) ToDisplayInfoResponsePtrOutputWithContext(ctx context.Context) DisplayInfoResponsePtrOutput {
+	return o.ApplyT(func(v DisplayInfoResponse) *DisplayInfoResponse {
+		return &v
+	}).(DisplayInfoResponsePtrOutput)
+}
+
+// Configuration display name
+func (o DisplayInfoResponseOutput) ConfigurationDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v DisplayInfoResponse) string { return v.ConfigurationDisplayName }).(pulumi.StringOutput)
+}
+
+// Product family display name
+func (o DisplayInfoResponseOutput) ProductFamilyDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v DisplayInfoResponse) string { return v.ProductFamilyDisplayName }).(pulumi.StringOutput)
+}
+
+type DisplayInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DisplayInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DisplayInfoResponse)(nil)).Elem()
+}
+
+func (o DisplayInfoResponsePtrOutput) ToDisplayInfoResponsePtrOutput() DisplayInfoResponsePtrOutput {
+	return o
+}
+
+func (o DisplayInfoResponsePtrOutput) ToDisplayInfoResponsePtrOutputWithContext(ctx context.Context) DisplayInfoResponsePtrOutput {
+	return o
+}
+
+func (o DisplayInfoResponsePtrOutput) Elem() DisplayInfoResponseOutput {
+	return o.ApplyT(func(v *DisplayInfoResponse) DisplayInfoResponse { return *v }).(DisplayInfoResponseOutput)
+}
+
+// Configuration display name
+func (o DisplayInfoResponsePtrOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DisplayInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product family display name
+func (o DisplayInfoResponsePtrOutput) ProductFamilyDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DisplayInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProductFamilyDisplayName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Preferences related to the double encryption
@@ -2584,7 +2855,7 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterableProperty struct {
 	// Values to be filtered.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -2603,7 +2874,7 @@ type FilterablePropertyInput interface {
 	ToFilterablePropertyOutputWithContext(context.Context) FilterablePropertyOutput
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterablePropertyArgs struct {
 	// Values to be filtered.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -2648,7 +2919,7 @@ func (i FilterablePropertyArray) ToFilterablePropertyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayOutput)
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterablePropertyOutput struct{ *pulumi.OutputState }
 
 func (FilterablePropertyOutput) ElementType() reflect.Type {
@@ -2693,7 +2964,7 @@ func (o FilterablePropertyArrayOutput) Index(i pulumi.IntInput) FilterableProper
 	}).(FilterablePropertyOutput)
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterablePropertyResponse struct {
 	// Values to be filtered.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -2712,7 +2983,7 @@ type FilterablePropertyResponseInput interface {
 	ToFilterablePropertyResponseOutputWithContext(context.Context) FilterablePropertyResponseOutput
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterablePropertyResponseArgs struct {
 	// Values to be filtered.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -2757,7 +3028,7 @@ func (i FilterablePropertyResponseArray) ToFilterablePropertyResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyResponseArrayOutput)
 }
 
-// Class defining the list of filter values on a filter type as part of configuration request.
+// Different types of filters supported and its values.
 type FilterablePropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (FilterablePropertyResponseOutput) ElementType() reflect.Type {
@@ -3402,345 +3673,272 @@ func (o LinkResponseArrayOutput) Index(i pulumi.IntInput) LinkResponseOutput {
 	}).(LinkResponseOutput)
 }
 
-// Management resource details to link device
-type ManagementResourceDetails struct {
-	// Management resource ARM ID
-	ManagementResourceArmId string `pulumi:"managementResourceArmId"`
+// Management resource preference to link device
+type ManagementResourcePreferences struct {
+	// Customer preferred Management resource ARM ID
+	PreferredManagementResourceId *string `pulumi:"preferredManagementResourceId"`
 }
 
-// ManagementResourceDetailsInput is an input type that accepts ManagementResourceDetailsArgs and ManagementResourceDetailsOutput values.
-// You can construct a concrete instance of `ManagementResourceDetailsInput` via:
+// ManagementResourcePreferencesInput is an input type that accepts ManagementResourcePreferencesArgs and ManagementResourcePreferencesOutput values.
+// You can construct a concrete instance of `ManagementResourcePreferencesInput` via:
 //
-//          ManagementResourceDetailsArgs{...}
-type ManagementResourceDetailsInput interface {
+//          ManagementResourcePreferencesArgs{...}
+type ManagementResourcePreferencesInput interface {
 	pulumi.Input
 
-	ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput
-	ToManagementResourceDetailsOutputWithContext(context.Context) ManagementResourceDetailsOutput
+	ToManagementResourcePreferencesOutput() ManagementResourcePreferencesOutput
+	ToManagementResourcePreferencesOutputWithContext(context.Context) ManagementResourcePreferencesOutput
 }
 
-// Management resource details to link device
-type ManagementResourceDetailsArgs struct {
-	// Management resource ARM ID
-	ManagementResourceArmId pulumi.StringInput `pulumi:"managementResourceArmId"`
+// Management resource preference to link device
+type ManagementResourcePreferencesArgs struct {
+	// Customer preferred Management resource ARM ID
+	PreferredManagementResourceId pulumi.StringPtrInput `pulumi:"preferredManagementResourceId"`
 }
 
-func (ManagementResourceDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementResourceDetails)(nil)).Elem()
+func (ManagementResourcePreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourcePreferences)(nil)).Elem()
 }
 
-func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput {
-	return i.ToManagementResourceDetailsOutputWithContext(context.Background())
+func (i ManagementResourcePreferencesArgs) ToManagementResourcePreferencesOutput() ManagementResourcePreferencesOutput {
+	return i.ToManagementResourcePreferencesOutputWithContext(context.Background())
 }
 
-func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsOutputWithContext(ctx context.Context) ManagementResourceDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsOutput)
+func (i ManagementResourcePreferencesArgs) ToManagementResourcePreferencesOutputWithContext(ctx context.Context) ManagementResourcePreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesOutput)
 }
 
-func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
-	return i.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+func (i ManagementResourcePreferencesArgs) ToManagementResourcePreferencesPtrOutput() ManagementResourcePreferencesPtrOutput {
+	return i.ToManagementResourcePreferencesPtrOutputWithContext(context.Background())
 }
 
-func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsOutput).ToManagementResourceDetailsPtrOutputWithContext(ctx)
+func (i ManagementResourcePreferencesArgs) ToManagementResourcePreferencesPtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesOutput).ToManagementResourcePreferencesPtrOutputWithContext(ctx)
 }
 
-// ManagementResourceDetailsPtrInput is an input type that accepts ManagementResourceDetailsArgs, ManagementResourceDetailsPtr and ManagementResourceDetailsPtrOutput values.
-// You can construct a concrete instance of `ManagementResourceDetailsPtrInput` via:
+// ManagementResourcePreferencesPtrInput is an input type that accepts ManagementResourcePreferencesArgs, ManagementResourcePreferencesPtr and ManagementResourcePreferencesPtrOutput values.
+// You can construct a concrete instance of `ManagementResourcePreferencesPtrInput` via:
 //
-//          ManagementResourceDetailsArgs{...}
+//          ManagementResourcePreferencesArgs{...}
 //
 //  or:
 //
 //          nil
-type ManagementResourceDetailsPtrInput interface {
+type ManagementResourcePreferencesPtrInput interface {
 	pulumi.Input
 
-	ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput
-	ToManagementResourceDetailsPtrOutputWithContext(context.Context) ManagementResourceDetailsPtrOutput
+	ToManagementResourcePreferencesPtrOutput() ManagementResourcePreferencesPtrOutput
+	ToManagementResourcePreferencesPtrOutputWithContext(context.Context) ManagementResourcePreferencesPtrOutput
 }
 
-type managementResourceDetailsPtrType ManagementResourceDetailsArgs
+type managementResourcePreferencesPtrType ManagementResourcePreferencesArgs
 
-func ManagementResourceDetailsPtr(v *ManagementResourceDetailsArgs) ManagementResourceDetailsPtrInput {
-	return (*managementResourceDetailsPtrType)(v)
+func ManagementResourcePreferencesPtr(v *ManagementResourcePreferencesArgs) ManagementResourcePreferencesPtrInput {
+	return (*managementResourcePreferencesPtrType)(v)
 }
 
-func (*managementResourceDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementResourceDetails)(nil)).Elem()
+func (*managementResourcePreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourcePreferences)(nil)).Elem()
 }
 
-func (i *managementResourceDetailsPtrType) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
-	return i.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+func (i *managementResourcePreferencesPtrType) ToManagementResourcePreferencesPtrOutput() ManagementResourcePreferencesPtrOutput {
+	return i.ToManagementResourcePreferencesPtrOutputWithContext(context.Background())
 }
 
-func (i *managementResourceDetailsPtrType) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsPtrOutput)
+func (i *managementResourcePreferencesPtrType) ToManagementResourcePreferencesPtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesPtrOutput)
 }
 
-// Management resource details to link device
-type ManagementResourceDetailsOutput struct{ *pulumi.OutputState }
+// Management resource preference to link device
+type ManagementResourcePreferencesOutput struct{ *pulumi.OutputState }
 
-func (ManagementResourceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementResourceDetails)(nil)).Elem()
+func (ManagementResourcePreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourcePreferences)(nil)).Elem()
 }
 
-func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput {
+func (o ManagementResourcePreferencesOutput) ToManagementResourcePreferencesOutput() ManagementResourcePreferencesOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsOutputWithContext(ctx context.Context) ManagementResourceDetailsOutput {
+func (o ManagementResourcePreferencesOutput) ToManagementResourcePreferencesOutputWithContext(ctx context.Context) ManagementResourcePreferencesOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
-	return o.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+func (o ManagementResourcePreferencesOutput) ToManagementResourcePreferencesPtrOutput() ManagementResourcePreferencesPtrOutput {
+	return o.ToManagementResourcePreferencesPtrOutputWithContext(context.Background())
 }
 
-func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
-	return o.ApplyT(func(v ManagementResourceDetails) *ManagementResourceDetails {
+func (o ManagementResourcePreferencesOutput) ToManagementResourcePreferencesPtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesPtrOutput {
+	return o.ApplyT(func(v ManagementResourcePreferences) *ManagementResourcePreferences {
 		return &v
-	}).(ManagementResourceDetailsPtrOutput)
+	}).(ManagementResourcePreferencesPtrOutput)
 }
 
-// Management resource ARM ID
-func (o ManagementResourceDetailsOutput) ManagementResourceArmId() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementResourceDetails) string { return v.ManagementResourceArmId }).(pulumi.StringOutput)
+// Customer preferred Management resource ARM ID
+func (o ManagementResourcePreferencesOutput) PreferredManagementResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementResourcePreferences) *string { return v.PreferredManagementResourceId }).(pulumi.StringPtrOutput)
 }
 
-type ManagementResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+type ManagementResourcePreferencesPtrOutput struct{ *pulumi.OutputState }
 
-func (ManagementResourceDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementResourceDetails)(nil)).Elem()
+func (ManagementResourcePreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourcePreferences)(nil)).Elem()
 }
 
-func (o ManagementResourceDetailsPtrOutput) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
+func (o ManagementResourcePreferencesPtrOutput) ToManagementResourcePreferencesPtrOutput() ManagementResourcePreferencesPtrOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsPtrOutput) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
+func (o ManagementResourcePreferencesPtrOutput) ToManagementResourcePreferencesPtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesPtrOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsPtrOutput) Elem() ManagementResourceDetailsOutput {
-	return o.ApplyT(func(v *ManagementResourceDetails) ManagementResourceDetails { return *v }).(ManagementResourceDetailsOutput)
+func (o ManagementResourcePreferencesPtrOutput) Elem() ManagementResourcePreferencesOutput {
+	return o.ApplyT(func(v *ManagementResourcePreferences) ManagementResourcePreferences { return *v }).(ManagementResourcePreferencesOutput)
 }
 
-// Management resource ARM ID
-func (o ManagementResourceDetailsPtrOutput) ManagementResourceArmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementResourceDetails) *string {
+// Customer preferred Management resource ARM ID
+func (o ManagementResourcePreferencesPtrOutput) PreferredManagementResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementResourcePreferences) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagementResourceArmId
+		return v.PreferredManagementResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Management resource details to link device
-type ManagementResourceDetailsResponse struct {
-	// Management resource ARM ID
-	ManagementResourceArmId string `pulumi:"managementResourceArmId"`
+// Management resource preference to link device
+type ManagementResourcePreferencesResponse struct {
+	// Customer preferred Management resource ARM ID
+	PreferredManagementResourceId *string `pulumi:"preferredManagementResourceId"`
 }
 
-// ManagementResourceDetailsResponseInput is an input type that accepts ManagementResourceDetailsResponseArgs and ManagementResourceDetailsResponseOutput values.
-// You can construct a concrete instance of `ManagementResourceDetailsResponseInput` via:
+// ManagementResourcePreferencesResponseInput is an input type that accepts ManagementResourcePreferencesResponseArgs and ManagementResourcePreferencesResponseOutput values.
+// You can construct a concrete instance of `ManagementResourcePreferencesResponseInput` via:
 //
-//          ManagementResourceDetailsResponseArgs{...}
-type ManagementResourceDetailsResponseInput interface {
+//          ManagementResourcePreferencesResponseArgs{...}
+type ManagementResourcePreferencesResponseInput interface {
 	pulumi.Input
 
-	ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput
-	ToManagementResourceDetailsResponseOutputWithContext(context.Context) ManagementResourceDetailsResponseOutput
+	ToManagementResourcePreferencesResponseOutput() ManagementResourcePreferencesResponseOutput
+	ToManagementResourcePreferencesResponseOutputWithContext(context.Context) ManagementResourcePreferencesResponseOutput
 }
 
-// Management resource details to link device
-type ManagementResourceDetailsResponseArgs struct {
-	// Management resource ARM ID
-	ManagementResourceArmId pulumi.StringInput `pulumi:"managementResourceArmId"`
+// Management resource preference to link device
+type ManagementResourcePreferencesResponseArgs struct {
+	// Customer preferred Management resource ARM ID
+	PreferredManagementResourceId pulumi.StringPtrInput `pulumi:"preferredManagementResourceId"`
 }
 
-func (ManagementResourceDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementResourceDetailsResponse)(nil)).Elem()
+func (ManagementResourcePreferencesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourcePreferencesResponse)(nil)).Elem()
 }
 
-func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput {
-	return i.ToManagementResourceDetailsResponseOutputWithContext(context.Background())
+func (i ManagementResourcePreferencesResponseArgs) ToManagementResourcePreferencesResponseOutput() ManagementResourcePreferencesResponseOutput {
+	return i.ToManagementResourcePreferencesResponseOutputWithContext(context.Background())
 }
 
-func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponseOutputWithContext(ctx context.Context) ManagementResourceDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponseOutput)
+func (i ManagementResourcePreferencesResponseArgs) ToManagementResourcePreferencesResponseOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesResponseOutput)
 }
 
-func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
-	return i.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+func (i ManagementResourcePreferencesResponseArgs) ToManagementResourcePreferencesResponsePtrOutput() ManagementResourcePreferencesResponsePtrOutput {
+	return i.ToManagementResourcePreferencesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponseOutput).ToManagementResourceDetailsResponsePtrOutputWithContext(ctx)
+func (i ManagementResourcePreferencesResponseArgs) ToManagementResourcePreferencesResponsePtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesResponseOutput).ToManagementResourcePreferencesResponsePtrOutputWithContext(ctx)
 }
 
-// ManagementResourceDetailsResponsePtrInput is an input type that accepts ManagementResourceDetailsResponseArgs, ManagementResourceDetailsResponsePtr and ManagementResourceDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `ManagementResourceDetailsResponsePtrInput` via:
+// ManagementResourcePreferencesResponsePtrInput is an input type that accepts ManagementResourcePreferencesResponseArgs, ManagementResourcePreferencesResponsePtr and ManagementResourcePreferencesResponsePtrOutput values.
+// You can construct a concrete instance of `ManagementResourcePreferencesResponsePtrInput` via:
 //
-//          ManagementResourceDetailsResponseArgs{...}
+//          ManagementResourcePreferencesResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ManagementResourceDetailsResponsePtrInput interface {
+type ManagementResourcePreferencesResponsePtrInput interface {
 	pulumi.Input
 
-	ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput
-	ToManagementResourceDetailsResponsePtrOutputWithContext(context.Context) ManagementResourceDetailsResponsePtrOutput
+	ToManagementResourcePreferencesResponsePtrOutput() ManagementResourcePreferencesResponsePtrOutput
+	ToManagementResourcePreferencesResponsePtrOutputWithContext(context.Context) ManagementResourcePreferencesResponsePtrOutput
 }
 
-type managementResourceDetailsResponsePtrType ManagementResourceDetailsResponseArgs
+type managementResourcePreferencesResponsePtrType ManagementResourcePreferencesResponseArgs
 
-func ManagementResourceDetailsResponsePtr(v *ManagementResourceDetailsResponseArgs) ManagementResourceDetailsResponsePtrInput {
-	return (*managementResourceDetailsResponsePtrType)(v)
+func ManagementResourcePreferencesResponsePtr(v *ManagementResourcePreferencesResponseArgs) ManagementResourcePreferencesResponsePtrInput {
+	return (*managementResourcePreferencesResponsePtrType)(v)
 }
 
-func (*managementResourceDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementResourceDetailsResponse)(nil)).Elem()
+func (*managementResourcePreferencesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourcePreferencesResponse)(nil)).Elem()
 }
 
-func (i *managementResourceDetailsResponsePtrType) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
-	return i.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+func (i *managementResourcePreferencesResponsePtrType) ToManagementResourcePreferencesResponsePtrOutput() ManagementResourcePreferencesResponsePtrOutput {
+	return i.ToManagementResourcePreferencesResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *managementResourceDetailsResponsePtrType) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponsePtrOutput)
+func (i *managementResourcePreferencesResponsePtrType) ToManagementResourcePreferencesResponsePtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourcePreferencesResponsePtrOutput)
 }
 
-// Management resource details to link device
-type ManagementResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+// Management resource preference to link device
+type ManagementResourcePreferencesResponseOutput struct{ *pulumi.OutputState }
 
-func (ManagementResourceDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementResourceDetailsResponse)(nil)).Elem()
+func (ManagementResourcePreferencesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourcePreferencesResponse)(nil)).Elem()
 }
 
-func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput {
+func (o ManagementResourcePreferencesResponseOutput) ToManagementResourcePreferencesResponseOutput() ManagementResourcePreferencesResponseOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponseOutputWithContext(ctx context.Context) ManagementResourceDetailsResponseOutput {
+func (o ManagementResourcePreferencesResponseOutput) ToManagementResourcePreferencesResponseOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponseOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
-	return o.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+func (o ManagementResourcePreferencesResponseOutput) ToManagementResourcePreferencesResponsePtrOutput() ManagementResourcePreferencesResponsePtrOutput {
+	return o.ToManagementResourcePreferencesResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ManagementResourceDetailsResponse) *ManagementResourceDetailsResponse {
+func (o ManagementResourcePreferencesResponseOutput) ToManagementResourcePreferencesResponsePtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponsePtrOutput {
+	return o.ApplyT(func(v ManagementResourcePreferencesResponse) *ManagementResourcePreferencesResponse {
 		return &v
-	}).(ManagementResourceDetailsResponsePtrOutput)
+	}).(ManagementResourcePreferencesResponsePtrOutput)
 }
 
-// Management resource ARM ID
-func (o ManagementResourceDetailsResponseOutput) ManagementResourceArmId() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementResourceDetailsResponse) string { return v.ManagementResourceArmId }).(pulumi.StringOutput)
+// Customer preferred Management resource ARM ID
+func (o ManagementResourcePreferencesResponseOutput) PreferredManagementResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementResourcePreferencesResponse) *string { return v.PreferredManagementResourceId }).(pulumi.StringPtrOutput)
 }
 
-type ManagementResourceDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+type ManagementResourcePreferencesResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ManagementResourceDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementResourceDetailsResponse)(nil)).Elem()
+func (ManagementResourcePreferencesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourcePreferencesResponse)(nil)).Elem()
 }
 
-func (o ManagementResourceDetailsResponsePtrOutput) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
+func (o ManagementResourcePreferencesResponsePtrOutput) ToManagementResourcePreferencesResponsePtrOutput() ManagementResourcePreferencesResponsePtrOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsResponsePtrOutput) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
+func (o ManagementResourcePreferencesResponsePtrOutput) ToManagementResourcePreferencesResponsePtrOutputWithContext(ctx context.Context) ManagementResourcePreferencesResponsePtrOutput {
 	return o
 }
 
-func (o ManagementResourceDetailsResponsePtrOutput) Elem() ManagementResourceDetailsResponseOutput {
-	return o.ApplyT(func(v *ManagementResourceDetailsResponse) ManagementResourceDetailsResponse { return *v }).(ManagementResourceDetailsResponseOutput)
+func (o ManagementResourcePreferencesResponsePtrOutput) Elem() ManagementResourcePreferencesResponseOutput {
+	return o.ApplyT(func(v *ManagementResourcePreferencesResponse) ManagementResourcePreferencesResponse { return *v }).(ManagementResourcePreferencesResponseOutput)
 }
 
-// Management resource ARM ID
-func (o ManagementResourceDetailsResponsePtrOutput) ManagementResourceArmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementResourceDetailsResponse) *string {
+// Customer preferred Management resource ARM ID
+func (o ManagementResourcePreferencesResponsePtrOutput) PreferredManagementResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementResourcePreferencesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagementResourceArmId
+		return v.PreferredManagementResourceId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Holds details about billing type and its meter guids
-type MeterDetailsResponse struct {
-	// Represents billing type.
-	BillingType string `pulumi:"billingType"`
-	// Charging type.
-	ChargingType string `pulumi:"chargingType"`
-	// Billing unit applicable for Pav2 billing
-	Multiplier float64 `pulumi:"multiplier"`
-}
-
-// MeterDetailsResponseInput is an input type that accepts MeterDetailsResponseArgs and MeterDetailsResponseOutput values.
-// You can construct a concrete instance of `MeterDetailsResponseInput` via:
-//
-//          MeterDetailsResponseArgs{...}
-type MeterDetailsResponseInput interface {
-	pulumi.Input
-
-	ToMeterDetailsResponseOutput() MeterDetailsResponseOutput
-	ToMeterDetailsResponseOutputWithContext(context.Context) MeterDetailsResponseOutput
-}
-
-// Holds details about billing type and its meter guids
-type MeterDetailsResponseArgs struct {
-	// Represents billing type.
-	BillingType pulumi.StringInput `pulumi:"billingType"`
-	// Charging type.
-	ChargingType pulumi.StringInput `pulumi:"chargingType"`
-	// Billing unit applicable for Pav2 billing
-	Multiplier pulumi.Float64Input `pulumi:"multiplier"`
-}
-
-func (MeterDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeterDetailsResponse)(nil)).Elem()
-}
-
-func (i MeterDetailsResponseArgs) ToMeterDetailsResponseOutput() MeterDetailsResponseOutput {
-	return i.ToMeterDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i MeterDetailsResponseArgs) ToMeterDetailsResponseOutputWithContext(ctx context.Context) MeterDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeterDetailsResponseOutput)
-}
-
-// Holds details about billing type and its meter guids
-type MeterDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (MeterDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeterDetailsResponse)(nil)).Elem()
-}
-
-func (o MeterDetailsResponseOutput) ToMeterDetailsResponseOutput() MeterDetailsResponseOutput {
-	return o
-}
-
-func (o MeterDetailsResponseOutput) ToMeterDetailsResponseOutputWithContext(ctx context.Context) MeterDetailsResponseOutput {
-	return o
-}
-
-// Represents billing type.
-func (o MeterDetailsResponseOutput) BillingType() pulumi.StringOutput {
-	return o.ApplyT(func(v MeterDetailsResponse) string { return v.BillingType }).(pulumi.StringOutput)
-}
-
-// Charging type.
-func (o MeterDetailsResponseOutput) ChargingType() pulumi.StringOutput {
-	return o.ApplyT(func(v MeterDetailsResponse) string { return v.ChargingType }).(pulumi.StringOutput)
-}
-
-// Billing unit applicable for Pav2 billing
-func (o MeterDetailsResponseOutput) Multiplier() pulumi.Float64Output {
-	return o.ApplyT(func(v MeterDetailsResponse) float64 { return v.Multiplier }).(pulumi.Float64Output)
 }
 
 // Notification preference for a job stage.
@@ -3963,8 +4161,6 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 
 // Order item details
 type OrderItemDetails struct {
-	// Management resource details
-	ManagementResourceDetails *ManagementResourceDetails `pulumi:"managementResourceDetails"`
 	// Additional notification email list
 	NotificationEmailList []string `pulumi:"notificationEmailList"`
 	// Order item type.
@@ -3988,8 +4184,6 @@ type OrderItemDetailsInput interface {
 
 // Order item details
 type OrderItemDetailsArgs struct {
-	// Management resource details
-	ManagementResourceDetails ManagementResourceDetailsPtrInput `pulumi:"managementResourceDetails"`
 	// Additional notification email list
 	NotificationEmailList pulumi.StringArrayInput `pulumi:"notificationEmailList"`
 	// Order item type.
@@ -4078,11 +4272,6 @@ func (o OrderItemDetailsOutput) ToOrderItemDetailsPtrOutputWithContext(ctx conte
 	}).(OrderItemDetailsPtrOutput)
 }
 
-// Management resource details
-func (o OrderItemDetailsOutput) ManagementResourceDetails() ManagementResourceDetailsPtrOutput {
-	return o.ApplyT(func(v OrderItemDetails) *ManagementResourceDetails { return v.ManagementResourceDetails }).(ManagementResourceDetailsPtrOutput)
-}
-
 // Additional notification email list
 func (o OrderItemDetailsOutput) NotificationEmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrderItemDetails) []string { return v.NotificationEmailList }).(pulumi.StringArrayOutput)
@@ -4119,16 +4308,6 @@ func (o OrderItemDetailsPtrOutput) ToOrderItemDetailsPtrOutputWithContext(ctx co
 
 func (o OrderItemDetailsPtrOutput) Elem() OrderItemDetailsOutput {
 	return o.ApplyT(func(v *OrderItemDetails) OrderItemDetails { return *v }).(OrderItemDetailsOutput)
-}
-
-// Management resource details
-func (o OrderItemDetailsPtrOutput) ManagementResourceDetails() ManagementResourceDetailsPtrOutput {
-	return o.ApplyT(func(v *OrderItemDetails) *ManagementResourceDetails {
-		if v == nil {
-			return nil
-		}
-		return v.ManagementResourceDetails
-	}).(ManagementResourceDetailsPtrOutput)
 }
 
 // Additional notification email list
@@ -4175,7 +4354,7 @@ func (o OrderItemDetailsPtrOutput) ProductDetails() ProductDetailsPtrOutput {
 type OrderItemDetailsResponse struct {
 	// Cancellation reason.
 	CancellationReason string `pulumi:"cancellationReason"`
-	// Describes whether the order is cancellable or not.
+	// Describes whether the orderItem is cancellable or not.
 	CancellationStatus string `pulumi:"cancellationStatus"`
 	// Current Order item Status
 	CurrentStage StageDetailsResponse `pulumi:"currentStage"`
@@ -4185,8 +4364,6 @@ type OrderItemDetailsResponse struct {
 	Error ErrorDetailResponse `pulumi:"error"`
 	// Forward Package Shipping details
 	ForwardShippingDetails ShippingDetailsResponse `pulumi:"forwardShippingDetails"`
-	// Management resource details
-	ManagementResourceDetails *ManagementResourceDetailsResponse `pulumi:"managementResourceDetails"`
 	// parent RP details
 	ManagementRpDetails interface{} `pulumi:"managementRpDetails"`
 	// Additional notification email list
@@ -4201,7 +4378,7 @@ type OrderItemDetailsResponse struct {
 	ProductDetails ProductDetailsResponse `pulumi:"productDetails"`
 	// Return reason.
 	ReturnReason string `pulumi:"returnReason"`
-	// Describes whether the order item is returnable or not.
+	// Describes whether the orderItem is returnable or not.
 	ReturnStatus string `pulumi:"returnStatus"`
 	// Reverse Package Shipping details
 	ReverseShippingDetails ShippingDetailsResponse `pulumi:"reverseShippingDetails"`
@@ -4222,7 +4399,7 @@ type OrderItemDetailsResponseInput interface {
 type OrderItemDetailsResponseArgs struct {
 	// Cancellation reason.
 	CancellationReason pulumi.StringInput `pulumi:"cancellationReason"`
-	// Describes whether the order is cancellable or not.
+	// Describes whether the orderItem is cancellable or not.
 	CancellationStatus pulumi.StringInput `pulumi:"cancellationStatus"`
 	// Current Order item Status
 	CurrentStage StageDetailsResponseInput `pulumi:"currentStage"`
@@ -4232,8 +4409,6 @@ type OrderItemDetailsResponseArgs struct {
 	Error ErrorDetailResponseInput `pulumi:"error"`
 	// Forward Package Shipping details
 	ForwardShippingDetails ShippingDetailsResponseInput `pulumi:"forwardShippingDetails"`
-	// Management resource details
-	ManagementResourceDetails ManagementResourceDetailsResponsePtrInput `pulumi:"managementResourceDetails"`
 	// parent RP details
 	ManagementRpDetails pulumi.Input `pulumi:"managementRpDetails"`
 	// Additional notification email list
@@ -4248,7 +4423,7 @@ type OrderItemDetailsResponseArgs struct {
 	ProductDetails ProductDetailsResponseInput `pulumi:"productDetails"`
 	// Return reason.
 	ReturnReason pulumi.StringInput `pulumi:"returnReason"`
-	// Describes whether the order item is returnable or not.
+	// Describes whether the orderItem is returnable or not.
 	ReturnStatus pulumi.StringInput `pulumi:"returnStatus"`
 	// Reverse Package Shipping details
 	ReverseShippingDetails ShippingDetailsResponseInput `pulumi:"reverseShippingDetails"`
@@ -4337,7 +4512,7 @@ func (o OrderItemDetailsResponseOutput) CancellationReason() pulumi.StringOutput
 	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.CancellationReason }).(pulumi.StringOutput)
 }
 
-// Describes whether the order is cancellable or not.
+// Describes whether the orderItem is cancellable or not.
 func (o OrderItemDetailsResponseOutput) CancellationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.CancellationStatus }).(pulumi.StringOutput)
 }
@@ -4360,13 +4535,6 @@ func (o OrderItemDetailsResponseOutput) Error() ErrorDetailResponseOutput {
 // Forward Package Shipping details
 func (o OrderItemDetailsResponseOutput) ForwardShippingDetails() ShippingDetailsResponseOutput {
 	return o.ApplyT(func(v OrderItemDetailsResponse) ShippingDetailsResponse { return v.ForwardShippingDetails }).(ShippingDetailsResponseOutput)
-}
-
-// Management resource details
-func (o OrderItemDetailsResponseOutput) ManagementResourceDetails() ManagementResourceDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OrderItemDetailsResponse) *ManagementResourceDetailsResponse {
-		return v.ManagementResourceDetails
-	}).(ManagementResourceDetailsResponsePtrOutput)
 }
 
 // parent RP details
@@ -4404,7 +4572,7 @@ func (o OrderItemDetailsResponseOutput) ReturnReason() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.ReturnReason }).(pulumi.StringOutput)
 }
 
-// Describes whether the order item is returnable or not.
+// Describes whether the orderItem is returnable or not.
 func (o OrderItemDetailsResponseOutput) ReturnStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.ReturnStatus }).(pulumi.StringOutput)
 }
@@ -4442,7 +4610,7 @@ func (o OrderItemDetailsResponsePtrOutput) CancellationReason() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the order is cancellable or not.
+// Describes whether the orderItem is cancellable or not.
 func (o OrderItemDetailsResponsePtrOutput) CancellationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
@@ -4490,16 +4658,6 @@ func (o OrderItemDetailsResponsePtrOutput) ForwardShippingDetails() ShippingDeta
 		}
 		return &v.ForwardShippingDetails
 	}).(ShippingDetailsResponsePtrOutput)
-}
-
-// Management resource details
-func (o OrderItemDetailsResponsePtrOutput) ManagementResourceDetails() ManagementResourceDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *OrderItemDetailsResponse) *ManagementResourceDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ManagementResourceDetails
-	}).(ManagementResourceDetailsResponsePtrOutput)
 }
 
 // parent RP details
@@ -4572,7 +4730,7 @@ func (o OrderItemDetailsResponsePtrOutput) ReturnReason() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the order item is returnable or not.
+// Describes whether the orderItem is returnable or not.
 func (o OrderItemDetailsResponsePtrOutput) ReturnStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
@@ -4592,10 +4750,97 @@ func (o OrderItemDetailsResponsePtrOutput) ReverseShippingDetails() ShippingDeta
 	}).(ShippingDetailsResponsePtrOutput)
 }
 
+// Billing type PAV2 meter details
+type Pav2MeterDetailsResponse struct {
+	// Represents billing type.
+	// Expected value is 'Pav2'.
+	BillingType string `pulumi:"billingType"`
+	// Charging type.
+	ChargingType string `pulumi:"chargingType"`
+	// Validation status of requested data center and transport.
+	MeterGuid string `pulumi:"meterGuid"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier float64 `pulumi:"multiplier"`
+}
+
+// Pav2MeterDetailsResponseInput is an input type that accepts Pav2MeterDetailsResponseArgs and Pav2MeterDetailsResponseOutput values.
+// You can construct a concrete instance of `Pav2MeterDetailsResponseInput` via:
+//
+//          Pav2MeterDetailsResponseArgs{...}
+type Pav2MeterDetailsResponseInput interface {
+	pulumi.Input
+
+	ToPav2MeterDetailsResponseOutput() Pav2MeterDetailsResponseOutput
+	ToPav2MeterDetailsResponseOutputWithContext(context.Context) Pav2MeterDetailsResponseOutput
+}
+
+// Billing type PAV2 meter details
+type Pav2MeterDetailsResponseArgs struct {
+	// Represents billing type.
+	// Expected value is 'Pav2'.
+	BillingType pulumi.StringInput `pulumi:"billingType"`
+	// Charging type.
+	ChargingType pulumi.StringInput `pulumi:"chargingType"`
+	// Validation status of requested data center and transport.
+	MeterGuid pulumi.StringInput `pulumi:"meterGuid"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier pulumi.Float64Input `pulumi:"multiplier"`
+}
+
+func (Pav2MeterDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pav2MeterDetailsResponse)(nil)).Elem()
+}
+
+func (i Pav2MeterDetailsResponseArgs) ToPav2MeterDetailsResponseOutput() Pav2MeterDetailsResponseOutput {
+	return i.ToPav2MeterDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i Pav2MeterDetailsResponseArgs) ToPav2MeterDetailsResponseOutputWithContext(ctx context.Context) Pav2MeterDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Pav2MeterDetailsResponseOutput)
+}
+
+// Billing type PAV2 meter details
+type Pav2MeterDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (Pav2MeterDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pav2MeterDetailsResponse)(nil)).Elem()
+}
+
+func (o Pav2MeterDetailsResponseOutput) ToPav2MeterDetailsResponseOutput() Pav2MeterDetailsResponseOutput {
+	return o
+}
+
+func (o Pav2MeterDetailsResponseOutput) ToPav2MeterDetailsResponseOutputWithContext(ctx context.Context) Pav2MeterDetailsResponseOutput {
+	return o
+}
+
+// Represents billing type.
+// Expected value is 'Pav2'.
+func (o Pav2MeterDetailsResponseOutput) BillingType() pulumi.StringOutput {
+	return o.ApplyT(func(v Pav2MeterDetailsResponse) string { return v.BillingType }).(pulumi.StringOutput)
+}
+
+// Charging type.
+func (o Pav2MeterDetailsResponseOutput) ChargingType() pulumi.StringOutput {
+	return o.ApplyT(func(v Pav2MeterDetailsResponse) string { return v.ChargingType }).(pulumi.StringOutput)
+}
+
+// Validation status of requested data center and transport.
+func (o Pav2MeterDetailsResponseOutput) MeterGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v Pav2MeterDetailsResponse) string { return v.MeterGuid }).(pulumi.StringOutput)
+}
+
+// Billing unit applicable for Pav2 billing
+func (o Pav2MeterDetailsResponseOutput) Multiplier() pulumi.Float64Output {
+	return o.ApplyT(func(v Pav2MeterDetailsResponse) float64 { return v.Multiplier }).(pulumi.Float64Output)
+}
+
 // Preferences related to the order
 type Preferences struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences *EncryptionPreferences `pulumi:"encryptionPreferences"`
+	// Preferences related to the Management resource.
+	ManagementResourcePreferences *ManagementResourcePreferences `pulumi:"managementResourcePreferences"`
 	// Notification preferences.
 	NotificationPreferences []NotificationPreference `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4617,6 +4862,8 @@ type PreferencesInput interface {
 type PreferencesArgs struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences EncryptionPreferencesPtrInput `pulumi:"encryptionPreferences"`
+	// Preferences related to the Management resource.
+	ManagementResourcePreferences ManagementResourcePreferencesPtrInput `pulumi:"managementResourcePreferences"`
 	// Notification preferences.
 	NotificationPreferences NotificationPreferenceArrayInput `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4706,6 +4953,11 @@ func (o PreferencesOutput) EncryptionPreferences() EncryptionPreferencesPtrOutpu
 	return o.ApplyT(func(v Preferences) *EncryptionPreferences { return v.EncryptionPreferences }).(EncryptionPreferencesPtrOutput)
 }
 
+// Preferences related to the Management resource.
+func (o PreferencesOutput) ManagementResourcePreferences() ManagementResourcePreferencesPtrOutput {
+	return o.ApplyT(func(v Preferences) *ManagementResourcePreferences { return v.ManagementResourcePreferences }).(ManagementResourcePreferencesPtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesOutput) NotificationPreferences() NotificationPreferenceArrayOutput {
 	return o.ApplyT(func(v Preferences) []NotificationPreference { return v.NotificationPreferences }).(NotificationPreferenceArrayOutput)
@@ -4744,6 +4996,16 @@ func (o PreferencesPtrOutput) EncryptionPreferences() EncryptionPreferencesPtrOu
 	}).(EncryptionPreferencesPtrOutput)
 }
 
+// Preferences related to the Management resource.
+func (o PreferencesPtrOutput) ManagementResourcePreferences() ManagementResourcePreferencesPtrOutput {
+	return o.ApplyT(func(v *Preferences) *ManagementResourcePreferences {
+		if v == nil {
+			return nil
+		}
+		return v.ManagementResourcePreferences
+	}).(ManagementResourcePreferencesPtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesPtrOutput) NotificationPreferences() NotificationPreferenceArrayOutput {
 	return o.ApplyT(func(v *Preferences) []NotificationPreference {
@@ -4768,6 +5030,8 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 type PreferencesResponse struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences *EncryptionPreferencesResponse `pulumi:"encryptionPreferences"`
+	// Preferences related to the Management resource.
+	ManagementResourcePreferences *ManagementResourcePreferencesResponse `pulumi:"managementResourcePreferences"`
 	// Notification preferences.
 	NotificationPreferences []NotificationPreferenceResponse `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4789,6 +5053,8 @@ type PreferencesResponseInput interface {
 type PreferencesResponseArgs struct {
 	// Preferences related to the Encryption.
 	EncryptionPreferences EncryptionPreferencesResponsePtrInput `pulumi:"encryptionPreferences"`
+	// Preferences related to the Management resource.
+	ManagementResourcePreferences ManagementResourcePreferencesResponsePtrInput `pulumi:"managementResourcePreferences"`
 	// Notification preferences.
 	NotificationPreferences NotificationPreferenceResponseArrayInput `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4878,6 +5144,13 @@ func (o PreferencesResponseOutput) EncryptionPreferences() EncryptionPreferences
 	return o.ApplyT(func(v PreferencesResponse) *EncryptionPreferencesResponse { return v.EncryptionPreferences }).(EncryptionPreferencesResponsePtrOutput)
 }
 
+// Preferences related to the Management resource.
+func (o PreferencesResponseOutput) ManagementResourcePreferences() ManagementResourcePreferencesResponsePtrOutput {
+	return o.ApplyT(func(v PreferencesResponse) *ManagementResourcePreferencesResponse {
+		return v.ManagementResourcePreferences
+	}).(ManagementResourcePreferencesResponsePtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesResponseOutput) NotificationPreferences() NotificationPreferenceResponseArrayOutput {
 	return o.ApplyT(func(v PreferencesResponse) []NotificationPreferenceResponse { return v.NotificationPreferences }).(NotificationPreferenceResponseArrayOutput)
@@ -4916,6 +5189,16 @@ func (o PreferencesResponsePtrOutput) EncryptionPreferences() EncryptionPreferen
 	}).(EncryptionPreferencesResponsePtrOutput)
 }
 
+// Preferences related to the Management resource.
+func (o PreferencesResponsePtrOutput) ManagementResourcePreferences() ManagementResourcePreferencesResponsePtrOutput {
+	return o.ApplyT(func(v *PreferencesResponse) *ManagementResourcePreferencesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagementResourcePreferences
+	}).(ManagementResourcePreferencesResponsePtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesResponsePtrOutput) NotificationPreferences() NotificationPreferenceResponseArrayOutput {
 	return o.ApplyT(func(v *PreferencesResponse) []NotificationPreferenceResponse {
@@ -4940,7 +5223,7 @@ func (o PreferencesResponsePtrOutput) TransportPreferences() TransportPreference
 type ProductDetails struct {
 	// Quantity of the product
 	Count *int `pulumi:"count"`
-	//  Hierarchy of the product which uniquely identifies the product
+	// Hierarchy of the product which uniquely identifies the product
 	HierarchyInformation HierarchyInformation `pulumi:"hierarchyInformation"`
 }
 
@@ -4959,7 +5242,7 @@ type ProductDetailsInput interface {
 type ProductDetailsArgs struct {
 	// Quantity of the product
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	//  Hierarchy of the product which uniquely identifies the product
+	// Hierarchy of the product which uniquely identifies the product
 	HierarchyInformation HierarchyInformationInput `pulumi:"hierarchyInformation"`
 }
 
@@ -5046,7 +5329,7 @@ func (o ProductDetailsOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProductDetails) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-//  Hierarchy of the product which uniquely identifies the product
+// Hierarchy of the product which uniquely identifies the product
 func (o ProductDetailsOutput) HierarchyInformation() HierarchyInformationOutput {
 	return o.ApplyT(func(v ProductDetails) HierarchyInformation { return v.HierarchyInformation }).(HierarchyInformationOutput)
 }
@@ -5079,7 +5362,7 @@ func (o ProductDetailsPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-//  Hierarchy of the product which uniquely identifies the product
+// Hierarchy of the product which uniquely identifies the product
 func (o ProductDetailsPtrOutput) HierarchyInformation() HierarchyInformationPtrOutput {
 	return o.ApplyT(func(v *ProductDetails) *HierarchyInformation {
 		if v == nil {
@@ -5095,7 +5378,9 @@ type ProductDetailsResponse struct {
 	Count *int `pulumi:"count"`
 	// list of device details
 	DeviceDetails []DeviceDetailsResponse `pulumi:"deviceDetails"`
-	//  Hierarchy of the product which uniquely identifies the product
+	// Display details of the product
+	DisplayInfo *DisplayInfoResponse `pulumi:"displayInfo"`
+	// Hierarchy of the product which uniquely identifies the product
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 }
 
@@ -5116,7 +5401,9 @@ type ProductDetailsResponseArgs struct {
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// list of device details
 	DeviceDetails DeviceDetailsResponseArrayInput `pulumi:"deviceDetails"`
-	//  Hierarchy of the product which uniquely identifies the product
+	// Display details of the product
+	DisplayInfo DisplayInfoResponsePtrInput `pulumi:"displayInfo"`
+	// Hierarchy of the product which uniquely identifies the product
 	HierarchyInformation HierarchyInformationResponseInput `pulumi:"hierarchyInformation"`
 }
 
@@ -5208,7 +5495,12 @@ func (o ProductDetailsResponseOutput) DeviceDetails() DeviceDetailsResponseArray
 	return o.ApplyT(func(v ProductDetailsResponse) []DeviceDetailsResponse { return v.DeviceDetails }).(DeviceDetailsResponseArrayOutput)
 }
 
-//  Hierarchy of the product which uniquely identifies the product
+// Display details of the product
+func (o ProductDetailsResponseOutput) DisplayInfo() DisplayInfoResponsePtrOutput {
+	return o.ApplyT(func(v ProductDetailsResponse) *DisplayInfoResponse { return v.DisplayInfo }).(DisplayInfoResponsePtrOutput)
+}
+
+// Hierarchy of the product which uniquely identifies the product
 func (o ProductDetailsResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
 	return o.ApplyT(func(v ProductDetailsResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
 }
@@ -5251,7 +5543,17 @@ func (o ProductDetailsResponsePtrOutput) DeviceDetails() DeviceDetailsResponseAr
 	}).(DeviceDetailsResponseArrayOutput)
 }
 
-//  Hierarchy of the product which uniquely identifies the product
+// Display details of the product
+func (o ProductDetailsResponsePtrOutput) DisplayInfo() DisplayInfoResponsePtrOutput {
+	return o.ApplyT(func(v *ProductDetailsResponse) *DisplayInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayInfo
+	}).(DisplayInfoResponsePtrOutput)
+}
+
+// Hierarchy of the product which uniquely identifies the product
 func (o ProductDetailsResponsePtrOutput) HierarchyInformation() HierarchyInformationResponsePtrOutput {
 	return o.ApplyT(func(v *ProductDetailsResponse) *HierarchyInformationResponse {
 		if v == nil {
@@ -5273,7 +5575,7 @@ type ProductFamilyResponse struct {
 	DisplayName string `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties []FilterablePropertyResponse `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
@@ -5304,7 +5606,7 @@ type ProductFamilyResponseArgs struct {
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties FilterablePropertyResponseArrayInput `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponseInput `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation ImageInformationResponseArrayInput `pulumi:"imageInformation"`
@@ -5389,7 +5691,7 @@ func (o ProductFamilyResponseOutput) FilterableProperties() FilterablePropertyRe
 	return o.ApplyT(func(v ProductFamilyResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
 }
 
-// Hierarchy information of the product system.
+// Hierarchy information of a product.
 func (o ProductFamilyResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
 	return o.ApplyT(func(v ProductFamilyResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
 }
@@ -5436,7 +5738,7 @@ type ProductLineResponse struct {
 	DisplayName string `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties []FilterablePropertyResponse `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
@@ -5467,7 +5769,7 @@ type ProductLineResponseArgs struct {
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties FilterablePropertyResponseArrayInput `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponseInput `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation ImageInformationResponseArrayInput `pulumi:"imageInformation"`
@@ -5552,7 +5854,7 @@ func (o ProductLineResponseOutput) FilterableProperties() FilterablePropertyResp
 	return o.ApplyT(func(v ProductLineResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
 }
 
-// Hierarchy information of the product system.
+// Hierarchy information of a product.
 func (o ProductLineResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
 	return o.ApplyT(func(v ProductLineResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
 }
@@ -5601,7 +5903,7 @@ type ProductResponse struct {
 	DisplayName string `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties []FilterablePropertyResponse `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponse `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation []ImageInformationResponse `pulumi:"imageInformation"`
@@ -5632,7 +5934,7 @@ type ProductResponseArgs struct {
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// list of filters supported for a product
 	FilterableProperties FilterablePropertyResponseArrayInput `pulumi:"filterableProperties"`
-	// Hierarchy information of the product system.
+	// Hierarchy information of a product.
 	HierarchyInformation HierarchyInformationResponseInput `pulumi:"hierarchyInformation"`
 	// Image information for the product system.
 	ImageInformation ImageInformationResponseArrayInput `pulumi:"imageInformation"`
@@ -5720,7 +6022,7 @@ func (o ProductResponseOutput) FilterableProperties() FilterablePropertyResponse
 	return o.ApplyT(func(v ProductResponse) []FilterablePropertyResponse { return v.FilterableProperties }).(FilterablePropertyResponseArrayOutput)
 }
 
-// Hierarchy information of the product system.
+// Hierarchy information of a product.
 func (o ProductResponseOutput) HierarchyInformation() HierarchyInformationResponseOutput {
 	return o.ApplyT(func(v ProductResponse) HierarchyInformationResponse { return v.HierarchyInformation }).(HierarchyInformationResponseOutput)
 }
@@ -5748,6 +6050,109 @@ func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductResponse {
 		return vs[0].([]ProductResponse)[vs[1].(int)]
 	}).(ProductResponseOutput)
+}
+
+// Billing type Purchase meter details
+type PurchaseMeterDetailsResponse struct {
+	// Represents billing type.
+	// Expected value is 'Purchase'.
+	BillingType string `pulumi:"billingType"`
+	// Charging type.
+	ChargingType string `pulumi:"chargingType"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier float64 `pulumi:"multiplier"`
+	// Product Id
+	ProductId string `pulumi:"productId"`
+	// Sku Id
+	SkuId string `pulumi:"skuId"`
+	// Term Id
+	TermId string `pulumi:"termId"`
+}
+
+// PurchaseMeterDetailsResponseInput is an input type that accepts PurchaseMeterDetailsResponseArgs and PurchaseMeterDetailsResponseOutput values.
+// You can construct a concrete instance of `PurchaseMeterDetailsResponseInput` via:
+//
+//          PurchaseMeterDetailsResponseArgs{...}
+type PurchaseMeterDetailsResponseInput interface {
+	pulumi.Input
+
+	ToPurchaseMeterDetailsResponseOutput() PurchaseMeterDetailsResponseOutput
+	ToPurchaseMeterDetailsResponseOutputWithContext(context.Context) PurchaseMeterDetailsResponseOutput
+}
+
+// Billing type Purchase meter details
+type PurchaseMeterDetailsResponseArgs struct {
+	// Represents billing type.
+	// Expected value is 'Purchase'.
+	BillingType pulumi.StringInput `pulumi:"billingType"`
+	// Charging type.
+	ChargingType pulumi.StringInput `pulumi:"chargingType"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier pulumi.Float64Input `pulumi:"multiplier"`
+	// Product Id
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// Sku Id
+	SkuId pulumi.StringInput `pulumi:"skuId"`
+	// Term Id
+	TermId pulumi.StringInput `pulumi:"termId"`
+}
+
+func (PurchaseMeterDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchaseMeterDetailsResponse)(nil)).Elem()
+}
+
+func (i PurchaseMeterDetailsResponseArgs) ToPurchaseMeterDetailsResponseOutput() PurchaseMeterDetailsResponseOutput {
+	return i.ToPurchaseMeterDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i PurchaseMeterDetailsResponseArgs) ToPurchaseMeterDetailsResponseOutputWithContext(ctx context.Context) PurchaseMeterDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchaseMeterDetailsResponseOutput)
+}
+
+// Billing type Purchase meter details
+type PurchaseMeterDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (PurchaseMeterDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchaseMeterDetailsResponse)(nil)).Elem()
+}
+
+func (o PurchaseMeterDetailsResponseOutput) ToPurchaseMeterDetailsResponseOutput() PurchaseMeterDetailsResponseOutput {
+	return o
+}
+
+func (o PurchaseMeterDetailsResponseOutput) ToPurchaseMeterDetailsResponseOutputWithContext(ctx context.Context) PurchaseMeterDetailsResponseOutput {
+	return o
+}
+
+// Represents billing type.
+// Expected value is 'Purchase'.
+func (o PurchaseMeterDetailsResponseOutput) BillingType() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.BillingType }).(pulumi.StringOutput)
+}
+
+// Charging type.
+func (o PurchaseMeterDetailsResponseOutput) ChargingType() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.ChargingType }).(pulumi.StringOutput)
+}
+
+// Billing unit applicable for Pav2 billing
+func (o PurchaseMeterDetailsResponseOutput) Multiplier() pulumi.Float64Output {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) float64 { return v.Multiplier }).(pulumi.Float64Output)
+}
+
+// Product Id
+func (o PurchaseMeterDetailsResponseOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Sku Id
+func (o PurchaseMeterDetailsResponseOutput) SkuId() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.SkuId }).(pulumi.StringOutput)
+}
+
+// Term Id
+func (o PurchaseMeterDetailsResponseOutput) TermId() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchaseMeterDetailsResponse) string { return v.TermId }).(pulumi.StringOutput)
 }
 
 // Shipping address where customer wishes to receive the device.
@@ -6660,13 +7065,13 @@ func (o SpecificationResponseArrayOutput) Index(i pulumi.IntInput) Specification
 	}).(SpecificationResponseOutput)
 }
 
-// Resource stage details
+// Resource stage details.
 type StageDetailsResponse struct {
 	// Display name of the resource stage.
 	DisplayName string `pulumi:"displayName"`
 	// Stage name
 	StageName string `pulumi:"stageName"`
-	// Stage status
+	// Stage status.
 	StageStatus string `pulumi:"stageStatus"`
 	// Stage start time
 	StartTime string `pulumi:"startTime"`
@@ -6683,13 +7088,13 @@ type StageDetailsResponseInput interface {
 	ToStageDetailsResponseOutputWithContext(context.Context) StageDetailsResponseOutput
 }
 
-// Resource stage details
+// Resource stage details.
 type StageDetailsResponseArgs struct {
 	// Display name of the resource stage.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Stage name
 	StageName pulumi.StringInput `pulumi:"stageName"`
-	// Stage status
+	// Stage status.
 	StageStatus pulumi.StringInput `pulumi:"stageStatus"`
 	// Stage start time
 	StartTime pulumi.StringInput `pulumi:"startTime"`
@@ -6773,7 +7178,7 @@ func (i StageDetailsResponseArray) ToStageDetailsResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponseArrayOutput)
 }
 
-// Resource stage details
+// Resource stage details.
 type StageDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (StageDetailsResponseOutput) ElementType() reflect.Type {
@@ -6808,7 +7213,7 @@ func (o StageDetailsResponseOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v StageDetailsResponse) string { return v.StageName }).(pulumi.StringOutput)
 }
 
-// Stage status
+// Stage status.
 func (o StageDetailsResponseOutput) StageStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v StageDetailsResponse) string { return v.StageStatus }).(pulumi.StringOutput)
 }
@@ -6856,7 +7261,7 @@ func (o StageDetailsResponsePtrOutput) StageName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stage status
+// Stage status.
 func (o StageDetailsResponsePtrOutput) StageStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageDetailsResponse) *string {
 		if v == nil {
@@ -7465,6 +7870,9 @@ func init() {
 	pulumi.RegisterOutputType(DescriptionResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(DimensionsResponseOutput{})
+	pulumi.RegisterOutputType(DisplayInfoResponseOutput{})
+	pulumi.RegisterOutputType(DisplayInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPreferencesOutput{})
 	pulumi.RegisterOutputType(EncryptionPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPreferencesResponseOutput{})
@@ -7486,11 +7894,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(LinkResponseOutput{})
 	pulumi.RegisterOutputType(LinkResponseArrayOutput{})
-	pulumi.RegisterOutputType(ManagementResourceDetailsOutput{})
-	pulumi.RegisterOutputType(ManagementResourceDetailsPtrOutput{})
-	pulumi.RegisterOutputType(ManagementResourceDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ManagementResourceDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(MeterDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ManagementResourcePreferencesOutput{})
+	pulumi.RegisterOutputType(ManagementResourcePreferencesPtrOutput{})
+	pulumi.RegisterOutputType(ManagementResourcePreferencesResponseOutput{})
+	pulumi.RegisterOutputType(ManagementResourcePreferencesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseOutput{})
@@ -7499,6 +7906,7 @@ func init() {
 	pulumi.RegisterOutputType(OrderItemDetailsPtrOutput{})
 	pulumi.RegisterOutputType(OrderItemDetailsResponseOutput{})
 	pulumi.RegisterOutputType(OrderItemDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(Pav2MeterDetailsResponseOutput{})
 	pulumi.RegisterOutputType(PreferencesOutput{})
 	pulumi.RegisterOutputType(PreferencesPtrOutput{})
 	pulumi.RegisterOutputType(PreferencesResponseOutput{})
@@ -7513,6 +7921,7 @@ func init() {
 	pulumi.RegisterOutputType(ProductLineResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProductResponseOutput{})
 	pulumi.RegisterOutputType(ProductResponseArrayOutput{})
+	pulumi.RegisterOutputType(PurchaseMeterDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ShippingAddressOutput{})
 	pulumi.RegisterOutputType(ShippingAddressPtrOutput{})
 	pulumi.RegisterOutputType(ShippingAddressResponseOutput{})

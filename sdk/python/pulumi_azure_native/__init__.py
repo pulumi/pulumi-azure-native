@@ -2084,6 +2084,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "batch/v20210601",
+  "fqn": "pulumi_azure_native.batch.v20210601",
+  "classes": {
+   "azure-native:batch/v20210601:Application": "Application",
+   "azure-native:batch/v20210601:ApplicationPackage": "ApplicationPackage",
+   "azure-native:batch/v20210601:BatchAccount": "BatchAccount",
+   "azure-native:batch/v20210601:Certificate": "Certificate",
+   "azure-native:batch/v20210601:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "billing",
   "fqn": "pulumi_azure_native.billing",
   "classes": {
@@ -4473,6 +4485,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20210601preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20210601preview",
+  "classes": {
+   "azure-native:dataprotection/v20210601preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20210601preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20210601preview:BackupVault": "BackupVault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -6531,6 +6553,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventhub/v20210601preview",
+  "fqn": "pulumi_azure_native.eventhub.v20210601preview",
+  "classes": {
+   "azure-native:eventhub/v20210601preview:ConsumerGroup": "ConsumerGroup",
+   "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:eventhub/v20210601preview:EventHub": "EventHub",
+   "azure-native:eventhub/v20210601preview:EventHubAuthorizationRule": "EventHubAuthorizationRule",
+   "azure-native:eventhub/v20210601preview:Namespace": "Namespace",
+   "azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:eventhub/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "extendedlocation",
   "fqn": "pulumi_azure_native.extendedlocation",
   "classes": {
@@ -8173,8 +8210,6 @@ _utilities.register(
   "mod": "machinelearningservices/v20210301preview",
   "fqn": "pulumi_azure_native.machinelearningservices.v20210301preview",
   "classes": {
-   "azure-native:machinelearningservices/v20210301preview:ACIService": "ACIService",
-   "azure-native:machinelearningservices/v20210301preview:AKSService": "AKSService",
    "azure-native:machinelearningservices/v20210301preview:BatchDeployment": "BatchDeployment",
    "azure-native:machinelearningservices/v20210301preview:BatchEndpoint": "BatchEndpoint",
    "azure-native:machinelearningservices/v20210301preview:CodeContainer": "CodeContainer",
@@ -8183,12 +8218,10 @@ _utilities.register(
    "azure-native:machinelearningservices/v20210301preview:DataContainer": "DataContainer",
    "azure-native:machinelearningservices/v20210301preview:DataVersion": "DataVersion",
    "azure-native:machinelearningservices/v20210301preview:Datastore": "Datastore",
-   "azure-native:machinelearningservices/v20210301preview:EndpointVariant": "EndpointVariant",
    "azure-native:machinelearningservices/v20210301preview:EnvironmentContainer": "EnvironmentContainer",
    "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion": "EnvironmentSpecificationVersion",
    "azure-native:machinelearningservices/v20210301preview:Job": "Job",
    "azure-native:machinelearningservices/v20210301preview:LabelingJob": "LabelingJob",
-   "azure-native:machinelearningservices/v20210301preview:MachineLearningService": "MachineLearningService",
    "azure-native:machinelearningservices/v20210301preview:ModelContainer": "ModelContainer",
    "azure-native:machinelearningservices/v20210301preview:ModelVersion": "ModelVersion",
    "azure-native:machinelearningservices/v20210301preview:OnlineDeployment": "OnlineDeployment",

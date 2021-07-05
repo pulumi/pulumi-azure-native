@@ -79,12 +79,6 @@ func NewEndpointVariant(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:EndpointVariant"),
 		},
 		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:EndpointVariant"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:EndpointVariant"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:EndpointVariant"),
 		},
 		{

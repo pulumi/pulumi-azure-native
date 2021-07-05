@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly Outputs.EncryptionPreferencesResponse? EncryptionPreferences;
         /// <summary>
+        /// Preferences related to the Management resource.
+        /// </summary>
+        public readonly Outputs.ManagementResourcePreferencesResponse? ManagementResourcePreferences;
+        /// <summary>
         /// Notification preferences.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPreferenceResponse> NotificationPreferences;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         private PreferencesResponse(
             Outputs.EncryptionPreferencesResponse? encryptionPreferences,
 
+            Outputs.ManagementResourcePreferencesResponse? managementResourcePreferences,
+
             ImmutableArray<Outputs.NotificationPreferenceResponse> notificationPreferences,
 
             Outputs.TransportPreferencesResponse? transportPreferences)
         {
             EncryptionPreferences = encryptionPreferences;
+            ManagementResourcePreferences = managementResourcePreferences;
             NotificationPreferences = notificationPreferences;
             TransportPreferences = transportPreferences;
         }

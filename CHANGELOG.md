@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft
+
+- A number of breaking changes in `edgeorder` module (preview API version)
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14935))
 
 ---
 

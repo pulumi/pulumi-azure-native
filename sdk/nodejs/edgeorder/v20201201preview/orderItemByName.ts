@@ -36,7 +36,7 @@ export class OrderItemByName extends pulumi.CustomResource {
     }
 
     /**
-     * Represents shipping and return address for order
+     * Represents shipping and return address for order item
      */
     public readonly addressDetails!: pulumi.Output<outputs.edgeorder.v20201201preview.AddressDetailsResponse>;
     /**
@@ -48,7 +48,7 @@ export class OrderItemByName extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Id of the order to which order items belongs to
+     * Id of the order to which order item belongs to
      */
     public readonly orderId!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class OrderItemByName extends pulumi.CustomResource {
  */
 export interface OrderItemByNameArgs {
     /**
-     * Represents shipping and return address for order
+     * Represents shipping and return address for order item
      */
     addressDetails: pulumi.Input<inputs.edgeorder.v20201201preview.AddressDetailsArgs>;
     /**
@@ -139,7 +139,7 @@ export interface OrderItemByNameArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Id of the order to which order items belongs to
+     * Id of the order to which order item belongs to
      */
     orderId: pulumi.Input<string>;
     /**

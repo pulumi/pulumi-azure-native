@@ -44,16 +44,6 @@ export const ClusterPurpose = {
  */
 export type ClusterPurpose = (typeof ClusterPurpose)[keyof typeof ClusterPurpose];
 
-export const ComputeEnvironmentType = {
-    ACI: "ACI",
-    AKS: "AKS",
-} as const;
-
-/**
- * The compute environment type for the service.
- */
-export type ComputeEnvironmentType = (typeof ComputeEnvironmentType)[keyof typeof ComputeEnvironmentType];
-
 export const ComputeInstanceAuthorizationType = {
     Personal: "personal",
 } as const;
@@ -472,16 +462,6 @@ export const ValueFormat = {
  * format for the workspace connection value
  */
 export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
-
-export const VariantType = {
-    Control: "Control",
-    Treatment: "Treatment",
-} as const;
-
-/**
- * The type of the variant.
- */
-export type VariantType = (typeof VariantType)[keyof typeof VariantType];
 
 export const VmPriority = {
     Dedicated: "Dedicated",

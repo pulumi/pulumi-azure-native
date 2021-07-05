@@ -98,8 +98,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:AKSService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:AKSService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:AKSService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:AKSService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:AKSService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210401:AKSService"},
                 },

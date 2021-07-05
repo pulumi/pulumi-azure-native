@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly string StageName;
         /// <summary>
-        /// Stage status
+        /// Stage status.
         /// </summary>
         public readonly string StageStatus;
         /// <summary>

@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly Outputs.DescriptionResponse Description;
         /// <summary>
+        /// Dimensions of the configuration
+        /// </summary>
+        public readonly Outputs.DimensionsResponse Dimensions;
+        /// <summary>
         /// Display Name for the product system.
         /// </summary>
         public readonly string DisplayName;
@@ -34,7 +38,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterablePropertyResponse> FilterableProperties;
         /// <summary>
-        /// Hierarchy information of the product system.
+        /// Hierarchy information of a product.
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
         /// <summary>
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             Outputs.DescriptionResponse description,
 
+            Outputs.DimensionsResponse dimensions,
+
             string displayName,
 
             ImmutableArray<Outputs.FilterablePropertyResponse> filterableProperties,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
             AvailabilityInformation = availabilityInformation;
             CostInformation = costInformation;
             Description = description;
+            Dimensions = dimensions;
             DisplayName = displayName;
             FilterableProperties = filterableProperties;
             HierarchyInformation = hierarchyInformation;

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly string CancellationReason;
         /// <summary>
-        /// Describes whether the order is cancellable or not.
+        /// Describes whether the orderItem is cancellable or not.
         /// </summary>
         public readonly string CancellationStatus;
         /// <summary>
@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// Forward Package Shipping details
         /// </summary>
         public readonly Outputs.ShippingDetailsResponse ForwardShippingDetails;
-        /// <summary>
-        /// Management resource details
-        /// </summary>
-        public readonly Outputs.ManagementResourceDetailsResponse? ManagementResourceDetails;
         /// <summary>
         /// parent RP details
         /// </summary>
@@ -70,7 +66,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly string ReturnReason;
         /// <summary>
-        /// Describes whether the order item is returnable or not.
+        /// Describes whether the orderItem is returnable or not.
         /// </summary>
         public readonly string ReturnStatus;
         /// <summary>
@@ -91,8 +87,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
             Outputs.ErrorDetailResponse error,
 
             Outputs.ShippingDetailsResponse forwardShippingDetails,
-
-            Outputs.ManagementResourceDetailsResponse? managementResourceDetails,
 
             object managementRpDetails,
 
@@ -118,7 +112,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
             DeletionStatus = deletionStatus;
             Error = error;
             ForwardShippingDetails = forwardShippingDetails;
-            ManagementResourceDetails = managementResourceDetails;
             ManagementRpDetails = managementRpDetails;
             NotificationEmailList = notificationEmailList;
             OrderItemStageHistory = orderItemStageHistory;

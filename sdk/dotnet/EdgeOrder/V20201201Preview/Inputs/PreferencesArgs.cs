@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         [Input("encryptionPreferences")]
         public Input<Inputs.EncryptionPreferencesArgs>? EncryptionPreferences { get; set; }
 
+        /// <summary>
+        /// Preferences related to the Management resource.
+        /// </summary>
+        [Input("managementResourcePreferences")]
+        public Input<Inputs.ManagementResourcePreferencesArgs>? ManagementResourcePreferences { get; set; }
+
         [Input("notificationPreferences")]
         private InputList<Inputs.NotificationPreferenceArgs>? _notificationPreferences;
 

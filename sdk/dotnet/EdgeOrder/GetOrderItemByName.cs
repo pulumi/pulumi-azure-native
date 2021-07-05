@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class GetOrderItemByNameArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the order item
         /// </summary>
         [Input("orderItemName", required: true)]
@@ -44,7 +50,7 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class GetOrderItemByNameResult
     {
         /// <summary>
-        /// Represents shipping and return address for order
+        /// Represents shipping and return address for order item
         /// </summary>
         public readonly Outputs.AddressDetailsResponse AddressDetails;
         /// <summary>
@@ -60,7 +66,7 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Id of the order to which order items belongs to
+        /// Id of the order to which order item belongs to
         /// </summary>
         public readonly string OrderId;
         /// <summary>

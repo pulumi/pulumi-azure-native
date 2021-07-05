@@ -62,6 +62,10 @@ export class EventHubEventSource extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"Microsoft.EventHub">;
     /**
+     * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+     */
+    public readonly localTimestamp!: pulumi.Output<outputs.timeseriesinsights.LocalTimestampResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -158,6 +162,7 @@ export class EventHubEventSource extends pulumi.CustomResource {
             inputs["eventSourceResourceId"] = undefined /*out*/;
             inputs["keyName"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["localTimestamp"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

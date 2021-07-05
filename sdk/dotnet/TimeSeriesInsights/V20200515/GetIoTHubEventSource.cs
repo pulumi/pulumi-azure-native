@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        /// </summary>
+        public readonly Outputs.LocalTimestampResponse? LocalTimestamp;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
 
             string kind,
 
+            Outputs.LocalTimestampResponse? localTimestamp,
+
             string location,
 
             string name,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
             IotHubName = iotHubName;
             KeyName = keyName;
             Kind = kind;
+            LocalTimestamp = localTimestamp;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

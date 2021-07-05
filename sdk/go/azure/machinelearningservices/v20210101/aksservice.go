@@ -79,12 +79,6 @@ func NewAKSService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:AKSService"),
 		},
 		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:AKSService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:AKSService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:AKSService"),
 		},
 		{

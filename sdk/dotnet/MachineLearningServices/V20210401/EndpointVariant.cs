@@ -106,8 +106,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:EndpointVariant"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:EndpointVariant"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:EndpointVariant"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:EndpointVariant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

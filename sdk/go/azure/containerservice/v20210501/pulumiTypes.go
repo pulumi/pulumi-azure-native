@@ -278,376 +278,6 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) MaxSurge() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An error response from the Container service.
-type CloudErrorBodyResponse struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code *string `pulumi:"code"`
-	// A list of additional details about the error.
-	Details []CloudErrorBodyResponse `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message *string `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target *string `pulumi:"target"`
-}
-
-// CloudErrorBodyResponseInput is an input type that accepts CloudErrorBodyResponseArgs and CloudErrorBodyResponseOutput values.
-// You can construct a concrete instance of `CloudErrorBodyResponseInput` via:
-//
-//          CloudErrorBodyResponseArgs{...}
-type CloudErrorBodyResponseInput interface {
-	pulumi.Input
-
-	ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput
-	ToCloudErrorBodyResponseOutputWithContext(context.Context) CloudErrorBodyResponseOutput
-}
-
-// An error response from the Container service.
-type CloudErrorBodyResponseArgs struct {
-	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// A list of additional details about the error.
-	Details CloudErrorBodyResponseArrayInput `pulumi:"details"`
-	// A message describing the error, intended to be suitable for display in a user interface.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The target of the particular error. For example, the name of the property in error.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-}
-
-func (CloudErrorBodyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput {
-	return i.ToCloudErrorBodyResponseOutputWithContext(context.Background())
-}
-
-func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponseOutputWithContext(ctx context.Context) CloudErrorBodyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseOutput)
-}
-
-func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
-	return i.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudErrorBodyResponseArgs) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseOutput).ToCloudErrorBodyResponsePtrOutputWithContext(ctx)
-}
-
-// CloudErrorBodyResponsePtrInput is an input type that accepts CloudErrorBodyResponseArgs, CloudErrorBodyResponsePtr and CloudErrorBodyResponsePtrOutput values.
-// You can construct a concrete instance of `CloudErrorBodyResponsePtrInput` via:
-//
-//          CloudErrorBodyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CloudErrorBodyResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput
-	ToCloudErrorBodyResponsePtrOutputWithContext(context.Context) CloudErrorBodyResponsePtrOutput
-}
-
-type cloudErrorBodyResponsePtrType CloudErrorBodyResponseArgs
-
-func CloudErrorBodyResponsePtr(v *CloudErrorBodyResponseArgs) CloudErrorBodyResponsePtrInput {
-	return (*cloudErrorBodyResponsePtrType)(v)
-}
-
-func (*cloudErrorBodyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (i *cloudErrorBodyResponsePtrType) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
-	return i.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudErrorBodyResponsePtrType) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponsePtrOutput)
-}
-
-// CloudErrorBodyResponseArrayInput is an input type that accepts CloudErrorBodyResponseArray and CloudErrorBodyResponseArrayOutput values.
-// You can construct a concrete instance of `CloudErrorBodyResponseArrayInput` via:
-//
-//          CloudErrorBodyResponseArray{ CloudErrorBodyResponseArgs{...} }
-type CloudErrorBodyResponseArrayInput interface {
-	pulumi.Input
-
-	ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput
-	ToCloudErrorBodyResponseArrayOutputWithContext(context.Context) CloudErrorBodyResponseArrayOutput
-}
-
-type CloudErrorBodyResponseArray []CloudErrorBodyResponseInput
-
-func (CloudErrorBodyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput {
-	return i.ToCloudErrorBodyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CloudErrorBodyResponseArray) ToCloudErrorBodyResponseArrayOutputWithContext(ctx context.Context) CloudErrorBodyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorBodyResponseArrayOutput)
-}
-
-// An error response from the Container service.
-type CloudErrorBodyResponseOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorBodyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutput() CloudErrorBodyResponseOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponseOutputWithContext(ctx context.Context) CloudErrorBodyResponseOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
-	return o.ToCloudErrorBodyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *CloudErrorBodyResponse {
-		return &v
-	}).(CloudErrorBodyResponsePtrOutput)
-}
-
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-func (o CloudErrorBodyResponseOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
-}
-
-// A list of additional details about the error.
-func (o CloudErrorBodyResponseOutput) Details() CloudErrorBodyResponseArrayOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) []CloudErrorBodyResponse { return v.Details }).(CloudErrorBodyResponseArrayOutput)
-}
-
-// A message describing the error, intended to be suitable for display in a user interface.
-func (o CloudErrorBodyResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// The target of the particular error. For example, the name of the property in error.
-func (o CloudErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type CloudErrorBodyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorBodyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutput() CloudErrorBodyResponsePtrOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse { return *v }).(CloudErrorBodyResponseOutput)
-}
-
-// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-func (o CloudErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of additional details about the error.
-func (o CloudErrorBodyResponsePtrOutput) Details() CloudErrorBodyResponseArrayOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) []CloudErrorBodyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(CloudErrorBodyResponseArrayOutput)
-}
-
-// A message describing the error, intended to be suitable for display in a user interface.
-func (o CloudErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// The target of the particular error. For example, the name of the property in error.
-func (o CloudErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-type CloudErrorBodyResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorBodyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudErrorBodyResponse)(nil)).Elem()
-}
-
-func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutput() CloudErrorBodyResponseArrayOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponseArrayOutput) ToCloudErrorBodyResponseArrayOutputWithContext(ctx context.Context) CloudErrorBodyResponseArrayOutput {
-	return o
-}
-
-func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBodyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorBodyResponse {
-		return vs[0].([]CloudErrorBodyResponse)[vs[1].(int)]
-	}).(CloudErrorBodyResponseOutput)
-}
-
-// An error response from the Container service.
-type CloudErrorResponse struct {
-	// Details about the error.
-	Error *CloudErrorBodyResponse `pulumi:"error"`
-}
-
-// CloudErrorResponseInput is an input type that accepts CloudErrorResponseArgs and CloudErrorResponseOutput values.
-// You can construct a concrete instance of `CloudErrorResponseInput` via:
-//
-//          CloudErrorResponseArgs{...}
-type CloudErrorResponseInput interface {
-	pulumi.Input
-
-	ToCloudErrorResponseOutput() CloudErrorResponseOutput
-	ToCloudErrorResponseOutputWithContext(context.Context) CloudErrorResponseOutput
-}
-
-// An error response from the Container service.
-type CloudErrorResponseArgs struct {
-	// Details about the error.
-	Error CloudErrorBodyResponsePtrInput `pulumi:"error"`
-}
-
-func (CloudErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
-}
-
-func (i CloudErrorResponseArgs) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
-	return i.ToCloudErrorResponseOutputWithContext(context.Background())
-}
-
-func (i CloudErrorResponseArgs) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput)
-}
-
-func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput).ToCloudErrorResponsePtrOutputWithContext(ctx)
-}
-
-// CloudErrorResponsePtrInput is an input type that accepts CloudErrorResponseArgs, CloudErrorResponsePtr and CloudErrorResponsePtrOutput values.
-// You can construct a concrete instance of `CloudErrorResponsePtrInput` via:
-//
-//          CloudErrorResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CloudErrorResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput
-	ToCloudErrorResponsePtrOutputWithContext(context.Context) CloudErrorResponsePtrOutput
-}
-
-type cloudErrorResponsePtrType CloudErrorResponseArgs
-
-func CloudErrorResponsePtr(v *CloudErrorResponseArgs) CloudErrorResponsePtrInput {
-	return (*cloudErrorResponsePtrType)(v)
-}
-
-func (*cloudErrorResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
-}
-
-func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponsePtrOutput)
-}
-
-// An error response from the Container service.
-type CloudErrorResponseOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
-}
-
-func (o CloudErrorResponseOutput) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
-	return o
-}
-
-func (o CloudErrorResponseOutput) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
-	return o
-}
-
-func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return o.ToCloudErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorResponse {
-		return &v
-	}).(CloudErrorResponsePtrOutput)
-}
-
-// Details about the error.
-func (o CloudErrorResponseOutput) Error() CloudErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorBodyResponse { return v.Error }).(CloudErrorBodyResponsePtrOutput)
-}
-
-type CloudErrorResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
-}
-
-func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return o
-}
-
-func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return o
-}
-
-func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse { return *v }).(CloudErrorResponseOutput)
-}
-
-// Details about the error.
-func (o CloudErrorResponsePtrOutput) Error() CloudErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) *CloudErrorBodyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Error
-	}).(CloudErrorBodyResponsePtrOutput)
-}
-
 // Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
 	// The administrator username to use for Linux VMs.
@@ -8637,6 +8267,384 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentityE
 	}).(ManagedClusterPodIdentityExceptionResponseArrayOutput)
 }
 
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorBodyResponse struct {
+	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+	Code *string `pulumi:"code"`
+	// A list of additional details about the error.
+	Details []ManagedClusterPodIdentityProvisioningErrorBodyResponse `pulumi:"details"`
+	// A message describing the error, intended to be suitable for display in a user interface.
+	Message *string `pulumi:"message"`
+	// The target of the particular error. For example, the name of the property in error.
+	Target *string `pulumi:"target"`
+}
+
+// ManagedClusterPodIdentityProvisioningErrorBodyResponseInput is an input type that accepts ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs and ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProvisioningErrorBodyResponseInput` via:
+//
+//          ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs{...}
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutputWithContext(context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput
+}
+
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs struct {
+	// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// A list of additional details about the error.
+	Details ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayInput `pulumi:"details"`
+	// A message describing the error, intended to be suitable for display in a user interface.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The target of the particular error. For example, the name of the property in error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput)
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput).ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrInput is an input type that accepts ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs, ManagedClusterPodIdentityProvisioningErrorBodyResponsePtr and ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrInput` via:
+//
+//          ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput
+}
+
+type managedClusterPodIdentityProvisioningErrorBodyResponsePtrType ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs
+
+func ManagedClusterPodIdentityProvisioningErrorBodyResponsePtr(v *ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrInput {
+	return (*managedClusterPodIdentityProvisioningErrorBodyResponsePtrType)(v)
+}
+
+func (*managedClusterPodIdentityProvisioningErrorBodyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (i *managedClusterPodIdentityProvisioningErrorBodyResponsePtrType) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPodIdentityProvisioningErrorBodyResponsePtrType) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput)
+}
+
+// ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayInput is an input type that accepts ManagedClusterPodIdentityProvisioningErrorBodyResponseArray and ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayInput` via:
+//
+//          ManagedClusterPodIdentityProvisioningErrorBodyResponseArray{ ManagedClusterPodIdentityProvisioningErrorBodyResponseArgs{...} }
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput
+	ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutputWithContext(context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput
+}
+
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseArray []ManagedClusterPodIdentityProvisioningErrorBodyResponseInput
+
+func (ManagedClusterPodIdentityProvisioningErrorBodyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArray) ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorBodyResponseArray) ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput)
+}
+
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o.ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		return &v
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput)
+}
+
+// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// A list of additional details about the error.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) Details() ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) []ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		return v.Details
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput)
+}
+
+// A message describing the error, intended to be suitable for display in a user interface.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error. For example, the name of the property in error.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Elem() ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		return *v
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput)
+}
+
+// An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of additional details about the error.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Details() ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) []ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput)
+}
+
+// A message describing the error, intended to be suitable for display in a user interface.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target of the particular error. For example, the name of the property in error.
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterPodIdentityProvisioningErrorBodyResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput() ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		return vs[0].([]ManagedClusterPodIdentityProvisioningErrorBodyResponse)[vs[1].(int)]
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput)
+}
+
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorResponse struct {
+	// Details about the error.
+	Error *ManagedClusterPodIdentityProvisioningErrorBodyResponse `pulumi:"error"`
+}
+
+// ManagedClusterPodIdentityProvisioningErrorResponseInput is an input type that accepts ManagedClusterPodIdentityProvisioningErrorResponseArgs and ManagedClusterPodIdentityProvisioningErrorResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProvisioningErrorResponseInput` via:
+//
+//          ManagedClusterPodIdentityProvisioningErrorResponseArgs{...}
+type ManagedClusterPodIdentityProvisioningErrorResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProvisioningErrorResponseOutput() ManagedClusterPodIdentityProvisioningErrorResponseOutput
+	ToManagedClusterPodIdentityProvisioningErrorResponseOutputWithContext(context.Context) ManagedClusterPodIdentityProvisioningErrorResponseOutput
+}
+
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorResponseArgs struct {
+	// Details about the error.
+	Error ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrInput `pulumi:"error"`
+}
+
+func (ManagedClusterPodIdentityProvisioningErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorResponseArgs) ToManagedClusterPodIdentityProvisioningErrorResponseOutput() ManagedClusterPodIdentityProvisioningErrorResponseOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorResponseArgs) ToManagedClusterPodIdentityProvisioningErrorResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorResponseOutput)
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorResponseArgs) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPodIdentityProvisioningErrorResponseArgs) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorResponseOutput).ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPodIdentityProvisioningErrorResponsePtrInput is an input type that accepts ManagedClusterPodIdentityProvisioningErrorResponseArgs, ManagedClusterPodIdentityProvisioningErrorResponsePtr and ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPodIdentityProvisioningErrorResponsePtrInput` via:
+//
+//          ManagedClusterPodIdentityProvisioningErrorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPodIdentityProvisioningErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput
+	ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput
+}
+
+type managedClusterPodIdentityProvisioningErrorResponsePtrType ManagedClusterPodIdentityProvisioningErrorResponseArgs
+
+func ManagedClusterPodIdentityProvisioningErrorResponsePtr(v *ManagedClusterPodIdentityProvisioningErrorResponseArgs) ManagedClusterPodIdentityProvisioningErrorResponsePtrInput {
+	return (*managedClusterPodIdentityProvisioningErrorResponsePtrType)(v)
+}
+
+func (*managedClusterPodIdentityProvisioningErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (i *managedClusterPodIdentityProvisioningErrorResponsePtrType) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return i.ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPodIdentityProvisioningErrorResponsePtrType) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput)
+}
+
+// An error response from the pod identity provisioning.
+type ManagedClusterPodIdentityProvisioningErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProvisioningErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPodIdentityProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClusterPodIdentityProvisioningErrorResponseOutput() ManagedClusterPodIdentityProvisioningErrorResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClusterPodIdentityProvisioningErrorResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return o.ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorResponse) *ManagedClusterPodIdentityProvisioningErrorResponse {
+		return &v
+	}).(ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput)
+}
+
+// Details about the error.
+func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) Error() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorResponse) *ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		return v.Error
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput)
+}
+
+type ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPodIdentityProvisioningErrorResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutput() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) Elem() ManagedClusterPodIdentityProvisioningErrorResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorResponse) ManagedClusterPodIdentityProvisioningErrorResponse {
+		return *v
+	}).(ManagedClusterPodIdentityProvisioningErrorResponseOutput)
+}
+
+// Details about the error.
+func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) Error() ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorResponse) *ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput)
+}
+
 // Details about the pod identity assigned to the Managed Cluster.
 type ManagedClusterPodIdentityResponse struct {
 	// The binding selector to use for the AzureIdentityBinding resource.
@@ -8783,7 +8791,7 @@ func (o ManagedClusterPodIdentityResponseArrayOutput) Index(i pulumi.IntInput) M
 
 type ManagedClusterPodIdentityResponseProvisioningInfo struct {
 	// Pod identity assignment error (if any).
-	Error *CloudErrorResponse `pulumi:"error"`
+	Error *ManagedClusterPodIdentityProvisioningErrorResponse `pulumi:"error"`
 }
 
 // ManagedClusterPodIdentityResponseProvisioningInfoInput is an input type that accepts ManagedClusterPodIdentityResponseProvisioningInfoArgs and ManagedClusterPodIdentityResponseProvisioningInfoOutput values.
@@ -8799,7 +8807,7 @@ type ManagedClusterPodIdentityResponseProvisioningInfoInput interface {
 
 type ManagedClusterPodIdentityResponseProvisioningInfoArgs struct {
 	// Pod identity assignment error (if any).
-	Error CloudErrorResponsePtrInput `pulumi:"error"`
+	Error ManagedClusterPodIdentityProvisioningErrorResponsePtrInput `pulumi:"error"`
 }
 
 func (ManagedClusterPodIdentityResponseProvisioningInfoArgs) ElementType() reflect.Type {
@@ -8829,8 +8837,10 @@ func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) ToManagedCluste
 }
 
 // Pod identity assignment error (if any).
-func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) Error() CloudErrorResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPodIdentityResponseProvisioningInfo) *CloudErrorResponse { return v.Error }).(CloudErrorResponsePtrOutput)
+func (o ManagedClusterPodIdentityResponseProvisioningInfoOutput) Error() ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponseProvisioningInfo) *ManagedClusterPodIdentityProvisioningErrorResponse {
+		return v.Error
+	}).(ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput)
 }
 
 // Parameters to be applied to the cluster-autoscaler when enabled
@@ -14242,11 +14252,6 @@ func init() {
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(CloudErrorBodyResponseOutput{})
-	pulumi.RegisterOutputType(CloudErrorBodyResponsePtrOutput{})
-	pulumi.RegisterOutputType(CloudErrorBodyResponseArrayOutput{})
-	pulumi.RegisterOutputType(CloudErrorResponseOutput{})
-	pulumi.RegisterOutputType(CloudErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
@@ -14334,6 +14339,11 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProvisioningErrorBodyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProvisioningErrorResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseProvisioningInfoOutput{})

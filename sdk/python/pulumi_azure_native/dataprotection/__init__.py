@@ -19,7 +19,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.dataprotection.v20210101 as v20210101
     import pulumi_azure_native.dataprotection.v20210201preview as v20210201preview
+    import pulumi_azure_native.dataprotection.v20210601preview as v20210601preview
 else:
     v20210101 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210101')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210201preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210601preview')
 

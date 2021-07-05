@@ -35,12 +35,8 @@ class NotificationStageName(str, Enum):
     """
     Name of the stage.
     """
-    DEVICE_PREPARED = "DevicePrepared"
     SHIPPED = "Shipped"
     DELIVERED = "Delivered"
-    PICKED_UP = "PickedUp"
-    AT_AZURE_DC = "AtAzureDC"
-    DATA_COPY = "DataCopy"
 
 
 class OrderItemType(str, Enum):

@@ -20,6 +20,8 @@ __all__ = [
     'CostInformationResponse',
     'DescriptionResponse',
     'DeviceDetailsResponse',
+    'DimensionsResponse',
+    'DisplayInfoResponse',
     'EncryptionPreferencesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
@@ -27,15 +29,16 @@ __all__ = [
     'HierarchyInformationResponse',
     'ImageInformationResponse',
     'LinkResponse',
-    'ManagementResourceDetailsResponse',
-    'MeterDetailsResponse',
+    'ManagementResourcePreferencesResponse',
     'NotificationPreferenceResponse',
     'OrderItemDetailsResponse',
+    'Pav2MeterDetailsResponse',
     'PreferencesResponse',
     'ProductDetailsResponse',
     'ProductFamilyResponse',
     'ProductLineResponse',
     'ProductResponse',
+    'PurchaseMeterDetailsResponse',
     'ShippingAddressResponse',
     'ShippingDetailsResponse',
     'SpecificationResponse',
@@ -47,7 +50,7 @@ __all__ = [
 @pulumi.output_type
 class AddressDetailsResponse(dict):
     """
-    Address details for an order.
+    Address details for an order item.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -72,7 +75,7 @@ class AddressDetailsResponse(dict):
                  forward_address: 'outputs.AddressPropertiesResponse',
                  return_address: 'outputs.AddressPropertiesResponse'):
         """
-        Address details for an order.
+        Address details for an order item.
         :param 'AddressPropertiesResponse' forward_address: Customer address and contact details. It should be address resource
         :param 'AddressPropertiesResponse' return_address: Return shipping address
         """
@@ -200,13 +203,13 @@ class BillingMeterDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  frequency: str,
-                 meter_details: 'outputs.MeterDetailsResponse',
+                 meter_details: Any,
                  metering_type: str,
                  name: str):
         """
         Holds billing meter details for each type of billing
         :param str frequency: Frequency of recurrence
-        :param 'MeterDetailsResponse' meter_details: Represents MeterDetails
+        :param Union['Pav2MeterDetailsResponse', 'PurchaseMeterDetailsResponse'] meter_details: Represents MeterDetails
         :param str metering_type: Represents Metering type (eg one-time or recurrent)
         :param str name: Represents Billing type name
         """
@@ -225,7 +228,7 @@ class BillingMeterDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="meterDetails")
-    def meter_details(self) -> 'outputs.MeterDetailsResponse':
+    def meter_details(self) -> Any:
         """
         Represents MeterDetails
         """
@@ -257,6 +260,7 @@ class ConfigurationResponse(dict):
                  availability_information: 'outputs.AvailabilityInformationResponse',
                  cost_information: 'outputs.CostInformationResponse',
                  description: 'outputs.DescriptionResponse',
+                 dimensions: 'outputs.DimensionsResponse',
                  display_name: str,
                  filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
@@ -267,15 +271,17 @@ class ConfigurationResponse(dict):
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param 'CostInformationResponse' cost_information: Cost information for the product system.
         :param 'DescriptionResponse' description: Description related to the product system.
+        :param 'DimensionsResponse' dimensions: Dimensions of the configuration
         :param str display_name: Display Name for the product system.
         :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of a product.
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         :param Sequence['SpecificationResponse'] specifications: Specifications of the configuration
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "filterable_properties", filterable_properties)
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
@@ -307,6 +313,14 @@ class ConfigurationResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def dimensions(self) -> 'outputs.DimensionsResponse':
+        """
+        Dimensions of the configuration
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
@@ -326,7 +340,7 @@ class ConfigurationResponse(dict):
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
         """
-        Hierarchy information of the product system.
+        Hierarchy information of a product.
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -554,8 +568,8 @@ class DeviceDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "deviceHistory":
-            suggest = "device_history"
+        if key == "managementResourceId":
+            suggest = "management_resource_id"
         elif key == "serialNumber":
             suggest = "serial_number"
 
@@ -571,23 +585,23 @@ class DeviceDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 device_history: Sequence[str],
+                 management_resource_id: str,
                  serial_number: str):
         """
         Device details.
-        :param Sequence[str] device_history: Device history
+        :param str management_resource_id: Management Resource Id
         :param str serial_number: device serial number
         """
-        pulumi.set(__self__, "device_history", device_history)
+        pulumi.set(__self__, "management_resource_id", management_resource_id)
         pulumi.set(__self__, "serial_number", serial_number)
 
     @property
-    @pulumi.getter(name="deviceHistory")
-    def device_history(self) -> Sequence[str]:
+    @pulumi.getter(name="managementResourceId")
+    def management_resource_id(self) -> str:
         """
-        Device history
+        Management Resource Id
         """
-        return pulumi.get(self, "device_history")
+        return pulumi.get(self, "management_resource_id")
 
     @property
     @pulumi.getter(name="serialNumber")
@@ -596,6 +610,146 @@ class DeviceDetailsResponse(dict):
         device serial number
         """
         return pulumi.get(self, "serial_number")
+
+
+@pulumi.output_type
+class DimensionsResponse(dict):
+    """
+    Dimensions of a configuration.
+    """
+    def __init__(__self__, *,
+                 depth: float,
+                 height: float,
+                 length: float,
+                 length_height_unit: str,
+                 weight: float,
+                 weight_unit: str,
+                 width: float):
+        """
+        Dimensions of a configuration.
+        :param float depth: Depth of the device.
+        :param float height: Height of the device.
+        :param float length: Length of the device.
+        :param str length_height_unit: Unit for the dimensions of length, height and width.
+        :param float weight: Weight of the device.
+        :param str weight_unit: Unit for the dimensions of weight.
+        :param float width: Width of the device.
+        """
+        pulumi.set(__self__, "depth", depth)
+        pulumi.set(__self__, "height", height)
+        pulumi.set(__self__, "length", length)
+        pulumi.set(__self__, "length_height_unit", length_height_unit)
+        pulumi.set(__self__, "weight", weight)
+        pulumi.set(__self__, "weight_unit", weight_unit)
+        pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def depth(self) -> float:
+        """
+        Depth of the device.
+        """
+        return pulumi.get(self, "depth")
+
+    @property
+    @pulumi.getter
+    def height(self) -> float:
+        """
+        Height of the device.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def length(self) -> float:
+        """
+        Length of the device.
+        """
+        return pulumi.get(self, "length")
+
+    @property
+    @pulumi.getter(name="lengthHeightUnit")
+    def length_height_unit(self) -> str:
+        """
+        Unit for the dimensions of length, height and width.
+        """
+        return pulumi.get(self, "length_height_unit")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> float:
+        """
+        Weight of the device.
+        """
+        return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter(name="weightUnit")
+    def weight_unit(self) -> str:
+        """
+        Unit for the dimensions of weight.
+        """
+        return pulumi.get(self, "weight_unit")
+
+    @property
+    @pulumi.getter
+    def width(self) -> float:
+        """
+        Width of the device.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class DisplayInfoResponse(dict):
+    """
+    Describes product display information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationDisplayName":
+            suggest = "configuration_display_name"
+        elif key == "productFamilyDisplayName":
+            suggest = "product_family_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DisplayInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DisplayInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DisplayInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_display_name: str,
+                 product_family_display_name: str):
+        """
+        Describes product display information
+        :param str configuration_display_name: Configuration display name
+        :param str product_family_display_name: Product family display name
+        """
+        pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+        pulumi.set(__self__, "product_family_display_name", product_family_display_name)
+
+    @property
+    @pulumi.getter(name="configurationDisplayName")
+    def configuration_display_name(self) -> str:
+        """
+        Configuration display name
+        """
+        return pulumi.get(self, "configuration_display_name")
+
+    @property
+    @pulumi.getter(name="productFamilyDisplayName")
+    def product_family_display_name(self) -> str:
+        """
+        Product family display name
+        """
+        return pulumi.get(self, "product_family_display_name")
 
 
 @pulumi.output_type
@@ -626,6 +780,8 @@ class EncryptionPreferencesResponse(dict):
         Preferences related to the double encryption
         :param str double_encryption_status: Defines secondary layer of software-based encryption enablement.
         """
+        if double_encryption_status is None:
+            double_encryption_status = 'Disabled'
         if double_encryption_status is not None:
             pulumi.set(__self__, "double_encryption_status", double_encryption_status)
 
@@ -757,13 +913,13 @@ class ErrorDetailResponse(dict):
 @pulumi.output_type
 class FilterablePropertyResponse(dict):
     """
-    Class defining the list of filter values on a filter type as part of configuration request.
+    Different types of filters supported and its values.
     """
     def __init__(__self__, *,
                  supported_values: Sequence[str],
                  type: str):
         """
-        Class defining the list of filter values on a filter type as part of configuration request.
+        Different types of filters supported and its values.
         :param Sequence[str] supported_values: Values to be filtered.
         :param str type: Type of product filter.
         """
@@ -936,86 +1092,43 @@ class LinkResponse(dict):
 
 
 @pulumi.output_type
-class ManagementResourceDetailsResponse(dict):
+class ManagementResourcePreferencesResponse(dict):
     """
-    Management resource details to link device
+    Management resource preference to link device
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managementResourceArmId":
-            suggest = "management_resource_arm_id"
+        if key == "preferredManagementResourceId":
+            suggest = "preferred_management_resource_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagementResourceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ManagementResourcePreferencesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ManagementResourceDetailsResponse.__key_warning(key)
+        ManagementResourcePreferencesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ManagementResourceDetailsResponse.__key_warning(key)
+        ManagementResourcePreferencesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 management_resource_arm_id: str):
+                 preferred_management_resource_id: Optional[str] = None):
         """
-        Management resource details to link device
-        :param str management_resource_arm_id: Management resource ARM ID
+        Management resource preference to link device
+        :param str preferred_management_resource_id: Customer preferred Management resource ARM ID
         """
-        pulumi.set(__self__, "management_resource_arm_id", management_resource_arm_id)
+        if preferred_management_resource_id is not None:
+            pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
 
     @property
-    @pulumi.getter(name="managementResourceArmId")
-    def management_resource_arm_id(self) -> str:
+    @pulumi.getter(name="preferredManagementResourceId")
+    def preferred_management_resource_id(self) -> Optional[str]:
         """
-        Management resource ARM ID
+        Customer preferred Management resource ARM ID
         """
-        return pulumi.get(self, "management_resource_arm_id")
-
-
-@pulumi.output_type
-class MeterDetailsResponse(dict):
-    """
-    Holds details about billing type and its meter guids
-    """
-    def __init__(__self__, *,
-                 billing_type: str,
-                 charging_type: str,
-                 multiplier: float):
-        """
-        Holds details about billing type and its meter guids
-        :param str billing_type: Represents billing type.
-        :param str charging_type: Charging type.
-        :param float multiplier: Billing unit applicable for Pav2 billing
-        """
-        pulumi.set(__self__, "billing_type", billing_type)
-        pulumi.set(__self__, "charging_type", charging_type)
-        pulumi.set(__self__, "multiplier", multiplier)
-
-    @property
-    @pulumi.getter(name="billingType")
-    def billing_type(self) -> str:
-        """
-        Represents billing type.
-        """
-        return pulumi.get(self, "billing_type")
-
-    @property
-    @pulumi.getter(name="chargingType")
-    def charging_type(self) -> str:
-        """
-        Charging type.
-        """
-        return pulumi.get(self, "charging_type")
-
-    @property
-    @pulumi.getter
-    def multiplier(self) -> float:
-        """
-        Billing unit applicable for Pav2 billing
-        """
-        return pulumi.get(self, "multiplier")
+        return pulumi.get(self, "preferred_management_resource_id")
 
 
 @pulumi.output_type
@@ -1102,8 +1215,6 @@ class OrderItemDetailsResponse(dict):
             suggest = "return_status"
         elif key == "reverseShippingDetails":
             suggest = "reverse_shipping_details"
-        elif key == "managementResourceDetails":
-            suggest = "management_resource_details"
         elif key == "notificationEmailList":
             suggest = "notification_email_list"
 
@@ -1132,13 +1243,12 @@ class OrderItemDetailsResponse(dict):
                  return_reason: str,
                  return_status: str,
                  reverse_shipping_details: 'outputs.ShippingDetailsResponse',
-                 management_resource_details: Optional['outputs.ManagementResourceDetailsResponse'] = None,
                  notification_email_list: Optional[Sequence[str]] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None):
         """
         Order item details
         :param str cancellation_reason: Cancellation reason.
-        :param str cancellation_status: Describes whether the order is cancellable or not.
+        :param str cancellation_status: Describes whether the orderItem is cancellable or not.
         :param 'StageDetailsResponse' current_stage: Current Order item Status
         :param str deletion_status: Describes whether the order item is deletable or not.
         :param 'ErrorDetailResponse' error: Top level error for the job.
@@ -1148,9 +1258,8 @@ class OrderItemDetailsResponse(dict):
         :param str order_item_type: Order item type.
         :param 'ProductDetailsResponse' product_details: Unique identifier for configuration.
         :param str return_reason: Return reason.
-        :param str return_status: Describes whether the order item is returnable or not.
+        :param str return_status: Describes whether the orderItem is returnable or not.
         :param 'ShippingDetailsResponse' reverse_shipping_details: Reverse Package Shipping details
-        :param 'ManagementResourceDetailsResponse' management_resource_details: Management resource details
         :param Sequence[str] notification_email_list: Additional notification email list
         :param 'PreferencesResponse' preferences: Customer notification Preferences
         """
@@ -1167,8 +1276,6 @@ class OrderItemDetailsResponse(dict):
         pulumi.set(__self__, "return_reason", return_reason)
         pulumi.set(__self__, "return_status", return_status)
         pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
-        if management_resource_details is not None:
-            pulumi.set(__self__, "management_resource_details", management_resource_details)
         if notification_email_list is not None:
             pulumi.set(__self__, "notification_email_list", notification_email_list)
         if preferences is not None:
@@ -1186,7 +1293,7 @@ class OrderItemDetailsResponse(dict):
     @pulumi.getter(name="cancellationStatus")
     def cancellation_status(self) -> str:
         """
-        Describes whether the order is cancellable or not.
+        Describes whether the orderItem is cancellable or not.
         """
         return pulumi.get(self, "cancellation_status")
 
@@ -1266,7 +1373,7 @@ class OrderItemDetailsResponse(dict):
     @pulumi.getter(name="returnStatus")
     def return_status(self) -> str:
         """
-        Describes whether the order item is returnable or not.
+        Describes whether the orderItem is returnable or not.
         """
         return pulumi.get(self, "return_status")
 
@@ -1277,14 +1384,6 @@ class OrderItemDetailsResponse(dict):
         Reverse Package Shipping details
         """
         return pulumi.get(self, "reverse_shipping_details")
-
-    @property
-    @pulumi.getter(name="managementResourceDetails")
-    def management_resource_details(self) -> Optional['outputs.ManagementResourceDetailsResponse']:
-        """
-        Management resource details
-        """
-        return pulumi.get(self, "management_resource_details")
 
     @property
     @pulumi.getter(name="notificationEmailList")
@@ -1304,6 +1403,63 @@ class OrderItemDetailsResponse(dict):
 
 
 @pulumi.output_type
+class Pav2MeterDetailsResponse(dict):
+    """
+    Billing type PAV2 meter details
+    """
+    def __init__(__self__, *,
+                 billing_type: str,
+                 charging_type: str,
+                 meter_guid: str,
+                 multiplier: float):
+        """
+        Billing type PAV2 meter details
+        :param str billing_type: Represents billing type.
+               Expected value is 'Pav2'.
+        :param str charging_type: Charging type.
+        :param str meter_guid: Validation status of requested data center and transport.
+        :param float multiplier: Billing unit applicable for Pav2 billing
+        """
+        pulumi.set(__self__, "billing_type", 'Pav2')
+        pulumi.set(__self__, "charging_type", charging_type)
+        pulumi.set(__self__, "meter_guid", meter_guid)
+        pulumi.set(__self__, "multiplier", multiplier)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> str:
+        """
+        Represents billing type.
+        Expected value is 'Pav2'.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @property
+    @pulumi.getter(name="chargingType")
+    def charging_type(self) -> str:
+        """
+        Charging type.
+        """
+        return pulumi.get(self, "charging_type")
+
+    @property
+    @pulumi.getter(name="meterGuid")
+    def meter_guid(self) -> str:
+        """
+        Validation status of requested data center and transport.
+        """
+        return pulumi.get(self, "meter_guid")
+
+    @property
+    @pulumi.getter
+    def multiplier(self) -> float:
+        """
+        Billing unit applicable for Pav2 billing
+        """
+        return pulumi.get(self, "multiplier")
+
+
+@pulumi.output_type
 class PreferencesResponse(dict):
     """
     Preferences related to the order
@@ -1313,6 +1469,8 @@ class PreferencesResponse(dict):
         suggest = None
         if key == "encryptionPreferences":
             suggest = "encryption_preferences"
+        elif key == "managementResourcePreferences":
+            suggest = "management_resource_preferences"
         elif key == "notificationPreferences":
             suggest = "notification_preferences"
         elif key == "transportPreferences":
@@ -1331,16 +1489,20 @@ class PreferencesResponse(dict):
 
     def __init__(__self__, *,
                  encryption_preferences: Optional['outputs.EncryptionPreferencesResponse'] = None,
+                 management_resource_preferences: Optional['outputs.ManagementResourcePreferencesResponse'] = None,
                  notification_preferences: Optional[Sequence['outputs.NotificationPreferenceResponse']] = None,
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order
         :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
+        :param 'ManagementResourcePreferencesResponse' management_resource_preferences: Preferences related to the Management resource.
         :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
         :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the order.
         """
         if encryption_preferences is not None:
             pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+        if management_resource_preferences is not None:
+            pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
         if notification_preferences is not None:
             pulumi.set(__self__, "notification_preferences", notification_preferences)
         if transport_preferences is not None:
@@ -1353,6 +1515,14 @@ class PreferencesResponse(dict):
         Preferences related to the Encryption.
         """
         return pulumi.get(self, "encryption_preferences")
+
+    @property
+    @pulumi.getter(name="managementResourcePreferences")
+    def management_resource_preferences(self) -> Optional['outputs.ManagementResourcePreferencesResponse']:
+        """
+        Preferences related to the Management resource.
+        """
+        return pulumi.get(self, "management_resource_preferences")
 
     @property
     @pulumi.getter(name="notificationPreferences")
@@ -1383,6 +1553,8 @@ class ProductDetailsResponse(dict):
             suggest = "device_details"
         elif key == "hierarchyInformation":
             suggest = "hierarchy_information"
+        elif key == "displayInfo":
+            suggest = "display_info"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProductDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1398,17 +1570,21 @@ class ProductDetailsResponse(dict):
     def __init__(__self__, *,
                  device_details: Sequence['outputs.DeviceDetailsResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 count: Optional[int] = None):
+                 count: Optional[int] = None,
+                 display_info: Optional['outputs.DisplayInfoResponse'] = None):
         """
         Represents product details
         :param Sequence['DeviceDetailsResponse'] device_details: list of device details
-        :param 'HierarchyInformationResponse' hierarchy_information:  Hierarchy of the product which uniquely identifies the product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the product
         :param int count: Quantity of the product
+        :param 'DisplayInfoResponse' display_info: Display details of the product
         """
         pulumi.set(__self__, "device_details", device_details)
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if display_info is not None:
+            pulumi.set(__self__, "display_info", display_info)
 
     @property
     @pulumi.getter(name="deviceDetails")
@@ -1422,7 +1598,7 @@ class ProductDetailsResponse(dict):
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
         """
-         Hierarchy of the product which uniquely identifies the product
+        Hierarchy of the product which uniquely identifies the product
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -1433,6 +1609,14 @@ class ProductDetailsResponse(dict):
         Quantity of the product
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="displayInfo")
+    def display_info(self) -> Optional['outputs.DisplayInfoResponse']:
+        """
+        Display details of the product
+        """
+        return pulumi.get(self, "display_info")
 
 
 @pulumi.output_type
@@ -1456,7 +1640,7 @@ class ProductFamilyResponse(dict):
         :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
         :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of a product.
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         :param Sequence['ProductLineResponse'] product_lines: List of product lines supported in the product family
         """
@@ -1513,7 +1697,7 @@ class ProductFamilyResponse(dict):
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
         """
-        Hierarchy information of the product system.
+        Hierarchy information of a product.
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -1555,7 +1739,7 @@ class ProductLineResponse(dict):
         :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
         :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of a product.
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         :param Sequence['ProductResponse'] products: List of products in the product line
         """
@@ -1612,7 +1796,7 @@ class ProductLineResponse(dict):
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
         """
-        Hierarchy information of the product system.
+        Hierarchy information of a product.
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -1655,7 +1839,7 @@ class ProductResponse(dict):
         :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
         :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of a product.
         :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         """
         pulumi.set(__self__, "availability_information", availability_information)
@@ -1719,7 +1903,7 @@ class ProductResponse(dict):
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> 'outputs.HierarchyInformationResponse':
         """
-        Hierarchy information of the product system.
+        Hierarchy information of a product.
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -1730,6 +1914,85 @@ class ProductResponse(dict):
         Image information for the product system.
         """
         return pulumi.get(self, "image_information")
+
+
+@pulumi.output_type
+class PurchaseMeterDetailsResponse(dict):
+    """
+    Billing type Purchase meter details
+    """
+    def __init__(__self__, *,
+                 billing_type: str,
+                 charging_type: str,
+                 multiplier: float,
+                 product_id: str,
+                 sku_id: str,
+                 term_id: str):
+        """
+        Billing type Purchase meter details
+        :param str billing_type: Represents billing type.
+               Expected value is 'Purchase'.
+        :param str charging_type: Charging type.
+        :param float multiplier: Billing unit applicable for Pav2 billing
+        :param str product_id: Product Id
+        :param str sku_id: Sku Id
+        :param str term_id: Term Id
+        """
+        pulumi.set(__self__, "billing_type", 'Purchase')
+        pulumi.set(__self__, "charging_type", charging_type)
+        pulumi.set(__self__, "multiplier", multiplier)
+        pulumi.set(__self__, "product_id", product_id)
+        pulumi.set(__self__, "sku_id", sku_id)
+        pulumi.set(__self__, "term_id", term_id)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> str:
+        """
+        Represents billing type.
+        Expected value is 'Purchase'.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @property
+    @pulumi.getter(name="chargingType")
+    def charging_type(self) -> str:
+        """
+        Charging type.
+        """
+        return pulumi.get(self, "charging_type")
+
+    @property
+    @pulumi.getter
+    def multiplier(self) -> float:
+        """
+        Billing unit applicable for Pav2 billing
+        """
+        return pulumi.get(self, "multiplier")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> str:
+        """
+        Product Id
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="skuId")
+    def sku_id(self) -> str:
+        """
+        Sku Id
+        """
+        return pulumi.get(self, "sku_id")
+
+    @property
+    @pulumi.getter(name="termId")
+    def term_id(self) -> str:
+        """
+        Term Id
+        """
+        return pulumi.get(self, "term_id")
 
 
 @pulumi.output_type
@@ -2006,7 +2269,7 @@ class SpecificationResponse(dict):
 @pulumi.output_type
 class StageDetailsResponse(dict):
     """
-    Resource stage details
+    Resource stage details.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2037,10 +2300,10 @@ class StageDetailsResponse(dict):
                  stage_status: str,
                  start_time: str):
         """
-        Resource stage details
+        Resource stage details.
         :param str display_name: Display name of the resource stage.
         :param str stage_name: Stage name
-        :param str stage_status: Stage status
+        :param str stage_status: Stage status.
         :param str start_time: Stage start time
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -2068,7 +2331,7 @@ class StageDetailsResponse(dict):
     @pulumi.getter(name="stageStatus")
     def stage_status(self) -> str:
         """
-        Stage status
+        Stage status.
         """
         return pulumi.get(self, "stage_status")
 

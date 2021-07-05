@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Class defining the list of filter values on a filter type as part of configuration request.
+    /// Different types of filters supported and its values.
     /// </summary>
     public sealed class FilterableProperty : Pulumi.InvokeArgs
     {

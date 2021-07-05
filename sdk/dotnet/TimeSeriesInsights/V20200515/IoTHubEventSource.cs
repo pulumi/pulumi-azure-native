@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        /// </summary>
+        [Output("localTimestamp")]
+        public Output<Outputs.LocalTimestampResponse?> LocalTimestamp { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]

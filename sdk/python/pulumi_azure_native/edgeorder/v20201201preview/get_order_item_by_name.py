@@ -56,7 +56,7 @@ class GetOrderItemByNameResult:
     @pulumi.getter(name="addressDetails")
     def address_details(self) -> 'outputs.AddressDetailsResponse':
         """
-        Represents shipping and return address for order
+        Represents shipping and return address for order item
         """
         return pulumi.get(self, "address_details")
 
@@ -88,7 +88,7 @@ class GetOrderItemByNameResult:
     @pulumi.getter(name="orderId")
     def order_id(self) -> str:
         """
-        Id of the order to which order items belongs to
+        Id of the order to which order item belongs to
         """
         return pulumi.get(self, "order_id")
 
@@ -151,17 +151,20 @@ class AwaitableGetOrderItemByNameResult(GetOrderItemByNameResult):
             type=self.type)
 
 
-def get_order_item_by_name(order_item_name: Optional[str] = None,
+def get_order_item_by_name(expand: Optional[str] = None,
+                           order_item_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemByNameResult:
     """
     Represents order item contract
 
 
+    :param str expand: $expand is supported on device details parameter for order item, which provides details on the devices of the product.
     :param str order_item_name: The name of the order item
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['orderItemName'] = order_item_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

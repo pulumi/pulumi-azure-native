@@ -15,13 +15,13 @@ import (
 type OrderItemByName struct {
 	pulumi.CustomResourceState
 
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails AddressDetailsResponseOutput `pulumi:"addressDetails"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId pulumi.StringOutput `pulumi:"orderId"`
 	// Represents order item details.
 	OrderItemDetails OrderItemDetailsResponseOutput `pulumi:"orderItemDetails"`
@@ -88,13 +88,13 @@ func GetOrderItemByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrderItemByName resources.
 type orderItemByNameState struct {
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails *AddressDetailsResponse `pulumi:"addressDetails"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId *string `pulumi:"orderId"`
 	// Represents order item details.
 	OrderItemDetails *OrderItemDetailsResponse `pulumi:"orderItemDetails"`
@@ -109,13 +109,13 @@ type orderItemByNameState struct {
 }
 
 type OrderItemByNameState struct {
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails AddressDetailsResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId pulumi.StringPtrInput
 	// Represents order item details.
 	OrderItemDetails OrderItemDetailsResponsePtrInput
@@ -134,11 +134,11 @@ func (OrderItemByNameState) ElementType() reflect.Type {
 }
 
 type orderItemByNameArgs struct {
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails AddressDetails `pulumi:"addressDetails"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId string `pulumi:"orderId"`
 	// Represents order item details.
 	OrderItemDetails OrderItemDetails `pulumi:"orderItemDetails"`
@@ -152,11 +152,11 @@ type orderItemByNameArgs struct {
 
 // The set of arguments for constructing a OrderItemByName resource.
 type OrderItemByNameArgs struct {
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails AddressDetailsInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId pulumi.StringInput
 	// Represents order item details.
 	OrderItemDetails OrderItemDetailsInput

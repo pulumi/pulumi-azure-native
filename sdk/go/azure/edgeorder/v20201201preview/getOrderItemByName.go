@@ -18,6 +18,8 @@ func LookupOrderItemByName(ctx *pulumi.Context, args *LookupOrderItemByNameArgs,
 }
 
 type LookupOrderItemByNameArgs struct {
+	// $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+	Expand *string `pulumi:"expand"`
 	// The name of the order item
 	OrderItemName string `pulumi:"orderItemName"`
 	// The name of the resource group. The name is case insensitive.
@@ -26,7 +28,7 @@ type LookupOrderItemByNameArgs struct {
 
 // Represents order item contract
 type LookupOrderItemByNameResult struct {
-	// Represents shipping and return address for order
+	// Represents shipping and return address for order item
 	AddressDetails AddressDetailsResponse `pulumi:"addressDetails"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -34,7 +36,7 @@ type LookupOrderItemByNameResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Id of the order to which order items belongs to
+	// Id of the order to which order item belongs to
 	OrderId string `pulumi:"orderId"`
 	// Represents order item details.
 	OrderItemDetails OrderItemDetailsResponse `pulumi:"orderItemDetails"`

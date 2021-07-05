@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 
         public EncryptionPreferencesArgs()
         {
+            DoubleEncryptionStatus = "Disabled";
         }
     }
 }

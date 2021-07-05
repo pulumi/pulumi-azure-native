@@ -104,8 +104,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:ACIService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:ACIService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:ACIService"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:ACIService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:ACIService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:ACIService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210401:ACIService"},
                 },

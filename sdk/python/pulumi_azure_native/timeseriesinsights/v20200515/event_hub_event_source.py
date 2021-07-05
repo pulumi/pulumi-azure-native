@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 from ._inputs import *
 
@@ -433,6 +434,7 @@ class EventHubEventSource(pulumi.CustomResource):
         __props__.__dict__["event_source_resource_id"] = None
         __props__.__dict__["key_name"] = None
         __props__.__dict__["kind"] = None
+        __props__.__dict__["local_timestamp"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -491,6 +493,14 @@ class EventHubEventSource(pulumi.CustomResource):
         Expected value is 'Microsoft.EventHub'.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="localTimestamp")
+    def local_timestamp(self) -> pulumi.Output[Optional['outputs.LocalTimestampResponse']]:
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        return pulumi.get(self, "local_timestamp")
 
     @property
     @pulumi.getter

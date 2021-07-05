@@ -12,8 +12,6 @@ from ._enums import *
 
 __all__ = [
     'AgentPoolUpgradeSettingsResponse',
-    'CloudErrorBodyResponse',
-    'CloudErrorResponse',
     'ContainerServiceLinuxProfileResponse',
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
@@ -37,6 +35,8 @@ __all__ = [
     'ManagedClusterLoadBalancerProfileResponseOutboundIPs',
     'ManagedClusterPodIdentityExceptionResponse',
     'ManagedClusterPodIdentityProfileResponse',
+    'ManagedClusterPodIdentityProvisioningErrorBodyResponse',
+    'ManagedClusterPodIdentityProvisioningErrorResponse',
     'ManagedClusterPodIdentityResponse',
     'ManagedClusterPodIdentityResponseProvisioningInfo',
     'ManagedClusterPropertiesResponseAutoScalerProfile',
@@ -94,88 +94,6 @@ class AgentPoolUpgradeSettingsResponse(dict):
         This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         """
         return pulumi.get(self, "max_surge")
-
-
-@pulumi.output_type
-class CloudErrorBodyResponse(dict):
-    """
-    An error response from the Container service.
-    """
-    def __init__(__self__, *,
-                 code: Optional[str] = None,
-                 details: Optional[Sequence['outputs.CloudErrorBodyResponse']] = None,
-                 message: Optional[str] = None,
-                 target: Optional[str] = None):
-        """
-        An error response from the Container service.
-        :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param Sequence['CloudErrorBodyResponse'] details: A list of additional details about the error.
-        :param str message: A message describing the error, intended to be suitable for display in a user interface.
-        :param str target: The target of the particular error. For example, the name of the property in error.
-        """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def code(self) -> Optional[str]:
-        """
-        An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponse']]:
-        """
-        A list of additional details about the error.
-        """
-        return pulumi.get(self, "details")
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        A message describing the error, intended to be suitable for display in a user interface.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        The target of the particular error. For example, the name of the property in error.
-        """
-        return pulumi.get(self, "target")
-
-
-@pulumi.output_type
-class CloudErrorResponse(dict):
-    """
-    An error response from the Container service.
-    """
-    def __init__(__self__, *,
-                 error: Optional['outputs.CloudErrorBodyResponse'] = None):
-        """
-        An error response from the Container service.
-        :param 'CloudErrorBodyResponse' error: Details about the error.
-        """
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-
-    @property
-    @pulumi.getter
-    def error(self) -> Optional['outputs.CloudErrorBodyResponse']:
-        """
-        Details about the error.
-        """
-        return pulumi.get(self, "error")
 
 
 @pulumi.output_type
@@ -2268,6 +2186,88 @@ class ManagedClusterPodIdentityProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterPodIdentityProvisioningErrorBodyResponse(dict):
+    """
+    An error response from the pod identity provisioning.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 details: Optional[Sequence['outputs.ManagedClusterPodIdentityProvisioningErrorBodyResponse']] = None,
+                 message: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        An error response from the pod identity provisioning.
+        :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        :param Sequence['ManagedClusterPodIdentityProvisioningErrorBodyResponse'] details: A list of additional details about the error.
+        :param str message: A message describing the error, intended to be suitable for display in a user interface.
+        :param str target: The target of the particular error. For example, the name of the property in error.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[Sequence['outputs.ManagedClusterPodIdentityProvisioningErrorBodyResponse']]:
+        """
+        A list of additional details about the error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message describing the error, intended to be suitable for display in a user interface.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target of the particular error. For example, the name of the property in error.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ManagedClusterPodIdentityProvisioningErrorResponse(dict):
+    """
+    An error response from the pod identity provisioning.
+    """
+    def __init__(__self__, *,
+                 error: Optional['outputs.ManagedClusterPodIdentityProvisioningErrorBodyResponse'] = None):
+        """
+        An error response from the pod identity provisioning.
+        :param 'ManagedClusterPodIdentityProvisioningErrorBodyResponse' error: Details about the error.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ManagedClusterPodIdentityProvisioningErrorBodyResponse']:
+        """
+        Details about the error.
+        """
+        return pulumi.get(self, "error")
+
+
+@pulumi.output_type
 class ManagedClusterPodIdentityResponse(dict):
     """
     Details about the pod identity assigned to the Managed Cluster.
@@ -2365,16 +2365,16 @@ class ManagedClusterPodIdentityResponse(dict):
 @pulumi.output_type
 class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
     def __init__(__self__, *,
-                 error: Optional['outputs.CloudErrorResponse'] = None):
+                 error: Optional['outputs.ManagedClusterPodIdentityProvisioningErrorResponse'] = None):
         """
-        :param 'CloudErrorResponse' error: Pod identity assignment error (if any).
+        :param 'ManagedClusterPodIdentityProvisioningErrorResponse' error: Pod identity assignment error (if any).
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.CloudErrorResponse']:
+    def error(self) -> Optional['outputs.ManagedClusterPodIdentityProvisioningErrorResponse']:
         """
         Pod identity assignment error (if any).
         """

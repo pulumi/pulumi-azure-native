@@ -93,12 +93,6 @@ func NewACIService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:ACIService"),
 		},
-		{
-			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:ACIService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:ACIService"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ACIService

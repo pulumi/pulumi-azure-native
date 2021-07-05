@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:machinelearningservices/v20210301preview:ACIService":
-		r = &ACIService{}
-	case "azure-native:machinelearningservices/v20210301preview:AKSService":
-		r = &AKSService{}
 	case "azure-native:machinelearningservices/v20210301preview:BatchDeployment":
 		r = &BatchDeployment{}
 	case "azure-native:machinelearningservices/v20210301preview:BatchEndpoint":
@@ -41,8 +37,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataVersion{}
 	case "azure-native:machinelearningservices/v20210301preview:Datastore":
 		r = &Datastore{}
-	case "azure-native:machinelearningservices/v20210301preview:EndpointVariant":
-		r = &EndpointVariant{}
 	case "azure-native:machinelearningservices/v20210301preview:EnvironmentContainer":
 		r = &EnvironmentContainer{}
 	case "azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion":
@@ -51,8 +45,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Job{}
 	case "azure-native:machinelearningservices/v20210301preview:LabelingJob":
 		r = &LabelingJob{}
-	case "azure-native:machinelearningservices/v20210301preview:MachineLearningService":
-		r = &MachineLearningService{}
 	case "azure-native:machinelearningservices/v20210301preview:ModelContainer":
 		r = &ModelContainer{}
 	case "azure-native:machinelearningservices/v20210301preview:ModelVersion":

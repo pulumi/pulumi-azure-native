@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// <summary>
         /// Represents MeterDetails
         /// </summary>
-        public readonly Outputs.MeterDetailsResponse MeterDetails;
+        public readonly Union<Outputs.Pav2MeterDetailsResponse, Outputs.PurchaseMeterDetailsResponse> MeterDetails;
         /// <summary>
         /// Represents Metering type (eg one-time or recurrent)
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         private BillingMeterDetailsResponse(
             string frequency,
 
-            Outputs.MeterDetailsResponse meterDetails,
+            Union<Outputs.Pav2MeterDetailsResponse, Outputs.PurchaseMeterDetailsResponse> meterDetails,
 
             string meteringType,
 

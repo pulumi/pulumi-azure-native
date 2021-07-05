@@ -22,7 +22,11 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DeviceDetailsResponse> DeviceDetails;
         /// <summary>
-        ///  Hierarchy of the product which uniquely identifies the product
+        /// Display details of the product
+        /// </summary>
+        public readonly Outputs.DisplayInfoResponse? DisplayInfo;
+        /// <summary>
+        /// Hierarchy of the product which uniquely identifies the product
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
 
@@ -32,10 +36,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
             ImmutableArray<Outputs.DeviceDetailsResponse> deviceDetails,
 
+            Outputs.DisplayInfoResponse? displayInfo,
+
             Outputs.HierarchyInformationResponse hierarchyInformation)
         {
             Count = count;
             DeviceDetails = deviceDetails;
+            DisplayInfo = displayInfo;
             HierarchyInformation = hierarchyInformation;
         }
     }

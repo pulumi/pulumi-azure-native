@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
         /// <summary>
         /// Pod identity assignment error (if any).
         /// </summary>
-        public readonly Outputs.CloudErrorResponse? Error;
+        public readonly Outputs.ManagedClusterPodIdentityProvisioningErrorResponse? Error;
 
         [OutputConstructor]
-        private ManagedClusterPodIdentityResponseProvisioningInfo(Outputs.CloudErrorResponse? error)
+        private ManagedClusterPodIdentityResponseProvisioningInfo(Outputs.ManagedClusterPodIdentityProvisioningErrorResponse? error)
         {
             Error = error;
         }

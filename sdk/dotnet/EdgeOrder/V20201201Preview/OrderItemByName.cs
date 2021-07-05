@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public partial class OrderItemByName : Pulumi.CustomResource
     {
         /// <summary>
-        /// Represents shipping and return address for order
+        /// Represents shipping and return address for order item
         /// </summary>
         [Output("addressDetails")]
         public Output<Outputs.AddressDetailsResponse> AddressDetails { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the order to which order items belongs to
+        /// Id of the order to which order item belongs to
         /// </summary>
         [Output("orderId")]
         public Output<string> OrderId { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     public sealed class OrderItemByNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents shipping and return address for order
+        /// Represents shipping and return address for order item
         /// </summary>
         [Input("addressDetails", required: true)]
         public Input<Inputs.AddressDetailsArgs> AddressDetails { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Id of the order to which order items belongs to
+        /// Id of the order to which order item belongs to
         /// </summary>
         [Input("orderId", required: true)]
         public Input<string> OrderId { get; set; } = null!;

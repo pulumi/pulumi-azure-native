@@ -40,29 +40,13 @@ export type DoubleEncryptionStatus = (typeof DoubleEncryptionStatus)[keyof typeo
 
 export const NotificationStageName = {
     /**
-     * Notification at device prepared stage.
-     */
-    DevicePrepared: "DevicePrepared",
-    /**
-     * Notification at device dispatched stage.
+     * Notification at order item shipped from microsoft datacenter.
      */
     Shipped: "Shipped",
     /**
-     * Notification at device delivered stage.
+     * Notification at order item delivered to customer.
      */
     Delivered: "Delivered",
-    /**
-     * Notification at device picked up from user stage.
-     */
-    PickedUp: "PickedUp",
-    /**
-     * Notification at device received at Azure datacenter stage.
-     */
-    AtAzureDC: "AtAzureDC",
-    /**
-     * Notification at data copy started stage.
-     */
-    DataCopy: "DataCopy",
 } as const;
 
 /**

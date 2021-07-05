@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetEventHubEventSourceResult',
@@ -19,7 +20,7 @@ class GetEventHubEventSourceResult:
     """
     An event source that receives its data from an Azure EventHub.
     """
-    def __init__(__self__, consumer_group_name=None, creation_time=None, event_hub_name=None, event_source_resource_id=None, id=None, key_name=None, kind=None, location=None, name=None, provisioning_state=None, service_bus_namespace=None, tags=None, time=None, timestamp_property_name=None, type=None):
+    def __init__(__self__, consumer_group_name=None, creation_time=None, event_hub_name=None, event_source_resource_id=None, id=None, key_name=None, kind=None, local_timestamp=None, location=None, name=None, provisioning_state=None, service_bus_namespace=None, tags=None, time=None, timestamp_property_name=None, type=None):
         if consumer_group_name and not isinstance(consumer_group_name, str):
             raise TypeError("Expected argument 'consumer_group_name' to be a str")
         pulumi.set(__self__, "consumer_group_name", consumer_group_name)
@@ -41,6 +42,9 @@ class GetEventHubEventSourceResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if local_timestamp and not isinstance(local_timestamp, dict):
+            raise TypeError("Expected argument 'local_timestamp' to be a dict")
+        pulumi.set(__self__, "local_timestamp", local_timestamp)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -124,6 +128,14 @@ class GetEventHubEventSourceResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="localTimestamp")
+    def local_timestamp(self) -> Optional['outputs.LocalTimestampResponse']:
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        """
+        return pulumi.get(self, "local_timestamp")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -201,6 +213,7 @@ class AwaitableGetEventHubEventSourceResult(GetEventHubEventSourceResult):
             id=self.id,
             key_name=self.key_name,
             kind=self.kind,
+            local_timestamp=self.local_timestamp,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -242,6 +255,7 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
         id=__ret__.id,
         key_name=__ret__.key_name,
         kind=__ret__.kind,
+        local_timestamp=__ret__.local_timestamp,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -15,12 +15,6 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// </summary>
     public sealed class OrderItemDetailsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Management resource details
-        /// </summary>
-        [Input("managementResourceDetails")]
-        public Input<Inputs.ManagementResourceDetailsArgs>? ManagementResourceDetails { get; set; }
-
         [Input("notificationEmailList")]
         private InputList<string>? _notificationEmailList;
 

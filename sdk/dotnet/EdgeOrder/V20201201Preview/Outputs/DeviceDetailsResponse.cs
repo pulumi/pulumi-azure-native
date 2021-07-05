@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class DeviceDetailsResponse
     {
         /// <summary>
-        /// Device history
+        /// Management Resource Id
         /// </summary>
-        public readonly ImmutableArray<string> DeviceHistory;
+        public readonly string ManagementResourceId;
         /// <summary>
         /// device serial number
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
         [OutputConstructor]
         private DeviceDetailsResponse(
-            ImmutableArray<string> deviceHistory,
+            string managementResourceId,
 
             string serialNumber)
         {
-            DeviceHistory = deviceHistory;
+            ManagementResourceId = managementResourceId;
             SerialNumber = serialNumber;
         }
     }

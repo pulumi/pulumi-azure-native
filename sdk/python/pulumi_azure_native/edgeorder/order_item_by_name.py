@@ -25,8 +25,8 @@ class OrderItemByNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OrderItemByName resource.
-        :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order
-        :param pulumi.Input[str] order_id: Id of the order to which order items belongs to
+        :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order item
+        :param pulumi.Input[str] order_id: Id of the order to which order item belongs to
         :param pulumi.Input['OrderItemDetailsArgs'] order_item_details: Represents order item details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -48,7 +48,7 @@ class OrderItemByNameArgs:
     @pulumi.getter(name="addressDetails")
     def address_details(self) -> pulumi.Input['AddressDetailsArgs']:
         """
-        Represents shipping and return address for order
+        Represents shipping and return address for order item
         """
         return pulumi.get(self, "address_details")
 
@@ -60,7 +60,7 @@ class OrderItemByNameArgs:
     @pulumi.getter(name="orderId")
     def order_id(self) -> pulumi.Input[str]:
         """
-        Id of the order to which order items belongs to
+        Id of the order to which order item belongs to
         """
         return pulumi.get(self, "order_id")
 
@@ -148,9 +148,9 @@ class OrderItemByName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AddressDetailsArgs']] address_details: Represents shipping and return address for order
+        :param pulumi.Input[pulumi.InputType['AddressDetailsArgs']] address_details: Represents shipping and return address for order item
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] order_id: Id of the order to which order items belongs to
+        :param pulumi.Input[str] order_id: Id of the order to which order item belongs to
         :param pulumi.Input[pulumi.InputType['OrderItemDetailsArgs']] order_item_details: Represents order item details.
         :param pulumi.Input[str] order_item_name: The name of the order item
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -258,7 +258,7 @@ class OrderItemByName(pulumi.CustomResource):
     @pulumi.getter(name="addressDetails")
     def address_details(self) -> pulumi.Output['outputs.AddressDetailsResponse']:
         """
-        Represents shipping and return address for order
+        Represents shipping and return address for order item
         """
         return pulumi.get(self, "address_details")
 
@@ -282,7 +282,7 @@ class OrderItemByName(pulumi.CustomResource):
     @pulumi.getter(name="orderId")
     def order_id(self) -> pulumi.Output[str]:
         """
-        Id of the order to which order items belongs to
+        Id of the order to which order item belongs to
         """
         return pulumi.get(self, "order_id")
 

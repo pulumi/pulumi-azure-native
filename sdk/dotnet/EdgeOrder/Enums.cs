@@ -99,29 +99,13 @@ namespace Pulumi.AzureNative.EdgeOrder
         }
 
         /// <summary>
-        /// Notification at device prepared stage.
-        /// </summary>
-        public static NotificationStageName DevicePrepared { get; } = new NotificationStageName("DevicePrepared");
-        /// <summary>
-        /// Notification at device dispatched stage.
+        /// Notification at order item shipped from microsoft datacenter.
         /// </summary>
         public static NotificationStageName Shipped { get; } = new NotificationStageName("Shipped");
         /// <summary>
-        /// Notification at device delivered stage.
+        /// Notification at order item delivered to customer.
         /// </summary>
         public static NotificationStageName Delivered { get; } = new NotificationStageName("Delivered");
-        /// <summary>
-        /// Notification at device picked up from user stage.
-        /// </summary>
-        public static NotificationStageName PickedUp { get; } = new NotificationStageName("PickedUp");
-        /// <summary>
-        /// Notification at device received at Azure datacenter stage.
-        /// </summary>
-        public static NotificationStageName AtAzureDC { get; } = new NotificationStageName("AtAzureDC");
-        /// <summary>
-        /// Notification at data copy started stage.
-        /// </summary>
-        public static NotificationStageName DataCopy { get; } = new NotificationStageName("DataCopy");
 
         public static bool operator ==(NotificationStageName left, NotificationStageName right) => left.Equals(right);
         public static bool operator !=(NotificationStageName left, NotificationStageName right) => !left.Equals(right);

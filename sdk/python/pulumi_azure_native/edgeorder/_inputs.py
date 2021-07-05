@@ -20,7 +20,7 @@ __all__ = [
     'FilterableProperty',
     'HierarchyInformationArgs',
     'HierarchyInformation',
-    'ManagementResourceDetailsArgs',
+    'ManagementResourcePreferencesArgs',
     'NotificationPreferenceArgs',
     'OrderItemDetailsArgs',
     'PreferencesArgs',
@@ -34,7 +34,7 @@ class AddressDetailsArgs:
     def __init__(__self__, *,
                  forward_address: pulumi.Input['AddressPropertiesArgs']):
         """
-        Address details for an order.
+        Address details for an order item.
         :param pulumi.Input['AddressPropertiesArgs'] forward_address: Customer address and contact details. It should be address resource
         """
         pulumi.set(__self__, "forward_address", forward_address)
@@ -318,6 +318,8 @@ class EncryptionPreferencesArgs:
         Preferences related to the double encryption
         :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Defines secondary layer of software-based encryption enablement.
         """
+        if double_encryption_status is None:
+            double_encryption_status = 'Disabled'
         if double_encryption_status is not None:
             pulumi.set(__self__, "double_encryption_status", double_encryption_status)
 
@@ -340,7 +342,7 @@ class FilterableProperty:
                  supported_values: Sequence[str],
                  type: Union[str, 'SupportedFilterTypes']):
         """
-        Class defining the list of filter values on a filter type as part of configuration request.
+        Different types of filters supported and its values.
         :param Sequence[str] supported_values: Values to be filtered.
         :param Union[str, 'SupportedFilterTypes'] type: Type of product filter.
         """
@@ -517,26 +519,27 @@ class HierarchyInformation:
 
 
 @pulumi.input_type
-class ManagementResourceDetailsArgs:
+class ManagementResourcePreferencesArgs:
     def __init__(__self__, *,
-                 management_resource_arm_id: pulumi.Input[str]):
+                 preferred_management_resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Management resource details to link device
-        :param pulumi.Input[str] management_resource_arm_id: Management resource ARM ID
+        Management resource preference to link device
+        :param pulumi.Input[str] preferred_management_resource_id: Customer preferred Management resource ARM ID
         """
-        pulumi.set(__self__, "management_resource_arm_id", management_resource_arm_id)
+        if preferred_management_resource_id is not None:
+            pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
 
     @property
-    @pulumi.getter(name="managementResourceArmId")
-    def management_resource_arm_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="preferredManagementResourceId")
+    def preferred_management_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Management resource ARM ID
+        Customer preferred Management resource ARM ID
         """
-        return pulumi.get(self, "management_resource_arm_id")
+        return pulumi.get(self, "preferred_management_resource_id")
 
-    @management_resource_arm_id.setter
-    def management_resource_arm_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "management_resource_arm_id", value)
+    @preferred_management_resource_id.setter
+    def preferred_management_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_management_resource_id", value)
 
 
 @pulumi.input_type
@@ -582,21 +585,17 @@ class OrderItemDetailsArgs:
     def __init__(__self__, *,
                  order_item_type: pulumi.Input[Union[str, 'OrderItemType']],
                  product_details: pulumi.Input['ProductDetailsArgs'],
-                 management_resource_details: Optional[pulumi.Input['ManagementResourceDetailsArgs']] = None,
                  notification_email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
         Order item details
         :param pulumi.Input[Union[str, 'OrderItemType']] order_item_type: Order item type.
         :param pulumi.Input['ProductDetailsArgs'] product_details: Unique identifier for configuration.
-        :param pulumi.Input['ManagementResourceDetailsArgs'] management_resource_details: Management resource details
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_email_list: Additional notification email list
         :param pulumi.Input['PreferencesArgs'] preferences: Customer notification Preferences
         """
         pulumi.set(__self__, "order_item_type", order_item_type)
         pulumi.set(__self__, "product_details", product_details)
-        if management_resource_details is not None:
-            pulumi.set(__self__, "management_resource_details", management_resource_details)
         if notification_email_list is not None:
             pulumi.set(__self__, "notification_email_list", notification_email_list)
         if preferences is not None:
@@ -627,18 +626,6 @@ class OrderItemDetailsArgs:
         pulumi.set(self, "product_details", value)
 
     @property
-    @pulumi.getter(name="managementResourceDetails")
-    def management_resource_details(self) -> Optional[pulumi.Input['ManagementResourceDetailsArgs']]:
-        """
-        Management resource details
-        """
-        return pulumi.get(self, "management_resource_details")
-
-    @management_resource_details.setter
-    def management_resource_details(self, value: Optional[pulumi.Input['ManagementResourceDetailsArgs']]):
-        pulumi.set(self, "management_resource_details", value)
-
-    @property
     @pulumi.getter(name="notificationEmailList")
     def notification_email_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -667,16 +654,20 @@ class OrderItemDetailsArgs:
 class PreferencesArgs:
     def __init__(__self__, *,
                  encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
+                 management_resource_preferences: Optional[pulumi.Input['ManagementResourcePreferencesArgs']] = None,
                  notification_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
         :param pulumi.Input['EncryptionPreferencesArgs'] encryption_preferences: Preferences related to the Encryption.
+        :param pulumi.Input['ManagementResourcePreferencesArgs'] management_resource_preferences: Preferences related to the Management resource.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preferences: Notification preferences.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the order.
         """
         if encryption_preferences is not None:
             pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+        if management_resource_preferences is not None:
+            pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
         if notification_preferences is not None:
             pulumi.set(__self__, "notification_preferences", notification_preferences)
         if transport_preferences is not None:
@@ -693,6 +684,18 @@ class PreferencesArgs:
     @encryption_preferences.setter
     def encryption_preferences(self, value: Optional[pulumi.Input['EncryptionPreferencesArgs']]):
         pulumi.set(self, "encryption_preferences", value)
+
+    @property
+    @pulumi.getter(name="managementResourcePreferences")
+    def management_resource_preferences(self) -> Optional[pulumi.Input['ManagementResourcePreferencesArgs']]:
+        """
+        Preferences related to the Management resource.
+        """
+        return pulumi.get(self, "management_resource_preferences")
+
+    @management_resource_preferences.setter
+    def management_resource_preferences(self, value: Optional[pulumi.Input['ManagementResourcePreferencesArgs']]):
+        pulumi.set(self, "management_resource_preferences", value)
 
     @property
     @pulumi.getter(name="notificationPreferences")
@@ -726,7 +729,7 @@ class ProductDetailsArgs:
                  count: Optional[pulumi.Input[int]] = None):
         """
         Represents product details
-        :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information:  Hierarchy of the product which uniquely identifies the product
+        :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the product
         :param pulumi.Input[int] count: Quantity of the product
         """
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
@@ -737,7 +740,7 @@ class ProductDetailsArgs:
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> pulumi.Input['HierarchyInformationArgs']:
         """
-         Hierarchy of the product which uniquely identifies the product
+        Hierarchy of the product which uniquely identifies the product
         """
         return pulumi.get(self, "hierarchy_information")
 

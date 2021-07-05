@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        ///  Hierarchy of the product which uniquely identifies the product
+        /// Hierarchy of the product which uniquely identifies the product
         /// </summary>
         [Input("hierarchyInformation", required: true)]
         public Input<Inputs.HierarchyInformationArgs> HierarchyInformation { get; set; } = null!;

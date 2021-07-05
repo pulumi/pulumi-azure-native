@@ -17,12 +17,17 @@ export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:getOrderItemByName", {
+        "expand": args.expand,
         "orderItemName": args.orderItemName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetOrderItemByNameArgs {
+    /**
+     * $expand is supported on device details parameter for order item, which provides details on the devices of the product.
+     */
+    expand?: string;
     /**
      * The name of the order item
      */
@@ -38,7 +43,7 @@ export interface GetOrderItemByNameArgs {
  */
 export interface GetOrderItemByNameResult {
     /**
-     * Represents shipping and return address for order
+     * Represents shipping and return address for order item
      */
     readonly addressDetails: outputs.edgeorder.v20201201preview.AddressDetailsResponse;
     /**
@@ -54,7 +59,7 @@ export interface GetOrderItemByNameResult {
      */
     readonly name: string;
     /**
-     * Id of the order to which order items belongs to
+     * Id of the order to which order item belongs to
      */
     readonly orderId: string;
     /**

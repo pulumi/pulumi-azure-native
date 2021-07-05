@@ -137,12 +137,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// Friendly name of the workspace connection
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

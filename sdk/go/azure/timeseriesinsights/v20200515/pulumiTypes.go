@@ -909,6 +909,293 @@ func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPt
 	}).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestampResponse struct {
+	// An enum that represents the format of the local timestamp property that needs to be set.
+	Format *string `pulumi:"format"`
+	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	TimeZoneOffset *LocalTimestampResponseTimeZoneOffset `pulumi:"timeZoneOffset"`
+}
+
+// LocalTimestampResponseInput is an input type that accepts LocalTimestampResponseArgs and LocalTimestampResponseOutput values.
+// You can construct a concrete instance of `LocalTimestampResponseInput` via:
+//
+//          LocalTimestampResponseArgs{...}
+type LocalTimestampResponseInput interface {
+	pulumi.Input
+
+	ToLocalTimestampResponseOutput() LocalTimestampResponseOutput
+	ToLocalTimestampResponseOutputWithContext(context.Context) LocalTimestampResponseOutput
+}
+
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestampResponseArgs struct {
+	// An enum that represents the format of the local timestamp property that needs to be set.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	TimeZoneOffset LocalTimestampResponseTimeZoneOffsetPtrInput `pulumi:"timeZoneOffset"`
+}
+
+func (LocalTimestampResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampResponse)(nil)).Elem()
+}
+
+func (i LocalTimestampResponseArgs) ToLocalTimestampResponseOutput() LocalTimestampResponseOutput {
+	return i.ToLocalTimestampResponseOutputWithContext(context.Background())
+}
+
+func (i LocalTimestampResponseArgs) ToLocalTimestampResponseOutputWithContext(ctx context.Context) LocalTimestampResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponseOutput)
+}
+
+func (i LocalTimestampResponseArgs) ToLocalTimestampResponsePtrOutput() LocalTimestampResponsePtrOutput {
+	return i.ToLocalTimestampResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LocalTimestampResponseArgs) ToLocalTimestampResponsePtrOutputWithContext(ctx context.Context) LocalTimestampResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponseOutput).ToLocalTimestampResponsePtrOutputWithContext(ctx)
+}
+
+// LocalTimestampResponsePtrInput is an input type that accepts LocalTimestampResponseArgs, LocalTimestampResponsePtr and LocalTimestampResponsePtrOutput values.
+// You can construct a concrete instance of `LocalTimestampResponsePtrInput` via:
+//
+//          LocalTimestampResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LocalTimestampResponsePtrInput interface {
+	pulumi.Input
+
+	ToLocalTimestampResponsePtrOutput() LocalTimestampResponsePtrOutput
+	ToLocalTimestampResponsePtrOutputWithContext(context.Context) LocalTimestampResponsePtrOutput
+}
+
+type localTimestampResponsePtrType LocalTimestampResponseArgs
+
+func LocalTimestampResponsePtr(v *LocalTimestampResponseArgs) LocalTimestampResponsePtrInput {
+	return (*localTimestampResponsePtrType)(v)
+}
+
+func (*localTimestampResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampResponse)(nil)).Elem()
+}
+
+func (i *localTimestampResponsePtrType) ToLocalTimestampResponsePtrOutput() LocalTimestampResponsePtrOutput {
+	return i.ToLocalTimestampResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *localTimestampResponsePtrType) ToLocalTimestampResponsePtrOutputWithContext(ctx context.Context) LocalTimestampResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponsePtrOutput)
+}
+
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestampResponseOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampResponse)(nil)).Elem()
+}
+
+func (o LocalTimestampResponseOutput) ToLocalTimestampResponseOutput() LocalTimestampResponseOutput {
+	return o
+}
+
+func (o LocalTimestampResponseOutput) ToLocalTimestampResponseOutputWithContext(ctx context.Context) LocalTimestampResponseOutput {
+	return o
+}
+
+func (o LocalTimestampResponseOutput) ToLocalTimestampResponsePtrOutput() LocalTimestampResponsePtrOutput {
+	return o.ToLocalTimestampResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LocalTimestampResponseOutput) ToLocalTimestampResponsePtrOutputWithContext(ctx context.Context) LocalTimestampResponsePtrOutput {
+	return o.ApplyT(func(v LocalTimestampResponse) *LocalTimestampResponse {
+		return &v
+	}).(LocalTimestampResponsePtrOutput)
+}
+
+// An enum that represents the format of the local timestamp property that needs to be set.
+func (o LocalTimestampResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalTimestampResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+func (o LocalTimestampResponseOutput) TimeZoneOffset() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v LocalTimestampResponse) *LocalTimestampResponseTimeZoneOffset { return v.TimeZoneOffset }).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
+}
+
+type LocalTimestampResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampResponse)(nil)).Elem()
+}
+
+func (o LocalTimestampResponsePtrOutput) ToLocalTimestampResponsePtrOutput() LocalTimestampResponsePtrOutput {
+	return o
+}
+
+func (o LocalTimestampResponsePtrOutput) ToLocalTimestampResponsePtrOutputWithContext(ctx context.Context) LocalTimestampResponsePtrOutput {
+	return o
+}
+
+func (o LocalTimestampResponsePtrOutput) Elem() LocalTimestampResponseOutput {
+	return o.ApplyT(func(v *LocalTimestampResponse) LocalTimestampResponse { return *v }).(LocalTimestampResponseOutput)
+}
+
+// An enum that represents the format of the local timestamp property that needs to be set.
+func (o LocalTimestampResponsePtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalTimestampResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+func (o LocalTimestampResponsePtrOutput) TimeZoneOffset() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v *LocalTimestampResponse) *LocalTimestampResponseTimeZoneOffset {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZoneOffset
+	}).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
+}
+
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampResponseTimeZoneOffset struct {
+	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+	PropertyName *string `pulumi:"propertyName"`
+}
+
+// LocalTimestampResponseTimeZoneOffsetInput is an input type that accepts LocalTimestampResponseTimeZoneOffsetArgs and LocalTimestampResponseTimeZoneOffsetOutput values.
+// You can construct a concrete instance of `LocalTimestampResponseTimeZoneOffsetInput` via:
+//
+//          LocalTimestampResponseTimeZoneOffsetArgs{...}
+type LocalTimestampResponseTimeZoneOffsetInput interface {
+	pulumi.Input
+
+	ToLocalTimestampResponseTimeZoneOffsetOutput() LocalTimestampResponseTimeZoneOffsetOutput
+	ToLocalTimestampResponseTimeZoneOffsetOutputWithContext(context.Context) LocalTimestampResponseTimeZoneOffsetOutput
+}
+
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampResponseTimeZoneOffsetArgs struct {
+	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
+}
+
+func (LocalTimestampResponseTimeZoneOffsetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampResponseTimeZoneOffset)(nil)).Elem()
+}
+
+func (i LocalTimestampResponseTimeZoneOffsetArgs) ToLocalTimestampResponseTimeZoneOffsetOutput() LocalTimestampResponseTimeZoneOffsetOutput {
+	return i.ToLocalTimestampResponseTimeZoneOffsetOutputWithContext(context.Background())
+}
+
+func (i LocalTimestampResponseTimeZoneOffsetArgs) ToLocalTimestampResponseTimeZoneOffsetOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponseTimeZoneOffsetOutput)
+}
+
+func (i LocalTimestampResponseTimeZoneOffsetArgs) ToLocalTimestampResponseTimeZoneOffsetPtrOutput() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return i.ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(context.Background())
+}
+
+func (i LocalTimestampResponseTimeZoneOffsetArgs) ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponseTimeZoneOffsetOutput).ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(ctx)
+}
+
+// LocalTimestampResponseTimeZoneOffsetPtrInput is an input type that accepts LocalTimestampResponseTimeZoneOffsetArgs, LocalTimestampResponseTimeZoneOffsetPtr and LocalTimestampResponseTimeZoneOffsetPtrOutput values.
+// You can construct a concrete instance of `LocalTimestampResponseTimeZoneOffsetPtrInput` via:
+//
+//          LocalTimestampResponseTimeZoneOffsetArgs{...}
+//
+//  or:
+//
+//          nil
+type LocalTimestampResponseTimeZoneOffsetPtrInput interface {
+	pulumi.Input
+
+	ToLocalTimestampResponseTimeZoneOffsetPtrOutput() LocalTimestampResponseTimeZoneOffsetPtrOutput
+	ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(context.Context) LocalTimestampResponseTimeZoneOffsetPtrOutput
+}
+
+type localTimestampResponseTimeZoneOffsetPtrType LocalTimestampResponseTimeZoneOffsetArgs
+
+func LocalTimestampResponseTimeZoneOffsetPtr(v *LocalTimestampResponseTimeZoneOffsetArgs) LocalTimestampResponseTimeZoneOffsetPtrInput {
+	return (*localTimestampResponseTimeZoneOffsetPtrType)(v)
+}
+
+func (*localTimestampResponseTimeZoneOffsetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampResponseTimeZoneOffset)(nil)).Elem()
+}
+
+func (i *localTimestampResponseTimeZoneOffsetPtrType) ToLocalTimestampResponseTimeZoneOffsetPtrOutput() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return i.ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(context.Background())
+}
+
+func (i *localTimestampResponseTimeZoneOffsetPtrType) ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
+}
+
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampResponseTimeZoneOffsetOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampResponseTimeZoneOffsetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampResponseTimeZoneOffset)(nil)).Elem()
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetOutput) ToLocalTimestampResponseTimeZoneOffsetOutput() LocalTimestampResponseTimeZoneOffsetOutput {
+	return o
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetOutput) ToLocalTimestampResponseTimeZoneOffsetOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetOutput {
+	return o
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetOutput) ToLocalTimestampResponseTimeZoneOffsetPtrOutput() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o.ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(context.Background())
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetOutput) ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v LocalTimestampResponseTimeZoneOffset) *LocalTimestampResponseTimeZoneOffset {
+		return &v
+	}).(LocalTimestampResponseTimeZoneOffsetPtrOutput)
+}
+
+// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+func (o LocalTimestampResponseTimeZoneOffsetOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalTimestampResponseTimeZoneOffset) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+}
+
+type LocalTimestampResponseTimeZoneOffsetPtrOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampResponseTimeZoneOffsetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampResponseTimeZoneOffset)(nil)).Elem()
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) ToLocalTimestampResponseTimeZoneOffsetPtrOutput() LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) ToLocalTimestampResponseTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampResponseTimeZoneOffsetPtrOutput {
+	return o
+}
+
+func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) Elem() LocalTimestampResponseTimeZoneOffsetOutput {
+	return o.ApplyT(func(v *LocalTimestampResponseTimeZoneOffset) LocalTimestampResponseTimeZoneOffset { return *v }).(LocalTimestampResponseTimeZoneOffsetOutput)
+}
+
+// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+func (o LocalTimestampResponseTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalTimestampResponseTimeZoneOffset) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
 type LocalTimestampTimeZoneOffset struct {
 	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
@@ -2238,6 +2525,10 @@ func init() {
 	pulumi.RegisterOutputType(IngressEnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampOutput{})
 	pulumi.RegisterOutputType(LocalTimestampPtrOutput{})
+	pulumi.RegisterOutputType(LocalTimestampResponseOutput{})
+	pulumi.RegisterOutputType(LocalTimestampResponsePtrOutput{})
+	pulumi.RegisterOutputType(LocalTimestampResponseTimeZoneOffsetOutput{})
+	pulumi.RegisterOutputType(LocalTimestampResponseTimeZoneOffsetPtrOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetOutput{})
 	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})

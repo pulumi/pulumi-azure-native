@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterablePropertyResponse> FilterableProperties;
         /// <summary>
-        /// Hierarchy information of the product system.
+        /// Hierarchy information of a product.
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
         /// <summary>

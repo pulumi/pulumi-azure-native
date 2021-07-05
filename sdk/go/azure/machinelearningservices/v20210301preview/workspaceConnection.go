@@ -152,8 +152,6 @@ type workspaceConnectionArgs struct {
 	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection
 	ConnectionName *string `pulumi:"connectionName"`
-	// Friendly name of the workspace connection
-	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Target of the workspace connection.
@@ -174,8 +172,6 @@ type WorkspaceConnectionArgs struct {
 	Category pulumi.StringPtrInput
 	// Friendly name of the workspace connection
 	ConnectionName pulumi.StringPtrInput
-	// Friendly name of the workspace connection
-	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Target of the workspace connection.

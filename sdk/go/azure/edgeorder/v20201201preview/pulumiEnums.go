@@ -76,18 +76,10 @@ func (e DoubleEncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context
 type NotificationStageName pulumi.String
 
 const (
-	// Notification at device prepared stage.
-	NotificationStageNameDevicePrepared = NotificationStageName("DevicePrepared")
-	// Notification at device dispatched stage.
+	// Notification at order item shipped from microsoft datacenter.
 	NotificationStageNameShipped = NotificationStageName("Shipped")
-	// Notification at device delivered stage.
+	// Notification at order item delivered to customer.
 	NotificationStageNameDelivered = NotificationStageName("Delivered")
-	// Notification at device picked up from user stage.
-	NotificationStageNamePickedUp = NotificationStageName("PickedUp")
-	// Notification at device received at Azure datacenter stage.
-	NotificationStageNameAtAzureDC = NotificationStageName("AtAzureDC")
-	// Notification at data copy started stage.
-	NotificationStageNameDataCopy = NotificationStageName("DataCopy")
 )
 
 func (NotificationStageName) ElementType() reflect.Type {
