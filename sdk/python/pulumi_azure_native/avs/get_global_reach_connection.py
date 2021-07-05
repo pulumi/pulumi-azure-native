@@ -132,7 +132,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalReachConnectionResult:
     """
     A global reach connection resource
-    API Version: 2021-06-01.
+    API Version: 2020-07-17-preview.
 
 
     :param str global_reach_connection_name: Name of the global reach connection in the private cloud

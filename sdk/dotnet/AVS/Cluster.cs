@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A cluster resource
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AVS
         /// The cluster size
         /// </summary>
         [Output("clusterSize")]
-        public Output<int?> ClusterSize { get; private set; } = null!;
+        public Output<int> ClusterSize { get; private set; } = null!;
 
         /// <summary>
         /// The hosts
@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// The cluster size
         /// </summary>
-        [Input("clusterSize")]
-        public Input<int>? ClusterSize { get; set; }
+        [Input("clusterSize", required: true)]
+        public Input<int> ClusterSize { get; set; } = null!;
 
         /// <summary>
         /// The name of the private cloud.

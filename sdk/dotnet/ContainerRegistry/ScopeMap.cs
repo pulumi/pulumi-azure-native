@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a scope map for a container registry.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ScopeMap")]
     public partial class ScopeMap : Pulumi.CustomResource

@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatastoreArgs', 'Datastore']
@@ -128,7 +127,7 @@ class Datastore(pulumi.CustomResource):
                  __props__=None):
         """
         A datastore resource
-        API Version: 2021-06-01.
+        API Version: 2021-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +146,7 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A datastore resource
-        API Version: 2021-06-01.
+        API Version: 2021-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

@@ -12,14 +12,14 @@ import (
 )
 
 // A cluster resource
-// API Version: 2021-06-01.
+// API Version: 2020-03-20.
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The identity
 	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
 	// The cluster size
-	ClusterSize pulumi.IntPtrOutput `pulumi:"clusterSize"`
+	ClusterSize pulumi.IntOutput `pulumi:"clusterSize"`
 	// The hosts
 	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
 	// Resource name.
@@ -39,6 +39,9 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ClusterSize == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterSize'")
+	}
 	if args.PrivateCloudName == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
 	}
@@ -141,7 +144,7 @@ type clusterArgs struct {
 	// Name of the cluster in the private cloud
 	ClusterName *string `pulumi:"clusterName"`
 	// The cluster size
-	ClusterSize *int `pulumi:"clusterSize"`
+	ClusterSize int `pulumi:"clusterSize"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
@@ -155,7 +158,7 @@ type ClusterArgs struct {
 	// Name of the cluster in the private cloud
 	ClusterName pulumi.StringPtrInput
 	// The cluster size
-	ClusterSize pulumi.IntPtrInput
+	ClusterSize pulumi.IntInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

@@ -8,7 +8,7 @@ import (
 )
 
 // A datastore resource
-// API Version: 2021-06-01.
+// API Version: 2021-01-01-preview.
 func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupDatastoreResult, error) {
 	var rv LookupDatastoreResult
 	err := ctx.Invoke("azure-native:avs:getDatastore", args, &rv, opts...)

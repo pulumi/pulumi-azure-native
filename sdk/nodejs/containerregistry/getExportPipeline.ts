@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
- * API Version: 2021-06-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getExportPipeline(args: GetExportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetExportPipelineResult> {
     if (!opts) {

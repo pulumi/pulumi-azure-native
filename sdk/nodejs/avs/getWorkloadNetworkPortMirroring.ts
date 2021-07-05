@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Port Mirroring
- * API Version: 2021-06-01.
+ * API Version: 2020-07-17-preview.
  */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
     if (!opts) {

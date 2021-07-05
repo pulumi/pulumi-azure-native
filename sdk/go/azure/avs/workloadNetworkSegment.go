@@ -12,7 +12,7 @@ import (
 )
 
 // NSX Segment
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 type WorkloadNetworkSegment struct {
 	pulumi.CustomResourceState
 

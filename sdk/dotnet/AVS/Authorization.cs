@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Authorization")]
     public partial class Authorization : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents an export pipeline for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupExportPipeline(ctx *pulumi.Context, args *LookupExportPipelineArgs, opts ...pulumi.InvokeOption) (*LookupExportPipelineResult, error) {
 	var rv LookupExportPipelineResult
 	err := ctx.Invoke("azure-native:containerregistry:getExportPipeline", args, &rv, opts...)

@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents an import pipeline for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupImportPipeline(ctx *pulumi.Context, args *LookupImportPipelineArgs, opts ...pulumi.InvokeOption) (*LookupImportPipelineResult, error) {
 	var rv LookupImportPipelineResult
 	err := ctx.Invoke("azure-native:containerregistry:getImportPipeline", args, &rv, opts...)

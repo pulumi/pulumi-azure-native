@@ -10,435 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of an HCX addon
-type AddonHcxProperties struct {
-	// The type of private cloud addon
-	// Expected value is 'HCX'.
-	AddonType string `pulumi:"addonType"`
-	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-	Offer string `pulumi:"offer"`
-}
-
-// AddonHcxPropertiesInput is an input type that accepts AddonHcxPropertiesArgs and AddonHcxPropertiesOutput values.
-// You can construct a concrete instance of `AddonHcxPropertiesInput` via:
-//
-//          AddonHcxPropertiesArgs{...}
-type AddonHcxPropertiesInput interface {
-	pulumi.Input
-
-	ToAddonHcxPropertiesOutput() AddonHcxPropertiesOutput
-	ToAddonHcxPropertiesOutputWithContext(context.Context) AddonHcxPropertiesOutput
-}
-
-// The properties of an HCX addon
-type AddonHcxPropertiesArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'HCX'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-	Offer pulumi.StringInput `pulumi:"offer"`
-}
-
-func (AddonHcxPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonHcxProperties)(nil)).Elem()
-}
-
-func (i AddonHcxPropertiesArgs) ToAddonHcxPropertiesOutput() AddonHcxPropertiesOutput {
-	return i.ToAddonHcxPropertiesOutputWithContext(context.Background())
-}
-
-func (i AddonHcxPropertiesArgs) ToAddonHcxPropertiesOutputWithContext(ctx context.Context) AddonHcxPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonHcxPropertiesOutput)
-}
-
-// The properties of an HCX addon
-type AddonHcxPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddonHcxPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonHcxProperties)(nil)).Elem()
-}
-
-func (o AddonHcxPropertiesOutput) ToAddonHcxPropertiesOutput() AddonHcxPropertiesOutput {
-	return o
-}
-
-func (o AddonHcxPropertiesOutput) ToAddonHcxPropertiesOutputWithContext(ctx context.Context) AddonHcxPropertiesOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'HCX'.
-func (o AddonHcxPropertiesOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonHcxProperties) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-func (o AddonHcxPropertiesOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonHcxProperties) string { return v.Offer }).(pulumi.StringOutput)
-}
-
-// The properties of an HCX addon
-type AddonHcxPropertiesResponse struct {
-	// The type of private cloud addon
-	// Expected value is 'HCX'.
-	AddonType string `pulumi:"addonType"`
-	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-	Offer string `pulumi:"offer"`
-	// The state of the addon provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// AddonHcxPropertiesResponseInput is an input type that accepts AddonHcxPropertiesResponseArgs and AddonHcxPropertiesResponseOutput values.
-// You can construct a concrete instance of `AddonHcxPropertiesResponseInput` via:
-//
-//          AddonHcxPropertiesResponseArgs{...}
-type AddonHcxPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAddonHcxPropertiesResponseOutput() AddonHcxPropertiesResponseOutput
-	ToAddonHcxPropertiesResponseOutputWithContext(context.Context) AddonHcxPropertiesResponseOutput
-}
-
-// The properties of an HCX addon
-type AddonHcxPropertiesResponseArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'HCX'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-	Offer pulumi.StringInput `pulumi:"offer"`
-	// The state of the addon provisioning
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (AddonHcxPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonHcxPropertiesResponse)(nil)).Elem()
-}
-
-func (i AddonHcxPropertiesResponseArgs) ToAddonHcxPropertiesResponseOutput() AddonHcxPropertiesResponseOutput {
-	return i.ToAddonHcxPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AddonHcxPropertiesResponseArgs) ToAddonHcxPropertiesResponseOutputWithContext(ctx context.Context) AddonHcxPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonHcxPropertiesResponseOutput)
-}
-
-// The properties of an HCX addon
-type AddonHcxPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AddonHcxPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonHcxPropertiesResponse)(nil)).Elem()
-}
-
-func (o AddonHcxPropertiesResponseOutput) ToAddonHcxPropertiesResponseOutput() AddonHcxPropertiesResponseOutput {
-	return o
-}
-
-func (o AddonHcxPropertiesResponseOutput) ToAddonHcxPropertiesResponseOutputWithContext(ctx context.Context) AddonHcxPropertiesResponseOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'HCX'.
-func (o AddonHcxPropertiesResponseOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonHcxPropertiesResponse) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
-func (o AddonHcxPropertiesResponseOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonHcxPropertiesResponse) string { return v.Offer }).(pulumi.StringOutput)
-}
-
-// The state of the addon provisioning
-func (o AddonHcxPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonHcxPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmProperties struct {
-	// The type of private cloud addon
-	// Expected value is 'SRM'.
-	AddonType string `pulumi:"addonType"`
-	// The Site Recovery Manager (SRM) license
-	LicenseKey string `pulumi:"licenseKey"`
-}
-
-// AddonSrmPropertiesInput is an input type that accepts AddonSrmPropertiesArgs and AddonSrmPropertiesOutput values.
-// You can construct a concrete instance of `AddonSrmPropertiesInput` via:
-//
-//          AddonSrmPropertiesArgs{...}
-type AddonSrmPropertiesInput interface {
-	pulumi.Input
-
-	ToAddonSrmPropertiesOutput() AddonSrmPropertiesOutput
-	ToAddonSrmPropertiesOutputWithContext(context.Context) AddonSrmPropertiesOutput
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmPropertiesArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'SRM'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The Site Recovery Manager (SRM) license
-	LicenseKey pulumi.StringInput `pulumi:"licenseKey"`
-}
-
-func (AddonSrmPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonSrmProperties)(nil)).Elem()
-}
-
-func (i AddonSrmPropertiesArgs) ToAddonSrmPropertiesOutput() AddonSrmPropertiesOutput {
-	return i.ToAddonSrmPropertiesOutputWithContext(context.Background())
-}
-
-func (i AddonSrmPropertiesArgs) ToAddonSrmPropertiesOutputWithContext(ctx context.Context) AddonSrmPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonSrmPropertiesOutput)
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddonSrmPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonSrmProperties)(nil)).Elem()
-}
-
-func (o AddonSrmPropertiesOutput) ToAddonSrmPropertiesOutput() AddonSrmPropertiesOutput {
-	return o
-}
-
-func (o AddonSrmPropertiesOutput) ToAddonSrmPropertiesOutputWithContext(ctx context.Context) AddonSrmPropertiesOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'SRM'.
-func (o AddonSrmPropertiesOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonSrmProperties) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The Site Recovery Manager (SRM) license
-func (o AddonSrmPropertiesOutput) LicenseKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonSrmProperties) string { return v.LicenseKey }).(pulumi.StringOutput)
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmPropertiesResponse struct {
-	// The type of private cloud addon
-	// Expected value is 'SRM'.
-	AddonType string `pulumi:"addonType"`
-	// The Site Recovery Manager (SRM) license
-	LicenseKey string `pulumi:"licenseKey"`
-	// The state of the addon provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// AddonSrmPropertiesResponseInput is an input type that accepts AddonSrmPropertiesResponseArgs and AddonSrmPropertiesResponseOutput values.
-// You can construct a concrete instance of `AddonSrmPropertiesResponseInput` via:
-//
-//          AddonSrmPropertiesResponseArgs{...}
-type AddonSrmPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAddonSrmPropertiesResponseOutput() AddonSrmPropertiesResponseOutput
-	ToAddonSrmPropertiesResponseOutputWithContext(context.Context) AddonSrmPropertiesResponseOutput
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmPropertiesResponseArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'SRM'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The Site Recovery Manager (SRM) license
-	LicenseKey pulumi.StringInput `pulumi:"licenseKey"`
-	// The state of the addon provisioning
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (AddonSrmPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonSrmPropertiesResponse)(nil)).Elem()
-}
-
-func (i AddonSrmPropertiesResponseArgs) ToAddonSrmPropertiesResponseOutput() AddonSrmPropertiesResponseOutput {
-	return i.ToAddonSrmPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AddonSrmPropertiesResponseArgs) ToAddonSrmPropertiesResponseOutputWithContext(ctx context.Context) AddonSrmPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonSrmPropertiesResponseOutput)
-}
-
-// The properties of a Site Recovery Manager (SRM) addon
-type AddonSrmPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AddonSrmPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonSrmPropertiesResponse)(nil)).Elem()
-}
-
-func (o AddonSrmPropertiesResponseOutput) ToAddonSrmPropertiesResponseOutput() AddonSrmPropertiesResponseOutput {
-	return o
-}
-
-func (o AddonSrmPropertiesResponseOutput) ToAddonSrmPropertiesResponseOutputWithContext(ctx context.Context) AddonSrmPropertiesResponseOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'SRM'.
-func (o AddonSrmPropertiesResponseOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonSrmPropertiesResponse) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The Site Recovery Manager (SRM) license
-func (o AddonSrmPropertiesResponseOutput) LicenseKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonSrmPropertiesResponse) string { return v.LicenseKey }).(pulumi.StringOutput)
-}
-
-// The state of the addon provisioning
-func (o AddonSrmPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonSrmPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrProperties struct {
-	// The type of private cloud addon
-	// Expected value is 'VR'.
-	AddonType string `pulumi:"addonType"`
-	// The vSphere Replication Server (VRS) count
-	VrsCount int `pulumi:"vrsCount"`
-}
-
-// AddonVrPropertiesInput is an input type that accepts AddonVrPropertiesArgs and AddonVrPropertiesOutput values.
-// You can construct a concrete instance of `AddonVrPropertiesInput` via:
-//
-//          AddonVrPropertiesArgs{...}
-type AddonVrPropertiesInput interface {
-	pulumi.Input
-
-	ToAddonVrPropertiesOutput() AddonVrPropertiesOutput
-	ToAddonVrPropertiesOutputWithContext(context.Context) AddonVrPropertiesOutput
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrPropertiesArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'VR'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The vSphere Replication Server (VRS) count
-	VrsCount pulumi.IntInput `pulumi:"vrsCount"`
-}
-
-func (AddonVrPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonVrProperties)(nil)).Elem()
-}
-
-func (i AddonVrPropertiesArgs) ToAddonVrPropertiesOutput() AddonVrPropertiesOutput {
-	return i.ToAddonVrPropertiesOutputWithContext(context.Background())
-}
-
-func (i AddonVrPropertiesArgs) ToAddonVrPropertiesOutputWithContext(ctx context.Context) AddonVrPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonVrPropertiesOutput)
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddonVrPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonVrProperties)(nil)).Elem()
-}
-
-func (o AddonVrPropertiesOutput) ToAddonVrPropertiesOutput() AddonVrPropertiesOutput {
-	return o
-}
-
-func (o AddonVrPropertiesOutput) ToAddonVrPropertiesOutputWithContext(ctx context.Context) AddonVrPropertiesOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'VR'.
-func (o AddonVrPropertiesOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonVrProperties) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The vSphere Replication Server (VRS) count
-func (o AddonVrPropertiesOutput) VrsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v AddonVrProperties) int { return v.VrsCount }).(pulumi.IntOutput)
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrPropertiesResponse struct {
-	// The type of private cloud addon
-	// Expected value is 'VR'.
-	AddonType string `pulumi:"addonType"`
-	// The state of the addon provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The vSphere Replication Server (VRS) count
-	VrsCount int `pulumi:"vrsCount"`
-}
-
-// AddonVrPropertiesResponseInput is an input type that accepts AddonVrPropertiesResponseArgs and AddonVrPropertiesResponseOutput values.
-// You can construct a concrete instance of `AddonVrPropertiesResponseInput` via:
-//
-//          AddonVrPropertiesResponseArgs{...}
-type AddonVrPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAddonVrPropertiesResponseOutput() AddonVrPropertiesResponseOutput
-	ToAddonVrPropertiesResponseOutputWithContext(context.Context) AddonVrPropertiesResponseOutput
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrPropertiesResponseArgs struct {
-	// The type of private cloud addon
-	// Expected value is 'VR'.
-	AddonType pulumi.StringInput `pulumi:"addonType"`
-	// The state of the addon provisioning
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The vSphere Replication Server (VRS) count
-	VrsCount pulumi.IntInput `pulumi:"vrsCount"`
-}
-
-func (AddonVrPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonVrPropertiesResponse)(nil)).Elem()
-}
-
-func (i AddonVrPropertiesResponseArgs) ToAddonVrPropertiesResponseOutput() AddonVrPropertiesResponseOutput {
-	return i.ToAddonVrPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AddonVrPropertiesResponseArgs) ToAddonVrPropertiesResponseOutputWithContext(ctx context.Context) AddonVrPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddonVrPropertiesResponseOutput)
-}
-
-// The properties of a vSphere Replication (VR) addon
-type AddonVrPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AddonVrPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonVrPropertiesResponse)(nil)).Elem()
-}
-
-func (o AddonVrPropertiesResponseOutput) ToAddonVrPropertiesResponseOutput() AddonVrPropertiesResponseOutput {
-	return o
-}
-
-func (o AddonVrPropertiesResponseOutput) ToAddonVrPropertiesResponseOutputWithContext(ctx context.Context) AddonVrPropertiesResponseOutput {
-	return o
-}
-
-// The type of private cloud addon
-// Expected value is 'VR'.
-func (o AddonVrPropertiesResponseOutput) AddonType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonVrPropertiesResponse) string { return v.AddonType }).(pulumi.StringOutput)
-}
-
-// The state of the addon provisioning
-func (o AddonVrPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AddonVrPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The vSphere Replication Server (VRS) count
-func (o AddonVrPropertiesResponseOutput) VrsCount() pulumi.IntOutput {
-	return o.ApplyT(func(v AddonVrPropertiesResponse) int { return v.VrsCount }).(pulumi.IntOutput)
-}
-
 // An ExpressRoute Circuit
 type CircuitResponse struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
@@ -632,12 +203,10 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolume struct {
-	// Name of the LUN to be used for datastore
-	LunName string `pulumi:"lunName"`
-	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-	MountOption *string `pulumi:"mountOption"`
-	// Azure resource ID of the iSCSI target
-	TargetId string `pulumi:"targetId"`
+	// iSCSI provider target IP address list
+	Endpoints []string `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName *string `pulumi:"lunName"`
 }
 
 // DiskPoolVolumeInput is an input type that accepts DiskPoolVolumeArgs and DiskPoolVolumeOutput values.
@@ -653,12 +222,10 @@ type DiskPoolVolumeInput interface {
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeArgs struct {
-	// Name of the LUN to be used for datastore
-	LunName pulumi.StringInput `pulumi:"lunName"`
-	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-	MountOption pulumi.StringPtrInput `pulumi:"mountOption"`
-	// Azure resource ID of the iSCSI target
-	TargetId pulumi.StringInput `pulumi:"targetId"`
+	// iSCSI provider target IP address list
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName pulumi.StringPtrInput `pulumi:"lunName"`
 }
 
 func (DiskPoolVolumeArgs) ElementType() reflect.Type {
@@ -739,19 +306,14 @@ func (o DiskPoolVolumeOutput) ToDiskPoolVolumePtrOutputWithContext(ctx context.C
 	}).(DiskPoolVolumePtrOutput)
 }
 
-// Name of the LUN to be used for datastore
-func (o DiskPoolVolumeOutput) LunName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPoolVolume) string { return v.LunName }).(pulumi.StringOutput)
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiskPoolVolume) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
-// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-func (o DiskPoolVolumeOutput) MountOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPoolVolume) *string { return v.MountOption }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource ID of the iSCSI target
-func (o DiskPoolVolumeOutput) TargetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPoolVolume) string { return v.TargetId }).(pulumi.StringOutput)
+// Name of the LUN to be used
+func (o DiskPoolVolumeOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolume) *string { return v.LunName }).(pulumi.StringPtrOutput)
 }
 
 type DiskPoolVolumePtrOutput struct{ *pulumi.OutputState }
@@ -772,46 +334,32 @@ func (o DiskPoolVolumePtrOutput) Elem() DiskPoolVolumeOutput {
 	return o.ApplyT(func(v *DiskPoolVolume) DiskPoolVolume { return *v }).(DiskPoolVolumeOutput)
 }
 
-// Name of the LUN to be used for datastore
+// iSCSI provider target IP address list
+func (o DiskPoolVolumePtrOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
 func (o DiskPoolVolumePtrOutput) LunName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskPoolVolume) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.LunName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-func (o DiskPoolVolumePtrOutput) MountOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPoolVolume) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MountOption
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure resource ID of the iSCSI target
-func (o DiskPoolVolumePtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPoolVolume) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetId
+		return v.LunName
 	}).(pulumi.StringPtrOutput)
 }
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponse struct {
-	// Name of the LUN to be used for datastore
-	LunName string `pulumi:"lunName"`
-	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-	MountOption *string `pulumi:"mountOption"`
-	// Device path
-	Path string `pulumi:"path"`
-	// Azure resource ID of the iSCSI target
-	TargetId string `pulumi:"targetId"`
+	// iSCSI provider target IP address list
+	Endpoints []string `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName *string `pulumi:"lunName"`
 }
 
 // DiskPoolVolumeResponseInput is an input type that accepts DiskPoolVolumeResponseArgs and DiskPoolVolumeResponseOutput values.
@@ -827,14 +375,10 @@ type DiskPoolVolumeResponseInput interface {
 
 // An iSCSI volume from Microsoft.StoragePool provider
 type DiskPoolVolumeResponseArgs struct {
-	// Name of the LUN to be used for datastore
-	LunName pulumi.StringInput `pulumi:"lunName"`
-	// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-	MountOption pulumi.StringPtrInput `pulumi:"mountOption"`
-	// Device path
-	Path pulumi.StringInput `pulumi:"path"`
-	// Azure resource ID of the iSCSI target
-	TargetId pulumi.StringInput `pulumi:"targetId"`
+	// iSCSI provider target IP address list
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName pulumi.StringPtrInput `pulumi:"lunName"`
 }
 
 func (DiskPoolVolumeResponseArgs) ElementType() reflect.Type {
@@ -915,24 +459,14 @@ func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponsePtrOutputWithConte
 	}).(DiskPoolVolumeResponsePtrOutput)
 }
 
-// Name of the LUN to be used for datastore
-func (o DiskPoolVolumeResponseOutput) LunName() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.LunName }).(pulumi.StringOutput)
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeResponseOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
-// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-func (o DiskPoolVolumeResponseOutput) MountOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) *string { return v.MountOption }).(pulumi.StringPtrOutput)
-}
-
-// Device path
-func (o DiskPoolVolumeResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// Azure resource ID of the iSCSI target
-func (o DiskPoolVolumeResponseOutput) TargetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPoolVolumeResponse) string { return v.TargetId }).(pulumi.StringOutput)
+// Name of the LUN to be used
+func (o DiskPoolVolumeResponseOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) *string { return v.LunName }).(pulumi.StringPtrOutput)
 }
 
 type DiskPoolVolumeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -953,43 +487,23 @@ func (o DiskPoolVolumeResponsePtrOutput) Elem() DiskPoolVolumeResponseOutput {
 	return o.ApplyT(func(v *DiskPoolVolumeResponse) DiskPoolVolumeResponse { return *v }).(DiskPoolVolumeResponseOutput)
 }
 
-// Name of the LUN to be used for datastore
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeResponsePtrOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
 func (o DiskPoolVolumeResponsePtrOutput) LunName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.LunName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-func (o DiskPoolVolumeResponsePtrOutput) MountOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MountOption
-	}).(pulumi.StringPtrOutput)
-}
-
-// Device path
-func (o DiskPoolVolumeResponsePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure resource ID of the iSCSI target
-func (o DiskPoolVolumeResponsePtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetId
+		return v.LunName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1527,7 +1041,7 @@ func (o IdentitySourceResponseArrayOutput) Index(i pulumi.IntInput) IdentitySour
 	}).(IdentitySourceResponseOutput)
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementCluster struct {
 	// The cluster size
 	ClusterSize int `pulumi:"clusterSize"`
@@ -1544,7 +1058,7 @@ type ManagementClusterInput interface {
 	ToManagementClusterOutputWithContext(context.Context) ManagementClusterOutput
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementClusterArgs struct {
 	// The cluster size
 	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
@@ -1603,7 +1117,7 @@ func (i *managementClusterPtrType) ToManagementClusterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterPtrOutput)
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterOutput) ElementType() reflect.Type {
@@ -1661,7 +1175,7 @@ func (o ManagementClusterPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementClusterResponse struct {
 	// The identity
 	ClusterId int `pulumi:"clusterId"`
@@ -1684,7 +1198,7 @@ type ManagementClusterResponseInput interface {
 	ToManagementClusterResponseOutputWithContext(context.Context) ManagementClusterResponseOutput
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementClusterResponseArgs struct {
 	// The identity
 	ClusterId pulumi.IntInput `pulumi:"clusterId"`
@@ -1749,7 +1263,7 @@ func (i *managementClusterResponsePtrType) ToManagementClusterResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterResponsePtrOutput)
 }
 
-// The properties of a management cluster
+// The properties of a default cluster
 type ManagementClusterResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementClusterResponseOutput) ElementType() reflect.Type {
@@ -1854,8 +1368,10 @@ func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolume struct {
-	// Azure resource ID of the NetApp volume
-	Id string `pulumi:"id"`
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath *string `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp *string `pulumi:"nfsProviderIp"`
 }
 
 // NetAppVolumeInput is an input type that accepts NetAppVolumeArgs and NetAppVolumeOutput values.
@@ -1871,8 +1387,10 @@ type NetAppVolumeInput interface {
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeArgs struct {
-	// Azure resource ID of the NetApp volume
-	Id pulumi.StringInput `pulumi:"id"`
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp pulumi.StringPtrInput `pulumi:"nfsProviderIp"`
 }
 
 func (NetAppVolumeArgs) ElementType() reflect.Type {
@@ -1953,9 +1471,14 @@ func (o NetAppVolumeOutput) ToNetAppVolumePtrOutputWithContext(ctx context.Conte
 	}).(NetAppVolumePtrOutput)
 }
 
-// Azure resource ID of the NetApp volume
-func (o NetAppVolumeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppVolume) string { return v.Id }).(pulumi.StringOutput)
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
 }
 
 type NetAppVolumePtrOutput struct{ *pulumi.OutputState }
@@ -1976,20 +1499,32 @@ func (o NetAppVolumePtrOutput) Elem() NetAppVolumeOutput {
 	return o.ApplyT(func(v *NetAppVolume) NetAppVolume { return *v }).(NetAppVolumeOutput)
 }
 
-// Azure resource ID of the NetApp volume
-func (o NetAppVolumePtrOutput) Id() pulumi.StringPtrOutput {
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetAppVolume) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.NfsFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsProviderIp
 	}).(pulumi.StringPtrOutput)
 }
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponse struct {
-	// Azure resource ID of the NetApp volume
-	Id string `pulumi:"id"`
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath *string `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp *string `pulumi:"nfsProviderIp"`
 }
 
 // NetAppVolumeResponseInput is an input type that accepts NetAppVolumeResponseArgs and NetAppVolumeResponseOutput values.
@@ -2005,8 +1540,10 @@ type NetAppVolumeResponseInput interface {
 
 // An Azure NetApp Files volume from Microsoft.NetApp provider
 type NetAppVolumeResponseArgs struct {
-	// Azure resource ID of the NetApp volume
-	Id pulumi.StringInput `pulumi:"id"`
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp pulumi.StringPtrInput `pulumi:"nfsProviderIp"`
 }
 
 func (NetAppVolumeResponseArgs) ElementType() reflect.Type {
@@ -2087,9 +1624,14 @@ func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponsePtrOutputWithContext(c
 	}).(NetAppVolumeResponsePtrOutput)
 }
 
-// Azure resource ID of the NetApp volume
-func (o NetAppVolumeResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppVolumeResponse) string { return v.Id }).(pulumi.StringOutput)
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeResponseOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeResponseOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
 }
 
 type NetAppVolumeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2110,13 +1652,23 @@ func (o NetAppVolumeResponsePtrOutput) Elem() NetAppVolumeResponseOutput {
 	return o.ApplyT(func(v *NetAppVolumeResponse) NetAppVolumeResponse { return *v }).(NetAppVolumeResponseOutput)
 }
 
-// Azure resource ID of the NetApp volume
-func (o NetAppVolumeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeResponsePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Id
+		return v.NfsFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeResponsePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsProviderIp
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2862,400 +2414,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelay struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'RELAY'.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// DHCP Relay Addresses. Max 3.
-	ServerAddresses []string `pulumi:"serverAddresses"`
-}
-
-// WorkloadNetworkDhcpRelayInput is an input type that accepts WorkloadNetworkDhcpRelayArgs and WorkloadNetworkDhcpRelayOutput values.
-// You can construct a concrete instance of `WorkloadNetworkDhcpRelayInput` via:
-//
-//          WorkloadNetworkDhcpRelayArgs{...}
-type WorkloadNetworkDhcpRelayInput interface {
-	pulumi.Input
-
-	ToWorkloadNetworkDhcpRelayOutput() WorkloadNetworkDhcpRelayOutput
-	ToWorkloadNetworkDhcpRelayOutputWithContext(context.Context) WorkloadNetworkDhcpRelayOutput
-}
-
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelayArgs struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'RELAY'.
-	DhcpType pulumi.StringInput `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput `pulumi:"revision"`
-	// DHCP Relay Addresses. Max 3.
-	ServerAddresses pulumi.StringArrayInput `pulumi:"serverAddresses"`
-}
-
-func (WorkloadNetworkDhcpRelayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpRelay)(nil)).Elem()
-}
-
-func (i WorkloadNetworkDhcpRelayArgs) ToWorkloadNetworkDhcpRelayOutput() WorkloadNetworkDhcpRelayOutput {
-	return i.ToWorkloadNetworkDhcpRelayOutputWithContext(context.Background())
-}
-
-func (i WorkloadNetworkDhcpRelayArgs) ToWorkloadNetworkDhcpRelayOutputWithContext(ctx context.Context) WorkloadNetworkDhcpRelayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpRelayOutput)
-}
-
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelayOutput struct{ *pulumi.OutputState }
-
-func (WorkloadNetworkDhcpRelayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpRelay)(nil)).Elem()
-}
-
-func (o WorkloadNetworkDhcpRelayOutput) ToWorkloadNetworkDhcpRelayOutput() WorkloadNetworkDhcpRelayOutput {
-	return o
-}
-
-func (o WorkloadNetworkDhcpRelayOutput) ToWorkloadNetworkDhcpRelayOutputWithContext(ctx context.Context) WorkloadNetworkDhcpRelayOutput {
-	return o
-}
-
-// Type of DHCP: SERVER or RELAY.
-// Expected value is 'RELAY'.
-func (o WorkloadNetworkDhcpRelayOutput) DhcpType() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelay) string { return v.DhcpType }).(pulumi.StringOutput)
-}
-
-// Display name of the DHCP entity.
-func (o WorkloadNetworkDhcpRelayOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelay) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// NSX revision number.
-func (o WorkloadNetworkDhcpRelayOutput) Revision() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelay) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
-}
-
-// DHCP Relay Addresses. Max 3.
-func (o WorkloadNetworkDhcpRelayOutput) ServerAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelay) []string { return v.ServerAddresses }).(pulumi.StringArrayOutput)
-}
-
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelayResponse struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'RELAY'.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments []string `pulumi:"segments"`
-	// DHCP Relay Addresses. Max 3.
-	ServerAddresses []string `pulumi:"serverAddresses"`
-}
-
-// WorkloadNetworkDhcpRelayResponseInput is an input type that accepts WorkloadNetworkDhcpRelayResponseArgs and WorkloadNetworkDhcpRelayResponseOutput values.
-// You can construct a concrete instance of `WorkloadNetworkDhcpRelayResponseInput` via:
-//
-//          WorkloadNetworkDhcpRelayResponseArgs{...}
-type WorkloadNetworkDhcpRelayResponseInput interface {
-	pulumi.Input
-
-	ToWorkloadNetworkDhcpRelayResponseOutput() WorkloadNetworkDhcpRelayResponseOutput
-	ToWorkloadNetworkDhcpRelayResponseOutputWithContext(context.Context) WorkloadNetworkDhcpRelayResponseOutput
-}
-
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelayResponseArgs struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'RELAY'.
-	DhcpType pulumi.StringInput `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The provisioning state
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments pulumi.StringArrayInput `pulumi:"segments"`
-	// DHCP Relay Addresses. Max 3.
-	ServerAddresses pulumi.StringArrayInput `pulumi:"serverAddresses"`
-}
-
-func (WorkloadNetworkDhcpRelayResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpRelayResponse)(nil)).Elem()
-}
-
-func (i WorkloadNetworkDhcpRelayResponseArgs) ToWorkloadNetworkDhcpRelayResponseOutput() WorkloadNetworkDhcpRelayResponseOutput {
-	return i.ToWorkloadNetworkDhcpRelayResponseOutputWithContext(context.Background())
-}
-
-func (i WorkloadNetworkDhcpRelayResponseArgs) ToWorkloadNetworkDhcpRelayResponseOutputWithContext(ctx context.Context) WorkloadNetworkDhcpRelayResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpRelayResponseOutput)
-}
-
-// NSX DHCP Relay
-type WorkloadNetworkDhcpRelayResponseOutput struct{ *pulumi.OutputState }
-
-func (WorkloadNetworkDhcpRelayResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpRelayResponse)(nil)).Elem()
-}
-
-func (o WorkloadNetworkDhcpRelayResponseOutput) ToWorkloadNetworkDhcpRelayResponseOutput() WorkloadNetworkDhcpRelayResponseOutput {
-	return o
-}
-
-func (o WorkloadNetworkDhcpRelayResponseOutput) ToWorkloadNetworkDhcpRelayResponseOutputWithContext(ctx context.Context) WorkloadNetworkDhcpRelayResponseOutput {
-	return o
-}
-
-// Type of DHCP: SERVER or RELAY.
-// Expected value is 'RELAY'.
-func (o WorkloadNetworkDhcpRelayResponseOutput) DhcpType() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) string { return v.DhcpType }).(pulumi.StringOutput)
-}
-
-// Display name of the DHCP entity.
-func (o WorkloadNetworkDhcpRelayResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state
-func (o WorkloadNetworkDhcpRelayResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// NSX revision number.
-func (o WorkloadNetworkDhcpRelayResponseOutput) Revision() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
-}
-
-// NSX Segments consuming DHCP.
-func (o WorkloadNetworkDhcpRelayResponseOutput) Segments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) []string { return v.Segments }).(pulumi.StringArrayOutput)
-}
-
-// DHCP Relay Addresses. Max 3.
-func (o WorkloadNetworkDhcpRelayResponseOutput) ServerAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpRelayResponse) []string { return v.ServerAddresses }).(pulumi.StringArrayOutput)
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServer struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'SERVER'.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// DHCP Server Lease Time.
-	LeaseTime *float64 `pulumi:"leaseTime"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// DHCP Server Address.
-	ServerAddress *string `pulumi:"serverAddress"`
-}
-
-// WorkloadNetworkDhcpServerInput is an input type that accepts WorkloadNetworkDhcpServerArgs and WorkloadNetworkDhcpServerOutput values.
-// You can construct a concrete instance of `WorkloadNetworkDhcpServerInput` via:
-//
-//          WorkloadNetworkDhcpServerArgs{...}
-type WorkloadNetworkDhcpServerInput interface {
-	pulumi.Input
-
-	ToWorkloadNetworkDhcpServerOutput() WorkloadNetworkDhcpServerOutput
-	ToWorkloadNetworkDhcpServerOutputWithContext(context.Context) WorkloadNetworkDhcpServerOutput
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServerArgs struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'SERVER'.
-	DhcpType pulumi.StringInput `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// DHCP Server Lease Time.
-	LeaseTime pulumi.Float64PtrInput `pulumi:"leaseTime"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput `pulumi:"revision"`
-	// DHCP Server Address.
-	ServerAddress pulumi.StringPtrInput `pulumi:"serverAddress"`
-}
-
-func (WorkloadNetworkDhcpServerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpServer)(nil)).Elem()
-}
-
-func (i WorkloadNetworkDhcpServerArgs) ToWorkloadNetworkDhcpServerOutput() WorkloadNetworkDhcpServerOutput {
-	return i.ToWorkloadNetworkDhcpServerOutputWithContext(context.Background())
-}
-
-func (i WorkloadNetworkDhcpServerArgs) ToWorkloadNetworkDhcpServerOutputWithContext(ctx context.Context) WorkloadNetworkDhcpServerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpServerOutput)
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServerOutput struct{ *pulumi.OutputState }
-
-func (WorkloadNetworkDhcpServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpServer)(nil)).Elem()
-}
-
-func (o WorkloadNetworkDhcpServerOutput) ToWorkloadNetworkDhcpServerOutput() WorkloadNetworkDhcpServerOutput {
-	return o
-}
-
-func (o WorkloadNetworkDhcpServerOutput) ToWorkloadNetworkDhcpServerOutputWithContext(ctx context.Context) WorkloadNetworkDhcpServerOutput {
-	return o
-}
-
-// Type of DHCP: SERVER or RELAY.
-// Expected value is 'SERVER'.
-func (o WorkloadNetworkDhcpServerOutput) DhcpType() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServer) string { return v.DhcpType }).(pulumi.StringOutput)
-}
-
-// Display name of the DHCP entity.
-func (o WorkloadNetworkDhcpServerOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServer) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// DHCP Server Lease Time.
-func (o WorkloadNetworkDhcpServerOutput) LeaseTime() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServer) *float64 { return v.LeaseTime }).(pulumi.Float64PtrOutput)
-}
-
-// NSX revision number.
-func (o WorkloadNetworkDhcpServerOutput) Revision() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServer) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
-}
-
-// DHCP Server Address.
-func (o WorkloadNetworkDhcpServerOutput) ServerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServer) *string { return v.ServerAddress }).(pulumi.StringPtrOutput)
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServerResponse struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'SERVER'.
-	DhcpType string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// DHCP Server Lease Time.
-	LeaseTime *float64 `pulumi:"leaseTime"`
-	// The provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments []string `pulumi:"segments"`
-	// DHCP Server Address.
-	ServerAddress *string `pulumi:"serverAddress"`
-}
-
-// WorkloadNetworkDhcpServerResponseInput is an input type that accepts WorkloadNetworkDhcpServerResponseArgs and WorkloadNetworkDhcpServerResponseOutput values.
-// You can construct a concrete instance of `WorkloadNetworkDhcpServerResponseInput` via:
-//
-//          WorkloadNetworkDhcpServerResponseArgs{...}
-type WorkloadNetworkDhcpServerResponseInput interface {
-	pulumi.Input
-
-	ToWorkloadNetworkDhcpServerResponseOutput() WorkloadNetworkDhcpServerResponseOutput
-	ToWorkloadNetworkDhcpServerResponseOutputWithContext(context.Context) WorkloadNetworkDhcpServerResponseOutput
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServerResponseArgs struct {
-	// Type of DHCP: SERVER or RELAY.
-	// Expected value is 'SERVER'.
-	DhcpType pulumi.StringInput `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// DHCP Server Lease Time.
-	LeaseTime pulumi.Float64PtrInput `pulumi:"leaseTime"`
-	// The provisioning state
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments pulumi.StringArrayInput `pulumi:"segments"`
-	// DHCP Server Address.
-	ServerAddress pulumi.StringPtrInput `pulumi:"serverAddress"`
-}
-
-func (WorkloadNetworkDhcpServerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpServerResponse)(nil)).Elem()
-}
-
-func (i WorkloadNetworkDhcpServerResponseArgs) ToWorkloadNetworkDhcpServerResponseOutput() WorkloadNetworkDhcpServerResponseOutput {
-	return i.ToWorkloadNetworkDhcpServerResponseOutputWithContext(context.Background())
-}
-
-func (i WorkloadNetworkDhcpServerResponseArgs) ToWorkloadNetworkDhcpServerResponseOutputWithContext(ctx context.Context) WorkloadNetworkDhcpServerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpServerResponseOutput)
-}
-
-// NSX DHCP Server
-type WorkloadNetworkDhcpServerResponseOutput struct{ *pulumi.OutputState }
-
-func (WorkloadNetworkDhcpServerResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcpServerResponse)(nil)).Elem()
-}
-
-func (o WorkloadNetworkDhcpServerResponseOutput) ToWorkloadNetworkDhcpServerResponseOutput() WorkloadNetworkDhcpServerResponseOutput {
-	return o
-}
-
-func (o WorkloadNetworkDhcpServerResponseOutput) ToWorkloadNetworkDhcpServerResponseOutputWithContext(ctx context.Context) WorkloadNetworkDhcpServerResponseOutput {
-	return o
-}
-
-// Type of DHCP: SERVER or RELAY.
-// Expected value is 'SERVER'.
-func (o WorkloadNetworkDhcpServerResponseOutput) DhcpType() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) string { return v.DhcpType }).(pulumi.StringOutput)
-}
-
-// Display name of the DHCP entity.
-func (o WorkloadNetworkDhcpServerResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// DHCP Server Lease Time.
-func (o WorkloadNetworkDhcpServerResponseOutput) LeaseTime() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) *float64 { return v.LeaseTime }).(pulumi.Float64PtrOutput)
-}
-
-// The provisioning state
-func (o WorkloadNetworkDhcpServerResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// NSX revision number.
-func (o WorkloadNetworkDhcpServerResponseOutput) Revision() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) *float64 { return v.Revision }).(pulumi.Float64PtrOutput)
-}
-
-// NSX Segments consuming DHCP.
-func (o WorkloadNetworkDhcpServerResponseOutput) Segments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) []string { return v.Segments }).(pulumi.StringArrayOutput)
-}
-
-// DHCP Server Address.
-func (o WorkloadNetworkDhcpServerResponseOutput) ServerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkDhcpServerResponse) *string { return v.ServerAddress }).(pulumi.StringPtrOutput)
-}
-
 // Ports and any VIF attached to segment.
 type WorkloadNetworkSegmentPortVifResponse struct {
 	// Name of port or VIF attached to segment.
@@ -3663,12 +2821,6 @@ func (o WorkloadNetworkSegmentSubnetResponsePtrOutput) GatewayAddress() pulumi.S
 }
 
 func init() {
-	pulumi.RegisterOutputType(AddonHcxPropertiesOutput{})
-	pulumi.RegisterOutputType(AddonHcxPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AddonSrmPropertiesOutput{})
-	pulumi.RegisterOutputType(AddonSrmPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AddonVrPropertiesOutput{})
-	pulumi.RegisterOutputType(AddonVrPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskPoolVolumeOutput{})
@@ -3699,10 +2851,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkloadNetworkDhcpRelayOutput{})
-	pulumi.RegisterOutputType(WorkloadNetworkDhcpRelayResponseOutput{})
-	pulumi.RegisterOutputType(WorkloadNetworkDhcpServerOutput{})
-	pulumi.RegisterOutputType(WorkloadNetworkDhcpServerResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentPortVifResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentPortVifResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentSubnetOutput{})

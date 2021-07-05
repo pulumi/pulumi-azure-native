@@ -11,11 +11,23 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An addon resource
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The type of private cloud addon
+        /// </summary>
+        [Output("addonType")]
+        public Output<string?> AddonType { get; private set; } = null!;
+
+        /// <summary>
+        /// The SRM license
+        /// </summary>
+        [Output("licenseKey")]
+        public Output<string?> LicenseKey { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -23,10 +35,10 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an addon resource
+        /// The state of the addon provisioning
         /// </summary>
-        [Output("properties")]
-        public Output<object> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -96,16 +108,22 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? AddonName { get; set; }
 
         /// <summary>
+        /// The type of private cloud addon
+        /// </summary>
+        [Input("addonType")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.AddonType>? AddonType { get; set; }
+
+        /// <summary>
+        /// The SRM license
+        /// </summary>
+        [Input("licenseKey")]
+        public Input<string>? LicenseKey { get; set; }
+
+        /// <summary>
         /// The name of the private cloud.
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of an addon resource
-        /// </summary>
-        [Input("properties")]
-        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private cloud resource
- * API Version: 2021-06-01.
+ * API Version: 2020-03-20.
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
     if (!opts) {
@@ -46,10 +46,6 @@ export interface GetPrivateCloudResult {
      * The endpoints
      */
     readonly endpoints: outputs.avs.EndpointsResponse;
-    /**
-     * Array of cloud link IDs from other clouds that connect to this one
-     */
-    readonly externalCloudLinks: string[];
     /**
      * Resource ID.
      */

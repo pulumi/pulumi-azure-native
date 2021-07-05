@@ -14,14 +14,22 @@ namespace Pulumi.AzureNative.AVS.Outputs
     public sealed class NetAppVolumeResponse
     {
         /// <summary>
-        /// Azure resource ID of the NetApp volume
+        /// File path through which the NFS volume is exposed by the provider
         /// </summary>
-        public readonly string Id;
+        public readonly string? NfsFilePath;
+        /// <summary>
+        /// IP address of the NFS provider
+        /// </summary>
+        public readonly string? NfsProviderIp;
 
         [OutputConstructor]
-        private NetAppVolumeResponse(string id)
+        private NetAppVolumeResponse(
+            string? nfsFilePath,
+
+            string? nfsProviderIp)
         {
-            Id = id;
+            NfsFilePath = nfsFilePath;
+            NfsProviderIp = nfsProviderIp;
         }
     }
 }

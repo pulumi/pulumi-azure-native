@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX DNS Zone
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsZoneResult> InvokeAsync(GetWorkloadNetworkDnsZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithVersion());

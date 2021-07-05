@@ -214,7 +214,7 @@ class PrivateCloud(pulumi.CustomResource):
                  __props__=None):
         """
         A private cloud resource
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,7 +238,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private cloud resource
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.
@@ -301,7 +301,6 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["vcenter_password"] = vcenter_password
             __props__.__dict__["circuit"] = None
             __props__.__dict__["endpoints"] = None
-            __props__.__dict__["external_cloud_links"] = None
             __props__.__dict__["management_network"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["nsxt_certificate_thumbprint"] = None
@@ -336,7 +335,6 @@ class PrivateCloud(pulumi.CustomResource):
 
         __props__.__dict__["circuit"] = None
         __props__.__dict__["endpoints"] = None
-        __props__.__dict__["external_cloud_links"] = None
         __props__.__dict__["identity_sources"] = None
         __props__.__dict__["internet"] = None
         __props__.__dict__["location"] = None
@@ -371,14 +369,6 @@ class PrivateCloud(pulumi.CustomResource):
         The endpoints
         """
         return pulumi.get(self, "endpoints")
-
-    @property
-    @pulumi.getter(name="externalCloudLinks")
-    def external_cloud_links(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Array of cloud link IDs from other clouds that connect to this one
-        """
-        return pulumi.get(self, "external_cloud_links")
 
     @property
     @pulumi.getter(name="identitySources")

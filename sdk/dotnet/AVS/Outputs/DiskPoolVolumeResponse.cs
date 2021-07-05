@@ -14,36 +14,22 @@ namespace Pulumi.AzureNative.AVS.Outputs
     public sealed class DiskPoolVolumeResponse
     {
         /// <summary>
-        /// Name of the LUN to be used for datastore
+        /// iSCSI provider target IP address list
         /// </summary>
-        public readonly string LunName;
+        public readonly ImmutableArray<string> Endpoints;
         /// <summary>
-        /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        /// Name of the LUN to be used
         /// </summary>
-        public readonly string? MountOption;
-        /// <summary>
-        /// Device path
-        /// </summary>
-        public readonly string Path;
-        /// <summary>
-        /// Azure resource ID of the iSCSI target
-        /// </summary>
-        public readonly string TargetId;
+        public readonly string? LunName;
 
         [OutputConstructor]
         private DiskPoolVolumeResponse(
-            string lunName,
+            ImmutableArray<string> endpoints,
 
-            string? mountOption,
-
-            string path,
-
-            string targetId)
+            string? lunName)
         {
+            Endpoints = endpoints;
             LunName = lunName;
-            MountOption = mountOption;
-            Path = path;
-            TargetId = targetId;
         }
     }
 }

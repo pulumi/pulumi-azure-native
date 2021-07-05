@@ -156,7 +156,7 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkPortMirroringResult:
     """
     NSX Port Mirroring
-    API Version: 2021-06-01.
+    API Version: 2020-07-17-preview.
 
 
     :param str port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name

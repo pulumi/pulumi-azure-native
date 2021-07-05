@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX Segment
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkSegmentResult> InvokeAsync(GetWorkloadNetworkSegmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkSegmentResult>("azure-native:avs:getWorkloadNetworkSegment", args ?? new GetWorkloadNetworkSegmentArgs(), options.WithVersion());

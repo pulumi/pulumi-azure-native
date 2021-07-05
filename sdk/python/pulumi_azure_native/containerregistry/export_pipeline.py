@@ -145,7 +145,7 @@ class ExportPipeline(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents an export pipeline for a container registry.
-        API Version: 2021-06-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class ExportPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an export pipeline for a container registry.
-        API Version: 2021-06-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ExportPipelineArgs args: The arguments to use to populate this resource's properties.

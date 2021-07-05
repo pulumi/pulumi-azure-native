@@ -110,7 +110,7 @@ def get_datastore(cluster_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     A datastore resource
-    API Version: 2021-06-01.
+    API Version: 2021-01-01-preview.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

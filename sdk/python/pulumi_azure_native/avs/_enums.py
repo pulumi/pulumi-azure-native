@@ -9,7 +9,6 @@ __all__ = [
     'DhcpTypeEnum',
     'DnsServiceLogLevelEnum',
     'InternetEnum',
-    'MountOptionEnum',
     'PortMirroringDirectionEnum',
     'ScriptExecutionParameterType',
     'SslEnum',
@@ -22,15 +21,13 @@ class AddonType(str, Enum):
     """
     SRM = "SRM"
     VR = "VR"
-    HCX = "HCX"
 
 
 class DhcpTypeEnum(str, Enum):
     """
     Type of DHCP: SERVER or RELAY.
     """
-    SERVER = "SERVER"
-    RELAY = "RELAY"
+    SERVE_R_RELAY = "SERVER, RELAY"
 
 
 class DnsServiceLogLevelEnum(str, Enum):
@@ -50,14 +47,6 @@ class InternetEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class MountOptionEnum(str, Enum):
-    """
-    Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-    """
-    MOUNT = "MOUNT"
-    ATTACH = "ATTACH"
 
 
 class PortMirroringDirectionEnum(str, Enum):

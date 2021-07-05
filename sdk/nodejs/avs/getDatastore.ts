@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A datastore resource
- * API Version: 2021-06-01.
+ * API Version: 2021-01-01-preview.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
     if (!opts) {

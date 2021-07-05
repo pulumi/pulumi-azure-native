@@ -168,7 +168,7 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDnsServiceResult:
     """
     NSX DNS Service
-    API Version: 2021-06-01.
+    API Version: 2020-07-17-preview.
 
 
     :param str dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name

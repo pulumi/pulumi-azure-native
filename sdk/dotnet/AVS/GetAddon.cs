@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// An addon resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
@@ -50,17 +50,25 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAddonResult
     {
         /// <summary>
+        /// The type of private cloud addon
+        /// </summary>
+        public readonly string? AddonType;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The SRM license
+        /// </summary>
+        public readonly string? LicenseKey;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of an addon resource
+        /// The state of the addon provisioning
         /// </summary>
-        public readonly object Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,17 +76,23 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetAddonResult(
+            string? addonType,
+
             string id,
+
+            string? licenseKey,
 
             string name,
 
-            object properties,
+            string provisioningState,
 
             string type)
         {
+            AddonType = addonType;
             Id = id;
+            LicenseKey = licenseKey;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

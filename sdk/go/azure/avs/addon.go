@@ -12,14 +12,18 @@ import (
 )
 
 // An addon resource
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 type Addon struct {
 	pulumi.CustomResourceState
 
+	// The type of private cloud addon
+	AddonType pulumi.StringPtrOutput `pulumi:"addonType"`
+	// The SRM license
+	LicenseKey pulumi.StringPtrOutput `pulumi:"licenseKey"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an addon resource
-	Properties pulumi.AnyOutput `pulumi:"properties"`
+	// The state of the addon provisioning
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -83,19 +87,27 @@ func GetAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
+	// The type of private cloud addon
+	AddonType *string `pulumi:"addonType"`
+	// The SRM license
+	LicenseKey *string `pulumi:"licenseKey"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of an addon resource
-	Properties interface{} `pulumi:"properties"`
+	// The state of the addon provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type AddonState struct {
+	// The type of private cloud addon
+	AddonType pulumi.StringPtrInput
+	// The SRM license
+	LicenseKey pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of an addon resource
-	Properties pulumi.Input
+	// The state of the addon provisioning
+	ProvisioningState pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -107,10 +119,12 @@ func (AddonState) ElementType() reflect.Type {
 type addonArgs struct {
 	// Name of the addon for the private cloud
 	AddonName *string `pulumi:"addonName"`
+	// The type of private cloud addon
+	AddonType *string `pulumi:"addonType"`
+	// The SRM license
+	LicenseKey *string `pulumi:"licenseKey"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The properties of an addon resource
-	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -119,10 +133,12 @@ type addonArgs struct {
 type AddonArgs struct {
 	// Name of the addon for the private cloud
 	AddonName pulumi.StringPtrInput
+	// The type of private cloud addon
+	AddonType pulumi.StringPtrInput
+	// The SRM license
+	LicenseKey pulumi.StringPtrInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
-	// The properties of an addon resource
-	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

@@ -8,7 +8,7 @@ import (
 )
 
 // NSX Segment
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkSegment(ctx *pulumi.Context, args *LookupWorkloadNetworkSegmentArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkSegmentResult, error) {
 	var rv LookupWorkloadNetworkSegmentResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkSegment", args, &rv, opts...)

@@ -10,9 +10,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AddonHcxPropertiesArgs',
-    'AddonSrmPropertiesArgs',
-    'AddonVrPropertiesArgs',
     'DiskPoolVolumeArgs',
     'IdentitySourceArgs',
     'ManagementClusterArgs',
@@ -21,185 +18,47 @@ __all__ = [
     'ScriptSecureStringExecutionParameterArgs',
     'ScriptStringExecutionParameterArgs',
     'SkuArgs',
-    'WorkloadNetworkDhcpRelayArgs',
-    'WorkloadNetworkDhcpServerArgs',
     'WorkloadNetworkSegmentSubnetArgs',
 ]
 
 @pulumi.input_type
-class AddonHcxPropertiesArgs:
+class DiskPoolVolumeArgs:
     def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 offer: pulumi.Input[str]):
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 lun_name: Optional[pulumi.Input[str]] = None):
         """
-        The properties of an HCX addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'HCX'.
-        :param pulumi.Input[str] offer: The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+        An iSCSI volume from Microsoft.StoragePool provider
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoints: iSCSI provider target IP address list
+        :param pulumi.Input[str] lun_name: Name of the LUN to be used
         """
-        pulumi.set(__self__, "addon_type", 'HCX')
-        pulumi.set(__self__, "offer", offer)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'HCX'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if lun_name is not None:
+            pulumi.set(__self__, "lun_name", lun_name)
 
     @property
     @pulumi.getter
-    def offer(self) -> pulumi.Input[str]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The HCX offer, example VMware MaaS Cloud Provider (Enterprise)
+        iSCSI provider target IP address list
         """
-        return pulumi.get(self, "offer")
+        return pulumi.get(self, "endpoints")
 
-    @offer.setter
-    def offer(self, value: pulumi.Input[str]):
-        pulumi.set(self, "offer", value)
-
-
-@pulumi.input_type
-class AddonSrmPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 license_key: pulumi.Input[str]):
-        """
-        The properties of a Site Recovery Manager (SRM) addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'SRM'.
-        :param pulumi.Input[str] license_key: The Site Recovery Manager (SRM) license
-        """
-        pulumi.set(__self__, "addon_type", 'SRM')
-        pulumi.set(__self__, "license_key", license_key)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'SRM'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter(name="licenseKey")
-    def license_key(self) -> pulumi.Input[str]:
-        """
-        The Site Recovery Manager (SRM) license
-        """
-        return pulumi.get(self, "license_key")
-
-    @license_key.setter
-    def license_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "license_key", value)
-
-
-@pulumi.input_type
-class AddonVrPropertiesArgs:
-    def __init__(__self__, *,
-                 addon_type: pulumi.Input[str],
-                 vrs_count: pulumi.Input[int]):
-        """
-        The properties of a vSphere Replication (VR) addon
-        :param pulumi.Input[str] addon_type: The type of private cloud addon
-               Expected value is 'VR'.
-        :param pulumi.Input[int] vrs_count: The vSphere Replication Server (VRS) count
-        """
-        pulumi.set(__self__, "addon_type", 'VR')
-        pulumi.set(__self__, "vrs_count", vrs_count)
-
-    @property
-    @pulumi.getter(name="addonType")
-    def addon_type(self) -> pulumi.Input[str]:
-        """
-        The type of private cloud addon
-        Expected value is 'VR'.
-        """
-        return pulumi.get(self, "addon_type")
-
-    @addon_type.setter
-    def addon_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_type", value)
-
-    @property
-    @pulumi.getter(name="vrsCount")
-    def vrs_count(self) -> pulumi.Input[int]:
-        """
-        The vSphere Replication Server (VRS) count
-        """
-        return pulumi.get(self, "vrs_count")
-
-    @vrs_count.setter
-    def vrs_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "vrs_count", value)
-
-
-@pulumi.input_type
-class DiskPoolVolumeArgs:
-    def __init__(__self__, *,
-                 lun_name: pulumi.Input[str],
-                 target_id: pulumi.Input[str],
-                 mount_option: Optional[pulumi.Input[Union[str, 'MountOptionEnum']]] = None):
-        """
-        An iSCSI volume from Microsoft.StoragePool provider
-        :param pulumi.Input[str] lun_name: Name of the LUN to be used for datastore
-        :param pulumi.Input[str] target_id: Azure resource ID of the iSCSI target
-        :param pulumi.Input[Union[str, 'MountOptionEnum']] mount_option: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-        """
-        pulumi.set(__self__, "lun_name", lun_name)
-        pulumi.set(__self__, "target_id", target_id)
-        if mount_option is None:
-            mount_option = 'MOUNT'
-        if mount_option is not None:
-            pulumi.set(__self__, "mount_option", mount_option)
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoints", value)
 
     @property
     @pulumi.getter(name="lunName")
-    def lun_name(self) -> pulumi.Input[str]:
+    def lun_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the LUN to be used for datastore
+        Name of the LUN to be used
         """
         return pulumi.get(self, "lun_name")
 
     @lun_name.setter
-    def lun_name(self, value: pulumi.Input[str]):
+    def lun_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lun_name", value)
-
-    @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> pulumi.Input[str]:
-        """
-        Azure resource ID of the iSCSI target
-        """
-        return pulumi.get(self, "target_id")
-
-    @target_id.setter
-    def target_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_id", value)
-
-    @property
-    @pulumi.getter(name="mountOption")
-    def mount_option(self) -> Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]:
-        """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-        """
-        return pulumi.get(self, "mount_option")
-
-    @mount_option.setter
-    def mount_option(self, value: Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]):
-        pulumi.set(self, "mount_option", value)
 
 
 @pulumi.input_type
@@ -375,7 +234,7 @@ class ManagementClusterArgs:
     def __init__(__self__, *,
                  cluster_size: pulumi.Input[int]):
         """
-        The properties of a management cluster
+        The properties of a default cluster
         :param pulumi.Input[int] cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_size", cluster_size)
@@ -396,24 +255,41 @@ class ManagementClusterArgs:
 @pulumi.input_type
 class NetAppVolumeArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 nfs_file_path: Optional[pulumi.Input[str]] = None,
+                 nfs_provider_ip: Optional[pulumi.Input[str]] = None):
         """
         An Azure NetApp Files volume from Microsoft.NetApp provider
-        :param pulumi.Input[str] id: Azure resource ID of the NetApp volume
+        :param pulumi.Input[str] nfs_file_path: File path through which the NFS volume is exposed by the provider
+        :param pulumi.Input[str] nfs_provider_ip: IP address of the NFS provider
         """
-        pulumi.set(__self__, "id", id)
+        if nfs_file_path is not None:
+            pulumi.set(__self__, "nfs_file_path", nfs_file_path)
+        if nfs_provider_ip is not None:
+            pulumi.set(__self__, "nfs_provider_ip", nfs_provider_ip)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="nfsFilePath")
+    def nfs_file_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure resource ID of the NetApp volume
+        File path through which the NFS volume is exposed by the provider
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "nfs_file_path")
 
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
+    @nfs_file_path.setter
+    def nfs_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nfs_file_path", value)
+
+    @property
+    @pulumi.getter(name="nfsProviderIp")
+    def nfs_provider_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of the NFS provider
+        """
+        return pulumi.get(self, "nfs_provider_ip")
+
+    @nfs_provider_ip.setter
+    def nfs_provider_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nfs_provider_ip", value)
 
 
 @pulumi.input_type
@@ -621,168 +497,6 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class WorkloadNetworkDhcpRelayArgs:
-    def __init__(__self__, *,
-                 dhcp_type: pulumi.Input[str],
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 revision: Optional[pulumi.Input[float]] = None,
-                 server_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        NSX DHCP Relay
-        :param pulumi.Input[str] dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'RELAY'.
-        :param pulumi.Input[str] display_name: Display name of the DHCP entity.
-        :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] server_addresses: DHCP Relay Addresses. Max 3.
-        """
-        pulumi.set(__self__, "dhcp_type", 'RELAY')
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_addresses is not None:
-            pulumi.set(__self__, "server_addresses", server_addresses)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Input[str]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'RELAY'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @dhcp_type.setter
-    def dhcp_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "dhcp_type", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[float]]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "revision", value)
-
-    @property
-    @pulumi.getter(name="serverAddresses")
-    def server_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        DHCP Relay Addresses. Max 3.
-        """
-        return pulumi.get(self, "server_addresses")
-
-    @server_addresses.setter
-    def server_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "server_addresses", value)
-
-
-@pulumi.input_type
-class WorkloadNetworkDhcpServerArgs:
-    def __init__(__self__, *,
-                 dhcp_type: pulumi.Input[str],
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 lease_time: Optional[pulumi.Input[float]] = None,
-                 revision: Optional[pulumi.Input[float]] = None,
-                 server_address: Optional[pulumi.Input[str]] = None):
-        """
-        NSX DHCP Server
-        :param pulumi.Input[str] dhcp_type: Type of DHCP: SERVER or RELAY.
-               Expected value is 'SERVER'.
-        :param pulumi.Input[str] display_name: Display name of the DHCP entity.
-        :param pulumi.Input[float] lease_time: DHCP Server Lease Time.
-        :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[str] server_address: DHCP Server Address.
-        """
-        pulumi.set(__self__, "dhcp_type", 'SERVER')
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if lease_time is not None:
-            pulumi.set(__self__, "lease_time", lease_time)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
-        if server_address is not None:
-            pulumi.set(__self__, "server_address", server_address)
-
-    @property
-    @pulumi.getter(name="dhcpType")
-    def dhcp_type(self) -> pulumi.Input[str]:
-        """
-        Type of DHCP: SERVER or RELAY.
-        Expected value is 'SERVER'.
-        """
-        return pulumi.get(self, "dhcp_type")
-
-    @dhcp_type.setter
-    def dhcp_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "dhcp_type", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name of the DHCP entity.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="leaseTime")
-    def lease_time(self) -> Optional[pulumi.Input[float]]:
-        """
-        DHCP Server Lease Time.
-        """
-        return pulumi.get(self, "lease_time")
-
-    @lease_time.setter
-    def lease_time(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "lease_time", value)
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[float]]:
-        """
-        NSX revision number.
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "revision", value)
-
-    @property
-    @pulumi.getter(name="serverAddress")
-    def server_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        DHCP Server Address.
-        """
-        return pulumi.get(self, "server_address")
-
-    @server_address.setter
-    def server_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_address", value)
 
 
 @pulumi.input_type

@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents a scope map for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupScopeMap(ctx *pulumi.Context, args *LookupScopeMapArgs, opts ...pulumi.InvokeOption) (*LookupScopeMapResult, error) {
 	var rv LookupScopeMapResult
 	err := ctx.Invoke("azure-native:containerregistry:getScopeMap", args, &rv, opts...)

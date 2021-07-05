@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DNS Zone
- * API Version: 2021-06-01.
+ * API Version: 2020-07-17-preview.
  */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
     if (!opts) {

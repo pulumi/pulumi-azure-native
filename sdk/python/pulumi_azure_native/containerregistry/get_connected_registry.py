@@ -217,7 +217,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
     An object that represents a connected registry for a container registry.
-    API Version: 2021-06-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.

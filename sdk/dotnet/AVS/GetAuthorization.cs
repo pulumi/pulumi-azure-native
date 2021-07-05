@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// ExpressRoute Circuit Authorization
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-20.
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());

@@ -145,7 +145,7 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportPipelineResult:
     """
     An object that represents an export pipeline for a container registry.
-    API Version: 2021-06-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str export_pipeline_name: The name of the export pipeline.

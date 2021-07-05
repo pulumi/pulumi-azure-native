@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// NSX DHCP
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithVersion());
@@ -50,6 +50,14 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDhcpResult
     {
         /// <summary>
+        /// Type of DHCP: SERVER or RELAY.
+        /// </summary>
+        public readonly string DhcpType;
+        /// <summary>
+        /// Display name of the DHCP entity.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -58,9 +66,17 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// DHCP properties.
+        /// The provisioning state
         /// </summary>
-        public readonly Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// NSX revision number.
+        /// </summary>
+        public readonly double? Revision;
+        /// <summary>
+        /// NSX Segments consuming DHCP.
+        /// </summary>
+        public readonly ImmutableArray<string> Segments;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,17 +84,29 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetWorkloadNetworkDhcpResult(
+            string dhcpType,
+
+            string? displayName,
+
             string id,
 
             string name,
 
-            Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> properties,
+            string provisioningState,
+
+            double? revision,
+
+            ImmutableArray<string> segments,
 
             string type)
         {
+            DhcpType = dhcpType;
+            DisplayName = displayName;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Revision = revision;
+            Segments = segments;
             Type = type;
         }
     }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private cloud resource
- * API Version: 2021-06-01.
+ * API Version: 2020-03-20.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class PrivateCloud extends pulumi.CustomResource {
      * The endpoints
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.avs.EndpointsResponse>;
-    /**
-     * Array of cloud link IDs from other clouds that connect to this one
-     */
-    public /*out*/ readonly externalCloudLinks!: pulumi.Output<string[]>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -153,7 +149,6 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
             inputs["circuit"] = undefined /*out*/;
             inputs["endpoints"] = undefined /*out*/;
-            inputs["externalCloudLinks"] = undefined /*out*/;
             inputs["managementNetwork"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
@@ -165,7 +160,6 @@ export class PrivateCloud extends pulumi.CustomResource {
         } else {
             inputs["circuit"] = undefined /*out*/;
             inputs["endpoints"] = undefined /*out*/;
-            inputs["externalCloudLinks"] = undefined /*out*/;
             inputs["identitySources"] = undefined /*out*/;
             inputs["internet"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

@@ -16,7 +16,6 @@ type AddonType pulumi.String
 const (
 	AddonTypeSRM = AddonType("SRM")
 	AddonTypeVR  = AddonType("VR")
-	AddonTypeHCX = AddonType("HCX")
 )
 
 func (AddonType) ElementType() reflect.Type {
@@ -43,8 +42,7 @@ func (e AddonType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 type DhcpTypeEnum pulumi.String
 
 const (
-	DhcpTypeEnumSERVER = DhcpTypeEnum("SERVER")
-	DhcpTypeEnumRELAY  = DhcpTypeEnum("RELAY")
+	DhcpTypeEnum_SERVER_RELAY = DhcpTypeEnum("SERVER, RELAY")
 )
 
 func (DhcpTypeEnum) ElementType() reflect.Type {
@@ -123,34 +121,6 @@ func (e InternetEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e InternetEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-type MountOptionEnum pulumi.String
-
-const (
-	MountOptionEnumMOUNT  = MountOptionEnum("MOUNT")
-	MountOptionEnumATTACH = MountOptionEnum("ATTACH")
-)
-
-func (MountOptionEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e MountOptionEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MountOptionEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MountOptionEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MountOptionEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents a pipeline run for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupPipelineRun(ctx *pulumi.Context, args *LookupPipelineRunArgs, opts ...pulumi.InvokeOption) (*LookupPipelineRunResult, error) {
 	var rv LookupPipelineRunResult
 	err := ctx.Invoke("azure-native:containerregistry:getPipelineRun", args, &rv, opts...)

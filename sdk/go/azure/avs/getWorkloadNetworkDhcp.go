@@ -8,7 +8,7 @@ import (
 )
 
 // NSX DHCP
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkDhcp(ctx *pulumi.Context, args *LookupWorkloadNetworkDhcpArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkDhcpResult, error) {
 	var rv LookupWorkloadNetworkDhcpResult
 	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkDhcp", args, &rv, opts...)
@@ -29,12 +29,20 @@ type LookupWorkloadNetworkDhcpArgs struct {
 
 // NSX DHCP
 type LookupWorkloadNetworkDhcpResult struct {
+	// Type of DHCP: SERVER or RELAY.
+	DhcpType string `pulumi:"dhcpType"`
+	// Display name of the DHCP entity.
+	DisplayName *string `pulumi:"displayName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// DHCP properties.
-	Properties interface{} `pulumi:"properties"`
+	// The provisioning state
+	ProvisioningState string `pulumi:"provisioningState"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// NSX Segments consuming DHCP.
+	Segments []string `pulumi:"segments"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

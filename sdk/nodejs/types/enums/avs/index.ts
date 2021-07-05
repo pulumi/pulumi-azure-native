@@ -17,7 +17,6 @@ export {
 export const AddonType = {
     SRM: "SRM",
     VR: "VR",
-    HCX: "HCX",
 } as const;
 
 /**
@@ -26,8 +25,7 @@ export const AddonType = {
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
 
 export const DhcpTypeEnum = {
-    SERVER: "SERVER",
-    RELAY: "RELAY",
+    SERVER_RELAY: "SERVER, RELAY",
 } as const;
 
 /**
@@ -57,16 +55,6 @@ export const InternetEnum = {
  * Connectivity to internet is enabled or disabled
  */
 export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
-
-export const MountOptionEnum = {
-    MOUNT: "MOUNT",
-    ATTACH: "ATTACH",
-} as const;
-
-/**
- * Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
- */
-export type MountOptionEnum = (typeof MountOptionEnum)[keyof typeof MountOptionEnum];
 
 export const PortMirroringDirectionEnum = {
     INGRESS_EGRESS_BIDIRECTIONAL: "INGRESS, EGRESS, BIDIRECTIONAL",

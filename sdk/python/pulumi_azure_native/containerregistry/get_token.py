@@ -145,7 +145,7 @@ def get_token(registry_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTokenResult:
     """
     An object that represents a token for a container registry.
-    API Version: 2021-06-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str registry_name: The name of the container registry.

@@ -162,7 +162,7 @@ class ImportPipeline(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents an import pipeline for a container registry.
-        API Version: 2021-06-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class ImportPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an import pipeline for a container registry.
-        API Version: 2021-06-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ImportPipelineArgs args: The arguments to use to populate this resource's properties.

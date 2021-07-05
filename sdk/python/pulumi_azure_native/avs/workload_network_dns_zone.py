@@ -177,7 +177,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
                  __props__=None):
         """
         NSX DNS Zone
-        API Version: 2021-06-01.
+        API Version: 2020-07-17-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +199,7 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX DNS Zone
-        API Version: 2021-06-01.
+        API Version: 2020-07-17-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDnsZoneArgs args: The arguments to use to populate this resource's properties.

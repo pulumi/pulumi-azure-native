@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.AVS.Inputs
     public sealed class NetAppVolumeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure resource ID of the NetApp volume
+        /// File path through which the NFS volume is exposed by the provider
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("nfsFilePath")]
+        public Input<string>? NfsFilePath { get; set; }
+
+        /// <summary>
+        /// IP address of the NFS provider
+        /// </summary>
+        [Input("nfsProviderIp")]
+        public Input<string>? NfsProviderIp { get; set; }
 
         public NetAppVolumeArgs()
         {

@@ -8,7 +8,7 @@ import (
 )
 
 // An addon resource
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:avs:getAddon", args, &rv, opts...)
@@ -29,12 +29,16 @@ type LookupAddonArgs struct {
 
 // An addon resource
 type LookupAddonResult struct {
+	// The type of private cloud addon
+	AddonType *string `pulumi:"addonType"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// The SRM license
+	LicenseKey *string `pulumi:"licenseKey"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of an addon resource
-	Properties interface{} `pulumi:"properties"`
+	// The state of the addon provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

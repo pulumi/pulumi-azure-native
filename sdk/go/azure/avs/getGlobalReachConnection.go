@@ -8,7 +8,7 @@ import (
 )
 
 // A global reach connection resource
-// API Version: 2021-06-01.
+// API Version: 2020-07-17-preview.
 func LookupGlobalReachConnection(ctx *pulumi.Context, args *LookupGlobalReachConnectionArgs, opts ...pulumi.InvokeOption) (*LookupGlobalReachConnectionResult, error) {
 	var rv LookupGlobalReachConnectionResult
 	err := ctx.Invoke("azure-native:avs:getGlobalReachConnection", args, &rv, opts...)

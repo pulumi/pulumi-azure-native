@@ -15,26 +15,37 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
+                 cluster_size: pulumi.Input[int],
                  private_cloud_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_size: Optional[pulumi.Input[int]] = None):
+                 cluster_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[int] cluster_size: The cluster size
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The cluster SKU
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
-        :param pulumi.Input[int] cluster_size: The cluster size
         """
+        pulumi.set(__self__, "cluster_size", cluster_size)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
-        if cluster_size is not None:
-            pulumi.set(__self__, "cluster_size", cluster_size)
+
+    @property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> pulumi.Input[int]:
+        """
+        The cluster size
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @cluster_size.setter
+    def cluster_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "cluster_size", value)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -84,18 +95,6 @@ class ClusterArgs:
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
 
-    @property
-    @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The cluster size
-        """
-        return pulumi.get(self, "cluster_size")
-
-    @cluster_size.setter
-    def cluster_size(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cluster_size", value)
-
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -110,7 +109,7 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         A cluster resource
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cluster resource
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -163,6 +162,8 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
+            if cluster_size is None and not opts.urn:
+                raise TypeError("Missing required property 'cluster_size'")
             __props__.__dict__["cluster_size"] = cluster_size
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
@@ -221,7 +222,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Output[Optional[int]]:
+    def cluster_size(self) -> pulumi.Output[int]:
         """
         The cluster size
         """

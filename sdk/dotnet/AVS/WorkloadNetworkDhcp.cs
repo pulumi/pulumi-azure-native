@@ -11,11 +11,23 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX DHCP
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-07-17-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Type of DHCP: SERVER or RELAY.
+        /// </summary>
+        [Output("dhcpType")]
+        public Output<string> DhcpType { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the DHCP entity.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -23,10 +35,22 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// DHCP properties.
+        /// The provisioning state
         /// </summary>
-        [Output("properties")]
-        public Output<Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse>> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// NSX revision number.
+        /// </summary>
+        [Output("revision")]
+        public Output<double?> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// NSX Segments consuming DHCP.
+        /// </summary>
+        [Output("segments")]
+        public Output<ImmutableArray<string>> Segments { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -96,22 +120,34 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? DhcpId { get; set; }
 
         /// <summary>
+        /// Type of DHCP: SERVER or RELAY.
+        /// </summary>
+        [Input("dhcpType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AVS.DhcpTypeEnum> DhcpType { get; set; } = null!;
+
+        /// <summary>
+        /// Display name of the DHCP entity.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
-        /// DHCP properties.
-        /// </summary>
-        [Input("properties")]
-        public InputUnion<Inputs.WorkloadNetworkDhcpRelayArgs, Inputs.WorkloadNetworkDhcpServerArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// NSX revision number.
+        /// </summary>
+        [Input("revision")]
+        public Input<double>? Revision { get; set; }
 
         public WorkloadNetworkDhcpArgs()
         {

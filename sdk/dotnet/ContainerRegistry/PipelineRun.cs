@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:PipelineRun")]
     public partial class PipelineRun : Pulumi.CustomResource

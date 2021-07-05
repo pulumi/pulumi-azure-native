@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A cluster resource
- * API Version: 2021-06-01.
+ * API Version: 2020-03-20.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster size
      */
-    public readonly clusterSize!: pulumi.Output<number | undefined>;
+    public readonly clusterSize!: pulumi.Output<number>;
     /**
      * The hosts
      */
@@ -76,6 +76,9 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.clusterSize === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'clusterSize'");
+            }
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -124,7 +127,7 @@ export interface ClusterArgs {
     /**
      * The cluster size
      */
-    clusterSize?: pulumi.Input<number>;
+    clusterSize: pulumi.Input<number>;
     /**
      * The name of the private cloud.
      */

@@ -75,7 +75,7 @@ class Authorization(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoute Circuit Authorization
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,7 +91,7 @@ class Authorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoute Circuit Authorization
-        API Version: 2021-06-01.
+        API Version: 2020-03-20.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.

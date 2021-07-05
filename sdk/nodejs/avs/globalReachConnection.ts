@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A global reach connection resource
- * API Version: 2021-06-01.
+ * API Version: 2020-07-17-preview.
  */
 export class GlobalReachConnection extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Administrative credentials for accessing vCenter and NSX-T
- * API Version: 2021-06-01.
+ * API Version: 2020-03-20.
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
     if (!opts) {

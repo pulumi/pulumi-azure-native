@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
 {
 
     /// <summary>
-    /// The properties of a management cluster
+    /// The properties of a default cluster
     /// </summary>
     public sealed class ManagementClusterArgs : Pulumi.ResourceArgs
     {

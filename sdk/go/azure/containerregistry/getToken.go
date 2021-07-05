@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents a token for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupToken(ctx *pulumi.Context, args *LookupTokenArgs, opts ...pulumi.InvokeOption) (*LookupTokenResult, error) {
 	var rv LookupTokenResult
 	err := ctx.Invoke("azure-native:containerregistry:getToken", args, &rv, opts...)

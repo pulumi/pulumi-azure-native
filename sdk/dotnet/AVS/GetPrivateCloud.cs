@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A private cloud resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-20.
         /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure-native:avs:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithVersion());
@@ -51,10 +51,6 @@ namespace Pulumi.AzureNative.AVS
         /// The endpoints
         /// </summary>
         public readonly Outputs.EndpointsResponse Endpoints;
-        /// <summary>
-        /// Array of cloud link IDs from other clouds that connect to this one
-        /// </summary>
-        public readonly ImmutableArray<string> ExternalCloudLinks;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -134,8 +130,6 @@ namespace Pulumi.AzureNative.AVS
 
             Outputs.EndpointsResponse endpoints,
 
-            ImmutableArray<string> externalCloudLinks,
-
             string id,
 
             ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
@@ -174,7 +168,6 @@ namespace Pulumi.AzureNative.AVS
         {
             Circuit = circuit;
             Endpoints = endpoints;
-            ExternalCloudLinks = externalCloudLinks;
             Id = id;
             IdentitySources = identitySources;
             Internet = internet;

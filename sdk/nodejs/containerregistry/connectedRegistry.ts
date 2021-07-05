@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a connected registry for a container registry.
- * API Version: 2021-06-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class ConnectedRegistry extends pulumi.CustomResource {
     /**

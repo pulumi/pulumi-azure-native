@@ -12,7 +12,7 @@ import (
 )
 
 // A private cloud resource
-// API Version: 2021-06-01.
+// API Version: 2020-03-20.
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type PrivateCloud struct {
 	Circuit CircuitResponsePtrOutput `pulumi:"circuit"`
 	// The endpoints
 	Endpoints EndpointsResponseOutput `pulumi:"endpoints"`
-	// Array of cloud link IDs from other clouds that connect to this one
-	ExternalCloudLinks pulumi.StringArrayOutput `pulumi:"externalCloudLinks"`
 	// vCenter Single Sign On Identity Sources
 	IdentitySources IdentitySourceResponseArrayOutput `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled
@@ -136,8 +134,6 @@ type privateCloudState struct {
 	Circuit *CircuitResponse `pulumi:"circuit"`
 	// The endpoints
 	Endpoints *EndpointsResponse `pulumi:"endpoints"`
-	// Array of cloud link IDs from other clouds that connect to this one
-	ExternalCloudLinks []string `pulumi:"externalCloudLinks"`
 	// vCenter Single Sign On Identity Sources
 	IdentitySources []IdentitySourceResponse `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled
@@ -179,8 +175,6 @@ type PrivateCloudState struct {
 	Circuit CircuitResponsePtrInput
 	// The endpoints
 	Endpoints EndpointsResponsePtrInput
-	// Array of cloud link IDs from other clouds that connect to this one
-	ExternalCloudLinks pulumi.StringArrayInput
 	// vCenter Single Sign On Identity Sources
 	IdentitySources IdentitySourceResponseArrayInput
 	// Connectivity to internet is enabled or disabled

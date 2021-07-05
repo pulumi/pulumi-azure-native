@@ -108,7 +108,7 @@ def get_authorization(authorization_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
-    API Version: 2021-06-01.
+    API Version: 2020-03-20.
 
 
     :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud

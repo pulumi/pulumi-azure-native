@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Segment
- * API Version: 2021-06-01.
+ * API Version: 2020-07-17-preview.
  */
 export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**

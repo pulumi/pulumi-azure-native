@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a token for a container registry.
-// API Version: 2021-06-01-preview.
+// API Version: 2020-11-01-preview.
 type Token struct {
 	pulumi.CustomResourceState
 

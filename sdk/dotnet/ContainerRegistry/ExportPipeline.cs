@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ExportPipeline")]
     public partial class ExportPipeline : Pulumi.CustomResource

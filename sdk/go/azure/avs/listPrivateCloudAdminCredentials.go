@@ -8,7 +8,7 @@ import (
 )
 
 // Administrative credentials for accessing vCenter and NSX-T
-// API Version: 2021-06-01.
+// API Version: 2020-03-20.
 func ListPrivateCloudAdminCredentials(ctx *pulumi.Context, args *ListPrivateCloudAdminCredentialsArgs, opts ...pulumi.InvokeOption) (*ListPrivateCloudAdminCredentialsResult, error) {
 	var rv ListPrivateCloudAdminCredentialsResult
 	err := ctx.Invoke("azure-native:avs:listPrivateCloudAdminCredentials", args, &rv, opts...)

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A private cloud resource
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PrivateCloud")]
     public partial class PrivateCloud : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("endpoints")]
         public Output<Outputs.EndpointsResponse> Endpoints { get; private set; } = null!;
-
-        /// <summary>
-        /// Array of cloud link IDs from other clouds that connect to this one
-        /// </summary>
-        [Output("externalCloudLinks")]
-        public Output<ImmutableArray<string>> ExternalCloudLinks { get; private set; } = null!;
 
         /// <summary>
         /// vCenter Single Sign On Identity Sources

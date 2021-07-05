@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An HCX Enterprise Site resource
- * API Version: 2021-06-01.
+ * API Version: 2020-03-20.
  */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
     if (!opts) {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An addon resource
- * API Version: 2021-06-01.
+ * API Version: 2020-07-17-preview.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     if (!opts) {
@@ -44,17 +44,25 @@ export interface GetAddonArgs {
  */
 export interface GetAddonResult {
     /**
+     * The type of private cloud addon
+     */
+    readonly addonType?: string;
+    /**
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * The SRM license
+     */
+    readonly licenseKey?: string;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of an addon resource
+     * The state of the addon provisioning
      */
-    readonly properties: outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Resource type.
      */

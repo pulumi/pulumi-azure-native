@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// A datastore resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreArgs(), options.WithVersion());

@@ -12,7 +12,7 @@ import (
 )
 
 // A datastore resource
-// API Version: 2021-06-01.
+// API Version: 2021-01-01-preview.
 type Datastore struct {
 	pulumi.CustomResourceState
 

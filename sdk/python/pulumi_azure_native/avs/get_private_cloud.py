@@ -20,16 +20,13 @@ class GetPrivateCloudResult:
     """
     A private cloud resource
     """
-    def __init__(__self__, circuit=None, endpoints=None, external_cloud_links=None, id=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+    def __init__(__self__, circuit=None, endpoints=None, id=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
         if circuit and not isinstance(circuit, dict):
             raise TypeError("Expected argument 'circuit' to be a dict")
         pulumi.set(__self__, "circuit", circuit)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
-        if external_cloud_links and not isinstance(external_cloud_links, list):
-            raise TypeError("Expected argument 'external_cloud_links' to be a list")
-        pulumi.set(__self__, "external_cloud_links", external_cloud_links)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -100,14 +97,6 @@ class GetPrivateCloudResult:
         The endpoints
         """
         return pulumi.get(self, "endpoints")
-
-    @property
-    @pulumi.getter(name="externalCloudLinks")
-    def external_cloud_links(self) -> Sequence[str]:
-        """
-        Array of cloud link IDs from other clouds that connect to this one
-        """
-        return pulumi.get(self, "external_cloud_links")
 
     @property
     @pulumi.getter
@@ -262,7 +251,6 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
         return GetPrivateCloudResult(
             circuit=self.circuit,
             endpoints=self.endpoints,
-            external_cloud_links=self.external_cloud_links,
             id=self.id,
             identity_sources=self.identity_sources,
             internet=self.internet,
@@ -288,7 +276,7 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
     A private cloud resource
-    API Version: 2021-06-01.
+    API Version: 2020-03-20.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -306,7 +294,6 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     return AwaitableGetPrivateCloudResult(
         circuit=__ret__.circuit,
         endpoints=__ret__.endpoints,
-        external_cloud_links=__ret__.external_cloud_links,
         id=__ret__.id,
         identity_sources=__ret__.identity_sources,
         internet=__ret__.internet,

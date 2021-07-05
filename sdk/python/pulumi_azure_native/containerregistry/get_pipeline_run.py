@@ -133,7 +133,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineRunResult:
     """
     An object that represents a pipeline run for a container registry.
-    API Version: 2021-06-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
