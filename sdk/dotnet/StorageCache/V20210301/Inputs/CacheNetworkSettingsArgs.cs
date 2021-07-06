@@ -48,6 +48,7 @@ namespace Pulumi.AzureNative.StorageCache.V20210301.Inputs
         public CacheNetworkSettingsArgs()
         {
             Mtu = 1500;
+            NtpServer = "time.windows.com";
         }
     }
 }

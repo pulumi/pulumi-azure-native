@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.Synapse.V20210501
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:Key"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Key"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:Key"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -20,7 +20,7 @@ class GetManagementGroupDiagnosticSettingResult:
     """
     The management group diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, marketplace_partner_id=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -33,6 +33,9 @@ class GetManagementGroupDiagnosticSettingResult:
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id and not isinstance(marketplace_partner_id, str):
+            raise TypeError("Expected argument 'marketplace_partner_id' to be a str")
+        pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -83,6 +86,14 @@ class GetManagementGroupDiagnosticSettingResult:
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[str]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetManagementGroupDiagnosticSettingResult(GetManagementGroupDiagn
             event_hub_name=self.event_hub_name,
             id=self.id,
             logs=self.logs,
+            marketplace_partner_id=self.marketplace_partner_id,
             name=self.name,
             service_bus_rule_id=self.service_bus_rule_id,
             storage_account_id=self.storage_account_id,
@@ -175,6 +187,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
         event_hub_name=__ret__.event_hub_name,
         id=__ret__.id,
         logs=__ret__.logs,
+        marketplace_partner_id=__ret__.marketplace_partner_id,
         name=__ret__.name,
         service_bus_rule_id=__ret__.service_bus_rule_id,
         storage_account_id=__ret__.storage_account_id,

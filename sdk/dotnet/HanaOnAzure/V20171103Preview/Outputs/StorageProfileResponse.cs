@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Outputs
     public sealed class StorageProfileResponse
     {
         /// <summary>
+        /// Specifies information related to SAP system IDs for the hana instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SAPSystemIDResponse> HanaSids;
+        /// <summary>
         /// IP Address to connect to storage.
         /// </summary>
         public readonly string? NfsIpAddress;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Outputs
 
         [OutputConstructor]
         private StorageProfileResponse(
+            ImmutableArray<Outputs.SAPSystemIDResponse> hanaSids,
+
             string? nfsIpAddress,
 
             ImmutableArray<Outputs.DiskResponse> osDisks)
         {
+            HanaSids = hanaSids;
             NfsIpAddress = nfsIpAddress;
             OsDisks = osDisks;
         }

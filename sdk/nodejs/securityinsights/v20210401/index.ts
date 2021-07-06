@@ -8,9 +8,13 @@ import * as utilities from "../../utilities";
 export * from "./getIncident";
 export * from "./getIncidentComment";
 export * from "./getIncidentRelation";
+export * from "./getWatchlist";
+export * from "./getWatchlistItem";
 export * from "./incident";
 export * from "./incidentComment";
 export * from "./incidentRelation";
+export * from "./watchlist";
+export * from "./watchlistItem";
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20210401";
@@ -19,6 +23,8 @@ export * from "../../types/enums/securityinsights/v20210401";
 import { Incident } from "./incident";
 import { IncidentComment } from "./incidentComment";
 import { IncidentRelation } from "./incidentRelation";
+import { Watchlist } from "./watchlist";
+import { WatchlistItem } from "./watchlistItem";
 
 const _module = {
     version: utilities.getVersion(),
@@ -30,6 +36,10 @@ const _module = {
                 return new IncidentComment(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210401:IncidentRelation":
                 return new IncidentRelation(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210401:Watchlist":
+                return new Watchlist(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210401:WatchlistItem":
+                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

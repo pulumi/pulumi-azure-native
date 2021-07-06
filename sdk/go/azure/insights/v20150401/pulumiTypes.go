@@ -872,6 +872,8 @@ type MetricTrigger struct {
 	MetricName string `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
 	MetricNamespace *string `pulumi:"metricNamespace"`
+	// the location of the resource the rule monitors.
+	MetricResourceLocation *string `pulumi:"metricResourceLocation"`
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri string `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
@@ -909,6 +911,8 @@ type MetricTriggerArgs struct {
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
 	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// the location of the resource the rule monitors.
+	MetricResourceLocation pulumi.StringPtrInput `pulumi:"metricResourceLocation"`
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
@@ -972,6 +976,11 @@ func (o MetricTriggerOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
+// the location of the resource the rule monitors.
+func (o MetricTriggerOutput) MetricResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricResourceLocation }).(pulumi.StringPtrOutput)
+}
+
 // the resource identifier of the resource the rule monitors.
 func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.MetricResourceUri }).(pulumi.StringOutput)
@@ -1017,6 +1026,8 @@ type MetricTriggerResponse struct {
 	MetricName string `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
 	MetricNamespace *string `pulumi:"metricNamespace"`
+	// the location of the resource the rule monitors.
+	MetricResourceLocation *string `pulumi:"metricResourceLocation"`
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri string `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
@@ -1054,6 +1065,8 @@ type MetricTriggerResponseArgs struct {
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
 	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// the location of the resource the rule monitors.
+	MetricResourceLocation pulumi.StringPtrInput `pulumi:"metricResourceLocation"`
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
@@ -1115,6 +1128,11 @@ func (o MetricTriggerResponseOutput) MetricName() pulumi.StringOutput {
 // the namespace of the metric that defines what the rule monitors.
 func (o MetricTriggerResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
+}
+
+// the location of the resource the rule monitors.
+func (o MetricTriggerResponseOutput) MetricResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricTriggerResponse) *string { return v.MetricResourceLocation }).(pulumi.StringPtrOutput)
 }
 
 // the resource identifier of the resource the rule monitors.

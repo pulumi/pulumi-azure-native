@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .alert_rule import *
+from .autoscale_setting import *
 from .get_alert_rule import *
+from .get_autoscale_setting import *
 from ._inputs import *
 from . import outputs

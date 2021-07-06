@@ -224,7 +224,7 @@ class DataConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:DataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:DataConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:DataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:DataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:DataConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:DataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:DataConnection"), pulumi.Alias(type_="azure-nextgen:synapse/v20210601preview:DataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnection, __self__).__init__(
             'azure-native:synapse:DataConnection',

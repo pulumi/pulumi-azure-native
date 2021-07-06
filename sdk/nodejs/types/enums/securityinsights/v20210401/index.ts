@@ -93,3 +93,13 @@ export const IncidentStatus = {
  * The status of the incident
  */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
+
+export const Source = {
+    Local_file: "Local file",
+    Remote_storage: "Remote storage",
+} as const;
+
+/**
+ * The source of the watchlist
+ */
+export type Source = (typeof Source)[keyof typeof Source];

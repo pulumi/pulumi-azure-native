@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
         public static MetricStatisticType Min { get; } = new MetricStatisticType("Min");
         public static MetricStatisticType Max { get; } = new MetricStatisticType("Max");
         public static MetricStatisticType Sum { get; } = new MetricStatisticType("Sum");
+        public static MetricStatisticType Count { get; } = new MetricStatisticType("Count");
 
         public static bool operator ==(MetricStatisticType left, MetricStatisticType right) => left.Equals(right);
         public static bool operator !=(MetricStatisticType left, MetricStatisticType right) => !left.Equals(right);
@@ -221,6 +222,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
         public static ScaleType ChangeCount { get; } = new ScaleType("ChangeCount");
         public static ScaleType PercentChangeCount { get; } = new ScaleType("PercentChangeCount");
         public static ScaleType ExactCount { get; } = new ScaleType("ExactCount");
+        public static ScaleType ServiceAllowedNextValue { get; } = new ScaleType("ServiceAllowedNextValue");
 
         public static bool operator ==(ScaleType left, ScaleType right) => left.Equals(right);
         public static bool operator !=(ScaleType left, ScaleType right) => !left.Equals(right);

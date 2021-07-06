@@ -15,6 +15,7 @@ __all__ = [
     'IpAddressArgs',
     'NetworkProfileArgs',
     'OSProfileArgs',
+    'SAPSystemIDArgs',
     'StorageProfileArgs',
 ]
 
@@ -24,7 +25,7 @@ class DiskArgs:
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the disk information fo the HANA instance
+        Specifies the disk information for the HANA instance
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param pulumi.Input[str] name: The disk name.
         """
@@ -235,19 +236,123 @@ class OSProfileArgs:
 
 
 @pulumi.input_type
+class SAPSystemIDArgs:
+    def __init__(__self__, *,
+                 gid: Optional[pulumi.Input[str]] = None,
+                 memory_allocation: Optional[pulumi.Input[str]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 uid: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies information related to a SAP system ID
+        :param pulumi.Input[str] gid: Group ID of the HANA database user.
+        :param pulumi.Input[str] memory_allocation: Percent of memory to allocate to this SID.
+        :param pulumi.Input[str] sid: SAP system ID as database identifier.
+        :param pulumi.Input[str] uid: User ID of the HANA database user.
+        :param pulumi.Input[str] username: Name of the HANA database user.
+        """
+        if gid is not None:
+            pulumi.set(__self__, "gid", gid)
+        if memory_allocation is not None:
+            pulumi.set(__self__, "memory_allocation", memory_allocation)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Group ID of the HANA database user.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter(name="memoryAllocation")
+    def memory_allocation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Percent of memory to allocate to this SID.
+        """
+        return pulumi.get(self, "memory_allocation")
+
+    @memory_allocation.setter
+    def memory_allocation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory_allocation", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        SAP system ID as database identifier.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> Optional[pulumi.Input[str]]:
+        """
+        User ID of the HANA database user.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uid", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the HANA database user.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
+                 hana_sids: Optional[pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]]] = None,
                  nfs_ip_address: Optional[pulumi.Input[str]] = None,
                  os_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
         """
         Specifies the storage settings for the HANA instance disks.
+        :param pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]] hana_sids: Specifies information related to SAP system IDs for the hana instance.
         :param pulumi.Input[str] nfs_ip_address: IP Address to connect to storage.
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
+        if hana_sids is not None:
+            pulumi.set(__self__, "hana_sids", hana_sids)
         if nfs_ip_address is not None:
             pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
         if os_disks is not None:
             pulumi.set(__self__, "os_disks", os_disks)
+
+    @property
+    @pulumi.getter(name="hanaSids")
+    def hana_sids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]]]:
+        """
+        Specifies information related to SAP system IDs for the hana instance.
+        """
+        return pulumi.get(self, "hana_sids")
+
+    @hana_sids.setter
+    def hana_sids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]]]):
+        pulumi.set(self, "hana_sids", value)
 
     @property
     @pulumi.getter(name="nfsIpAddress")

@@ -7064,7 +7064,8 @@ _utilities.register(
   "mod": "insights/v20140401",
   "fqn": "pulumi_azure_native.insights.v20140401",
   "classes": {
-   "azure-native:insights/v20140401:AlertRule": "AlertRule"
+   "azure-native:insights/v20140401:AlertRule": "AlertRule",
+   "azure-native:insights/v20140401:AutoscaleSetting": "AutoscaleSetting"
   }
  },
  {
@@ -12004,7 +12005,17 @@ _utilities.register(
    "azure-native:recoveryservices/v20210401:ProtectedItem": "ProtectedItem",
    "azure-native:recoveryservices/v20210401:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20210401:ProtectionIntent": "ProtectionIntent",
-   "azure-native:recoveryservices/v20210401:ProtectionPolicy": "ProtectionPolicy"
+   "azure-native:recoveryservices/v20210401:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20210401:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20210401:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20210401:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20210401:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20210401:ReplicationvCenter": "ReplicationvCenter"
   }
  },
  {
@@ -12820,7 +12831,9 @@ _utilities.register(
   "classes": {
    "azure-native:securityinsights/v20210401:Incident": "Incident",
    "azure-native:securityinsights/v20210401:IncidentComment": "IncidentComment",
-   "azure-native:securityinsights/v20210401:IncidentRelation": "IncidentRelation"
+   "azure-native:securityinsights/v20210401:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20210401:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20210401:WatchlistItem": "WatchlistItem"
   }
  },
  {
@@ -14262,6 +14275,7 @@ _utilities.register(
   "mod": "synapse",
   "fqn": "pulumi_azure_native.synapse",
   "classes": {
+   "azure-native:synapse:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
    "azure-native:synapse:BigDataPool": "BigDataPool",
    "azure-native:synapse:DataConnection": "DataConnection",
    "azure-native:synapse:Database": "Database",
@@ -14426,6 +14440,40 @@ _utilities.register(
    "azure-native:synapse/v20210501:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210501:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
    "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "synapse/v20210601preview",
+  "fqn": "pulumi_azure_native.synapse.v20210601preview",
+  "classes": {
+   "azure-native:synapse/v20210601preview:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:synapse/v20210601preview:BigDataPool": "BigDataPool",
+   "azure-native:synapse/v20210601preview:DataConnection": "DataConnection",
+   "azure-native:synapse/v20210601preview:Database": "Database",
+   "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:synapse/v20210601preview:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:synapse/v20210601preview:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:synapse/v20210601preview:IntegrationRuntime": "IntegrationRuntime",
+   "azure-native:synapse/v20210601preview:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:synapse/v20210601preview:IpFirewallRule": "IpFirewallRule",
+   "azure-native:synapse/v20210601preview:Key": "Key",
+   "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
+   "azure-native:synapse/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:synapse/v20210601preview:PrivateLinkHub": "PrivateLinkHub",
+   "azure-native:synapse/v20210601preview:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:synapse/v20210601preview:SqlPool": "SqlPool",
+   "azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",
+   "azure-native:synapse/v20210601preview:SqlPoolTransparentDataEncryption": "SqlPoolTransparentDataEncryption",
+   "azure-native:synapse/v20210601preview:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment",
+   "azure-native:synapse/v20210601preview:SqlPoolVulnerabilityAssessmentRuleBaseline": "SqlPoolVulnerabilityAssessmentRuleBaseline",
+   "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier",
+   "azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup",
+   "azure-native:synapse/v20210601preview:Workspace": "Workspace",
+   "azure-native:synapse/v20210601preview:WorkspaceAadAdmin": "WorkspaceAadAdmin",
+   "azure-native:synapse/v20210601preview:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
+   "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin",
+   "azure-native:synapse/v20210601preview:kustoPool": "KustoPool"
   }
  },
  {

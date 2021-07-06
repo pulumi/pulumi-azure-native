@@ -263,6 +263,35 @@ func (e DatabasePrincipalRole) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The default principals modification kind
+type DefaultPrincipalsModificationKind pulumi.String
+
+const (
+	DefaultPrincipalsModificationKindUnion   = DefaultPrincipalsModificationKind("Union")
+	DefaultPrincipalsModificationKindReplace = DefaultPrincipalsModificationKind("Replace")
+	DefaultPrincipalsModificationKindNone    = DefaultPrincipalsModificationKind("None")
+)
+
+func (DefaultPrincipalsModificationKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The engine type
 type EngineType pulumi.String
 

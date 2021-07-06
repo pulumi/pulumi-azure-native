@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> Logs;
         /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        public readonly string? MarketplacePartnerId;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
 
             ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> logs,
 
+            string? marketplacePartnerId,
+
             string name,
 
             string? serviceBusRuleId,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
             EventHubName = eventHubName;
             Id = id;
             Logs = logs;
+            MarketplacePartnerId = marketplacePartnerId;
             Name = name;
             ServiceBusRuleId = serviceBusRuleId;
             StorageAccountId = storageAccountId;

@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
         public Input<string>? MetricNamespace { get; set; }
 
         /// <summary>
+        /// the location of the resource the rule monitors.
+        /// </summary>
+        [Input("metricResourceLocation")]
+        public Input<string>? MetricResourceLocation { get; set; }
+
+        /// <summary>
         /// the resource identifier of the resource the rule monitors.
         /// </summary>
         [Input("metricResourceUri", required: true)]

@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// the location of the resource that the autoscale setting should be added to.
+        /// </summary>
+        [Output("targetResourceLocation")]
+        public Output<string?> TargetResourceLocation { get; private set; } = null!;
+
+        /// <summary>
         /// the resource identifier of the resource that the autoscale setting should be added to.
         /// </summary>
         [Output("targetResourceUri")]
@@ -90,6 +96,8 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150401:AutoscaleSetting"},
                 },
@@ -180,6 +188,12 @@ namespace Pulumi.AzureNative.Insights
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// the location of the resource that the autoscale setting should be added to.
+        /// </summary>
+        [Input("targetResourceLocation")]
+        public Input<string>? TargetResourceLocation { get; set; }
 
         /// <summary>
         /// the resource identifier of the resource that the autoscale setting should be added to.

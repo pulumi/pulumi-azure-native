@@ -41,6 +41,8 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
 
         public EmailNotificationArgs()
         {
+            SendToSubscriptionAdministrator = false;
+            SendToSubscriptionCoAdministrators = false;
         }
     }
 }

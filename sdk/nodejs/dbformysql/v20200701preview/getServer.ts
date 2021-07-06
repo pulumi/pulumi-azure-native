@@ -90,6 +90,10 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
+     * private dns zone arguments.
+     */
+    readonly privateDnsZoneArguments?: outputs.dbformysql.v20200701preview.PrivateDnsZoneArgumentsResponse;
+    /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
     readonly publicNetworkAccess: string;

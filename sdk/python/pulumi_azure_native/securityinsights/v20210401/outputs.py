@@ -15,6 +15,7 @@ __all__ = [
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
     'SystemDataResponse',
+    'WatchlistUserInfoResponse',
 ]
 
 @pulumi.output_type
@@ -424,5 +425,67 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class WatchlistUserInfoResponse(dict):
+    """
+    User information that made some action
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WatchlistUserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WatchlistUserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WatchlistUserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email: str,
+                 name: str,
+                 object_id: Optional[str] = None):
+        """
+        User information that made some action
+        :param str email: The email of the user.
+        :param str name: The name of the user.
+        :param str object_id: The object id of the user.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "object_id")
 
 

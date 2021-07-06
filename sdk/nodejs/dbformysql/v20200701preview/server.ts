@@ -84,6 +84,10 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * private dns zone arguments.
+     */
+    public readonly privateDnsZoneArguments!: pulumi.Output<outputs.dbformysql.v20200701preview.PrivateDnsZoneArgumentsResponse | undefined>;
+    /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
     public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class Server extends pulumi.CustomResource {
             inputs["infrastructureEncryption"] = args ? args.infrastructureEncryption : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
             inputs["replicationRole"] = args ? args.replicationRole : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
@@ -189,6 +194,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateDnsZoneArguments"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
@@ -255,6 +261,10 @@ export interface ServerArgs {
      * Maintenance window of a server.
      */
     maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701preview.MaintenanceWindowArgs>;
+    /**
+     * private dns zone arguments.
+     */
+    privateDnsZoneArguments?: pulumi.Input<inputs.dbformysql.v20200701preview.PrivateDnsZoneArgumentsArgs>;
     /**
      * The replication role.
      */

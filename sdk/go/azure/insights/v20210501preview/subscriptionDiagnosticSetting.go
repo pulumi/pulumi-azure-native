@@ -20,6 +20,8 @@ type SubscriptionDiagnosticSetting struct {
 	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
 	// The list of logs settings.
 	Logs SubscriptionLogSettingsResponseArrayOutput `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrOutput `pulumi:"marketplacePartnerId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -87,6 +89,8 @@ type subscriptionDiagnosticSettingState struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// The list of logs settings.
 	Logs []SubscriptionLogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -108,6 +112,8 @@ type SubscriptionDiagnosticSettingState struct {
 	EventHubName pulumi.StringPtrInput
 	// The list of logs settings.
 	Logs SubscriptionLogSettingsResponseArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -133,6 +139,8 @@ type subscriptionDiagnosticSettingArgs struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// The list of logs settings.
 	Logs []SubscriptionLogSettings `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The name of the diagnostic setting.
 	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -151,6 +159,8 @@ type SubscriptionDiagnosticSettingArgs struct {
 	EventHubName pulumi.StringPtrInput
 	// The list of logs settings.
 	Logs SubscriptionLogSettingsArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The name of the diagnostic setting.
 	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./attachedDatabaseConfiguration";
 export * from "./bigDataPool";
 export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
 export * from "./eventHubDataConnection";
+export * from "./getAttachedDatabaseConfiguration";
 export * from "./getBigDataPool";
 export * from "./getDataConnection";
 export * from "./getDatabase";
@@ -47,6 +49,8 @@ export * from "./key";
 export * from "./kustoPool";
 export * from "./kustoPoolPrincipalAssignment";
 export * from "./listIntegrationRuntimeAuthKey";
+export * from "./listKustoPoolFollowerDatabases";
+export * from "./listKustoPoolLanguageExtensions";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
 export * from "./readWriteDatabase";
@@ -72,6 +76,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210501 from "./v20210501";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20190601preview,
@@ -80,9 +85,11 @@ export {
     v20210301,
     v20210401preview,
     v20210501,
+    v20210601preview,
 };
 
 // Import resources to register:
+import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
 import { BigDataPool } from "./bigDataPool";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
@@ -114,6 +121,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:synapse:AttachedDatabaseConfiguration":
+                return new AttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
             case "azure-native:synapse:DataConnection":

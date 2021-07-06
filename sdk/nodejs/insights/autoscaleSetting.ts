@@ -61,6 +61,10 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * the location of the resource that the autoscale setting should be added to.
+     */
+    public readonly targetResourceLocation!: pulumi.Output<string | undefined>;
+    /**
      * the resource identifier of the resource that the autoscale setting should be added to.
      */
     public readonly targetResourceUri!: pulumi.Output<string | undefined>;
@@ -94,6 +98,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["profiles"] = args ? args.profiles : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
             inputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -103,13 +108,14 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["notifications"] = undefined /*out*/;
             inputs["profiles"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["targetResourceLocation"] = undefined /*out*/;
             inputs["targetResourceUri"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20150401:AutoscaleSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AutoscaleSetting" }, { type: "azure-native:insights/v20140401:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20140401:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20150401:AutoscaleSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }
@@ -151,6 +157,10 @@ export interface AutoscaleSettingArgs {
      * Resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * the location of the resource that the autoscale setting should be added to.
+     */
+    targetResourceLocation?: pulumi.Input<string>;
     /**
      * the resource identifier of the resource that the autoscale setting should be added to.
      */

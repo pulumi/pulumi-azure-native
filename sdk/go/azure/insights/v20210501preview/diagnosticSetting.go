@@ -23,6 +23,8 @@ type DiagnosticSetting struct {
 	LogAnalyticsDestinationType pulumi.StringPtrOutput `pulumi:"logAnalyticsDestinationType"`
 	// The list of logs settings.
 	Logs LogSettingsResponseArrayOutput `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrOutput `pulumi:"marketplacePartnerId"`
 	// The list of metric settings.
 	Metrics MetricSettingsResponseArrayOutput `pulumi:"metrics"`
 	// The name of the resource
@@ -97,6 +99,8 @@ type diagnosticSettingState struct {
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// The list of logs settings.
 	Logs []LogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The list of metric settings.
 	Metrics []MetricSettingsResponse `pulumi:"metrics"`
 	// The name of the resource
@@ -122,6 +126,8 @@ type DiagnosticSettingState struct {
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// The list of logs settings.
 	Logs LogSettingsResponseArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The list of metric settings.
 	Metrics MetricSettingsResponseArrayInput
 	// The name of the resource
@@ -151,6 +157,8 @@ type diagnosticSettingArgs struct {
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// The list of logs settings.
 	Logs []LogSettings `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The list of metric settings.
 	Metrics []MetricSettings `pulumi:"metrics"`
 	// The name of the diagnostic setting.
@@ -175,6 +183,8 @@ type DiagnosticSettingArgs struct {
 	LogAnalyticsDestinationType pulumi.StringPtrInput
 	// The list of logs settings.
 	Logs LogSettingsArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The list of metric settings.
 	Metrics MetricSettingsArrayInput
 	// The name of the diagnostic setting.

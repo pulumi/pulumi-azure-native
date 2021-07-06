@@ -19,6 +19,7 @@ class ManagementGroupDiagnosticSettingArgs:
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementGroupLogSettingsArgs']]]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class ManagementGroupDiagnosticSettingArgs:
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementGroupLogSettingsArgs']]] logs: The list of logs settings.
+        :param pulumi.Input[str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -41,6 +43,8 @@ class ManagementGroupDiagnosticSettingArgs:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id is not None:
+            pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if service_bus_rule_id is not None:
@@ -97,6 +101,18 @@ class ManagementGroupDiagnosticSettingArgs:
     @logs.setter
     def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementGroupLogSettingsArgs']]]]):
         pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
+
+    @marketplace_partner_id.setter
+    def marketplace_partner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_partner_id", value)
 
     @property
     @pulumi.getter
@@ -156,6 +172,7 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementGroupLogSettingsArgs']]]]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -170,6 +187,7 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementGroupLogSettingsArgs']]]] logs: The list of logs settings.
         :param pulumi.Input[str] management_group_id: The management group id.
+        :param pulumi.Input[str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
@@ -203,6 +221,7 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementGroupLogSettingsArgs']]]]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -225,6 +244,7 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__.__dict__["management_group_id"] = management_group_id
+            __props__.__dict__["marketplace_partner_id"] = marketplace_partner_id
             __props__.__dict__["name"] = name
             __props__.__dict__["service_bus_rule_id"] = service_bus_rule_id
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -258,6 +278,7 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["event_hub_authorization_rule_id"] = None
         __props__.__dict__["event_hub_name"] = None
         __props__.__dict__["logs"] = None
+        __props__.__dict__["marketplace_partner_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["service_bus_rule_id"] = None
         __props__.__dict__["storage_account_id"] = None
@@ -289,6 +310,14 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
 
     @property
     @pulumi.getter

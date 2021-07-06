@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Inputs
 {
 
     /// <summary>
-    /// Specifies the disk information fo the HANA instance
+    /// Specifies the disk information for the HANA instance
     /// </summary>
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {

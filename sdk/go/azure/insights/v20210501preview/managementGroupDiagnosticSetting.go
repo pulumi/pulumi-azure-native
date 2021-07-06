@@ -21,6 +21,8 @@ type ManagementGroupDiagnosticSetting struct {
 	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
 	// The list of logs settings.
 	Logs ManagementGroupLogSettingsResponseArrayOutput `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrOutput `pulumi:"marketplacePartnerId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -91,6 +93,8 @@ type managementGroupDiagnosticSettingState struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// The list of logs settings.
 	Logs []ManagementGroupLogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -112,6 +116,8 @@ type ManagementGroupDiagnosticSettingState struct {
 	EventHubName pulumi.StringPtrInput
 	// The list of logs settings.
 	Logs ManagementGroupLogSettingsResponseArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -139,6 +145,8 @@ type managementGroupDiagnosticSettingArgs struct {
 	Logs []ManagementGroupLogSettings `pulumi:"logs"`
 	// The management group id.
 	ManagementGroupId string `pulumi:"managementGroupId"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The name of the diagnostic setting.
 	Name *string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -159,6 +167,8 @@ type ManagementGroupDiagnosticSettingArgs struct {
 	Logs ManagementGroupLogSettingsArrayInput
 	// The management group id.
 	ManagementGroupId pulumi.StringInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
 	// The name of the diagnostic setting.
 	Name pulumi.StringPtrInput
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

@@ -966,6 +966,274 @@ func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArguments struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+// PrivateDnsZoneArgumentsInput is an input type that accepts PrivateDnsZoneArgumentsArgs and PrivateDnsZoneArgumentsOutput values.
+// You can construct a concrete instance of `PrivateDnsZoneArgumentsInput` via:
+//
+//          PrivateDnsZoneArgumentsArgs{...}
+type PrivateDnsZoneArgumentsInput interface {
+	pulumi.Input
+
+	ToPrivateDnsZoneArgumentsOutput() PrivateDnsZoneArgumentsOutput
+	ToPrivateDnsZoneArgumentsOutputWithContext(context.Context) PrivateDnsZoneArgumentsOutput
+}
+
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArgumentsArgs struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+func (PrivateDnsZoneArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i PrivateDnsZoneArgumentsArgs) ToPrivateDnsZoneArgumentsOutput() PrivateDnsZoneArgumentsOutput {
+	return i.ToPrivateDnsZoneArgumentsOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsZoneArgumentsArgs) ToPrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsOutput)
+}
+
+func (i PrivateDnsZoneArgumentsArgs) ToPrivateDnsZoneArgumentsPtrOutput() PrivateDnsZoneArgumentsPtrOutput {
+	return i.ToPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsZoneArgumentsArgs) ToPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsOutput).ToPrivateDnsZoneArgumentsPtrOutputWithContext(ctx)
+}
+
+// PrivateDnsZoneArgumentsPtrInput is an input type that accepts PrivateDnsZoneArgumentsArgs, PrivateDnsZoneArgumentsPtr and PrivateDnsZoneArgumentsPtrOutput values.
+// You can construct a concrete instance of `PrivateDnsZoneArgumentsPtrInput` via:
+//
+//          PrivateDnsZoneArgumentsArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateDnsZoneArgumentsPtrInput interface {
+	pulumi.Input
+
+	ToPrivateDnsZoneArgumentsPtrOutput() PrivateDnsZoneArgumentsPtrOutput
+	ToPrivateDnsZoneArgumentsPtrOutputWithContext(context.Context) PrivateDnsZoneArgumentsPtrOutput
+}
+
+type privateDnsZoneArgumentsPtrType PrivateDnsZoneArgumentsArgs
+
+func PrivateDnsZoneArgumentsPtr(v *PrivateDnsZoneArgumentsArgs) PrivateDnsZoneArgumentsPtrInput {
+	return (*privateDnsZoneArgumentsPtrType)(v)
+}
+
+func (*privateDnsZoneArgumentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i *privateDnsZoneArgumentsPtrType) ToPrivateDnsZoneArgumentsPtrOutput() PrivateDnsZoneArgumentsPtrOutput {
+	return i.ToPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i *privateDnsZoneArgumentsPtrType) ToPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsPtrOutput)
+}
+
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArgumentsOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsZoneArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o PrivateDnsZoneArgumentsOutput) ToPrivateDnsZoneArgumentsOutput() PrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsOutput) ToPrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsOutput) ToPrivateDnsZoneArgumentsPtrOutput() PrivateDnsZoneArgumentsPtrOutput {
+	return o.ToPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateDnsZoneArgumentsOutput) ToPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v PrivateDnsZoneArguments) *PrivateDnsZoneArguments {
+		return &v
+	}).(PrivateDnsZoneArgumentsPtrOutput)
+}
+
+// private dns zone arm resource id.
+func (o PrivateDnsZoneArgumentsOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateDnsZoneArguments) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateDnsZoneArgumentsPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsZoneArgumentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o PrivateDnsZoneArgumentsPtrOutput) ToPrivateDnsZoneArgumentsPtrOutput() PrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsPtrOutput) ToPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsPtrOutput) Elem() PrivateDnsZoneArgumentsOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneArguments) PrivateDnsZoneArguments { return *v }).(PrivateDnsZoneArgumentsOutput)
+}
+
+// private dns zone arm resource id.
+func (o PrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneArguments) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArgumentsResponse struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+// PrivateDnsZoneArgumentsResponseInput is an input type that accepts PrivateDnsZoneArgumentsResponseArgs and PrivateDnsZoneArgumentsResponseOutput values.
+// You can construct a concrete instance of `PrivateDnsZoneArgumentsResponseInput` via:
+//
+//          PrivateDnsZoneArgumentsResponseArgs{...}
+type PrivateDnsZoneArgumentsResponseInput interface {
+	pulumi.Input
+
+	ToPrivateDnsZoneArgumentsResponseOutput() PrivateDnsZoneArgumentsResponseOutput
+	ToPrivateDnsZoneArgumentsResponseOutputWithContext(context.Context) PrivateDnsZoneArgumentsResponseOutput
+}
+
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArgumentsResponseArgs struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+func (PrivateDnsZoneArgumentsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneArgumentsResponse)(nil)).Elem()
+}
+
+func (i PrivateDnsZoneArgumentsResponseArgs) ToPrivateDnsZoneArgumentsResponseOutput() PrivateDnsZoneArgumentsResponseOutput {
+	return i.ToPrivateDnsZoneArgumentsResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsZoneArgumentsResponseArgs) ToPrivateDnsZoneArgumentsResponseOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsResponseOutput)
+}
+
+func (i PrivateDnsZoneArgumentsResponseArgs) ToPrivateDnsZoneArgumentsResponsePtrOutput() PrivateDnsZoneArgumentsResponsePtrOutput {
+	return i.ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateDnsZoneArgumentsResponseArgs) ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsResponseOutput).ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateDnsZoneArgumentsResponsePtrInput is an input type that accepts PrivateDnsZoneArgumentsResponseArgs, PrivateDnsZoneArgumentsResponsePtr and PrivateDnsZoneArgumentsResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateDnsZoneArgumentsResponsePtrInput` via:
+//
+//          PrivateDnsZoneArgumentsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateDnsZoneArgumentsResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateDnsZoneArgumentsResponsePtrOutput() PrivateDnsZoneArgumentsResponsePtrOutput
+	ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(context.Context) PrivateDnsZoneArgumentsResponsePtrOutput
+}
+
+type privateDnsZoneArgumentsResponsePtrType PrivateDnsZoneArgumentsResponseArgs
+
+func PrivateDnsZoneArgumentsResponsePtr(v *PrivateDnsZoneArgumentsResponseArgs) PrivateDnsZoneArgumentsResponsePtrInput {
+	return (*privateDnsZoneArgumentsResponsePtrType)(v)
+}
+
+func (*privateDnsZoneArgumentsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsZoneArgumentsResponse)(nil)).Elem()
+}
+
+func (i *privateDnsZoneArgumentsResponsePtrType) ToPrivateDnsZoneArgumentsResponsePtrOutput() PrivateDnsZoneArgumentsResponsePtrOutput {
+	return i.ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateDnsZoneArgumentsResponsePtrType) ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsZoneArgumentsResponsePtrOutput)
+}
+
+// Private DNS zone arguments of a server
+type PrivateDnsZoneArgumentsResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsZoneArgumentsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateDnsZoneArgumentsResponse)(nil)).Elem()
+}
+
+func (o PrivateDnsZoneArgumentsResponseOutput) ToPrivateDnsZoneArgumentsResponseOutput() PrivateDnsZoneArgumentsResponseOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsResponseOutput) ToPrivateDnsZoneArgumentsResponseOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponseOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsResponseOutput) ToPrivateDnsZoneArgumentsResponsePtrOutput() PrivateDnsZoneArgumentsResponsePtrOutput {
+	return o.ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateDnsZoneArgumentsResponseOutput) ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponsePtrOutput {
+	return o.ApplyT(func(v PrivateDnsZoneArgumentsResponse) *PrivateDnsZoneArgumentsResponse {
+		return &v
+	}).(PrivateDnsZoneArgumentsResponsePtrOutput)
+}
+
+// private dns zone arm resource id.
+func (o PrivateDnsZoneArgumentsResponseOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateDnsZoneArgumentsResponse) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateDnsZoneArgumentsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateDnsZoneArgumentsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateDnsZoneArgumentsResponse)(nil)).Elem()
+}
+
+func (o PrivateDnsZoneArgumentsResponsePtrOutput) ToPrivateDnsZoneArgumentsResponsePtrOutput() PrivateDnsZoneArgumentsResponsePtrOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsResponsePtrOutput) ToPrivateDnsZoneArgumentsResponsePtrOutputWithContext(ctx context.Context) PrivateDnsZoneArgumentsResponsePtrOutput {
+	return o
+}
+
+func (o PrivateDnsZoneArgumentsResponsePtrOutput) Elem() PrivateDnsZoneArgumentsResponseOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneArgumentsResponse) PrivateDnsZoneArgumentsResponse { return *v }).(PrivateDnsZoneArgumentsResponseOutput)
+}
+
+// private dns zone arm resource id.
+func (o PrivateDnsZoneArgumentsResponsePtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneArgumentsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Billing information related properties of a server.
 type Sku struct {
 	// The name of the sku, e.g. Standard_D32s_v3.
@@ -1686,6 +1954,10 @@ func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateDnsZoneArgumentsOutput{})
+	pulumi.RegisterOutputType(PrivateDnsZoneArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(PrivateDnsZoneArgumentsResponseOutput{})
+	pulumi.RegisterOutputType(PrivateDnsZoneArgumentsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

@@ -27,6 +27,7 @@ class ServerArgs:
                  infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input['PrivateDnsZoneArgumentsArgs']] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -49,6 +50,7 @@ class ServerArgs:
         :param pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a server.
+        :param pulumi.Input['PrivateDnsZoneArgumentsArgs'] private_dns_zone_arguments: private dns zone arguments.
         :param pulumi.Input[str] replication_role: The replication role.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -80,6 +82,8 @@ class ServerArgs:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if private_dns_zone_arguments is not None:
+            pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
         if replication_role is not None:
             pulumi.set(__self__, "replication_role", replication_role)
         if restore_point_in_time is not None:
@@ -232,6 +236,18 @@ class ServerArgs:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> Optional[pulumi.Input['PrivateDnsZoneArgumentsArgs']]:
+        """
+        private dns zone arguments.
+        """
+        return pulumi.get(self, "private_dns_zone_arguments")
+
+    @private_dns_zone_arguments.setter
+    def private_dns_zone_arguments(self, value: Optional[pulumi.Input['PrivateDnsZoneArgumentsArgs']]):
+        pulumi.set(self, "private_dns_zone_arguments", value)
+
+    @property
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> Optional[pulumi.Input[str]]:
         """
@@ -355,6 +371,7 @@ class Server(pulumi.CustomResource):
                  infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['PrivateDnsZoneArgumentsArgs']]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
@@ -381,6 +398,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
+        :param pulumi.Input[pulumi.InputType['PrivateDnsZoneArgumentsArgs']] private_dns_zone_arguments: private dns zone arguments.
         :param pulumi.Input[str] replication_role: The replication role.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -426,6 +444,7 @@ class Server(pulumi.CustomResource):
                  infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['PrivateDnsZoneArgumentsArgs']]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
@@ -458,6 +477,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["infrastructure_encryption"] = infrastructure_encryption
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["private_dns_zone_arguments"] = private_dns_zone_arguments
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -516,6 +536,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_dns_zone_arguments"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["replica_capacity"] = None
         __props__.__dict__["replication_role"] = None
@@ -625,6 +646,14 @@ class Server(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> pulumi.Output[Optional['outputs.PrivateDnsZoneArgumentsResponse']]:
+        """
+        private dns zone arguments.
+        """
+        return pulumi.get(self, "private_dns_zone_arguments")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")

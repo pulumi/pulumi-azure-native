@@ -13,6 +13,7 @@ __all__ = [
     'DelegatedSubnetArgumentsArgs',
     'IdentityArgs',
     'MaintenanceWindowArgs',
+    'PrivateDnsZoneArgumentsArgs',
     'SkuArgs',
     'StorageProfileArgs',
 ]
@@ -135,6 +136,30 @@ class MaintenanceWindowArgs:
     @start_minute.setter
     def start_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_minute", value)
+
+
+@pulumi.input_type
+class PrivateDnsZoneArgumentsArgs:
+    def __init__(__self__, *,
+                 private_dns_zone_arm_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Private DNS zone arguments of a server
+        :param pulumi.Input[str] private_dns_zone_arm_resource_id: private dns zone arm resource id.
+        """
+        if private_dns_zone_arm_resource_id is not None:
+            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArmResourceId")
+    def private_dns_zone_arm_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        private dns zone arm resource id.
+        """
+        return pulumi.get(self, "private_dns_zone_arm_resource_id")
+
+    @private_dns_zone_arm_resource_id.setter
+    def private_dns_zone_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_dns_zone_arm_resource_id", value)
 
 
 @pulumi.input_type

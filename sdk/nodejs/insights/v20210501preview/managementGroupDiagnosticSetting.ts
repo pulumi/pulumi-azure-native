@@ -48,6 +48,10 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.insights.v20210501preview.ManagementGroupLogSettingsResponse[] | undefined>;
     /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    public readonly marketplacePartnerId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["logs"] = args ? args.logs : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            inputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
@@ -100,6 +105,7 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
             inputs["eventHubAuthorizationRuleId"] = undefined /*out*/;
             inputs["eventHubName"] = undefined /*out*/;
             inputs["logs"] = undefined /*out*/;
+            inputs["marketplacePartnerId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serviceBusRuleId"] = undefined /*out*/;
             inputs["storageAccountId"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export interface ManagementGroupDiagnosticSettingArgs {
      * The management group id.
      */
     managementGroupId: pulumi.Input<string>;
+    /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    marketplacePartnerId?: pulumi.Input<string>;
     /**
      * The name of the diagnostic setting.
      */

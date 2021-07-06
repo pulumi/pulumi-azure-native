@@ -23,6 +23,7 @@ __all__ = [
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
+    'FollowerDatabaseDefinitionResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
@@ -30,6 +31,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'LanguageExtensionResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
@@ -61,6 +63,7 @@ __all__ = [
     'SsisProjectResponse',
     'SsisVariableResponse',
     'SystemDataResponse',
+    'TableLevelSharingPropertiesResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -673,6 +676,50 @@ class EnvironmentVariableSetupResponse(dict):
 
 
 @pulumi.output_type
+class FollowerDatabaseDefinitionResponse(dict):
+    """
+    A class representing follower database request.
+    """
+    def __init__(__self__, *,
+                 attached_database_configuration_name: str,
+                 cluster_resource_id: str,
+                 database_name: str):
+        """
+        A class representing follower database request.
+        :param str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
+        :param str cluster_resource_id: Resource id of the cluster that follows a database owned by this cluster.
+        :param str database_name: The database name owned by this cluster that was followed. * in case following all databases.
+        """
+        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="attachedDatabaseConfigurationName")
+    def attached_database_configuration_name(self) -> str:
+        """
+        Resource name of the attached database configuration in the follower cluster.
+        """
+        return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> str:
+        """
+        Resource id of the cluster that follows a database owned by this cluster.
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The database name owned by this cluster that was followed. * in case following all databases.
+        """
+        return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
 class IntegrationRuntimeComputePropertiesResponse(dict):
     """
     The compute resource properties for managed integration runtime.
@@ -1222,6 +1269,29 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         The ID of the VNet that this integration runtime will join.
         """
         return pulumi.get(self, "v_net_id")
+
+
+@pulumi.output_type
+class LanguageExtensionResponse(dict):
+    """
+    The language extension object.
+    """
+    def __init__(__self__, *,
+                 language_extension_name: Optional[str] = None):
+        """
+        The language extension object.
+        :param str language_extension_name: The language extension name.
+        """
+        if language_extension_name is not None:
+            pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionName")
+    def language_extension_name(self) -> Optional[str]:
+        """
+        The language extension name.
+        """
+        return pulumi.get(self, "language_extension_name")
 
 
 @pulumi.output_type
@@ -3739,6 +3809,116 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TableLevelSharingPropertiesResponse(dict):
+    """
+    Tables that will be included and excluded in the follower database
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalTablesToExclude":
+            suggest = "external_tables_to_exclude"
+        elif key == "externalTablesToInclude":
+            suggest = "external_tables_to_include"
+        elif key == "materializedViewsToExclude":
+            suggest = "materialized_views_to_exclude"
+        elif key == "materializedViewsToInclude":
+            suggest = "materialized_views_to_include"
+        elif key == "tablesToExclude":
+            suggest = "tables_to_exclude"
+        elif key == "tablesToInclude":
+            suggest = "tables_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_tables_to_exclude: Optional[Sequence[str]] = None,
+                 external_tables_to_include: Optional[Sequence[str]] = None,
+                 materialized_views_to_exclude: Optional[Sequence[str]] = None,
+                 materialized_views_to_include: Optional[Sequence[str]] = None,
+                 tables_to_exclude: Optional[Sequence[str]] = None,
+                 tables_to_include: Optional[Sequence[str]] = None):
+        """
+        Tables that will be included and excluded in the follower database
+        :param Sequence[str] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param Sequence[str] external_tables_to_include: List of external tables to include in the follower database
+        :param Sequence[str] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param Sequence[str] materialized_views_to_include: List of materialized views to include in the follower database
+        :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
+        :param Sequence[str] tables_to_include: List of tables to include in the follower database
+        """
+        if external_tables_to_exclude is not None:
+            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+        if external_tables_to_include is not None:
+            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if materialized_views_to_exclude is not None:
+            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+        if materialized_views_to_include is not None:
+            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+        if tables_to_exclude is not None:
+            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+        if tables_to_include is not None:
+            pulumi.set(__self__, "tables_to_include", tables_to_include)
+
+    @property
+    @pulumi.getter(name="externalTablesToExclude")
+    def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables exclude from the follower database
+        """
+        return pulumi.get(self, "external_tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="externalTablesToInclude")
+    def external_tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables to include in the follower database
+        """
+        return pulumi.get(self, "external_tables_to_include")
+
+    @property
+    @pulumi.getter(name="materializedViewsToExclude")
+    def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views exclude from the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_exclude")
+
+    @property
+    @pulumi.getter(name="materializedViewsToInclude")
+    def materialized_views_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views to include in the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_include")
+
+    @property
+    @pulumi.getter(name="tablesToExclude")
+    def tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to exclude from the follower database
+        """
+        return pulumi.get(self, "tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="tablesToInclude")
+    def tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to include in the follower database
+        """
+        return pulumi.get(self, "tables_to_include")
 
 
 @pulumi.output_type

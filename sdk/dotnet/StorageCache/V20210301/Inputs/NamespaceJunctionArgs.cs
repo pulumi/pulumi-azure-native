@@ -41,6 +41,7 @@ namespace Pulumi.AzureNative.StorageCache.V20210301.Inputs
 
         public NamespaceJunctionArgs()
         {
+            NfsAccessPolicy = "default";
         }
     }
 }

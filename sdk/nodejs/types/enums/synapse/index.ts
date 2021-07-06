@@ -8,6 +8,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210501 from "./v20210501";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20190601preview,
@@ -16,6 +17,7 @@ export {
     v20210301,
     v20210401preview,
     v20210501,
+    v20210601preview,
 };
 
 export const AzureSkuName = {
@@ -126,6 +128,17 @@ export const DatabasePrincipalRole = {
  * Database principal role.
  */
 export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
+
+export const DefaultPrincipalsModificationKind = {
+    Union: "Union",
+    Replace: "Replace",
+    None: "None",
+} as const;
+
+/**
+ * The default principals modification kind
+ */
+export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
 
 export const EngineType = {
     V2: "V2",

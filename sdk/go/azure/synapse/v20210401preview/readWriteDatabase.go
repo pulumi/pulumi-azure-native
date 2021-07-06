@@ -68,6 +68,12 @@ func NewReadWriteDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse:ReadWriteDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:ReadWriteDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:ReadWriteDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReadWriteDatabase

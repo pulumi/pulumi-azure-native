@@ -20,7 +20,7 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, log_analytics_destination_type=None, logs=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, log_analytics_destination_type=None, logs=None, marketplace_partner_id=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -36,6 +36,9 @@ class GetDiagnosticSettingResult:
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id and not isinstance(marketplace_partner_id, str):
+            raise TypeError("Expected argument 'marketplace_partner_id' to be a str")
+        pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
         pulumi.set(__self__, "metrics", metrics)
@@ -97,6 +100,14 @@ class GetDiagnosticSettingResult:
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[str]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
 
     @property
     @pulumi.getter
@@ -166,6 +177,7 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
             id=self.id,
             log_analytics_destination_type=self.log_analytics_destination_type,
             logs=self.logs,
+            marketplace_partner_id=self.marketplace_partner_id,
             metrics=self.metrics,
             name=self.name,
             service_bus_rule_id=self.service_bus_rule_id,
@@ -200,6 +212,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
         id=__ret__.id,
         log_analytics_destination_type=__ret__.log_analytics_destination_type,
         logs=__ret__.logs,
+        marketplace_partner_id=__ret__.marketplace_partner_id,
         metrics=__ret__.metrics,
         name=__ret__.name,
         service_bus_rule_id=__ret__.service_bus_rule_id,

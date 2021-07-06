@@ -88,6 +88,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// private dns zone arguments.
+        /// </summary>
+        [Output("privateDnsZoneArguments")]
+        public Output<Outputs.PrivateDnsZoneArgumentsResponse?> PrivateDnsZoneArguments { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Output("publicNetworkAccess")]
@@ -269,6 +275,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// private dns zone arguments.
+        /// </summary>
+        [Input("privateDnsZoneArguments")]
+        public Input<Inputs.PrivateDnsZoneArgumentsArgs>? PrivateDnsZoneArguments { get; set; }
 
         /// <summary>
         /// The replication role.

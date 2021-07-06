@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.Insights.V20150401
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// the location of the resource that the autoscale setting should be added to.
+        /// </summary>
+        public readonly string? TargetResourceLocation;
+        /// <summary>
         /// the resource identifier of the resource that the autoscale setting should be added to.
         /// </summary>
         public readonly string? TargetResourceUri;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNative.Insights.V20150401
 
             ImmutableDictionary<string, string>? tags,
 
+            string? targetResourceLocation,
+
             string? targetResourceUri,
 
             string type)
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNative.Insights.V20150401
             Notifications = notifications;
             Profiles = profiles;
             Tags = tags;
+            TargetResourceLocation = targetResourceLocation;
             TargetResourceUri = targetResourceUri;
             Type = type;
         }

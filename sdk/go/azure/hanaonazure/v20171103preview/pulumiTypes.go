@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type Disk struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -29,7 +29,7 @@ type DiskInput interface {
 	ToDiskOutputWithContext(context.Context) DiskOutput
 }
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type DiskArgs struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -74,7 +74,7 @@ func (i DiskArray) ToDiskArrayOutputWithContext(ctx context.Context) DiskArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DiskArrayOutput)
 }
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
@@ -119,7 +119,7 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 	}).(DiskOutput)
 }
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type DiskResponse struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -140,7 +140,7 @@ type DiskResponseInput interface {
 	ToDiskResponseOutputWithContext(context.Context) DiskResponseOutput
 }
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type DiskResponseArgs struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
@@ -187,7 +187,7 @@ func (i DiskResponseArray) ToDiskResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseArrayOutput)
 }
 
-// Specifies the disk information fo the HANA instance
+// Specifies the disk information for the HANA instance
 type DiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskResponseOutput) ElementType() reflect.Type {
@@ -1431,8 +1431,282 @@ func (o OSProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies information related to a SAP system ID
+type SAPSystemID struct {
+	// Group ID of the HANA database user.
+	Gid *string `pulumi:"gid"`
+	// Percent of memory to allocate to this SID.
+	MemoryAllocation *string `pulumi:"memoryAllocation"`
+	// SAP system ID as database identifier.
+	Sid *string `pulumi:"sid"`
+	// User ID of the HANA database user.
+	Uid *string `pulumi:"uid"`
+	// Name of the HANA database user.
+	Username *string `pulumi:"username"`
+}
+
+// SAPSystemIDInput is an input type that accepts SAPSystemIDArgs and SAPSystemIDOutput values.
+// You can construct a concrete instance of `SAPSystemIDInput` via:
+//
+//          SAPSystemIDArgs{...}
+type SAPSystemIDInput interface {
+	pulumi.Input
+
+	ToSAPSystemIDOutput() SAPSystemIDOutput
+	ToSAPSystemIDOutputWithContext(context.Context) SAPSystemIDOutput
+}
+
+// Specifies information related to a SAP system ID
+type SAPSystemIDArgs struct {
+	// Group ID of the HANA database user.
+	Gid pulumi.StringPtrInput `pulumi:"gid"`
+	// Percent of memory to allocate to this SID.
+	MemoryAllocation pulumi.StringPtrInput `pulumi:"memoryAllocation"`
+	// SAP system ID as database identifier.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
+	// User ID of the HANA database user.
+	Uid pulumi.StringPtrInput `pulumi:"uid"`
+	// Name of the HANA database user.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (SAPSystemIDArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SAPSystemID)(nil)).Elem()
+}
+
+func (i SAPSystemIDArgs) ToSAPSystemIDOutput() SAPSystemIDOutput {
+	return i.ToSAPSystemIDOutputWithContext(context.Background())
+}
+
+func (i SAPSystemIDArgs) ToSAPSystemIDOutputWithContext(ctx context.Context) SAPSystemIDOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDOutput)
+}
+
+// SAPSystemIDArrayInput is an input type that accepts SAPSystemIDArray and SAPSystemIDArrayOutput values.
+// You can construct a concrete instance of `SAPSystemIDArrayInput` via:
+//
+//          SAPSystemIDArray{ SAPSystemIDArgs{...} }
+type SAPSystemIDArrayInput interface {
+	pulumi.Input
+
+	ToSAPSystemIDArrayOutput() SAPSystemIDArrayOutput
+	ToSAPSystemIDArrayOutputWithContext(context.Context) SAPSystemIDArrayOutput
+}
+
+type SAPSystemIDArray []SAPSystemIDInput
+
+func (SAPSystemIDArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SAPSystemID)(nil)).Elem()
+}
+
+func (i SAPSystemIDArray) ToSAPSystemIDArrayOutput() SAPSystemIDArrayOutput {
+	return i.ToSAPSystemIDArrayOutputWithContext(context.Background())
+}
+
+func (i SAPSystemIDArray) ToSAPSystemIDArrayOutputWithContext(ctx context.Context) SAPSystemIDArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDArrayOutput)
+}
+
+// Specifies information related to a SAP system ID
+type SAPSystemIDOutput struct{ *pulumi.OutputState }
+
+func (SAPSystemIDOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SAPSystemID)(nil)).Elem()
+}
+
+func (o SAPSystemIDOutput) ToSAPSystemIDOutput() SAPSystemIDOutput {
+	return o
+}
+
+func (o SAPSystemIDOutput) ToSAPSystemIDOutputWithContext(ctx context.Context) SAPSystemIDOutput {
+	return o
+}
+
+// Group ID of the HANA database user.
+func (o SAPSystemIDOutput) Gid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemID) *string { return v.Gid }).(pulumi.StringPtrOutput)
+}
+
+// Percent of memory to allocate to this SID.
+func (o SAPSystemIDOutput) MemoryAllocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemID) *string { return v.MemoryAllocation }).(pulumi.StringPtrOutput)
+}
+
+// SAP system ID as database identifier.
+func (o SAPSystemIDOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemID) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+// User ID of the HANA database user.
+func (o SAPSystemIDOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemID) *string { return v.Uid }).(pulumi.StringPtrOutput)
+}
+
+// Name of the HANA database user.
+func (o SAPSystemIDOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemID) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type SAPSystemIDArrayOutput struct{ *pulumi.OutputState }
+
+func (SAPSystemIDArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SAPSystemID)(nil)).Elem()
+}
+
+func (o SAPSystemIDArrayOutput) ToSAPSystemIDArrayOutput() SAPSystemIDArrayOutput {
+	return o
+}
+
+func (o SAPSystemIDArrayOutput) ToSAPSystemIDArrayOutputWithContext(ctx context.Context) SAPSystemIDArrayOutput {
+	return o
+}
+
+func (o SAPSystemIDArrayOutput) Index(i pulumi.IntInput) SAPSystemIDOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SAPSystemID {
+		return vs[0].([]SAPSystemID)[vs[1].(int)]
+	}).(SAPSystemIDOutput)
+}
+
+// Specifies information related to a SAP system ID
+type SAPSystemIDResponse struct {
+	// Group ID of the HANA database user.
+	Gid *string `pulumi:"gid"`
+	// Percent of memory to allocate to this SID.
+	MemoryAllocation *string `pulumi:"memoryAllocation"`
+	// SAP system ID as database identifier.
+	Sid *string `pulumi:"sid"`
+	// User ID of the HANA database user.
+	Uid *string `pulumi:"uid"`
+	// Name of the HANA database user.
+	Username *string `pulumi:"username"`
+}
+
+// SAPSystemIDResponseInput is an input type that accepts SAPSystemIDResponseArgs and SAPSystemIDResponseOutput values.
+// You can construct a concrete instance of `SAPSystemIDResponseInput` via:
+//
+//          SAPSystemIDResponseArgs{...}
+type SAPSystemIDResponseInput interface {
+	pulumi.Input
+
+	ToSAPSystemIDResponseOutput() SAPSystemIDResponseOutput
+	ToSAPSystemIDResponseOutputWithContext(context.Context) SAPSystemIDResponseOutput
+}
+
+// Specifies information related to a SAP system ID
+type SAPSystemIDResponseArgs struct {
+	// Group ID of the HANA database user.
+	Gid pulumi.StringPtrInput `pulumi:"gid"`
+	// Percent of memory to allocate to this SID.
+	MemoryAllocation pulumi.StringPtrInput `pulumi:"memoryAllocation"`
+	// SAP system ID as database identifier.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
+	// User ID of the HANA database user.
+	Uid pulumi.StringPtrInput `pulumi:"uid"`
+	// Name of the HANA database user.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (SAPSystemIDResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SAPSystemIDResponse)(nil)).Elem()
+}
+
+func (i SAPSystemIDResponseArgs) ToSAPSystemIDResponseOutput() SAPSystemIDResponseOutput {
+	return i.ToSAPSystemIDResponseOutputWithContext(context.Background())
+}
+
+func (i SAPSystemIDResponseArgs) ToSAPSystemIDResponseOutputWithContext(ctx context.Context) SAPSystemIDResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDResponseOutput)
+}
+
+// SAPSystemIDResponseArrayInput is an input type that accepts SAPSystemIDResponseArray and SAPSystemIDResponseArrayOutput values.
+// You can construct a concrete instance of `SAPSystemIDResponseArrayInput` via:
+//
+//          SAPSystemIDResponseArray{ SAPSystemIDResponseArgs{...} }
+type SAPSystemIDResponseArrayInput interface {
+	pulumi.Input
+
+	ToSAPSystemIDResponseArrayOutput() SAPSystemIDResponseArrayOutput
+	ToSAPSystemIDResponseArrayOutputWithContext(context.Context) SAPSystemIDResponseArrayOutput
+}
+
+type SAPSystemIDResponseArray []SAPSystemIDResponseInput
+
+func (SAPSystemIDResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SAPSystemIDResponse)(nil)).Elem()
+}
+
+func (i SAPSystemIDResponseArray) ToSAPSystemIDResponseArrayOutput() SAPSystemIDResponseArrayOutput {
+	return i.ToSAPSystemIDResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SAPSystemIDResponseArray) ToSAPSystemIDResponseArrayOutputWithContext(ctx context.Context) SAPSystemIDResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SAPSystemIDResponseArrayOutput)
+}
+
+// Specifies information related to a SAP system ID
+type SAPSystemIDResponseOutput struct{ *pulumi.OutputState }
+
+func (SAPSystemIDResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SAPSystemIDResponse)(nil)).Elem()
+}
+
+func (o SAPSystemIDResponseOutput) ToSAPSystemIDResponseOutput() SAPSystemIDResponseOutput {
+	return o
+}
+
+func (o SAPSystemIDResponseOutput) ToSAPSystemIDResponseOutputWithContext(ctx context.Context) SAPSystemIDResponseOutput {
+	return o
+}
+
+// Group ID of the HANA database user.
+func (o SAPSystemIDResponseOutput) Gid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.Gid }).(pulumi.StringPtrOutput)
+}
+
+// Percent of memory to allocate to this SID.
+func (o SAPSystemIDResponseOutput) MemoryAllocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.MemoryAllocation }).(pulumi.StringPtrOutput)
+}
+
+// SAP system ID as database identifier.
+func (o SAPSystemIDResponseOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+// User ID of the HANA database user.
+func (o SAPSystemIDResponseOutput) Uid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.Uid }).(pulumi.StringPtrOutput)
+}
+
+// Name of the HANA database user.
+func (o SAPSystemIDResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type SAPSystemIDResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SAPSystemIDResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SAPSystemIDResponse)(nil)).Elem()
+}
+
+func (o SAPSystemIDResponseArrayOutput) ToSAPSystemIDResponseArrayOutput() SAPSystemIDResponseArrayOutput {
+	return o
+}
+
+func (o SAPSystemIDResponseArrayOutput) ToSAPSystemIDResponseArrayOutputWithContext(ctx context.Context) SAPSystemIDResponseArrayOutput {
+	return o
+}
+
+func (o SAPSystemIDResponseArrayOutput) Index(i pulumi.IntInput) SAPSystemIDResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SAPSystemIDResponse {
+		return vs[0].([]SAPSystemIDResponse)[vs[1].(int)]
+	}).(SAPSystemIDResponseOutput)
+}
+
 // Specifies the storage settings for the HANA instance disks.
 type StorageProfile struct {
+	// Specifies information related to SAP system IDs for the hana instance.
+	HanaSids []SAPSystemID `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
 	NfsIpAddress *string `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
@@ -1452,6 +1726,8 @@ type StorageProfileInput interface {
 
 // Specifies the storage settings for the HANA instance disks.
 type StorageProfileArgs struct {
+	// Specifies information related to SAP system IDs for the hana instance.
+	HanaSids SAPSystemIDArrayInput `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
 	NfsIpAddress pulumi.StringPtrInput `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
@@ -1536,6 +1812,11 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.C
 	}).(StorageProfilePtrOutput)
 }
 
+// Specifies information related to SAP system IDs for the hana instance.
+func (o StorageProfileOutput) HanaSids() SAPSystemIDArrayOutput {
+	return o.ApplyT(func(v StorageProfile) []SAPSystemID { return v.HanaSids }).(SAPSystemIDArrayOutput)
+}
+
 // IP Address to connect to storage.
 func (o StorageProfileOutput) NfsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.NfsIpAddress }).(pulumi.StringPtrOutput)
@@ -1564,6 +1845,16 @@ func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
 	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
 }
 
+// Specifies information related to SAP system IDs for the hana instance.
+func (o StorageProfilePtrOutput) HanaSids() SAPSystemIDArrayOutput {
+	return o.ApplyT(func(v *StorageProfile) []SAPSystemID {
+		if v == nil {
+			return nil
+		}
+		return v.HanaSids
+	}).(SAPSystemIDArrayOutput)
+}
+
 // IP Address to connect to storage.
 func (o StorageProfilePtrOutput) NfsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
@@ -1586,6 +1877,8 @@ func (o StorageProfilePtrOutput) OsDisks() DiskArrayOutput {
 
 // Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponse struct {
+	// Specifies information related to SAP system IDs for the hana instance.
+	HanaSids []SAPSystemIDResponse `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
 	NfsIpAddress *string `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
@@ -1605,6 +1898,8 @@ type StorageProfileResponseInput interface {
 
 // Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponseArgs struct {
+	// Specifies information related to SAP system IDs for the hana instance.
+	HanaSids SAPSystemIDResponseArrayInput `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
 	NfsIpAddress pulumi.StringPtrInput `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
@@ -1689,6 +1984,11 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithConte
 	}).(StorageProfileResponsePtrOutput)
 }
 
+// Specifies information related to SAP system IDs for the hana instance.
+func (o StorageProfileResponseOutput) HanaSids() SAPSystemIDResponseArrayOutput {
+	return o.ApplyT(func(v StorageProfileResponse) []SAPSystemIDResponse { return v.HanaSids }).(SAPSystemIDResponseArrayOutput)
+}
+
 // IP Address to connect to storage.
 func (o StorageProfileResponseOutput) NfsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.NfsIpAddress }).(pulumi.StringPtrOutput)
@@ -1715,6 +2015,16 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+}
+
+// Specifies information related to SAP system IDs for the hana instance.
+func (o StorageProfileResponsePtrOutput) HanaSids() SAPSystemIDResponseArrayOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) []SAPSystemIDResponse {
+		if v == nil {
+			return nil
+		}
+		return v.HanaSids
+	}).(SAPSystemIDResponseArrayOutput)
 }
 
 // IP Address to connect to storage.
@@ -1758,6 +2068,10 @@ func init() {
 	pulumi.RegisterOutputType(OSProfilePtrOutput{})
 	pulumi.RegisterOutputType(OSProfileResponseOutput{})
 	pulumi.RegisterOutputType(OSProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(SAPSystemIDOutput{})
+	pulumi.RegisterOutputType(SAPSystemIDArrayOutput{})
+	pulumi.RegisterOutputType(SAPSystemIDResponseOutput{})
+	pulumi.RegisterOutputType(SAPSystemIDResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})

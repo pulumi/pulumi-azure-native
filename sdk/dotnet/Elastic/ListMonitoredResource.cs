@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2020-07-01-preview.
+        /// API Version: 2020-07-01.
         /// </summary>
         public static Task<ListMonitoredResourceResult> InvokeAsync(ListMonitoredResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithVersion());

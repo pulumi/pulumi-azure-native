@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:insights/v20140401:AlertRule":
 		r = &AlertRule{}
+	case "azure-native:insights/v20140401:AutoscaleSetting":
+		r = &AutoscaleSetting{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

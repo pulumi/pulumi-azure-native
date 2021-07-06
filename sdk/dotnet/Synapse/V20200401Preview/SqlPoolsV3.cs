@@ -137,6 +137,8 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:SqlPoolsV3"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolsV3"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:SqlPoolsV3"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

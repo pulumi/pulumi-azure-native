@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgentAutoUpdateStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * A value indicating whether the auto update is enabled.
+ */
+export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
+
 export const BackupItemType = {
     Invalid: "Invalid",
     VM: "VM",
@@ -114,6 +124,28 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const DiskAccountType = {
+    Standard_LRS: "Standard_LRS",
+    Premium_LRS: "Premium_LRS",
+    StandardSSD_LRS: "StandardSSD_LRS",
+} as const;
+
+/**
+ * The disk type.
+ */
+export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
+
+export const FailoverDeploymentModel = {
+    NotApplicable: "NotApplicable",
+    Classic: "Classic",
+    ResourceManager: "ResourceManager",
+} as const;
+
+/**
+ * The failover deployment model.
+ */
+export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
+
 export const HealthStatus = {
     Passed: "Passed",
     ActionRequired: "ActionRequired",
@@ -137,6 +169,17 @@ export const LastBackupStatus = {
  * Last backup operation status. Possible values: Healthy, Unhealthy.
  */
 export type LastBackupStatus = (typeof LastBackupStatus)[keyof typeof LastBackupStatus];
+
+export const LicenseType = {
+    NotSpecified: "NotSpecified",
+    NoLicenseType: "NoLicenseType",
+    WindowsServer: "WindowsServer",
+} as const;
+
+/**
+ * The license type.
+ */
+export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const MonthOfYear = {
     Invalid: "Invalid",
@@ -180,6 +223,13 @@ export const PolicyType = {
  * Type of backup policy type
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+export const PossibleOperationsDirections = {
+    PrimaryToRecovery: "PrimaryToRecovery",
+    RecoveryToPrimary: "RecoveryToPrimary",
+} as const;
+
+export type PossibleOperationsDirections = (typeof PossibleOperationsDirections)[keyof typeof PossibleOperationsDirections];
 
 export const PrivateEndpointConnectionStatus = {
     Pending: "Pending",
@@ -259,6 +309,36 @@ export const ProvisioningState = {
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
+export const RecoveryPlanGroupType = {
+    Shutdown: "Shutdown",
+    Boot: "Boot",
+    Failover: "Failover",
+} as const;
+
+/**
+ * The group type.
+ */
+export type RecoveryPlanGroupType = (typeof RecoveryPlanGroupType)[keyof typeof RecoveryPlanGroupType];
+
+export const ReplicationProtectedItemOperation = {
+    ReverseReplicate: "ReverseReplicate",
+    Commit: "Commit",
+    PlannedFailover: "PlannedFailover",
+    UnplannedFailover: "UnplannedFailover",
+    DisableProtection: "DisableProtection",
+    TestFailover: "TestFailover",
+    TestFailoverCleanup: "TestFailoverCleanup",
+    Failback: "Failback",
+    FinalizeFailback: "FinalizeFailback",
+    CancelFailover: "CancelFailover",
+    ChangePit: "ChangePit",
+    RepairReplication: "RepairReplication",
+    SwitchProtection: "SwitchProtection",
+    CompleteMigration: "CompleteMigration",
+} as const;
+
+export type ReplicationProtectedItemOperation = (typeof ReplicationProtectedItemOperation)[keyof typeof ReplicationProtectedItemOperation];
+
 export const ResourceHealthStatus = {
     Healthy: "Healthy",
     TransientDegraded: "TransientDegraded",
@@ -307,6 +387,28 @@ export const ScheduleRunType = {
  * Frequency of the schedule operation of this policy.
  */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
+
+export const SetMultiVmSyncStatus = {
+    Enable: "Enable",
+    Disable: "Disable",
+} as const;
+
+/**
+ * A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+ */
+export type SetMultiVmSyncStatus = (typeof SetMultiVmSyncStatus)[keyof typeof SetMultiVmSyncStatus];
+
+export const SqlServerLicenseType = {
+    NotSpecified: "NotSpecified",
+    NoLicenseType: "NoLicenseType",
+    PAYG: "PAYG",
+    AHUB: "AHUB",
+} as const;
+
+/**
+ * The SQL Server license type.
+ */
+export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
 
 export const WeekOfMonth = {
     First: "First",

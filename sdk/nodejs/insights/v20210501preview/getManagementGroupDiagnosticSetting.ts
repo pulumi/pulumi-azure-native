@@ -54,6 +54,10 @@ export interface GetManagementGroupDiagnosticSettingResult {
      */
     readonly logs?: outputs.insights.v20210501preview.ManagementGroupLogSettingsResponse[];
     /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    readonly marketplacePartnerId?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
     /// </summary>
     public sealed class StorageProfileArgs : Pulumi.ResourceArgs
     {
+        [Input("hanaSids")]
+        private InputList<Inputs.SAPSystemIDArgs>? _hanaSids;
+
+        /// <summary>
+        /// Specifies information related to SAP system IDs for the hana instance.
+        /// </summary>
+        public InputList<Inputs.SAPSystemIDArgs> HanaSids
+        {
+            get => _hanaSids ?? (_hanaSids = new InputList<Inputs.SAPSystemIDArgs>());
+            set => _hanaSids = value;
+        }
+
         /// <summary>
         /// IP Address to connect to storage.
         /// </summary>

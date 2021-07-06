@@ -13,6 +13,7 @@ __all__ = [
     'DelegatedSubnetArgumentsResponse',
     'IdentityResponse',
     'MaintenanceWindowResponse',
+    'PrivateDnsZoneArgumentsResponse',
     'SkuResponse',
     'StorageProfileResponse',
 ]
@@ -201,6 +202,46 @@ class MaintenanceWindowResponse(dict):
         start minute for maintenance window
         """
         return pulumi.get(self, "start_minute")
+
+
+@pulumi.output_type
+class PrivateDnsZoneArgumentsResponse(dict):
+    """
+    Private DNS zone arguments of a server
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateDnsZoneArmResourceId":
+            suggest = "private_dns_zone_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsZoneArgumentsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateDnsZoneArgumentsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateDnsZoneArgumentsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_dns_zone_arm_resource_id: Optional[str] = None):
+        """
+        Private DNS zone arguments of a server
+        :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
+        """
+        if private_dns_zone_arm_resource_id is not None:
+            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArmResourceId")
+    def private_dns_zone_arm_resource_id(self) -> Optional[str]:
+        """
+        private dns zone arm resource id.
+        """
+        return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
 
 @pulumi.output_type

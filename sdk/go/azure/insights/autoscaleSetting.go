@@ -28,6 +28,8 @@ type AutoscaleSetting struct {
 	Profiles AutoscaleProfileResponseArrayOutput `pulumi:"profiles"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation pulumi.StringPtrOutput `pulumi:"targetResourceLocation"`
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri pulumi.StringPtrOutput `pulumi:"targetResourceUri"`
 	// Azure resource type
@@ -53,6 +55,12 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:insights:AutoscaleSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20140401:AutoscaleSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20140401:AutoscaleSetting"),
 		},
 		{
 			Type: pulumi.String("azure-native:insights/v20150401:AutoscaleSetting"),
@@ -96,6 +104,8 @@ type autoscaleSettingState struct {
 	Profiles []AutoscaleProfileResponse `pulumi:"profiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri *string `pulumi:"targetResourceUri"`
 	// Azure resource type
@@ -115,6 +125,8 @@ type AutoscaleSettingState struct {
 	Profiles AutoscaleProfileResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation pulumi.StringPtrInput
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri pulumi.StringPtrInput
 	// Azure resource type
@@ -142,6 +154,8 @@ type autoscaleSettingArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri *string `pulumi:"targetResourceUri"`
 }
@@ -164,6 +178,8 @@ type AutoscaleSettingArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation pulumi.StringPtrInput
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri pulumi.StringPtrInput
 }

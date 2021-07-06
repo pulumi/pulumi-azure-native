@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public Output<ImmutableArray<Outputs.ManagementGroupLogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Output("marketplacePartnerId")]
+        public Output<string?> MarketplacePartnerId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -151,6 +157,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Input("marketplacePartnerId")]
+        public Input<string>? MarketplacePartnerId { get; set; }
 
         /// <summary>
         /// The name of the diagnostic setting.

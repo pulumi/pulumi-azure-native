@@ -76,6 +76,12 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:DatabasePrincipalAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:DatabasePrincipalAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabasePrincipalAssignment

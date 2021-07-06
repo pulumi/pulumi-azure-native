@@ -89,6 +89,12 @@ func NewEventGridDataConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:EventGridDataConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:EventGridDataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:EventGridDataConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EventGridDataConnection

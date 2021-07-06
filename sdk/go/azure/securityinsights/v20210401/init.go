@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentComment{}
 	case "azure-native:securityinsights/v20210401:IncidentRelation":
 		r = &IncidentRelation{}
+	case "azure-native:securityinsights/v20210401:Watchlist":
+		r = &Watchlist{}
+	case "azure-native:securityinsights/v20210401:WatchlistItem":
+		r = &WatchlistItem{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

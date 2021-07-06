@@ -20,6 +20,7 @@ class DiagnosticSettingArgs:
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
         :param pulumi.Input[Sequence[pulumi.Input['LogSettingsArgs']]] logs: The list of logs settings.
+        :param pulumi.Input[str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         :param pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]] metrics: The list of metric settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
@@ -47,6 +49,8 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id is not None:
+            pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
@@ -119,6 +123,18 @@ class DiagnosticSettingArgs:
         pulumi.set(self, "logs", value)
 
     @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
+
+    @marketplace_partner_id.setter
+    def marketplace_partner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_partner_id", value)
+
+    @property
     @pulumi.getter
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricSettingsArgs']]]]:
         """
@@ -188,6 +204,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
@@ -204,6 +221,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
         :param pulumi.Input[str] log_analytics_destination_type: A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]] logs: The list of logs settings.
+        :param pulumi.Input[str] marketplace_partner_id: The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]] metrics: The list of metric settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
@@ -239,6 +257,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogSettingsArgs']]]]] = None,
+                 marketplace_partner_id: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricSettingsArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
@@ -261,6 +280,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["event_hub_name"] = event_hub_name
             __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
             __props__.__dict__["logs"] = logs
+            __props__.__dict__["marketplace_partner_id"] = marketplace_partner_id
             __props__.__dict__["metrics"] = metrics
             __props__.__dict__["name"] = name
             if resource_uri is None and not opts.urn:
@@ -299,6 +319,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["event_hub_name"] = None
         __props__.__dict__["log_analytics_destination_type"] = None
         __props__.__dict__["logs"] = None
+        __props__.__dict__["marketplace_partner_id"] = None
         __props__.__dict__["metrics"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["service_bus_rule_id"] = None
@@ -339,6 +360,14 @@ class DiagnosticSetting(pulumi.CustomResource):
         The list of logs settings.
         """
         return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
 
     @property
     @pulumi.getter

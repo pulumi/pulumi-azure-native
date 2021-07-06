@@ -3,10 +3,24 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `synapse.AttachedDatabaseConfiguration`
+
+#### New Functions
+
+- `synapse.getAttachedDatabaseConfiguration`
+- `synapse.listKustoPoolFollowerDatabases`
+- `synapse.listKustoPoolLanguageExtensions`
+
 #### Breaking Changes published by Microsoft
 
 - A number of breaking changes in `edgeorder` module (preview API version)
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14935))
+
+#### Updated API versions for top-level resources
+
+- `elastic` resources and functions updated from `2020-07-01-preview` to `2020-07-01`
 
 ---
 

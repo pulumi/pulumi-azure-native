@@ -36,6 +36,8 @@ type LookupDiagnosticSettingResult struct {
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// The list of logs settings.
 	Logs []LogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The list of metric settings.
 	Metrics []MetricSettingsResponse `pulumi:"metrics"`
 	// The name of the resource

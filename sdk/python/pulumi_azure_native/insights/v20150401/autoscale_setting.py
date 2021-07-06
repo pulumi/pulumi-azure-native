@@ -24,6 +24,7 @@ class AutoscaleSettingArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutoscaleSetting resource.
@@ -35,6 +36,7 @@ class AutoscaleSettingArgs:
         :param pulumi.Input[str] name: the name of the autoscale setting.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleNotificationArgs']]] notifications: the collection of notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
         """
         pulumi.set(__self__, "profiles", profiles)
@@ -53,6 +55,8 @@ class AutoscaleSettingArgs:
             pulumi.set(__self__, "notifications", notifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
         if target_resource_uri is not None:
             pulumi.set(__self__, "target_resource_uri", target_resource_uri)
 
@@ -153,6 +157,18 @@ class AutoscaleSettingArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @target_resource_location.setter
+    def target_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_location", value)
+
+    @property
     @pulumi.getter(name="targetResourceUri")
     def target_resource_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -178,6 +194,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -193,6 +210,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] target_resource_location: the location of the resource that the autoscale setting should be added to.
         :param pulumi.Input[str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
         """
         ...
@@ -227,6 +245,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -254,9 +273,10 @@ class AutoscaleSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_resource_location"] = target_resource_location
             __props__.__dict__["target_resource_uri"] = target_resource_uri
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-nextgen:insights:AutoscaleSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150401:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-nextgen:insights:AutoscaleSetting"), pulumi.Alias(type_="azure-native:insights/v20140401:AutoscaleSetting"), pulumi.Alias(type_="azure-nextgen:insights/v20140401:AutoscaleSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoscaleSetting, __self__).__init__(
             'azure-native:insights/v20150401:AutoscaleSetting',
@@ -286,6 +306,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__.__dict__["notifications"] = None
         __props__.__dict__["profiles"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_resource_location"] = None
         __props__.__dict__["target_resource_uri"] = None
         __props__.__dict__["type"] = None
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
@@ -337,6 +358,14 @@ class AutoscaleSetting(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
 
     @property
     @pulumi.getter(name="targetResourceUri")

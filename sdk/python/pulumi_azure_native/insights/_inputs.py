@@ -1763,8 +1763,12 @@ class EmailNotificationArgs:
         """
         if custom_emails is not None:
             pulumi.set(__self__, "custom_emails", custom_emails)
+        if send_to_subscription_administrator is None:
+            send_to_subscription_administrator = False
         if send_to_subscription_administrator is not None:
             pulumi.set(__self__, "send_to_subscription_administrator", send_to_subscription_administrator)
+        if send_to_subscription_co_administrators is None:
+            send_to_subscription_co_administrators = False
         if send_to_subscription_co_administrators is not None:
             pulumi.set(__self__, "send_to_subscription_co_administrators", send_to_subscription_co_administrators)
 
@@ -3040,7 +3044,8 @@ class MetricTriggerArgs:
                  time_window: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
                  divide_per_instance: Optional[pulumi.Input[bool]] = None,
-                 metric_namespace: Optional[pulumi.Input[str]] = None):
+                 metric_namespace: Optional[pulumi.Input[str]] = None,
+                 metric_resource_location: Optional[pulumi.Input[str]] = None):
         """
         The trigger that results in a scaling action.
         :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
@@ -3054,6 +3059,7 @@ class MetricTriggerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param pulumi.Input[bool] divide_per_instance: a value indicating whether metric should divide per instance.
         :param pulumi.Input[str] metric_namespace: the namespace of the metric that defines what the rule monitors.
+        :param pulumi.Input[str] metric_resource_location: the location of the resource the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_resource_uri", metric_resource_uri)
@@ -3069,6 +3075,8 @@ class MetricTriggerArgs:
             pulumi.set(__self__, "divide_per_instance", divide_per_instance)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if metric_resource_location is not None:
+            pulumi.set(__self__, "metric_resource_location", metric_resource_location)
 
     @property
     @pulumi.getter(name="metricName")
@@ -3201,6 +3209,18 @@ class MetricTriggerArgs:
     @metric_namespace.setter
     def metric_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_namespace", value)
+
+    @property
+    @pulumi.getter(name="metricResourceLocation")
+    def metric_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        the location of the resource the rule monitors.
+        """
+        return pulumi.get(self, "metric_resource_location")
+
+    @metric_resource_location.setter
+    def metric_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_resource_location", value)
 
 
 @pulumi.input_type

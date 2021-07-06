@@ -6,13 +6,16 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./alertRule";
+export * from "./autoscaleSetting";
 export * from "./getAlertRule";
+export * from "./getAutoscaleSetting";
 
 // Export enums:
 export * from "../../types/enums/insights/v20140401";
 
 // Import resources to register:
 import { AlertRule } from "./alertRule";
+import { AutoscaleSetting } from "./autoscaleSetting";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-native:insights/v20140401:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
+            case "azure-native:insights/v20140401:AutoscaleSetting":
+                return new AutoscaleSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

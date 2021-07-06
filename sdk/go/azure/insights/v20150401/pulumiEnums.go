@@ -50,6 +50,7 @@ const (
 	MetricStatisticTypeMin     = MetricStatisticType("Min")
 	MetricStatisticTypeMax     = MetricStatisticType("Max")
 	MetricStatisticTypeSum     = MetricStatisticType("Sum")
+	MetricStatisticTypeCount   = MetricStatisticType("Count")
 )
 
 func (MetricStatisticType) ElementType() reflect.Type {
@@ -194,9 +195,10 @@ func (e ScaleRuleMetricDimensionOperationType) ToStringPtrOutputWithContext(ctx 
 type ScaleType pulumi.String
 
 const (
-	ScaleTypeChangeCount        = ScaleType("ChangeCount")
-	ScaleTypePercentChangeCount = ScaleType("PercentChangeCount")
-	ScaleTypeExactCount         = ScaleType("ExactCount")
+	ScaleTypeChangeCount             = ScaleType("ChangeCount")
+	ScaleTypePercentChangeCount      = ScaleType("PercentChangeCount")
+	ScaleTypeExactCount              = ScaleType("ExactCount")
+	ScaleTypeServiceAllowedNextValue = ScaleType("ServiceAllowedNextValue")
 )
 
 func (ScaleType) ElementType() reflect.Type {

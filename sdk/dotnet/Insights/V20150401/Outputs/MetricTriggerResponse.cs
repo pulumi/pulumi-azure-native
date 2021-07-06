@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
         /// </summary>
         public readonly string? MetricNamespace;
         /// <summary>
+        /// the location of the resource the rule monitors.
+        /// </summary>
+        public readonly string? MetricResourceLocation;
+        /// <summary>
         /// the resource identifier of the resource the rule monitors.
         /// </summary>
         public readonly string MetricResourceUri;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
 
             string? metricNamespace,
 
+            string? metricResourceLocation,
+
             string metricResourceUri,
 
             string @operator,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
             DividePerInstance = dividePerInstance;
             MetricName = metricName;
             MetricNamespace = metricNamespace;
+            MetricResourceLocation = metricResourceLocation;
             MetricResourceUri = metricResourceUri;
             Operator = @operator;
             Statistic = statistic;

@@ -31,6 +31,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProtectionIntent{}
 	case "azure-native:recoveryservices/v20210401:ProtectionPolicy":
 		r = &ProtectionPolicy{}
+	case "azure-native:recoveryservices/v20210401:ReplicationFabric":
+		r = &ReplicationFabric{}
+	case "azure-native:recoveryservices/v20210401:ReplicationMigrationItem":
+		r = &ReplicationMigrationItem{}
+	case "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping":
+		r = &ReplicationNetworkMapping{}
+	case "azure-native:recoveryservices/v20210401:ReplicationPolicy":
+		r = &ReplicationPolicy{}
+	case "azure-native:recoveryservices/v20210401:ReplicationProtectedItem":
+		r = &ReplicationProtectedItem{}
+	case "azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping":
+		r = &ReplicationProtectionContainerMapping{}
+	case "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan":
+		r = &ReplicationRecoveryPlan{}
+	case "azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider":
+		r = &ReplicationRecoveryServicesProvider{}
+	case "azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping":
+		r = &ReplicationStorageClassificationMapping{}
+	case "azure-native:recoveryservices/v20210401:ReplicationvCenter":
+		r = &ReplicationvCenter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

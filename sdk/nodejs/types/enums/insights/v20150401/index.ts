@@ -21,6 +21,7 @@ export const MetricStatisticType = {
     Min: "Min",
     Max: "Max",
     Sum: "Sum",
+    Count: "Count",
 } as const;
 
 /**
@@ -78,6 +79,7 @@ export const ScaleType = {
     ChangeCount: "ChangeCount",
     PercentChangeCount: "PercentChangeCount",
     ExactCount: "ExactCount",
+    ServiceAllowedNextValue: "ServiceAllowedNextValue",
 } as const;
 
 /**

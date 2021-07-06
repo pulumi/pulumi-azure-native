@@ -20,7 +20,7 @@ class GetAutoscaleSettingResult:
     """
     The autoscale setting resource.
     """
-    def __init__(__self__, enabled=None, id=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_uri=None, type=None):
+    def __init__(__self__, enabled=None, id=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_location=None, target_resource_uri=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -42,6 +42,9 @@ class GetAutoscaleSettingResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if target_resource_location and not isinstance(target_resource_location, str):
+            raise TypeError("Expected argument 'target_resource_location' to be a str")
+        pulumi.set(__self__, "target_resource_location", target_resource_location)
         if target_resource_uri and not isinstance(target_resource_uri, str):
             raise TypeError("Expected argument 'target_resource_uri' to be a str")
         pulumi.set(__self__, "target_resource_uri", target_resource_uri)
@@ -106,6 +109,14 @@ class GetAutoscaleSettingResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[str]:
+        """
+        the location of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @property
     @pulumi.getter(name="targetResourceUri")
     def target_resource_uri(self) -> Optional[str]:
         """
@@ -135,6 +146,7 @@ class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
             notifications=self.notifications,
             profiles=self.profiles,
             tags=self.tags,
+            target_resource_location=self.target_resource_location,
             target_resource_uri=self.target_resource_uri,
             type=self.type)
 
@@ -167,5 +179,6 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
         notifications=__ret__.notifications,
         profiles=__ret__.profiles,
         tags=__ret__.tags,
+        target_resource_location=__ret__.target_resource_location,
         target_resource_uri=__ret__.target_resource_uri,
         type=__ret__.type)

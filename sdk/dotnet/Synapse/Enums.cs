@@ -285,6 +285,38 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// The default principals modification kind
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultPrincipalsModificationKind : IEquatable<DefaultPrincipalsModificationKind>
+    {
+        private readonly string _value;
+
+        private DefaultPrincipalsModificationKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultPrincipalsModificationKind Union { get; } = new DefaultPrincipalsModificationKind("Union");
+        public static DefaultPrincipalsModificationKind Replace { get; } = new DefaultPrincipalsModificationKind("Replace");
+        public static DefaultPrincipalsModificationKind None { get; } = new DefaultPrincipalsModificationKind("None");
+
+        public static bool operator ==(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => left.Equals(right);
+        public static bool operator !=(DefaultPrincipalsModificationKind left, DefaultPrincipalsModificationKind right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultPrincipalsModificationKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultPrincipalsModificationKind other && Equals(other);
+        public bool Equals(DefaultPrincipalsModificationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The engine type
     /// </summary>
     [EnumType]

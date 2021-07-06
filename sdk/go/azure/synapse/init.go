@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:synapse:AttachedDatabaseConfiguration":
+		r = &AttachedDatabaseConfiguration{}
 	case "azure-native:synapse:BigDataPool":
 		r = &BigDataPool{}
 	case "azure-native:synapse:DataConnection":

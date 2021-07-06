@@ -39,6 +39,8 @@ type Server struct {
 	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// private dns zone arguments.
+	PrivateDnsZoneArguments PrivateDnsZoneArgumentsResponsePtrOutput `pulumi:"privateDnsZoneArguments"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -133,6 +135,8 @@ type serverState struct {
 	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// private dns zone arguments.
+	PrivateDnsZoneArguments *PrivateDnsZoneArgumentsResponse `pulumi:"privateDnsZoneArguments"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -184,6 +188,8 @@ type ServerState struct {
 	MaintenanceWindow MaintenanceWindowResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// private dns zone arguments.
+	PrivateDnsZoneArguments PrivateDnsZoneArgumentsResponsePtrInput
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The maximum number of replicas that a primary server can have.
@@ -235,6 +241,8 @@ type serverArgs struct {
 	Location *string `pulumi:"location"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
+	// private dns zone arguments.
+	PrivateDnsZoneArguments *PrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the resource group. The name is case insensitive.
@@ -279,6 +287,8 @@ type ServerArgs struct {
 	Location pulumi.StringPtrInput
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowPtrInput
+	// private dns zone arguments.
+	PrivateDnsZoneArguments PrivateDnsZoneArgumentsPtrInput
 	// The replication role.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

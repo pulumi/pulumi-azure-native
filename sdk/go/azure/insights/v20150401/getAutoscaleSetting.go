@@ -40,6 +40,8 @@ type LookupAutoscaleSettingResult struct {
 	Profiles []AutoscaleProfileResponse `pulumi:"profiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
 	// the resource identifier of the resource that the autoscale setting should be added to.
 	TargetResourceUri *string `pulumi:"targetResourceUri"`
 	// Azure resource type

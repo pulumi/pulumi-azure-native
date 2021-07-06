@@ -34,6 +34,8 @@ type LookupManagementGroupDiagnosticSettingResult struct {
 	Id string `pulumi:"id"`
 	// The list of logs settings.
 	Logs []ManagementGroupLogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

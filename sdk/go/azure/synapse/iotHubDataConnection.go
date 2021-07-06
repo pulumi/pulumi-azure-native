@@ -87,6 +87,12 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:IotHubDataConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:IotHubDataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:IotHubDataConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubDataConnection

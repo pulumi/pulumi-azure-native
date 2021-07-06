@@ -13,6 +13,7 @@ __all__ = [
     'DataConnectionKind',
     'DataFlowComputeType',
     'DatabasePrincipalRole',
+    'DefaultPrincipalsModificationKind',
     'EngineType',
     'EventGridDataFormat',
     'EventHubDataFormat',
@@ -125,6 +126,15 @@ class DatabasePrincipalRole(str, Enum):
     USER = "User"
     UNRESTRICTED_VIEWER = "UnrestrictedViewer"
     VIEWER = "Viewer"
+
+
+class DefaultPrincipalsModificationKind(str, Enum):
+    """
+    The default principals modification kind
+    """
+    UNION = "Union"
+    REPLACE = "Replace"
+    NONE = "None"
 
 
 class EngineType(str, Enum):

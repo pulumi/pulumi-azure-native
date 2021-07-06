@@ -510,6 +510,8 @@ class CacheNetworkSettingsResponse(dict):
             mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
+        if ntp_server is None:
+            ntp_server = 'time.windows.com'
         if ntp_server is not None:
             pulumi.set(__self__, "ntp_server", ntp_server)
 
@@ -1128,6 +1130,8 @@ class NamespaceJunctionResponse(dict):
         """
         if namespace_path is not None:
             pulumi.set(__self__, "namespace_path", namespace_path)
+        if nfs_access_policy is None:
+            nfs_access_policy = 'default'
         if nfs_access_policy is not None:
             pulumi.set(__self__, "nfs_access_policy", nfs_access_policy)
         if nfs_export is not None:

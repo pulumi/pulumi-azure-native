@@ -36,6 +36,7 @@ class MetricStatisticType(str, Enum):
     MIN = "Min"
     MAX = "Max"
     SUM = "Sum"
+    COUNT = "Count"
 
 
 class OperationType(str, Enum):
@@ -83,6 +84,7 @@ class ScaleType(str, Enum):
     CHANGE_COUNT = "ChangeCount"
     PERCENT_CHANGE_COUNT = "PercentChangeCount"
     EXACT_COUNT = "ExactCount"
+    SERVICE_ALLOWED_NEXT_VALUE = "ServiceAllowedNextValue"
 
 
 class TimeAggregationType(str, Enum):

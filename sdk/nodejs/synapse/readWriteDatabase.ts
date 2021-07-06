@@ -130,7 +130,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:ReadWriteDatabase" }, { type: "azure-native:synapse/v20210401preview:ReadWriteDatabase" }, { type: "azure-nextgen:synapse/v20210401preview:ReadWriteDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:ReadWriteDatabase" }, { type: "azure-native:synapse/v20210401preview:ReadWriteDatabase" }, { type: "azure-nextgen:synapse/v20210401preview:ReadWriteDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadWriteDatabase" }, { type: "azure-nextgen:synapse/v20210601preview:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadWriteDatabase.__pulumiType, name, inputs, opts);
     }

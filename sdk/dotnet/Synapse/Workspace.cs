@@ -184,6 +184,8 @@ namespace Pulumi.AzureNative.Synapse
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

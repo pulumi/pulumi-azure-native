@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-07-01-preview.
+// API Version: 2020-07-01.
 func ListMonitoredResource(ctx *pulumi.Context, args *ListMonitoredResourceArgs, opts ...pulumi.InvokeOption) (*ListMonitoredResourceResult, error) {
 	var rv ListMonitoredResourceResult
 	err := ctx.Invoke("azure-native:elastic:listMonitoredResource", args, &rv, opts...)

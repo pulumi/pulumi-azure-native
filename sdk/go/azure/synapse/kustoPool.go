@@ -72,6 +72,12 @@ func NewKustoPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:kustoPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:kustoPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:kustoPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource KustoPool

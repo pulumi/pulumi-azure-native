@@ -52,6 +52,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.insights.v20210501preview.LogSettingsResponse[] | undefined>;
     /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    public readonly marketplacePartnerId!: pulumi.Output<string | undefined>;
+    /**
      * The list of metric settings.
      */
     public readonly metrics!: pulumi.Output<outputs.insights.v20210501preview.MetricSettingsResponse[] | undefined>;
@@ -98,6 +102,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
             inputs["logs"] = args ? args.logs : undefined;
+            inputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
             inputs["metrics"] = args ? args.metrics : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceUri"] = args ? args.resourceUri : undefined;
@@ -111,6 +116,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["eventHubName"] = undefined /*out*/;
             inputs["logAnalyticsDestinationType"] = undefined /*out*/;
             inputs["logs"] = undefined /*out*/;
+            inputs["marketplacePartnerId"] = undefined /*out*/;
             inputs["metrics"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serviceBusRuleId"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface DiagnosticSettingArgs {
      * The list of logs settings.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.insights.v20210501preview.LogSettingsArgs>[]>;
+    /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    marketplacePartnerId?: pulumi.Input<string>;
     /**
      * The list of metric settings.
      */

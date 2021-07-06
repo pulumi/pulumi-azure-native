@@ -72,6 +72,12 @@ func NewKustoPoolPrincipalAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse:KustoPoolPrincipalAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:KustoPoolPrincipalAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource KustoPoolPrincipalAssignment

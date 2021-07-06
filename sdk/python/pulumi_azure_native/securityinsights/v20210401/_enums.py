@@ -9,6 +9,7 @@ __all__ = [
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
+    'Source',
 ]
 
 
@@ -49,3 +50,11 @@ class IncidentStatus(str, Enum):
     NEW = "New"
     ACTIVE = "Active"
     CLOSED = "Closed"
+
+
+class Source(str, Enum):
+    """
+    The source of the watchlist
+    """
+    LOCAL_FILE = "Local file"
+    REMOTE_STORAGE = "Remote storage"

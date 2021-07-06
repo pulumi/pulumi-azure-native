@@ -16,13 +16,14 @@ __all__ = [
     'IpAddressResponse',
     'NetworkProfileResponse',
     'OSProfileResponse',
+    'SAPSystemIDResponse',
     'StorageProfileResponse',
 ]
 
 @pulumi.output_type
 class DiskResponse(dict):
     """
-    Specifies the disk information fo the HANA instance
+    Specifies the disk information for the HANA instance
     """
     @staticmethod
     def __key_warning(key: str):
@@ -46,7 +47,7 @@ class DiskResponse(dict):
                  disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None):
         """
-        Specifies the disk information fo the HANA instance
+        Specifies the disk information for the HANA instance
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param str name: The disk name.
@@ -311,6 +312,94 @@ class OSProfileResponse(dict):
 
 
 @pulumi.output_type
+class SAPSystemIDResponse(dict):
+    """
+    Specifies information related to a SAP system ID
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryAllocation":
+            suggest = "memory_allocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SAPSystemIDResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SAPSystemIDResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SAPSystemIDResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gid: Optional[str] = None,
+                 memory_allocation: Optional[str] = None,
+                 sid: Optional[str] = None,
+                 uid: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        Specifies information related to a SAP system ID
+        :param str gid: Group ID of the HANA database user.
+        :param str memory_allocation: Percent of memory to allocate to this SID.
+        :param str sid: SAP system ID as database identifier.
+        :param str uid: User ID of the HANA database user.
+        :param str username: Name of the HANA database user.
+        """
+        if gid is not None:
+            pulumi.set(__self__, "gid", gid)
+        if memory_allocation is not None:
+            pulumi.set(__self__, "memory_allocation", memory_allocation)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> Optional[str]:
+        """
+        Group ID of the HANA database user.
+        """
+        return pulumi.get(self, "gid")
+
+    @property
+    @pulumi.getter(name="memoryAllocation")
+    def memory_allocation(self) -> Optional[str]:
+        """
+        Percent of memory to allocate to this SID.
+        """
+        return pulumi.get(self, "memory_allocation")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        SAP system ID as database identifier.
+        """
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter
+    def uid(self) -> Optional[str]:
+        """
+        User ID of the HANA database user.
+        """
+        return pulumi.get(self, "uid")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Name of the HANA database user.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class StorageProfileResponse(dict):
     """
     Specifies the storage settings for the HANA instance disks.
@@ -318,7 +407,9 @@ class StorageProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nfsIpAddress":
+        if key == "hanaSids":
+            suggest = "hana_sids"
+        elif key == "nfsIpAddress":
             suggest = "nfs_ip_address"
         elif key == "osDisks":
             suggest = "os_disks"
@@ -335,17 +426,29 @@ class StorageProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 hana_sids: Optional[Sequence['outputs.SAPSystemIDResponse']] = None,
                  nfs_ip_address: Optional[str] = None,
                  os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the HANA instance disks.
+        :param Sequence['SAPSystemIDResponse'] hana_sids: Specifies information related to SAP system IDs for the hana instance.
         :param str nfs_ip_address: IP Address to connect to storage.
         :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
+        if hana_sids is not None:
+            pulumi.set(__self__, "hana_sids", hana_sids)
         if nfs_ip_address is not None:
             pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
         if os_disks is not None:
             pulumi.set(__self__, "os_disks", os_disks)
+
+    @property
+    @pulumi.getter(name="hanaSids")
+    def hana_sids(self) -> Optional[Sequence['outputs.SAPSystemIDResponse']]:
+        """
+        Specifies information related to SAP system IDs for the hana instance.
+        """
+        return pulumi.get(self, "hana_sids")
 
     @property
     @pulumi.getter(name="nfsIpAddress")

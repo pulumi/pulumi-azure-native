@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         public Output<ImmutableArray<Outputs.LogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Output("marketplacePartnerId")]
+        public Output<string?> MarketplacePartnerId { get; private set; } = null!;
+
+        /// <summary>
         /// The list of metric settings.
         /// </summary>
         [Output("metrics")]
@@ -163,6 +169,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
             get => _logs ?? (_logs = new InputList<Inputs.LogSettingsArgs>());
             set => _logs = value;
         }
+
+        /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Input("marketplacePartnerId")]
+        public Input<string>? MarketplacePartnerId { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.MetricSettingsArgs>? _metrics;

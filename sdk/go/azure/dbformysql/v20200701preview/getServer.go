@@ -52,6 +52,8 @@ type LookupServerResult struct {
 	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// private dns zone arguments.
+	PrivateDnsZoneArguments *PrivateDnsZoneArgumentsResponse `pulumi:"privateDnsZoneArguments"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.

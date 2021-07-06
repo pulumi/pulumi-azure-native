@@ -112,6 +112,8 @@ namespace Pulumi.AzureNative.Synapse
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:ReadWriteDatabase"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadWriteDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:ReadWriteDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

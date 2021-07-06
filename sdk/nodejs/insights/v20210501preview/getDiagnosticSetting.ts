@@ -58,6 +58,10 @@ export interface GetDiagnosticSettingResult {
      */
     readonly logs?: outputs.insights.v20210501preview.LogSettingsResponse[];
     /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    readonly marketplacePartnerId?: string;
+    /**
      * The list of metric settings.
      */
     readonly metrics?: outputs.insights.v20210501preview.MetricSettingsResponse[];

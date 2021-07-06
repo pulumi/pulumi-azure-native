@@ -67,6 +67,10 @@ export interface GetAutoscaleSettingResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * the location of the resource that the autoscale setting should be added to.
+     */
+    readonly targetResourceLocation?: string;
+    /**
      * the resource identifier of the resource that the autoscale setting should be added to.
      */
     readonly targetResourceUri?: string;
