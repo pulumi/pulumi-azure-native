@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.16.0 (2020-07-06)
+
 #### New Resources
 
 - `synapse.AttachedDatabaseConfiguration`
@@ -21,8 +27,6 @@ CHANGELOG
 #### Updated API versions for top-level resources
 
 - `elastic` resources and functions updated from `2020-07-01-preview` to `2020-07-01`
-
----
 
 ## 1.15.0 (2020-07-01)
 
