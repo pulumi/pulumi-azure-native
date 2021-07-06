@@ -80600,7 +80600,8 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01"
+          "2019-11-01",
+          "2018-11-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -80718,7 +80719,8 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01"
+          "2019-11-01",
+          "2018-11-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81559,8 +81561,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81574,8 +81575,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81589,8 +81589,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81619,8 +81618,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -81637,8 +81635,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81655,8 +81652,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview",
-          "2020-07-01"
+          "2020-07-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -84010,11 +84006,7 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central",
-          "Central US",
-          "North Central US",
-          "West US",
-          "Korea Central"
+          "France Central"
         ],
         "properties": null,
         "resourceType": "sourceControlConfigurations",
@@ -84041,11 +84033,7 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central",
-          "Central US",
-          "North Central US",
-          "West US",
-          "Korea Central"
+          "France Central"
         ],
         "properties": null,
         "resourceType": "extensions",
@@ -89416,7 +89404,7 @@
         "apiVersions": [
           "2019-08-15-preview"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
