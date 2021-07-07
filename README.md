@@ -7,10 +7,10 @@
 
 # Native Azure Pulumi Provider
 
-The native Azure Provider for Pulumi lets you use Azure resources in your cloud programs.
-This provider uses the Azure Resource Manager REST API directly and therefore provides full access to ARM API.
+The [Azure Native](https://www.pulumi.com/docs/intro/cloud-providers/azure/) provider for Pulumi lets you use Azure resources in your cloud programs.
+This provider uses the Azure Resource Manager REST API directly and therefore provides full access to the ARM API.
 
-The provider is the recommended provider for projects targeting Azure.
+The Azure Native provider is the recommended provider for projects targeting Azure.
 
 To use this package, please [install the Pulumi CLI first](https://pulumi.io/).
 
@@ -55,8 +55,6 @@ including (but not limited to) 'compute', 'keyvault', 'network', 'storage', and 
 The Azure Native provider works directly with the Azure Resource Manager (ARM) platform instead of depending on a
 handwritten layer as with the [classic provider](https://github.com/pulumi/pulumi-azure). This approach ensures higher
 quality and higher fidelity with the Azure platform.
-
-The Azure Native provider is currently in beta. While we try to minimize impact on users, breaking changes may be shipped in minor version updates.
 
 ## Configuring credentials
 
