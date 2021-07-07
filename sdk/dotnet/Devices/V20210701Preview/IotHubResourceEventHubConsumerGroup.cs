@@ -107,6 +107,8 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210303preview:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20210331:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210331:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20210701:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

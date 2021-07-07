@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * API Version: 2020-07-01.
+ * API Version: 2020-07-01-preview.
  */
 export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListDeploymentInfoResult> {
     if (!opts) {

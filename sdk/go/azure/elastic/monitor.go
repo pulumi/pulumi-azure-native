@@ -12,7 +12,7 @@ import (
 )
 
 // Monitor resource.
-// API Version: 2020-07-01.
+// API Version: 2020-07-01-preview.
 type Monitor struct {
 	pulumi.CustomResourceState
 

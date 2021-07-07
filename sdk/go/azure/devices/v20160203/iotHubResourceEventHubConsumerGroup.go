@@ -162,6 +162,12 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devices/v20210331:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20210701:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:devices/v20210701preview:IotHubResourceEventHubConsumerGroup"),
 		},
 		{

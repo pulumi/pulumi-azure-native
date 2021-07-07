@@ -97,7 +97,7 @@ def get_tag_rule(monitor_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagRuleResult:
     """
     Capture logs and metrics of Azure resources based on ARM tags.
-    API Version: 2020-07-01.
+    API Version: 2020-07-01-preview.
 
 
     :param str monitor_name: Monitor resource name

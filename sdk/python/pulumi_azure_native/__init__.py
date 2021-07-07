@@ -5495,6 +5495,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20210701",
+  "fqn": "pulumi_azure_native.devices.v20210701",
+  "classes": {
+   "azure-native:devices/v20210701:Certificate": "Certificate",
+   "azure-native:devices/v20210701:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210701:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devices/v20210701preview",
   "fqn": "pulumi_azure_native.devices.v20210701preview",
   "classes": {

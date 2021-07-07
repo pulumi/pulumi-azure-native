@@ -8,7 +8,7 @@ import (
 )
 
 // Monitor resource.
-// API Version: 2020-07-01.
+// API Version: 2020-07-01-preview.
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("azure-native:elastic:getMonitor", args, &rv, opts...)
