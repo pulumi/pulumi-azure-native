@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'ActionsArgs',
-    'ConditionArgs',
     'ConditionFailingPeriodsArgs',
+    'ConditionArgs',
     'DimensionArgs',
     'ScheduledQueryRuleCriteriaArgs',
 ]
@@ -55,6 +55,50 @@ class ActionsArgs:
     @custom_properties.setter
     def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "custom_properties", value)
+
+
+@pulumi.input_type
+class ConditionFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[pulumi.Input[float]] = None,
+                 number_of_evaluation_periods: Optional[pulumi.Input[float]] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @min_failing_periods_to_alert.setter
+    def min_failing_periods_to_alert(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_failing_periods_to_alert", value)
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
 
 
 @pulumi.input_type
@@ -207,50 +251,6 @@ class ConditionArgs:
     @time_aggregation.setter
     def time_aggregation(self, value: Optional[pulumi.Input[Union[str, 'TimeAggregation']]]):
         pulumi.set(self, "time_aggregation", value)
-
-
-@pulumi.input_type
-class ConditionFailingPeriodsArgs:
-    def __init__(__self__, *,
-                 min_failing_periods_to_alert: Optional[pulumi.Input[float]] = None,
-                 number_of_evaluation_periods: Optional[pulumi.Input[float]] = None):
-        """
-        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
-        :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        if min_failing_periods_to_alert is None:
-            min_failing_periods_to_alert = 1
-        if min_failing_periods_to_alert is not None:
-            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
-        if number_of_evaluation_periods is None:
-            number_of_evaluation_periods = 1
-        if number_of_evaluation_periods is not None:
-            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
-
-    @property
-    @pulumi.getter(name="minFailingPeriodsToAlert")
-    def min_failing_periods_to_alert(self) -> Optional[pulumi.Input[float]]:
-        """
-        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
-        """
-        return pulumi.get(self, "min_failing_periods_to_alert")
-
-    @min_failing_periods_to_alert.setter
-    def min_failing_periods_to_alert(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "min_failing_periods_to_alert", value)
-
-    @property
-    @pulumi.getter(name="numberOfEvaluationPeriods")
-    def number_of_evaluation_periods(self) -> Optional[pulumi.Input[float]]:
-        """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
-        """
-        return pulumi.get(self, "number_of_evaluation_periods")
-
-    @number_of_evaluation_periods.setter
-    def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "number_of_evaluation_periods", value)
 
 
 @pulumi.input_type

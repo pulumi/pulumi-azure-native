@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PrivateEndpointArgs', 'PrivateEndpoint']
+__all__ = ['PrivateEndpointInitArgs', 'PrivateEndpoint']
 
 @pulumi.input_type
-class PrivateEndpointArgs:
+class PrivateEndpointInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
@@ -198,18 +198,18 @@ class PrivateEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateEndpointArgs,
+                 args: PrivateEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint resource.
 
         :param str resource_name: The name of the resource.
-        :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateEndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateEndpointInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -237,7 +237,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
+            __props__ = PrivateEndpointInitArgs.__new__(PrivateEndpointInitArgs)
 
             __props__.__dict__["etag"] = etag
             __props__.__dict__["id"] = id
@@ -276,7 +276,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
+        __props__ = PrivateEndpointInitArgs.__new__(PrivateEndpointInitArgs)
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None

@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BackupInstanceArgs', 'BackupInstance']
+__all__ = ['BackupInstanceInitArgs', 'BackupInstance']
 
 @pulumi.input_type
-class BackupInstanceArgs:
+class BackupInstanceInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
@@ -107,18 +107,18 @@ class BackupInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupInstanceArgs,
+                 args: BackupInstanceInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BackupInstance Resource
 
         :param str resource_name: The name of the resource.
-        :param BackupInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupInstanceInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -141,7 +141,7 @@ class BackupInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupInstanceArgs.__new__(BackupInstanceArgs)
+            __props__ = BackupInstanceInitArgs.__new__(BackupInstanceInitArgs)
 
             __props__.__dict__["backup_instance_name"] = backup_instance_name
             __props__.__dict__["properties"] = properties
@@ -176,7 +176,7 @@ class BackupInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = BackupInstanceArgs.__new__(BackupInstanceArgs)
+        __props__ = BackupInstanceInitArgs.__new__(BackupInstanceInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

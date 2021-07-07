@@ -22,8 +22,8 @@ __all__ = [
     'AzureMachineLearningStudioInputsArgs',
     'AzureMachineLearningStudioOutputColumnArgs',
     'AzureSqlDatabaseOutputDataSourceArgs',
-    'AzureSqlReferenceInputDataSourceArgs',
     'AzureSqlReferenceInputDataSourcePropertiesArgs',
+    'AzureSqlReferenceInputDataSourceArgs',
     'AzureSynapseOutputDataSourceArgs',
     'AzureTableOutputDataSourceArgs',
     'BlobOutputDataSourceArgs',
@@ -40,9 +40,9 @@ __all__ = [
     'EventHubV2OutputDataSourceArgs',
     'EventHubV2StreamInputDataSourceArgs',
     'ExternalArgs',
-    'FunctionArgs',
     'FunctionInputArgs',
     'FunctionOutputArgs',
+    'FunctionArgs',
     'IdentityArgs',
     'InputArgs',
     'IoTHubStreamInputDataSourceArgs',
@@ -1058,43 +1058,6 @@ class AzureSqlDatabaseOutputDataSourceArgs:
 
 
 @pulumi.input_type
-class AzureSqlReferenceInputDataSourceArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']] = None):
-        """
-        Describes an Azure SQL database reference input data source.
-        :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
-               Expected value is 'Microsoft.Sql/Server/Database'.
-        """
-        pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
-        Expected value is 'Microsoft.Sql/Server/Database'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class AzureSqlReferenceInputDataSourcePropertiesArgs:
     def __init__(__self__, *,
                  database: Optional[pulumi.Input[str]] = None,
@@ -1243,6 +1206,43 @@ class AzureSqlReferenceInputDataSourcePropertiesArgs:
     @user.setter
     def user(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class AzureSqlReferenceInputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']] = None):
+        """
+        Describes an Azure SQL database reference input data source.
+        :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Sql/Server/Database'.
+        """
+        pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Sql/Server/Database'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -2758,46 +2758,6 @@ class ExternalArgs:
 
 
 @pulumi.input_type
-class FunctionArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
-        """
-        A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
-        """
-        The properties that are associated with a function.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class FunctionInputArgs:
     def __init__(__self__, *,
                  data_type: Optional[pulumi.Input[str]] = None,
@@ -2859,6 +2819,46 @@ class FunctionOutputArgs:
     @data_type.setter
     def data_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_type", value)
+
+
+@pulumi.input_type
+class FunctionArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
+        """
+        A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+        :param pulumi.Input[str] name: Resource name
+        :param pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
+        """
+        The properties that are associated with a function.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

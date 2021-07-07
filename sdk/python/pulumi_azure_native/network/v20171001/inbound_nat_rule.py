@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['InboundNatRuleArgs', 'InboundNatRule']
+__all__ = ['InboundNatRuleInitArgs', 'InboundNatRule']
 
 @pulumi.input_type
-class InboundNatRuleArgs:
+class InboundNatRuleInitArgs:
     def __init__(__self__, *,
                  load_balancer_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -269,18 +269,18 @@ class InboundNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InboundNatRuleArgs,
+                 args: InboundNatRuleInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inbound NAT rule of the load balancer.
 
         :param str resource_name: The name of the resource.
-        :param InboundNatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param InboundNatRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InboundNatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InboundNatRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -312,7 +312,7 @@ class InboundNatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InboundNatRuleArgs.__new__(InboundNatRuleArgs)
+            __props__ = InboundNatRuleInitArgs.__new__(InboundNatRuleInitArgs)
 
             __props__.__dict__["backend_port"] = backend_port
             __props__.__dict__["enable_floating_ip"] = enable_floating_ip
@@ -354,7 +354,7 @@ class InboundNatRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = InboundNatRuleArgs.__new__(InboundNatRuleArgs)
+        __props__ = InboundNatRuleInitArgs.__new__(InboundNatRuleInitArgs)
 
         __props__.__dict__["backend_ip_configuration"] = None
         __props__.__dict__["backend_port"] = None

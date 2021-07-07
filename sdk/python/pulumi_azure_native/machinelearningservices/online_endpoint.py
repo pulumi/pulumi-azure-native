@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['OnlineEndpointArgs', 'OnlineEndpoint']
+__all__ = ['OnlineEndpointInitArgs', 'OnlineEndpoint']
 
 @pulumi.input_type
-class OnlineEndpointArgs:
+class OnlineEndpointInitArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['OnlineEndpointArgs'],
                  resource_group_name: pulumi.Input[str],
@@ -173,18 +173,18 @@ class OnlineEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OnlineEndpointArgs,
+                 args: OnlineEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
-        :param OnlineEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param OnlineEndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OnlineEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OnlineEndpointInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -211,7 +211,7 @@ class OnlineEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OnlineEndpointArgs.__new__(OnlineEndpointArgs)
+            __props__ = OnlineEndpointInitArgs.__new__(OnlineEndpointInitArgs)
 
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["identity"] = identity
@@ -252,7 +252,7 @@ class OnlineEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = OnlineEndpointArgs.__new__(OnlineEndpointArgs)
+        __props__ = OnlineEndpointInitArgs.__new__(OnlineEndpointInitArgs)
 
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None

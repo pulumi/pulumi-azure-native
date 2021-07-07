@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RouteTableArgs', 'RouteTable']
+__all__ = ['RouteTableInitArgs', 'RouteTable']
 
 @pulumi.input_type
-class RouteTableArgs:
+class RouteTableInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
@@ -163,19 +163,19 @@ class RouteTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteTableArgs,
+                 args: RouteTableInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Route table resource.
         API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
-        :param RouteTableArgs args: The arguments to use to populate this resource's properties.
+        :param RouteTableInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteTableInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -201,7 +201,7 @@ class RouteTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteTableArgs.__new__(RouteTableArgs)
+            __props__ = RouteTableInitArgs.__new__(RouteTableInitArgs)
 
             __props__.__dict__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
             __props__.__dict__["id"] = id
@@ -240,7 +240,7 @@ class RouteTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = RouteTableArgs.__new__(RouteTableArgs)
+        __props__ = RouteTableInitArgs.__new__(RouteTableInitArgs)
 
         __props__.__dict__["disable_bgp_route_propagation"] = None
         __props__.__dict__["etag"] = None

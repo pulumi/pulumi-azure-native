@@ -24,4 +24,6 @@ class PublicNetworkAccessType(str, Enum):
     Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
     """
     ENABLED = "Enabled"
+    """Enables public network connectivity to the Attestation Provider REST APIs."""
     DISABLED = "Disabled"
+    """Disables public network connectivity to the Attestation Provider REST APIs."""

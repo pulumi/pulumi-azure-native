@@ -8,10 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationSecurityGroupArgs', 'ApplicationSecurityGroup']
+__all__ = ['ApplicationSecurityGroupInitArgs', 'ApplicationSecurityGroup']
 
 @pulumi.input_type
-class ApplicationSecurityGroupArgs:
+class ApplicationSecurityGroupInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  application_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -124,19 +124,19 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationSecurityGroupArgs,
+                 args: ApplicationSecurityGroupInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An application security group in a resource group.
         API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
-        :param ApplicationSecurityGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationSecurityGroupInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSecurityGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSecurityGroupInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -160,7 +160,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationSecurityGroupArgs.__new__(ApplicationSecurityGroupArgs)
+            __props__ = ApplicationSecurityGroupInitArgs.__new__(ApplicationSecurityGroupInitArgs)
 
             __props__.__dict__["application_security_group_name"] = application_security_group_name
             __props__.__dict__["id"] = id
@@ -196,7 +196,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ApplicationSecurityGroupArgs.__new__(ApplicationSecurityGroupArgs)
+        __props__ = ApplicationSecurityGroupInitArgs.__new__(ApplicationSecurityGroupInitArgs)
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None

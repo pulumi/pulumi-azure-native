@@ -10,10 +10,10 @@ from ... import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FunctionArgs', 'Function']
+__all__ = ['FunctionInitArgs', 'Function']
 
 @pulumi.input_type
-class FunctionArgs:
+class FunctionInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -124,18 +124,18 @@ class Function(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionArgs,
+                 args: FunctionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 
         :param str resource_name: The name of the resource.
-        :param FunctionArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -159,7 +159,7 @@ class Function(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionArgs.__new__(FunctionArgs)
+            __props__ = FunctionInitArgs.__new__(FunctionInitArgs)
 
             __props__.__dict__["function_name"] = function_name
             if job_name is None and not opts.urn:
@@ -193,7 +193,7 @@ class Function(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = FunctionArgs.__new__(FunctionArgs)
+        __props__ = FunctionInitArgs.__new__(FunctionInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

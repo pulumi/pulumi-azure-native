@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['IntegrationServiceEnvironmentArgs', 'IntegrationServiceEnvironment']
+__all__ = ['IntegrationServiceEnvironmentInitArgs', 'IntegrationServiceEnvironment']
 
 @pulumi.input_type
-class IntegrationServiceEnvironmentArgs:
+class IntegrationServiceEnvironmentInitArgs:
     def __init__(__self__, *,
                  resource_group: pulumi.Input[str],
                  integration_service_environment_name: Optional[pulumi.Input[str]] = None,
@@ -144,18 +144,18 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationServiceEnvironmentArgs,
+                 args: IntegrationServiceEnvironmentInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration service environment.
 
         :param str resource_name: The name of the resource.
-        :param IntegrationServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationServiceEnvironmentInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationServiceEnvironmentInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -180,7 +180,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
+            __props__ = IntegrationServiceEnvironmentInitArgs.__new__(IntegrationServiceEnvironmentInitArgs)
 
             __props__.__dict__["integration_service_environment_name"] = integration_service_environment_name
             __props__.__dict__["location"] = location
@@ -214,7 +214,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
+        __props__ = IntegrationServiceEnvironmentInitArgs.__new__(IntegrationServiceEnvironmentInitArgs)
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None

@@ -51,12 +51,12 @@ __all__ = [
     'KeyVaultPropertiesArgs',
     'LiveEventEncodingArgs',
     'LiveEventEndpointArgs',
-    'LiveEventInputArgs',
     'LiveEventInputAccessControlArgs',
     'LiveEventInputTrackSelectionArgs',
+    'LiveEventInputArgs',
     'LiveEventOutputTranscriptionTrackArgs',
-    'LiveEventPreviewArgs',
     'LiveEventPreviewAccessControlArgs',
+    'LiveEventPreviewArgs',
     'LiveEventTranscriptionArgs',
     'MediaServiceIdentityArgs',
     'NoEncryptionArgs',
@@ -66,8 +66,8 @@ __all__ = [
     'StorageAccountArgs',
     'StreamingEndpointAccessControlArgs',
     'StreamingLocatorContentKeyArgs',
-    'StreamingPolicyContentKeyArgs',
     'StreamingPolicyContentKeysArgs',
+    'StreamingPolicyContentKeyArgs',
     'StreamingPolicyFairPlayConfigurationArgs',
     'StreamingPolicyPlayReadyConfigurationArgs',
     'StreamingPolicyWidevineConfigurationArgs',
@@ -2260,6 +2260,86 @@ class LiveEventEndpointArgs:
 
 
 @pulumi.input_type
+class LiveEventInputAccessControlArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        The IP access control for live event input.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
+
+
+@pulumi.input_type
+class LiveEventInputTrackSelectionArgs:
+    def __init__(__self__, *,
+                 operation: Optional[pulumi.Input[str]] = None,
+                 property: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] operation: Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        :param pulumi.Input[str] value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property value to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property name to select. This property is reserved for future use, any value set on this property will be ignored.
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property", value)
+
+
+@pulumi.input_type
 class LiveEventInputArgs:
     def __init__(__self__, *,
                  streaming_protocol: pulumi.Input[Union[str, 'LiveEventInputProtocol']],
@@ -2347,86 +2427,6 @@ class LiveEventInputArgs:
 
 
 @pulumi.input_type
-class LiveEventInputAccessControlArgs:
-    def __init__(__self__, *,
-                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
-        """
-        The IP access control for live event input.
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
-        """
-        The IP access control properties.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
-        pulumi.set(self, "ip", value)
-
-
-@pulumi.input_type
-class LiveEventInputTrackSelectionArgs:
-    def __init__(__self__, *,
-                 operation: Optional[pulumi.Input[str]] = None,
-                 property: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
-        :param pulumi.Input[str] operation: Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
-        :param pulumi.Input[str] property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
-        :param pulumi.Input[str] value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
-        """
-        if operation is not None:
-            pulumi.set(__self__, "operation", operation)
-        if property is not None:
-            pulumi.set(__self__, "property", property)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[str]]:
-        """
-        Comparing operation. This property is reserved for future use, any value set on this property will be ignored.
-        """
-        return pulumi.get(self, "operation")
-
-    @operation.setter
-    def operation(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operation", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Property value to select. This property is reserved for future use, any value set on this property will be ignored.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        Property name to select. This property is reserved for future use, any value set on this property will be ignored.
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "property", value)
-
-
-@pulumi.input_type
 class LiveEventOutputTranscriptionTrackArgs:
     def __init__(__self__, *,
                  track_name: pulumi.Input[str]):
@@ -2447,6 +2447,30 @@ class LiveEventOutputTranscriptionTrackArgs:
     @track_name.setter
     def track_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "track_name", value)
+
+
+@pulumi.input_type
+class LiveEventPreviewAccessControlArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        The IP access control for the live event preview endpoint.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
 
 
 @pulumi.input_type
@@ -2535,30 +2559,6 @@ class LiveEventPreviewArgs:
     @streaming_policy_name.setter
     def streaming_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "streaming_policy_name", value)
-
-
-@pulumi.input_type
-class LiveEventPreviewAccessControlArgs:
-    def __init__(__self__, *,
-                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
-        """
-        The IP access control for the live event preview endpoint.
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
-        """
-        The IP access control properties.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
-        pulumi.set(self, "ip", value)
 
 
 @pulumi.input_type
@@ -3028,6 +3028,46 @@ class StreamingLocatorContentKeyArgs:
 
 
 @pulumi.input_type
+class StreamingPolicyContentKeysArgs:
+    def __init__(__self__, *,
+                 default_key: Optional[pulumi.Input['DefaultKeyArgs']] = None,
+                 key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]] = None):
+        """
+        Class to specify properties of all content keys in Streaming Policy
+        :param pulumi.Input['DefaultKeyArgs'] default_key: Default content key for an encryption scheme
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]] key_to_track_mappings: Representing tracks needs separate content key
+        """
+        if default_key is not None:
+            pulumi.set(__self__, "default_key", default_key)
+        if key_to_track_mappings is not None:
+            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
+
+    @property
+    @pulumi.getter(name="defaultKey")
+    def default_key(self) -> Optional[pulumi.Input['DefaultKeyArgs']]:
+        """
+        Default content key for an encryption scheme
+        """
+        return pulumi.get(self, "default_key")
+
+    @default_key.setter
+    def default_key(self, value: Optional[pulumi.Input['DefaultKeyArgs']]):
+        pulumi.set(self, "default_key", value)
+
+    @property
+    @pulumi.getter(name="keyToTrackMappings")
+    def key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]:
+        """
+        Representing tracks needs separate content key
+        """
+        return pulumi.get(self, "key_to_track_mappings")
+
+    @key_to_track_mappings.setter
+    def key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]):
+        pulumi.set(self, "key_to_track_mappings", value)
+
+
+@pulumi.input_type
 class StreamingPolicyContentKeyArgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None,
@@ -3081,46 +3121,6 @@ class StreamingPolicyContentKeyArgs:
     @tracks.setter
     def tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]]):
         pulumi.set(self, "tracks", value)
-
-
-@pulumi.input_type
-class StreamingPolicyContentKeysArgs:
-    def __init__(__self__, *,
-                 default_key: Optional[pulumi.Input['DefaultKeyArgs']] = None,
-                 key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]] = None):
-        """
-        Class to specify properties of all content keys in Streaming Policy
-        :param pulumi.Input['DefaultKeyArgs'] default_key: Default content key for an encryption scheme
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]] key_to_track_mappings: Representing tracks needs separate content key
-        """
-        if default_key is not None:
-            pulumi.set(__self__, "default_key", default_key)
-        if key_to_track_mappings is not None:
-            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
-
-    @property
-    @pulumi.getter(name="defaultKey")
-    def default_key(self) -> Optional[pulumi.Input['DefaultKeyArgs']]:
-        """
-        Default content key for an encryption scheme
-        """
-        return pulumi.get(self, "default_key")
-
-    @default_key.setter
-    def default_key(self, value: Optional[pulumi.Input['DefaultKeyArgs']]):
-        pulumi.set(self, "default_key", value)
-
-    @property
-    @pulumi.getter(name="keyToTrackMappings")
-    def key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]:
-        """
-        Representing tracks needs separate content key
-        """
-        return pulumi.get(self, "key_to_track_mappings")
-
-    @key_to_track_mappings.setter
-    def key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]):
-        pulumi.set(self, "key_to_track_mappings", value)
 
 
 @pulumi.input_type

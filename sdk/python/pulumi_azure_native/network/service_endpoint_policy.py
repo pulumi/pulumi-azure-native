@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicy']
+__all__ = ['ServiceEndpointPolicyInitArgs', 'ServiceEndpointPolicy']
 
 @pulumi.input_type
-class ServiceEndpointPolicyArgs:
+class ServiceEndpointPolicyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
@@ -144,19 +144,19 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceEndpointPolicyArgs,
+                 args: ServiceEndpointPolicyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service End point policy resource.
         API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
-        :param ServiceEndpointPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceEndpointPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointPolicyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -181,7 +181,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceEndpointPolicyArgs.__new__(ServiceEndpointPolicyArgs)
+            __props__ = ServiceEndpointPolicyInitArgs.__new__(ServiceEndpointPolicyInitArgs)
 
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
@@ -220,7 +220,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ServiceEndpointPolicyArgs.__new__(ServiceEndpointPolicyArgs)
+        __props__ = ServiceEndpointPolicyInitArgs.__new__(ServiceEndpointPolicyInitArgs)
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None

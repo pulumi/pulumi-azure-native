@@ -21,8 +21,8 @@ __all__ = [
     'DiagnosticsStorageAccountConfigArgs',
     'EndpointRangeDescriptionArgs',
     'NodeTypeDescriptionArgs',
-    'ServerCertificateCommonNameArgs',
     'ServerCertificateCommonNamesArgs',
+    'ServerCertificateCommonNameArgs',
     'ServiceTypeDeltaHealthPolicyArgs',
     'ServiceTypeHealthPolicyArgs',
     'SettingsParameterDescriptionArgs',
@@ -933,44 +933,6 @@ class NodeTypeDescriptionArgs:
 
 
 @pulumi.input_type
-class ServerCertificateCommonNameArgs:
-    def __init__(__self__, *,
-                 certificate_common_name: pulumi.Input[str],
-                 certificate_issuer_thumbprint: pulumi.Input[str]):
-        """
-        Describes the server certificate details using common name.
-        :param pulumi.Input[str] certificate_common_name: The common name of the server certificate.
-        :param pulumi.Input[str] certificate_issuer_thumbprint: The issuer thumbprint of the server certificate.
-        """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
-        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
-
-    @property
-    @pulumi.getter(name="certificateCommonName")
-    def certificate_common_name(self) -> pulumi.Input[str]:
-        """
-        The common name of the server certificate.
-        """
-        return pulumi.get(self, "certificate_common_name")
-
-    @certificate_common_name.setter
-    def certificate_common_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_common_name", value)
-
-    @property
-    @pulumi.getter(name="certificateIssuerThumbprint")
-    def certificate_issuer_thumbprint(self) -> pulumi.Input[str]:
-        """
-        The issuer thumbprint of the server certificate.
-        """
-        return pulumi.get(self, "certificate_issuer_thumbprint")
-
-    @certificate_issuer_thumbprint.setter
-    def certificate_issuer_thumbprint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_issuer_thumbprint", value)
-
-
-@pulumi.input_type
 class ServerCertificateCommonNamesArgs:
     def __init__(__self__, *,
                  common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
@@ -1008,6 +970,44 @@ class ServerCertificateCommonNamesArgs:
     @x509_store_name.setter
     def x509_store_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "x509_store_name", value)
+
+
+@pulumi.input_type
+class ServerCertificateCommonNameArgs:
+    def __init__(__self__, *,
+                 certificate_common_name: pulumi.Input[str],
+                 certificate_issuer_thumbprint: pulumi.Input[str]):
+        """
+        Describes the server certificate details using common name.
+        :param pulumi.Input[str] certificate_common_name: The common name of the server certificate.
+        :param pulumi.Input[str] certificate_issuer_thumbprint: The issuer thumbprint of the server certificate.
+        """
+        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateCommonName")
+    def certificate_common_name(self) -> pulumi.Input[str]:
+        """
+        The common name of the server certificate.
+        """
+        return pulumi.get(self, "certificate_common_name")
+
+    @certificate_common_name.setter
+    def certificate_common_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_common_name", value)
+
+    @property
+    @pulumi.getter(name="certificateIssuerThumbprint")
+    def certificate_issuer_thumbprint(self) -> pulumi.Input[str]:
+        """
+        The issuer thumbprint of the server certificate.
+        """
+        return pulumi.get(self, "certificate_issuer_thumbprint")
+
+    @certificate_issuer_thumbprint.setter
+    def certificate_issuer_thumbprint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
 @pulumi.input_type

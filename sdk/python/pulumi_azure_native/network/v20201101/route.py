@@ -9,10 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
-__all__ = ['RouteArgs', 'Route']
+__all__ = ['RouteInitArgs', 'Route']
 
 @pulumi.input_type
-class RouteArgs:
+class RouteInitArgs:
     def __init__(__self__, *,
                  next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']],
                  resource_group_name: pulumi.Input[str],
@@ -212,18 +212,18 @@ class Route(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteArgs,
+                 args: RouteInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Route resource.
 
         :param str resource_name: The name of the resource.
-        :param RouteArgs args: The arguments to use to populate this resource's properties.
+        :param RouteInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,7 +252,7 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteArgs.__new__(RouteArgs)
+            __props__ = RouteInitArgs.__new__(RouteInitArgs)
 
             __props__.__dict__["address_prefix"] = address_prefix
             __props__.__dict__["has_bgp_override"] = has_bgp_override
@@ -294,7 +294,7 @@ class Route(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = RouteArgs.__new__(RouteArgs)
+        __props__ = RouteInitArgs.__new__(RouteInitArgs)
 
         __props__.__dict__["address_prefix"] = None
         __props__.__dict__["etag"] = None
