@@ -73078,6 +73078,20 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-12-15-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "billingAccounts/departments/enrollmentAccounts",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2020-05-01",
           "2019-10-01-preview"
         ],
@@ -73167,6 +73181,21 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-11-01-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "billingAccounts/availableBalance",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-11-01-privatepreview",
           "2020-05-01",
           "2019-10-01-preview",
           "2018-11-01-preview"
@@ -73348,6 +73377,7 @@
         "apiProfiles": null,
         "apiVersions": [
           "2020-12-15-privatepreview",
+          "2020-11-01-privatepreview",
           "2020-05-01",
           "2019-10-01-preview",
           "2018-11-01-preview"
@@ -80600,8 +80630,7 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01",
-          "2018-11-01-preview"
+          "2019-11-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -80719,8 +80748,7 @@
         "apiVersions": [
           "2020-10-01-preview",
           "2020-09-01",
-          "2019-11-01",
-          "2018-11-01-preview"
+          "2019-11-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81561,7 +81589,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81575,7 +81604,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81589,7 +81619,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81618,7 +81649,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -81635,7 +81667,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -81652,7 +81685,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-07-01-preview"
+          "2020-07-01-preview",
+          "2020-07-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -84006,7 +84040,11 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central"
+          "France Central",
+          "Central US",
+          "North Central US",
+          "West US",
+          "Korea Central"
         ],
         "properties": null,
         "resourceType": "sourceControlConfigurations",
@@ -84033,7 +84071,11 @@
           "UK South",
           "Southeast Asia",
           "Australia East",
-          "France Central"
+          "France Central",
+          "Central US",
+          "North Central US",
+          "West US",
+          "Korea Central"
         ],
         "properties": null,
         "resourceType": "extensions",
@@ -89204,7 +89246,8 @@
           "UAE Central",
           "Switzerland West",
           "Germany North",
-          "Norway West"
+          "Norway West",
+          "Sweden Central"
         ],
         "properties": null,
         "resourceType": "operations",
@@ -89404,7 +89447,7 @@
         "apiVersions": [
           "2019-08-15-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
