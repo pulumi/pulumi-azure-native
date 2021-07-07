@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The data compression method used for the json dataset.
         /// </summary>
         [Input("compression")]
-        public Input<object>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The location of the excel storage.
         /// </summary>
         [Input("location", required: true)]
-        public Input<object> Location { get; set; } = null!;
+        public object Location { get; set; } = null!;
 
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The data compression method used for the json dataset.
         /// </summary>
         [Input("compression")]
-        public Input<object>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The location of the json data storage.
         /// </summary>
         [Input("location", required: true)]
-        public Input<object> Location { get; set; } = null!;
+        public object Location { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

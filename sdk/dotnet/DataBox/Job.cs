@@ -213,7 +213,7 @@ namespace Pulumi.AzureNative.DataBox
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Input("details")]
-        public Input<object>? Details { get; set; }
+        public object? Details { get; set; }
 
         /// <summary>
         /// Msi identity of the resource
