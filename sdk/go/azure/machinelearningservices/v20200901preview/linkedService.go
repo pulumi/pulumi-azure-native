@@ -74,29 +74,9 @@ func GetLinkedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedService resources.
 type linkedServiceState struct {
-	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// location of the linked service.
-	Location *string `pulumi:"location"`
-	// Friendly name of the linked service.
-	Name *string `pulumi:"name"`
-	// LinkedService specific properties.
-	Properties *LinkedServicePropsResponse `pulumi:"properties"`
-	// Resource type of linked service.
-	Type *string `pulumi:"type"`
 }
 
 type LinkedServiceState struct {
-	// Identity for the resource.
-	Identity IdentityResponsePtrInput
-	// location of the linked service.
-	Location pulumi.StringPtrInput
-	// Friendly name of the linked service.
-	Name pulumi.StringPtrInput
-	// LinkedService specific properties.
-	Properties LinkedServicePropsResponsePtrInput
-	// Resource type of linked service.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkedServiceState) ElementType() reflect.Type {

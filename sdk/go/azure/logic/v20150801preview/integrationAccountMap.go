@@ -103,53 +103,9 @@ func GetIntegrationAccountMap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountMap resources.
 type integrationAccountMapState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The content.
-	Content interface{} `pulumi:"content"`
-	// The content link.
-	ContentLink *IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The map type.
-	MapType *string `pulumi:"mapType"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountMapState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The content.
-	Content pulumi.Input
-	// The content link.
-	ContentLink IntegrationAccountContentLinkResponsePtrInput
-	// The content type.
-	ContentType pulumi.StringPtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The map type.
-	MapType pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountMapState) ElementType() reflect.Type {

@@ -101,41 +101,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
-	Kind *string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The common properties of a service.
-	Properties *ServicesPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponseIdentityPtrInput
-	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
-	Kind pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {

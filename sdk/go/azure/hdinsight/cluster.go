@@ -82,37 +82,9 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The ETag for the resource
-	Etag *string `pulumi:"etag"`
-	// The identity of the cluster, if configured.
-	Identity *ClusterIdentityResponse `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The properties of the cluster.
-	Properties *ClusterGetPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ClusterState struct {
-	// The ETag for the resource
-	Etag pulumi.StringPtrInput
-	// The identity of the cluster, if configured.
-	Identity ClusterIdentityResponsePtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The properties of the cluster.
-	Properties ClusterGetPropertiesResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

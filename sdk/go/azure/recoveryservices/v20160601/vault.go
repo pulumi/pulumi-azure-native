@@ -107,41 +107,9 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Identity for the resource.
-	Identity *IdentityDataResponse `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// Properties of the vault.
-	Properties *VaultPropertiesResponse `pulumi:"properties"`
-	// Identifies the unique system identifier for each Azure resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
 }
 
 type VaultState struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity IdentityDataResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput
-	// Properties of the vault.
-	Properties VaultPropertiesResponsePtrInput
-	// Identifies the unique system identifier for each Azure resource.
-	Sku SkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput
 }
 
 func (VaultState) ElementType() reflect.Type {

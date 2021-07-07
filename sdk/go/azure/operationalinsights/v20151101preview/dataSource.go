@@ -94,33 +94,9 @@ func GetDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
-	// The ETag of the data source.
-	ETag *string `pulumi:"eTag"`
-	// The kind of the DataSource.
-	Kind *string `pulumi:"kind"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DataSourceState struct {
-	// The ETag of the data source.
-	ETag pulumi.StringPtrInput
-	// The kind of the DataSource.
-	Kind pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DataSourceState) ElementType() reflect.Type {

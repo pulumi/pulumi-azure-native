@@ -90,49 +90,9 @@ func GetFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileShare resources.
 type fileShareState struct {
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser *string `pulumi:"adminUser"`
-	// The data policy
-	DataPolicy *string `pulumi:"dataPolicy"`
-	// Description for file share
-	Description *string `pulumi:"description"`
-	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes *float64 `pulumi:"localUsedCapacityInBytes"`
-	// The monitoring status
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// The name.
-	Name *string `pulumi:"name"`
-	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes *float64 `pulumi:"provisionedCapacityInBytes"`
-	// The Share Status
-	ShareStatus *string `pulumi:"shareStatus"`
-	// The type.
-	Type *string `pulumi:"type"`
-	// The used capacity in Bytes.
-	UsedCapacityInBytes *float64 `pulumi:"usedCapacityInBytes"`
 }
 
 type FileShareState struct {
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser pulumi.StringPtrInput
-	// The data policy
-	DataPolicy pulumi.StringPtrInput
-	// Description for file share
-	Description pulumi.StringPtrInput
-	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes pulumi.Float64PtrInput
-	// The monitoring status
-	MonitoringStatus pulumi.StringPtrInput
-	// The name.
-	Name pulumi.StringPtrInput
-	// The total provisioned capacity in Bytes
-	ProvisionedCapacityInBytes pulumi.Float64PtrInput
-	// The Share Status
-	ShareStatus pulumi.StringPtrInput
-	// The type.
-	Type pulumi.StringPtrInput
-	// The used capacity in Bytes.
-	UsedCapacityInBytes pulumi.Float64PtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {

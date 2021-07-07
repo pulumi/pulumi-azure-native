@@ -67,29 +67,9 @@ func GetConfigurationProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationProfile resources.
 type configurationProfileState struct {
-	// The identity block returned by ARM resource that supports managed identity.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The properties of a configuration profile.
-	Properties *ConfigurationProfileResourcePropertiesResponse `pulumi:"properties"`
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ConfigurationProfileState struct {
-	// The identity block returned by ARM resource that supports managed identity.
-	Identity ResourceIdentityResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The properties of a configuration profile.
-	Properties ConfigurationProfileResourcePropertiesResponsePtrInput
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationProfileState) ElementType() reflect.Type {

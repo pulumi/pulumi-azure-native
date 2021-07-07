@@ -154,57 +154,9 @@ func GetDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk resources.
 type diskState struct {
-	// the storage account type of the disk.
-	AccountType *string `pulumi:"accountType"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// A relative URI containing the VM id that has the disk attached.
-	OwnerId *string `pulumi:"ownerId"`
-	// The disk provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated *string `pulumi:"timeCreated"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type DiskState struct {
-	// the storage account type of the disk.
-	AccountType pulumi.StringPtrInput
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponsePtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
-	EncryptionSettings EncryptionSettingsResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The Operating System type.
-	OsType pulumi.StringPtrInput
-	// A relative URI containing the VM id that has the disk attached.
-	OwnerId pulumi.StringPtrInput
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The time when the disk was created.
-	TimeCreated pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DiskState) ElementType() reflect.Type {

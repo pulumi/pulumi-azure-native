@@ -77,49 +77,9 @@ func GetPartner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Partner resources.
 type partnerState struct {
-	// This is the DateTime when the partner was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Type of the partner
-	Etag *int `pulumi:"etag"`
-	// Name of the partner
-	Name *string `pulumi:"name"`
-	// This is the object id.
-	ObjectId *string `pulumi:"objectId"`
-	// This is the partner id
-	PartnerId *string `pulumi:"partnerId"`
-	// This is the partner name
-	PartnerName *string `pulumi:"partnerName"`
-	// This is the tenant id.
-	TenantId *string `pulumi:"tenantId"`
-	// Type of resource. "Microsoft.ManagementPartner/partners"
-	Type *string `pulumi:"type"`
-	// This is the DateTime when the partner was updated.
-	UpdatedTime *string `pulumi:"updatedTime"`
-	// This is the version.
-	Version *int `pulumi:"version"`
 }
 
 type PartnerState struct {
-	// This is the DateTime when the partner was created.
-	CreatedTime pulumi.StringPtrInput
-	// Type of the partner
-	Etag pulumi.IntPtrInput
-	// Name of the partner
-	Name pulumi.StringPtrInput
-	// This is the object id.
-	ObjectId pulumi.StringPtrInput
-	// This is the partner id
-	PartnerId pulumi.StringPtrInput
-	// This is the partner name
-	PartnerName pulumi.StringPtrInput
-	// This is the tenant id.
-	TenantId pulumi.StringPtrInput
-	// Type of resource. "Microsoft.ManagementPartner/partners"
-	Type pulumi.StringPtrInput
-	// This is the DateTime when the partner was updated.
-	UpdatedTime pulumi.StringPtrInput
-	// This is the version.
-	Version pulumi.IntPtrInput
 }
 
 func (PartnerState) ElementType() reflect.Type {

@@ -114,77 +114,9 @@ func GetConnectorMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectorMapping resources.
 type connectorMappingState struct {
-	// The connector mapping name
-	ConnectorMappingName *string `pulumi:"connectorMappingName"`
-	// The connector name.
-	ConnectorName *string `pulumi:"connectorName"`
-	// Type of connector.
-	ConnectorType *string `pulumi:"connectorType"`
-	// The created time.
-	Created *string `pulumi:"created"`
-	// The DataFormat ID.
-	DataFormatId *string `pulumi:"dataFormatId"`
-	// The description of the connector mapping.
-	Description *string `pulumi:"description"`
-	// Display name for the connector mapping.
-	DisplayName *string `pulumi:"displayName"`
-	// Defines which entity type the file should map to.
-	EntityType *string `pulumi:"entityType"`
-	// The mapping entity name.
-	EntityTypeName *string `pulumi:"entityTypeName"`
-	// The last modified time.
-	LastModified *string `pulumi:"lastModified"`
-	// The properties of the mapping.
-	MappingProperties *ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The next run time based on customer's settings.
-	NextRunTime *string `pulumi:"nextRunTime"`
-	// The RunId.
-	RunId *string `pulumi:"runId"`
-	// State of connector mapping.
-	State *string `pulumi:"state"`
-	// The hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ConnectorMappingState struct {
-	// The connector mapping name
-	ConnectorMappingName pulumi.StringPtrInput
-	// The connector name.
-	ConnectorName pulumi.StringPtrInput
-	// Type of connector.
-	ConnectorType pulumi.StringPtrInput
-	// The created time.
-	Created pulumi.StringPtrInput
-	// The DataFormat ID.
-	DataFormatId pulumi.StringPtrInput
-	// The description of the connector mapping.
-	Description pulumi.StringPtrInput
-	// Display name for the connector mapping.
-	DisplayName pulumi.StringPtrInput
-	// Defines which entity type the file should map to.
-	EntityType pulumi.StringPtrInput
-	// The mapping entity name.
-	EntityTypeName pulumi.StringPtrInput
-	// The last modified time.
-	LastModified pulumi.StringPtrInput
-	// The properties of the mapping.
-	MappingProperties ConnectorMappingPropertiesResponsePtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The next run time based on customer's settings.
-	NextRunTime pulumi.StringPtrInput
-	// The RunId.
-	RunId pulumi.StringPtrInput
-	// State of connector mapping.
-	State pulumi.StringPtrInput
-	// The hub name.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectorMappingState) ElementType() reflect.Type {

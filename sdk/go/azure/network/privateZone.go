@@ -100,61 +100,9 @@ func GetPrivateZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateZone resources.
 type privateZoneState struct {
-	// The ETag of the zone.
-	Etag *string `pulumi:"etag"`
-	// Private zone internal Id
-	InternalId *string `pulumi:"internalId"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks *float64 `pulumi:"maxNumberOfVirtualNetworkLinks"`
-	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration *float64 `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
-	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks *float64 `pulumi:"numberOfVirtualNetworkLinks"`
-	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration *float64 `pulumi:"numberOfVirtualNetworkLinksWithRegistration"`
-	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateZoneState struct {
-	// The ETag of the zone.
-	Etag pulumi.StringPtrInput
-	// Private zone internal Id
-	InternalId pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.Float64PtrInput
-	// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinks pulumi.Float64PtrInput
-	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.Float64PtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.Float64PtrInput
-	// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinks pulumi.Float64PtrInput
-	// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfVirtualNetworkLinksWithRegistration pulumi.Float64PtrInput
-	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateZoneState) ElementType() reflect.Type {

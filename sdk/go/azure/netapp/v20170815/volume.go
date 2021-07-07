@@ -209,53 +209,9 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken *string `pulumi:"creationToken"`
-	// Export policy rule
-	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags
-	Tags interface{} `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-	UsageThreshold *float64 `pulumi:"usageThreshold"`
 }
 
 type VolumeState struct {
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringPtrInput
-	// Export policy rule
-	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput
-	// Unique FileSystem Identifier.
-	FileSystemId pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.Input
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
-	UsageThreshold pulumi.Float64PtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {

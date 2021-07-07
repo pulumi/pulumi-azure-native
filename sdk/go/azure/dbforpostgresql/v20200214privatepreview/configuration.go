@@ -98,41 +98,9 @@ func GetConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Configuration resources.
 type configurationState struct {
-	// Allowed values of the configuration.
-	AllowedValues *string `pulumi:"allowedValues"`
-	// Data type of the configuration.
-	DataType *string `pulumi:"dataType"`
-	// Default value of the configuration.
-	DefaultValue *string `pulumi:"defaultValue"`
-	// Description of the configuration.
-	Description *string `pulumi:"description"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Source of the configuration.
-	Source *string `pulumi:"source"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Value of the configuration.
-	Value *string `pulumi:"value"`
 }
 
 type ConfigurationState struct {
-	// Allowed values of the configuration.
-	AllowedValues pulumi.StringPtrInput
-	// Data type of the configuration.
-	DataType pulumi.StringPtrInput
-	// Default value of the configuration.
-	DefaultValue pulumi.StringPtrInput
-	// Description of the configuration.
-	Description pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Source of the configuration.
-	Source pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Value of the configuration.
-	Value pulumi.StringPtrInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {

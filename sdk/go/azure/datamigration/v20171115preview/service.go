@@ -108,49 +108,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag *string `pulumi:"etag"`
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The resource's provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey *string `pulumi:"publicKey"`
-	// Service SKU
-	Sku *ServiceSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId *string `pulumi:"virtualSubnetId"`
 }
 
 type ServiceState struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag pulumi.StringPtrInput
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The resource's provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey pulumi.StringPtrInput
-	// Service SKU
-	Sku ServiceSkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {

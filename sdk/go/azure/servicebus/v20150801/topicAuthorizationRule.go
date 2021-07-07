@@ -102,25 +102,9 @@ func GetTopicAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicAuthorizationRule resources.
 type topicAuthorizationRuleState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type TopicAuthorizationRuleState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (TopicAuthorizationRuleState) ElementType() reflect.Type {

@@ -118,69 +118,9 @@ func GetWorkbook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workbook resources.
 type workbookState struct {
-	// Workbook category, as defined by the user at creation time.
-	Category *string `pulumi:"category"`
-	// The user-defined name (display name) of the workbook.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource etag
-	Etag map[string]string `pulumi:"etag"`
-	// Identity used for BYOS
-	Identity *WorkbookManagedIdentityResponse `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData *string `pulumi:"serializedData"`
-	// ResourceId for a source resource.
-	SourceId *string `pulumi:"sourceId"`
-	// BYOS Storage Account URI
-	StorageUri *string `pulumi:"storageUri"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this workbook definition.
-	TimeModified *string `pulumi:"timeModified"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId *string `pulumi:"userId"`
-	// Workbook version
-	Version *string `pulumi:"version"`
 }
 
 type WorkbookState struct {
-	// Workbook category, as defined by the user at creation time.
-	Category pulumi.StringPtrInput
-	// The user-defined name (display name) of the workbook.
-	DisplayName pulumi.StringPtrInput
-	// Resource etag
-	Etag pulumi.StringMapInput
-	// Identity used for BYOS
-	Identity WorkbookManagedIdentityResponsePtrInput
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData pulumi.StringPtrInput
-	// ResourceId for a source resource.
-	SourceId pulumi.StringPtrInput
-	// BYOS Storage Account URI
-	StorageUri pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Date and time in UTC of the last modification that was made to this workbook definition.
-	TimeModified pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// Unique user id of the specific user that owns this workbook.
-	UserId pulumi.StringPtrInput
-	// Workbook version
-	Version pulumi.StringPtrInput
 }
 
 func (WorkbookState) ElementType() reflect.Type {

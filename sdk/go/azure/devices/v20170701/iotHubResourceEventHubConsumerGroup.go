@@ -197,17 +197,9 @@ func GetIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotHubResourceEventHubConsumerGroup resources.
 type iotHubResourceEventHubConsumerGroupState struct {
-	// The Event Hub-compatible consumer group name.
-	Name *string `pulumi:"name"`
-	// The tags.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 type IotHubResourceEventHubConsumerGroupState struct {
-	// The Event Hub-compatible consumer group name.
-	Name pulumi.StringPtrInput
-	// The tags.
-	Tags pulumi.StringMapInput
 }
 
 func (IotHubResourceEventHubConsumerGroupState) ElementType() reflect.Type {

@@ -90,49 +90,9 @@ func GetCapacityDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityDetails resources.
 type capacityDetailsState struct {
-	// A collection of Dedicated capacity administrators
-	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
-	// Location of the PowerBI Dedicated resource.
-	Location *string `pulumi:"location"`
-	// The capacity mode.
-	Mode *string `pulumi:"mode"`
-	// The name of the PowerBI Dedicated resource.
-	Name *string `pulumi:"name"`
-	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated capacity resource.
-	Sku *CapacitySkuResponse `pulumi:"sku"`
-	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
-	State *string `pulumi:"state"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type *string `pulumi:"type"`
 }
 
 type CapacityDetailsState struct {
-	// A collection of Dedicated capacity administrators
-	Administration DedicatedCapacityAdministratorsResponsePtrInput
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringPtrInput
-	// The capacity mode.
-	Mode pulumi.StringPtrInput
-	// The name of the PowerBI Dedicated resource.
-	Name pulumi.StringPtrInput
-	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the PowerBI Dedicated capacity resource.
-	Sku CapacitySkuResponsePtrInput
-	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
-	State pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// The type of the PowerBI Dedicated resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CapacityDetailsState) ElementType() reflect.Type {

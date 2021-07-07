@@ -68433,6 +68433,96 @@ func (o ZohoSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type SSISExecutionParameterResponseArgsMapMap map[string]SSISExecutionParameterResponseArgsMapInput
+
+func (SSISExecutionParameterResponseArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return i.ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterResponseArgsMapMapOutput)
+}
+
+type SSISExecutionParameterResponseArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterResponseArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterResponseArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterResponseArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterResponseArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterResponseArgsMapOutput)
+}
+
+// SSISExecutionParameterResponseArgsMapMapInput is an input type that accepts SSISExecutionParameterResponseArgsMapMap and SSISExecutionParameterResponseArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterResponseArgsMapMapInput` via:
+//
+//          SSISExecutionParameterResponseArgsMapMap{ "key": SSISExecutionParameterResponseArgsMap{ "key": SSISExecutionParameterResponseArgsArgs{...} } }
+type SSISExecutionParameterResponseArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput
+	ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterResponseArgsMapMapOutput
+}
+
+type SSISExecutionParameterArgsMapMap map[string]SSISExecutionParameterArgsMapInput
+
+func (SSISExecutionParameterArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return i.ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterArgsMapMapOutput)
+}
+
+type SSISExecutionParameterArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterArgsMapOutput)
+}
+
+// SSISExecutionParameterArgsMapMapInput is an input type that accepts SSISExecutionParameterArgsMapMap and SSISExecutionParameterArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterArgsMapMapInput` via:
+//
+//          SSISExecutionParameterArgsMapMap{ "key": SSISExecutionParameterArgsMap{ "key": SSISExecutionParameterArgsArgs{...} } }
+type SSISExecutionParameterArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput
+	ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterArgsMapMapOutput
+}
+
 type SSISExecutionParameterMapMap map[string]SSISExecutionParameterMapInput
 
 func (SSISExecutionParameterMapMap) ElementType() reflect.Type {

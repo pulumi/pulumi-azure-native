@@ -120,57 +120,9 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet *float64 `pulumi:"maxNumberOfRecordsPerRecordSet"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers []string `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
-	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-	RegistrationVirtualNetworks []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
-	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The type of this DNS zone (Public or Private).
-	ZoneType *string `pulumi:"zoneType"`
 }
 
 type ZoneState struct {
-	// The etag of the zone.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.Float64PtrInput
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet pulumi.Float64PtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers pulumi.StringArrayInput
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.Float64PtrInput
-	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-	RegistrationVirtualNetworks SubResourceResponseArrayInput
-	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-	ResolutionVirtualNetworks SubResourceResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The type of this DNS zone (Public or Private).
-	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {

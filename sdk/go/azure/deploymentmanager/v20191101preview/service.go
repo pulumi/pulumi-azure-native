@@ -88,33 +88,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation *string `pulumi:"targetLocation"`
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId *string `pulumi:"targetSubscriptionId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Azure location to which the resources in the service belong to or should be deployed to.
-	TargetLocation pulumi.StringPtrInput
-	// The subscription to which the resources in the service belong to or should be deployed to.
-	TargetSubscriptionId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {

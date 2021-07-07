@@ -101,53 +101,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId *string `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// This is a legacy property and is not used anymore. Kept here for backward compatibility.
-	PortalUrl *string `pulumi:"portalUrl"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
-	Source *string `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type WorkspaceState struct {
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId pulumi.StringPtrInput
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// This is a legacy property and is not used anymore. Kept here for backward compatibility.
-	PortalUrl pulumi.StringPtrInput
-	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrInput
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays pulumi.IntPtrInput
-	// The SKU of the workspace.
-	Sku SkuResponsePtrInput
-	// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
-	Source pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

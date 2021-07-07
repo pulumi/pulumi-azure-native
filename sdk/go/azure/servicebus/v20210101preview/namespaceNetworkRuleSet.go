@@ -88,33 +88,9 @@ func GetNamespaceNetworkRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceNetworkRuleSet resources.
 type namespaceNetworkRuleSetState struct {
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// List of IpRules
-	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// List VirtualNetwork Rules
-	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
 }
 
 type NamespaceNetworkRuleSetState struct {
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrInput
-	// List of IpRules
-	IpRules NWRuleSetIpRulesResponseArrayInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// List VirtualNetwork Rules
-	VirtualNetworkRules NWRuleSetVirtualNetworkRulesResponseArrayInput
 }
 
 func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {

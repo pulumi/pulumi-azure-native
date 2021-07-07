@@ -120,55 +120,9 @@ func GetMediaService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaService resources.
 type mediaServiceState struct {
-	// The account encryption properties.
-	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
-	// The Managed Identity for the Media Services account.
-	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery *KeyDeliveryResponse `pulumi:"keyDelivery"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The Media Services account ID.
-	MediaServiceId *string `pulumi:"mediaServiceId"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Whether or not public network access is allowed for resources under the Media Services account.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The storage accounts for this resource.
-	StorageAccounts       []StorageAccountResponse `pulumi:"storageAccounts"`
-	StorageAuthentication *string                  `pulumi:"storageAuthentication"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type MediaServiceState struct {
-	// The account encryption properties.
-	Encryption AccountEncryptionResponsePtrInput
-	// The Managed Identity for the Media Services account.
-	Identity MediaServiceIdentityResponsePtrInput
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The Media Services account ID.
-	MediaServiceId pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Whether or not public network access is allowed for resources under the Media Services account.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The storage accounts for this resource.
-	StorageAccounts       StorageAccountResponseArrayInput
-	StorageAuthentication pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (MediaServiceState) ElementType() reflect.Type {

@@ -125,81 +125,9 @@ func GetShareSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ShareSubscription resources.
 type shareSubscriptionState struct {
-	// Time at which the share subscription was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The expiration date of the share subscription.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The invitation id.
-	InvitationId *string `pulumi:"invitationId"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Email of the provider who created the resource
-	ProviderEmail *string `pulumi:"providerEmail"`
-	// Name of the provider who created the resource
-	ProviderName *string `pulumi:"providerName"`
-	// Tenant name of the provider who created the resource
-	ProviderTenantName *string `pulumi:"providerTenantName"`
-	// Provisioning state of the share subscription
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Description of share
-	ShareDescription *string `pulumi:"shareDescription"`
-	// Kind of share
-	ShareKind *string `pulumi:"shareKind"`
-	// Name of the share
-	ShareName *string `pulumi:"shareName"`
-	// Gets the current status of share subscription.
-	ShareSubscriptionStatus *string `pulumi:"shareSubscriptionStatus"`
-	// Terms of a share
-	ShareTerms *string `pulumi:"shareTerms"`
-	// Source share location.
-	SourceShareLocation *string `pulumi:"sourceShareLocation"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail *string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName *string `pulumi:"userName"`
 }
 
 type ShareSubscriptionState struct {
-	// Time at which the share subscription was created.
-	CreatedAt pulumi.StringPtrInput
-	// The expiration date of the share subscription.
-	ExpirationDate pulumi.StringPtrInput
-	// The invitation id.
-	InvitationId pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Email of the provider who created the resource
-	ProviderEmail pulumi.StringPtrInput
-	// Name of the provider who created the resource
-	ProviderName pulumi.StringPtrInput
-	// Tenant name of the provider who created the resource
-	ProviderTenantName pulumi.StringPtrInput
-	// Provisioning state of the share subscription
-	ProvisioningState pulumi.StringPtrInput
-	// Description of share
-	ShareDescription pulumi.StringPtrInput
-	// Kind of share
-	ShareKind pulumi.StringPtrInput
-	// Name of the share
-	ShareName pulumi.StringPtrInput
-	// Gets the current status of share subscription.
-	ShareSubscriptionStatus pulumi.StringPtrInput
-	// Terms of a share
-	ShareTerms pulumi.StringPtrInput
-	// Source share location.
-	SourceShareLocation pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
-	// Email of the user who created the resource
-	UserEmail pulumi.StringPtrInput
-	// Name of the user who created the resource
-	UserName pulumi.StringPtrInput
 }
 
 func (ShareSubscriptionState) ElementType() reflect.Type {

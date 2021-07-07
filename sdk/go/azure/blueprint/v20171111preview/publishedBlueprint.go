@@ -78,49 +78,9 @@ func GetPublishedBlueprint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublishedBlueprint resources.
 type publishedBlueprintState struct {
-	// Name of the Blueprint definition.
-	BlueprintName *string `pulumi:"blueprintName"`
-	// Version-specific change notes
-	ChangeNotes *string `pulumi:"changeNotes"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Parameters required by this Blueprint definition.
-	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
-	// Resource group placeholders defined by this Blueprint definition.
-	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
-	// Status of the Blueprint. This field is readonly.
-	Status *BlueprintStatusResponse `pulumi:"status"`
-	// The scope where this Blueprint can be applied.
-	TargetScope *string `pulumi:"targetScope"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type PublishedBlueprintState struct {
-	// Name of the Blueprint definition.
-	BlueprintName pulumi.StringPtrInput
-	// Version-specific change notes
-	ChangeNotes pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Parameters required by this Blueprint definition.
-	Parameters ParameterDefinitionResponseMapInput
-	// Resource group placeholders defined by this Blueprint definition.
-	ResourceGroups ResourceGroupDefinitionResponseMapInput
-	// Status of the Blueprint. This field is readonly.
-	Status BlueprintStatusResponsePtrInput
-	// The scope where this Blueprint can be applied.
-	TargetScope pulumi.StringPtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PublishedBlueprintState) ElementType() reflect.Type {

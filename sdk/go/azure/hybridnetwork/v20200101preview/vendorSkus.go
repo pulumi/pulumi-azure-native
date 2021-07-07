@@ -79,45 +79,9 @@ func GetVendorSkus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VendorSkus resources.
 type vendorSkusState struct {
-	// The sku deployment mode.
-	DeploymentMode *string `pulumi:"deploymentMode"`
-	// The parameters for the managed application to be supplied by the vendor.
-	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The template definition of the network function.
-	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
-	// Indicates if the vendor sku is in preview mode.
-	Preview *bool `pulumi:"preview"`
-	// The provisioning state of the vendor sku sub resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The sku type.
-	SkuType *string `pulumi:"skuType"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type VendorSkusState struct {
-	// The sku deployment mode.
-	DeploymentMode pulumi.StringPtrInput
-	// The parameters for the managed application to be supplied by the vendor.
-	ManagedApplicationParameters pulumi.Input
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.Input
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The template definition of the network function.
-	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrInput
-	// Indicates if the vendor sku is in preview mode.
-	Preview pulumi.BoolPtrInput
-	// The provisioning state of the vendor sku sub resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The sku type.
-	SkuType pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (VendorSkusState) ElementType() reflect.Type {

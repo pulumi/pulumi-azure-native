@@ -68,17 +68,9 @@ func GetVMwareCollector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VMwareCollector resources.
 type vmwareCollectorState struct {
-	ETag       *string                      `pulumi:"eTag"`
-	Name       *string                      `pulumi:"name"`
-	Properties *CollectorPropertiesResponse `pulumi:"properties"`
-	Type       *string                      `pulumi:"type"`
 }
 
 type VMwareCollectorState struct {
-	ETag       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	Properties CollectorPropertiesResponsePtrInput
-	Type       pulumi.StringPtrInput
 }
 
 func (VMwareCollectorState) ElementType() reflect.Type {

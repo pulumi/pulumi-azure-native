@@ -113,53 +113,9 @@ func GetScalingPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScalingPlan resources.
 type scalingPlanState struct {
-	// Description of scaling plan.
-	Description *string `pulumi:"description"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag *string `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
-	HostPoolReferences []ScalingHostPoolReferenceResponse `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
-	HostPoolType *string `pulumi:"hostPoolType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// List of ScalingSchedule definitions.
-	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone *string `pulumi:"timeZone"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ScalingPlanState struct {
-	// Description of scaling plan.
-	Description pulumi.StringPtrInput
-	// Exclusion tag for scaling plan.
-	ExclusionTag pulumi.StringPtrInput
-	// User friendly name of scaling plan.
-	FriendlyName pulumi.StringPtrInput
-	// List of ScalingHostPoolReference definitions.
-	HostPoolReferences ScalingHostPoolReferenceResponseArrayInput
-	// HostPool type for scaling plan.
-	HostPoolType pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// List of ScalingSchedule definitions.
-	Schedules ScalingScheduleResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Timezone of the scaling plan.
-	TimeZone pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ScalingPlanState) ElementType() reflect.Type {

@@ -174,97 +174,9 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId *string `pulumi:"diskAccessId"`
-	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes *float64 `pulumi:"diskSizeBytes"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The state of the snapshot.
-	DiskState *string `pulumi:"diskState"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
-	// The extended location where the snapshot will be created. Extended location cannot be changed.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-	Incremental *bool `pulumi:"incremental"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
-	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
-	Sku *SnapshotSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The time when the snapshot was created.
-	TimeCreated *string `pulumi:"timeCreated"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Unique Guid identifying the resource.
-	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type SnapshotState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponsePtrInput
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId pulumi.StringPtrInput
-	// The size of the disk in bytes. This field is read only.
-	DiskSizeBytes pulumi.Float64PtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// The state of the snapshot.
-	DiskState pulumi.StringPtrInput
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption EncryptionResponsePtrInput
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrInput
-	// The extended location where the snapshot will be created. Extended location cannot be changed.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput
-	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-	Incremental pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Unused. Always Null.
-	ManagedBy pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy pulumi.StringPtrInput
-	// The Operating System type.
-	OsType pulumi.StringPtrInput
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
-	PurchasePlan PurchasePlanResponsePtrInput
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
-	Sku SnapshotSkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The time when the snapshot was created.
-	TimeCreated pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Unique Guid identifying the resource.
-	UniqueId pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {

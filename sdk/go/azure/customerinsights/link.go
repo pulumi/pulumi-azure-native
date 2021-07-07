@@ -110,69 +110,9 @@ func GetLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Link resources.
 type linkState struct {
-	// Localized descriptions for the Link.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Link.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The link name.
-	LinkName *string `pulumi:"linkName"`
-	// The set of properties mappings between the source and target Types.
-	Mappings []TypePropertiesMappingResponse `pulumi:"mappings"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType *string `pulumi:"operationType"`
-	// The properties that represent the participating profile.
-	ParticipantPropertyReferences []ParticipantPropertyReferenceResponse `pulumi:"participantPropertyReferences"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-	ReferenceOnly *bool `pulumi:"referenceOnly"`
-	// Type of source entity.
-	SourceEntityType *string `pulumi:"sourceEntityType"`
-	// Name of the source Entity Type.
-	SourceEntityTypeName *string `pulumi:"sourceEntityTypeName"`
-	// Type of target entity.
-	TargetEntityType *string `pulumi:"targetEntityType"`
-	// Name of the target Entity Type.
-	TargetEntityTypeName *string `pulumi:"targetEntityTypeName"`
-	// The hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type LinkState struct {
-	// Localized descriptions for the Link.
-	Description pulumi.StringMapInput
-	// Localized display name for the Link.
-	DisplayName pulumi.StringMapInput
-	// The link name.
-	LinkName pulumi.StringPtrInput
-	// The set of properties mappings between the source and target Types.
-	Mappings TypePropertiesMappingResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType pulumi.StringPtrInput
-	// The properties that represent the participating profile.
-	ParticipantPropertyReferences ParticipantPropertyReferenceResponseArrayInput
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-	ReferenceOnly pulumi.BoolPtrInput
-	// Type of source entity.
-	SourceEntityType pulumi.StringPtrInput
-	// Name of the source Entity Type.
-	SourceEntityTypeName pulumi.StringPtrInput
-	// Type of target entity.
-	TargetEntityType pulumi.StringPtrInput
-	// Name of the target Entity Type.
-	TargetEntityTypeName pulumi.StringPtrInput
-	// The hub name.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkState) ElementType() reflect.Type {

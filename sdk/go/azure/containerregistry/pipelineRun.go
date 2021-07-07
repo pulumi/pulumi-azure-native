@@ -91,37 +91,9 @@ func GetPipelineRun(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PipelineRun resources.
 type pipelineRunState struct {
-	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of a pipeline run.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The request parameters for a pipeline run.
-	Request *PipelineRunRequestResponse `pulumi:"request"`
-	// The response of a pipeline run.
-	Response *PipelineRunResponseResponse `pulumi:"response"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PipelineRunState struct {
-	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of a pipeline run.
-	ProvisioningState pulumi.StringPtrInput
-	// The request parameters for a pipeline run.
-	Request PipelineRunRequestResponsePtrInput
-	// The response of a pipeline run.
-	Response PipelineRunResponseResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PipelineRunState) ElementType() reflect.Type {

@@ -160,93 +160,9 @@ func GetRegisteredServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegisteredServer resources.
 type registeredServerState struct {
-	// Registered Server Agent Version
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server clusterId
-	ClusterId *string `pulumi:"clusterId"`
-	// Registered Server clusterName
-	ClusterName *string `pulumi:"clusterName"`
-	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri *string `pulumi:"discoveryEndpointUri"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Registered Server last heart beat
-	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// Resource Last Operation Name
-	LastOperationName *string `pulumi:"lastOperationName"`
-	// Registered Server lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// Management Endpoint Uri
-	ManagementEndpointUri *string `pulumi:"managementEndpointUri"`
-	// Monitoring Configuration
-	MonitoringConfiguration *string `pulumi:"monitoringConfiguration"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Registered Server Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource Location
-	ResourceLocation *string `pulumi:"resourceLocation"`
-	// Registered Server Certificate
-	ServerCertificate *string `pulumi:"serverCertificate"`
-	// Registered Server serverId
-	ServerId *string `pulumi:"serverId"`
-	// Registered Server Management Error Code
-	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
-	// Registered Server OS Version
-	ServerOSVersion *string `pulumi:"serverOSVersion"`
-	// Registered Server serverRole
-	ServerRole *string `pulumi:"serverRole"`
-	// Service Location
-	ServiceLocation *string `pulumi:"serviceLocation"`
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type RegisteredServerState struct {
-	// Registered Server Agent Version
-	AgentVersion pulumi.StringPtrInput
-	// Registered Server clusterId
-	ClusterId pulumi.StringPtrInput
-	// Registered Server clusterName
-	ClusterName pulumi.StringPtrInput
-	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringPtrInput
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrInput
-	// Registered Server lastWorkflowId
-	LastWorkflowId pulumi.StringPtrInput
-	// Management Endpoint Uri
-	ManagementEndpointUri pulumi.StringPtrInput
-	// Monitoring Configuration
-	MonitoringConfiguration pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Registered Server Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// Resource Location
-	ResourceLocation pulumi.StringPtrInput
-	// Registered Server Certificate
-	ServerCertificate pulumi.StringPtrInput
-	// Registered Server serverId
-	ServerId pulumi.StringPtrInput
-	// Registered Server Management Error Code
-	ServerManagementErrorCode pulumi.IntPtrInput
-	// Registered Server OS Version
-	ServerOSVersion pulumi.StringPtrInput
-	// Registered Server serverRole
-	ServerRole pulumi.StringPtrInput
-	// Service Location
-	ServiceLocation pulumi.StringPtrInput
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (RegisteredServerState) ElementType() reflect.Type {

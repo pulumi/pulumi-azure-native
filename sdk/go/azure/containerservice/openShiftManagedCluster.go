@@ -113,69 +113,9 @@ func GetOpenShiftManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenShiftManagedCluster resources.
 type openShiftManagedClusterState struct {
-	// Configuration of OpenShift cluster VMs.
-	AgentPoolProfiles []OpenShiftManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Configures OpenShift authentication.
-	AuthProfile *OpenShiftManagedClusterAuthProfileResponse `pulumi:"authProfile"`
-	// Version of OpenShift specified when creating the cluster.
-	ClusterVersion *string `pulumi:"clusterVersion"`
-	// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
-	Fqdn *string `pulumi:"fqdn"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Configuration for OpenShift master VMs.
-	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileResponse `pulumi:"masterPoolProfile"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Configuration for OpenShift networking.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Version of OpenShift specified when creating the cluster.
-	OpenShiftVersion *string `pulumi:"openShiftVersion"`
-	// Define the resource plan as required by ARM for billing purposes
-	Plan *PurchasePlanResponse `pulumi:"plan"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Service generated FQDN for OpenShift API server.
-	PublicHostname *string `pulumi:"publicHostname"`
-	// Configuration for OpenShift router(s).
-	RouterProfiles []OpenShiftRouterProfileResponse `pulumi:"routerProfiles"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type OpenShiftManagedClusterState struct {
-	// Configuration of OpenShift cluster VMs.
-	AgentPoolProfiles OpenShiftManagedClusterAgentPoolProfileResponseArrayInput
-	// Configures OpenShift authentication.
-	AuthProfile OpenShiftManagedClusterAuthProfileResponsePtrInput
-	// Version of OpenShift specified when creating the cluster.
-	ClusterVersion pulumi.StringPtrInput
-	// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
-	Fqdn pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Configuration for OpenShift master VMs.
-	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfileResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Configuration for OpenShift networking.
-	NetworkProfile NetworkProfileResponsePtrInput
-	// Version of OpenShift specified when creating the cluster.
-	OpenShiftVersion pulumi.StringPtrInput
-	// Define the resource plan as required by ARM for billing purposes
-	Plan PurchasePlanResponsePtrInput
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Service generated FQDN for OpenShift API server.
-	PublicHostname pulumi.StringPtrInput
-	// Configuration for OpenShift router(s).
-	RouterProfiles OpenShiftRouterProfileResponseArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (OpenShiftManagedClusterState) ElementType() reflect.Type {

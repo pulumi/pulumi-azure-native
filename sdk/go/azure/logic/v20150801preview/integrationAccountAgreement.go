@@ -107,61 +107,9 @@ func GetIntegrationAccountAgreement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountAgreement resources.
 type integrationAccountAgreementState struct {
-	// The agreement type.
-	AgreementType *string `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The agreement content.
-	Content *AgreementContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The guest identity.
-	GuestIdentity *BusinessIdentityResponse `pulumi:"guestIdentity"`
-	// The guest partner.
-	GuestPartner *string `pulumi:"guestPartner"`
-	// The host identity.
-	HostIdentity *BusinessIdentityResponse `pulumi:"hostIdentity"`
-	// The host partner.
-	HostPartner *string `pulumi:"hostPartner"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountAgreementState struct {
-	// The agreement type.
-	AgreementType pulumi.StringPtrInput
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The agreement content.
-	Content AgreementContentResponsePtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The guest identity.
-	GuestIdentity BusinessIdentityResponsePtrInput
-	// The guest partner.
-	GuestPartner pulumi.StringPtrInput
-	// The host identity.
-	HostIdentity BusinessIdentityResponsePtrInput
-	// The host partner.
-	HostPartner pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountAgreementState) ElementType() reflect.Type {

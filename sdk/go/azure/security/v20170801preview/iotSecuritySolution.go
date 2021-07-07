@@ -105,61 +105,9 @@ func GetIotSecuritySolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotSecuritySolution resources.
 type iotSecuritySolutionState struct {
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources []string `pulumi:"disabledDataSources"`
-	// Resource display name.
-	DisplayName *string `pulumi:"displayName"`
-	// List of additional export to workspace data options
-	Export []string `pulumi:"export"`
-	// IoT Hub resource IDs
-	IotHubs []string `pulumi:"iotHubs"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// List of recommendation configuration
-	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
-	// Security solution status
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Properties of the solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
-	// Workspace resource ID
-	Workspace *string `pulumi:"workspace"`
 }
 
 type IotSecuritySolutionState struct {
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources pulumi.StringArrayInput
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources pulumi.StringArrayInput
-	// Resource display name.
-	DisplayName pulumi.StringPtrInput
-	// List of additional export to workspace data options
-	Export pulumi.StringArrayInput
-	// IoT Hub resource IDs
-	IotHubs pulumi.StringArrayInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// List of recommendation configuration
-	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayInput
-	// Security solution status
-	Status pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Properties of the solution's user defined resources.
-	UserDefinedResources UserDefinedResourcesPropertiesResponsePtrInput
-	// Workspace resource ID
-	Workspace pulumi.StringPtrInput
 }
 
 func (IotSecuritySolutionState) ElementType() reflect.Type {

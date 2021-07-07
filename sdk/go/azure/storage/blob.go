@@ -73,37 +73,9 @@ func GetBlob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Blob resources.
 type blobState struct {
-	// The access tier of the storage blob.
-	AccessTier *string `pulumi:"accessTier"`
-	// The MD5 sum of the blob contents.
-	ContentMd5 *string `pulumi:"contentMd5"`
-	// The content type of the storage blob.
-	ContentType *string `pulumi:"contentType"`
-	// A map of custom blob metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the storage blob.
-	Name *string `pulumi:"name"`
-	// The type of the storage blob to be created.
-	Type *string `pulumi:"type"`
-	// The URL of the blob.
-	Url *string `pulumi:"url"`
 }
 
 type BlobState struct {
-	// The access tier of the storage blob.
-	AccessTier *BlobAccessTier
-	// The MD5 sum of the blob contents.
-	ContentMd5 pulumi.StringPtrInput
-	// The content type of the storage blob.
-	ContentType pulumi.StringPtrInput
-	// A map of custom blob metadata.
-	Metadata pulumi.StringMapInput
-	// The name of the storage blob.
-	Name pulumi.StringPtrInput
-	// The type of the storage blob to be created.
-	Type *BlobType
-	// The URL of the blob.
-	Url pulumi.StringPtrInput
 }
 
 func (BlobState) ElementType() reflect.Type {

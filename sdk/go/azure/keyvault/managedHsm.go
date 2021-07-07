@@ -82,37 +82,9 @@ func GetManagedHsm(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedHsm resources.
 type managedHsmState struct {
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location *string `pulumi:"location"`
-	// The name of the managed HSM Pool.
-	Name *string `pulumi:"name"`
-	// Properties of the managed HSM
-	Properties *ManagedHsmPropertiesResponse `pulumi:"properties"`
-	// SKU details
-	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the managed HSM Pool.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedHsmState struct {
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrInput
-	// The name of the managed HSM Pool.
-	Name pulumi.StringPtrInput
-	// Properties of the managed HSM
-	Properties ManagedHsmPropertiesResponsePtrInput
-	// SKU details
-	Sku ManagedHsmSkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The resource type of the managed HSM Pool.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedHsmState) ElementType() reflect.Type {

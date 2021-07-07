@@ -187,69 +187,9 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
-	// Gets the type of the storage account.
-	AccountType *string `pulumi:"accountType"`
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets the user assigned custom domain assigned to this storage account.
-	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
-	LastGeoFailoverTime *string `pulumi:"lastGeoFailoverTime"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
-	PrimaryEndpoints *EndpointsResponse `pulumi:"primaryEndpoints"`
-	// Gets the location of the primary for the storage account.
-	PrimaryLocation *string `pulumi:"primaryLocation"`
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
-	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
-	// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
-	SecondaryLocation *string `pulumi:"secondaryLocation"`
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary *string `pulumi:"statusOfPrimary"`
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the accountType is StandardGRS or StandardRAGRS.
-	StatusOfSecondary *string `pulumi:"statusOfSecondary"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
-	// Gets the type of the storage account.
-	AccountType pulumi.StringPtrInput
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime pulumi.StringPtrInput
-	// Gets the user assigned custom domain assigned to this storage account.
-	CustomDomain CustomDomainResponsePtrInput
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
-	LastGeoFailoverTime pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponsePtrInput
-	// Gets the location of the primary for the storage account.
-	PrimaryLocation pulumi.StringPtrInput
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
-	SecondaryEndpoints EndpointsResponsePtrInput
-	// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
-	SecondaryLocation pulumi.StringPtrInput
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary pulumi.StringPtrInput
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the accountType is StandardGRS or StandardRAGRS.
-	StatusOfSecondary pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountState) ElementType() reflect.Type {

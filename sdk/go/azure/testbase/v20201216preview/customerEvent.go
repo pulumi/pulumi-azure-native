@@ -80,29 +80,9 @@ func GetCustomerEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerEvent resources.
 type customerEventState struct {
-	// The name of the event subscribed to.
-	EventName *string `pulumi:"eventName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The notification event receivers.
-	Receivers []NotificationEventReceiverResponse `pulumi:"receivers"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type CustomerEventState struct {
-	// The name of the event subscribed to.
-	EventName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The notification event receivers.
-	Receivers NotificationEventReceiverResponseArrayInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (CustomerEventState) ElementType() reflect.Type {

@@ -84,25 +84,9 @@ func GetGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GuestConfigurationHCRPAssignment resources.
 type guestConfigurationHCRPAssignmentState struct {
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties *GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type GuestConfigurationHCRPAssignmentState struct {
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (GuestConfigurationHCRPAssignmentState) ElementType() reflect.Type {

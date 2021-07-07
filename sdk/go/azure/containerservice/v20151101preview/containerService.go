@@ -104,53 +104,9 @@ func GetContainerService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerService resources.
 type containerServiceState struct {
-	// Properties of agent pools
-	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Properties for Diagnostic Agent
-	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
-	// Properties for Linux VMs
-	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Properties of master agents
-	MasterProfile *ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Properties of orchestrator
-	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
-	// Gets the provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Properties of Windows VMs
-	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
 }
 
 type ContainerServiceState struct {
-	// Properties of agent pools
-	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayInput
-	// Properties for Diagnostic Agent
-	DiagnosticsProfile ContainerServiceDiagnosticsProfileResponsePtrInput
-	// Properties for Linux VMs
-	LinuxProfile ContainerServiceLinuxProfileResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Properties of master agents
-	MasterProfile ContainerServiceMasterProfileResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Properties of orchestrator
-	OrchestratorProfile ContainerServiceOrchestratorProfileResponsePtrInput
-	// Gets the provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Properties of Windows VMs
-	WindowsProfile ContainerServiceWindowsProfileResponsePtrInput
 }
 
 func (ContainerServiceState) ElementType() reflect.Type {

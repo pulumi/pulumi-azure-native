@@ -94,21 +94,9 @@ func GetQueueServiceProperties(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueueServiceProperties resources.
 type queueServicePropertiesState struct {
-	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
-	Cors *CorsRulesResponse `pulumi:"cors"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type QueueServicePropertiesState struct {
-	// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
-	Cors CorsRulesResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (QueueServicePropertiesState) ElementType() reflect.Type {

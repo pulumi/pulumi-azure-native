@@ -148,33 +148,9 @@ func GetVirtualRouterPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualRouterPeering resources.
 type virtualRouterPeeringState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name *string `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn *float64 `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp *string `pulumi:"peerIp"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Peering type.
-	Type *string `pulumi:"type"`
 }
 
 type VirtualRouterPeeringState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name pulumi.StringPtrInput
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrInput
-	// Peer IP.
-	PeerIp pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Peering type.
-	Type pulumi.StringPtrInput
 }
 
 func (VirtualRouterPeeringState) ElementType() reflect.Type {

@@ -91,21 +91,9 @@ func GetServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAzureADOnlyAuthentication resources.
 type serverAzureADOnlyAuthenticationState struct {
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ServerAzureADOnlyAuthenticationState struct {
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ServerAzureADOnlyAuthenticationState) ElementType() reflect.Type {

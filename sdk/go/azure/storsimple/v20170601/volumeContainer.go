@@ -92,53 +92,9 @@ func GetVolumeContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VolumeContainer resources.
 type volumeContainerState struct {
-	// The bandwidth-rate set on the volume container.
-	BandWidthRateInMbps *int `pulumi:"bandWidthRateInMbps"`
-	// The ID of the bandwidth setting associated with the volume container.
-	BandwidthSettingId *string `pulumi:"bandwidthSettingId"`
-	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
-	// The flag to denote whether encryption is enabled or not.
-	EncryptionStatus *string `pulumi:"encryptionStatus"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name *string `pulumi:"name"`
-	// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
-	OwnerShipStatus *string `pulumi:"ownerShipStatus"`
-	// The path ID of storage account associated with the volume container.
-	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
-	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes *float64 `pulumi:"totalCloudStorageUsageInBytes"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
-	// The number of volumes in the volume Container.
-	VolumeCount *int `pulumi:"volumeCount"`
 }
 
 type VolumeContainerState struct {
-	// The bandwidth-rate set on the volume container.
-	BandWidthRateInMbps pulumi.IntPtrInput
-	// The ID of the bandwidth setting associated with the volume container.
-	BandwidthSettingId pulumi.StringPtrInput
-	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey AsymmetricEncryptedSecretResponsePtrInput
-	// The flag to denote whether encryption is enabled or not.
-	EncryptionStatus pulumi.StringPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
-	// The name of the object.
-	Name pulumi.StringPtrInput
-	// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
-	OwnerShipStatus pulumi.StringPtrInput
-	// The path ID of storage account associated with the volume container.
-	StorageAccountCredentialId pulumi.StringPtrInput
-	// The total cloud storage for the volume container.
-	TotalCloudStorageUsageInBytes pulumi.Float64PtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
-	// The number of volumes in the volume Container.
-	VolumeCount pulumi.IntPtrInput
 }
 
 func (VolumeContainerState) ElementType() reflect.Type {

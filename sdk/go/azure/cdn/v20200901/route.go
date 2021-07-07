@@ -103,75 +103,9 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	// compression settings.
-	CompressionSettings []CompressionSettingsResponse `pulumi:"compressionSettings"`
-	// Domains referenced by this endpoint.
-	CustomDomains    []ResourceReferenceResponse `pulumi:"customDomains"`
-	DeploymentStatus *string                     `pulumi:"deploymentStatus"`
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
-	HttpsRedirect *string `pulumi:"httpsRedirect"`
-	// whether this route will be linked to the default endpoint domain.
-	LinkToDefaultDomain *string `pulumi:"linkToDefaultDomain"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// A reference to the origin group.
-	OriginGroup *ResourceReferenceResponse `pulumi:"originGroup"`
-	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath *string `pulumi:"originPath"`
-	// The route patterns of the rule.
-	PatternsToMatch []string `pulumi:"patternsToMatch"`
-	// Provisioning status
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
-	// rule sets referenced by this endpoint.
-	RuleSets []ResourceReferenceResponse `pulumi:"ruleSets"`
-	// List of supported protocols for this route.
-	SupportedProtocols []string `pulumi:"supportedProtocols"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RouteState struct {
-	// compression settings.
-	CompressionSettings CompressionSettingsResponseArrayInput
-	// Domains referenced by this endpoint.
-	CustomDomains    ResourceReferenceResponseArrayInput
-	DeploymentStatus pulumi.StringPtrInput
-	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput
-	// Protocol this rule will use when forwarding traffic to backends.
-	ForwardingProtocol pulumi.StringPtrInput
-	// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
-	HttpsRedirect pulumi.StringPtrInput
-	// whether this route will be linked to the default endpoint domain.
-	LinkToDefaultDomain pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// A reference to the origin group.
-	OriginGroup ResourceReferenceResponsePtrInput
-	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath pulumi.StringPtrInput
-	// The route patterns of the rule.
-	PatternsToMatch pulumi.StringArrayInput
-	// Provisioning status
-	ProvisioningState pulumi.StringPtrInput
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior pulumi.StringPtrInput
-	// rule sets referenced by this endpoint.
-	RuleSets ResourceReferenceResponseArrayInput
-	// List of supported protocols for this route.
-	SupportedProtocols pulumi.StringArrayInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {

@@ -143,53 +143,9 @@ func GetCloudEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudEndpoint resources.
 type cloudEndpointState struct {
-	// Azure file share name
-	AzureFileShareName *string `pulumi:"azureFileShareName"`
-	// Backup Enabled
-	BackupEnabled *string `pulumi:"backupEnabled"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Resource Last Operation Name
-	LastOperationName *string `pulumi:"lastOperationName"`
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Partnership Id
-	PartnershipId *string `pulumi:"partnershipId"`
-	// CloudEndpoint Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Storage Account Resource Id
-	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// Storage Account Tenant Id
-	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type CloudEndpointState struct {
-	// Azure file share name
-	AzureFileShareName pulumi.StringPtrInput
-	// Backup Enabled
-	BackupEnabled pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrInput
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Partnership Id
-	PartnershipId pulumi.StringPtrInput
-	// CloudEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// Storage Account Resource Id
-	StorageAccountResourceId pulumi.StringPtrInput
-	// Storage Account Tenant Id
-	StorageAccountTenantId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (CloudEndpointState) ElementType() reflect.Type {

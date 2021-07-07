@@ -104,65 +104,9 @@ func GetRelationship(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Relationship resources.
 type relationshipState struct {
-	// The Relationship Cardinality.
-	Cardinality *string `pulumi:"cardinality"`
-	// Localized descriptions for the Relationship.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Relationship.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc *string `pulumi:"expiryDateTimeUtc"`
-	// The properties of the Relationship.
-	Fields []PropertyDefinitionResponse `pulumi:"fields"`
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings []RelationshipTypeMappingResponse `pulumi:"lookupMappings"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Profile type.
-	ProfileType *string `pulumi:"profileType"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Related profile being referenced.
-	RelatedProfileType *string `pulumi:"relatedProfileType"`
-	// The relationship guid id.
-	RelationshipGuidId *string `pulumi:"relationshipGuidId"`
-	// The Relationship name.
-	RelationshipName *string `pulumi:"relationshipName"`
-	// The hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RelationshipState struct {
-	// The Relationship Cardinality.
-	Cardinality pulumi.StringPtrInput
-	// Localized descriptions for the Relationship.
-	Description pulumi.StringMapInput
-	// Localized display name for the Relationship.
-	DisplayName pulumi.StringMapInput
-	// The expiry date time in UTC.
-	ExpiryDateTimeUtc pulumi.StringPtrInput
-	// The properties of the Relationship.
-	Fields PropertyDefinitionResponseArrayInput
-	// Optional property to be used to map fields in profile to their strong ids in related profile.
-	LookupMappings RelationshipTypeMappingResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Profile type.
-	ProfileType pulumi.StringPtrInput
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Related profile being referenced.
-	RelatedProfileType pulumi.StringPtrInput
-	// The relationship guid id.
-	RelationshipGuidId pulumi.StringPtrInput
-	// The Relationship name.
-	RelationshipName pulumi.StringPtrInput
-	// The hub name.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RelationshipState) ElementType() reflect.Type {

@@ -76,21 +76,9 @@ func GetSerialPort(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SerialPort resources.
 type serialPortState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Specifies whether the port is enabled for a serial console connection.
-	State *string `pulumi:"state"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SerialPortState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Specifies whether the port is enabled for a serial console connection.
-	State pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SerialPortState) ElementType() reflect.Type {

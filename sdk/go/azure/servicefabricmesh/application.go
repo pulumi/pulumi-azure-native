@@ -96,65 +96,9 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
-	DebugParams *string `pulumi:"debugParams"`
-	// User readable description of the application.
-	Description *string `pulumi:"description"`
-	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics *DiagnosticsDescriptionResponse `pulumi:"diagnostics"`
-	// Describes the health state of an application resource.
-	HealthState *string `pulumi:"healthState"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Names of the services in the application.
-	ServiceNames []string `pulumi:"serviceNames"`
-	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services []ServiceResourceDescriptionResponse `pulumi:"services"`
-	// Status of the application.
-	Status *string `pulumi:"status"`
-	// Gives additional information about the current status of the application.
-	StatusDetails *string `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
-	// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-	UnhealthyEvaluation *string `pulumi:"unhealthyEvaluation"`
 }
 
 type ApplicationState struct {
-	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
-	DebugParams pulumi.StringPtrInput
-	// User readable description of the application.
-	Description pulumi.StringPtrInput
-	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics DiagnosticsDescriptionResponsePtrInput
-	// Describes the health state of an application resource.
-	HealthState pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Names of the services in the application.
-	ServiceNames pulumi.StringArrayInput
-	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services ServiceResourceDescriptionResponseArrayInput
-	// Status of the application.
-	Status pulumi.StringPtrInput
-	// Gives additional information about the current status of the application.
-	StatusDetails pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
-	// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-	UnhealthyEvaluation pulumi.StringPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

@@ -141,37 +141,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Description of Workspace.
-	Description *string `pulumi:"description"`
-	// Friendly name of Workspace.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type WorkspaceState struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences pulumi.StringArrayInput
-	// Description of Workspace.
-	Description pulumi.StringPtrInput
-	// Friendly name of Workspace.
-	FriendlyName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

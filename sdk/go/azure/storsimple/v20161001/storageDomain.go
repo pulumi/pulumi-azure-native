@@ -71,29 +71,9 @@ func GetStorageDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageDomain resources.
 type storageDomainState struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus *string `pulumi:"encryptionStatus"`
-	// The name.
-	Name *string `pulumi:"name"`
-	// The storage account credentials.
-	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
-	// The type.
-	Type *string `pulumi:"type"`
 }
 
 type StorageDomainState struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey AsymmetricEncryptedSecretResponsePtrInput
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus pulumi.StringPtrInput
-	// The name.
-	Name pulumi.StringPtrInput
-	// The storage account credentials.
-	StorageAccountCredentialIds pulumi.StringArrayInput
-	// The type.
-	Type pulumi.StringPtrInput
 }
 
 func (StorageDomainState) ElementType() reflect.Type {

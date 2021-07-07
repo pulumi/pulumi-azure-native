@@ -77,29 +77,9 @@ func GetActionRuleByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionRuleByName resources.
 type actionRuleByNameState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Action rule properties defining scope, conditions, suppression logic for action rule
-	Properties *ActionRulePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ActionRuleByNameState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Action rule properties defining scope, conditions, suppression logic for action rule
-	Properties ActionRulePropertiesResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ActionRuleByNameState) ElementType() reflect.Type {

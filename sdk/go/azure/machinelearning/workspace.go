@@ -98,57 +98,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The creation time for this workspace resource.
-	CreationTime *string `pulumi:"creationTime"`
-	// The key vault identifier used for encrypted workspaces.
-	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The email id of the owner for this workspace.
-	OwnerEmail *string `pulumi:"ownerEmail"`
-	// The regional endpoint for the machine learning studio service which hosts this workspace.
-	StudioEndpoint *string `pulumi:"studioEndpoint"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The fully qualified arm id of the storage account associated with this workspace.
-	UserStorageAccountId *string `pulumi:"userStorageAccountId"`
-	// The immutable id associated with this workspace.
-	WorkspaceId *string `pulumi:"workspaceId"`
-	// The current state of workspace resource.
-	WorkspaceState *string `pulumi:"workspaceState"`
-	// The type of this workspace.
-	WorkspaceType *string `pulumi:"workspaceType"`
 }
 
 type WorkspaceState struct {
-	// The creation time for this workspace resource.
-	CreationTime pulumi.StringPtrInput
-	// The key vault identifier used for encrypted workspaces.
-	KeyVaultIdentifierId pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The email id of the owner for this workspace.
-	OwnerEmail pulumi.StringPtrInput
-	// The regional endpoint for the machine learning studio service which hosts this workspace.
-	StudioEndpoint pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The fully qualified arm id of the storage account associated with this workspace.
-	UserStorageAccountId pulumi.StringPtrInput
-	// The immutable id associated with this workspace.
-	WorkspaceId pulumi.StringPtrInput
-	// The current state of workspace resource.
-	WorkspaceState pulumi.StringPtrInput
-	// The type of this workspace.
-	WorkspaceType pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

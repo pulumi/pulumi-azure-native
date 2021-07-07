@@ -130,55 +130,9 @@ func GetSqlPoolSensitivityLabel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolSensitivityLabel resources.
 type sqlPoolSensitivityLabelState struct {
-	// The column name.
-	ColumnName *string `pulumi:"columnName"`
-	// The information type.
-	InformationType *string `pulumi:"informationType"`
-	// The information type ID.
-	InformationTypeId *string `pulumi:"informationTypeId"`
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled *bool `pulumi:"isDisabled"`
-	// The label ID.
-	LabelId *string `pulumi:"labelId"`
-	// The label name.
-	LabelName *string `pulumi:"labelName"`
-	// managed by
-	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	Rank *string `pulumi:"rank"`
-	// The schema name.
-	SchemaName *string `pulumi:"schemaName"`
-	// The table name.
-	TableName *string `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SqlPoolSensitivityLabelState struct {
-	// The column name.
-	ColumnName pulumi.StringPtrInput
-	// The information type.
-	InformationType pulumi.StringPtrInput
-	// The information type ID.
-	InformationTypeId pulumi.StringPtrInput
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled pulumi.BoolPtrInput
-	// The label ID.
-	LabelId pulumi.StringPtrInput
-	// The label name.
-	LabelName pulumi.StringPtrInput
-	// managed by
-	ManagedBy pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	Rank pulumi.StringPtrInput
-	// The schema name.
-	SchemaName pulumi.StringPtrInput
-	// The table name.
-	TableName pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SqlPoolSensitivityLabelState) ElementType() reflect.Type {

@@ -156,67 +156,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Is cloud pc resource.
-	CloudPcResource *bool `pulumi:"cloudPcResource"`
-	// Description of Workspace.
-	Description *string `pulumi:"description"`
-	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
-	Etag *string `pulumi:"etag"`
-	// Friendly name of Workspace.
-	FriendlyName *string                                              `pulumi:"friendlyName"`
-	Identity     *ResourceModelWithAllowedPropertySetResponseIdentity `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// ObjectId of Workspace. (internal use)
-	ObjectId *string                                          `pulumi:"objectId"`
-	Plan     *ResourceModelWithAllowedPropertySetResponsePlan `pulumi:"plan"`
-	// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-	PublicNetworkAccess *string                                         `pulumi:"publicNetworkAccess"`
-	Sku                 *ResourceModelWithAllowedPropertySetResponseSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type WorkspaceState struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences pulumi.StringArrayInput
-	// Is cloud pc resource.
-	CloudPcResource pulumi.BoolPtrInput
-	// Description of Workspace.
-	Description pulumi.StringPtrInput
-	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
-	Etag pulumi.StringPtrInput
-	// Friendly name of Workspace.
-	FriendlyName pulumi.StringPtrInput
-	Identity     ResourceModelWithAllowedPropertySetResponseIdentityPtrInput
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// ObjectId of Workspace. (internal use)
-	ObjectId pulumi.StringPtrInput
-	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrInput
-	// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-	PublicNetworkAccess pulumi.StringPtrInput
-	Sku                 ResourceModelWithAllowedPropertySetResponseSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

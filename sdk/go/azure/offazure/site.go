@@ -79,31 +79,9 @@ func GetSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Site resources.
 type siteState struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the VMware site.
-	Name *string `pulumi:"name"`
-	// Nested properties of VMWare site.
-	Properties *SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string       `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-	Type *string `pulumi:"type"`
 }
 
 type SiteState struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput
-	// Name of the VMware site.
-	Name pulumi.StringPtrInput
-	// Nested properties of VMWare site.
-	Properties SitePropertiesResponsePtrInput
-	Tags       pulumi.StringMapInput
-	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-	Type pulumi.StringPtrInput
 }
 
 func (SiteState) ElementType() reflect.Type {

@@ -13434,6 +13434,96 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	}).(VirtualNetworkRuleResponseOutput)
 }
 
+type CompositePathResponseArgsArrayArray []CompositePathResponseArgsArrayInput
+
+func (CompositePathResponseArgsArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArgsArray)(nil)).Elem()
+}
+
+func (i CompositePathResponseArgsArrayArray) ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput {
+	return i.ToCompositePathResponseArgsArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathResponseArgsArrayArray) ToCompositePathResponseArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArgsArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathResponseArgsArrayArrayOutput)
+}
+
+type CompositePathResponseArgsArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathResponseArgsArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArgsArray)(nil)).Elem()
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) ToCompositePathResponseArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) Index(i pulumi.IntInput) CompositePathResponseArgsArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathResponseArgsArray {
+		return vs[0].([]CompositePathResponseArgsArray)[vs[1].(int)]
+	}).(CompositePathResponseArgsArrayOutput)
+}
+
+// CompositePathResponseArgsArrayArrayInput is an input type that accepts CompositePathResponseArgsArrayArray and CompositePathResponseArgsArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathResponseArgsArrayArrayInput` via:
+//
+//          CompositePathResponseArgsArrayArray{ CompositePathResponseArgsArray{ CompositePathResponseArgsArgs{...} } }
+type CompositePathResponseArgsArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput
+	ToCompositePathResponseArgsArrayArrayOutputWithContext(context.Context) CompositePathResponseArgsArrayArrayOutput
+}
+
+type CompositePathArgsArrayArray []CompositePathArgsArrayInput
+
+func (CompositePathArgsArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArgsArray)(nil)).Elem()
+}
+
+func (i CompositePathArgsArrayArray) ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput {
+	return i.ToCompositePathArgsArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathArgsArrayArray) ToCompositePathArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathArgsArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArgsArrayArrayOutput)
+}
+
+type CompositePathArgsArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathArgsArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArgsArray)(nil)).Elem()
+}
+
+func (o CompositePathArgsArrayArrayOutput) ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArgsArrayArrayOutput) ToCompositePathArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArgsArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArgsArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArgsArray {
+		return vs[0].([]CompositePathArgsArray)[vs[1].(int)]
+	}).(CompositePathArgsArrayOutput)
+}
+
+// CompositePathArgsArrayArrayInput is an input type that accepts CompositePathArgsArrayArray and CompositePathArgsArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathArgsArrayArrayInput` via:
+//
+//          CompositePathArgsArrayArray{ CompositePathArgsArray{ CompositePathArgsArgs{...} } }
+type CompositePathArgsArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput
+	ToCompositePathArgsArrayArrayOutputWithContext(context.Context) CompositePathArgsArrayArrayOutput
+}
+
 type CompositePathArrayArray []CompositePathArrayInput
 
 func (CompositePathArrayArray) ElementType() reflect.Type {

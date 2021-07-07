@@ -115,45 +115,9 @@ func GetSyncGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyncGroup resources.
 type syncGroupState struct {
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
-	// Sync interval of the sync group.
-	Interval *int `pulumi:"interval"`
-	// Last sync time of the sync group.
-	LastSyncTime *string `pulumi:"lastSyncTime"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Sync schema of the sync group.
-	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// Sync state of the sync group.
-	SyncState *string `pulumi:"syncState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SyncGroupState struct {
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy pulumi.StringPtrInput
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName pulumi.StringPtrInput
-	// Sync interval of the sync group.
-	Interval pulumi.IntPtrInput
-	// Last sync time of the sync group.
-	LastSyncTime pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Sync schema of the sync group.
-	Schema SyncGroupSchemaResponsePtrInput
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId pulumi.StringPtrInput
-	// Sync state of the sync group.
-	SyncState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SyncGroupState) ElementType() reflect.Type {

@@ -201,61 +201,9 @@ func GetP2sVpnGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering P2sVpnGateway resources.
 type p2sVpnGatewayState struct {
-	// List of all customer specified DNS servers IP addresses.
-	CustomDnsServers []string `pulumi:"customDnsServers"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
-	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// List of all p2s connection configurations of the gateway.
-	P2SConnectionConfigurations []P2SConnectionConfigurationResponse `pulumi:"p2SConnectionConfigurations"`
-	// The provisioning state of the P2S VPN gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The VirtualHub to which the gateway belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
-	// All P2S VPN clients' connection health status.
-	VpnClientConnectionHealth *VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
-	// The scale unit for this p2s vpn gateway.
-	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
-	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
-	VpnServerConfiguration *SubResourceResponse `pulumi:"vpnServerConfiguration"`
 }
 
 type P2sVpnGatewayState struct {
-	// List of all customer specified DNS servers IP addresses.
-	CustomDnsServers pulumi.StringArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
-	IsRoutingPreferenceInternet pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// List of all p2s connection configurations of the gateway.
-	P2SConnectionConfigurations P2SConnectionConfigurationResponseArrayInput
-	// The provisioning state of the P2S VPN gateway resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The VirtualHub to which the gateway belongs.
-	VirtualHub SubResourceResponsePtrInput
-	// All P2S VPN clients' connection health status.
-	VpnClientConnectionHealth VpnClientConnectionHealthResponsePtrInput
-	// The scale unit for this p2s vpn gateway.
-	VpnGatewayScaleUnit pulumi.IntPtrInput
-	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
-	VpnServerConfiguration SubResourceResponsePtrInput
 }
 
 func (P2sVpnGatewayState) ElementType() reflect.Type {

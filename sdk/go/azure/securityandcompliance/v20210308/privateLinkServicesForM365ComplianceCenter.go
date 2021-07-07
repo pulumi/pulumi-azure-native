@@ -85,45 +85,9 @@ func GetPrivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkServicesForM365ComplianceCenter resources.
 type privateLinkServicesForM365ComplianceCenterState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind *string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The common properties of a service.
-	Properties *ServicesPropertiesResponse `pulumi:"properties"`
-	// Required property for system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateLinkServicesForM365ComplianceCenterState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServicesResourceResponseIdentityPtrInput
-	// The kind of the service.
-	Kind pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesResponsePtrInput
-	// Required property for system data
-	SystemData SystemDataResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateLinkServicesForM365ComplianceCenterState) ElementType() reflect.Type {

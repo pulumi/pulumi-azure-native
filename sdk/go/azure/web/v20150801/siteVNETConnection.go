@@ -147,55 +147,9 @@ func GetSiteVNETConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteVNETConnection resources.
 type siteVNETConnectionState struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// The client certificate thumbprint
-	CertThumbprint *string `pulumi:"certThumbprint"`
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Flag to determine if a resync is required
-	ResyncRequired *bool `pulumi:"resyncRequired"`
-	// The routes that this virtual network connection uses.
-	Routes []VnetRouteResponse `pulumi:"routes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The vnet resource id
-	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
 
 type SiteVNETConnectionState struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrInput
-	// The client certificate thumbprint
-	CertThumbprint pulumi.StringPtrInput
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Flag to determine if a resync is required
-	ResyncRequired pulumi.BoolPtrInput
-	// The routes that this virtual network connection uses.
-	Routes VnetRouteResponseArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The vnet resource id
-	VnetResourceId pulumi.StringPtrInput
 }
 
 func (SiteVNETConnectionState) ElementType() reflect.Type {

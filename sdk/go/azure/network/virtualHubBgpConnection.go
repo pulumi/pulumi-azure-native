@@ -109,37 +109,9 @@ func GetVirtualHubBgpConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHubBgpConnection resources.
 type virtualHubBgpConnectionState struct {
-	// The current state of the VirtualHub to Peer.
-	ConnectionState *string `pulumi:"connectionState"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Name of the connection.
-	Name *string `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn *float64 `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp *string `pulumi:"peerIp"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Connection type.
-	Type *string `pulumi:"type"`
 }
 
 type VirtualHubBgpConnectionState struct {
-	// The current state of the VirtualHub to Peer.
-	ConnectionState pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Name of the connection.
-	Name pulumi.StringPtrInput
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrInput
-	// Peer IP.
-	PeerIp pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Connection type.
-	Type pulumi.StringPtrInput
 }
 
 func (VirtualHubBgpConnectionState) ElementType() reflect.Type {

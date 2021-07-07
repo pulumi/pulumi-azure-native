@@ -95,57 +95,9 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// List of activities in pipeline.
-	Activities []interface{} `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations []interface{} `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency *int `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description *string `pulumi:"description"`
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder *PipelineResponseFolder `pulumi:"folder"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
-	// Pipeline Policy.
-	Policy *PipelinePolicyResponse `pulumi:"policy"`
-	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
-	// The resource type.
-	Type *string `pulumi:"type"`
-	// List of variables for pipeline.
-	Variables map[string]VariableSpecificationResponse `pulumi:"variables"`
 }
 
 type PipelineState struct {
-	// List of activities in pipeline.
-	Activities pulumi.ArrayInput
-	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.ArrayInput
-	// The max number of concurrent runs for the pipeline.
-	Concurrency pulumi.IntPtrInput
-	// The description of the pipeline.
-	Description pulumi.StringPtrInput
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder PipelineResponseFolderPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// List of parameters for pipeline.
-	Parameters ParameterSpecificationResponseMapInput
-	// Pipeline Policy.
-	Policy PipelinePolicyResponsePtrInput
-	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.MapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
-	// List of variables for pipeline.
-	Variables VariableSpecificationResponseMapInput
 }
 
 func (PipelineState) ElementType() reflect.Type {

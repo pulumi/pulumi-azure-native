@@ -89,21 +89,9 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Properties of the certificate resource payload.
-	Properties *CertificatePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Properties of the certificate resource payload.
-	Properties CertificatePropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {

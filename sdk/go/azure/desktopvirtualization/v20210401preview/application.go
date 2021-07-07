@@ -165,73 +165,9 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// Resource Type of Application.
-	ApplicationType *string `pulumi:"applicationType"`
-	// Command Line Arguments for Application.
-	CommandLineArguments *string `pulumi:"commandLineArguments"`
-	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-	CommandLineSetting *string `pulumi:"commandLineSetting"`
-	// Description of Application.
-	Description *string `pulumi:"description"`
-	// Specifies a path for the executable file for the application.
-	FilePath *string `pulumi:"filePath"`
-	// Friendly name of Application.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// the icon a 64 bit string as a byte array.
-	IconContent *string `pulumi:"iconContent"`
-	// Hash of the icon.
-	IconHash *string `pulumi:"iconHash"`
-	// Index of the icon.
-	IconIndex *int `pulumi:"iconIndex"`
-	// Path to icon.
-	IconPath *string `pulumi:"iconPath"`
-	// Specifies the package application Id for MSIX applications
-	MsixPackageApplicationId *string `pulumi:"msixPackageApplicationId"`
-	// Specifies the package family name for MSIX applications
-	MsixPackageFamilyName *string `pulumi:"msixPackageFamilyName"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// ObjectId of Application. (internal use)
-	ObjectId *string `pulumi:"objectId"`
-	// Specifies whether to show the RemoteApp program in the RD Web Access server.
-	ShowInPortal *bool `pulumi:"showInPortal"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ApplicationState struct {
-	// Resource Type of Application.
-	ApplicationType pulumi.StringPtrInput
-	// Command Line Arguments for Application.
-	CommandLineArguments pulumi.StringPtrInput
-	// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-	CommandLineSetting pulumi.StringPtrInput
-	// Description of Application.
-	Description pulumi.StringPtrInput
-	// Specifies a path for the executable file for the application.
-	FilePath pulumi.StringPtrInput
-	// Friendly name of Application.
-	FriendlyName pulumi.StringPtrInput
-	// the icon a 64 bit string as a byte array.
-	IconContent pulumi.StringPtrInput
-	// Hash of the icon.
-	IconHash pulumi.StringPtrInput
-	// Index of the icon.
-	IconIndex pulumi.IntPtrInput
-	// Path to icon.
-	IconPath pulumi.StringPtrInput
-	// Specifies the package application Id for MSIX applications
-	MsixPackageApplicationId pulumi.StringPtrInput
-	// Specifies the package family name for MSIX applications
-	MsixPackageFamilyName pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// ObjectId of Application. (internal use)
-	ObjectId pulumi.StringPtrInput
-	// Specifies whether to show the RemoteApp program in the RD Web Access server.
-	ShowInPortal pulumi.BoolPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

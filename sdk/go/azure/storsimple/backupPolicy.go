@@ -91,49 +91,9 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-	BackupPolicyCreationType *string `pulumi:"backupPolicyCreationType"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The time of the last backup for the backup policy.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// The name of the object.
-	Name *string `pulumi:"name"`
-	// The time of the next backup for the backup policy.
-	NextBackupTime *string `pulumi:"nextBackupTime"`
-	// Indicates whether at least one of the schedules in the backup policy is active or not.
-	ScheduledBackupStatus *string `pulumi:"scheduledBackupStatus"`
-	// The count of schedules the backup policy contains.
-	SchedulesCount *float64 `pulumi:"schedulesCount"`
-	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-	SsmHostName *string `pulumi:"ssmHostName"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
-	// The path IDs of the volumes which are part of the backup policy.
-	VolumeIds []string `pulumi:"volumeIds"`
 }
 
 type BackupPolicyState struct {
-	// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-	BackupPolicyCreationType pulumi.StringPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
-	// The time of the last backup for the backup policy.
-	LastBackupTime pulumi.StringPtrInput
-	// The name of the object.
-	Name pulumi.StringPtrInput
-	// The time of the next backup for the backup policy.
-	NextBackupTime pulumi.StringPtrInput
-	// Indicates whether at least one of the schedules in the backup policy is active or not.
-	ScheduledBackupStatus pulumi.StringPtrInput
-	// The count of schedules the backup policy contains.
-	SchedulesCount pulumi.Float64PtrInput
-	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-	SsmHostName pulumi.StringPtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
-	// The path IDs of the volumes which are part of the backup policy.
-	VolumeIds pulumi.StringArrayInput
 }
 
 func (BackupPolicyState) ElementType() reflect.Type {

@@ -113,77 +113,9 @@ func GetKustoPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KustoPool resources.
 type kustoPoolState struct {
-	// The Kusto Pool data ingestion URI.
-	DataIngestionUri *string `pulumi:"dataIngestionUri"`
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// List of the Kusto Pool's language extensions.
-	LanguageExtensions *LanguageExtensionsListResponse `pulumi:"languageExtensions"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Optimized auto scale definition.
-	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the kusto pool.
-	Sku *AzureSkuResponse `pulumi:"sku"`
-	// The state of the resource.
-	State *string `pulumi:"state"`
-	// The reason for the Kusto Pool's current state.
-	StateReason *string `pulumi:"stateReason"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The Kusto Pool URI.
-	Uri *string `pulumi:"uri"`
-	// The workspace unique identifier.
-	WorkspaceUID *string `pulumi:"workspaceUID"`
 }
 
 type KustoPoolState struct {
-	// The Kusto Pool data ingestion URI.
-	DataIngestionUri pulumi.StringPtrInput
-	// A boolean value that indicates if the purge operations are enabled.
-	EnablePurge pulumi.BoolPtrInput
-	// A boolean value that indicates if the streaming ingest is enabled.
-	EnableStreamingIngest pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// List of the Kusto Pool's language extensions.
-	LanguageExtensions LanguageExtensionsListResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Optimized auto scale definition.
-	OptimizedAutoscale OptimizedAutoscaleResponsePtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the kusto pool.
-	Sku AzureSkuResponsePtrInput
-	// The state of the resource.
-	State pulumi.StringPtrInput
-	// The reason for the Kusto Pool's current state.
-	StateReason pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The Kusto Pool URI.
-	Uri pulumi.StringPtrInput
-	// The workspace unique identifier.
-	WorkspaceUID pulumi.StringPtrInput
 }
 
 func (KustoPoolState) ElementType() reflect.Type {

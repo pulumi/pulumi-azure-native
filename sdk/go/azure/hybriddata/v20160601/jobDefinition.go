@@ -105,53 +105,9 @@ func GetJobDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobDefinition resources.
 type jobDefinitionState struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
-	// A generic json used differently by each data service type.
-	DataServiceInput interface{} `pulumi:"dataServiceInput"`
-	// Data Sink Id associated to the job definition.
-	DataSinkId *string `pulumi:"dataSinkId"`
-	// Data Source Id associated to the job definition.
-	DataSourceId *string `pulumi:"dataSourceId"`
-	// Last modified time of the job definition.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Name of the object.
-	Name *string `pulumi:"name"`
-	// This is the preferred geo location for the job to run.
-	RunLocation *string `pulumi:"runLocation"`
-	// Schedule for running the job definition
-	Schedules []ScheduleResponse `pulumi:"schedules"`
-	// State of the job definition.
-	State *string `pulumi:"state"`
-	// Type of the object.
-	Type *string `pulumi:"type"`
-	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation *string `pulumi:"userConfirmation"`
 }
 
 type JobDefinitionState struct {
-	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets CustomerSecretResponseArrayInput
-	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.Input
-	// Data Sink Id associated to the job definition.
-	DataSinkId pulumi.StringPtrInput
-	// Data Source Id associated to the job definition.
-	DataSourceId pulumi.StringPtrInput
-	// Last modified time of the job definition.
-	LastModifiedTime pulumi.StringPtrInput
-	// Name of the object.
-	Name pulumi.StringPtrInput
-	// This is the preferred geo location for the job to run.
-	RunLocation pulumi.StringPtrInput
-	// Schedule for running the job definition
-	Schedules ScheduleResponseArrayInput
-	// State of the job definition.
-	State pulumi.StringPtrInput
-	// Type of the object.
-	Type pulumi.StringPtrInput
-	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation pulumi.StringPtrInput
 }
 
 func (JobDefinitionState) ElementType() reflect.Type {

@@ -196,45 +196,9 @@ func GetExpressRouteGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteGateway resources.
 type expressRouteGatewayState struct {
-	// Configuration for auto scaling.
-	AutoScaleConfiguration *ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// List of ExpressRoute connections to the ExpressRoute gateway.
-	ExpressRouteConnections []ExpressRouteConnectionResponse `pulumi:"expressRouteConnections"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the express route gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-	VirtualHub *VirtualHubIdResponse `pulumi:"virtualHub"`
 }
 
 type ExpressRouteGatewayState struct {
-	// Configuration for auto scaling.
-	AutoScaleConfiguration ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// List of ExpressRoute connections to the ExpressRoute gateway.
-	ExpressRouteConnections ExpressRouteConnectionResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the express route gateway resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-	VirtualHub VirtualHubIdResponsePtrInput
 }
 
 func (ExpressRouteGatewayState) ElementType() reflect.Type {

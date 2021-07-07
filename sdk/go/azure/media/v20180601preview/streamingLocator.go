@@ -116,53 +116,9 @@ func GetStreamingLocator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingLocator resources.
 type streamingLocatorState struct {
-	// An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// Asset Name
-	AssetName *string `pulumi:"assetName"`
-	// ContentKeys used by this Streaming Locator
-	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
-	// Creation time of Streaming Locator
-	Created *string `pulumi:"created"`
-	// Default ContentKeyPolicy used by this Streaming Locator
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// EndTime of Streaming Locator
-	EndTime *string `pulumi:"endTime"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// StartTime of Streaming Locator
-	StartTime *string `pulumi:"startTime"`
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type StreamingLocatorState struct {
-	// An Alternative Media Identifier associated with the StreamingLocator.  This identifier can be used to distinguish different StreamingLocators for the same Asset for authorization purposes in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-	AlternativeMediaId pulumi.StringPtrInput
-	// Asset Name
-	AssetName pulumi.StringPtrInput
-	// ContentKeys used by this Streaming Locator
-	ContentKeys StreamingLocatorContentKeyResponseArrayInput
-	// Creation time of Streaming Locator
-	Created pulumi.StringPtrInput
-	// Default ContentKeyPolicy used by this Streaming Locator
-	DefaultContentKeyPolicyName pulumi.StringPtrInput
-	// EndTime of Streaming Locator
-	EndTime pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// StartTime of Streaming Locator
-	StartTime pulumi.StringPtrInput
-	// StreamingLocatorId of Streaming Locator
-	StreamingLocatorId pulumi.StringPtrInput
-	// Streaming policy name used by this streaming locator. Either specify the name of streaming policy you created or use one of the predefined streaming polices. The predefined streaming policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_SecureStreaming' and 'Predefined_SecureStreamingWithFairPlay'
-	StreamingPolicyName pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (StreamingLocatorState) ElementType() reflect.Type {

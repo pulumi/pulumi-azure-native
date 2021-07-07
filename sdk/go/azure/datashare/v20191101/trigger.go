@@ -96,21 +96,9 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// Kind of synchronization on trigger.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type TriggerState struct {
-	// Kind of synchronization on trigger.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (TriggerState) ElementType() reflect.Type {

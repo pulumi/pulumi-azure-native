@@ -117,61 +117,9 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
-	CorrelationData map[string]string `pulumi:"correlationData"`
-	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created *string `pulumi:"created"`
-	// Optional customer supplied description of the Job.
-	Description *string `pulumi:"description"`
-	// The UTC date and time at which this Job finished processing.
-	EndTime *string `pulumi:"endTime"`
-	// The inputs for the Job.
-	Input interface{} `pulumi:"input"`
-	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified *string `pulumi:"lastModified"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The outputs for the Job.
-	Outputs []JobOutputAssetResponse `pulumi:"outputs"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-	Priority *string `pulumi:"priority"`
-	// The UTC date and time at which this Job began processing.
-	StartTime *string `pulumi:"startTime"`
-	// The current state of the job.
-	State *string `pulumi:"state"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
-	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
-	CorrelationData pulumi.StringMapInput
-	// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created pulumi.StringPtrInput
-	// Optional customer supplied description of the Job.
-	Description pulumi.StringPtrInput
-	// The UTC date and time at which this Job finished processing.
-	EndTime pulumi.StringPtrInput
-	// The inputs for the Job.
-	Input pulumi.Input
-	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The outputs for the Job.
-	Outputs JobOutputAssetResponseArrayInput
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-	Priority pulumi.StringPtrInput
-	// The UTC date and time at which this Job began processing.
-	StartTime pulumi.StringPtrInput
-	// The current state of the job.
-	State pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {

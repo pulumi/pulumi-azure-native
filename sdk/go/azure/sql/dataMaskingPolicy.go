@@ -84,41 +84,9 @@ func GetDataMaskingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataMaskingPolicy resources.
 type dataMaskingPolicyState struct {
-	// The list of the application principals. This is a legacy parameter and is no longer used.
-	ApplicationPrincipals *string `pulumi:"applicationPrincipals"`
-	// The state of the data masking policy.
-	DataMaskingState *string `pulumi:"dataMaskingState"`
-	// The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
-	ExemptPrincipals *string `pulumi:"exemptPrincipals"`
-	// The kind of data masking policy. Metadata, used for Azure portal.
-	Kind *string `pulumi:"kind"`
-	// The location of the data masking policy.
-	Location *string `pulumi:"location"`
-	// The masking level. This is a legacy parameter and is no longer used.
-	MaskingLevel *string `pulumi:"maskingLevel"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DataMaskingPolicyState struct {
-	// The list of the application principals. This is a legacy parameter and is no longer used.
-	ApplicationPrincipals pulumi.StringPtrInput
-	// The state of the data masking policy.
-	DataMaskingState pulumi.StringPtrInput
-	// The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
-	ExemptPrincipals pulumi.StringPtrInput
-	// The kind of data masking policy. Metadata, used for Azure portal.
-	Kind pulumi.StringPtrInput
-	// The location of the data masking policy.
-	Location pulumi.StringPtrInput
-	// The masking level. This is a legacy parameter and is no longer used.
-	MaskingLevel pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DataMaskingPolicyState) ElementType() reflect.Type {

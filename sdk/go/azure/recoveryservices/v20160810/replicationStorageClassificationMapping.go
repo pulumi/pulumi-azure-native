@@ -108,25 +108,9 @@ func GetReplicationStorageClassificationMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationStorageClassificationMapping resources.
 type replicationStorageClassificationMappingState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Properties of the storage mapping object.
-	Properties *StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationStorageClassificationMappingState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Properties of the storage mapping object.
-	Properties StorageClassificationMappingPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationStorageClassificationMappingState) ElementType() reflect.Type {

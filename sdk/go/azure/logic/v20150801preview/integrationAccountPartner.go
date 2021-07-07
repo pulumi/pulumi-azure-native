@@ -99,45 +99,9 @@ func GetIntegrationAccountPartner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountPartner resources.
 type integrationAccountPartnerState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The partner content.
-	Content *PartnerContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The partner type.
-	PartnerType *string `pulumi:"partnerType"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountPartnerState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The partner content.
-	Content PartnerContentResponsePtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The partner type.
-	PartnerType pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountPartnerState) ElementType() reflect.Type {

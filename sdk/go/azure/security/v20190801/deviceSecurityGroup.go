@@ -79,33 +79,9 @@ func GetDeviceSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeviceSecurityGroup resources.
 type deviceSecurityGroupState struct {
-	// The allow-list custom alert rules.
-	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
-	// The deny-list custom alert rules.
-	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The list of custom alert threshold rules.
-	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
-	// The list of custom alert time-window rules.
-	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type DeviceSecurityGroupState struct {
-	// The allow-list custom alert rules.
-	AllowlistRules AllowlistCustomAlertRuleResponseArrayInput
-	// The deny-list custom alert rules.
-	DenylistRules DenylistCustomAlertRuleResponseArrayInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The list of custom alert threshold rules.
-	ThresholdRules ThresholdCustomAlertRuleResponseArrayInput
-	// The list of custom alert time-window rules.
-	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DeviceSecurityGroupState) ElementType() reflect.Type {

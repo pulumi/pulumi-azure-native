@@ -73,25 +73,9 @@ func GetIotSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotSite resources.
 type iotSiteState struct {
-	// Display name of the IoT site
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Tags of the IoT site
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type IotSiteState struct {
-	// Display name of the IoT site
-	DisplayName pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Tags of the IoT site
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IotSiteState) ElementType() reflect.Type {

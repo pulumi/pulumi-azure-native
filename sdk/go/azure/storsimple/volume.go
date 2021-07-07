@@ -101,57 +101,9 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// The IDs of the access control records, associated with the volume.
-	AccessControlRecordIds []string `pulumi:"accessControlRecordIds"`
-	// The IDs of the backup policies, in which this volume is part of.
-	BackupPolicyIds []string `pulumi:"backupPolicyIds"`
-	// The backup status of the volume.
-	BackupStatus *string `pulumi:"backupStatus"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The monitoring status of the volume.
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// The name of the object.
-	Name *string `pulumi:"name"`
-	// The operation status on the volume.
-	OperationStatus *string `pulumi:"operationStatus"`
-	// The size of the volume in bytes.
-	SizeInBytes *float64 `pulumi:"sizeInBytes"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
-	// The ID of the volume container, in which this volume is created.
-	VolumeContainerId *string `pulumi:"volumeContainerId"`
-	// The volume status.
-	VolumeStatus *string `pulumi:"volumeStatus"`
-	// The type of the volume.
-	VolumeType *string `pulumi:"volumeType"`
 }
 
 type VolumeState struct {
-	// The IDs of the access control records, associated with the volume.
-	AccessControlRecordIds pulumi.StringArrayInput
-	// The IDs of the backup policies, in which this volume is part of.
-	BackupPolicyIds pulumi.StringArrayInput
-	// The backup status of the volume.
-	BackupStatus pulumi.StringPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
-	// The monitoring status of the volume.
-	MonitoringStatus pulumi.StringPtrInput
-	// The name of the object.
-	Name pulumi.StringPtrInput
-	// The operation status on the volume.
-	OperationStatus pulumi.StringPtrInput
-	// The size of the volume in bytes.
-	SizeInBytes pulumi.Float64PtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
-	// The ID of the volume container, in which this volume is created.
-	VolumeContainerId pulumi.StringPtrInput
-	// The volume status.
-	VolumeStatus pulumi.StringPtrInput
-	// The type of the volume.
-	VolumeType pulumi.StringPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {

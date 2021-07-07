@@ -159,49 +159,9 @@ func GetAvailabilitySet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AvailabilitySet resources.
 type availabilitySetState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// If the availability set supports managed disks.
-	Managed *bool `pulumi:"managed"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Fault Domain count.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// Sku of the availability set
-	Sku *SkuResponse `pulumi:"sku"`
-	// The resource status information.
-	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
 }
 
 type AvailabilitySetState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// If the availability set supports managed disks.
-	Managed pulumi.BoolPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Update Domain count.
-	PlatformUpdateDomainCount pulumi.IntPtrInput
-	// Sku of the availability set
-	Sku SkuResponsePtrInput
-	// The resource status information.
-	Statuses InstanceViewStatusResponseArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceResponseArrayInput
 }
 
 func (AvailabilitySetState) ElementType() reflect.Type {

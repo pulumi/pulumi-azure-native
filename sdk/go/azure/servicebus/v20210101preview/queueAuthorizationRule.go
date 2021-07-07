@@ -102,25 +102,9 @@ func GetQueueAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueueAuthorizationRule resources.
 type queueAuthorizationRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type QueueAuthorizationRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (QueueAuthorizationRuleState) ElementType() reflect.Type {

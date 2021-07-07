@@ -79,33 +79,9 @@ func GetGeoBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeoBackupPolicy resources.
 type geoBackupPolicyState struct {
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// Backup policy location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the geo backup policy.
-	State *string `pulumi:"state"`
-	// The storage type of the geo backup policy.
-	StorageType *string `pulumi:"storageType"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type GeoBackupPolicyState struct {
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind pulumi.StringPtrInput
-	// Backup policy location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the geo backup policy.
-	State pulumi.StringPtrInput
-	// The storage type of the geo backup policy.
-	StorageType pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (GeoBackupPolicyState) ElementType() reflect.Type {

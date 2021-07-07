@@ -79,21 +79,9 @@ func GetAccessControlRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessControlRecord resources.
 type accessControlRecordState struct {
-	// The Iscsi initiator name (IQN)
-	InitiatorName *string `pulumi:"initiatorName"`
-	// The name.
-	Name *string `pulumi:"name"`
-	// The type.
-	Type *string `pulumi:"type"`
 }
 
 type AccessControlRecordState struct {
-	// The Iscsi initiator name (IQN)
-	InitiatorName pulumi.StringPtrInput
-	// The name.
-	Name pulumi.StringPtrInput
-	// The type.
-	Type pulumi.StringPtrInput
 }
 
 func (AccessControlRecordState) ElementType() reflect.Type {

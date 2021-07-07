@@ -117,51 +117,9 @@ func GetIoTAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoTAddon resources.
 type ioTAddonState struct {
-	// Host OS supported by the IoT addon.
-	HostPlatform *string `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType *string `pulumi:"hostPlatformType"`
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails *IoTDeviceInfoResponse `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT Addon needs to be configured.
-	IoTEdgeDeviceDetails *IoTDeviceInfoResponse `pulumi:"ioTEdgeDeviceDetails"`
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Addon Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Addon type
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
-	// Version of IoT running on the appliance.
-	Version *string `pulumi:"version"`
 }
 
 type IoTAddonState struct {
-	// Host OS supported by the IoT addon.
-	HostPlatform pulumi.StringPtrInput
-	// Platform where the runtime is hosted.
-	HostPlatformType pulumi.StringPtrInput
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponsePtrInput
-	// IoT edge device to which the IoT Addon needs to be configured.
-	IoTEdgeDeviceDetails IoTDeviceInfoResponsePtrInput
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Addon Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// Addon type
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
-	// Version of IoT running on the appliance.
-	Version pulumi.StringPtrInput
 }
 
 func (IoTAddonState) ElementType() reflect.Type {

@@ -115,33 +115,9 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// Endpoint for the domain.
-	Endpoint *string `pulumi:"endpoint"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// Provisioning state of the domain.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type DomainState struct {
-	// Endpoint for the domain.
-	Endpoint pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// Provisioning state of the domain.
-	ProvisioningState pulumi.StringPtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {

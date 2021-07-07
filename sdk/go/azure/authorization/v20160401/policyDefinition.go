@@ -121,29 +121,9 @@ func GetPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyDefinition resources.
 type policyDefinitionState struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name *string `pulumi:"name"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
 }
 
 type PolicyDefinitionState struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name pulumi.StringPtrInput
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionState) ElementType() reflect.Type {

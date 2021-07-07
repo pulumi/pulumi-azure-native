@@ -110,41 +110,9 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
-	// BlobEndpoint of Storage Account
-	BlobEndpoint *string `pulumi:"blobEndpoint"`
-	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-	ContainerCount *int `pulumi:"containerCount"`
-	// Data policy of the storage Account.
-	DataPolicy *string `pulumi:"dataPolicy"`
-	// Description for the storage Account.
-	Description *string `pulumi:"description"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Storage Account Credential Id
-	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
-	// Current status of the storage account
-	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
-	// BlobEndpoint of Storage Account
-	BlobEndpoint pulumi.StringPtrInput
-	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-	ContainerCount pulumi.IntPtrInput
-	// Data policy of the storage Account.
-	DataPolicy pulumi.StringPtrInput
-	// Description for the storage Account.
-	Description pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Storage Account Credential Id
-	StorageAccountCredentialId pulumi.StringPtrInput
-	// Current status of the storage account
-	StorageAccountStatus pulumi.StringPtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountState) ElementType() reflect.Type {

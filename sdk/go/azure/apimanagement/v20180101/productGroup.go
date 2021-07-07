@@ -127,33 +127,9 @@ func GetProductGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProductGroup resources.
 type productGroupState struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn *bool `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Group name.
-	DisplayName *string `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId *string `pulumi:"externalId"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type ProductGroupState struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn pulumi.BoolPtrInput
-	// Group description. Can contain HTML formatting tags.
-	Description pulumi.StringPtrInput
-	// Group name.
-	DisplayName pulumi.StringPtrInput
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ProductGroupState) ElementType() reflect.Type {

@@ -99,49 +99,9 @@ func GetSourceControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceControl resources.
 type sourceControlState struct {
-	// Array of source control content types.
-	ContentTypes []string `pulumi:"contentTypes"`
-	// A description of the source control
-	Description *string `pulumi:"description"`
-	// The display name of the source control
-	DisplayName *string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The repository type of the source control
-	RepoType *string `pulumi:"repoType"`
-	// Repository metadata.
-	Repository *RepositoryResponse `pulumi:"repository"`
-	// The id (a Guid) of the source control
-	SourceControlId *string `pulumi:"sourceControlId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type SourceControlState struct {
-	// Array of source control content types.
-	ContentTypes pulumi.StringArrayInput
-	// A description of the source control
-	Description pulumi.StringPtrInput
-	// The display name of the source control
-	DisplayName pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The repository type of the source control
-	RepoType pulumi.StringPtrInput
-	// Repository metadata.
-	Repository RepositoryResponsePtrInput
-	// The id (a Guid) of the source control
-	SourceControlId pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SourceControlState) ElementType() reflect.Type {

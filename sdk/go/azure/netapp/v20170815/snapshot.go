@@ -195,37 +195,9 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// The creation date of the snapshot
-	CreationDate *string `pulumi:"creationDate"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId *string `pulumi:"snapshotId"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SnapshotState struct {
-	// The creation date of the snapshot
-	CreationDate pulumi.StringPtrInput
-	// UUID v4 used to identify the FileSystem
-	FileSystemId pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// UUID v4 used to identify the Snapshot
-	SnapshotId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {

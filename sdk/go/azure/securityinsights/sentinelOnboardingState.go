@@ -78,29 +78,9 @@ func GetSentinelOnboardingState(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SentinelOnboardingState resources.
 type sentinelOnboardingStateState struct {
-	// Flag that indicates the status of the CMK setting
-	CustomerManagedKey *bool `pulumi:"customerManagedKey"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type SentinelOnboardingStateState struct {
-	// Flag that indicates the status of the CMK setting
-	CustomerManagedKey pulumi.BoolPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SentinelOnboardingStateState) ElementType() reflect.Type {

@@ -89,45 +89,9 @@ func GetOrderItemByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrderItemByName resources.
 type orderItemByNameState struct {
-	// Represents shipping and return address for order item
-	AddressDetails *AddressDetailsResponse `pulumi:"addressDetails"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Id of the order to which order item belongs to
-	OrderId *string `pulumi:"orderId"`
-	// Represents order item details.
-	OrderItemDetails *OrderItemDetailsResponse `pulumi:"orderItemDetails"`
-	// Start time of order item
-	StartTime *string `pulumi:"startTime"`
-	// Represents resource creation and update time
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type OrderItemByNameState struct {
-	// Represents shipping and return address for order item
-	AddressDetails AddressDetailsResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Id of the order to which order item belongs to
-	OrderId pulumi.StringPtrInput
-	// Represents order item details.
-	OrderItemDetails OrderItemDetailsResponsePtrInput
-	// Start time of order item
-	StartTime pulumi.StringPtrInput
-	// Represents resource creation and update time
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (OrderItemByNameState) ElementType() reflect.Type {
