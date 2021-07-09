@@ -633,14 +633,16 @@ class GuestConfigurationNavigationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "contentHash":
-            suggest = "content_hash"
-        elif key == "contentUri":
-            suggest = "content_uri"
+        if key == "assignmentType":
+            suggest = "assignment_type"
         elif key == "configurationParameter":
             suggest = "configuration_parameter"
         elif key == "configurationSetting":
             suggest = "configuration_setting"
+        elif key == "contentHash":
+            suggest = "content_hash"
+        elif key == "contentUri":
+            suggest = "content_uri"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GuestConfigurationNavigationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -654,29 +656,35 @@ class GuestConfigurationNavigationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_hash: str,
-                 content_uri: str,
+                 assignment_type: Optional[str] = None,
                  configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
+                 content_hash: Optional[str] = None,
+                 content_uri: Optional[str] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
-        :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
-        :param str content_uri: Uri of the storage where guest configuration package is uploaded.
+        :param str assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
+        :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
+        :param str content_uri: Uri of the storage where guest configuration package is uploaded.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
-        pulumi.set(__self__, "content_hash", content_hash)
-        pulumi.set(__self__, "content_uri", content_uri)
+        if assignment_type is not None:
+            pulumi.set(__self__, "assignment_type", assignment_type)
         if configuration_parameter is not None:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
         if configuration_setting is not None:
             pulumi.set(__self__, "configuration_setting", configuration_setting)
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
+        if content_uri is not None:
+            pulumi.set(__self__, "content_uri", content_uri)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if name is not None:
@@ -685,20 +693,12 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="contentHash")
-    def content_hash(self) -> str:
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[str]:
         """
-        Combined hash of the guest configuration package and configuration parameters.
+        Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         """
-        return pulumi.get(self, "content_hash")
-
-    @property
-    @pulumi.getter(name="contentUri")
-    def content_uri(self) -> str:
-        """
-        Uri of the storage where guest configuration package is uploaded.
-        """
-        return pulumi.get(self, "content_uri")
+        return pulumi.get(self, "assignment_type")
 
     @property
     @pulumi.getter(name="configurationParameter")
@@ -715,6 +715,22 @@ class GuestConfigurationNavigationResponse(dict):
         The configuration setting for the guest configuration.
         """
         return pulumi.get(self, "configuration_setting")
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[str]:
+        """
+        Combined hash of the guest configuration package and configuration parameters.
+        """
+        return pulumi.get(self, "content_hash")
+
+    @property
+    @pulumi.getter(name="contentUri")
+    def content_uri(self) -> Optional[str]:
+        """
+        Uri of the storage where guest configuration package is uploaded.
+        """
+        return pulumi.get(self, "content_uri")
 
     @property
     @pulumi.getter

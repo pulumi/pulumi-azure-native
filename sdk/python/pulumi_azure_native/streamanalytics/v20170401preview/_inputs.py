@@ -52,6 +52,9 @@ __all__ = [
     'OutputArgs',
     'ParquetSerializationArgs',
     'PowerBIOutputDataSourceArgs',
+    'RawOutputDatasourceArgs',
+    'RawReferenceInputDataSourceArgs',
+    'RawStreamInputDataSourceArgs',
     'ReferenceInputPropertiesArgs',
     'ScalarFunctionPropertiesArgs',
     'ServiceBusQueueOutputDataSourceArgs',
@@ -1066,6 +1069,7 @@ class AzureSqlReferenceInputDataSourceArgs:
         Describes an Azure SQL database reference input data source.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/Database'.
+        :param pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs'] properties: Describes Azure SQL database reference input data source properties.
         """
         pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
         if properties is not None:
@@ -1087,6 +1091,9 @@ class AzureSqlReferenceInputDataSourceArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['AzureSqlReferenceInputDataSourcePropertiesArgs']]:
+        """
+        Describes Azure SQL database reference input data source properties.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -1107,6 +1114,7 @@ class AzureSqlReferenceInputDataSourcePropertiesArgs:
                  table: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None):
         """
+        Describes Azure SQL database reference input data source properties.
         :param pulumi.Input[str] database: This element is associated with the datasource element. This is the name of the database that output will be written to.
         :param pulumi.Input[str] delta_snapshot_query: This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
         :param pulumi.Input[str] full_snapshot_query: This element is associated with the datasource element. This query is used to fetch data from the sql database.
@@ -3207,14 +3215,14 @@ class JsonSerializationArgs:
 @pulumi.input_type
 class OutputArgs:
     def __init__(__self__, *,
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[float]] = None,
                  time_window: Optional[pulumi.Input[str]] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -3231,14 +3239,14 @@ class OutputArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -3463,11 +3471,166 @@ class PowerBIOutputDataSourceArgs:
 
 
 @pulumi.input_type
+class RawOutputDatasourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 payload_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+        :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param pulumi.Input[str] payload_uri: The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+        """
+        return pulumi.get(self, "payload_uri")
+
+    @payload_uri.setter
+    def payload_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload_uri", value)
+
+
+@pulumi.input_type
+class RawReferenceInputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 payload: Optional[pulumi.Input[str]] = None,
+                 payload_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+        :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param pulumi.Input[str] payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        :param pulumi.Input[str] payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload", value)
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        return pulumi.get(self, "payload_uri")
+
+    @payload_uri.setter
+    def payload_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload_uri", value)
+
+
+@pulumi.input_type
+class RawStreamInputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 payload: Optional[pulumi.Input[str]] = None,
+                 payload_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+        :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param pulumi.Input[str] payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        :param pulumi.Input[str] payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload", value)
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        return pulumi.get(self, "payload_uri")
+
+    @payload_uri.setter
+    def payload_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "payload_uri", value)
+
+
+@pulumi.input_type
 class ReferenceInputPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
-                 datasource: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None):
         """
@@ -3475,7 +3638,7 @@ class ReferenceInputPropertiesArgs:
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Reference'.
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
-        :param pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs']] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -3516,14 +3679,14 @@ class ReferenceInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']]]:
         """
         Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -3931,7 +4094,7 @@ class StreamInputPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
-                 datasource: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None):
         """
@@ -3939,7 +4102,7 @@ class StreamInputPropertiesArgs:
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
-        :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -3980,14 +4143,14 @@ class StreamInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]:
         """
         Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property

@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ProtectionIntent"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ProtectionIntent"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ProtectionIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ActionAfterReboot',
+    'AssignmentType',
     'ConfigurationMode',
     'Kind',
 ]
@@ -17,6 +18,16 @@ class ActionAfterReboot(str, Enum):
     """
     CONTINUE_CONFIGURATION = "ContinueConfiguration"
     STOP_CONFIGURATION = "StopConfiguration"
+
+
+class AssignmentType(str, Enum):
+    """
+    Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+    """
+    AUDIT = "Audit"
+    DEPLOY_AND_AUTO_CORRECT = "DeployAndAutoCorrect"
+    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
+    APPLY_AND_MONITOR = "ApplyAndMonitor"
 
 
 class ConfigurationMode(str, Enum):

@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
     [OutputType]
     public sealed class AzureSqlReferenceInputDataSourceResponse
     {
+        /// <summary>
+        /// Describes Azure SQL database reference input data source properties.
+        /// </summary>
         public readonly Outputs.AzureSqlReferenceInputDataSourcePropertiesResponse? Properties;
         /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.

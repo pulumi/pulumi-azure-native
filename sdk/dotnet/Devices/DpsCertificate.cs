@@ -114,6 +114,12 @@ namespace Pulumi.AzureNative.Devices
         public Input<string>? CertificateName { get; set; }
 
         /// <summary>
+        /// True indicates that the certificate will be created in verified state and proof of possession will not be required.
+        /// </summary>
+        [Input("isVerified")]
+        public Input<bool>? IsVerified { get; set; }
+
+        /// <summary>
         /// The name of the provisioning service.
         /// </summary>
         [Input("provisioningServiceName", required: true)]

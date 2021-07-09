@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
     public sealed class GuestConfigurationNavigationResponse
     {
         /// <summary>
+        /// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+        /// </summary>
+        public readonly string? AssignmentType;
+        /// <summary>
         /// The configuration parameters for the guest configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationParameterResponse> ConfigurationParameter;
@@ -24,11 +28,11 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// <summary>
         /// Combined hash of the guest configuration package and configuration parameters.
         /// </summary>
-        public readonly string ContentHash;
+        public readonly string? ContentHash;
         /// <summary>
         /// Uri of the storage where guest configuration package is uploaded.
         /// </summary>
-        public readonly string ContentUri;
+        public readonly string? ContentUri;
         /// <summary>
         /// Kind of the guest configuration. For example:DSC
         /// </summary>
@@ -44,13 +48,15 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 
         [OutputConstructor]
         private GuestConfigurationNavigationResponse(
+            string? assignmentType,
+
             ImmutableArray<Outputs.ConfigurationParameterResponse> configurationParameter,
 
             Outputs.ConfigurationSettingResponse? configurationSetting,
 
-            string contentHash,
+            string? contentHash,
 
-            string contentUri,
+            string? contentUri,
 
             string? kind,
 
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 
             string? version)
         {
+            AssignmentType = assignmentType;
             ConfigurationParameter = configurationParameter;
             ConfigurationSetting = configurationSetting;
             ContentHash = contentHash;

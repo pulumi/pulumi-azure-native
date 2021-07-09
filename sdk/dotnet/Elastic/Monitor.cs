@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Elastic
 {
     /// <summary>
     /// Monitor resource.
-    /// API Version: 2020-07-01-preview.
+    /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:Monitor")]
     public partial class Monitor : Pulumi.CustomResource

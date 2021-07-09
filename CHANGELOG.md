@@ -3,9 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-#### Updated API versions for top-level resources
-
-- `elastic` resources and functions reverted from `2020-07-01` to `2020-07-01-preview`
+(None)
 
 ---
 

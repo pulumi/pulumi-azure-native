@@ -72,6 +72,7 @@ export class DpsCertificate extends pulumi.CustomResource {
             }
             inputs["certificate"] = args ? args.certificate : undefined;
             inputs["certificateName"] = args ? args.certificateName : undefined;
+            inputs["isVerified"] = args ? args.isVerified : undefined;
             inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
@@ -105,6 +106,10 @@ export interface DpsCertificateArgs {
      * The name of the certificate create or update.
      */
     certificateName?: pulumi.Input<string>;
+    /**
+     * True indicates that the certificate will be created in verified state and proof of possession will not be required.
+     */
+    isVerified?: pulumi.Input<boolean>;
     /**
      * The name of the provisioning service.
      */

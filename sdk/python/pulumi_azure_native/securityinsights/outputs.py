@@ -787,7 +787,7 @@ class BookmarkTimelineItemResponse(dict):
         :param str event_time: The bookmark event time.
         :param Sequence[str] labels: List of labels relevant to this bookmark
         :param str notes: The notes of the bookmark
-        :param str start_time_utc: TThe bookmark start time.
+        :param str start_time_utc: The bookmark start time.
         """
         pulumi.set(__self__, "azure_resource_id", azure_resource_id)
         pulumi.set(__self__, "kind", 'Bookmark')
@@ -875,7 +875,7 @@ class BookmarkTimelineItemResponse(dict):
     @pulumi.getter(name="startTimeUtc")
     def start_time_utc(self) -> Optional[str]:
         """
-        TThe bookmark start time.
+        The bookmark start time.
         """
         return pulumi.get(self, "start_time_utc")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Elastic
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
-    /// API Version: 2020-07-01-preview.
+    /// API Version: 2020-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:TagRule")]
     public partial class TagRule : Pulumi.CustomResource

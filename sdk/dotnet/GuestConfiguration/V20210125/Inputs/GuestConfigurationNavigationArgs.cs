@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Inputs
     /// </summary>
     public sealed class GuestConfigurationNavigationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+        /// </summary>
+        [Input("assignmentType")]
+        public InputUnion<string, Pulumi.AzureNative.GuestConfiguration.V20210125.AssignmentType>? AssignmentType { get; set; }
+
         [Input("configurationParameter")]
         private InputList<Inputs.ConfigurationParameterArgs>? _configurationParameter;
 
@@ -32,6 +38,18 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Inputs
         /// </summary>
         [Input("configurationSetting")]
         public Input<Inputs.ConfigurationSettingArgs>? ConfigurationSetting { get; set; }
+
+        /// <summary>
+        /// Combined hash of the guest configuration package and configuration parameters.
+        /// </summary>
+        [Input("contentHash")]
+        public Input<string>? ContentHash { get; set; }
+
+        /// <summary>
+        /// Uri of the storage where guest configuration package is uploaded.
+        /// </summary>
+        [Input("contentUri")]
+        public Input<string>? ContentUri { get; set; }
 
         /// <summary>
         /// Kind of the guest configuration. For example:DSC

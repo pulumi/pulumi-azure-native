@@ -12031,6 +12031,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20210601",
+  "fqn": "pulumi_azure_native.recoveryservices.v20210601",
+  "classes": {
+   "azure-native:recoveryservices/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20210601:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20210601:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20210601:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20210601:ProtectionPolicy": "ProtectionPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -12968,6 +12980,25 @@ _utilities.register(
    "azure-native:servicebus/v20210101preview:Subscription": "Subscription",
    "azure-native:servicebus/v20210101preview:Topic": "Topic",
    "azure-native:servicebus/v20210101preview:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicebus/v20210601preview",
+  "fqn": "pulumi_azure_native.servicebus.v20210601preview",
+  "classes": {
+   "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:servicebus/v20210601preview:MigrationConfig": "MigrationConfig",
+   "azure-native:servicebus/v20210601preview:Namespace": "Namespace",
+   "azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:servicebus/v20210601preview:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:servicebus/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:servicebus/v20210601preview:Queue": "Queue",
+   "azure-native:servicebus/v20210601preview:QueueAuthorizationRule": "QueueAuthorizationRule",
+   "azure-native:servicebus/v20210601preview:Rule": "Rule",
+   "azure-native:servicebus/v20210601preview:Subscription": "Subscription",
+   "azure-native:servicebus/v20210601preview:Topic": "Topic",
+   "azure-native:servicebus/v20210601preview:TopicAuthorizationRule": "TopicAuthorizationRule"
   }
  },
  {

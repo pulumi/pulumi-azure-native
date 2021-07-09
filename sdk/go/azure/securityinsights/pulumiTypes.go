@@ -2704,7 +2704,7 @@ type BookmarkTimelineItemResponse struct {
 	Labels []string `pulumi:"labels"`
 	// The notes of the bookmark
 	Notes *string `pulumi:"notes"`
-	// TThe bookmark start time.
+	// The bookmark start time.
 	StartTimeUtc *string `pulumi:"startTimeUtc"`
 }
 
@@ -2738,7 +2738,7 @@ type BookmarkTimelineItemResponseArgs struct {
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
 	// The notes of the bookmark
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// TThe bookmark start time.
+	// The bookmark start time.
 	StartTimeUtc pulumi.StringPtrInput `pulumi:"startTimeUtc"`
 }
 
@@ -2810,7 +2810,7 @@ func (o BookmarkTimelineItemResponseOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// TThe bookmark start time.
+// The bookmark start time.
 func (o BookmarkTimelineItemResponseOutput) StartTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.StartTimeUtc }).(pulumi.StringPtrOutput)
 }

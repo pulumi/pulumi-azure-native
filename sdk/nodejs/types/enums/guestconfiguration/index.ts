@@ -24,6 +24,18 @@ export const ActionAfterReboot = {
  */
 export type ActionAfterReboot = (typeof ActionAfterReboot)[keyof typeof ActionAfterReboot];
 
+export const AssignmentType = {
+    Audit: "Audit",
+    DeployAndAutoCorrect: "DeployAndAutoCorrect",
+    ApplyAndAutoCorrect: "ApplyAndAutoCorrect",
+    ApplyAndMonitor: "ApplyAndMonitor",
+} as const;
+
+/**
+ * Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+ */
+export type AssignmentType = (typeof AssignmentType)[keyof typeof AssignmentType];
+
 export const ConfigurationMode = {
     ApplyOnly: "ApplyOnly",
     ApplyAndMonitor: "ApplyAndMonitor",

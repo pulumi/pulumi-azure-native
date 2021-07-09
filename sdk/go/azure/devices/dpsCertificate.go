@@ -133,6 +133,8 @@ type dpsCertificateArgs struct {
 	Certificate *string `pulumi:"certificate"`
 	// The name of the certificate create or update.
 	CertificateName *string `pulumi:"certificateName"`
+	// True indicates that the certificate will be created in verified state and proof of possession will not be required.
+	IsVerified *bool `pulumi:"isVerified"`
 	// The name of the provisioning service.
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
 	// Resource group identifier.
@@ -145,6 +147,8 @@ type DpsCertificateArgs struct {
 	Certificate pulumi.StringPtrInput
 	// The name of the certificate create or update.
 	CertificateName pulumi.StringPtrInput
+	// True indicates that the certificate will be created in verified state and proof of possession will not be required.
+	IsVerified pulumi.BoolPtrInput
 	// The name of the provisioning service.
 	ProvisioningServiceName pulumi.StringInput
 	// Resource group identifier.

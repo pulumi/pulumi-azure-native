@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Monitor resource.
- * API Version: 2020-07-01-preview.
+ * API Version: 2020-07-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     if (!opts) {

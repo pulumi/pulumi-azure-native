@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
         /// </summary>
         public readonly string? Notes;
         /// <summary>
-        /// TThe bookmark start time.
+        /// The bookmark start time.
         /// </summary>
         public readonly string? StartTimeUtc;
 

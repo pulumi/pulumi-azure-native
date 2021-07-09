@@ -55,6 +55,9 @@ __all__ = [
     'OutputResponse',
     'ParquetSerializationResponse',
     'PowerBIOutputDataSourceResponse',
+    'RawOutputDatasourceResponse',
+    'RawReferenceInputDataSourceResponse',
+    'RawStreamInputDataSourceResponse',
     'ReferenceInputPropertiesResponse',
     'ScalarFunctionPropertiesResponse',
     'ServiceBusQueueOutputDataSourceResponse',
@@ -1095,6 +1098,9 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
 
 @pulumi.output_type
 class AzureSqlReferenceInputDataSourcePropertiesResponse(dict):
+    """
+    Describes Azure SQL database reference input data source properties.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1129,6 +1135,7 @@ class AzureSqlReferenceInputDataSourcePropertiesResponse(dict):
                  table: Optional[str] = None,
                  user: Optional[str] = None):
         """
+        Describes Azure SQL database reference input data source properties.
         :param str database: This element is associated with the datasource element. This is the name of the database that output will be written to.
         :param str delta_snapshot_query: This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
         :param str full_snapshot_query: This element is associated with the datasource element. This query is used to fetch data from the sql database.
@@ -1243,6 +1250,7 @@ class AzureSqlReferenceInputDataSourceResponse(dict):
         Describes an Azure SQL database reference input data source.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/Database'.
+        :param 'AzureSqlReferenceInputDataSourcePropertiesResponse' properties: Describes Azure SQL database reference input data source properties.
         """
         pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
         if properties is not None:
@@ -1260,6 +1268,9 @@ class AzureSqlReferenceInputDataSourceResponse(dict):
     @property
     @pulumi.getter
     def properties(self) -> Optional['outputs.AzureSqlReferenceInputDataSourcePropertiesResponse']:
+        """
+        Describes Azure SQL database reference input data source properties.
+        """
         return pulumi.get(self, "properties")
 
 
@@ -3411,7 +3422,7 @@ class OutputResponse(dict):
         :param str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str id: Resource Id
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'RawOutputDatasourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -3669,6 +3680,189 @@ class PowerBIOutputDataSourceResponse(dict):
 
 
 @pulumi.output_type
+class RawOutputDatasourceResponse(dict):
+    """
+    Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadUri":
+            suggest = "payload_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RawOutputDatasourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RawOutputDatasourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RawOutputDatasourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 payload_uri: Optional[str] = None):
+        """
+        Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+        :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param str payload_uri: The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[str]:
+        """
+        The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+        """
+        return pulumi.get(self, "payload_uri")
+
+
+@pulumi.output_type
+class RawReferenceInputDataSourceResponse(dict):
+    """
+    Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadUri":
+            suggest = "payload_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RawReferenceInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RawReferenceInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RawReferenceInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 payload: Optional[str] = None,
+                 payload_uri: Optional[str] = None):
+        """
+        Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+        :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param str payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        :param str payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[str]:
+        """
+        The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        return pulumi.get(self, "payload_uri")
+
+
+@pulumi.output_type
+class RawStreamInputDataSourceResponse(dict):
+    """
+    Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadUri":
+            suggest = "payload_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RawStreamInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RawStreamInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RawStreamInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 payload: Optional[str] = None,
+                 payload_uri: Optional[str] = None):
+        """
+        Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+        :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Raw'.
+        :param str payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        :param str payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        pulumi.set(__self__, "type", 'Raw')
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if payload_uri is not None:
+            pulumi.set(__self__, "payload_uri", payload_uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Raw'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter(name="payloadUri")
+    def payload_uri(self) -> Optional[str]:
+        """
+        The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+        """
+        return pulumi.get(self, "payload_uri")
+
+
+@pulumi.output_type
 class ReferenceInputPropertiesResponse(dict):
     """
     The properties that are associated with an input containing reference data.
@@ -3705,7 +3899,7 @@ class ReferenceInputPropertiesResponse(dict):
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Reference'.
         :param 'CompressionResponse' compression: Describes how input data is compressed
-        :param Union['AzureSqlReferenceInputDataSourceResponse', 'BlobReferenceInputDataSourceResponse'] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureSqlReferenceInputDataSourceResponse', 'BlobReferenceInputDataSourceResponse', 'RawReferenceInputDataSourceResponse'] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -4203,7 +4397,7 @@ class StreamInputPropertiesResponse(dict):
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
         :param 'CompressionResponse' compression: Describes how input data is compressed
-        :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'EventHubV2StreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'EventHubV2StreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse', 'RawStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """

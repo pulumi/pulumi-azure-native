@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     /// </summary>
     public sealed class AzureSqlReferenceInputDataSourceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes Azure SQL database reference input data source properties.
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.AzureSqlReferenceInputDataSourcePropertiesArgs>? Properties { get; set; }
 

@@ -39,6 +39,39 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625
     }
 
     /// <summary>
+    /// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssignmentType : IEquatable<AssignmentType>
+    {
+        private readonly string _value;
+
+        private AssignmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssignmentType Audit { get; } = new AssignmentType("Audit");
+        public static AssignmentType DeployAndAutoCorrect { get; } = new AssignmentType("DeployAndAutoCorrect");
+        public static AssignmentType ApplyAndAutoCorrect { get; } = new AssignmentType("ApplyAndAutoCorrect");
+        public static AssignmentType ApplyAndMonitor { get; } = new AssignmentType("ApplyAndMonitor");
+
+        public static bool operator ==(AssignmentType left, AssignmentType right) => left.Equals(right);
+        public static bool operator !=(AssignmentType left, AssignmentType right) => !left.Equals(right);
+
+        public static explicit operator string(AssignmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssignmentType other && Equals(other);
+        public bool Equals(AssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
     /// </summary>
     [EnumType]

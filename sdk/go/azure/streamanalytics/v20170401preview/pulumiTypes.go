@@ -2723,6 +2723,7 @@ func (o AzureSqlDatabaseOutputDataSourceResponseOutput) User() pulumi.StringPtrO
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSource struct {
+	// Describes Azure SQL database reference input data source properties.
 	Properties *AzureSqlReferenceInputDataSourceProperties `pulumi:"properties"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
@@ -2742,6 +2743,7 @@ type AzureSqlReferenceInputDataSourceInput interface {
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSourceArgs struct {
+	// Describes Azure SQL database reference input data source properties.
 	Properties AzureSqlReferenceInputDataSourcePropertiesPtrInput `pulumi:"properties"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
@@ -2775,6 +2777,7 @@ func (o AzureSqlReferenceInputDataSourceOutput) ToAzureSqlReferenceInputDataSour
 	return o
 }
 
+// Describes Azure SQL database reference input data source properties.
 func (o AzureSqlReferenceInputDataSourceOutput) Properties() AzureSqlReferenceInputDataSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v AzureSqlReferenceInputDataSource) *AzureSqlReferenceInputDataSourceProperties {
 		return v.Properties
@@ -2787,6 +2790,7 @@ func (o AzureSqlReferenceInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlReferenceInputDataSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourceProperties struct {
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database *string `pulumi:"database"`
@@ -2819,6 +2823,7 @@ type AzureSqlReferenceInputDataSourcePropertiesInput interface {
 	ToAzureSqlReferenceInputDataSourcePropertiesOutputWithContext(context.Context) AzureSqlReferenceInputDataSourcePropertiesOutput
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourcePropertiesArgs struct {
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database pulumi.StringPtrInput `pulumi:"database"`
@@ -2893,6 +2898,7 @@ func (i *azureSqlReferenceInputDataSourcePropertiesPtrType) ToAzureSqlReferenceI
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourcePropertiesPtrOutput)
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlReferenceInputDataSourcePropertiesOutput) ElementType() reflect.Type {
@@ -3072,6 +3078,7 @@ func (o AzureSqlReferenceInputDataSourcePropertiesPtrOutput) User() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourcePropertiesResponse struct {
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database *string `pulumi:"database"`
@@ -3104,6 +3111,7 @@ type AzureSqlReferenceInputDataSourcePropertiesResponseInput interface {
 	ToAzureSqlReferenceInputDataSourcePropertiesResponseOutputWithContext(context.Context) AzureSqlReferenceInputDataSourcePropertiesResponseOutput
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourcePropertiesResponseArgs struct {
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database pulumi.StringPtrInput `pulumi:"database"`
@@ -3178,6 +3186,7 @@ func (i *azureSqlReferenceInputDataSourcePropertiesResponsePtrType) ToAzureSqlRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourcePropertiesResponsePtrOutput)
 }
 
+// Describes Azure SQL database reference input data source properties.
 type AzureSqlReferenceInputDataSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlReferenceInputDataSourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3359,6 +3368,7 @@ func (o AzureSqlReferenceInputDataSourcePropertiesResponsePtrOutput) User() pulu
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSourceResponse struct {
+	// Describes Azure SQL database reference input data source properties.
 	Properties *AzureSqlReferenceInputDataSourcePropertiesResponse `pulumi:"properties"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
@@ -3378,6 +3388,7 @@ type AzureSqlReferenceInputDataSourceResponseInput interface {
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSourceResponseArgs struct {
+	// Describes Azure SQL database reference input data source properties.
 	Properties AzureSqlReferenceInputDataSourcePropertiesResponsePtrInput `pulumi:"properties"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
@@ -3411,6 +3422,7 @@ func (o AzureSqlReferenceInputDataSourceResponseOutput) ToAzureSqlReferenceInput
 	return o
 }
 
+// Describes Azure SQL database reference input data source properties.
 func (o AzureSqlReferenceInputDataSourceResponseOutput) Properties() AzureSqlReferenceInputDataSourcePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureSqlReferenceInputDataSourceResponse) *AzureSqlReferenceInputDataSourcePropertiesResponse {
 		return v.Properties
@@ -10049,6 +10061,444 @@ func (o PowerBIOutputDataSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerBIOutputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasource struct {
+	// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawOutputDatasourceInput is an input type that accepts RawOutputDatasourceArgs and RawOutputDatasourceOutput values.
+// You can construct a concrete instance of `RawOutputDatasourceInput` via:
+//
+//          RawOutputDatasourceArgs{...}
+type RawOutputDatasourceInput interface {
+	pulumi.Input
+
+	ToRawOutputDatasourceOutput() RawOutputDatasourceOutput
+	ToRawOutputDatasourceOutputWithContext(context.Context) RawOutputDatasourceOutput
+}
+
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasourceArgs struct {
+	// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawOutputDatasourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawOutputDatasource)(nil)).Elem()
+}
+
+func (i RawOutputDatasourceArgs) ToRawOutputDatasourceOutput() RawOutputDatasourceOutput {
+	return i.ToRawOutputDatasourceOutputWithContext(context.Background())
+}
+
+func (i RawOutputDatasourceArgs) ToRawOutputDatasourceOutputWithContext(ctx context.Context) RawOutputDatasourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawOutputDatasourceOutput)
+}
+
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasourceOutput struct{ *pulumi.OutputState }
+
+func (RawOutputDatasourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawOutputDatasource)(nil)).Elem()
+}
+
+func (o RawOutputDatasourceOutput) ToRawOutputDatasourceOutput() RawOutputDatasourceOutput {
+	return o
+}
+
+func (o RawOutputDatasourceOutput) ToRawOutputDatasourceOutputWithContext(ctx context.Context) RawOutputDatasourceOutput {
+	return o
+}
+
+// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+func (o RawOutputDatasourceOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawOutputDatasource) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawOutputDatasourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawOutputDatasource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasourceResponse struct {
+	// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawOutputDatasourceResponseInput is an input type that accepts RawOutputDatasourceResponseArgs and RawOutputDatasourceResponseOutput values.
+// You can construct a concrete instance of `RawOutputDatasourceResponseInput` via:
+//
+//          RawOutputDatasourceResponseArgs{...}
+type RawOutputDatasourceResponseInput interface {
+	pulumi.Input
+
+	ToRawOutputDatasourceResponseOutput() RawOutputDatasourceResponseOutput
+	ToRawOutputDatasourceResponseOutputWithContext(context.Context) RawOutputDatasourceResponseOutput
+}
+
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasourceResponseArgs struct {
+	// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawOutputDatasourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawOutputDatasourceResponse)(nil)).Elem()
+}
+
+func (i RawOutputDatasourceResponseArgs) ToRawOutputDatasourceResponseOutput() RawOutputDatasourceResponseOutput {
+	return i.ToRawOutputDatasourceResponseOutputWithContext(context.Background())
+}
+
+func (i RawOutputDatasourceResponseArgs) ToRawOutputDatasourceResponseOutputWithContext(ctx context.Context) RawOutputDatasourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawOutputDatasourceResponseOutput)
+}
+
+// Describes a raw output data source. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an output of this data source type to an existing job.
+type RawOutputDatasourceResponseOutput struct{ *pulumi.OutputState }
+
+func (RawOutputDatasourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawOutputDatasourceResponse)(nil)).Elem()
+}
+
+func (o RawOutputDatasourceResponseOutput) ToRawOutputDatasourceResponseOutput() RawOutputDatasourceResponseOutput {
+	return o
+}
+
+func (o RawOutputDatasourceResponseOutput) ToRawOutputDatasourceResponseOutputWithContext(ctx context.Context) RawOutputDatasourceResponseOutput {
+	return o
+}
+
+// The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
+func (o RawOutputDatasourceResponseOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawOutputDatasourceResponse) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawOutputDatasourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawOutputDatasourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSource struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload *string `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawReferenceInputDataSourceInput is an input type that accepts RawReferenceInputDataSourceArgs and RawReferenceInputDataSourceOutput values.
+// You can construct a concrete instance of `RawReferenceInputDataSourceInput` via:
+//
+//          RawReferenceInputDataSourceArgs{...}
+type RawReferenceInputDataSourceInput interface {
+	pulumi.Input
+
+	ToRawReferenceInputDataSourceOutput() RawReferenceInputDataSourceOutput
+	ToRawReferenceInputDataSourceOutputWithContext(context.Context) RawReferenceInputDataSourceOutput
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSourceArgs struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawReferenceInputDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawReferenceInputDataSource)(nil)).Elem()
+}
+
+func (i RawReferenceInputDataSourceArgs) ToRawReferenceInputDataSourceOutput() RawReferenceInputDataSourceOutput {
+	return i.ToRawReferenceInputDataSourceOutputWithContext(context.Background())
+}
+
+func (i RawReferenceInputDataSourceArgs) ToRawReferenceInputDataSourceOutputWithContext(ctx context.Context) RawReferenceInputDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawReferenceInputDataSourceOutput)
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSourceOutput struct{ *pulumi.OutputState }
+
+func (RawReferenceInputDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawReferenceInputDataSource)(nil)).Elem()
+}
+
+func (o RawReferenceInputDataSourceOutput) ToRawReferenceInputDataSourceOutput() RawReferenceInputDataSourceOutput {
+	return o
+}
+
+func (o RawReferenceInputDataSourceOutput) ToRawReferenceInputDataSourceOutputWithContext(ctx context.Context) RawReferenceInputDataSourceOutput {
+	return o
+}
+
+// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawReferenceInputDataSourceOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSource) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawReferenceInputDataSourceOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSource) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawReferenceInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSourceResponse struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload *string `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawReferenceInputDataSourceResponseInput is an input type that accepts RawReferenceInputDataSourceResponseArgs and RawReferenceInputDataSourceResponseOutput values.
+// You can construct a concrete instance of `RawReferenceInputDataSourceResponseInput` via:
+//
+//          RawReferenceInputDataSourceResponseArgs{...}
+type RawReferenceInputDataSourceResponseInput interface {
+	pulumi.Input
+
+	ToRawReferenceInputDataSourceResponseOutput() RawReferenceInputDataSourceResponseOutput
+	ToRawReferenceInputDataSourceResponseOutputWithContext(context.Context) RawReferenceInputDataSourceResponseOutput
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSourceResponseArgs struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawReferenceInputDataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawReferenceInputDataSourceResponse)(nil)).Elem()
+}
+
+func (i RawReferenceInputDataSourceResponseArgs) ToRawReferenceInputDataSourceResponseOutput() RawReferenceInputDataSourceResponseOutput {
+	return i.ToRawReferenceInputDataSourceResponseOutputWithContext(context.Background())
+}
+
+func (i RawReferenceInputDataSourceResponseArgs) ToRawReferenceInputDataSourceResponseOutputWithContext(ctx context.Context) RawReferenceInputDataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawReferenceInputDataSourceResponseOutput)
+}
+
+// Describes a raw input data source that contains reference data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawReferenceInputDataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (RawReferenceInputDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawReferenceInputDataSourceResponse)(nil)).Elem()
+}
+
+func (o RawReferenceInputDataSourceResponseOutput) ToRawReferenceInputDataSourceResponseOutput() RawReferenceInputDataSourceResponseOutput {
+	return o
+}
+
+func (o RawReferenceInputDataSourceResponseOutput) ToRawReferenceInputDataSourceResponseOutputWithContext(ctx context.Context) RawReferenceInputDataSourceResponseOutput {
+	return o
+}
+
+// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawReferenceInputDataSourceResponseOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSourceResponse) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawReferenceInputDataSourceResponseOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSourceResponse) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawReferenceInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawReferenceInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSource struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload *string `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawStreamInputDataSourceInput is an input type that accepts RawStreamInputDataSourceArgs and RawStreamInputDataSourceOutput values.
+// You can construct a concrete instance of `RawStreamInputDataSourceInput` via:
+//
+//          RawStreamInputDataSourceArgs{...}
+type RawStreamInputDataSourceInput interface {
+	pulumi.Input
+
+	ToRawStreamInputDataSourceOutput() RawStreamInputDataSourceOutput
+	ToRawStreamInputDataSourceOutputWithContext(context.Context) RawStreamInputDataSourceOutput
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSourceArgs struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawStreamInputDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawStreamInputDataSource)(nil)).Elem()
+}
+
+func (i RawStreamInputDataSourceArgs) ToRawStreamInputDataSourceOutput() RawStreamInputDataSourceOutput {
+	return i.ToRawStreamInputDataSourceOutputWithContext(context.Background())
+}
+
+func (i RawStreamInputDataSourceArgs) ToRawStreamInputDataSourceOutputWithContext(ctx context.Context) RawStreamInputDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawStreamInputDataSourceOutput)
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSourceOutput struct{ *pulumi.OutputState }
+
+func (RawStreamInputDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawStreamInputDataSource)(nil)).Elem()
+}
+
+func (o RawStreamInputDataSourceOutput) ToRawStreamInputDataSourceOutput() RawStreamInputDataSourceOutput {
+	return o
+}
+
+func (o RawStreamInputDataSourceOutput) ToRawStreamInputDataSourceOutputWithContext(ctx context.Context) RawStreamInputDataSourceOutput {
+	return o
+}
+
+// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawStreamInputDataSourceOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawStreamInputDataSource) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawStreamInputDataSourceOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawStreamInputDataSource) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawStreamInputDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawStreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSourceResponse struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload *string `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri *string `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type string `pulumi:"type"`
+}
+
+// RawStreamInputDataSourceResponseInput is an input type that accepts RawStreamInputDataSourceResponseArgs and RawStreamInputDataSourceResponseOutput values.
+// You can construct a concrete instance of `RawStreamInputDataSourceResponseInput` via:
+//
+//          RawStreamInputDataSourceResponseArgs{...}
+type RawStreamInputDataSourceResponseInput interface {
+	pulumi.Input
+
+	ToRawStreamInputDataSourceResponseOutput() RawStreamInputDataSourceResponseOutput
+	ToRawStreamInputDataSourceResponseOutputWithContext(context.Context) RawStreamInputDataSourceResponseOutput
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSourceResponseArgs struct {
+	// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+	PayloadUri pulumi.StringPtrInput `pulumi:"payloadUri"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Raw'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RawStreamInputDataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawStreamInputDataSourceResponse)(nil)).Elem()
+}
+
+func (i RawStreamInputDataSourceResponseArgs) ToRawStreamInputDataSourceResponseOutput() RawStreamInputDataSourceResponseOutput {
+	return i.ToRawStreamInputDataSourceResponseOutputWithContext(context.Background())
+}
+
+func (i RawStreamInputDataSourceResponseArgs) ToRawStreamInputDataSourceResponseOutputWithContext(ctx context.Context) RawStreamInputDataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RawStreamInputDataSourceResponseOutput)
+}
+
+// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+type RawStreamInputDataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (RawStreamInputDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RawStreamInputDataSourceResponse)(nil)).Elem()
+}
+
+func (o RawStreamInputDataSourceResponseOutput) ToRawStreamInputDataSourceResponseOutput() RawStreamInputDataSourceResponseOutput {
+	return o
+}
+
+func (o RawStreamInputDataSourceResponseOutput) ToRawStreamInputDataSourceResponseOutputWithContext(ctx context.Context) RawStreamInputDataSourceResponseOutput {
+	return o
+}
+
+// The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawStreamInputDataSourceResponseOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawStreamInputDataSourceResponse) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
+func (o RawStreamInputDataSourceResponseOutput) PayloadUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RawStreamInputDataSourceResponse) *string { return v.PayloadUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Raw'.
+func (o RawStreamInputDataSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RawStreamInputDataSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties that are associated with an input containing reference data.
 type ReferenceInputProperties struct {
 	// Describes how input data is compressed
@@ -12292,6 +12742,12 @@ func init() {
 	pulumi.RegisterOutputType(ParquetSerializationResponseOutput{})
 	pulumi.RegisterOutputType(PowerBIOutputDataSourceOutput{})
 	pulumi.RegisterOutputType(PowerBIOutputDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(RawOutputDatasourceOutput{})
+	pulumi.RegisterOutputType(RawOutputDatasourceResponseOutput{})
+	pulumi.RegisterOutputType(RawReferenceInputDataSourceOutput{})
+	pulumi.RegisterOutputType(RawReferenceInputDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(RawStreamInputDataSourceOutput{})
+	pulumi.RegisterOutputType(RawStreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceInputPropertiesOutput{})
 	pulumi.RegisterOutputType(ReferenceInputPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ScalarFunctionPropertiesOutput{})

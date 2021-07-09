@@ -2000,10 +2000,16 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) VmssVMList() VM
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigation struct {
+	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+	AssignmentType *string `pulumi:"assignmentType"`
 	// The configuration parameters for the guest configuration.
 	ConfigurationParameter []ConfigurationParameter `pulumi:"configurationParameter"`
 	// The configuration setting for the guest configuration.
 	ConfigurationSetting *ConfigurationSetting `pulumi:"configurationSetting"`
+	// Combined hash of the guest configuration package and configuration parameters.
+	ContentHash *string `pulumi:"contentHash"`
+	// Uri of the storage where guest configuration package is uploaded.
+	ContentUri *string `pulumi:"contentUri"`
 	// Kind of the guest configuration. For example:DSC
 	Kind *string `pulumi:"kind"`
 	// Name of the guest configuration.
@@ -2025,10 +2031,16 @@ type GuestConfigurationNavigationInput interface {
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationArgs struct {
+	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
 	// The configuration parameters for the guest configuration.
 	ConfigurationParameter ConfigurationParameterArrayInput `pulumi:"configurationParameter"`
 	// The configuration setting for the guest configuration.
 	ConfigurationSetting ConfigurationSettingPtrInput `pulumi:"configurationSetting"`
+	// Combined hash of the guest configuration package and configuration parameters.
+	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
+	// Uri of the storage where guest configuration package is uploaded.
+	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
 	// Kind of the guest configuration. For example:DSC
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Name of the guest configuration.
@@ -2115,6 +2127,11 @@ func (o GuestConfigurationNavigationOutput) ToGuestConfigurationNavigationPtrOut
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
+// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+func (o GuestConfigurationNavigationOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationOutput) ConfigurationParameter() ConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) []ConfigurationParameter { return v.ConfigurationParameter }).(ConfigurationParameterArrayOutput)
@@ -2123,6 +2140,16 @@ func (o GuestConfigurationNavigationOutput) ConfigurationParameter() Configurati
 // The configuration setting for the guest configuration.
 func (o GuestConfigurationNavigationOutput) ConfigurationSetting() ConfigurationSettingPtrOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigation) *ConfigurationSetting { return v.ConfigurationSetting }).(ConfigurationSettingPtrOutput)
+}
+
+// Combined hash of the guest configuration package and configuration parameters.
+func (o GuestConfigurationNavigationOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
+}
+
+// Uri of the storage where guest configuration package is uploaded.
+func (o GuestConfigurationNavigationOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigation) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
 // Kind of the guest configuration. For example:DSC
@@ -2158,6 +2185,16 @@ func (o GuestConfigurationNavigationPtrOutput) Elem() GuestConfigurationNavigati
 	return o.ApplyT(func(v *GuestConfigurationNavigation) GuestConfigurationNavigation { return *v }).(GuestConfigurationNavigationOutput)
 }
 
+// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+func (o GuestConfigurationNavigationPtrOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignmentType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationPtrOutput) ConfigurationParameter() ConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigation) []ConfigurationParameter {
@@ -2176,6 +2213,26 @@ func (o GuestConfigurationNavigationPtrOutput) ConfigurationSetting() Configurat
 		}
 		return v.ConfigurationSetting
 	}).(ConfigurationSettingPtrOutput)
+}
+
+// Combined hash of the guest configuration package and configuration parameters.
+func (o GuestConfigurationNavigationPtrOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uri of the storage where guest configuration package is uploaded.
+func (o GuestConfigurationNavigationPtrOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // Kind of the guest configuration. For example:DSC
@@ -2210,14 +2267,16 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponse struct {
+	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+	AssignmentType *string `pulumi:"assignmentType"`
 	// The configuration parameters for the guest configuration.
 	ConfigurationParameter []ConfigurationParameterResponse `pulumi:"configurationParameter"`
 	// The configuration setting for the guest configuration.
 	ConfigurationSetting *ConfigurationSettingResponse `pulumi:"configurationSetting"`
 	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash string `pulumi:"contentHash"`
+	ContentHash *string `pulumi:"contentHash"`
 	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri string `pulumi:"contentUri"`
+	ContentUri *string `pulumi:"contentUri"`
 	// Kind of the guest configuration. For example:DSC
 	Kind *string `pulumi:"kind"`
 	// Name of the guest configuration.
@@ -2239,14 +2298,16 @@ type GuestConfigurationNavigationResponseInput interface {
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponseArgs struct {
+	// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
 	// The configuration parameters for the guest configuration.
 	ConfigurationParameter ConfigurationParameterResponseArrayInput `pulumi:"configurationParameter"`
 	// The configuration setting for the guest configuration.
 	ConfigurationSetting ConfigurationSettingResponsePtrInput `pulumi:"configurationSetting"`
 	// Combined hash of the guest configuration package and configuration parameters.
-	ContentHash pulumi.StringInput `pulumi:"contentHash"`
+	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// Uri of the storage where guest configuration package is uploaded.
-	ContentUri pulumi.StringInput `pulumi:"contentUri"`
+	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
 	// Kind of the guest configuration. For example:DSC
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Name of the guest configuration.
@@ -2333,6 +2394,11 @@ func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigati
 	}).(GuestConfigurationNavigationResponsePtrOutput)
 }
 
+// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+func (o GuestConfigurationNavigationResponseOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationResponseOutput) ConfigurationParameter() ConfigurationParameterResponseArrayOutput {
 	return o.ApplyT(func(v GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
@@ -2348,13 +2414,13 @@ func (o GuestConfigurationNavigationResponseOutput) ConfigurationSetting() Confi
 }
 
 // Combined hash of the guest configuration package and configuration parameters.
-func (o GuestConfigurationNavigationResponseOutput) ContentHash() pulumi.StringOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigationResponse) string { return v.ContentHash }).(pulumi.StringOutput)
+func (o GuestConfigurationNavigationResponseOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
 
 // Uri of the storage where guest configuration package is uploaded.
-func (o GuestConfigurationNavigationResponseOutput) ContentUri() pulumi.StringOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigationResponse) string { return v.ContentUri }).(pulumi.StringOutput)
+func (o GuestConfigurationNavigationResponseOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
 // Kind of the guest configuration. For example:DSC
@@ -2390,6 +2456,16 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Elem() GuestConfiguration
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) GuestConfigurationNavigationResponse { return *v }).(GuestConfigurationNavigationResponseOutput)
 }
 
+// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+func (o GuestConfigurationNavigationResponsePtrOutput) AssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignmentType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration parameters for the guest configuration.
 func (o GuestConfigurationNavigationResponsePtrOutput) ConfigurationParameter() ConfigurationParameterResponseArrayOutput {
 	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) []ConfigurationParameterResponse {
@@ -2416,7 +2492,7 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ContentHash() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return &v.ContentHash
+		return v.ContentHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2426,7 +2502,7 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ContentUri() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return &v.ContentUri
+		return v.ContentUri
 	}).(pulumi.StringPtrOutput)
 }
 

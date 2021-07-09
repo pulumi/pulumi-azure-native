@@ -83,7 +83,7 @@ def list_deployment_info(monitor_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeploymentInfoResult:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-    API Version: 2020-07-01-preview.
+    API Version: 2020-07-01.
 
 
     :param str monitor_name: Monitor resource name

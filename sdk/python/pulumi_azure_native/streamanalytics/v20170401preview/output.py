@@ -18,7 +18,7 @@ class OutputArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
@@ -28,7 +28,7 @@ class OutputArgs:
         The set of arguments for constructing a Output resource.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -74,14 +74,14 @@ class OutputArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -144,7 +144,7 @@ class Output(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
+                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class Output(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
@@ -189,7 +189,7 @@ class Output(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
+                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,

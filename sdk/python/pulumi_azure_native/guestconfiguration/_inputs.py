@@ -207,29 +207,53 @@ class GuestConfigurationAssignmentPropertiesArgs:
 @pulumi.input_type
 class GuestConfigurationNavigationArgs:
     def __init__(__self__, *,
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  configuration_setting: Optional[pulumi.Input['ConfigurationSettingArgs']] = None,
+                 content_hash: Optional[pulumi.Input[str]] = None,
+                 content_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+        :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
         :param pulumi.Input['ConfigurationSettingArgs'] configuration_setting: The configuration setting for the guest configuration.
+        :param pulumi.Input[str] content_hash: Combined hash of the guest configuration package and configuration parameters.
+        :param pulumi.Input[str] content_uri: Uri of the storage where guest configuration package is uploaded.
         :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the guest configuration. For example:DSC
         :param pulumi.Input[str] name: Name of the guest configuration.
         :param pulumi.Input[str] version: Version of the guest configuration.
         """
+        if assignment_type is not None:
+            pulumi.set(__self__, "assignment_type", assignment_type)
         if configuration_parameter is not None:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
         if configuration_setting is not None:
             pulumi.set(__self__, "configuration_setting", configuration_setting)
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
+        if content_uri is not None:
+            pulumi.set(__self__, "content_uri", content_uri)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[pulumi.Input[Union[str, 'AssignmentType']]]:
+        """
+        Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @assignment_type.setter
+    def assignment_type(self, value: Optional[pulumi.Input[Union[str, 'AssignmentType']]]):
+        pulumi.set(self, "assignment_type", value)
 
     @property
     @pulumi.getter(name="configurationParameter")
@@ -254,6 +278,30 @@ class GuestConfigurationNavigationArgs:
     @configuration_setting.setter
     def configuration_setting(self, value: Optional[pulumi.Input['ConfigurationSettingArgs']]):
         pulumi.set(self, "configuration_setting", value)
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Combined hash of the guest configuration package and configuration parameters.
+        """
+        return pulumi.get(self, "content_hash")
+
+    @content_hash.setter
+    def content_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_hash", value)
+
+    @property
+    @pulumi.getter(name="contentUri")
+    def content_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri of the storage where guest configuration package is uploaded.
+        """
+        return pulumi.get(self, "content_uri")
+
+    @content_uri.setter
+    def content_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_uri", value)
 
     @property
     @pulumi.getter

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
-        /// API Version: 2020-07-01-preview.
+        /// API Version: 2020-07-01.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:elastic:getTagRule", args ?? new GetTagRuleArgs(), options.WithVersion());
