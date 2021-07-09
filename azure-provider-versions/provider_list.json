@@ -35174,156 +35174,7 @@
         ],
         "properties": null,
         "resourceType": "Redis",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "West US 3",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -35706,7 +35557,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus",
@@ -35805,96 +35657,12 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "redisEnterprise",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          }
-        ]
+        "zoneMappings": null
       },
       {
         "aliases": null,
@@ -35921,7 +35689,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies",
@@ -35952,7 +35721,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate",
@@ -35983,7 +35753,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults",
@@ -36014,7 +35785,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections",
@@ -36045,7 +35817,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults",
@@ -36076,7 +35849,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateLinkResources",
@@ -36107,7 +35881,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "redisEnterprise/databases",
@@ -36138,7 +35913,8 @@
           "North Europe",
           "Central US",
           "Central India",
-          "West Central US"
+          "West Central US",
+          "Canada Central"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability",
@@ -50585,6 +50361,7 @@
           }
         ],
         "apiVersions": [
+          "2021-04-01",
           "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
@@ -50670,6 +50447,7 @@
           }
         ],
         "apiVersions": [
+          "2021-04-01",
           "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
