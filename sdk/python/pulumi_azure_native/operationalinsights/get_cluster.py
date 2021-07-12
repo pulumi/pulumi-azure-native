@@ -228,7 +228,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     The top level Log Analytics cluster resource container.
-    API Version: 2021-06-01.
+    API Version: 2020-10-01.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.

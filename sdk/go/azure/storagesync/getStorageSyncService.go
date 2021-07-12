@@ -8,7 +8,7 @@ import (
 )
 
 // Storage Sync Service object.
-// API Version: 2020-09-01.
+// API Version: 2020-03-01.
 func LookupStorageSyncService(ctx *pulumi.Context, args *LookupStorageSyncServiceArgs, opts ...pulumi.InvokeOption) (*LookupStorageSyncServiceResult, error) {
 	var rv LookupStorageSyncServiceResult
 	err := ctx.Invoke("azure-native:storagesync:getStorageSyncService", args, &rv, opts...)

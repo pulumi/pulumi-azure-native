@@ -112,7 +112,7 @@ class StorageSyncService(pulumi.CustomResource):
                  __props__=None):
         """
         Storage Sync Service object.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class StorageSyncService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage Sync Service object.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Sync Group object.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**

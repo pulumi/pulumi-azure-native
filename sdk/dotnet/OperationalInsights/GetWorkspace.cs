@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// The top level Workspace resource container.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());

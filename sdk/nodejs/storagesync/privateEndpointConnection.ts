@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

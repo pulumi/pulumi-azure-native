@@ -21,7 +21,6 @@ class ServerEndpointArgs:
                  cloud_tiering: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  initial_download_policy: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]] = None,
                  local_cache_mode: Optional[pulumi.Input[Union[str, 'LocalCacheMode']]] = None,
                  offline_data_transfer: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +37,6 @@ class ServerEndpointArgs:
         :param pulumi.Input[Union[str, 'FeatureStatus']] cloud_tiering: Cloud Tiering.
         :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[Union[str, 'InitialDownloadPolicy']] initial_download_policy: Policy for how namespace and files are recalled during FastDr.
-        :param pulumi.Input[Union[str, 'InitialUploadPolicy']] initial_upload_policy: Policy for how the initial upload sync session is performed.
         :param pulumi.Input[Union[str, 'LocalCacheMode']] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         :param pulumi.Input[Union[str, 'FeatureStatus']] offline_data_transfer: Offline data transfer
         :param pulumi.Input[str] offline_data_transfer_share_name: Offline data transfer share name
@@ -55,16 +53,8 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "cloud_tiering", cloud_tiering)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
-        if initial_download_policy is None:
-            initial_download_policy = 'NamespaceThenModifiedFiles'
         if initial_download_policy is not None:
             pulumi.set(__self__, "initial_download_policy", initial_download_policy)
-        if initial_upload_policy is None:
-            initial_upload_policy = 'Merge'
-        if initial_upload_policy is not None:
-            pulumi.set(__self__, "initial_upload_policy", initial_upload_policy)
-        if local_cache_mode is None:
-            local_cache_mode = 'UpdateLocallyCachedFiles'
         if local_cache_mode is not None:
             pulumi.set(__self__, "local_cache_mode", local_cache_mode)
         if offline_data_transfer is not None:
@@ -79,8 +69,6 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "server_resource_id", server_resource_id)
         if tier_files_older_than_days is not None:
             pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
-        if volume_free_space_percent is None:
-            volume_free_space_percent = 20
         if volume_free_space_percent is not None:
             pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
 
@@ -155,18 +143,6 @@ class ServerEndpointArgs:
     @initial_download_policy.setter
     def initial_download_policy(self, value: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]]):
         pulumi.set(self, "initial_download_policy", value)
-
-    @property
-    @pulumi.getter(name="initialUploadPolicy")
-    def initial_upload_policy(self) -> Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]]:
-        """
-        Policy for how the initial upload sync session is performed.
-        """
-        return pulumi.get(self, "initial_upload_policy")
-
-    @initial_upload_policy.setter
-    def initial_upload_policy(self, value: Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]]):
-        pulumi.set(self, "initial_upload_policy", value)
 
     @property
     @pulumi.getter(name="localCacheMode")
@@ -273,7 +249,6 @@ class ServerEndpoint(pulumi.CustomResource):
                  cloud_tiering: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  initial_download_policy: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]] = None,
                  local_cache_mode: Optional[pulumi.Input[Union[str, 'LocalCacheMode']]] = None,
                  offline_data_transfer: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
@@ -288,14 +263,13 @@ class ServerEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Server Endpoint object.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'FeatureStatus']] cloud_tiering: Cloud Tiering.
         :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[Union[str, 'InitialDownloadPolicy']] initial_download_policy: Policy for how namespace and files are recalled during FastDr.
-        :param pulumi.Input[Union[str, 'InitialUploadPolicy']] initial_upload_policy: Policy for how the initial upload sync session is performed.
         :param pulumi.Input[Union[str, 'LocalCacheMode']] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         :param pulumi.Input[Union[str, 'FeatureStatus']] offline_data_transfer: Offline data transfer
         :param pulumi.Input[str] offline_data_transfer_share_name: Offline data transfer share name
@@ -316,7 +290,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server Endpoint object.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -336,7 +310,6 @@ class ServerEndpoint(pulumi.CustomResource):
                  cloud_tiering: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  initial_download_policy: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]] = None,
-                 initial_upload_policy: Optional[pulumi.Input[Union[str, 'InitialUploadPolicy']]] = None,
                  local_cache_mode: Optional[pulumi.Input[Union[str, 'LocalCacheMode']]] = None,
                  offline_data_transfer: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
@@ -362,14 +335,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["cloud_tiering"] = cloud_tiering
             __props__.__dict__["friendly_name"] = friendly_name
-            if initial_download_policy is None:
-                initial_download_policy = 'NamespaceThenModifiedFiles'
             __props__.__dict__["initial_download_policy"] = initial_download_policy
-            if initial_upload_policy is None:
-                initial_upload_policy = 'Merge'
-            __props__.__dict__["initial_upload_policy"] = initial_upload_policy
-            if local_cache_mode is None:
-                local_cache_mode = 'UpdateLocallyCachedFiles'
             __props__.__dict__["local_cache_mode"] = local_cache_mode
             __props__.__dict__["offline_data_transfer"] = offline_data_transfer
             __props__.__dict__["offline_data_transfer_share_name"] = offline_data_transfer_share_name
@@ -386,8 +352,6 @@ class ServerEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["tier_files_older_than_days"] = tier_files_older_than_days
-            if volume_free_space_percent is None:
-                volume_free_space_percent = 20
             __props__.__dict__["volume_free_space_percent"] = volume_free_space_percent
             __props__.__dict__["cloud_tiering_status"] = None
             __props__.__dict__["last_operation_name"] = None
@@ -397,7 +361,6 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__.__dict__["offline_data_transfer_storage_account_tenant_id"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["recall_status"] = None
-            __props__.__dict__["server_name"] = None
             __props__.__dict__["sync_status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200901:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:ServerEndpoint")])
@@ -428,7 +391,6 @@ class ServerEndpoint(pulumi.CustomResource):
         __props__.__dict__["cloud_tiering_status"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["initial_download_policy"] = None
-        __props__.__dict__["initial_upload_policy"] = None
         __props__.__dict__["last_operation_name"] = None
         __props__.__dict__["last_workflow_id"] = None
         __props__.__dict__["local_cache_mode"] = None
@@ -440,7 +402,6 @@ class ServerEndpoint(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["recall_status"] = None
         __props__.__dict__["server_local_path"] = None
-        __props__.__dict__["server_name"] = None
         __props__.__dict__["server_resource_id"] = None
         __props__.__dict__["sync_status"] = None
         __props__.__dict__["tier_files_older_than_days"] = None
@@ -479,14 +440,6 @@ class ServerEndpoint(pulumi.CustomResource):
         Policy for how namespace and files are recalled during FastDr.
         """
         return pulumi.get(self, "initial_download_policy")
-
-    @property
-    @pulumi.getter(name="initialUploadPolicy")
-    def initial_upload_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy for how the initial upload sync session is performed.
-        """
-        return pulumi.get(self, "initial_upload_policy")
 
     @property
     @pulumi.getter(name="lastOperationName")
@@ -575,14 +528,6 @@ class ServerEndpoint(pulumi.CustomResource):
         Server Local path.
         """
         return pulumi.get(self, "server_local_path")
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Output[str]:
-        """
-        Server name
-        """
-        return pulumi.get(self, "server_name")
 
     @property
     @pulumi.getter(name="serverResourceId")

@@ -465,7 +465,7 @@ class WorkspaceSkuArgs:
         """
         The SKU (tier) of a workspace.
         :param pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']] name: The name of the SKU.
-        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "name", name)
         if capacity_reservation_level is not None:
@@ -487,7 +487,7 @@ class WorkspaceSkuArgs:
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 

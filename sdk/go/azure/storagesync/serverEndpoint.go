@@ -12,7 +12,7 @@ import (
 )
 
 // Server Endpoint object.
-// API Version: 2020-09-01.
+// API Version: 2020-03-01.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,6 @@ type ServerEndpoint struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy pulumi.StringPtrOutput `pulumi:"initialDownloadPolicy"`
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy pulumi.StringPtrOutput `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId
@@ -48,8 +46,6 @@ type ServerEndpoint struct {
 	RecallStatus ServerEndpointRecallStatusResponseOutput `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
-	// Server name
-	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
@@ -77,18 +73,6 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	}
 	if args.SyncGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
-	}
-	if args.InitialDownloadPolicy == nil {
-		args.InitialDownloadPolicy = pulumi.StringPtr("NamespaceThenModifiedFiles")
-	}
-	if args.InitialUploadPolicy == nil {
-		args.InitialUploadPolicy = pulumi.StringPtr("Merge")
-	}
-	if args.LocalCacheMode == nil {
-		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
-	}
-	if args.VolumeFreeSpacePercent == nil {
-		args.VolumeFreeSpacePercent = pulumi.IntPtr(20)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -186,8 +170,6 @@ type serverEndpointState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName *string `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId
@@ -210,8 +192,6 @@ type serverEndpointState struct {
 	RecallStatus *ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server name
-	ServerName *string `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
@@ -233,8 +213,6 @@ type ServerEndpointState struct {
 	FriendlyName pulumi.StringPtrInput
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy pulumi.StringPtrInput
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy pulumi.StringPtrInput
 	// Resource Last Operation Name
 	LastOperationName pulumi.StringPtrInput
 	// ServerEndpoint lastWorkflowId
@@ -257,8 +235,6 @@ type ServerEndpointState struct {
 	RecallStatus ServerEndpointRecallStatusResponsePtrInput
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrInput
-	// Server name
-	ServerName pulumi.StringPtrInput
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrInput
 	// Server Endpoint sync status
@@ -282,8 +258,6 @@ type serverEndpointArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode *string `pulumi:"localCacheMode"`
 	// Offline data transfer
@@ -316,8 +290,6 @@ type ServerEndpointArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy pulumi.StringPtrInput
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy pulumi.StringPtrInput
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode pulumi.StringPtrInput
 	// Offline data transfer

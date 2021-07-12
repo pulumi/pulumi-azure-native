@@ -8,7 +8,7 @@ import (
 )
 
 // Registered Server resource.
-// API Version: 2020-09-01.
+// API Version: 2020-03-01.
 func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredServerResult, error) {
 	var rv LookupRegisteredServerResult
 	err := ctx.Invoke("azure-native:storagesync:getRegisteredServer", args, &rv, opts...)
@@ -31,10 +31,6 @@ type LookupRegisteredServerArgs struct {
 type LookupRegisteredServerResult struct {
 	// Registered Server Agent Version
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate string `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus string `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId *string `pulumi:"clusterId"`
 	// Registered Server clusterName
@@ -69,8 +65,6 @@ type LookupRegisteredServerResult struct {
 	ServerId *string `pulumi:"serverId"`
 	// Registered Server Management Error Code
 	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName string `pulumi:"serverName"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole

@@ -249,7 +249,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The top level Workspace resource container.
-        API Version: 2021-06-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,7 +275,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level Workspace resource container.
-        API Version: 2021-06-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Server Endpoint object.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export class ServerEndpoint extends pulumi.CustomResource {
     /**
@@ -53,10 +53,6 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     public readonly initialDownloadPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Policy for how the initial upload sync session is performed.
-     */
-    public readonly initialUploadPolicy!: pulumi.Output<string | undefined>;
-    /**
      * Resource Last Operation Name
      */
     public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
@@ -101,10 +97,6 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     public readonly serverLocalPath!: pulumi.Output<string | undefined>;
     /**
-     * Server name
-     */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
-    /**
      * Server Resource Id.
      */
     public readonly serverResourceId!: pulumi.Output<string | undefined>;
@@ -147,9 +139,8 @@ export class ServerEndpoint extends pulumi.CustomResource {
             }
             inputs["cloudTiering"] = args ? args.cloudTiering : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["initialDownloadPolicy"] = (args ? args.initialDownloadPolicy : undefined) ?? "NamespaceThenModifiedFiles";
-            inputs["initialUploadPolicy"] = (args ? args.initialUploadPolicy : undefined) ?? "Merge";
-            inputs["localCacheMode"] = (args ? args.localCacheMode : undefined) ?? "UpdateLocallyCachedFiles";
+            inputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
+            inputs["localCacheMode"] = args ? args.localCacheMode : undefined;
             inputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
             inputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -159,7 +150,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             inputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
-            inputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
+            inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
             inputs["cloudTieringStatus"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
@@ -168,7 +159,6 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["recallStatus"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["syncStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -176,7 +166,6 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["cloudTieringStatus"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
             inputs["initialDownloadPolicy"] = undefined /*out*/;
-            inputs["initialUploadPolicy"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
             inputs["localCacheMode"] = undefined /*out*/;
@@ -188,7 +177,6 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["recallStatus"] = undefined /*out*/;
             inputs["serverLocalPath"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["serverResourceId"] = undefined /*out*/;
             inputs["syncStatus"] = undefined /*out*/;
             inputs["tierFilesOlderThanDays"] = undefined /*out*/;
@@ -220,10 +208,6 @@ export interface ServerEndpointArgs {
      * Policy for how namespace and files are recalled during FastDr.
      */
     initialDownloadPolicy?: pulumi.Input<string | enums.storagesync.InitialDownloadPolicy>;
-    /**
-     * Policy for how the initial upload sync session is performed.
-     */
-    initialUploadPolicy?: pulumi.Input<string | enums.storagesync.InitialUploadPolicy>;
     /**
      * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
      */

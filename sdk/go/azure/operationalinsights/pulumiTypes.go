@@ -139,8 +139,6 @@ func (o AssociatedWorkspaceResponseArrayOutput) Index(i pulumi.IntInput) Associa
 
 // The Capacity Reservation properties.
 type CapacityReservationPropertiesResponse struct {
-	// The capacity reservation level for this cluster
-	CapacityReservationLevel int `pulumi:"capacityReservationLevel"`
 	// The last time Sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
 	// Minimum CapacityReservation value in GB.
@@ -160,8 +158,6 @@ type CapacityReservationPropertiesResponseInput interface {
 
 // The Capacity Reservation properties.
 type CapacityReservationPropertiesResponseArgs struct {
-	// The capacity reservation level for this cluster
-	CapacityReservationLevel pulumi.IntInput `pulumi:"capacityReservationLevel"`
 	// The last time Sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
 	// Minimum CapacityReservation value in GB.
@@ -246,11 +242,6 @@ func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationProper
 	}).(CapacityReservationPropertiesResponsePtrOutput)
 }
 
-// The capacity reservation level for this cluster
-func (o CapacityReservationPropertiesResponseOutput) CapacityReservationLevel() pulumi.IntOutput {
-	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.CapacityReservationLevel }).(pulumi.IntOutput)
-}
-
 // The last time Sku was updated.
 func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
@@ -277,16 +268,6 @@ func (o CapacityReservationPropertiesResponsePtrOutput) ToCapacityReservationPro
 
 func (o CapacityReservationPropertiesResponsePtrOutput) Elem() CapacityReservationPropertiesResponseOutput {
 	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) CapacityReservationPropertiesResponse { return *v }).(CapacityReservationPropertiesResponseOutput)
-}
-
-// The capacity reservation level for this cluster
-func (o CapacityReservationPropertiesResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.CapacityReservationLevel
-	}).(pulumi.IntPtrOutput)
 }
 
 // The last time Sku was updated.
@@ -3801,7 +3782,7 @@ func (o WorkspaceFeaturesResponsePtrOutput) ImmediatePurgeDataOn30Days() pulumi.
 
 // The SKU (tier) of a workspace.
 type WorkspaceSku struct {
-	// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -3820,7 +3801,7 @@ type WorkspaceSkuInput interface {
 
 // The SKU (tier) of a workspace.
 type WorkspaceSkuArgs struct {
-	// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3904,7 +3885,7 @@ func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Conte
 	}).(WorkspaceSkuPtrOutput)
 }
 
-// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspaceSku) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
 }
@@ -3932,7 +3913,7 @@ func (o WorkspaceSkuPtrOutput) Elem() WorkspaceSkuOutput {
 	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku { return *v }).(WorkspaceSkuOutput)
 }
 
-// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuPtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSku) *int {
 		if v == nil {
@@ -3954,7 +3935,7 @@ func (o WorkspaceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 
 // The SKU (tier) of a workspace.
 type WorkspaceSkuResponse struct {
-	// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
 	// The last time when the sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
@@ -3975,7 +3956,7 @@ type WorkspaceSkuResponseInput interface {
 
 // The SKU (tier) of a workspace.
 type WorkspaceSkuResponseArgs struct {
-	// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+	// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
 	// The last time when the sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
@@ -4061,7 +4042,7 @@ func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutputWithContext(c
 	}).(WorkspaceSkuResponsePtrOutput)
 }
 
-// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuResponseOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) *int { return v.CapacityReservationLevel }).(pulumi.IntPtrOutput)
 }
@@ -4094,7 +4075,7 @@ func (o WorkspaceSkuResponsePtrOutput) Elem() WorkspaceSkuResponseOutput {
 	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse { return *v }).(WorkspaceSkuResponseOutput)
 }
 
-// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
 func (o WorkspaceSkuResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSkuResponse) *int {
 		if v == nil {

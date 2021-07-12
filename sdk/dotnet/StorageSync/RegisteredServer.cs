@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Registered Server resource.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:RegisteredServer")]
     public partial class RegisteredServer : Pulumi.CustomResource
@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Registered Server Agent Version Expiration Date
-        /// </summary>
-        [Output("agentVersionExpirationDate")]
-        public Output<string> AgentVersionExpirationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Registered Server Agent Version Status
-        /// </summary>
-        [Output("agentVersionStatus")]
-        public Output<string> AgentVersionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server clusterId
@@ -129,12 +117,6 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("serverManagementErrorCode")]
         public Output<int?> ServerManagementErrorCode { get; private set; } = null!;
-
-        /// <summary>
-        /// Server name
-        /// </summary>
-        [Output("serverName")]
-        public Output<string> ServerName { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server OS Version

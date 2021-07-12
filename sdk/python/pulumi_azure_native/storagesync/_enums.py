@@ -8,7 +8,6 @@ __all__ = [
     'FeatureStatus',
     'IncomingTrafficPolicy',
     'InitialDownloadPolicy',
-    'InitialUploadPolicy',
     'LocalCacheMode',
     'PrivateEndpointServiceConnectionStatus',
 ]
@@ -37,14 +36,6 @@ class InitialDownloadPolicy(str, Enum):
     NAMESPACE_ONLY = "NamespaceOnly"
     NAMESPACE_THEN_MODIFIED_FILES = "NamespaceThenModifiedFiles"
     AVOID_TIERED_FILES = "AvoidTieredFiles"
-
-
-class InitialUploadPolicy(str, Enum):
-    """
-    Policy for how the initial upload sync session is performed.
-    """
-    SERVER_AUTHORITATIVE = "ServerAuthoritative"
-    MERGE = "Merge"
 
 
 class LocalCacheMode(str, Enum):

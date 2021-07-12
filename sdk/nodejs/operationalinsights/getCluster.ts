@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Log Analytics cluster resource container.
- * API Version: 2021-06-01.
+ * API Version: 2020-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {

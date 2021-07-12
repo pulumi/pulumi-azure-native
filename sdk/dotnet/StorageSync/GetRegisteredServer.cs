@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Registered Server resource.
-        /// API Version: 2020-09-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
@@ -53,14 +53,6 @@ namespace Pulumi.AzureNative.StorageSync
         /// Registered Server Agent Version
         /// </summary>
         public readonly string? AgentVersion;
-        /// <summary>
-        /// Registered Server Agent Version Expiration Date
-        /// </summary>
-        public readonly string AgentVersionExpirationDate;
-        /// <summary>
-        /// Registered Server Agent Version Status
-        /// </summary>
-        public readonly string AgentVersionStatus;
         /// <summary>
         /// Registered Server clusterId
         /// </summary>
@@ -130,10 +122,6 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly int? ServerManagementErrorCode;
         /// <summary>
-        /// Server name
-        /// </summary>
-        public readonly string ServerName;
-        /// <summary>
         /// Registered Server OS Version
         /// </summary>
         public readonly string? ServerOSVersion;
@@ -157,10 +145,6 @@ namespace Pulumi.AzureNative.StorageSync
         [OutputConstructor]
         private GetRegisteredServerResult(
             string? agentVersion,
-
-            string agentVersionExpirationDate,
-
-            string agentVersionStatus,
 
             string? clusterId,
 
@@ -196,8 +180,6 @@ namespace Pulumi.AzureNative.StorageSync
 
             int? serverManagementErrorCode,
 
-            string serverName,
-
             string? serverOSVersion,
 
             string? serverRole,
@@ -209,8 +191,6 @@ namespace Pulumi.AzureNative.StorageSync
             string type)
         {
             AgentVersion = agentVersion;
-            AgentVersionExpirationDate = agentVersionExpirationDate;
-            AgentVersionStatus = agentVersionStatus;
             ClusterId = clusterId;
             ClusterName = clusterName;
             DiscoveryEndpointUri = discoveryEndpointUri;
@@ -228,7 +208,6 @@ namespace Pulumi.AzureNative.StorageSync
             ServerCertificate = serverCertificate;
             ServerId = serverId;
             ServerManagementErrorCode = serverManagementErrorCode;
-            ServerName = serverName;
             ServerOSVersion = serverOSVersion;
             ServerRole = serverRole;
             ServiceLocation = serviceLocation;

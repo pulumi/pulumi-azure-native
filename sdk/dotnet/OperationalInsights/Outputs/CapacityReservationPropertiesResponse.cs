@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class CapacityReservationPropertiesResponse
     {
         /// <summary>
-        /// The capacity reservation level for this cluster
-        /// </summary>
-        public readonly int CapacityReservationLevel;
-        /// <summary>
         /// The last time Sku was updated.
         /// </summary>
         public readonly string LastSkuUpdate;
@@ -28,13 +24,10 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
         [OutputConstructor]
         private CapacityReservationPropertiesResponse(
-            int capacityReservationLevel,
-
             string lastSkuUpdate,
 
             double minCapacity)
         {
-            CapacityReservationLevel = capacityReservationLevel;
             LastSkuUpdate = lastSkuUpdate;
             MinCapacity = minCapacity;
         }

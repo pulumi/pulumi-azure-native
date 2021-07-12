@@ -8,7 +8,7 @@ import (
 )
 
 // The top level Workspace resource container.
-// API Version: 2021-06-01.
+// API Version: 2020-10-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:operationalinsights:getWorkspace", args, &rv, opts...)

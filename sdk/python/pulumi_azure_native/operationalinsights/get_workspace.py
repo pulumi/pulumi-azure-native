@@ -252,7 +252,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     The top level Workspace resource container.
-    API Version: 2021-06-01.
+    API Version: 2020-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

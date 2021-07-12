@@ -211,7 +211,7 @@ class RegisteredServer(pulumi.CustomResource):
                  __props__=None):
         """
         Registered Server resource.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class RegisteredServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registered Server resource.
-        API Version: 2020-09-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param RegisteredServerArgs args: The arguments to use to populate this resource's properties.
@@ -290,8 +290,6 @@ class RegisteredServer(pulumi.CustomResource):
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
-            __props__.__dict__["agent_version_expiration_date"] = None
-            __props__.__dict__["agent_version_status"] = None
             __props__.__dict__["discovery_endpoint_uri"] = None
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
@@ -302,7 +300,6 @@ class RegisteredServer(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_location"] = None
             __props__.__dict__["server_management_error_code"] = None
-            __props__.__dict__["server_name"] = None
             __props__.__dict__["service_location"] = None
             __props__.__dict__["storage_sync_service_uid"] = None
             __props__.__dict__["type"] = None
@@ -331,8 +328,6 @@ class RegisteredServer(pulumi.CustomResource):
         __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
         __props__.__dict__["agent_version"] = None
-        __props__.__dict__["agent_version_expiration_date"] = None
-        __props__.__dict__["agent_version_status"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["discovery_endpoint_uri"] = None
@@ -349,7 +344,6 @@ class RegisteredServer(pulumi.CustomResource):
         __props__.__dict__["server_certificate"] = None
         __props__.__dict__["server_id"] = None
         __props__.__dict__["server_management_error_code"] = None
-        __props__.__dict__["server_name"] = None
         __props__.__dict__["server_os_version"] = None
         __props__.__dict__["server_role"] = None
         __props__.__dict__["service_location"] = None
@@ -364,22 +358,6 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server Agent Version
         """
         return pulumi.get(self, "agent_version")
-
-    @property
-    @pulumi.getter(name="agentVersionExpirationDate")
-    def agent_version_expiration_date(self) -> pulumi.Output[str]:
-        """
-        Registered Server Agent Version Expiration Date
-        """
-        return pulumi.get(self, "agent_version_expiration_date")
-
-    @property
-    @pulumi.getter(name="agentVersionStatus")
-    def agent_version_status(self) -> pulumi.Output[str]:
-        """
-        Registered Server Agent Version Status
-        """
-        return pulumi.get(self, "agent_version_status")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -508,14 +486,6 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server Management Error Code
         """
         return pulumi.get(self, "server_management_error_code")
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Output[str]:
-        """
-        Server name
-        """
-        return pulumi.get(self, "server_name")
 
     @property
     @pulumi.getter(name="serverOSVersion")

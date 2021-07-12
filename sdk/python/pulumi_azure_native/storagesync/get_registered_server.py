@@ -19,16 +19,10 @@ class GetRegisteredServerResult:
     """
     Registered Server resource.
     """
-    def __init__(__self__, agent_version=None, agent_version_expiration_date=None, agent_version_status=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_name=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
+    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
-        if agent_version_expiration_date and not isinstance(agent_version_expiration_date, str):
-            raise TypeError("Expected argument 'agent_version_expiration_date' to be a str")
-        pulumi.set(__self__, "agent_version_expiration_date", agent_version_expiration_date)
-        if agent_version_status and not isinstance(agent_version_status, str):
-            raise TypeError("Expected argument 'agent_version_status' to be a str")
-        pulumi.set(__self__, "agent_version_status", agent_version_status)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -80,9 +74,6 @@ class GetRegisteredServerResult:
         if server_management_error_code and not isinstance(server_management_error_code, int):
             raise TypeError("Expected argument 'server_management_error_code' to be a int")
         pulumi.set(__self__, "server_management_error_code", server_management_error_code)
-        if server_name and not isinstance(server_name, str):
-            raise TypeError("Expected argument 'server_name' to be a str")
-        pulumi.set(__self__, "server_name", server_name)
         if server_os_version and not isinstance(server_os_version, str):
             raise TypeError("Expected argument 'server_os_version' to be a str")
         pulumi.set(__self__, "server_os_version", server_os_version)
@@ -106,22 +97,6 @@ class GetRegisteredServerResult:
         Registered Server Agent Version
         """
         return pulumi.get(self, "agent_version")
-
-    @property
-    @pulumi.getter(name="agentVersionExpirationDate")
-    def agent_version_expiration_date(self) -> str:
-        """
-        Registered Server Agent Version Expiration Date
-        """
-        return pulumi.get(self, "agent_version_expiration_date")
-
-    @property
-    @pulumi.getter(name="agentVersionStatus")
-    def agent_version_status(self) -> str:
-        """
-        Registered Server Agent Version Status
-        """
-        return pulumi.get(self, "agent_version_status")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -260,14 +235,6 @@ class GetRegisteredServerResult:
         return pulumi.get(self, "server_management_error_code")
 
     @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
-        """
-        Server name
-        """
-        return pulumi.get(self, "server_name")
-
-    @property
     @pulumi.getter(name="serverOSVersion")
     def server_os_version(self) -> Optional[str]:
         """
@@ -315,8 +282,6 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             yield self
         return GetRegisteredServerResult(
             agent_version=self.agent_version,
-            agent_version_expiration_date=self.agent_version_expiration_date,
-            agent_version_status=self.agent_version_status,
             cluster_id=self.cluster_id,
             cluster_name=self.cluster_name,
             discovery_endpoint_uri=self.discovery_endpoint_uri,
@@ -334,7 +299,6 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             server_certificate=self.server_certificate,
             server_id=self.server_id,
             server_management_error_code=self.server_management_error_code,
-            server_name=self.server_name,
             server_os_version=self.server_os_version,
             server_role=self.server_role,
             service_location=self.service_location,
@@ -348,7 +312,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredServerResult:
     """
     Registered Server resource.
-    API Version: 2020-09-01.
+    API Version: 2020-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -367,8 +331,6 @@ def get_registered_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetRegisteredServerResult(
         agent_version=__ret__.agent_version,
-        agent_version_expiration_date=__ret__.agent_version_expiration_date,
-        agent_version_status=__ret__.agent_version_status,
         cluster_id=__ret__.cluster_id,
         cluster_name=__ret__.cluster_name,
         discovery_endpoint_uri=__ret__.discovery_endpoint_uri,
@@ -386,7 +348,6 @@ def get_registered_server(resource_group_name: Optional[str] = None,
         server_certificate=__ret__.server_certificate,
         server_id=__ret__.server_id,
         server_management_error_code=__ret__.server_management_error_code,
-        server_name=__ret__.server_name,
         server_os_version=__ret__.server_os_version,
         server_role=__ret__.server_role,
         service_location=__ret__.service_location,

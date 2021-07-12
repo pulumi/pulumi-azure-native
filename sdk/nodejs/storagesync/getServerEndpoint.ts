@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Server Endpoint object.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
     if (!opts) {
@@ -69,10 +69,6 @@ export interface GetServerEndpointResult {
      */
     readonly initialDownloadPolicy?: string;
     /**
-     * Policy for how the initial upload sync session is performed.
-     */
-    readonly initialUploadPolicy?: string;
-    /**
      * Resource Last Operation Name
      */
     readonly lastOperationName: string;
@@ -116,10 +112,6 @@ export interface GetServerEndpointResult {
      * Server Local path.
      */
     readonly serverLocalPath?: string;
-    /**
-     * Server name
-     */
-    readonly serverName: string;
     /**
      * Server Resource Id.
      */

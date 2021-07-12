@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Registered Server resource.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export class RegisteredServer extends pulumi.CustomResource {
     /**
@@ -39,14 +39,6 @@ export class RegisteredServer extends pulumi.CustomResource {
      * Registered Server Agent Version
      */
     public readonly agentVersion!: pulumi.Output<string | undefined>;
-    /**
-     * Registered Server Agent Version Expiration Date
-     */
-    public /*out*/ readonly agentVersionExpirationDate!: pulumi.Output<string>;
-    /**
-     * Registered Server Agent Version Status
-     */
-    public /*out*/ readonly agentVersionStatus!: pulumi.Output<string>;
     /**
      * Registered Server clusterId
      */
@@ -112,10 +104,6 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number | undefined>;
     /**
-     * Server name
-     */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
-    /**
      * Registered Server OS Version
      */
     public readonly serverOSVersion!: pulumi.Output<string | undefined>;
@@ -164,8 +152,6 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
@@ -176,14 +162,11 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceLocation"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentVersion"] = undefined /*out*/;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterName"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
@@ -200,7 +183,6 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverCertificate"] = undefined /*out*/;
             inputs["serverId"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["serverOSVersion"] = undefined /*out*/;
             inputs["serverRole"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;

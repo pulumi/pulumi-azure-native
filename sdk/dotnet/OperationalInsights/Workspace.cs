@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// The top level Workspace resource container.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Workspace")]
     public partial class Workspace : Pulumi.CustomResource

@@ -12,16 +12,12 @@ import (
 )
 
 // Registered Server resource.
-// API Version: 2020-09-01.
+// API Version: 2020-03-01.
 type RegisteredServer struct {
 	pulumi.CustomResourceState
 
 	// Registered Server Agent Version
 	AgentVersion pulumi.StringPtrOutput `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate pulumi.StringOutput `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus pulumi.StringOutput `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId pulumi.StringPtrOutput `pulumi:"clusterId"`
 	// Registered Server clusterName
@@ -54,8 +50,6 @@ type RegisteredServer struct {
 	ServerId pulumi.StringPtrOutput `pulumi:"serverId"`
 	// Registered Server Management Error Code
 	ServerManagementErrorCode pulumi.IntPtrOutput `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrOutput `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -171,10 +165,6 @@ func GetRegisteredServer(ctx *pulumi.Context,
 type registeredServerState struct {
 	// Registered Server Agent Version
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate *string `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus *string `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId *string `pulumi:"clusterId"`
 	// Registered Server clusterName
@@ -207,8 +197,6 @@ type registeredServerState struct {
 	ServerId *string `pulumi:"serverId"`
 	// Registered Server Management Error Code
 	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName *string `pulumi:"serverName"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
@@ -224,10 +212,6 @@ type registeredServerState struct {
 type RegisteredServerState struct {
 	// Registered Server Agent Version
 	AgentVersion pulumi.StringPtrInput
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate pulumi.StringPtrInput
-	// Registered Server Agent Version Status
-	AgentVersionStatus pulumi.StringPtrInput
 	// Registered Server clusterId
 	ClusterId pulumi.StringPtrInput
 	// Registered Server clusterName
@@ -260,8 +244,6 @@ type RegisteredServerState struct {
 	ServerId pulumi.StringPtrInput
 	// Registered Server Management Error Code
 	ServerManagementErrorCode pulumi.IntPtrInput
-	// Server name
-	ServerName pulumi.StringPtrInput
 	// Registered Server OS Version
 	ServerOSVersion pulumi.StringPtrInput
 	// Registered Server serverRole

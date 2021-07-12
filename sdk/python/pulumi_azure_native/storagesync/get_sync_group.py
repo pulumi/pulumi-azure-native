@@ -96,7 +96,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
     Sync Group object.
-    API Version: 2020-09-01.
+    API Version: 2020-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -26,14 +26,6 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
         /// </summary>
         public readonly double PerItemErrorCount;
         /// <summary>
-        /// Session minutes remaining (if available)
-        /// </summary>
-        public readonly int SessionMinutesRemaining;
-        /// <summary>
-        /// Sync mode
-        /// </summary>
-        public readonly string SyncMode;
-        /// <summary>
         /// Timestamp when properties were updated
         /// </summary>
         public readonly string Timestamp;
@@ -54,10 +46,6 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
 
             double perItemErrorCount,
 
-            int sessionMinutesRemaining,
-
-            string syncMode,
-
             string timestamp,
 
             double totalBytes,
@@ -67,8 +55,6 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
             AppliedBytes = appliedBytes;
             AppliedItemCount = appliedItemCount;
             PerItemErrorCount = perItemErrorCount;
-            SessionMinutesRemaining = sessionMinutesRemaining;
-            SyncMode = syncMode;
             Timestamp = timestamp;
             TotalBytes = totalBytes;
             TotalItemCount = totalItemCount;

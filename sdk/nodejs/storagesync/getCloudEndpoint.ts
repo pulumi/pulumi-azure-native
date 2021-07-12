@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cloud Endpoint object.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
     if (!opts) {
@@ -56,10 +56,6 @@ export interface GetCloudEndpointResult {
      * Backup Enabled
      */
     readonly backupEnabled: string;
-    /**
-     * Cloud endpoint change enumeration status
-     */
-    readonly changeEnumerationStatus: outputs.storagesync.CloudEndpointChangeEnumerationStatusResponse;
     /**
      * Friendly Name
      */

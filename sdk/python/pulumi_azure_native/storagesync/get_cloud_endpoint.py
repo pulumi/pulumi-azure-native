@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetCloudEndpointResult',
@@ -20,16 +19,13 @@ class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
     """
-    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, change_enumeration_status=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, type=None):
+    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, type=None):
         if azure_file_share_name and not isinstance(azure_file_share_name, str):
             raise TypeError("Expected argument 'azure_file_share_name' to be a str")
         pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
         if backup_enabled and not isinstance(backup_enabled, str):
             raise TypeError("Expected argument 'backup_enabled' to be a str")
         pulumi.set(__self__, "backup_enabled", backup_enabled)
-        if change_enumeration_status and not isinstance(change_enumeration_status, dict):
-            raise TypeError("Expected argument 'change_enumeration_status' to be a dict")
-        pulumi.set(__self__, "change_enumeration_status", change_enumeration_status)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
@@ -76,14 +72,6 @@ class GetCloudEndpointResult:
         Backup Enabled
         """
         return pulumi.get(self, "backup_enabled")
-
-    @property
-    @pulumi.getter(name="changeEnumerationStatus")
-    def change_enumeration_status(self) -> 'outputs.CloudEndpointChangeEnumerationStatusResponse':
-        """
-        Cloud endpoint change enumeration status
-        """
-        return pulumi.get(self, "change_enumeration_status")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -174,7 +162,6 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
         return GetCloudEndpointResult(
             azure_file_share_name=self.azure_file_share_name,
             backup_enabled=self.backup_enabled,
-            change_enumeration_status=self.change_enumeration_status,
             friendly_name=self.friendly_name,
             id=self.id,
             last_operation_name=self.last_operation_name,
@@ -194,7 +181,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
     Cloud Endpoint object.
-    API Version: 2020-09-01.
+    API Version: 2020-03-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -216,7 +203,6 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     return AwaitableGetCloudEndpointResult(
         azure_file_share_name=__ret__.azure_file_share_name,
         backup_enabled=__ret__.backup_enabled,
-        change_enumeration_status=__ret__.change_enumeration_status,
         friendly_name=__ret__.friendly_name,
         id=__ret__.id,
         last_operation_name=__ret__.last_operation_name,

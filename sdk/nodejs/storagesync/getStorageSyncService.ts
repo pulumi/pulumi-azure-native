@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage Sync Service object.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
     if (!opts) {

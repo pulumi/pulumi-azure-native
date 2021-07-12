@@ -8,7 +8,7 @@ import (
 )
 
 // Server Endpoint object.
-// API Version: 2020-09-01.
+// API Version: 2020-03-01.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
 	err := ctx.Invoke("azure-native:storagesync:getServerEndpoint", args, &rv, opts...)
@@ -41,8 +41,6 @@ type LookupServerEndpointResult struct {
 	Id string `pulumi:"id"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
-	// Policy for how the initial upload sync session is performed.
-	InitialUploadPolicy *string `pulumi:"initialUploadPolicy"`
 	// Resource Last Operation Name
 	LastOperationName string `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId
@@ -65,8 +63,6 @@ type LookupServerEndpointResult struct {
 	RecallStatus ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server name
-	ServerName string `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status

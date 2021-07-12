@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Registered Server resource.
- * API Version: 2020-09-01.
+ * API Version: 2020-03-01.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
     if (!opts) {
@@ -47,14 +47,6 @@ export interface GetRegisteredServerResult {
      * Registered Server Agent Version
      */
     readonly agentVersion?: string;
-    /**
-     * Registered Server Agent Version Expiration Date
-     */
-    readonly agentVersionExpirationDate: string;
-    /**
-     * Registered Server Agent Version Status
-     */
-    readonly agentVersionStatus: string;
     /**
      * Registered Server clusterId
      */
@@ -123,10 +115,6 @@ export interface GetRegisteredServerResult {
      * Registered Server Management Error Code
      */
     readonly serverManagementErrorCode?: number;
-    /**
-     * Server name
-     */
-    readonly serverName: string;
     /**
      * Registered Server OS Version
      */

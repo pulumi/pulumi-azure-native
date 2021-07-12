@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     public sealed class WorkspaceSkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
+        /// The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         /// </summary>
         [Input("capacityReservationLevel")]
         public Input<int>? CapacityReservationLevel { get; set; }

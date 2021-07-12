@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2020-09-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:storagesync:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());

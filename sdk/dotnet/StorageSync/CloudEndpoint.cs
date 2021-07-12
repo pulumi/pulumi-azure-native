@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Cloud Endpoint object.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:CloudEndpoint")]
     public partial class CloudEndpoint : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("backupEnabled")]
         public Output<string> BackupEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Cloud endpoint change enumeration status
-        /// </summary>
-        [Output("changeEnumerationStatus")]
-        public Output<Outputs.CloudEndpointChangeEnumerationStatusResponse> ChangeEnumerationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Friendly Name

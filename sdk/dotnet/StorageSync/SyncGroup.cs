@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Sync Group object.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:SyncGroup")]
     public partial class SyncGroup : Pulumi.CustomResource
