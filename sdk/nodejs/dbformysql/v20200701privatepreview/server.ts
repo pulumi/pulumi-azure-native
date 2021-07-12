@@ -205,7 +205,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20200701privatepreview:Server" }, { type: "azure-native:dbformysql/v20200701preview:Server" }, { type: "azure-nextgen:dbformysql/v20200701preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20200701privatepreview:Server" }, { type: "azure-native:dbformysql/v20200701preview:Server" }, { type: "azure-nextgen:dbformysql/v20200701preview:Server" }, { type: "azure-native:dbformysql/v20210501preview:Server" }, { type: "azure-nextgen:dbformysql/v20210501preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, inputs, opts);
     }

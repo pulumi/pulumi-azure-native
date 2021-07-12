@@ -139,6 +139,8 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

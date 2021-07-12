@@ -4849,6 +4849,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbformysql/v20210501preview",
+  "fqn": "pulumi_azure_native.dbformysql.v20210501preview",
+  "classes": {
+   "azure-native:dbformysql/v20210501preview:Database": "Database",
+   "azure-native:dbformysql/v20210501preview:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql/v20210501preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "dbforpostgresql",
   "fqn": "pulumi_azure_native.dbforpostgresql",
   "classes": {
@@ -11406,6 +11416,15 @@ _utilities.register(
   "classes": {
    "azure-native:operationalinsights/v20201001:Cluster": "Cluster",
    "azure-native:operationalinsights/v20201001:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "operationalinsights/v20210601",
+  "fqn": "pulumi_azure_native.operationalinsights.v20210601",
+  "classes": {
+   "azure-native:operationalinsights/v20210601:Cluster": "Cluster",
+   "azure-native:operationalinsights/v20210601:Workspace": "Workspace"
   }
  },
  {

@@ -41,6 +41,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.operationalinsights.v20200301preview as v20200301preview
     import pulumi_azure_native.operationalinsights.v20200801 as v20200801
     import pulumi_azure_native.operationalinsights.v20201001 as v20201001
+    import pulumi_azure_native.operationalinsights.v20210601 as v20210601
 else:
     v20150320 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20150320')
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20151101preview')
@@ -49,4 +50,5 @@ else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20200301preview')
     v20200801 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20200801')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20201001')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20210601')
 

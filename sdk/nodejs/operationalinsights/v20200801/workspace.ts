@@ -159,7 +159,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20210601:Workspace" }, { type: "azure-nextgen:operationalinsights/v20210601:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }

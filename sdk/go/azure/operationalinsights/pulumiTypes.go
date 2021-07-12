@@ -141,8 +141,6 @@ func (o AssociatedWorkspaceResponseArrayOutput) Index(i pulumi.IntInput) Associa
 type CapacityReservationPropertiesResponse struct {
 	// The last time Sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
-	// Maximum CapacityReservation value in GB.
-	MaxCapacity float64 `pulumi:"maxCapacity"`
 	// Minimum CapacityReservation value in GB.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
@@ -162,8 +160,6 @@ type CapacityReservationPropertiesResponseInput interface {
 type CapacityReservationPropertiesResponseArgs struct {
 	// The last time Sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
-	// Maximum CapacityReservation value in GB.
-	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
 	// Minimum CapacityReservation value in GB.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
@@ -251,11 +247,6 @@ func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.Stri
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
 }
 
-// Maximum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponseOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v CapacityReservationPropertiesResponse) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
-}
-
 // Minimum CapacityReservation value in GB.
 func (o CapacityReservationPropertiesResponseOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) float64 { return v.MinCapacity }).(pulumi.Float64Output)
@@ -287,16 +278,6 @@ func (o CapacityReservationPropertiesResponsePtrOutput) LastSkuUpdate() pulumi.S
 		}
 		return &v.LastSkuUpdate
 	}).(pulumi.StringPtrOutput)
-}
-
-// Maximum CapacityReservation value in GB.
-func (o CapacityReservationPropertiesResponsePtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxCapacity
-	}).(pulumi.Float64PtrOutput)
 }
 
 // Minimum CapacityReservation value in GB.

@@ -12,6 +12,7 @@ from .firewall_rule import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *
+from .get_get_private_dns_zone_suffix_execute import *
 from .get_private_endpoint_connection import *
 from .get_server import *
 from .get_server_administrator import *
@@ -35,6 +36,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.dbformysql.v20200101privatepreview as v20200101privatepreview
     import pulumi_azure_native.dbformysql.v20200701preview as v20200701preview
     import pulumi_azure_native.dbformysql.v20200701privatepreview as v20200701privatepreview
+    import pulumi_azure_native.dbformysql.v20210501preview as v20210501preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201preview')
@@ -44,4 +46,5 @@ else:
     v20200101privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101privatepreview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701preview')
     v20200701privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701privatepreview')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20210501preview')
 

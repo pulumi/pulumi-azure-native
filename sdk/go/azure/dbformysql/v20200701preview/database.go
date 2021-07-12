@@ -48,6 +48,12 @@ func NewDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Database"),
 		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20210501preview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbformysql/v20210501preview:Database"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Database

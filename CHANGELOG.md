@@ -3,7 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New Functions
+
+- `dbformysql.getGetPrivateDnsZoneSuffixExecute`
+
+#### Breaking Changes published by Microsoft
+
+- `maxCapacity` is removed from `operationalinsights.outputs.CapacityReservationPropertiesResponse`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14953))
 
 ---
 

@@ -117,8 +117,6 @@ class CapacityReservationPropertiesResponse(dict):
         suggest = None
         if key == "lastSkuUpdate":
             suggest = "last_sku_update"
-        elif key == "maxCapacity":
-            suggest = "max_capacity"
         elif key == "minCapacity":
             suggest = "min_capacity"
 
@@ -135,16 +133,13 @@ class CapacityReservationPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  last_sku_update: str,
-                 max_capacity: float,
                  min_capacity: float):
         """
         The Capacity Reservation properties.
         :param str last_sku_update: The last time Sku was updated.
-        :param float max_capacity: Maximum CapacityReservation value in GB.
         :param float min_capacity: Minimum CapacityReservation value in GB.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
 
     @property
@@ -154,14 +149,6 @@ class CapacityReservationPropertiesResponse(dict):
         The last time Sku was updated.
         """
         return pulumi.get(self, "last_sku_update")
-
-    @property
-    @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> float:
-        """
-        Maximum CapacityReservation value in GB.
-        """
-        return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="minCapacity")

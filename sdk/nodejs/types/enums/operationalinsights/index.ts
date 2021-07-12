@@ -7,6 +7,7 @@ import * as v20190801preview from "./v20190801preview";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
+import * as v20210601 from "./v20210601";
 
 export {
     v20151101preview,
@@ -14,6 +15,7 @@ export {
     v20200301preview,
     v20200801,
     v20201001,
+    v20210601,
 };
 
 export const BillingType = {
